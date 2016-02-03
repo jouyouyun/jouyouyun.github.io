@@ -7,23 +7,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="最近测试了以下 chroot，然后把步骤写成了下面两个脚本，方便以后使用。
 Arch 分区结构
-1/dev/sda5&amp;#9;/&amp;#10;/dev/sda1&amp;#9;/boot&amp;#10;/dev/sda6&amp;#9;/home&amp;#10;/dev/sda8&amp;#9;Swap
-chroot 挂载脚本1#!/bin/bash&amp;#10;&amp;#10;_ROOT=/dev/sda5&amp;#10;_BOOT=/dev/sda1">
+1/dev/sda5&amp;#9;/&amp;#10;/dev/sda1&amp;#9;/boot&amp;#10;/dev/sda6&amp;#9;/home&amp;#10;/dev/sda8&amp;#9;Swap">
 <meta property="og:type" content="article">
 <meta property="og:title" content="chroot 脚本">
 <meta property="og:url" content="https://jouyouyun.github.io/chroot-shell/index.html">
 <meta property="og:site_name" content="Jouyouyun's Blog">
 <meta property="og:description" content="最近测试了以下 chroot，然后把步骤写成了下面两个脚本，方便以后使用。
 Arch 分区结构
-1/dev/sda5&amp;#9;/&amp;#10;/dev/sda1&amp;#9;/boot&amp;#10;/dev/sda6&amp;#9;/home&amp;#10;/dev/sda8&amp;#9;Swap
-chroot 挂载脚本1#!/bin/bash&amp;#10;&amp;#10;_ROOT=/dev/sda5&amp;#10;_BOOT=/dev/sda1">
-<meta property="og:updated_time" content="2016-01-23T09:27:53.061Z">
+1/dev/sda5&amp;#9;/&amp;#10;/dev/sda1&amp;#9;/boot&amp;#10;/dev/sda6&amp;#9;/home&amp;#10;/dev/sda8&amp;#9;Swap">
+<meta property="og:updated_time" content="2016-02-03T07:14:34.596Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="chroot 脚本">
 <meta name="twitter:description" content="最近测试了以下 chroot，然后把步骤写成了下面两个脚本，方便以后使用。
 Arch 分区结构
-1/dev/sda5&amp;#9;/&amp;#10;/dev/sda1&amp;#9;/boot&amp;#10;/dev/sda6&amp;#9;/home&amp;#10;/dev/sda8&amp;#9;Swap
-chroot 挂载脚本1#!/bin/bash&amp;#10;&amp;#10;_ROOT=/dev/sda5&amp;#10;_BOOT=/dev/sda1">
+1/dev/sda5&amp;#9;/&amp;#10;/dev/sda1&amp;#9;/boot&amp;#10;/dev/sda6&amp;#9;/home&amp;#10;/dev/sda8&amp;#9;Swap">
   
   
     <link rel="icon" href="/favicon.png">
@@ -147,7 +144,7 @@ chroot 挂载脚本1#!/bin/bash&amp;#10;&amp;#10;_ROOT=/dev/sda5&amp;#10;_BOOT=/
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/go/" style="font-size: 20px;">go</a> <a href="/tags/gob/" style="font-size: 15px;">gob</a> <a href="/tags/md5/" style="font-size: 10px;">md5</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/tcp/" style="font-size: 10px;">tcp</a> <a href="/tags/uri/" style="font-size: 10px;">uri</a> <a href="/tags/vpn/" style="font-size: 10px;">vpn</a> <a href="/tags/vps/" style="font-size: 10px;">vps</a> <a href="/tags/xsetwacom-wacom/" style="font-size: 10px;">xsetwacom,wacom</a>
+                        <a href="/tags/debug/" style="font-size: 10px;">debug</a> <a href="/tags/go/" style="font-size: 20px;">go</a> <a href="/tags/gob/" style="font-size: 15px;">gob</a> <a href="/tags/md5/" style="font-size: 10px;">md5</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/tcp/" style="font-size: 10px;">tcp</a> <a href="/tags/uri/" style="font-size: 10px;">uri</a> <a href="/tags/vpn/" style="font-size: 10px;">vpn</a> <a href="/tags/vps/" style="font-size: 10px;">vps</a> <a href="/tags/wacom/" style="font-size: 10px;">wacom</a> <a href="/tags/xsetwacom/" style="font-size: 10px;">xsetwacom</a>
                     </div>
                 </section>
                 
@@ -262,8 +259,9 @@ chroot 挂载脚本1#!/bin/bash&amp;#10;&amp;#10;_ROOT=/dev/sda5&amp;#10;_BOOT=/
         <p>最近测试了以下 <code>chroot</code>，然后把步骤写成了下面两个脚本，方便以后使用。</p>
 <p><code>Arch</code> 分区结构</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/dev/sda5&#9;/&#10;/dev/sda1&#9;/boot&#10;/dev/sda6&#9;/home&#10;/dev/sda8&#9;Swap</span><br></pre></td></tr></table></figure>
-<h1 id="chroot__u6302_u8F7D_u811A_u672C"><a href="#chroot__u6302_u8F7D_u811A_u672C" class="headerlink" title="chroot 挂载脚本"></a><code>chroot</code> 挂载脚本</h1><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash&#10;&#10;_ROOT=/dev/sda5&#10;_BOOT=/dev/sda1&#10;#_HOME=/dev/sda6&#10;&#10;#&#21019;&#24314;&#30446;&#24405;&#32467;&#26500;&#10;sudo mkdir -p /mnt/arch&#10;sudo mkdir -p /mnt/arch/boot&#10;#sudo mkdir -p /mnt/arch/home&#10;&#10;#&#25346;&#36733;&#20998;&#21306;&#10;sudo mount $_ROOT /mnt/arch&#10;sudo mount $_BOOT /mnt/arch/boot&#10;#sudo mount $_HOME /mnt/arch/home&#10;&#10;#&#25346;&#36733;&#20020;&#26102;&#25991;&#20214;&#31995;&#32479;&#10;cd /mnt/arch&#10;sudo mount -t proc proc proc/&#10;sudo mount -t sysfs sys sys/&#10;sudo mount -o bind /dev dev/&#10;sudo mount -t devpts pts dev/pts&#10;&#10;#&#22914;&#26524;&#20320;&#24050;&#32463;&#24314;&#31435;&#20102;&#19968;&#20010;&#32593;&#32476;&#36830;&#25509;&#24182;&#19988;&#24819;&#35201;&#22312;chroot&#29615;&#22659;&#20013;&#20351;&#29992;&#23427;&#65292;&#10;#&#20320;&#21487;&#33021;&#19981;&#24471;&#19981;&#25335;&#36125;&#20320;&#30340;DNS&#26381;&#21153;&#22120;&#37197;&#32622;&#35753;&#20320;&#33021;&#22815;&#35299;&#26512;&#20027;&#26426;&#21517;&#10;sudo  cp -L /etc/resolv.conf etc/resolv.conf&#10;&#10;# chroot &#24182;&#25351;&#23450; shell&#10;sudo chroot /mnt/arch /usr/bin/bash</span><br></pre></td></tr></table></figure>
-<h1 id="chroot__u5378_u8F7D_u811A_u672C"><a href="#chroot__u5378_u8F7D_u811A_u672C" class="headerlink" title="chroot  卸载脚本"></a><code>chroot</code>  卸载脚本</h1><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash&#10;&#10;#&#22312;&#36864;&#20986; chroot &#21518;&#25191;&#34892;&#27492;&#33050;&#26412;&#10;&#10;#&#21368;&#36733;&#20020;&#26102;&#25991;&#20214;&#31995;&#32479;&#21644;&#24050;&#25346;&#36733;&#30340;&#35774;&#22791;&#10;#sudo umount &#123;proc,sys,dev/pts,dev,boot,home&#125;&#10;sudo umount &#123;proc,sys,dev/pts,dev,boot&#125;&#10;&#10;#&#23581;&#35797;&#21368;&#36733;&#26681;&#20998;&#21306;&#10;cd /&#10;sudo umount /mnt/arch</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="chroot__u6302_u8F7D_u811A_u672C"><a href="#chroot__u6302_u8F7D_u811A_u672C" class="headerlink" title="chroot 挂载脚本"></a><code>chroot</code> 挂载脚本</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash&#10;&#10;_ROOT=/dev/sda5&#10;_BOOT=/dev/sda1&#10;#_HOME=/dev/sda6&#10;&#10;#&#21019;&#24314;&#30446;&#24405;&#32467;&#26500;&#10;sudo mkdir -p /mnt/arch&#10;sudo mkdir -p /mnt/arch/boot&#10;#sudo mkdir -p /mnt/arch/home&#10;&#10;#&#25346;&#36733;&#20998;&#21306;&#10;sudo mount $_ROOT /mnt/arch&#10;sudo mount $_BOOT /mnt/arch/boot&#10;#sudo mount $_HOME /mnt/arch/home&#10;&#10;#&#25346;&#36733;&#20020;&#26102;&#25991;&#20214;&#31995;&#32479;&#10;cd /mnt/arch&#10;sudo mount -t proc proc proc/&#10;sudo mount -t sysfs sys sys/&#10;sudo mount -o bind /dev dev/&#10;sudo mount -t devpts pts dev/pts&#10;&#10;#&#22914;&#26524;&#20320;&#24050;&#32463;&#24314;&#31435;&#20102;&#19968;&#20010;&#32593;&#32476;&#36830;&#25509;&#24182;&#19988;&#24819;&#35201;&#22312;chroot&#29615;&#22659;&#20013;&#20351;&#29992;&#23427;&#65292;&#10;#&#20320;&#21487;&#33021;&#19981;&#24471;&#19981;&#25335;&#36125;&#20320;&#30340;DNS&#26381;&#21153;&#22120;&#37197;&#32622;&#35753;&#20320;&#33021;&#22815;&#35299;&#26512;&#20027;&#26426;&#21517;&#10;sudo  cp -L /etc/resolv.conf etc/resolv.conf&#10;&#10;# chroot &#24182;&#25351;&#23450; shell&#10;sudo chroot /mnt/arch /usr/bin/bash</span><br></pre></td></tr></table></figure>
+<h2 id="chroot__u5378_u8F7D_u811A_u672C"><a href="#chroot__u5378_u8F7D_u811A_u672C" class="headerlink" title="chroot  卸载脚本"></a><code>chroot</code>  卸载脚本</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash&#10;&#10;#&#22312;&#36864;&#20986; chroot &#21518;&#25191;&#34892;&#27492;&#33050;&#26412;&#10;&#10;#&#21368;&#36733;&#20020;&#26102;&#25991;&#20214;&#31995;&#32479;&#21644;&#24050;&#25346;&#36733;&#30340;&#35774;&#22791;&#10;#sudo umount &#123;proc,sys,dev/pts,dev,boot,home&#125;&#10;sudo umount &#123;proc,sys,dev/pts,dev,boot&#125;&#10;&#10;#&#23581;&#35797;&#21368;&#36733;&#26681;&#20998;&#21306;&#10;cd /&#10;sudo umount /mnt/arch</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -275,7 +273,7 @@ chroot 挂载脚本1#!/bin/bash&amp;#10;&amp;#10;_ROOT=/dev/sda5&amp;#10;_BOOT=/
         <p><span>本文标题:</span><a href="/chroot-shell/">chroot 脚本</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 jouyouyun 的个人博客">jouyouyun</a></p>
         <p><span>发布时间:</span>2014年07月05日 - 00时13分</p>
-        <p><span>最后更新:</span>2016年01月23日 - 17时27分</p>
+        <p><span>最后更新:</span>2016年02月03日 - 15时14分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/chroot-shell/" title="chroot 脚本">https://jouyouyun.github.io/chroot-shell/</a>
             <span class="copy-path" data-clipboard-text="原文: https://jouyouyun.github.io/chroot-shell/　　作者: jouyouyun" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -311,7 +309,7 @@ chroot 挂载脚本1#!/bin/bash&amp;#10;&amp;#10;_ROOT=/dev/sda5&amp;#10;_BOOT=/
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#chroot__u6302_u8F7D_u811A_u672C"><span class="toc-number">1.</span> <span class="toc-text">chroot 挂载脚本</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#chroot__u5378_u8F7D_u811A_u672C"><span class="toc-number">2.</span> <span class="toc-text">chroot  卸载脚本</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#chroot__u6302_u8F7D_u811A_u672C"><span class="toc-number">1.</span> <span class="toc-text">chroot 挂载脚本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#chroot__u5378_u8F7D_u811A_u672C"><span class="toc-number">2.</span> <span class="toc-text">chroot  卸载脚本</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -413,7 +411,7 @@ chroot 挂载脚本1#!/bin/bash&amp;#10;&amp;#10;_ROOT=/dev/sda5&amp;#10;_BOOT=/
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/xsetwacom-options/">xsetwacom 选项说明</a></li><li class="post-list-item"><a class="post-list-link" href="/go-tcp-socket-example/">Go 笔记: 简单的 TCP Socket 示例</a></li><li class="post-list-item"><a class="post-list-link" href="/go-gob-writeread-file/">Go 笔记：Gob Write/Read File</a></li><li class="post-list-item"><a class="post-list-link" href="/chroot-shell/">chroot 脚本</a></li><li class="post-list-item"><a class="post-list-link" href="/build-vpn/">在 VPS 中搭建 VPN 服务器</a></li><li class="post-list-item"><a class="post-list-link" href="/go-md5-sum/">Go 笔记: md5 sum</a></li><li class="post-list-item"><a class="post-list-link" href="/go-file-exists/">Go 笔记: 判断文件是否存在</a></li><li class="post-list-item"><a class="post-list-link" href="/go-uri-encode/">Go 笔记: URI Encode/Decode</a></li><li class="post-list-item"><a class="post-list-link" href="/xrecord-example/">XRecord 示例</a></li><li class="post-list-item"><a class="post-list-link" href="/hello-world/">Hello World</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/debug-summary/">debug 小结</a></li><li class="post-list-item"><a class="post-list-link" href="/xsetwacom-options/">xsetwacom 选项说明</a></li><li class="post-list-item"><a class="post-list-link" href="/go-tcp-socket-example/">Go 笔记: 简单的 TCP Socket 示例</a></li><li class="post-list-item"><a class="post-list-link" href="/go-gob-writeread-file/">Go 笔记：Gob Write/Read File</a></li><li class="post-list-item"><a class="post-list-link" href="/chroot-shell/">chroot 脚本</a></li><li class="post-list-item"><a class="post-list-link" href="/build-vpn/">在 VPS 中搭建 VPN 服务器</a></li><li class="post-list-item"><a class="post-list-link" href="/go-md5-sum/">Go 笔记: md5 sum</a></li><li class="post-list-item"><a class="post-list-link" href="/go-file-exists/">Go 笔记: 判断文件是否存在</a></li><li class="post-list-item"><a class="post-list-link" href="/go-uri-encode/">Go 笔记: URI Encode/Decode</a></li><li class="post-list-item"><a class="post-list-link" href="/xrecord-example/">XRecord 示例</a></li><li class="post-list-item"><a class="post-list-link" href="/hello-world/">Hello World</a></li></ul>
     <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");

@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hello World | Jouyouyun&#39;s Blog</title>
+  <title>debug 小结 | Jouyouyun&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation to learn how to use.">
+  <meta name="description" content="调试 bug 的时候要有耐心, 要不断测试, 直到找到问题原因.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://jouyouyun.github.io/hello-world/index.html">
+<meta property="og:title" content="debug 小结">
+<meta property="og:url" content="https://jouyouyun.github.io/debug-summary/index.html">
 <meta property="og:site_name" content="Jouyouyun's Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation to learn how to use.">
-<meta property="og:updated_time" content="2016-01-23T09:28:01.315Z">
+<meta property="og:description" content="调试 bug 的时候要有耐心, 要不断测试, 直到找到问题原因.">
+<meta property="og:updated_time" content="2016-02-03T07:11:50.424Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation to learn how to use.">
+<meta name="twitter:title" content="debug 小结">
+<meta name="twitter:description" content="调试 bug 的时候要有耐心, 要不断测试, 直到找到问题原因.">
   
   
     <link rel="icon" href="/favicon.png">
@@ -216,11 +216,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-debug-summary" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/hello-world/" class="article-date">
-      <time datetime="2014-04-18T02:51:19.000Z" itemprop="datePublished">2014-04-18</time>
+      <a href="/debug-summary/" class="article-date">
+      <time datetime="2016-02-03T07:06:35.000Z" itemprop="datePublished">2016-02-03</time>
 </a>
     </div>
   
@@ -233,7 +233,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      debug 小结
     </h1>
   
 
@@ -243,6 +243,10 @@
         
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/debug/">debug</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -250,7 +254,25 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Welcome to <a href="http://hexo.io" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs" target="_blank" rel="external">documentation</a> to learn how to use.</p>
+        <p>调试 <code>bug</code> 的时候要有耐心, 要不断测试, 直到找到问题原因.</p>
+<a id="more"></a>
+<h2 id="u786E_u5B9A_bug__u51FA_u73B0_u7684_u65B9_u5F0F"><a href="#u786E_u5B9A_bug__u51FA_u73B0_u7684_u65B9_u5F0F" class="headerlink" title="确定 bug 出现的方式"></a>确定 <code>bug</code> 出现的方式</h2><ul>
+<li>一定要找到稳定重现的方式, 这样才能方便下面的调试</li>
+<li>如果找不到稳定重现的方法就只能根据上次出现的情形, 去查看相关的代码, 猜测可能出问题的地方, 然后针对那一块进行调试, 直到找到稳定重现方式</li>
+</ul>
+<h2 id="u5B9A_u4F4D_u51FA_u95EE_u9898_u7684_u4EE3_u7801"><a href="#u5B9A_u4F4D_u51FA_u95EE_u9898_u7684_u4EE3_u7801" class="headerlink" title="定位出问题的代码"></a>定位出问题的代码</h2><ul>
+<li>再找到稳定重现方式后, 开始定位出问题的函数, 然后加入调试信息, 不断尝试, 直到找到有问题的代码</li>
+<li>找到有问题的代码后, 如果发现是第三方库里的函数,可以打印出每次调用的输入输出参数, 看看是否有迹可循, 可以单独写个小程序, 传入问题的参数, 进行不断测试, 来确定第三方库有没有问题</li>
+<li>如果自己程序的代码, 就一行一行的慢慢测试, 确定问题的原因, 原因找到了就可以开始思考解决方法了</li>
+</ul>
+<h2 id="u4FEE_u590D_bug"><a href="#u4FEE_u590D_bug" class="headerlink" title="修复 bug"></a>修复 <code>bug</code></h2><p>修复 <code>bug</code> 时一定要仔细检查新添加的代码, 看看会不会造成其它的 <code>bug</code>, 一定要不断测试, 把函数输入输出状态都打印出来, 以免出现界面是对的, 但函数的数据有误.</p>
+<p>对于开源的第三方库有问题时, 就把它的代码下下来, 加上调试信息后, 然后安装, 让你的程序使用自己编译的第三方库, 这样方便查找问题.<br>因为有时可能第三方库再使用时需要初始化一些资源, 而你使用的接口并没有做或少做了一点, 这样就导致你的程序出了问题.<br>这时就可以在程序中添加相关的初始化代码, 来处理这类问题, 这类问题一般第三方库升级时可能出现.</p>
+<p>若知道问题的原因后(这个原因一定要是相关低层的, 不能说是由于 A 调了 B , B 出问题了, 就把问题原因归与 A 的头上, 一定要是相当精确的), 不知道怎么修改, 这时就可以向组内成员求助, 或者去了解这方面的知识.</p>
+<h2 id="u6027_u80FD_u8C03_u8BD5_u5DE5_u5177"><a href="#u6027_u80FD_u8C03_u8BD5_u5DE5_u5177" class="headerlink" title="性能调试工具"></a>性能调试工具</h2><p>对于 <code>C/C++</code> 代码, 可以使用 <code>Google Proftools</code> 工具来调试. 它以程序调用的方式生成每次调用的性能消耗图, 方便定位占用资源多的函数.</p>
+<p>文档见: <a href="http://google-perftools.googlecode.com/svn/trunk/doc/" target="_blank" rel="external">Google Proftools Documents</a> , 使用方法自行 <code>google</code> .</p>
+<h2 id="u7F51_u7AD9_u63A8_u8350"><a href="#u7F51_u7AD9_u63A8_u8350" class="headerlink" title="网站推荐"></a>网站推荐</h2><p>还可以去一些开发者网站提问:</p>
+<p><a href="http://stackoverflow.com/" target="_blank" rel="external">StackOverflow</a><br><a href="https://www.quora.com/" target="_blank" rel="external">国外的知乎: Quora</a><br><a href="http://segmentfault.com/" target="_blank" rel="external">SegmentFault</a></p>
+<p>或者到 <a href="http://www.ibm.com/developerworks/cn/" target="_blank" rel="external">IBM Developer</a> 看写相关的技术文章, 前端的话还可以去 <a href="https://developer.mozilla.org/" target="_blank" rel="external">Mozilla Developer</a> .</p>
 
       
     </div>
@@ -259,13 +281,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/hello-world/">Hello World</a></p>
+        <p><span>本文标题:</span><a href="/debug-summary/">debug 小结</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 jouyouyun 的个人博客">jouyouyun</a></p>
-        <p><span>发布时间:</span>2014年04月18日 - 10时51分</p>
-        <p><span>最后更新:</span>2016年01月23日 - 17时28分</p>
+        <p><span>发布时间:</span>2016年02月03日 - 15时06分</p>
+        <p><span>最后更新:</span>2016年02月03日 - 15时11分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/hello-world/" title="Hello World">https://jouyouyun.github.io/hello-world/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://jouyouyun.github.io/hello-world/　　作者: jouyouyun" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/debug-summary/" title="debug 小结">https://jouyouyun.github.io/debug-summary/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://jouyouyun.github.io/debug-summary/　　作者: jouyouyun" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -278,12 +300,12 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/xrecord-example/">
-                    XRecord 示例
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/xsetwacom-options/">
+                    xsetwacom 选项说明
                 </a>
             </div>
-        
         
     </nav>
 
@@ -292,7 +314,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#u786E_u5B9A_bug__u51FA_u73B0_u7684_u65B9_u5F0F"><span class="toc-number">1.</span> <span class="toc-text">确定 bug 出现的方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u5B9A_u4F4D_u51FA_u95EE_u9898_u7684_u4EE3_u7801"><span class="toc-number">2.</span> <span class="toc-text">定位出问题的代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u4FEE_u590D_bug"><span class="toc-number">3.</span> <span class="toc-text">修复 bug</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u6027_u80FD_u8C03_u8BD5_u5DE5_u5177"><span class="toc-number">4.</span> <span class="toc-text">性能调试工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u7F51_u7AD9_u63A8_u8350"><span class="toc-number">5.</span> <span class="toc-text">网站推荐</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -356,7 +378,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="hello-world/" data-title="Hello World" data-url="https://jouyouyun.github.io/hello-world/"></div>
+    <div class="ds-thread" data-thread-key="debug-summary/" data-title="debug 小结" data-url="https://jouyouyun.github.io/debug-summary/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -380,15 +402,15 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/xrecord-example/" title="上一篇: XRecord 示例">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/xsetwacom-options/" title="下一篇: xsetwacom 选项说明">
+                <i class="fa fa-angle-right"></i>
+            </a>
         
     </div>
 
