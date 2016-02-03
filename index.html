@@ -140,7 +140,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/go/" style="font-size: 20px;">go</a> <a href="/tags/gob/" style="font-size: 15px;">gob</a> <a href="/tags/md5/" style="font-size: 10px;">md5</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/tcp/" style="font-size: 10px;">tcp</a> <a href="/tags/uri/" style="font-size: 10px;">uri</a> <a href="/tags/vpn/" style="font-size: 10px;">vpn</a> <a href="/tags/vps/" style="font-size: 10px;">vps</a>
+                        <a href="/tags/go/" style="font-size: 20px;">go</a> <a href="/tags/gob/" style="font-size: 15px;">gob</a> <a href="/tags/md5/" style="font-size: 10px;">md5</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/tcp/" style="font-size: 10px;">tcp</a> <a href="/tags/uri/" style="font-size: 10px;">uri</a> <a href="/tags/vpn/" style="font-size: 10px;">vpn</a> <a href="/tags/vps/" style="font-size: 10px;">vps</a> <a href="/tags/xsetwacom-wacom/" style="font-size: 10px;">xsetwacom,wacom</a>
                     </div>
                 </section>
                 
@@ -219,6 +219,187 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-xsetwacom-options" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/xsetwacom-options/" class="article-date">
+      <time datetime="2016-02-03T06:58:29.000Z" itemprop="datePublished">2016-02-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/xsetwacom-options/">xsetwacom 选项说明</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><code>xsetwacom</code> 是一个设置数位板的命令行工具, 在 <code>Debian/Ubuntu/deepin</code> 上可以通过安装 <code>xserver-xorg-input-wacom</code> 来获取它.</p>
+<p>可以通过 <code>man xsetwacom</code> 看到它的帮助文档, 下面就简单说明下它的部份选项:</p>
+<hr>
+<h2 id="Options"><a href="#Options" class="headerlink" title="Options"></a>Options</h2><h3 id="Area"><a href="#Area" class="headerlink" title="Area"></a>Area</h3><ul>
+<li><p>args: x1 y1 x2 y2</p>
+</li>
+<li><p>default: 0 0 x2 y2,</p>
+</li>
+<li><p>description: 设置数位板可使用的区域</p>
+</li>
+</ul>
+<h3 id="Button"><a href="#Button" class="headerlink" title="Button"></a>Button</h3><ul>
+<li><p>args: button-number [mapping]</p>
+</li>
+<li><p>description: 设置数位笔按钮的功能，可自定义为组合键，详细使用方法见文档</p>
+</li>
+</ul>
+<h3 id="MapToOutput"><a href="#MapToOutput" class="headerlink" title="MapToOutput"></a>MapToOutput</h3><ul>
+<li><p>args: output</p>
+</li>
+<li><p>description: 设置数位板与显示屏的映射，可以使用 <code>output</code>, <code>Head Number</code>, <code>X11 geometry</code> 三种方式设置</p>
+<ul>
+<li><p>output: 如 <code>VGA1</code></p>
+</li>
+<li><p>Head Number: 通过 <code>XRandR extension</code> 得到的</p>
+</li>
+<li><p>X11 geometry: 格式如 <code>WIDTHxHEIGHT+X+Y</code></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Mode"><a href="#Mode" class="headerlink" title="Mode"></a>Mode</h3><ul>
+<li><p>args: Absolute|Relative</p>
+</li>
+<li><p>default: Absolute</p>
+</li>
+<li><p>description: 设置笔模式。</p>
+<ul>
+<li><p>Absolute: 模式时数位笔对应的是数位板或屏幕的真实位置</p>
+</li>
+<li><p>Relative: 模式时数位笔就像是一个鼠标</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="PressureCurve"><a href="#PressureCurve" class="headerlink" title="PressureCurve"></a>PressureCurve</h3><ul>
+<li><p>args: x1 y1 x2 y2</p>
+</li>
+<li><p>default: 0 0 100 100</p>
+</li>
+<li><p>description: 压力曲线，(x1<y1 x2<y2)="" to="" "soften"，(x1="">y1 x2&gt;y2) to “firmer”</y1></p>
+</li>
+</ul>
+<h3 id="RawSample"><a href="#RawSample" class="headerlink" title="RawSample"></a>RawSample</h3><ul>
+<li><p>args: level(0 ~ 20)</p>
+</li>
+<li><p>default: 4</p>
+</li>
+<li><p>description: 设置数位笔原始采样率对应的窗口大小，不太清楚有什么用</p>
+</li>
+</ul>
+<h3 id="Rotate"><a href="#Rotate" class="headerlink" title="Rotate"></a>Rotate</h3><ul>
+<li><p>args: none|half|cw|ccw</p>
+</li>
+<li><p>default: none</p>
+</li>
+<li><p>description: 设置旋转度</p>
+<ul>
+<li><p>none: 不旋转</p>
+</li>
+<li><p>half: 上下翻转</p>
+</li>
+<li><p>cw: 顺时针旋转 90 度</p>
+</li>
+<li><p>ccw: 逆时针旋转 90 度</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Suppress"><a href="#Suppress" class="headerlink" title="Suppress"></a>Suppress</h3><ul>
+<li><p>args: level(0 ~ 100)</p>
+</li>
+<li><p>default: 2</p>
+</li>
+<li><p>description: 设置移动灵敏度，值越大灵敏度越低</p>
+</li>
+</ul>
+<h3 id="Touch"><a href="#Touch" class="headerlink" title="Touch"></a>Touch</h3><ul>
+<li><p>args: on|off</p>
+</li>
+<li><p>default: on</p>
+</li>
+<li><p>description: 是否允许触摸</p>
+</li>
+</ul>
+<h3 id="HWTouchSwitchState"><a href="#HWTouchSwitchState" class="headerlink" title="HWTouchSwitchState"></a>HWTouchSwitchState</h3><ul>
+<li><p>args: on|off</p>
+</li>
+<li><p>default: on</p>
+</li>
+<li><p>description: 是否允许调节 <code>Touch</code> 选项</p>
+</li>
+</ul>
+<h3 id="Threshold"><a href="#Threshold" class="headerlink" title="Threshold"></a>Threshold</h3><ul>
+<li><p>args: level(0 ~ 2047)</p>
+</li>
+<li><p>default: 27</p>
+</li>
+<li><p>description: 设置产生按键事件的最小力度</p>
+</li>
+</ul>
+<hr>
+<h2 id="u5176_u4ED6"><a href="#u5176_u4ED6" class="headerlink" title="其他"></a>其他</h2><p>对于压力曲线，这里给出了一些测试值，从 <code>soften</code> 到 <code>firmer</code> :</p>
+<ul>
+<li>0 100 0 100</li>
+<li>20 80 20 80</li>
+<li>30 70 30 70</li>
+<li>0 0 100 100</li>
+<li>60 40 60 40</li>
+<li>70 30 70 30</li>
+<li>75 25 75 25</li>
+<li>80 20 80 20</li>
+<li>90 10 90 10</li>
+<li>100 0 100 0</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/xsetwacom-wacom/">xsetwacom,wacom</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
   
     <article id="post-go-tcp-socket-example" class="article article-type-post" itemscope itemprop="blogPost">
   

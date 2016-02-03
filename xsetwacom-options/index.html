@@ -3,18 +3,42 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hello World | Jouyouyun&#39;s Blog</title>
+  <title>xsetwacom 选项说明 | Jouyouyun&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation to learn how to use.">
+  <meta name="description" content="xsetwacom 是一个设置数位板的命令行工具, 在 Debian/Ubuntu/deepin 上可以通过安装 xserver-xorg-input-wacom 来获取它.
+可以通过 man xsetwacom 看到它的帮助文档, 下面就简单说明下它的部份选项:
+
+OptionsArea
+args: x1 y1 x2 y2
+
+default: 0 0 x2 y2,
+
+description: 设">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://jouyouyun.github.io/hello-world/index.html">
+<meta property="og:title" content="xsetwacom 选项说明">
+<meta property="og:url" content="https://jouyouyun.github.io/xsetwacom-options/index.html">
 <meta property="og:site_name" content="Jouyouyun's Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation to learn how to use.">
-<meta property="og:updated_time" content="2016-01-23T09:28:01.315Z">
+<meta property="og:description" content="xsetwacom 是一个设置数位板的命令行工具, 在 Debian/Ubuntu/deepin 上可以通过安装 xserver-xorg-input-wacom 来获取它.
+可以通过 man xsetwacom 看到它的帮助文档, 下面就简单说明下它的部份选项:
+
+OptionsArea
+args: x1 y1 x2 y2
+
+default: 0 0 x2 y2,
+
+description: 设">
+<meta property="og:updated_time" content="2016-02-03T07:02:48.448Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation to learn how to use.">
+<meta name="twitter:title" content="xsetwacom 选项说明">
+<meta name="twitter:description" content="xsetwacom 是一个设置数位板的命令行工具, 在 Debian/Ubuntu/deepin 上可以通过安装 xserver-xorg-input-wacom 来获取它.
+可以通过 man xsetwacom 看到它的帮助文档, 下面就简单说明下它的部份选项:
+
+OptionsArea
+args: x1 y1 x2 y2
+
+default: 0 0 x2 y2,
+
+description: 设">
   
   
     <link rel="icon" href="/favicon.png">
@@ -216,11 +240,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-xsetwacom-options" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/hello-world/" class="article-date">
-      <time datetime="2014-04-18T02:51:19.000Z" itemprop="datePublished">2014-04-18</time>
+      <a href="/xsetwacom-options/" class="article-date">
+      <time datetime="2016-02-03T06:58:29.000Z" itemprop="datePublished">2016-02-03</time>
 </a>
     </div>
   
@@ -233,7 +257,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      xsetwacom 选项说明
     </h1>
   
 
@@ -243,6 +267,10 @@
         
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/xsetwacom-wacom/">xsetwacom,wacom</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -250,7 +278,131 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Welcome to <a href="http://hexo.io" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs" target="_blank" rel="external">documentation</a> to learn how to use.</p>
+        <p><code>xsetwacom</code> 是一个设置数位板的命令行工具, 在 <code>Debian/Ubuntu/deepin</code> 上可以通过安装 <code>xserver-xorg-input-wacom</code> 来获取它.</p>
+<p>可以通过 <code>man xsetwacom</code> 看到它的帮助文档, 下面就简单说明下它的部份选项:</p>
+<hr>
+<h2 id="Options"><a href="#Options" class="headerlink" title="Options"></a>Options</h2><h3 id="Area"><a href="#Area" class="headerlink" title="Area"></a>Area</h3><ul>
+<li><p>args: x1 y1 x2 y2</p>
+</li>
+<li><p>default: 0 0 x2 y2,</p>
+</li>
+<li><p>description: 设置数位板可使用的区域</p>
+</li>
+</ul>
+<h3 id="Button"><a href="#Button" class="headerlink" title="Button"></a>Button</h3><ul>
+<li><p>args: button-number [mapping]</p>
+</li>
+<li><p>description: 设置数位笔按钮的功能，可自定义为组合键，详细使用方法见文档</p>
+</li>
+</ul>
+<h3 id="MapToOutput"><a href="#MapToOutput" class="headerlink" title="MapToOutput"></a>MapToOutput</h3><ul>
+<li><p>args: output</p>
+</li>
+<li><p>description: 设置数位板与显示屏的映射，可以使用 <code>output</code>, <code>Head Number</code>, <code>X11 geometry</code> 三种方式设置</p>
+<ul>
+<li><p>output: 如 <code>VGA1</code></p>
+</li>
+<li><p>Head Number: 通过 <code>XRandR extension</code> 得到的</p>
+</li>
+<li><p>X11 geometry: 格式如 <code>WIDTHxHEIGHT+X+Y</code></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Mode"><a href="#Mode" class="headerlink" title="Mode"></a>Mode</h3><ul>
+<li><p>args: Absolute|Relative</p>
+</li>
+<li><p>default: Absolute</p>
+</li>
+<li><p>description: 设置笔模式。</p>
+<ul>
+<li><p>Absolute: 模式时数位笔对应的是数位板或屏幕的真实位置</p>
+</li>
+<li><p>Relative: 模式时数位笔就像是一个鼠标</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="PressureCurve"><a href="#PressureCurve" class="headerlink" title="PressureCurve"></a>PressureCurve</h3><ul>
+<li><p>args: x1 y1 x2 y2</p>
+</li>
+<li><p>default: 0 0 100 100</p>
+</li>
+<li><p>description: 压力曲线，(x1<y1 x2<y2)="" to="" "soften"，(x1="">y1 x2&gt;y2) to “firmer”</y1></p>
+</li>
+</ul>
+<h3 id="RawSample"><a href="#RawSample" class="headerlink" title="RawSample"></a>RawSample</h3><ul>
+<li><p>args: level(0 ~ 20)</p>
+</li>
+<li><p>default: 4</p>
+</li>
+<li><p>description: 设置数位笔原始采样率对应的窗口大小，不太清楚有什么用</p>
+</li>
+</ul>
+<h3 id="Rotate"><a href="#Rotate" class="headerlink" title="Rotate"></a>Rotate</h3><ul>
+<li><p>args: none|half|cw|ccw</p>
+</li>
+<li><p>default: none</p>
+</li>
+<li><p>description: 设置旋转度</p>
+<ul>
+<li><p>none: 不旋转</p>
+</li>
+<li><p>half: 上下翻转</p>
+</li>
+<li><p>cw: 顺时针旋转 90 度</p>
+</li>
+<li><p>ccw: 逆时针旋转 90 度</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Suppress"><a href="#Suppress" class="headerlink" title="Suppress"></a>Suppress</h3><ul>
+<li><p>args: level(0 ~ 100)</p>
+</li>
+<li><p>default: 2</p>
+</li>
+<li><p>description: 设置移动灵敏度，值越大灵敏度越低</p>
+</li>
+</ul>
+<h3 id="Touch"><a href="#Touch" class="headerlink" title="Touch"></a>Touch</h3><ul>
+<li><p>args: on|off</p>
+</li>
+<li><p>default: on</p>
+</li>
+<li><p>description: 是否允许触摸</p>
+</li>
+</ul>
+<h3 id="HWTouchSwitchState"><a href="#HWTouchSwitchState" class="headerlink" title="HWTouchSwitchState"></a>HWTouchSwitchState</h3><ul>
+<li><p>args: on|off</p>
+</li>
+<li><p>default: on</p>
+</li>
+<li><p>description: 是否允许调节 <code>Touch</code> 选项</p>
+</li>
+</ul>
+<h3 id="Threshold"><a href="#Threshold" class="headerlink" title="Threshold"></a>Threshold</h3><ul>
+<li><p>args: level(0 ~ 2047)</p>
+</li>
+<li><p>default: 27</p>
+</li>
+<li><p>description: 设置产生按键事件的最小力度</p>
+</li>
+</ul>
+<hr>
+<h2 id="u5176_u4ED6"><a href="#u5176_u4ED6" class="headerlink" title="其他"></a>其他</h2><p>对于压力曲线，这里给出了一些测试值，从 <code>soften</code> 到 <code>firmer</code> :</p>
+<ul>
+<li>0 100 0 100</li>
+<li>20 80 20 80</li>
+<li>30 70 30 70</li>
+<li>0 0 100 100</li>
+<li>60 40 60 40</li>
+<li>70 30 70 30</li>
+<li>75 25 75 25</li>
+<li>80 20 80 20</li>
+<li>90 10 90 10</li>
+<li>100 0 100 0</li>
+</ul>
 
       
     </div>
@@ -259,13 +411,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/hello-world/">Hello World</a></p>
+        <p><span>本文标题:</span><a href="/xsetwacom-options/">xsetwacom 选项说明</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 jouyouyun 的个人博客">jouyouyun</a></p>
-        <p><span>发布时间:</span>2014年04月18日 - 10时51分</p>
-        <p><span>最后更新:</span>2016年01月23日 - 17时28分</p>
+        <p><span>发布时间:</span>2016年02月03日 - 14时58分</p>
+        <p><span>最后更新:</span>2016年02月03日 - 15时02分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/hello-world/" title="Hello World">https://jouyouyun.github.io/hello-world/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://jouyouyun.github.io/hello-world/　　作者: jouyouyun" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/xsetwacom-options/" title="xsetwacom 选项说明">https://jouyouyun.github.io/xsetwacom-options/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://jouyouyun.github.io/xsetwacom-options/　　作者: jouyouyun" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -278,12 +430,12 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/xrecord-example/">
-                    XRecord 示例
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/go-tcp-socket-example/">
+                    Go 笔记: 简单的 TCP Socket 示例
                 </a>
             </div>
-        
         
     </nav>
 
@@ -292,7 +444,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Options"><span class="toc-number">1.</span> <span class="toc-text">Options</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Area"><span class="toc-number">1.1.</span> <span class="toc-text">Area</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Button"><span class="toc-number">1.2.</span> <span class="toc-text">Button</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MapToOutput"><span class="toc-number">1.3.</span> <span class="toc-text">MapToOutput</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mode"><span class="toc-number">1.4.</span> <span class="toc-text">Mode</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PressureCurve"><span class="toc-number">1.5.</span> <span class="toc-text">PressureCurve</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RawSample"><span class="toc-number">1.6.</span> <span class="toc-text">RawSample</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Rotate"><span class="toc-number">1.7.</span> <span class="toc-text">Rotate</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Suppress"><span class="toc-number">1.8.</span> <span class="toc-text">Suppress</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Touch"><span class="toc-number">1.9.</span> <span class="toc-text">Touch</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HWTouchSwitchState"><span class="toc-number">1.10.</span> <span class="toc-text">HWTouchSwitchState</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Threshold"><span class="toc-number">1.11.</span> <span class="toc-text">Threshold</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u5176_u4ED6"><span class="toc-number">2.</span> <span class="toc-text">其他</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -356,7 +508,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="hello-world/" data-title="Hello World" data-url="https://jouyouyun.github.io/hello-world/"></div>
+    <div class="ds-thread" data-thread-key="xsetwacom-options/" data-title="xsetwacom 选项说明" data-url="https://jouyouyun.github.io/xsetwacom-options/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -380,15 +532,15 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/xrecord-example/" title="上一篇: XRecord 示例">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/go-tcp-socket-example/" title="下一篇: Go 笔记: 简单的 TCP Socket 示例">
+                <i class="fa fa-angle-right"></i>
+            </a>
         
     </div>
 
