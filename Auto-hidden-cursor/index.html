@@ -3,18 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Go 笔记: md5 sum | Jouyouyun&#39;s Blog</title>
+  <title>Auto hidden cursor | Jouyouyun&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="使用 Go 语言实现字符串与文件的 MD5 值计算，但是大文件不要使用此方法。">
+  <meta name="description" content="最近需要做一个隐藏光标的功能, 在这里将了解到的知识总结一下.
+原理隐藏光标的原理就是把光标设置为一个 x11 null cursor, 不需要隐藏时再将它设为 x11 left_ptr cursor.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Go 笔记: md5 sum">
-<meta property="og:url" content="https://jouyouyun.github.io/go-md5-sum/index.html">
+<meta property="og:title" content="Auto hidden cursor">
+<meta property="og:url" content="https://jouyouyun.github.io/Auto-hidden-cursor/index.html">
 <meta property="og:site_name" content="Jouyouyun's Blog">
-<meta property="og:description" content="使用 Go 语言实现字符串与文件的 MD5 值计算，但是大文件不要使用此方法。">
-<meta property="og:updated_time" content="2016-02-03T07:15:09.867Z">
+<meta property="og:description" content="最近需要做一个隐藏光标的功能, 在这里将了解到的知识总结一下.
+原理隐藏光标的原理就是把光标设置为一个 x11 null cursor, 不需要隐藏时再将它设为 x11 left_ptr cursor.">
+<meta property="og:updated_time" content="2016-04-22T03:10:30.093Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Go 笔记: md5 sum">
-<meta name="twitter:description" content="使用 Go 语言实现字符串与文件的 MD5 值计算，但是大文件不要使用此方法。">
+<meta name="twitter:title" content="Auto hidden cursor">
+<meta name="twitter:description" content="最近需要做一个隐藏光标的功能, 在这里将了解到的知识总结一下.
+原理隐藏光标的原理就是把光标设置为一个 x11 null cursor, 不需要隐藏时再将它设为 x11 left_ptr cursor.">
   
   
     <link rel="icon" href="/favicon.png">
@@ -216,11 +219,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-go-md5-sum" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Auto-hidden-cursor" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/go-md5-sum/" class="article-date">
-      <time datetime="2014-06-22T14:54:38.000Z" itemprop="datePublished">2014-06-22</time>
+      <a href="/Auto-hidden-cursor/" class="article-date">
+      <time datetime="2016-04-22T02:27:04.000Z" itemprop="datePublished">2016-04-22</time>
 </a>
     </div>
   
@@ -233,7 +236,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Go 笔记: md5 sum
+      Auto hidden cursor
     </h1>
   
 
@@ -244,7 +247,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/go/">go</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/md5/">md5</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cursor/">cursor</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -254,9 +257,18 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>使用 Go 语言实现字符串与文件的 MD5 值计算，但是大文件不要使用此方法。</p>
+        <p>最近需要做一个隐藏光标的功能, 在这里将了解到的知识总结一下.</p>
+<h2 id="u539F_u7406"><a href="#u539F_u7406" class="headerlink" title="原理"></a>原理</h2><p>隐藏光标的原理就是把光标设置为一个 <code>x11 null cursor</code>, 不需要隐藏时再将它设为 <code>x11 left_ptr cursor</code>.</p>
 <a id="more"></a>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> utils</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"crypto/md5"</span></span><br><span class="line">	<span class="string">"io/ioutil"</span></span><br><span class="line">	<span class="string">"strconv"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> (</span><br><span class="line">	MD5_STR_LEN = <span class="number">32</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">func</span> md5ByteToStr(bytes [<span class="number">16</span>]<span class="typename">byte</span>) <span class="typename">string</span> &#123;</span><br><span class="line">	str := <span class="string">""</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> _, b := <span class="keyword">range</span> bytes &#123;</span><br><span class="line">		s := strconv.FormatInt(<span class="typename">int64</span>(b), <span class="number">16</span>)</span><br><span class="line">		<span class="keyword">if</span> <span class="built_in">len</span>(s) == <span class="number">1</span> &#123;</span><br><span class="line">			str += <span class="string">"0"</span> + s</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			str += s</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> str</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">func</span> SumStrMd5(str <span class="typename">string</span>) (<span class="typename">string</span>, <span class="typename">bool</span>) &#123;</span><br><span class="line">	<span class="keyword">if</span> <span class="built_in">len</span>(str) &lt; <span class="number">1</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">""</span>, <span class="constant">false</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	md5Byte := md5.Sum([]<span class="typename">byte</span>(str))</span><br><span class="line">	md5Str := md5ByteToStr(md5Byte)</span><br><span class="line">	<span class="keyword">if</span> <span class="built_in">len</span>(md5Str) &lt; MD5_STR_LEN &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">""</span>, <span class="constant">false</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> md5Str, <span class="constant">true</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">func</span> SumFileMd5(filename <span class="typename">string</span>) (<span class="typename">string</span>, <span class="typename">bool</span>) &#123;</span><br><span class="line">	<span class="keyword">if</span> !IsFileExist(filename) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">""</span>, <span class="constant">false</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	contents, err := ioutil.ReadFile(filename)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="constant">nil</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">""</span>, <span class="constant">false</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	md5Byte := md5.Sum(contents)</span><br><span class="line">	md5Str := md5ByteToStr(md5Byte)</span><br><span class="line">	<span class="keyword">if</span> <span class="built_in">len</span>(md5Str) &lt; MD5_STR_LEN &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">""</span>, <span class="constant">false</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> md5Str, <span class="constant">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="u8BBE_u7F6E_u5149_u6807"><a href="#u8BBE_u7F6E_u5149_u6807" class="headerlink" title="设置光标"></a>设置光标</h3><p>设置光标主要需要调用下面两个函数:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">XDefineCursor</span><span class="params">(Display *display, Window w, Cursor cursor)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">XFixesChangeCursorByName</span> <span class="params">(Display *dpy, Cursor source, <span class="keyword">const</span> <span class="keyword">char</span> *name)</span></span>;</span><br></pre></td></tr></table></figure>
+<h3 id="u521B_u5EFA_u5149_u6807"><a href="#u521B_u5EFA_u5149_u6807" class="headerlink" title="创建光标"></a>创建光标</h3><p>至于创建 <code>null cursor</code> 可以见下面的代码:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">window = DefaultRootWindow(display);</span><br><span class="line">Cursor invisibleCursor;</span><br><span class="line">Pixmap bitmapNoData;</span><br><span class="line">XColor black;</span><br><span class="line"><span class="keyword">static</span> <span class="keyword">char</span> noData[] = &#123; <span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span> &#125;;</span><br><span class="line">black.red = black.green = black.blue = <span class="number">0</span>;</span><br><span class="line">bitmapNoData = XCreateBitmapFromData(display, window, noData, <span class="number">8</span>, <span class="number">8</span>);</span><br><span class="line">invisibleCursor = XCreatePixmapCursor(display, bitmapNoData, bitmapNoData, &amp;black, &amp;black, <span class="number">0</span>, <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+<p>创建完后, 将其设置为默认光标就可以了.</p>
+<p>另外 <code>libxfixes</code> 也提供了隐藏/显示光标的接口:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">XFixesHideCursor</span> <span class="params">(Display *dpy, Window win)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">XFixesShowCursor</span> <span class="params">(Display *dpy, Window win)</span></span>;</span><br></pre></td></tr></table></figure>
+<h2 id="u5176_u5B83"><a href="#u5176_u5B83" class="headerlink" title="其它"></a>其它</h2><p>隐藏光标推荐使用 <code>unclutter</code> 来设置, 它可以自定义空闲时间, 具体功能请见 <code>man</code> 手册.</p>
+<p>如果使用 <code>lightdm</code> 作为登录管理器, 可以编辑 <code>/etc/lightdm/lightdm.conf</code> 文件,<br>在 <code>[Seat:*]</code> 后添加 <code>xserver-command=X -bs -core -nocursor</code>.</p>
 
       
     </div>
@@ -265,13 +277,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/go-md5-sum/">Go 笔记: md5 sum</a></p>
+        <p><span>本文标题:</span><a href="/Auto-hidden-cursor/">Auto hidden cursor</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 jouyouyun 的个人博客">jouyouyun</a></p>
-        <p><span>发布时间:</span>2014年06月22日 - 22时54分</p>
-        <p><span>最后更新:</span>2016年02月03日 - 15时15分</p>
+        <p><span>发布时间:</span>2016年04月22日 - 10时27分</p>
+        <p><span>最后更新:</span>2016年04月22日 - 11时10分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/go-md5-sum/" title="Go 笔记: md5 sum">https://jouyouyun.github.io/go-md5-sum/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://jouyouyun.github.io/go-md5-sum/　　作者: jouyouyun" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/Auto-hidden-cursor/" title="Auto hidden cursor">https://jouyouyun.github.io/Auto-hidden-cursor/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://jouyouyun.github.io/Auto-hidden-cursor/　　作者: jouyouyun" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -284,16 +296,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/build-vpn/">
-                    在 VPS 中搭建 VPN 服务器
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/go-file-exists/">
-                    Go 笔记: 判断文件是否存在
+                <a href="/debug-summary/">
+                    debug 小结
                 </a>
             </div>
         
@@ -304,7 +310,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#u539F_u7406"><span class="toc-number">1.</span> <span class="toc-text">原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#u8BBE_u7F6E_u5149_u6807"><span class="toc-number">1.1.</span> <span class="toc-text">设置光标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u521B_u5EFA_u5149_u6807"><span class="toc-number">1.2.</span> <span class="toc-text">创建光标</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u5176_u5B83"><span class="toc-number">2.</span> <span class="toc-text">其它</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -368,7 +374,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="go-md5-sum/" data-title="Go 笔记: md5 sum" data-url="https://jouyouyun.github.io/go-md5-sum/"></div>
+    <div class="ds-thread" data-thread-key="Auto-hidden-cursor/" data-title="Auto hidden cursor" data-url="https://jouyouyun.github.io/Auto-hidden-cursor/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -392,15 +398,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/build-vpn/" title="上一篇: 在 VPS 中搭建 VPN 服务器">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/go-file-exists/" title="下一篇: Go 笔记: 判断文件是否存在">
+            <a href="/debug-summary/" title="下一篇: debug 小结">
                 <i class="fa fa-angle-right"></i>
             </a>
         
