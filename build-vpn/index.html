@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   
@@ -26,15 +26,23 @@ VPS 中安装的是 Ubuntu，所以搭建 VPN 服务器也就是在 Ubuntu 上�
     <link rel="icon" href="/favicon.png">
   
   
-  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css" type="text/css">
+      <link href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css" rel="stylesheet">
+  
+  
+  
+      <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+      <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
   
   <link rel="stylesheet" href="/css/style.css" type="text/css">
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   
   
-      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+      <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
   
+  <script src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.9/clipboard.min.js"></script>
   <script>
       var yiliaConfig = {
           fancybox: true,
@@ -44,9 +52,20 @@ VPS 中安装的是 Ubuntu，所以搭建 VPN 服务器也就是在 Ubuntu 上�
           isArchive: false,
           isTag: false,
           isCategory: false,
-          open_in_new: false
+          open_in_new: false,
+          fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+          scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.0.9/scrollreveal.min.js"
       }
   </script>
+
+  
+      <script>
+          yiliaConfig.rootUrl = "/";
+      </script>
+  
+
+  
+  
 </head>
 <body>
   <div id="container">
@@ -55,11 +74,8 @@ VPS 中安装的是 Ubuntu，所以搭建 VPN 服务器也就是在 Ubuntu 上�
 <div class="intrude-less">
     <header id="header" class="inner">
         <a href="/" class="profilepic">
-            
-            <img lazy-src="/img/avatar.png" class="js-avatar">
-            
+            <img src="/img/avatar.png" class="animated zoomIn">
         </a>
-
         <hgroup>
           <h1 class="header-author"><a href="/">jouyouyun</a></h1>
         </hgroup>
@@ -99,13 +115,13 @@ VPS 中安装的是 Ubuntu，所以搭建 VPN 服务器也就是在 Ubuntu 上�
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
                     <ul class="tips-inner">
-                        <li>菜单</li>
-                        <li>标签</li>
+                        <li>菜單</li>
+                        <li>標籤</li>
                         
-                        <li>友情链接</li>
+                        <li>友情鏈接</li>
                         
                         
-                        <li>关于我</li>
+                        <li>關於我</li>
                         
                     </ul>
                 </div>
@@ -131,11 +147,11 @@ VPS 中安装的是 Ubuntu，所以搭建 VPN 服务器也就是在 Ubuntu 上�
                     <nav class="header-nav">
                         <ul class="social">
                             
-                                <li id="Email"><a class="Email" target="_blank" href="mailto:jouyouwen717@gmail.com" title="Email"></a></li>
+                                <a class="fa Email" target="_blank" href="mailto:jouyouwen717@gmail.com" title="Email"></a>
                             
-                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/jouyouyun" title="GitHub"></a></li>
+                                <a class="fa GitHub" target="_blank" href="https://github.com/jouyouyun" title="GitHub"></a>
                             
-                                <li id="Twitter"><a class="Twitter" target="_blank" href="https://twitter.com/jouyouyun" title="Twitter"></a></li>
+                                <a class="fa Twitter" target="_blank" href="https://twitter.com/jouyouyun" title="Twitter"></a>
                             
                         </ul>
                     </nav>
@@ -144,7 +160,7 @@ VPS 中安装的是 Ubuntu，所以搭建 VPN 服务器也就是在 Ubuntu 上�
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/coredump/" style="font-size: 10px;">coredump</a> <a href="/tags/cursor/" style="font-size: 10px;">cursor</a> <a href="/tags/debug/" style="font-size: 10px;">debug</a> <a href="/tags/go/" style="font-size: 20px;">go</a> <a href="/tags/gob/" style="font-size: 15px;">gob</a> <a href="/tags/md5/" style="font-size: 10px;">md5</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/tcp/" style="font-size: 10px;">tcp</a> <a href="/tags/uri/" style="font-size: 10px;">uri</a> <a href="/tags/vpn/" style="font-size: 10px;">vpn</a> <a href="/tags/vps/" style="font-size: 10px;">vps</a> <a href="/tags/wacom/" style="font-size: 10px;">wacom</a> <a href="/tags/xsetwacom/" style="font-size: 10px;">xsetwacom</a>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/coredump/">coredump</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cursor/">cursor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/debug/">debug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/go/">go</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gob/">gob</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/md5/">md5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tcp/">tcp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/uri/">uri</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vpn/">vpn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vps/">vps</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wacom/">wacom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xsetwacom/">xsetwacom</a></li></ul>
                     </div>
                 </section>
                 
@@ -184,9 +200,7 @@ VPS 中安装的是 Ubuntu，所以搭建 VPN 服务器也就是在 Ubuntu 上�
     <div class="intrude-less">
         <header id="header" class="inner">
             <a href="/" class="profilepic">
-                
-                    <img lazy-src="/img/avatar.png" class="js-avatar">
-                
+                <img src="/img/avatar.png" class="animated zoomIn">
             </a>
             <hgroup>
               <h1 class="header-author"><a href="/" title="回到主页">jouyouyun</a></h1>
@@ -211,11 +225,11 @@ VPS 中安装的是 Ubuntu，所以搭建 VPN 服务器也就是在 Ubuntu 上�
             <nav class="header-nav">
                         <ul class="social">
                             
-                                <li id="Email"><a class="Email" target="_blank" href="mailto:jouyouwen717@gmail.com" title="Email"></a></li>
+                                <a class="fa Email" target="_blank" href="mailto:jouyouwen717@gmail.com" title="Email"></a>
                             
-                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/jouyouyun" title="GitHub"></a></li>
+                                <a class="fa GitHub" target="_blank" href="https://github.com/jouyouyun" title="GitHub"></a>
                             
-                                <li id="Twitter"><a class="Twitter" target="_blank" href="https://twitter.com/jouyouyun" title="Twitter"></a></li>
+                                <a class="fa Twitter" target="_blank" href="https://twitter.com/jouyouyun" title="Twitter"></a>
                             
                         </ul>
             </nav>
@@ -298,18 +312,17 @@ VPS 中安装的是 Ubuntu，所以搭建 VPN 服务器也就是在 Ubuntu 上�
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/build-vpn/">在 VPS 中搭建 VPN 服务器</a></p>
-        <p><span>文章作者:</span><a href="/" title="访问 jouyouyun 的个人博客">jouyouyun</a></p>
-        <p><span>发布时间:</span>2014年07月04日 - 22时39分</p>
-        <p><span>最后更新:</span>2016年01月23日 - 17时27分</p>
+        <p><span>本文標題:</span><a href="/build-vpn/">在 VPS 中搭建 VPN 服务器</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主頁">jouyouyun</a></p>
+        <p><span>發布時間:</span>2014-07-04, 22:39:27</p>
+        <p><span>最後更新:</span>2016-01-23, 17:27:53</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/build-vpn/" title="在 VPS 中搭建 VPN 服务器">https://jouyouyun.github.io/build-vpn/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://jouyouyun.github.io/build-vpn/　　作者: jouyouyun" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
-            <script src="/js/clipboard.min.js"></script>
+            <span>原始鏈接:</span><a class="post-url" href="/build-vpn/" title="在 VPS 中搭建 VPN 服务器">https://jouyouyun.github.io/build-vpn/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://jouyouyun.github.io/build-vpn/　　作者: jouyouyun" title="點擊複製文章鏈接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
-            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+            <span>許可協議:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 轉載請保留原文鏈接及作者。
         </p>
     </div>
 
@@ -336,7 +349,7 @@ VPS 中安装的是 Ubuntu，所以搭建 VPN 服务器也就是在 Ubuntu 上�
 </article>
 
     <div id="toc" class="toc-article">
-    <strong class="toc-title">文章目录</strong>
+    <strong class="toc-title">文章目錄</strong>
     <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#u5B89_u88C5_pptp"><span class="toc-number">1.</span> <span class="toc-text">安装 pptp</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u6DFB_u52A0_u7528_u4E8E_u767B_u5F55_u7684_u8D26_u6237"><span class="toc-number">2.</span> <span class="toc-text">添加用于登录的账户</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u8BBE_u7F6E_DNS"><span class="toc-number">3.</span> <span class="toc-text">设置 DNS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u6253_u5F00_u5185_u6838_IP__u8F6C_u53D1"><span class="toc-number">4.</span> <span class="toc-text">打开内核 IP 转发</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u5B89_u88C5_iptables__u5E76_u8BBE_u7F6E"><span class="toc-number">5.</span> <span class="toc-text">安装 iptables 并设置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SSH_60__u4EE3_u7406"><span class="toc-number">6.</span> <span class="toc-text">SSH` 代理</span></a></li></ol>
 </div>
 <style>
@@ -348,12 +361,10 @@ VPS 中安装的是 Ubuntu，所以搭建 VPN 服务器也就是在 Ubuntu 上�
     }
 </style>
 
-<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
-
-<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<input type="button" id="tocButton" value="隱藏目錄"  title="點擊按鈕隱藏或者顯示文章目錄">
 <script>
-    var valueHide = "隐藏目录";
-    var valueShow = "显示目录";
+    var valueHide = "隱藏目錄";
+    var valueShow = "顯示目錄";
 
     if ($(".left-col").is(":hidden")) {
         $("#tocButton").attr("value", valueShow);
@@ -381,20 +392,31 @@ VPS 中安装的是 Ubuntu，所以搭建 VPN 服务器也就是在 Ubuntu 上�
 
 
 
+
+    
 <div class="share">
-    <div class="bdsharebuttonbox">
-    <a href="#" class="bds_more" data-cmd="more"></a>
-    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
-    <a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
-    <a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
-    <a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
-    </div>
-    <script>
-        window._bd_share_config={
-            "common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
-    </script>
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"在 VPS 中搭建 VPN 服务器　| Jouyouyun's Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
 </div>
+
+
+
+
 
 
 
@@ -440,26 +462,6 @@ VPS 中安装的是 Ubuntu，所以搭建 VPN 服务器也就是在 Ubuntu 上�
     </div>
 
     <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/Enable-coredump/">Enable coredump</a></li><li class="post-list-item"><a class="post-list-link" href="/Auto-hidden-cursor/">Auto hidden cursor</a></li><li class="post-list-item"><a class="post-list-link" href="/debug-summary/">debug 小结</a></li><li class="post-list-item"><a class="post-list-link" href="/xsetwacom-options/">xsetwacom 选项说明</a></li><li class="post-list-item"><a class="post-list-link" href="/go-tcp-socket-example/">Go 笔记: 简单的 TCP Socket 示例</a></li><li class="post-list-item"><a class="post-list-link" href="/go-gob-writeread-file/">Go 笔记：Gob Write/Read File</a></li><li class="post-list-item"><a class="post-list-link" href="/chroot-shell/">chroot 脚本</a></li><li class="post-list-item"><a class="post-list-link" href="/build-vpn/">在 VPS 中搭建 VPN 服务器</a></li><li class="post-list-item"><a class="post-list-link" href="/go-md5-sum/">Go 笔记: md5 sum</a></li><li class="post-list-item"><a class="post-list-link" href="/go-file-exists/">Go 笔记: 判断文件是否存在</a></li><li class="post-list-item"><a class="post-list-link" href="/go-uri-encode/">Go 笔记: URI Encode/Decode</a></li><li class="post-list-item"><a class="post-list-link" href="/xrecord-example/">XRecord 示例</a></li><li class="post-list-item"><a class="post-list-link" href="/hello-world/">Hello World</a></li></ul>
-    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-    <script>
-        $(".post-list").addClass("toc-article");
-        $(".post-list-item a").attr("target","_blank");
-        $("#post-nav-button > a:nth-child(2)").click(function() {
-            $(".fa-bars, .fa-times").toggle();
-            $(".post-list").toggle(300);
-            if ($(".toc").length > 0) {
-                $("#toc, #tocButton").toggle(200, function() {
-                    if ($(".switch-area").is(":visible")) {
-                        $("#toc, .switch-btn, .switch-area").toggle();
-                        $("#tocButton").attr("value", valueHide);
-                        }
-                    })
-            }
-            else {
-                $(".switch-btn, .switch-area").fadeToggle(300);
-            }
-        })
-    </script>
 
 
 
@@ -472,17 +474,18 @@ VPS 中安装的是 Ubuntu，所以搭建 VPN 服务器也就是在 Ubuntu 上�
     <div class="outer">
         <div id="footer-info">
             <div class="footer-left">
-                &copy; 2016 jouyouyun
+                <i class="fa fa-copyright"></i> 
+                2016 jouyouyun
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的静态博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减双栏 Hexo 博客主题">Yelee</a> by MOxFIVE
+                <a href="http://hexo.io/" target="_blank" title="快速、簡單且強大的網誌框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="簡而不減 Hexo 雙欄網誌主題">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
             </div>
         </div>
         
             <div class="visit">
                 
                     <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" >本站到访数: 
+                        <span id="site-visit" >本站到訪數: 
                             <span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
@@ -492,7 +495,7 @@ VPS 中安装的是 Ubuntu，所以搭建 VPN 服务器也就是在 Ubuntu 上�
                 
                 
                     <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit">本页阅读量: 
+                        <span id="page-visit">本頁閱讀量: 
                             <span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
@@ -502,8 +505,8 @@ VPS 中安装的是 Ubuntu，所以搭建 VPN 服务器也就是在 Ubuntu 上�
     </div>
 </footer>
     </div>
-    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
-<script src="/js/main.js" type="text/javascript"></script>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.1.22/require.min.js"></script>
 
     <script>
         $(document).ready(function() {
@@ -525,18 +528,10 @@ VPS 中安装的是 Ubuntu，所以搭建 VPN 服务器也就是在 Ubuntu 上�
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="返回頂部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="查看評論"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="轉到底部"><i class="fa fa-arrow-down"></i></a>
 </div>
-
-<script>
-    $(document).ready(function() {
-        if ($("#comments").length < 1) {
-            $("#scroll > a:nth-child(2)").hide();
-        };
-    })
-</script>
 
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
