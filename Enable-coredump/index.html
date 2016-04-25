@@ -3,18 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Go 笔记: URI Encode/Decode | Jouyouyun&#39;s Blog</title>
+  <title>Enable coredump | Jouyouyun&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近在处理路径时，要求统一用 URI(通用资源标识符) 的格式来表示。偶尔会遇到 URI 被编码的情况，这就需要解码了，故在此把 Encode/Decode URI 的方法记录在此，以备后用。">
+  <meta name="description" content="简介当一个程序崩溃时会产生一个 core 文件, 里面记录了这个程序崩溃的原因, 这些信息对于开发者是很有用的.
+但是 core dumps 在大多数 linux 上是被禁用的, 下面就介绍下如何开启这个功能.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Go 笔记: URI Encode/Decode">
-<meta property="og:url" content="https://jouyouyun.github.io/go-uri-encode/index.html">
+<meta property="og:title" content="Enable coredump">
+<meta property="og:url" content="https://jouyouyun.github.io/Enable-coredump/index.html">
 <meta property="og:site_name" content="Jouyouyun's Blog">
-<meta property="og:description" content="最近在处理路径时，要求统一用 URI(通用资源标识符) 的格式来表示。偶尔会遇到 URI 被编码的情况，这就需要解码了，故在此把 Encode/Decode URI 的方法记录在此，以备后用。">
-<meta property="og:updated_time" content="2016-02-03T07:15:48.802Z">
+<meta property="og:description" content="简介当一个程序崩溃时会产生一个 core 文件, 里面记录了这个程序崩溃的原因, 这些信息对于开发者是很有用的.
+但是 core dumps 在大多数 linux 上是被禁用的, 下面就介绍下如何开启这个功能.">
+<meta property="og:updated_time" content="2016-04-25T11:58:24.268Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Go 笔记: URI Encode/Decode">
-<meta name="twitter:description" content="最近在处理路径时，要求统一用 URI(通用资源标识符) 的格式来表示。偶尔会遇到 URI 被编码的情况，这就需要解码了，故在此把 Encode/Decode URI 的方法记录在此，以备后用。">
+<meta name="twitter:title" content="Enable coredump">
+<meta name="twitter:description" content="简介当一个程序崩溃时会产生一个 core 文件, 里面记录了这个程序崩溃的原因, 这些信息对于开发者是很有用的.
+但是 core dumps 在大多数 linux 上是被禁用的, 下面就介绍下如何开启这个功能.">
   
   
     <link rel="icon" href="/favicon.png">
@@ -216,11 +219,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-go-uri-encode" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Enable-coredump" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/go-uri-encode/" class="article-date">
-      <time datetime="2014-06-20T13:20:12.000Z" itemprop="datePublished">2014-06-20</time>
+      <a href="/Enable-coredump/" class="article-date">
+      <time datetime="2016-04-25T11:04:33.000Z" itemprop="datePublished">2016-04-25</time>
 </a>
     </div>
   
@@ -233,7 +236,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Go 笔记: URI Encode/Decode
+      Enable coredump
     </h1>
   
 
@@ -244,7 +247,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/go/">go</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/uri/">uri</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/coredump/">coredump</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -254,8 +257,25 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>最近在处理路径时，要求统一用 URI(通用资源标识符) 的格式来表示。偶尔会遇到 URI 被编码的情况，这就需要解码了，故在此把 Encode/Decode URI 的方法记录在此，以备后用。<br><a id="more"></a></p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> utils</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"net/url"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * Input: filepath</span><br><span class="line"> * Output: encode string</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">func</span> encodeURI (filepath <span class="typename">string</span>) <span class="typename">string</span> &#123;</span><br><span class="line">	<span class="keyword">if</span> <span class="built_in">len</span>(filepath) &lt; <span class="number">1</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">""</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	u := url.URL&#123;&#125;</span><br><span class="line">	u.Path = filepath</span><br><span class="line">	<span class="keyword">return</span> u.String()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * Input: URI string</span><br><span class="line"> * Output: filepath</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">func</span> decodeURI (uri <span class="typename">string</span>) <span class="typename">string</span> &#123;</span><br><span class="line">	<span class="keyword">if</span> <span class="built_in">len</span>(uri) &lt; <span class="number">1</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">""</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	u, err := url.Parse(uri)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="constant">nil</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">""</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> u.Path</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="u7B80_u4ECB"><a href="#u7B80_u4ECB" class="headerlink" title="简介"></a>简介</h2><p>当一个程序崩溃时会产生一个 <code>core</code> 文件, 里面记录了这个程序崩溃的原因, 这些信息对于开发者是很有用的.</p>
+<p>但是 <code>core dumps</code> 在大多数 <code>linux</code> 上是被禁用的, 下面就介绍下如何开启这个功能.</p>
+<a id="more"></a>
+<h2 id="u5F00_u542F"><a href="#u5F00_u542F" class="headerlink" title="开启"></a>开启</h2><p>可以通过 <code>ulimit -c</code> 的输出知道此功能是否开启, 输出为 <code>0</code> 表示禁用, 否则为开启.</p>
+<h3 id="u4E34_u65F6_u5F00_u542F"><a href="#u4E34_u65F6_u5F00_u542F" class="headerlink" title="临时开启"></a>临时开启</h3><p>通过 <code>ulimit -c unlimited</code> 命令来开启 <code>coredump</code> 功能, 它会程序运行的当前目录生成一个 <code>core</code> 文件, 新的 <code>core</code> 会覆盖旧的.</p>
+<p>通过可以修改 <code>/proc/sys/kernel/core_uses_pid</code> 文件内容为 <code>1</code> 来生成以 <code>pid</code> 作为扩展名的 <code>core</code> 文件.</p>
+<p>通过修改 <code>/proc/sys/kernel/core_pattern</code> 可以修改 <code>core</code> 文件的保存位置和格式. 如把内容改为 <code>/tmp/core-%e-%p-%t</code>, 就表示把 <code>core</code> 文件保存到 <code>/tmp</code> 目录下, 文件名的格式为 <code>core-命令名-pid-时间戳</code>.</p>
+<h3 id="u6C38_u4E45_u5F00_u542F"><a href="#u6C38_u4E45_u5F00_u542F" class="headerlink" title="永久开启"></a>永久开启</h3><p>首先把开启 <code>coredump</code> 功能的命令 <code>ulimit -c unlimited &gt;/dev/null 2&gt;&amp;1</code> 放到 <code>/etc/profile</code> 中.</p>
+<p>然后修改 <code>core</code> 文件的保存位置和格式, 在 <code>/etc/sysctl.conf</code> 文件中添加一下内容:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kernel.core_uses_pid = <span class="number">1</span></span><br><span class="line">kernel.core_pattern = /tmp/core-%e-%s-%u-%g-%p-%t</span><br></pre></td></tr></table></figure>
+<p>修改完 <code>/etc/sysctl.conf</code> 后, 执行 <code>sudo sysctl -p</code> 重新加载配置.</p>
+<p><code>core pattern</code> 说明:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">%% – A single % character</span><br><span class="line">%p – PID of dumped process</span><br><span class="line">%u – real UID of dumped process</span><br><span class="line">%g – real GID of dumped process</span><br><span class="line">%s – number of signal causing dump</span><br><span class="line">%t – time of dump (seconds since <span class="number">0</span>:<span class="number">00</span>h, <span class="number">1</span> Jan <span class="number">1970</span>)</span><br><span class="line">%h – hostname (same as ’nodename’ returned by uname(<span class="number">2</span>))</span><br><span class="line">%e – executable filename</span><br></pre></td></tr></table></figure>
+<h2 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><p><a href="http://en.linuxreviews.org/HOWTO_enable_core-dumps" target="_blank" rel="external">HOWTO enable core-dumps</a></p>
+</li>
+<li><p><a href="http://www.cyberciti.biz/tips/linux-core-dumps.html" target="_blank" rel="external">HowTo: Debug Crashed Linux Application Core Files</a></p>
+</li>
+</ul>
 
       
     </div>
@@ -264,13 +284,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/go-uri-encode/">Go 笔记: URI Encode/Decode</a></p>
+        <p><span>本文标题:</span><a href="/Enable-coredump/">Enable coredump</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 jouyouyun 的个人博客">jouyouyun</a></p>
-        <p><span>发布时间:</span>2014年06月20日 - 21时20分</p>
-        <p><span>最后更新:</span>2016年02月03日 - 15时15分</p>
+        <p><span>发布时间:</span>2016年04月25日 - 19时04分</p>
+        <p><span>最后更新:</span>2016年04月25日 - 19时58分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/go-uri-encode/" title="Go 笔记: URI Encode/Decode">https://jouyouyun.github.io/go-uri-encode/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://jouyouyun.github.io/go-uri-encode/　　作者: jouyouyun" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/Enable-coredump/" title="Enable coredump">https://jouyouyun.github.io/Enable-coredump/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://jouyouyun.github.io/Enable-coredump/　　作者: jouyouyun" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -283,16 +303,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/go-file-exists/">
-                    Go 笔记: 判断文件是否存在
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/xrecord-example/">
-                    XRecord 示例
+                <a href="/Auto-hidden-cursor/">
+                    Auto hidden cursor
                 </a>
             </div>
         
@@ -303,7 +317,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#u7B80_u4ECB"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u5F00_u542F"><span class="toc-number">2.</span> <span class="toc-text">开启</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#u4E34_u65F6_u5F00_u542F"><span class="toc-number">2.1.</span> <span class="toc-text">临时开启</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u6C38_u4E45_u5F00_u542F"><span class="toc-number">2.2.</span> <span class="toc-text">永久开启</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u53C2_u8003"><span class="toc-number">3.</span> <span class="toc-text">参考</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -367,7 +381,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="go-uri-encode/" data-title="Go 笔记: URI Encode/Decode" data-url="https://jouyouyun.github.io/go-uri-encode/"></div>
+    <div class="ds-thread" data-thread-key="Enable-coredump/" data-title="Enable coredump" data-url="https://jouyouyun.github.io/Enable-coredump/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -391,15 +405,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/go-file-exists/" title="上一篇: Go 笔记: 判断文件是否存在">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/xrecord-example/" title="下一篇: XRecord 示例">
+            <a href="/Auto-hidden-cursor/" title="下一篇: Auto hidden cursor">
                 <i class="fa fa-angle-right"></i>
             </a>
         
