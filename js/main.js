@@ -47,10 +47,19 @@ require([], function (){
         }
     });
 
-    if(browser.versions.mobile === true || $(window).width() < 700){
+    if(browser.versions.mobile === true || $(window).width() < 800){
         loadMobile();
     }else{
         loadPC();
+    }
+
+    resetTags = function(){
+        var tags = $(".tagcloud a");
+        for(var i = 0; i < tags.length; i++){
+            var num = Math.floor(Math.random()*7);
+            tags.eq(i).addClass("color" + num);
+        };
+        $(".article-category a:nth-child(-n+2)").attr("class", "color0");
     }
 
     //是否使用fancybox
@@ -169,4 +178,36 @@ require([], function (){
         });
     }
 
+    // Task lists in markdown
+    $('ul > li').each(function() {
+        var taskList = {
+            field: this.textContent.substring(0, 2),
+            check: function(str) {
+                var re = new RegExp(str);
+                return this.field.match(re);
+            }
+        }
+
+        var string = ["[ ]", ["[x]", "checked"]];
+        var checked = taskList.check(string[1][0]);
+        var unchecked = taskList.check(string[0]);
+
+        var $current = $(this);
+        function update(str, check) {
+            var click = ["disabled", ""];
+            $current.html($current.html().replace(
+              str, "<input type='checkbox' " + check + " " + click[1] + " >")
+            )
+        }
+
+        if (checked || unchecked) {
+            this.classList.add("task-list");
+            if (checked) {
+                update(string[1][0], string[1][1]);
+                this.classList.add("check");
+            } else {
+                update(string[0], "");
+            }
+        }
+    })
 });
