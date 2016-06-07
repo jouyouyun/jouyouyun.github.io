@@ -9,18 +9,18 @@
 
   <meta charset="utf-8">
   
-  <title>Go 笔记：Gob Write/Read File | Jouyouyun&#39;s Blog</title>
+  <title>xrandr examples | Jouyouyun&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Gob 使用实例，将结构体写入文件里，在需要的时候再从文件中读取出来。">
+  <meta name="description" content="由于经常会用到使用 xrandr 设置屏幕属性, 而每次用的时候都要去查 man 手册, 有时还需要上网搜索例子.这样一来就比较麻烦, 所以就想整理下 xrandr 的用法, 给出一些常用的例子.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Go 笔记：Gob Write/Read File">
-<meta property="og:url" content="https://jouyouyun.github.io/go-gob-writeread-file/index.html">
+<meta property="og:title" content="xrandr examples">
+<meta property="og:url" content="https://jouyouyun.github.io/xrandr-examples/index.html">
 <meta property="og:site_name" content="Jouyouyun's Blog">
-<meta property="og:description" content="Gob 使用实例，将结构体写入文件里，在需要的时候再从文件中读取出来。">
-<meta property="og:updated_time" content="2016-02-03T07:14:56.084Z">
+<meta property="og:description" content="由于经常会用到使用 xrandr 设置屏幕属性, 而每次用的时候都要去查 man 手册, 有时还需要上网搜索例子.这样一来就比较麻烦, 所以就想整理下 xrandr 的用法, 给出一些常用的例子.">
+<meta property="og:updated_time" content="2016-06-07T02:03:18.043Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Go 笔记：Gob Write/Read File">
-<meta name="twitter:description" content="Gob 使用实例，将结构体写入文件里，在需要的时候再从文件中读取出来。">
+<meta name="twitter:title" content="xrandr examples">
+<meta name="twitter:description" content="由于经常会用到使用 xrandr 设置屏幕属性, 而每次用的时候都要去查 man 手册, 有时还需要上网搜索例子.这样一来就比较麻烦, 所以就想整理下 xrandr 的用法, 给出一些常用的例子.">
   
     <link rel="alternative" href="/atom.xml" title="Jouyouyun&#39;s Blog" type="application/atom+xml">
   
@@ -254,11 +254,11 @@
     </div>
     <link class="menu-list" tags="標籤" friends="友情鏈接" about="關於我"/>
 </nav>
-      <div class="body-wrap"><article id="post-go-gob-writeread-file" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-xrandr-examples" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/go-gob-writeread-file/" class="article-date">
-      <time datetime="2014-07-07T05:06:28.000Z" itemprop="datePublished">2014-07-07</time>
+      <a href="/xrandr-examples/" class="article-date">
+      <time datetime="2016-06-06T08:52:30.000Z" itemprop="datePublished">2016-06-06</time>
 </a>
     </div>
   
@@ -271,7 +271,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Go 笔记：Gob Write/Read File
+      xrandr examples
     </h1>
   
 
@@ -282,7 +282,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/go/">go</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gob/">gob</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/xrandr/">xrandr</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -292,9 +292,33 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><code>Gob</code> 使用实例，将结构体写入文件里，在需要的时候再从文件中读取出来。</p>
+        <p>由于经常会用到使用 <code>xrandr</code> 设置屏幕属性, 而每次用的时候都要去查 <code>man</code> 手册, 有时还需要上网搜索例子.<br>这样一来就比较麻烦, 所以就想整理下 <code>xrandr</code> 的用法, 给出一些常用的例子.</p>
 <a id="more"></a>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"bytes"</span></span><br><span class="line">	<span class="string">"encoding/gob"</span></span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"io/ioutil"</span></span><br><span class="line">	<span class="string">"os"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Writer <span class="keyword">struct</span> &#123;</span><br><span class="line">	Id    <span class="typename">int</span></span><br><span class="line">	Name  <span class="typename">string</span></span><br><span class="line">	Value <span class="typename">string</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Reader <span class="keyword">struct</span> &#123;</span><br><span class="line">	Name  <span class="typename">string</span></span><br><span class="line">	Value <span class="typename">string</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">func</span> writeToFile(filename <span class="typename">string</span>, data <span class="keyword">interface</span>&#123;&#125;) <span class="typename">bool</span> &#123;</span><br><span class="line">	<span class="keyword">if</span> <span class="built_in">len</span>(filename) &lt; <span class="number">1</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">"writeToFile filename invalid"</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="constant">false</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> w bytes.Buffer</span><br><span class="line"></span><br><span class="line">	enc := gob.NewEncoder(&amp;w)</span><br><span class="line">	<span class="keyword">if</span> err := enc.Encode(data); err != <span class="constant">nil</span> &#123;</span><br><span class="line">		fmt.Printf(<span class="string">"Encode data error: %v\n"</span>, err)</span><br><span class="line">		<span class="keyword">return</span> <span class="constant">false</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> fp, err := os.Create(filename); err != <span class="constant">nil</span> &#123;</span><br><span class="line">		fmt.Printf(<span class="string">"Open '%s' error: %v\n"</span>, filename, err)</span><br><span class="line">		<span class="keyword">return</span> <span class="constant">false</span></span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="keyword">defer</span> fp.Close()</span><br><span class="line">		fp.WriteString(w.String())</span><br><span class="line">		fp.Sync()</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="constant">true</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">func</span> readFromFile(filename <span class="typename">string</span>, data <span class="keyword">interface</span>&#123;&#125;) &#123;</span><br><span class="line">	<span class="keyword">if</span> <span class="built_in">len</span>(filename) &lt; <span class="number">1</span> || data == <span class="constant">nil</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">"readFromFile args invalid"</span>)</span><br><span class="line">		<span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	contents, err := ioutil.ReadFile(filename)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="constant">nil</span> &#123;</span><br><span class="line">		fmt.Printf(<span class="string">"ReadFile '%s' error: %v\n"</span>, filename, err)</span><br><span class="line">		<span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	r := bytes.NewBuffer(contents)</span><br><span class="line">	dec := gob.NewDecoder(r)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> err := dec.Decode(data); err != <span class="constant">nil</span> &#123;</span><br><span class="line">		fmt.Printf(<span class="string">"Decode error: %v\n"</span>, err)</span><br><span class="line">		<span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">func</span> main() &#123;</span><br><span class="line">	wData := Writer&#123;<span class="number">0</span>, <span class="string">"firefox"</span>, <span class="string">"Web Broswer"</span>&#125;</span><br><span class="line"></span><br><span class="line">	writeToFile(<span class="string">"/tmp/w"</span>, &amp;wData)</span><br><span class="line"></span><br><span class="line">	rData := Reader&#123;&#125;</span><br><span class="line">	readFromFile(<span class="string">"/tmp/w"</span>, &amp;rData)</span><br><span class="line">	fmt.Printf(<span class="string">"%v\n"</span>, rData)</span><br><span class="line"></span><br><span class="line">	<span class="comment">// test map</span></span><br><span class="line">	w := <span class="keyword">map</span>[<span class="typename">string</span>]<span class="typename">string</span>&#123;</span><br><span class="line">		<span class="string">"sublime-text"</span>: <span class="string">"Sublime Text"</span>,</span><br><span class="line">		<span class="string">"firefox"</span>:      <span class="string">"Web Broswer"</span>,</span><br><span class="line">		<span class="string">"terminator"</span>:   <span class="string">"Terminator"</span>,</span><br><span class="line">	&#125;</span><br><span class="line">	writeToFile(<span class="string">"/tmp/map"</span>, &amp;w)</span><br><span class="line">	r := <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="typename">string</span>]<span class="typename">string</span>)</span><br><span class="line">	readFromFile(<span class="string">"/tmp/map"</span>, &amp;r)</span><br><span class="line">	fmt.Printf(<span class="string">"%v\n"</span>, r)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="u67E5_u8BE2"><a href="#u67E5_u8BE2" class="headerlink" title="查询"></a>查询</h3><p>使用 <code>xrandr -q</code> 命令可以查询当前的显示器状态, 使用 <code>xrandr --verbose</code> 将会显示更详细的信息.</p>
+<h3 id="u8BBE_u7F6E_u5206_u8FA8_u7387"><a href="#u8BBE_u7F6E_u5206_u8FA8_u7387" class="headerlink" title="设置分辨率"></a>设置分辨率</h3><p>设置分辨率时需要指定设置的 <code>ouput</code> 以及 <code>mode</code>, 如将 <code>eDP1</code> 的分辨率改为 <code>1920x1080</code>, 命令就是 <code>xrandr --output eDP1 --mode 1920x1080</code>.</p>
+<p>但是单屏时不用这么麻烦, 可以直接使用命令 <code>xrandr -s 1920x1080</code> 来更改.</p>
+<h3 id="u6DFB_u52A0_u5206_u8FA8_u7387"><a href="#u6DFB_u52A0_u5206_u8FA8_u7387" class="headerlink" title="添加分辨率"></a>添加分辨率</h3><p>如果 <code>xrandr -q</code> 查询的结果中没有合适的分辨率, 则可以通过 <code>newmode</code> 来添加一个, 下面将给出为 <code>eDP1</code> 添加 <code>1440x900x60</code> 的分辨率的方法.</p>
+<ol>
+<li><p>使用 <code>cvt</code> 生成一个 <code>modeline</code>, 命令如下:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-&#62;cvt 1440 900 60&#10;# 1440x900 59.89 Hz (CVT 1.30MA) hsync: 55.93 kHz; pclk: 106.50 MHz&#10;Modeline &#34;1440x900_60.00&#34;  106.50  1440 1528 1672 1904  900 903 909 934 -hsync +vsync</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用 <code>newmode</code> 创建一个 <code>mode</code>, 参数就是上面 <code>Modeline</code> 后的内容, 命令如下:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-&#62;xrandr --newmode &#34;1440x900_60.00&#34;  106.50  1440 1528 1672 1904  900 903 909 934 -hsync +vsync</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将上面的 <code>mode</code> 添加到 <code>eDP1</code> 中:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-&#62;xrandr --addmode eDP1 1440x900_60.00</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>如果执行出错, 则说明不支持此模式. 如果没有错误则添加完成, 然后就可以设置此 <code>mode</code> 为分辨率了.</p>
+<h3 id="u53CC_u5C4F_u914D_u7F6E"><a href="#u53CC_u5C4F_u914D_u7F6E" class="headerlink" title="双屏配置"></a>双屏配置</h3><p>如现在有两个 <code>output</code>, 分别是 <code>eDP1</code> 和 <code>VGA1</code>.</p>
+<h4 id="u8BBE_u7F6E_u4E3B_u5C4F"><a href="#u8BBE_u7F6E_u4E3B_u5C4F" class="headerlink" title="设置主屏"></a>设置主屏</h4><p>通过指定 <code>--primary</code> 参数来设置主屏, 如设置 <code>eDP1</code> 为主屏: <code>xrandr --auto --output eDP1 --primary</code>, <code>--auto</code> 可以自动启用关闭的屏幕.</p>
+<h4 id="u590D_u5236_u6A21_u5F0F"><a href="#u590D_u5236_u6A21_u5F0F" class="headerlink" title="复制模式"></a>复制模式</h4><p>复制模式最好使用两个显示器都有的 <code>mode</code> 作为默认的 <code>mode</code>, 命令是 <code>xrandr --auto --output eDP1 --pos 0x0 --mode 1440x900 --output VGA1 --same-as eDP1</code>.</p>
+<h4 id="u6269_u5C55_u6A21_u5F0F"><a href="#u6269_u5C55_u6A21_u5F0F" class="headerlink" title="扩展模式"></a>扩展模式</h4><p>命令是 <code>xrandr --auto --output eDP1 --pos 0x0 --mode 1920x1080 --primary --output VGA1 --mode 1440x900 --right-of eDP1</code>.</p>
+<p>命令的结果就是 <code>VGA1</code> 会在 <code>eDP1</code> 的右边, <code>eDP1</code> 为主屏, 另外位置的参数还有 <code>left-of</code>, <code>--above</code>, <code>--below</code> 等.</p>
+<p>如果需要自定义两个屏幕的位置, 可以通过计算每个屏幕的分辨率, 用 <code>--pos</code> 参数来指定每个屏幕显示的位置.</p>
+<h4 id="u5355_u5C4F_u6A21_u5F0F"><a href="#u5355_u5C4F_u6A21_u5F0F" class="headerlink" title="单屏模式"></a>单屏模式</h4><p>这个模式是只显示某一个屏幕, 如只显示 <code>eDP1</code>, 可以使用命令 <code>xrandr --output eDP1 --pos 0x0 --mode 1920x1080 --primary --output VGA1 --off</code>,<br>这样就会把 <code>VGA1</code> 给关闭.</p>
+<h4 id="u5176_u5B83"><a href="#u5176_u5B83" class="headerlink" title="其它"></a>其它</h4><p>另外屏幕的旋转, 镜像和缩放可以分别使用 <code>--rotate</code>, <code>reflect</code> 和 <code>--scale</code> 参数来实现.</p>
+<p>至于更详细的信息请使用 <code>man xrandr</code> 来查看.</p>
 
       
     </div>
@@ -303,13 +327,13 @@
   
     
     <div class="copyright">
-        <p><span>本文標題:</span><a href="/go-gob-writeread-file/">Go 笔记：Gob Write/Read File</a></p>
+        <p><span>本文標題:</span><a href="/xrandr-examples/">xrandr examples</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主頁">jouyouyun</a></p>
-        <p><span>發布時間:</span>2014-07-07, 13:06:28</p>
-        <p><span>最後更新:</span>2016-02-03, 15:14:56</p>
+        <p><span>發布時間:</span>2016-06-06, 16:52:30</p>
+        <p><span>最後更新:</span>2016-06-07, 10:03:18</p>
         <p>
-            <span>原始鏈接:</span><a class="post-url" href="/go-gob-writeread-file/" title="Go 笔记：Gob Write/Read File">https://jouyouyun.github.io/go-gob-writeread-file/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://jouyouyun.github.io/go-gob-writeread-file/　　作者: jouyouyun" title="點擊複製文章鏈接"><i class="fa fa-clipboard"></i></span>
+            <span>原始鏈接:</span><a class="post-url" href="/xrandr-examples/" title="xrandr examples">https://jouyouyun.github.io/xrandr-examples/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://jouyouyun.github.io/xrandr-examples/　　作者: jouyouyun" title="點擊複製文章鏈接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -321,16 +345,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/go-tcp-socket-example/">
-                    Go 笔记: 简单的 TCP Socket 示例
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/chroot-shell/">
-                    chroot 脚本
+                <a href="/Enable-coredump/">
+                    Enable coredump
                 </a>
             </div>
         
@@ -341,7 +359,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目錄</strong>
-    
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u67E5_u8BE2"><span class="toc-number">1.</span> <span class="toc-text">查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u8BBE_u7F6E_u5206_u8FA8_u7387"><span class="toc-number">2.</span> <span class="toc-text">设置分辨率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u6DFB_u52A0_u5206_u8FA8_u7387"><span class="toc-number">3.</span> <span class="toc-text">添加分辨率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u53CC_u5C4F_u914D_u7F6E"><span class="toc-number">4.</span> <span class="toc-text">双屏配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#u8BBE_u7F6E_u4E3B_u5C4F"><span class="toc-number">4.1.</span> <span class="toc-text">设置主屏</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#u590D_u5236_u6A21_u5F0F"><span class="toc-number">4.2.</span> <span class="toc-text">复制模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#u6269_u5C55_u6A21_u5F0F"><span class="toc-number">4.3.</span> <span class="toc-text">扩展模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#u5355_u5C4F_u6A21_u5F0F"><span class="toc-number">4.4.</span> <span class="toc-text">单屏模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#u5176_u5B83"><span class="toc-number">4.5.</span> <span class="toc-text">其它</span></a></li></ol></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -398,7 +416,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Go 笔记：Gob Write/Read File　| Jouyouyun's Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"xrandr examples　| Jouyouyun's Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -414,7 +432,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="go-gob-writeread-file/" data-title="Go 笔记：Gob Write/Read File" data-url="https://jouyouyun.github.io/go-gob-writeread-file/"></div>
+    <div class="ds-thread" data-thread-key="xrandr-examples/" data-title="xrandr examples" data-url="https://jouyouyun.github.io/xrandr-examples/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -438,15 +456,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/go-tcp-socket-example/" title="上一篇: Go 笔记: 简单的 TCP Socket 示例">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主頁"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/chroot-shell/" title="下一篇: chroot 脚本">
+            <a href="/Enable-coredump/" title="下一篇: Enable coredump">
                 <i class="fa fa-angle-right"></i>
             </a>
         
