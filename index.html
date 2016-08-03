@@ -1,959 +1,448 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-<head>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>首页</title>
   
+    <meta name="author" content="jouyouyun">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
-        <style>body {display: none; background: none !important} </style>
-        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-  <meta charset="utf-8">
-  
-  <title>Jouyouyun&#39;s Blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Linuxsir, C/C++/GoLang Programmer">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jouyouyun's Blog">
-<meta property="og:url" content="https://jouyouyun.github.io/index.html">
-<meta property="og:site_name" content="Jouyouyun's Blog">
-<meta property="og:description" content="Linuxsir, C/C++/GoLang Programmer">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jouyouyun's Blog">
-<meta name="twitter:description" content="Linuxsir, C/C++/GoLang Programmer">
-  
-    <link rel="alternative" href="/atom.xml" title="Jouyouyun&#39;s Blog" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-      <link href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css" rel="stylesheet">
-  
-  
-      <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
-      <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
-  
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
-  
-      <style> .article { opacity: 0;} </style>
-  
-  <link href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  
-    
-    
-  
-  
-      <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
-  
-  <script src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
-  <script src="//cdn.bootcss.com/clipboard.js/1.5.9/clipboard.min.js"></script>
-  <script>
-      var yiliaConfig = {
-          fancybox: true,
-          animate: true,
-          isHome: true,
-          isPost: false,
-          isArchive: false,
-          isTag: false,
-          isCategory: false,
-          open_in_new: false,
-          fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
-          scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.0.9/scrollreveal.min.js",
-          search: undefined
-      }
-  </script>
+    <!-- Le styles -->
+    <link href="/assets/twitter/stylesheets/bootstrap.min.css" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/stylesheets/style.css" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/widgets/google_prettify/stylesheets/twitter-bootstrap.css" type="text/css" rel="stylesheet" media="all">
+ 
 
-  
-      <script>
-          yiliaConfig.jquery_ui = [false];
-      </script>
-  
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
 
-  
-      <script>
-          yiliaConfig.rootUrl = "/";
-      </script>
-  
+  <body>
 
-  
-  
-</head>
-<body>
-  <div id="container">
-    <div class="left-col">
-    <div class="overlay"></div>
-<div class="intrude-less">
-    <header id="header" class="inner">
-        <a href="/" class="profilepic">
-            <img src="/img/avatar.png" class="animated zoomIn">
-        </a>
-        <hgroup>
-          <h1 class="header-author"><a href="/">jouyouyun</a></h1>
-        </hgroup>
-
-        
-        <p class="header-subtitle">一些喜欢的东西</p>
-        
-
-        
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/">Jouyouyun&#39;s Blog</a>
+          <ul class="nav">
+            
+              
 
 
-        
-            <div id="switch-btn" class="switch-btn">
-                <div class="icon">
-                    <div class="icon-ctn">
-                        <div class="icon-wrap icon-house" data-idx="0">
-                            <div class="birdhouse"></div>
-                            <div class="birdhouse_holes"></div>
-                        </div>
-                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
-                            <div class="ribbon"></div>
-                        </div>
-                        
-                        <div class="icon-wrap icon-link hide" data-idx="2">
-                            <div class="loopback_l"></div>
-                            <div class="loopback_r"></div>
-                        </div>
-                        
-                        
-                        <div class="icon-wrap icon-me hide" data-idx="3">
-                            <div class="user"></div>
-                            <div class="shoulder"></div>
-                        </div>
-                        
-                    </div>
-                    
-                </div>
-                <div class="tips-box hide">
-                    <div class="tips-arrow"></div>
-                    <ul class="tips-inner">
-                        <li>菜單</li>
-                        <li>標籤</li>
-                        
-                        <li>友情鏈接</li>
-                        
-                        
-                        <li>關於我</li>
-                        
-                    </ul>
-                </div>
-            </div>
-        
+  <li><a href="/archive">Archive</a></li>
 
-        <div id="switch-area" class="switch-area">
-            <div class="switch-wrap">
-                <section class="switch-part switch-part1">
-                    <nav class="header-menu">
-                        <ul>
-                        
-                            <li><a href="/">主页</a></li>
-                        
-                            <li><a href="/archives/">所有文章</a></li>
-                        
-                            <li><a href="/tags/">标签云</a></li>
-                        
-                            <li><a href="/about/">关于我</a></li>
-                        
-                        </ul>
-                    </nav>
-                    <nav class="header-nav">
-                        <ul class="social">
-                            
-                                <a class="fa Email" target="_blank" href="mailto:jouyouwen717@gmail.com" title="Email"></a>
-                            
-                                <a class="fa GitHub" target="_blank" href="https://github.com/jouyouyun" title="GitHub"></a>
-                            
-                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
-                            
-                                <a class="fa Twitter" target="_blank" href="https://twitter.com/jouyouyun" title="Twitter"></a>
-                            
-                                <a class="fa 微信" target="_blank" href="/jouyouyun1990" title="微信"></a>
-                            
-                        </ul>
-                    </nav>
-                </section>
-                
-                
-                <section class="switch-part switch-part2">
-                    <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/coredump/">coredump</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cursor/">cursor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/debug/">debug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/go/">go</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gob/">gob</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/md5/">md5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tcp/">tcp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/uri/">uri</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vpn/">vpn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vps/">vps</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wacom/">wacom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xrandr/">xrandr</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xsetwacom/">xsetwacom</a></li></ul>
-                    </div>
-                </section>
-                
-                
-                
-                <section class="switch-part switch-part3">
-                    <div id="js-friends">
-                    
-                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
-                    
-                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
-                    
-                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
-                    
-                    </div>
-                </section>
-                
 
-                
-                
-                <section class="switch-part switch-part4">
-                
-                    <div id="js-aboutme">Linuxsir &amp;&amp; C/C++/GoLang Programmer</div>
-                </section>
-                
-            </div>
+            
+              
+
+
+  <li><a href="/tags">Tags</a></li>
+
+
+            
+              
+
+
+  <li><a href="/categories">Categories</a></li>
+
+
+            
+              
+
+
+  <li><a href="/about">About Me</a></li>
+
+
+            
+          </ul>
         </div>
-    </header>                
-</div>
-    </div>
-    <div class="mid-col">
-      <nav id="mobile-nav">
-      <div class="overlay">
-          <div class="slider-trigger"></div>
-          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">jouyouyun</a></h1>
       </div>
-    <div class="intrude-less">
-        <header id="header" class="inner">
-            <a href="/" class="profilepic">
-                <img src="/img/avatar.png" class="animated zoomIn">
-            </a>
-            <hgroup>
-              <h1 class="header-author"><a href="/" title="回到主页">jouyouyun</a></h1>
-            </hgroup>
-            
-            <p class="header-subtitle">一些喜欢的东西</p>
-            
-            <nav class="header-menu">
-                <ul>
-                
-                    <li><a href="/">主页</a></li>
-                
-                    <li><a href="/archives/">所有文章</a></li>
-                
-                    <li><a href="/tags/">标签云</a></li>
-                
-                    <li><a href="/about/">关于我</a></li>
-                
-                <div class="clearfix"></div>
-                </ul>
-            </nav>
-            <nav class="header-nav">
-                        <ul class="social">
-                            
-                                <a class="fa Email" target="_blank" href="mailto:jouyouwen717@gmail.com" title="Email"></a>
-                            
-                                <a class="fa GitHub" target="_blank" href="https://github.com/jouyouyun" title="GitHub"></a>
-                            
-                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
-                            
-                                <a class="fa Twitter" target="_blank" href="https://twitter.com/jouyouyun" title="Twitter"></a>
-                            
-                                <a class="fa 微信" target="_blank" href="/jouyouyun1990" title="微信"></a>
-                            
-                        </ul>
-            </nav>
-        </header>                
     </div>
-    <link class="menu-list" tags="標籤" friends="友情鏈接" about="關於我"/>
-</nav>
-      <div class="body-wrap">
-  
-    <article id="post-xrandr-examples" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/xrandr-examples/" class="article-date">
-      <time datetime="2016-06-06T08:52:30.000Z" itemprop="datePublished">2016-06-06</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+
+    <div class="container">
+
+      <div class="content">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/xrandr-examples/">xrandr examples</a>
-    </h1>
-  
+<div class="page-header">
+  <h1>首页 </h1>
+</div>
 
-      </header>
-      
+<div class="row">
+  <div class="span12">
     
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>由于经常会用到使用 <code>xrandr</code> 设置屏幕属性, 而每次用的时候都要去查 <code>man</code> 手册, 有时还需要上网搜索例子.<br>这样一来就比较麻烦, 所以就想整理下 <code>xrandr</code> 的用法, 给出一些常用的例子.</p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
+<h2>最近更新</h2>
 
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/xrandr/">xrandr</a></li></ul>
-    </div>
 
-      
-        <p class="article-more-link">
-          <a href="/xrandr-examples/#more">查看全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
+<div class="post">
+  <h3 class="title"><a href="/Blog/xrandr-examples/">xrandr examples</a> <span class="date">2016-06-06 16:52:30</span></h3>
+
+  <p>由于经常会用到使用 <code>xrandr</code> 设置屏幕属性, 而每次用的时候都要去查 <code>man</code> 手册, 有时还需要上网搜索例子.
+这样一来就比较麻烦, 所以就想整理下 <code>xrandr</code> 的用法, 给出一些常用的例子.</p>
+
+<h3>查询</h3>
+
+<p>使用 <code>xrandr -q</code> 命令可以查询当前的显示器状态, 使用 <code>xrandr --verbose</code> 将会显示更详细的信息.</p>
+
+<h3>设置分辨率</h3>
+
+<p>设置分辨率时需要指定设置的 <code>ouput</code> 以及 <code>mode</code>, 如将 <code>eDP1</code> 的分辨率改为 <code>1920x1080</code>, 命令就是 <code>xrandr --output eDP1 --mode 1920x1080</code>.</p>
+
+<p>但是单屏时不用这么麻烦, 可以直接使用命令 <code>xrandr -s 1920x1080</code> 来更改.</p>
+
+<h3>添加分辨率</h3>
+
+<p>如果 <code>xrandr -q</code> 查询的结果中没有合适的分辨率, 则可以通过 <code>newmode</code> 来添加一个, 下面将给出为 <code>eDP1</code> 添加 <code>1440x900x60</code> 的分辨率的方法.</p>
+
+
+  <div class="more">
+    <a href="/Blog/xrandr-examples/" class="btn">read more..</a>
   </div>
-  
-</article>
+</div>
 
+<div class="post">
+  <h3 class="title"><a href="/Note/Enable-coredump/">Enable coredump</a> <span class="date">2016-04-25 19:04:33</span></h3>
 
+  <h2>简介</h2>
 
+<p>当一个程序崩溃时会产生一个 <code>core</code> 文件, 里面记录了这个程序崩溃的原因, 这些信息对于开发者是很有用的.</p>
 
-
-
-
-
-
-  
-    <article id="post-Enable-coredump" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/Enable-coredump/" class="article-date">
-      <time datetime="2016-04-25T11:04:33.000Z" itemprop="datePublished">2016-04-25</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Enable-coredump/">Enable coredump</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h2 id="u7B80_u4ECB"><a href="#u7B80_u4ECB" class="headerlink" title="简介"></a>简介</h2><p>当一个程序崩溃时会产生一个 <code>core</code> 文件, 里面记录了这个程序崩溃的原因, 这些信息对于开发者是很有用的.</p>
 <p>但是 <code>core dumps</code> 在大多数 <code>linux</code> 上是被禁用的, 下面就介绍下如何开启这个功能.</p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
 
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/coredump/">coredump</a></li></ul>
-    </div>
+<h2>开启</h2>
 
-      
-        <p class="article-more-link">
-          <a href="/Enable-coredump/#more">查看全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
+<p>可以通过 <code>ulimit -c</code> 的输出知道此功能是否开启, 输出为 <code>0</code> 表示禁用, 否则为开启.</p>
+
+<h3>临时开启</h3>
+
+<p>通过 <code>ulimit -c unlimited</code> 命令来开启 <code>coredump</code> 功能, 它会程序运行的当前目录生成一个 <code>core</code> 文件, 新的 <code>core</code> 会覆盖旧的.</p>
+
+<p>通过可以修改 <code>/proc/sys/kernel/core_uses_pid</code> 文件内容为 <code>1</code> 来生成以 <code>pid</code> 作为扩展名的 <code>core</code> 文件.</p>
+
+<p>通过修改 <code>/proc/sys/kernel/core_pattern</code> 可以修改 <code>core</code> 文件的保存位置和格式. 如把内容改为 <code>/tmp/core-%e-%p-%t</code>, 就表示把 <code>core</code> 文件保存到 <code>/tmp</code> 目录下, 文件名的格式为 <code>core-命令名-pid-时间戳</code>.</p>
+
+
+  <div class="more">
+    <a href="/Note/Enable-coredump/" class="btn">read more..</a>
   </div>
-  
-</article>
+</div>
+
+<div class="post">
+  <h3 class="title"><a href="/Blog/Auto-Hidden-Cursor/">Auto Hidden Cursor</a> <span class="date">2016-04-22</span></h3>
+
+  <p>最近需要做一个隐藏光标的功能, 在这里将了解到的知识总结一下.</p>
+
+<h2>原理</h2>
+
+<p>隐藏光标的原理就是把光标设置为一个 <code>x11 null cursor</code>, 不需要隐藏时再将它设为 <code>x11 left_ptr cursor</code>.</p>
+
+<h3>设置光标</h3>
+
+<p>设置光标主要需要调用下面两个函数:</p>
+
+<pre><code class="language-c">int XDefineCursor(Display *display, Window w, Cursor cursor);
+void XFixesChangeCursorByName (Display *dpy, Cursor source, const char *name);
+</code></pre>
+
+<h3>创建光标</h3>
+
+<p>至于创建 <code>null cursor</code> 可以见下面的代码:</p>
+
+<pre><code class="language-c">window = DefaultRootWindow(display);
+Cursor invisibleCursor;
+Pixmap bitmapNoData;
+XColor black;
+static char noData[] = { 0,0,0,0,0,0,0,0 };
+black.red = black.green = black.blue = 0;
+bitmapNoData = XCreateBitmapFromData(display, window, noData, 8, 8);
+invisibleCursor = XCreatePixmapCursor(display, bitmapNoData, bitmapNoData, &amp;black, &amp;black, 0, 0);
+</code></pre>
 
 
-
-
-
-
-
-
-
-  
-    <article id="post-Auto-hidden-cursor" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/Auto-hidden-cursor/" class="article-date">
-      <time datetime="2016-04-22T02:27:04.000Z" itemprop="datePublished">2016-04-22</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Auto-hidden-cursor/">Auto hidden cursor</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>最近需要做一个隐藏光标的功能, 在这里将了解到的知识总结一下.</p>
-<h2 id="u539F_u7406"><a href="#u539F_u7406" class="headerlink" title="原理"></a>原理</h2><p>隐藏光标的原理就是把光标设置为一个 <code>x11 null cursor</code>, 不需要隐藏时再将它设为 <code>x11 left_ptr cursor</code>.</p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cursor/">cursor</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/Auto-hidden-cursor/#more">查看全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
+  <div class="more">
+    <a href="/Blog/Auto-Hidden-Cursor/" class="btn">read more..</a>
   </div>
-  
-</article>
+</div>
+
+<div class="post">
+  <h3 class="title"><a href="/Note/debug-%E5%B0%8F%E7%BB%93/">debug 小结</a> <span class="date">2016-02-03 15:06:35</span></h3>
+
+  <p>调试 <code>bug</code> 的时候要有耐心, 要不断测试, 直到找到问题原因.</p>
+
+<h2>确定 <code>bug</code> 出现的方式</h2>
+
+<ul>
+<li>一定要找到稳定重现的方式, 这样才能方便下面的调试</li>
+<li>如果找不到稳定重现的方法就只能根据上次出现的情形, 去查看相关的代码, 猜测可能出问题的地方, 然后针对那一块进行调试, 直到找到稳定重现方式</li>
+</ul>
+
+<h2>定位出问题的代码</h2>
+
+<ul>
+<li>再找到稳定重现方式后, 开始定位出问题的函数, 然后加入调试信息, 不断尝试, 直到找到有问题的代码</li>
+<li>找到有问题的代码后, 如果发现是第三方库里的函数,可以打印出每次调用的输入输出参数, 看看是否有迹可循, 可以单独写个小程序, 传入问题的参数, 进行不断测试, 来确定第三方库有没有问题</li>
+<li>如果自己程序的代码, 就一行一行的慢慢测试, 确定问题的原因, 原因找到了就可以开始思考解决方法了</li>
+</ul>
+
+<h2>修复 <code>bug</code></h2>
+
+<p>修复 <code>bug</code> 时一定要仔细检查新添加的代码, 看看会不会造成其它的 <code>bug</code>, 一定要不断测试, 把函数输入输出状态都打印出来, 以免出现界面是对的, 但函数的数据有误.</p>
+
+<p>对于开源的第三方库有问题时, 就把它的代码下下来, 加上调试信息后, 然后安装, 让你的程序使用自己编译的第三方库, 这样方便查找问题.
+因为有时可能第三方库再使用时需要初始化一些资源, 而你使用的接口并没有做或少做了一点, 这样就导致你的程序出了问题.
+这时就可以在程序中添加相关的初始化代码, 来处理这类问题, 这类问题一般第三方库升级时可能出现.</p>
 
 
-
-
-
-
-
-
-
-  
-    <article id="post-debug-summary" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/debug-summary/" class="article-date">
-      <time datetime="2016-02-03T07:06:35.000Z" itemprop="datePublished">2016-02-03</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/debug-summary/">debug 小结</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>调试 <code>bug</code> 的时候要有耐心, 要不断测试, 直到找到问题原因.</p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/debug/">debug</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/debug-summary/#more">查看全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
+  <div class="more">
+    <a href="/Note/debug-%E5%B0%8F%E7%BB%93/" class="btn">read more..</a>
   </div>
-  
-</article>
+</div>
 
+<div class="post">
+  <h3 class="title"><a href="/Blog/xsetwacom-%E9%80%89%E9%A1%B9%E8%AF%B4%E6%98%8E/">xsetwacom 选项说明</a> <span class="date">2016-02-03 14:58:29</span></h3>
 
+  <p><code>xsetwacom</code> 是一个设置数位板的命令行工具, 在 <code>Debian/Ubuntu/deepin</code> 上可以通过安装 <code>xserver-xorg-input-wacom</code> 来获取它.</p>
 
-
-
-
-
-
-
-  
-    <article id="post-xsetwacom-options" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/xsetwacom-options/" class="article-date">
-      <time datetime="2016-02-03T06:58:29.000Z" itemprop="datePublished">2016-02-03</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/xsetwacom-options/">xsetwacom 选项说明</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p><code>xsetwacom</code> 是一个设置数位板的命令行工具, 在 <code>Debian/Ubuntu/deepin</code> 上可以通过安装 <code>xserver-xorg-input-wacom</code> 来获取它.</p>
 <p>可以通过 <code>man xsetwacom</code> 看到它的帮助文档, 下面就简单说明下它的部份选项:</p>
-<hr>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
 
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wacom/">wacom</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/xsetwacom/">xsetwacom</a></li></ul>
-    </div>
+<hr />
 
-      
-        <p class="article-more-link">
-          <a href="/xsetwacom-options/#more">查看全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
+<h2>Options</h2>
+
+<h3>Area</h3>
+
+<ul>
+<li><p>args: x1 y1 x2 y2</p></li>
+
+<li><p>default: 0 0 x2 y2,</p></li>
+
+<li><p>description: 设置数位板可使用的区域</p></li>
+</ul>
+
+<h3>Button</h3>
+
+
+  <div class="more">
+    <a href="/Blog/xsetwacom-%E9%80%89%E9%A1%B9%E8%AF%B4%E6%98%8E/" class="btn">read more..</a>
   </div>
-  
-</article>
+</div>
+
+<div class="post">
+  <h3 class="title"><a href="/Note/Go-%E7%AC%94%E8%AE%B0--%E7%AE%80%E5%8D%95%E7%9A%84-TCP-Socket-%E7%A4%BA%E4%BE%8B/">Go 笔记: 简单的 TCP Socket 示例</a> <span class="date">2014-07-20 00:54:43</span></h3>
+
+  <p>一个简单的 <code>TCP Socket</code> 的示例，使用 <code>gob</code> 处理传输的数据。</p>
+
+<h2><code>server.go</code></h2>
+
+<p>```go
+package main</p>
+
+<p>import (
+    &ldquo;bytes&rdquo;
+    &ldquo;encoding/gob&rdquo;
+    &ldquo;fmt&rdquo;
+    &ldquo;io&rdquo;
+    &ldquo;net&rdquo;
+)</p>
+
+<p>type personInfo struct {
+    Name  string
+    Age   int32
+    Phone string
+    Addr  string
+}</p>
 
 
-
-
-
-
-
-
-
-  
-    <article id="post-go-tcp-socket-example" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/go-tcp-socket-example/" class="article-date">
-      <time datetime="2014-07-19T16:54:43.000Z" itemprop="datePublished">2014-07-20</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/go-tcp-socket-example/">Go 笔记: 简单的 TCP Socket 示例</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>一个简单的 <code>TCP Socket</code> 的示例，使用 <code>gob</code> 处理传输的数据。</p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/go/">go</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gob/">gob</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tcp/">tcp</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/go-tcp-socket-example/#more">查看全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
+  <div class="more">
+    <a href="/Note/Go-%E7%AC%94%E8%AE%B0--%E7%AE%80%E5%8D%95%E7%9A%84-TCP-Socket-%E7%A4%BA%E4%BE%8B/" class="btn">read more..</a>
   </div>
-  
-</article>
+</div>
+
+<div class="post">
+  <h3 class="title"><a href="/Note/Go-%E7%AC%94%E8%AE%B0%EF%BC%9AGob-Write%2FRead-File/">Go 笔记：Gob Write/Read File</a> <span class="date">2014-07-07 13:06:28</span></h3>
+
+  <p><code>Gob</code> 使用实例，将结构体写入文件里，在需要的时候再从文件中读取出来。</p>
+
+<p>```go
+package main</p>
+
+<p>import (
+    &ldquo;bytes&rdquo;
+    &ldquo;encoding/gob&rdquo;
+    &ldquo;fmt&rdquo;
+    &ldquo;io/ioutil&rdquo;
+    &ldquo;os&rdquo;
+)</p>
+
+<p>type Writer struct {
+    Id    int
+    Name  string
+    Value string
+}</p>
 
 
-
-
-
-
-
-
-
-  
-    <article id="post-go-gob-writeread-file" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/go-gob-writeread-file/" class="article-date">
-      <time datetime="2014-07-07T05:06:28.000Z" itemprop="datePublished">2014-07-07</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/go-gob-writeread-file/">Go 笔记：Gob Write/Read File</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p><code>Gob</code> 使用实例，将结构体写入文件里，在需要的时候再从文件中读取出来。</p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/go/">go</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gob/">gob</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/go-gob-writeread-file/#more">查看全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
+  <div class="more">
+    <a href="/Note/Go-%E7%AC%94%E8%AE%B0%EF%BC%9AGob-Write%2FRead-File/" class="btn">read more..</a>
   </div>
-  
-</article>
+</div>
 
+<div class="post">
+  <h3 class="title"><a href="/Blog/chroot-%E8%84%9A%E6%9C%AC/">chroot 脚本</a> <span class="date">2014-07-05</span></h3>
 
+  <p>最近测试了以下 <code>chroot</code>，然后把步骤写成了下面两个脚本，方便以后使用。</p>
 
-
-
-
-
-
-
-  
-    <article id="post-chroot-shell" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/chroot-shell/" class="article-date">
-      <time datetime="2014-07-04T16:13:22.000Z" itemprop="datePublished">2014-07-05</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/chroot-shell/">chroot 脚本</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>最近测试了以下 <code>chroot</code>，然后把步骤写成了下面两个脚本，方便以后使用。</p>
 <p><code>Arch</code> 分区结构</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/dev/sda5&#9;/&#10;/dev/sda1&#9;/boot&#10;/dev/sda6&#9;/home&#10;/dev/sda8&#9;Swap</span><br></pre></td></tr></table></figure>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
 
-      
-      
-        <p class="article-more-link">
-          <a href="/chroot-shell/#more">查看全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
+<pre><code class="language-shell">/dev/sda5	/
+/dev/sda1	/boot
+/dev/sda6	/home
+/dev/sda8	Swap
+</code></pre>
+
+<h2><code>chroot</code> 挂载脚本</h2>
+
+<pre><code class="language-shell">#!/bin/bash
+
+_ROOT=/dev/sda5
+_BOOT=/dev/sda1
+#_HOME=/dev/sda6
+
+#创建目录结构
+sudo mkdir -p /mnt/arch
+sudo mkdir -p /mnt/arch/boot
+#sudo mkdir -p /mnt/arch/home
+
+#挂载分区
+sudo mount $_ROOT /mnt/arch
+sudo mount $_BOOT /mnt/arch/boot
+#sudo mount $_HOME /mnt/arch/home
+
+#挂载临时文件系统
+cd /mnt/arch
+sudo mount -t proc proc proc/
+sudo mount -t sysfs sys sys/
+sudo mount -o bind /dev dev/
+sudo mount -t devpts pts dev/pts
+
+#如果你已经建立了一个网络连接并且想要在chroot环境中使用它，
+#你可能不得不拷贝你的DNS服务器配置让你能够解析主机名
+sudo  cp -L /etc/resolv.conf etc/resolv.conf
+
+# chroot 并指定 shell
+sudo chroot /mnt/arch /usr/bin/bash
+</code></pre>
+
+
+  <div class="more">
+    <a href="/Blog/chroot-%E8%84%9A%E6%9C%AC/" class="btn">read more..</a>
   </div>
-  
-</article>
+</div>
 
+<div class="post">
+  <h3 class="title"><a href="/Blog/%E5%9C%A8-VPS-%E4%B8%AD%E6%90%AD%E5%BB%BA-VPN-%E6%9C%8D%E5%8A%A1%E5%99%A8/">在 VPS 中搭建 VPN 服务器</a> <span class="date">2014-07-04</span></h3>
 
+  <p>最近 <code>Google</code> 被封，而用 <code>Goagent</code> 做代理进行访问的效果而不是很理想，所以就想去买 <code>VPN/VPS</code>。几经考虑后，就去买了个便宜 <code>VPS</code>，这样也就可以分享给家人用了。</p>
 
-
-
-
-
-
-
-  
-    <article id="post-build-vpn" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/build-vpn/" class="article-date">
-      <time datetime="2014-07-04T14:39:27.000Z" itemprop="datePublished">2014-07-04</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/build-vpn/">在 VPS 中搭建 VPN 服务器</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>最近 <code>Google</code> 被封，而用 <code>Goagent</code> 做代理进行访问的效果而不是很理想，所以就想去买 <code>VPN/VPS</code>。几经考虑后，就去买了个便宜 <code>VPS</code>，这样也就可以分享给家人用了。</p>
 <p><code>VPS</code> 中安装的是 <code>Ubuntu</code>，所以搭建 <code>VPN</code> 服务器也就是在 <code>Ubuntu</code> 上面搭建，具体方法如下。</p>
-<p>注意：下面所有的操作都是以 <code>root</code> 用户进行的，非 <code>root</code> 用户请在命令前加上 <code>sudo</code><br>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
 
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssh/">ssh</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vpn/">vpn</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vps/">vps</a></li></ul>
-    </div>
+<p>注意：下面所有的操作都是以 <code>root</code> 用户进行的，非 <code>root</code> 用户请在命令前加上 <code>sudo</code></p>
 
-      
-        <p class="article-more-link">
-          <a href="/build-vpn/#more">查看全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
+<h1>安装 <code>pptp</code></h1>
+
+<p><code>apt-get install pptpd</code></p>
+
+<p>配置 <code>IP</code> 地址范围及服务器 <code>IP</code></p>
+
+<p><code>vi /etc/pptpd.conf</code></p>
+
+<p>取消下面内容的注释</p>
+
+<pre><code class="language-shell">option /etc/ppp/pptpd-options
+localip 192.168.0.1
+remoteip 192.168.0.234-238,192.168.0.245
+</code></pre>
+
+
+  <div class="more">
+    <a href="/Blog/%E5%9C%A8-VPS-%E4%B8%AD%E6%90%AD%E5%BB%BA-VPN-%E6%9C%8D%E5%8A%A1%E5%99%A8/" class="btn">read more..</a>
   </div>
-  
-</article>
+</div>
+
+<div class="post">
+  <h3 class="title"><a href="/Note/Go-%E7%AC%94%E8%AE%B0--md5-sum/">Go 笔记: md5 sum</a> <span class="date">2014-06-22 22:54:38</span></h3>
+
+  <p>使用 Go 语言实现字符串与文件的 MD5 值计算，但是大文件不要使用此方法。</p>
+
+<p>```go
+package utils</p>
+
+<p>import (
+    &ldquo;crypto/md5&rdquo;
+    &ldquo;io/ioutil&rdquo;
+    &ldquo;strconv&rdquo;
+)</p>
+
+<p>const (
+    MD5_STR_LEN = 32
+)</p>
+
+<p>func md5ByteToStr(bytes [16]byte) string {
+    str := &ldquo;&rdquo;</p>
 
 
-
-
-
-
-
-
-
-  
-    <article id="post-go-md5-sum" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/go-md5-sum/" class="article-date">
-      <time datetime="2014-06-22T14:54:38.000Z" itemprop="datePublished">2014-06-22</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/go-md5-sum/">Go 笔记: md5 sum</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>使用 Go 语言实现字符串与文件的 MD5 值计算，但是大文件不要使用此方法。</p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/go/">go</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/md5/">md5</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/go-md5-sum/#more">查看全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
+  <div class="more">
+    <a href="/Note/Go-%E7%AC%94%E8%AE%B0--md5-sum/" class="btn">read more..</a>
   </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-  
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
-  
 </div>
-      <footer id="footer">
-    <div class="outer">
-        <div id="footer-info">
-            <div class="footer-left">
-                <i class="fa fa-copyright"></i> 
-                2016 jouyouyun
-            </div>
-            <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="快速、簡單且強大的網誌框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="簡而不減 Hexo 雙欄網誌主題  v3.0">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
-            </div>
-        </div>
-        
-            <div class="visit">
-                
-                    <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" >本站到訪數: 
-                            <span id="busuanzi_value_site_uv"></span>
-                        </span>
-                    </span>
-                
-                
-                    <span>, </span>
-                
-                
-                    <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit">本頁閱讀量: 
-                            <span id="busuanzi_value_page_pv"></span>
-                        </span>
-                    </span>
-                
-            </div>
-        
-    </div>
-</footer>
-    </div>
+
+
+  </div>
+</div>
+
+      </div>
+
+      <footer>
+        <p>&copy; jouyouyun 2013 
+          with help from <a href="http://github.com/wendal/gor" target="_blank" title="Gor -- Fast Blog">Gor</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+		  and Idea from <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">ruhoh</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
     
-<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.1.22/require.min.js"></script>
-
-    <script>
-        $(document).ready(function() {
-            var iPad = window.navigator.userAgent.indexOf('iPad');
-            if (iPad > -1 || $(".left-col").css("display") === "none") {
-                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
-                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
-                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
-            }
-            else {
-                var backgroundnum = 5;
-                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
-                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
-            }
-        })
-    </script>
-
-
-
-
-<div class="scroll" id="scroll">
-    <a href="#" title="返回頂部"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" title="查看評論"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="轉到底部"><i class="fa fa-arrow-down"></i></a>
-</div>
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+<script src="//cdnjscn.b0.upaiyun.com/libs/prettify/r298/prettify.min.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
 </script>
-  </div>
-</body>
+
+    
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-123-12']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  </body>
 </html>

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>XRecord 示例</title>
+  
+    <meta name="author" content="jouyouyun">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/twitter/stylesheets/bootstrap.min.css" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/stylesheets/style.css" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/widgets/google_prettify/stylesheets/twitter-bootstrap.css" type="text/css" rel="stylesheet" media="all">
+ 
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/">Jouyouyun&#39;s Blog</a>
+          <ul class="nav">
+            
+              
+
+
+  <li><a href="/archive">Archive</a></li>
+
+
+            
+              
+
+
+  <li><a href="/tags">Tags</a></li>
+
+
+            
+              
+
+
+  <li><a href="/categories">Categories</a></li>
+
+
+            
+              
+
+
+  <li><a href="/about">About Me</a></li>
+
+
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="content">
+        <div class="page-header">
+  <h1>XRecord 示例 </h1>
+</div>
+
+<div class="row">
+  <div class="span8">
+    <p>最近在做快捷键绑定的项目，但在绑定单按键时发现 <code>XGrabKey</code> 无法处理。遂请教组长，得知 <code>XRecord</code> 可以处理，于是就去查找 <code>XRecord</code> 的相关资料，但却很少。
+所以在此记录一下整理的示例代码，以便日后查看，其功能在代码注释中写出。</p>
+
+<pre><code class="language-c">/*
+ * XRecord 是 XLib 的一个扩展，在 xtst 中。
+ * 此程序用来监听按键、鼠标点击和鼠标移动事件
+ */
+
+#include &lt;glib.h&gt;
+#include &lt;X11/Xlib.h&gt;
+#include &lt;X11/Xlibint.h&gt;
+#include &lt;X11/extensions/record.h&gt;
+
+typedef struct _RecordEventInfo {
+        Display *ctrl_disp; // 控制通道
+        Display *data_disp; // 数据通道
+        XRecordRange *range;
+        XRecordContext context;
+} RecordEventInfo;
+
+typedef union {
+        unsigned char type; // 事件类型
+        xEvent xe; // 事件
+} RecordDate;
+
+static void record_init ();
+static void record_finalize ();
+static void record_event_cb (XPointer user_data, XRecordInterceptData *hook);
+static gpointer enable_ctx_thread (gpointer user_data);
+
+GMainLoop *loop= NULL;
+static RecordEventInfo *grab_info = NULL;
+
+static void
+record_init ()
+{
+        grab_info = g_new0 (RecordEventInfo, 1);
+
+        if ( !grab_info ) {
+                g_warning (&quot;Alloc RecordEventInfo memory failed...&quot;);
+                record_finalize ();
+        }
+
+        grab_info-&gt;ctrl_disp = XOpenDisplay (NULL);
+        grab_info-&gt;data_disp = XOpenDisplay (NULL);
+
+        if ( !grab_info-&gt;ctrl_disp || !grab_info-&gt;data_disp ) {
+                g_warning (&quot;Unable to connect to X server...&quot;);
+                record_finalize ();
+        }
+
+        gint dummy;
+
+        if ( !XQueryExtension (grab_info-&gt;ctrl_disp, &quot;XTEST&quot;,
+                                   &amp;dummy, &amp;dummy, &amp;dummy) ) {
+                g_warning (&quot;XTest extension missing...&quot;);
+                record_finalize ();
+        }
+
+        if ( !XRecordQueryVersion (grab_info-&gt;ctrl_disp, &amp;dummy, &amp;dummy) ) {
+                g_warning (&quot;Failed to obtain xrecord version...&quot;);
+                record_finalize ();
+        }
+
+        grab_info-&gt;range = XRecordAllocRange ();
+
+        if ( !grab_info-&gt;range ) {
+                g_warning (&quot;Alloc XRecordRange memory failed...&quot;);
+                record_finalize ();
+        }
+
+        // 定义需要监听的事件范围，具体见 XRecord 文档
+        grab_info-&gt;range-&gt;device_events.first = KeyPress;
+        grab_info-&gt;range-&gt;device_events.last = MotionNotify;
+
+        XRecordClientSpec spec = XRecordAllClients;
+        grab_info-&gt;context = XRecordCreateContext (
+                                                grab_info-&gt;data_disp,
+                                                0, &amp;spec, 1,
+                                                &amp;grab_info-&gt;range, 1);
+
+        if ( !grab_info-&gt;context ) {
+                g_warning (&quot;Unable to create context...&quot;);
+                record_finalize();
+        }
+
+        XSynchronize (grab_info-&gt;ctrl_disp, TRUE);
+        XFlush (grab_info-&gt;ctrl_disp);
+
+        // 创建线程来处理接收到的数据
+        GThread *thrd = g_thread_new (&quot;enable context&quot;,
+                                (GThreadFunc)enable_ctx_thread, NULL);
+
+        if ( !thrd ) {
+                g_warning (&quot;Unable to create thread...&quot;);
+                record_finalize ();
+        }
+}
+
+/*
+ * 释放资源
+ */
+
+static void
+record_finalize ()
+{
+        if (!grab_info) {
+                return;
+        }
+
+        if (grab_info-&gt;context) {
+                XRecordDisableContext(grab_info-&gt;data_disp, grab_info-&gt;context);
+                XRecordFreeContext(grab_info-&gt;data_disp, grab_info-&gt;context);
+        }
+
+        if (grab_info-&gt;range) {
+                XFree(grab_info-&gt;range);
+                grab_info-&gt;range = NULL;
+        }
+
+        if (grab_info-&gt;ctrl_disp) {
+                XCloseDisplay (grab_info-&gt;ctrl_disp);
+                grab_info-&gt;ctrl_disp = NULL;
+        }
+
+        if (grab_info-&gt;data_disp) {
+                XCloseDisplay (grab_info-&gt;data_disp);
+                grab_info-&gt;data_disp = NULL;
+        }
+
+        if (grab_info) {
+                g_free (grab_info);
+                grab_info = NULL;
+        }
+}
+
+static gpointer
+enable_ctx_thread (gpointer user_data)
+{
+        // 开始接收数据
+        if ( !XRecordEnableContext (grab_info-&gt;data_disp,
+                                        grab_info-&gt;context,
+                                        record_event_cb, NULL) ) {
+                g_warning (&quot;Unable to enable context...&quot;);
+                record_finalize ();
+        }
+
+        g_thread_exit (NULL);
+        g_main_loop_quit(loop);
+
+        return NULL;
+}
+
+static void
+record_event_cb (XPointer user_data, XRecordInterceptData *hook)
+{
+        if ( hook-&gt;category != XRecordFromServer ) {
+                XRecordFreeData(hook);
+                g_warning (&quot;Data not from X server...&quot;);
+                return;
+        }
+
+        RecordDate *data = (RecordDate *)hook-&gt;data;
+        int detail = data-&gt;xe.u.u.detail; // 按键或鼠标的 keycode
+        int event_type = data-&gt;type; // 事件类型
+        // 事件发生时的坐标
+        int rootX = data-&gt;xe.u.keyButtonPointer.rootX;
+        int rootY = data-&gt;xe.u.keyButtonPointer.rootY;
+        /*int time = hook-&gt;server_time;*/
+
+        switch (event_type) {
+        case KeyPress:
+                g_print(&quot;%d pressed\n&quot;, detail);
+                /*KeySym sym = XKeycodeToKeysym(grab_info-&gt;data_disp, detail, 0);*/
+                break;
+
+        case KeyRelease:
+                g_print(&quot;%d released\n&quot;, detail);
+                break;
+
+        case MotionNotify:
+                g_print(&quot;Mouse Motion: %d -- %d\n&quot;, rootX, rootY);
+                break;
+
+        case ButtonPress:
+                g_print(&quot;Mouse %d pressed\n&quot;, detail);
+                break;
+
+        case ButtonRelease:
+                g_print(&quot;Mouse %d released\n&quot;, detail);
+                break;
+
+        default:
+                break;
+        }
+
+        XRecordFreeData(hook);
+}
+
+int
+main(int argc, char *argv[])
+{
+        record_init();
+
+        loop = g_main_loop_new(NULL, FALSE);
+        g_main_loop_run(loop);
+        g_main_loop_unref(loop);
+        record_finalize();
+
+        return 0;
+}
+</code></pre>
+
+    <hr>
+    <div class="pagination">
+      <ul>
+        <ul>
+          
+            <li class="prev"><a href="/Note/Go-%E7%AC%94%E8%AE%B0--URI-Encode%2FDecode/" title="Go 笔记: URI Encode/Decode">&larr; Previous</a></li>
+          
+          
+
+            <li><a href="/archive">Archive</a></li>
+
+          
+          
+            <li class="next disabled"><a>Next &rarr;</a>
+          
+        </ul>
+      </ul>
+    </div>
+    <hr>
+    
+<div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'jekyllbootstrap'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </div>
+  
+  <div class="span4">
+    <h4>Published</h4>
+    <div class="date"><span>2014-04-18 17:42:15</span></div>
+    <br>
+    <h4>Categories</h4>
+    <ul class="tag_box">
+    
+      <li>
+  <a href="/categories/#Note-ref">Note <span>8</span></a>
+</li>
+    
+    </ul>
+    <br>
+    <h4>Tags</h4>
+    <ul class="tag_box">
+    
+      <li>
+  <a href="/tags/#xtst-ref">xtst <span>1</span></a>
+</li>
+    
+      <li>
+  <a href="/tags/#xrecord-ref">xrecord <span>1</span></a>
+</li>
+    
+    </ul>
+  </div>
+</div>
+
+      </div>
+
+      <footer>
+        <p>&copy; jouyouyun 2013 
+          with help from <a href="http://github.com/wendal/gor" target="_blank" title="Gor -- Fast Blog">Gor</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+		  and Idea from <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">ruhoh</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+<script src="//cdnjscn.b0.upaiyun.com/libs/prettify/r298/prettify.min.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+
+    
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-123-12']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  </body>
+</html>

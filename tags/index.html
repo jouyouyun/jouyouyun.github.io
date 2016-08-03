@@ -1,507 +1,293 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-<head>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Tags</title>
   
+    <meta name="author" content="jouyouyun">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
-        <style>body {display: none; background: none !important} </style>
-        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-  <meta charset="utf-8">
-  
-  <title>tags | Jouyouyun&#39;s Blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Linuxsir, C/C++/GoLang Programmer">
-<meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="https://jouyouyun.github.io/tags/index.html">
-<meta property="og:site_name" content="Jouyouyun's Blog">
-<meta property="og:description" content="Linuxsir, C/C++/GoLang Programmer">
-<meta property="og:updated_time" content="2016-01-23T10:09:29.248Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
-<meta name="twitter:description" content="Linuxsir, C/C++/GoLang Programmer">
-  
-    <link rel="alternative" href="/atom.xml" title="Jouyouyun&#39;s Blog" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-      <link href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css" rel="stylesheet">
-  
-  
-      <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
-      <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
-  
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
-  
-  <link href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  
-  
-      <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
-  
-  <script src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
-  <script src="//cdn.bootcss.com/clipboard.js/1.5.9/clipboard.min.js"></script>
-  <script>
-      var yiliaConfig = {
-          fancybox: true,
-          animate: true,
-          isHome: false,
-          isPost: false,
-          isArchive: false,
-          isTag: false,
-          isCategory: false,
-          open_in_new: false,
-          fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
-          scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.0.9/scrollreveal.min.js",
-          search: undefined
-      }
-  </script>
+    <!-- Le styles -->
+    <link href="/assets/twitter/stylesheets/bootstrap.min.css" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/stylesheets/style.css" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/widgets/google_prettify/stylesheets/twitter-bootstrap.css" type="text/css" rel="stylesheet" media="all">
+ 
 
-  
-      <script>
-          yiliaConfig.jquery_ui = [false];
-      </script>
-  
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
 
-  
-      <script>
-          yiliaConfig.rootUrl = "/";
-      </script>
-  
+  <body>
 
-  
-  
-</head>
-<body>
-  <div id="container">
-    <div class="left-col">
-    <div class="overlay"></div>
-<div class="intrude-less">
-    <header id="header" class="inner">
-        <a href="/" class="profilepic">
-            <img src="/img/avatar.png" class="animated zoomIn">
-        </a>
-        <hgroup>
-          <h1 class="header-author"><a href="/">jouyouyun</a></h1>
-        </hgroup>
-
-        
-        <p class="header-subtitle">一些喜欢的东西</p>
-        
-
-        
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/">Jouyouyun&#39;s Blog</a>
+          <ul class="nav">
+            
+              
 
 
-        
-            <div id="switch-btn" class="switch-btn">
-                <div class="icon">
-                    <div class="icon-ctn">
-                        <div class="icon-wrap icon-house" data-idx="0">
-                            <div class="birdhouse"></div>
-                            <div class="birdhouse_holes"></div>
-                        </div>
-                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
-                            <div class="ribbon"></div>
-                        </div>
-                        
-                        <div class="icon-wrap icon-link hide" data-idx="2">
-                            <div class="loopback_l"></div>
-                            <div class="loopback_r"></div>
-                        </div>
-                        
-                        
-                        <div class="icon-wrap icon-me hide" data-idx="3">
-                            <div class="user"></div>
-                            <div class="shoulder"></div>
-                        </div>
-                        
-                    </div>
-                    
-                </div>
-                <div class="tips-box hide">
-                    <div class="tips-arrow"></div>
-                    <ul class="tips-inner">
-                        <li>菜單</li>
-                        <li>標籤</li>
-                        
-                        <li>友情鏈接</li>
-                        
-                        
-                        <li>關於我</li>
-                        
-                    </ul>
-                </div>
-            </div>
-        
+  <li><a href="/archive">Archive</a></li>
 
-        <div id="switch-area" class="switch-area">
-            <div class="switch-wrap">
-                <section class="switch-part switch-part1">
-                    <nav class="header-menu">
-                        <ul>
-                        
-                            <li><a href="/">主页</a></li>
-                        
-                            <li><a href="/archives/">所有文章</a></li>
-                        
-                            <li><a href="/tags/">标签云</a></li>
-                        
-                            <li><a href="/about/">关于我</a></li>
-                        
-                        </ul>
-                    </nav>
-                    <nav class="header-nav">
-                        <ul class="social">
-                            
-                                <a class="fa Email" target="_blank" href="mailto:jouyouwen717@gmail.com" title="Email"></a>
-                            
-                                <a class="fa GitHub" target="_blank" href="https://github.com/jouyouyun" title="GitHub"></a>
-                            
-                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
-                            
-                                <a class="fa Twitter" target="_blank" href="https://twitter.com/jouyouyun" title="Twitter"></a>
-                            
-                                <a class="fa 微信" target="_blank" href="/jouyouyun1990" title="微信"></a>
-                            
-                        </ul>
-                    </nav>
-                </section>
-                
-                
-                <section class="switch-part switch-part2">
-                    <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/coredump/">coredump</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cursor/">cursor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/debug/">debug</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/go/">go</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gob/">gob</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/md5/">md5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tcp/">tcp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/uri/">uri</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vpn/">vpn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vps/">vps</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wacom/">wacom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xrandr/">xrandr</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xsetwacom/">xsetwacom</a></li></ul>
-                    </div>
-                </section>
-                
-                
-                
-                <section class="switch-part switch-part3">
-                    <div id="js-friends">
-                    
-                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
-                    
-                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
-                    
-                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
-                    
-                    </div>
-                </section>
-                
 
-                
-                
-                <section class="switch-part switch-part4">
-                
-                    <div id="js-aboutme">Linuxsir &amp;&amp; C/C++/GoLang Programmer</div>
-                </section>
-                
-            </div>
+            
+              
+  <li class="active"><a href="/tags" class="active">Tags</a></li>
+
+
+
+
+            
+              
+
+
+  <li><a href="/categories">Categories</a></li>
+
+
+            
+              
+
+
+  <li><a href="/about">About Me</a></li>
+
+
+            
+          </ul>
         </div>
-    </header>                
-</div>
-    </div>
-    <div class="mid-col">
-      <nav id="mobile-nav">
-      <div class="overlay">
-          <div class="slider-trigger"></div>
-          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">jouyouyun</a></h1>
       </div>
-    <div class="intrude-less">
-        <header id="header" class="inner">
-            <a href="/" class="profilepic">
-                <img src="/img/avatar.png" class="animated zoomIn">
-            </a>
-            <hgroup>
-              <h1 class="header-author"><a href="/" title="回到主页">jouyouyun</a></h1>
-            </hgroup>
-            
-            <p class="header-subtitle">一些喜欢的东西</p>
-            
-            <nav class="header-menu">
-                <ul>
-                
-                    <li><a href="/">主页</a></li>
-                
-                    <li><a href="/archives/">所有文章</a></li>
-                
-                    <li><a href="/tags/">标签云</a></li>
-                
-                    <li><a href="/about/">关于我</a></li>
-                
-                <div class="clearfix"></div>
-                </ul>
-            </nav>
-            <nav class="header-nav">
-                        <ul class="social">
-                            
-                                <a class="fa Email" target="_blank" href="mailto:jouyouwen717@gmail.com" title="Email"></a>
-                            
-                                <a class="fa GitHub" target="_blank" href="https://github.com/jouyouyun" title="GitHub"></a>
-                            
-                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
-                            
-                                <a class="fa Twitter" target="_blank" href="https://twitter.com/jouyouyun" title="Twitter"></a>
-                            
-                                <a class="fa 微信" target="_blank" href="/jouyouyun1990" title="微信"></a>
-                            
-                        </ul>
-            </nav>
-        </header>                
     </div>
-    <link class="menu-list" tags="標籤" friends="友情鏈接" about="關於我"/>
-</nav>
-      <div class="body-wrap"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/tags/index.html" class="article-date">
-      <time datetime="2016-01-23T10:09:29.000Z" itemprop="datePublished">2016-01-23</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+
+    <div class="container">
+
+      <div class="content">
         
-  
-    <h1 class="article-title" itemprop="name">
-      tags
-    </h1>
-  
-
-      </header>
-      
-      <div class="article-info article-info-post">
-        
-
-        
-        <div class="clearfix"></div>
-      </div>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <style>
-    .article-meta { display: none; }
-    #container .article .article-title { padding-right: 0; }
-    .article-header {
-        padding: 0;
-        padding-top: 26px;
-        border-left: none;
-        text-align: center;
-    }
-    .article-header:hover { border-left: none; }
-    .article-title { font-size: 1.6em }
-    .article-entry hr { margin: 0;}
-    .article-meta,
-    #container .article-info-post.article-info { display: none;}
-    #container .article .article-title { padding: 0; }
-</style>
-
-
-    <!-- Tag Cloud Page -->
-    <hr>
-<br>
-
-
-<p class="count"></p>
-
-<div class="tags">
-    <a href="/tags/coredump/" style="font-size: 16px; color: #808080">coredump</a> <a href="/tags/cursor/" style="font-size: 16px; color: #808080">cursor</a> <a href="/tags/debug/" style="font-size: 16px; color: #808080">debug</a> <a href="/tags/go/" style="font-size: 35px; color: #000">go</a> <a href="/tags/gob/" style="font-size: 25.5px; color: #404040">gob</a> <a href="/tags/md5/" style="font-size: 16px; color: #808080">md5</a> <a href="/tags/ssh/" style="font-size: 16px; color: #808080">ssh</a> <a href="/tags/tcp/" style="font-size: 16px; color: #808080">tcp</a> <a href="/tags/uri/" style="font-size: 16px; color: #808080">uri</a> <a href="/tags/vpn/" style="font-size: 16px; color: #808080">vpn</a> <a href="/tags/vps/" style="font-size: 16px; color: #808080">vps</a> <a href="/tags/wacom/" style="font-size: 16px; color: #808080">wacom</a> <a href="/tags/xrandr/" style="font-size: 16px; color: #808080">xrandr</a> <a href="/tags/xsetwacom/" style="font-size: 16px; color: #808080">xsetwacom</a>
+<div class="page-header">
+  <h1>Tags </h1>
 </div>
-<style>
-    .category-list li{
-        display: inline-block;
-        margin: 0 1em .5em 0;
-        padding: 4px;
-        border: 1px solid lightgray;
-        font-size: 1.2rem;
-    }
-    .category-list a { color: gray; }
-    .category-list-item:hover a {
-        color: gray;
-        text-decoration: none;
-    }
-    .category-list-count {
-        margin-left: 2px;
-        font-size: .9rem;
-    }
-    .article-entry ul li:before{ display: none; }
-    .article-inner { text-align: center; }
-    .tags {
-        max-width: 42em;
-        margin: 2em auto;
-        margin-top: 0em;
-    }
-    .tags a {
-        margin-right: 1em;
-        line-height: 65px;
-        border-bottom: 1px solid gray;
-        white-space: nowrap;
-        transition: border-bottom .5s;
-    }
-    .tags a:hover {
-        border-bottom: 3px dotted gray;
-        text-decoration: none;
-    }
-    #count > span {
-        margin: auto .2em;
-        font-weight: bold;
-    }
-</style>
 
-<!-- Count tags and categories -->
-<p id="count">
-        已有<span><script>document.write($(".category-list-item").length)</script></span>個分類，
-        共計<span><script>document.write($(".tags > a").length)</script></span>個標籤
-</p>
+<div class="row">
+  <div class="span12">
+    
+<ul class="tag_box inline">
+
+  <li>
+  <a href="/tags/#chroot-ref">chroot <span>1</span></a>
+</li>
+
+  <li>
+  <a href="/tags/#coredump-ref">coredump <span>1</span></a>
+</li>
+
+  <li>
+  <a href="/tags/#cursor-ref">cursor <span>1</span></a>
+</li>
+
+  <li>
+  <a href="/tags/#debug-ref">debug <span>1</span></a>
+</li>
+
+  <li>
+  <a href="/tags/#go-ref">go <span>5</span></a>
+</li>
+
+  <li>
+  <a href="/tags/#gob-ref">gob <span>2</span></a>
+</li>
+
+  <li>
+  <a href="/tags/#md5-ref">md5 <span>1</span></a>
+</li>
+
+  <li>
+  <a href="/tags/#ssh-ref">ssh <span>1</span></a>
+</li>
+
+  <li>
+  <a href="/tags/#tcp-ref">tcp <span>1</span></a>
+</li>
+
+  <li>
+  <a href="/tags/#uri-ref">uri <span>1</span></a>
+</li>
+
+  <li>
+  <a href="/tags/#vpn-ref">vpn <span>1</span></a>
+</li>
+
+  <li>
+  <a href="/tags/#vps-ref">vps <span>1</span></a>
+</li>
+
+  <li>
+  <a href="/tags/#wacom-ref">wacom <span>1</span></a>
+</li>
+
+  <li>
+  <a href="/tags/#xrandr-ref">xrandr <span>1</span></a>
+</li>
+
+  <li>
+  <a href="/tags/#xrecord-ref">xrecord <span>1</span></a>
+</li>
+
+  <li>
+  <a href="/tags/#xsetwacom-ref">xsetwacom <span>1</span></a>
+</li>
+
+  <li>
+  <a href="/tags/#xtst-ref">xtst <span>1</span></a>
+</li>
+
+</ul>
+
+
+
+  <h2 id="chroot-ref">chroot</h2>
+  
+    <li><a href="/Blog/chroot-%E8%84%9A%E6%9C%AC/">chroot 脚本</a></li>
+  
+
+  <h2 id="coredump-ref">coredump</h2>
+  
+    <li><a href="/Note/Enable-coredump/">Enable coredump</a></li>
+  
+
+  <h2 id="cursor-ref">cursor</h2>
+  
+    <li><a href="/Blog/Auto-Hidden-Cursor/">Auto Hidden Cursor</a></li>
+  
+
+  <h2 id="debug-ref">debug</h2>
+  
+    <li><a href="/Note/debug-%E5%B0%8F%E7%BB%93/">debug 小结</a></li>
+  
+
+  <h2 id="go-ref">go</h2>
+  
+    <li><a href="/Note/Go-%E7%AC%94%E8%AE%B0--%E7%AE%80%E5%8D%95%E7%9A%84-TCP-Socket-%E7%A4%BA%E4%BE%8B/">Go 笔记: 简单的 TCP Socket 示例</a></li>
+  
+    <li><a href="/Note/Go-%E7%AC%94%E8%AE%B0%EF%BC%9AGob-Write%2FRead-File/">Go 笔记：Gob Write/Read File</a></li>
+  
+    <li><a href="/Note/Go-%E7%AC%94%E8%AE%B0--md5-sum/">Go 笔记: md5 sum</a></li>
+  
+    <li><a href="/Note/Go-%E7%AC%94%E8%AE%B0--%E5%88%A4%E6%96%AD%E6%96%87%E4%BB%B6%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8/">Go 笔记: 判断文件是否存在</a></li>
+  
+    <li><a href="/Note/Go-%E7%AC%94%E8%AE%B0--URI-Encode%2FDecode/">Go 笔记: URI Encode/Decode</a></li>
+  
+
+  <h2 id="gob-ref">gob</h2>
+  
+    <li><a href="/Note/Go-%E7%AC%94%E8%AE%B0--%E7%AE%80%E5%8D%95%E7%9A%84-TCP-Socket-%E7%A4%BA%E4%BE%8B/">Go 笔记: 简单的 TCP Socket 示例</a></li>
+  
+    <li><a href="/Note/Go-%E7%AC%94%E8%AE%B0%EF%BC%9AGob-Write%2FRead-File/">Go 笔记：Gob Write/Read File</a></li>
+  
+
+  <h2 id="md5-ref">md5</h2>
+  
+    <li><a href="/Note/Go-%E7%AC%94%E8%AE%B0--md5-sum/">Go 笔记: md5 sum</a></li>
+  
+
+  <h2 id="ssh-ref">ssh</h2>
+  
+    <li><a href="/Blog/%E5%9C%A8-VPS-%E4%B8%AD%E6%90%AD%E5%BB%BA-VPN-%E6%9C%8D%E5%8A%A1%E5%99%A8/">在 VPS 中搭建 VPN 服务器</a></li>
+  
+
+  <h2 id="tcp-ref">tcp</h2>
+  
+    <li><a href="/Note/Go-%E7%AC%94%E8%AE%B0--%E7%AE%80%E5%8D%95%E7%9A%84-TCP-Socket-%E7%A4%BA%E4%BE%8B/">Go 笔记: 简单的 TCP Socket 示例</a></li>
+  
+
+  <h2 id="uri-ref">uri</h2>
+  
+    <li><a href="/Note/Go-%E7%AC%94%E8%AE%B0--URI-Encode%2FDecode/">Go 笔记: URI Encode/Decode</a></li>
+  
+
+  <h2 id="vpn-ref">vpn</h2>
+  
+    <li><a href="/Blog/%E5%9C%A8-VPS-%E4%B8%AD%E6%90%AD%E5%BB%BA-VPN-%E6%9C%8D%E5%8A%A1%E5%99%A8/">在 VPS 中搭建 VPN 服务器</a></li>
+  
+
+  <h2 id="vps-ref">vps</h2>
+  
+    <li><a href="/Blog/%E5%9C%A8-VPS-%E4%B8%AD%E6%90%AD%E5%BB%BA-VPN-%E6%9C%8D%E5%8A%A1%E5%99%A8/">在 VPS 中搭建 VPN 服务器</a></li>
+  
+
+  <h2 id="wacom-ref">wacom</h2>
+  
+    <li><a href="/Blog/xsetwacom-%E9%80%89%E9%A1%B9%E8%AF%B4%E6%98%8E/">xsetwacom 选项说明</a></li>
+  
+
+  <h2 id="xrandr-ref">xrandr</h2>
+  
+    <li><a href="/Blog/xrandr-examples/">xrandr examples</a></li>
+  
+
+  <h2 id="xrecord-ref">xrecord</h2>
+  
+    <li><a href="/Note/XRecord-%E7%A4%BA%E4%BE%8B/">XRecord 示例</a></li>
+  
+
+  <h2 id="xsetwacom-ref">xsetwacom</h2>
+  
+    <li><a href="/Blog/xsetwacom-%E9%80%89%E9%A1%B9%E8%AF%B4%E6%98%8E/">xsetwacom 选项说明</a></li>
+  
+
+  <h2 id="xtst-ref">xtst</h2>
+  
+    <li><a href="/Note/XRecord-%E7%A4%BA%E4%BE%8B/">XRecord 示例</a></li>
+  
+ 
+
+  </div>
+</div>
+
+      </div>
+
+      <footer>
+        <p>&copy; jouyouyun 2013 
+          with help from <a href="http://github.com/wendal/gor" target="_blank" title="Gor -- Fast Blog">Gor</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+		  and Idea from <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">ruhoh</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+<script src="//cdnjscn.b0.upaiyun.com/libs/prettify/r298/prettify.min.js"></script>
 <script>
-    $('#count').appendTo('.count');
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
 </script>
 
-          
-        
-      
-    </div>
     
-  </div>
-  
-    
+<script type="text/javascript">
 
+  var _gaq = _gaq || [];
+  var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-123-12']);
+  _gaq.push(['_trackPageview']);
 
-  
-</article>
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
 
-
-
-    
-<div class="share">
-    
-        <div class="bdsharebuttonbox">
-            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
-            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
-            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
-            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
-            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
-            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
-        </div>
-        <script>
-            window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"tags　| Jouyouyun's Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
-        </script>
-    
-
-    
-</div>
-
-
-
-
-
-
-
-    
-      <div class="duoshuo" id="comments">
-    <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="tags/index.html" data-title="tags" data-url="https://jouyouyun.github.io/tags/index.html"></div>
-    <!-- 多说评论框 end -->
-    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-    <script type="text/javascript">
-    var duoshuoQuery = {short_name:"jouyouyun"};
-    (function() {
-        var ds = document.createElement('script');
-        ds.type = 'text/javascript';ds.async = true;
-        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-        ds.charset = 'UTF-8';
-        (document.getElementsByTagName('head')[0] 
-         || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-    </script>
-    <!-- 多说公共JS代码 end -->
-</div>
-
-    
-
-
-
-
-
-    <script>
-        
-    </script>
-</div>
-      <footer id="footer">
-    <div class="outer">
-        <div id="footer-info">
-            <div class="footer-left">
-                <i class="fa fa-copyright"></i> 
-                2016 jouyouyun
-            </div>
-            <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="快速、簡單且強大的網誌框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="簡而不減 Hexo 雙欄網誌主題  v3.0">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
-            </div>
-        </div>
-        
-            <div class="visit">
-                
-                    <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" >本站到訪數: 
-                            <span id="busuanzi_value_site_uv"></span>
-                        </span>
-                    </span>
-                
-                
-                    <span>, </span>
-                
-                
-                    <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit">本頁閱讀量: 
-                            <span id="busuanzi_value_page_pv"></span>
-                        </span>
-                    </span>
-                
-            </div>
-        
-    </div>
-</footer>
-    </div>
-    
-<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.1.22/require.min.js"></script>
-
-    <script>
-        $(document).ready(function() {
-            var iPad = window.navigator.userAgent.indexOf('iPad');
-            if (iPad > -1 || $(".left-col").css("display") === "none") {
-                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
-                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
-                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
-            }
-            else {
-                var backgroundnum = 5;
-                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
-                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
-            }
-        })
-    </script>
-
-
-
-
-<div class="scroll" id="scroll">
-    <a href="#" title="返回頂部"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" title="查看評論"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="轉到底部"><i class="fa fa-arrow-down"></i></a>
-</div>
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
-  </div>
-</body>
+  </body>
 </html>

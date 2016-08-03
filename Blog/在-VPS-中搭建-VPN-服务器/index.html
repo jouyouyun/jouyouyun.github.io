@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>在 VPS 中搭建 VPN 服务器</title>
+  
+    <meta name="author" content="jouyouyun">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/twitter/stylesheets/bootstrap.min.css" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/stylesheets/style.css" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/widgets/google_prettify/stylesheets/twitter-bootstrap.css" type="text/css" rel="stylesheet" media="all">
+ 
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/">Jouyouyun&#39;s Blog</a>
+          <ul class="nav">
+            
+              
+
+
+  <li><a href="/archive">Archive</a></li>
+
+
+            
+              
+
+
+  <li><a href="/tags">Tags</a></li>
+
+
+            
+              
+
+
+  <li><a href="/categories">Categories</a></li>
+
+
+            
+              
+
+
+  <li><a href="/about">About Me</a></li>
+
+
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="content">
+        <div class="page-header">
+  <h1>在 VPS 中搭建 VPN 服务器 </h1>
+</div>
+
+<div class="row">
+  <div class="span8">
+    <p>最近 <code>Google</code> 被封，而用 <code>Goagent</code> 做代理进行访问的效果而不是很理想，所以就想去买 <code>VPN/VPS</code>。几经考虑后，就去买了个便宜 <code>VPS</code>，这样也就可以分享给家人用了。</p>
+
+<p><code>VPS</code> 中安装的是 <code>Ubuntu</code>，所以搭建 <code>VPN</code> 服务器也就是在 <code>Ubuntu</code> 上面搭建，具体方法如下。</p>
+
+<p>注意：下面所有的操作都是以 <code>root</code> 用户进行的，非 <code>root</code> 用户请在命令前加上 <code>sudo</code></p>
+
+<h1>安装 <code>pptp</code></h1>
+
+<p><code>apt-get install pptpd</code></p>
+
+<p>配置 <code>IP</code> 地址范围及服务器 <code>IP</code></p>
+
+<p><code>vi /etc/pptpd.conf</code></p>
+
+<p>取消下面内容的注释</p>
+
+<pre><code class="language-shell">option /etc/ppp/pptpd-options
+localip 192.168.0.1
+remoteip 192.168.0.234-238,192.168.0.245
+</code></pre>
+
+<h1>添加用于登录的账户</h1>
+
+<p><code>vi /etc/ppp/chap-secrets</code></p>
+
+<p>格式如下</p>
+
+<p><code>用户名    pptpd   &quot;密码&quot;    *</code></p>
+
+<p>密码需要用英文双引号，最后的星号(*)代表允许接入的 <code>IP</code> 可以是任意 <code>IP</code></p>
+
+<h1>设置 <code>DNS</code></h1>
+
+<p><code>vi /etc/ppp/pptpd-options</code></p>
+
+<p>找到 <code>ms-dns</code>，取消掉注释，并修改 <code>DNS</code> 地址，推荐使用 <code>Google DNS</code></p>
+
+<pre><code class="language-shell"> 8.8.8.8 
+ 8.8.4.4
+</code></pre>
+
+<h1>打开内核 <code>IP</code> 转发</h1>
+
+<p><code>vi /etc/sysctl.conf</code></p>
+
+<p>取消以下内容的注释：</p>
+
+<p><code>net.ipv4.ip_forward=1</code></p>
+
+<p>使其生效</p>
+
+<pre><code class="language-shell">sysctl -p
+/etc/init.d/procps restart
+</code></pre>
+
+<h1>安装 <code>iptables</code> 并设置</h1>
+
+<p>开放主机防火墙 <code>VPN</code> 端口（默认为 <code>1723</code>）</p>
+
+<p><code>iptables -I INPUT -p tcp --dport 1723 -j ACCEPT</code></p>
+
+<p>立刻让内核支持 <code>NAT</code></p>
+
+<p><code>iptables --table nat --append POSTROUTING --jump MASQUERADE</code></p>
+
+<p>为了让每次重启都生效，还需要在 <code>/etc/rc.local</code> 文件添加命令</p>
+
+<p><code>iptables --table nat --append POSTROUTING --jump MASQUERADE</code></p>
+
+<h1>SSH` 代理</h1>
+
+<p>如要使用 <code>ssh</code> 作为代理，则需要创建用户。若此用户只作为 <code>ssh</code> 代理用，则不要登录 <code>shell</code> 及主目录，使用以下命令</p>
+
+<p><code>useradd -s /bin/false  test</code></p>
+
+<p>在客户端(<code>linux</code>)中使用以下命令连接</p>
+
+<p><code>ssh -qTfnN -D 7070 test@xxx.xxx.xxx.xxx</code></p>
+
+    <hr>
+    <div class="pagination">
+      <ul>
+        <ul>
+          
+            <li class="prev"><a href="/Blog/chroot-%E8%84%9A%E6%9C%AC/" title="chroot 脚本">&larr; Previous</a></li>
+          
+          
+
+            <li><a href="/archive">Archive</a></li>
+
+          
+            <li class="next"><a href="/Note/Go-%E7%AC%94%E8%AE%B0--md5-sum/" title="Go 笔记: md5 sum">Next &rarr;</a></li>
+          
+          
+        </ul>
+      </ul>
+    </div>
+    <hr>
+    
+<div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'jekyllbootstrap'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </div>
+  
+  <div class="span4">
+    <h4>Published</h4>
+    <div class="date"><span>2014-07-04</span></div>
+    <br>
+    <h4>Categories</h4>
+    <ul class="tag_box">
+    
+      <li>
+  <a href="/categories/#Blog-ref">Blog <span>5</span></a>
+</li>
+    
+    </ul>
+    <br>
+    <h4>Tags</h4>
+    <ul class="tag_box">
+    
+      <li>
+  <a href="/tags/#vps-ref">vps <span>1</span></a>
+</li>
+    
+      <li>
+  <a href="/tags/#vpn-ref">vpn <span>1</span></a>
+</li>
+    
+      <li>
+  <a href="/tags/#ssh-ref">ssh <span>1</span></a>
+</li>
+    
+    </ul>
+  </div>
+</div>
+
+      </div>
+
+      <footer>
+        <p>&copy; jouyouyun 2013 
+          with help from <a href="http://github.com/wendal/gor" target="_blank" title="Gor -- Fast Blog">Gor</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+		  and Idea from <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">ruhoh</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+<script src="//cdnjscn.b0.upaiyun.com/libs/prettify/r298/prettify.min.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+
+    
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-123-12']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  </body>
+</html>

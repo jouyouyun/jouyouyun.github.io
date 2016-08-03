@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Enable coredump</title>
+  
+    <meta name="author" content="jouyouyun">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/twitter/stylesheets/bootstrap.min.css" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/stylesheets/style.css" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/widgets/google_prettify/stylesheets/twitter-bootstrap.css" type="text/css" rel="stylesheet" media="all">
+ 
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/">Jouyouyun&#39;s Blog</a>
+          <ul class="nav">
+            
+              
+
+
+  <li><a href="/archive">Archive</a></li>
+
+
+            
+              
+
+
+  <li><a href="/tags">Tags</a></li>
+
+
+            
+              
+
+
+  <li><a href="/categories">Categories</a></li>
+
+
+            
+              
+
+
+  <li><a href="/about">About Me</a></li>
+
+
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="content">
+        <div class="page-header">
+  <h1>Enable coredump </h1>
+</div>
+
+<div class="row">
+  <div class="span8">
+    <h2>简介</h2>
+
+<p>当一个程序崩溃时会产生一个 <code>core</code> 文件, 里面记录了这个程序崩溃的原因, 这些信息对于开发者是很有用的.</p>
+
+<p>但是 <code>core dumps</code> 在大多数 <code>linux</code> 上是被禁用的, 下面就介绍下如何开启这个功能.</p>
+
+<h2>开启</h2>
+
+<p>可以通过 <code>ulimit -c</code> 的输出知道此功能是否开启, 输出为 <code>0</code> 表示禁用, 否则为开启.</p>
+
+<h3>临时开启</h3>
+
+<p>通过 <code>ulimit -c unlimited</code> 命令来开启 <code>coredump</code> 功能, 它会程序运行的当前目录生成一个 <code>core</code> 文件, 新的 <code>core</code> 会覆盖旧的.</p>
+
+<p>通过可以修改 <code>/proc/sys/kernel/core_uses_pid</code> 文件内容为 <code>1</code> 来生成以 <code>pid</code> 作为扩展名的 <code>core</code> 文件.</p>
+
+<p>通过修改 <code>/proc/sys/kernel/core_pattern</code> 可以修改 <code>core</code> 文件的保存位置和格式. 如把内容改为 <code>/tmp/core-%e-%p-%t</code>, 就表示把 <code>core</code> 文件保存到 <code>/tmp</code> 目录下, 文件名的格式为 <code>core-命令名-pid-时间戳</code>.</p>
+
+<h3>永久开启</h3>
+
+<p>首先把开启 <code>coredump</code> 功能的命令 <code>ulimit -c unlimited &gt;/dev/null 2&gt;&amp;1</code> 放到 <code>/etc/profile</code> 中.</p>
+
+<p>然后修改 <code>core</code> 文件的保存位置和格式, 在 <code>/etc/sysctl.conf</code> 文件中添加一下内容:</p>
+
+<pre><code class="language-sh">kernel.core_uses_pid = 1
+kernel.core_pattern = /tmp/core-%e-%s-%u-%g-%p-%t
+</code></pre>
+
+<p>修改完 <code>/etc/sysctl.conf</code> 后, 执行 <code>sudo sysctl -p</code> 重新加载配置.</p>
+
+<p><code>core pattern</code> 说明:</p>
+
+<pre><code class="language-sh">%% – A single % character
+%p – PID of dumped process
+%u – real UID of dumped process
+%g – real GID of dumped process
+%s – number of signal causing dump
+%t – time of dump (seconds since 0:00h, 1 Jan 1970)
+%h – hostname (same as ’nodename’ returned by uname(2))
+%e – executable filename
+</code></pre>
+
+<h2>参考</h2>
+
+<ul>
+<li><p><a href="http://en.linuxreviews.org/HOWTO_enable_core-dumps">HOWTO enable core-dumps</a></p></li>
+
+<li><p><a href="http://www.cyberciti.biz/tips/linux-core-dumps.html">HowTo: Debug Crashed Linux Application Core Files</a></p></li>
+</ul>
+
+    <hr>
+    <div class="pagination">
+      <ul>
+        <ul>
+          
+            <li class="prev"><a href="/Blog/xrandr-examples/" title="xrandr examples">&larr; Previous</a></li>
+          
+          
+
+            <li><a href="/archive">Archive</a></li>
+
+          
+            <li class="next"><a href="/Blog/Auto-Hidden-Cursor/" title="Auto Hidden Cursor">Next &rarr;</a></li>
+          
+          
+        </ul>
+      </ul>
+    </div>
+    <hr>
+    
+<div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'jekyllbootstrap'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </div>
+  
+  <div class="span4">
+    <h4>Published</h4>
+    <div class="date"><span>2016-04-25 19:04:33</span></div>
+    <br>
+    <h4>Categories</h4>
+    <ul class="tag_box">
+    
+      <li>
+  <a href="/categories/#Note-ref">Note <span>8</span></a>
+</li>
+    
+    </ul>
+    <br>
+    <h4>Tags</h4>
+    <ul class="tag_box">
+    
+      <li>
+  <a href="/tags/#coredump-ref">coredump <span>1</span></a>
+</li>
+    
+    </ul>
+  </div>
+</div>
+
+      </div>
+
+      <footer>
+        <p>&copy; jouyouyun 2013 
+          with help from <a href="http://github.com/wendal/gor" target="_blank" title="Gor -- Fast Blog">Gor</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+		  and Idea from <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">ruhoh</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+<script src="//cdnjscn.b0.upaiyun.com/libs/prettify/r298/prettify.min.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+
+    
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-123-12']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  </body>
+</html>

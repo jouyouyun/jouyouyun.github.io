@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>xsetwacom 选项说明</title>
+  
+    <meta name="author" content="jouyouyun">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/twitter/stylesheets/bootstrap.min.css" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/stylesheets/style.css" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/widgets/google_prettify/stylesheets/twitter-bootstrap.css" type="text/css" rel="stylesheet" media="all">
+ 
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/">Jouyouyun&#39;s Blog</a>
+          <ul class="nav">
+            
+              
+
+
+  <li><a href="/archive">Archive</a></li>
+
+
+            
+              
+
+
+  <li><a href="/tags">Tags</a></li>
+
+
+            
+              
+
+
+  <li><a href="/categories">Categories</a></li>
+
+
+            
+              
+
+
+  <li><a href="/about">About Me</a></li>
+
+
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="content">
+        <div class="page-header">
+  <h1>xsetwacom 选项说明 </h1>
+</div>
+
+<div class="row">
+  <div class="span8">
+    <p><code>xsetwacom</code> 是一个设置数位板的命令行工具, 在 <code>Debian/Ubuntu/deepin</code> 上可以通过安装 <code>xserver-xorg-input-wacom</code> 来获取它.</p>
+
+<p>可以通过 <code>man xsetwacom</code> 看到它的帮助文档, 下面就简单说明下它的部份选项:</p>
+
+<hr />
+
+<h2>Options</h2>
+
+<h3>Area</h3>
+
+<ul>
+<li><p>args: x1 y1 x2 y2</p></li>
+
+<li><p>default: 0 0 x2 y2,</p></li>
+
+<li><p>description: 设置数位板可使用的区域</p></li>
+</ul>
+
+<h3>Button</h3>
+
+<ul>
+<li><p>args: button-number [mapping]</p></li>
+
+<li><p>description: 设置数位笔按钮的功能，可自定义为组合键，详细使用方法见文档</p></li>
+</ul>
+
+<h3>MapToOutput</h3>
+
+<ul>
+<li><p>args: output</p></li>
+
+<li><p>description: 设置数位板与显示屏的映射，可以使用 <code>output</code>, <code>Head Number</code>, <code>X11 geometry</code> 三种方式设置</p>
+
+<ul>
+<li><p>output: 如 <code>VGA1</code></p></li>
+
+<li><p>Head Number: 通过 <code>XRandR extension</code> 得到的</p></li>
+
+<li><p>X11 geometry: 格式如 <code>WIDTHxHEIGHT+X+Y</code></p></li>
+</ul></li>
+</ul>
+
+<h3>Mode</h3>
+
+<ul>
+<li><p>args: Absolute|Relative</p></li>
+
+<li><p>default: Absolute</p></li>
+
+<li><p>description: 设置笔模式。</p>
+
+<ul>
+<li><p>Absolute: 模式时数位笔对应的是数位板或屏幕的真实位置</p></li>
+
+<li><p>Relative: 模式时数位笔就像是一个鼠标</p></li>
+</ul></li>
+</ul>
+
+<h3>PressureCurve</h3>
+
+<ul>
+<li><p>args: x1 y1 x2 y2</p></li>
+
+<li><p>default: 0 0 100 100</p></li>
+
+<li><p>description: 压力曲线，(x1<y1 x2<y2) to "soften"，(x1>y1 x2&gt;y2) to &ldquo;firmer&rdquo;</p></li>
+</ul>
+
+<h3>RawSample</h3>
+
+<ul>
+<li><p>args: level(0 ~ 20)</p></li>
+
+<li><p>default: 4</p></li>
+
+<li><p>description: 设置数位笔原始采样率对应的窗口大小，不太清楚有什么用</p></li>
+</ul>
+
+<h3>Rotate</h3>
+
+<ul>
+<li><p>args: none|half|cw|ccw</p></li>
+
+<li><p>default: none</p></li>
+
+<li><p>description: 设置旋转度</p>
+
+<ul>
+<li><p>none: 不旋转</p></li>
+
+<li><p>half: 上下翻转</p></li>
+
+<li><p>cw: 顺时针旋转 90 度</p></li>
+
+<li><p>ccw: 逆时针旋转 90 度</p></li>
+</ul></li>
+</ul>
+
+<h3>Suppress</h3>
+
+<ul>
+<li><p>args: level(0 ~ 100)</p></li>
+
+<li><p>default: 2</p></li>
+
+<li><p>description: 设置移动灵敏度，值越大灵敏度越低</p></li>
+</ul>
+
+<h3>Touch</h3>
+
+<ul>
+<li><p>args: on|off</p></li>
+
+<li><p>default: on</p></li>
+
+<li><p>description: 是否允许触摸</p></li>
+</ul>
+
+<h3>HWTouchSwitchState</h3>
+
+<ul>
+<li><p>args: on|off</p></li>
+
+<li><p>default: on</p></li>
+
+<li><p>description: 是否允许调节 <code>Touch</code> 选项</p></li>
+</ul>
+
+<h3>Threshold</h3>
+
+<ul>
+<li><p>args: level(0 ~ 2047)</p></li>
+
+<li><p>default: 27</p></li>
+
+<li><p>description: 设置产生按键事件的最小力度</p></li>
+</ul>
+
+<hr />
+
+<h2>其他</h2>
+
+<p>对于压力曲线，这里给出了一些测试值，从 <code>soften</code> 到 <code>firmer</code> :</p>
+
+<ul>
+<li>0 100 0 100</li>
+<li>20 80 20 80</li>
+<li>30 70 30 70</li>
+<li>0 0 100 100</li>
+<li>60 40 60 40</li>
+<li>70 30 70 30</li>
+<li>75 25 75 25</li>
+<li>80 20 80 20</li>
+<li>90 10 90 10</li>
+<li>100 0 100 0</li>
+</ul>
+
+    <hr>
+    <div class="pagination">
+      <ul>
+        <ul>
+          
+            <li class="prev"><a href="/Note/debug-%E5%B0%8F%E7%BB%93/" title="debug 小结">&larr; Previous</a></li>
+          
+          
+
+            <li><a href="/archive">Archive</a></li>
+
+          
+            <li class="next"><a href="/Note/Go-%E7%AC%94%E8%AE%B0--%E7%AE%80%E5%8D%95%E7%9A%84-TCP-Socket-%E7%A4%BA%E4%BE%8B/" title="Go 笔记: 简单的 TCP Socket 示例">Next &rarr;</a></li>
+          
+          
+        </ul>
+      </ul>
+    </div>
+    <hr>
+    
+<div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'jekyllbootstrap'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </div>
+  
+  <div class="span4">
+    <h4>Published</h4>
+    <div class="date"><span>2016-02-03 14:58:29</span></div>
+    <br>
+    <h4>Categories</h4>
+    <ul class="tag_box">
+    
+      <li>
+  <a href="/categories/#Blog-ref">Blog <span>5</span></a>
+</li>
+    
+    </ul>
+    <br>
+    <h4>Tags</h4>
+    <ul class="tag_box">
+    
+      <li>
+  <a href="/tags/#xsetwacom-ref">xsetwacom <span>1</span></a>
+</li>
+    
+      <li>
+  <a href="/tags/#wacom-ref">wacom <span>1</span></a>
+</li>
+    
+    </ul>
+  </div>
+</div>
+
+      </div>
+
+      <footer>
+        <p>&copy; jouyouyun 2013 
+          with help from <a href="http://github.com/wendal/gor" target="_blank" title="Gor -- Fast Blog">Gor</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+		  and Idea from <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">ruhoh</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+<script src="//cdnjscn.b0.upaiyun.com/libs/prettify/r298/prettify.min.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+
+    
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-123-12']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  </body>
+</html>
