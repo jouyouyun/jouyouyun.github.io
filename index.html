@@ -82,6 +82,163 @@
 
 
 <div class="post">
+  <h3 class="title"><a href="/Note/DDE-Package-List/">DDE Package List</a> <span class="date">2016-08-04</span></h3>
+
+  <p>现决定龙芯与专业版使用同一分支进行打包, 两者要保持版本一致, 对于需要特殊设置的地方, 请已 <code>patch</code> 的方式存放到单独的仓库, 打包时去自动拉取.</p>
+
+<p>专业版桌面打包列表及分支(包名与仓库名系统的用 <code>-</code> 表示, 仓库名没有的用 <code>?</code> 表示):</p>
+
+<table>
+<thead>
+<tr>
+<th>Package Name</th>
+<th>Repo Name</th>
+<th>Branch</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>dbus-factory</td>
+<td>-</td>
+<td>raccoon</td>
+</tr>
+
+<tr>
+<td>dde-control-center</td>
+<td>-</td>
+<td>raccoon</td>
+</tr>
+
+<tr>
+<td>dde-daemon</td>
+<td>-</td>
+<td>raccoon</td>
+</tr>
+
+<tr>
+<td>dde-desktop</td>
+<td>-</td>
+<td>raccoon</td>
+</tr>
+
+<tr>
+<td>dde-dock</td>
+<td>-</td>
+<td>raccoon</td>
+</tr>
+
+<tr>
+<td>dde-launcher</td>
+<td>-</td>
+<td>raccoon</td>
+</tr>
+
+<tr>
+<td>dde-session-ui</td>
+<td>-</td>
+<td>raccoon</td>
+</tr>
+
+<tr>
+<td>deepin-desktop-schemas</td>
+<td>-</td>
+<td>raccoon</td>
+</tr>
+
+<tr>
+<td>deepin-desktop-base</td>
+<td>-</td>
+<td>raccoon</td>
+</tr>
+
+<tr>
+<td>deepin-mutter</td>
+<td>-</td>
+<td>master</td>
+</tr>
+
+<tr>
+<td>deepin-file-manager-backend</td>
+<td>-</td>
+<td>master</td>
+</tr>
+
+<tr>
+<td>golang-dlib-dev</td>
+<td>go-lib</td>
+<td>master</td>
+</tr>
+
+<tr>
+<td>go-gir-genrator</td>
+<td>-</td>
+<td>master</td>
+</tr>
+
+<tr>
+<td>deepin-install</td>
+<td>-</td>
+<td>master</td>
+</tr>
+
+<tr>
+<td>deepin-appstore</td>
+<td>dstore/deepin-appstore</td>
+<td>master</td>
+</tr>
+
+<tr>
+<td>deepin-default-settings</td>
+<td>default-settings</td>
+<td>master</td>
+</tr>
+
+<tr>
+<td>deepin-icon-theme</td>
+<td>-</td>
+<td>master</td>
+</tr>
+
+<tr>
+<td>deepin-remote-assistance</td>
+<td>-</td>
+<td>master</td>
+</tr>
+
+<tr>
+<td>deepin-tool-kit</td>
+<td>-</td>
+<td>master</td>
+</tr>
+
+<tr>
+<td>deepin-license</td>
+<td>-</td>
+<td>master</td>
+</tr>
+
+<tr>
+<td>dde-help</td>
+<td>dde/dde-help</td>
+<td>master</td>
+</tr>
+
+<tr>
+<td>dde</td>
+<td>?</td>
+<td>master</td>
+</tr>
+</tbody>
+</table>
+
+
+  <div class="more">
+    <a href="/Note/DDE-Package-List/" class="btn">read more..</a>
+  </div>
+</div>
+
+<div class="post">
   <h3 class="title"><a href="/Blog/xrandr-examples/">xrandr examples</a> <span class="date">2016-06-06 16:52:30</span></h3>
 
   <p>由于经常会用到使用 <code>xrandr</code> 设置屏幕属性, 而每次用的时候都要去查 <code>man</code> 手册, 有时还需要上网搜索例子.
@@ -372,33 +529,6 @@ remoteip 192.168.0.234-238,192.168.0.245
 
   <div class="more">
     <a href="/Blog/%E5%9C%A8-VPS-%E4%B8%AD%E6%90%AD%E5%BB%BA-VPN-%E6%9C%8D%E5%8A%A1%E5%99%A8/" class="btn">read more..</a>
-  </div>
-</div>
-
-<div class="post">
-  <h3 class="title"><a href="/Note/Go-%E7%AC%94%E8%AE%B0--md5-sum/">Go 笔记: md5 sum</a> <span class="date">2014-06-22 22:54:38</span></h3>
-
-  <p>使用 Go 语言实现字符串与文件的 MD5 值计算，但是大文件不要使用此方法。</p>
-
-<p>```go
-package utils</p>
-
-<p>import (
-    &ldquo;crypto/md5&rdquo;
-    &ldquo;io/ioutil&rdquo;
-    &ldquo;strconv&rdquo;
-)</p>
-
-<p>const (
-    MD5_STR_LEN = 32
-)</p>
-
-<p>func md5ByteToStr(bytes [16]byte) string {
-    str := &ldquo;&rdquo;</p>
-
-
-  <div class="more">
-    <a href="/Note/Go-%E7%AC%94%E8%AE%B0--md5-sum/" class="btn">read more..</a>
   </div>
 </div>
 
