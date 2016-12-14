@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>在 VPS 中搭建 VPN 服务器</title>
+    <title>MIME Usage</title>
   
     <meta name="author" content="jouyouyun">
 
@@ -71,103 +71,73 @@
 
       <div class="content">
         <div class="page-header">
-  <h1>在 VPS 中搭建 VPN 服务器 </h1>
+  <h1>MIME Usage </h1>
 </div>
 
 <div class="row">
   <div class="span8">
-    <p>最近 <code>Google</code> 被封，而用 <code>Goagent</code> 做代理进行访问的效果而不是很理想，所以就想去买 <code>VPN/VPS</code>。几经考虑后，就去买了个便宜 <code>VPS</code>，这样也就可以分享给家人用了。</p>
+    <h2>基本使用</h2>
 
-<p><code>VPS</code> 中安装的是 <code>Ubuntu</code>，所以搭建 <code>VPN</code> 服务器也就是在 <code>Ubuntu</code> 上面搭建，具体方法如下。</p>
+<p>使用到的工具为: xdg-mime, gvfs-mime</p>
 
-<p>注意：下面所有的操作都是以 <code>root</code> 用户进行的，非 <code>root</code> 用户请在命令前加上 <code>sudo</code></p>
+<ul>
+<li>查询文件的类型</li>
+</ul>
 
-<h1>安装 <code>pptp</code></h1>
+<blockquote>
+<p>使用 <code>xdg-mime query filetype &lt;filepath&gt;</code> 可以得到文件的类型</p>
+</blockquote>
 
-<p><code>apt-get install pptpd</code></p>
+<ul>
+<li>查询默认程序</li>
+</ul>
 
-<p>配置 <code>IP</code> 地址范围及服务器 <code>IP</code></p>
+<blockquote>
+<p>使用 <code>xdg-mime query default text/plain</code> 或 <code>gvfs-mime --query &lt;mimetype&gt;</code>, <code>gvfs-mime</code> 还会列出支持此 <code>mimetype</code> 的所有程序</p>
+</blockquote>
 
-<p><code>vi /etc/pptpd.conf</code></p>
+<ul>
+<li>设置默认程序</li>
+</ul>
 
-<p>取消下面内容的注释</p>
+<blockquote>
+<p>如将 <code>text/plain</code> 的默认打开程序设置为 <code>gvim.desktop</code>, 可以执行 <code>xdg-mime default gvim.desktop text/plain</code> 或 <code>gvfs-mime --set text/plain gvim.desktop</code></p>
+</blockquote>
 
-<pre><code class="language-shell">option /etc/ppp/pptpd-options
-localip 192.168.0.1
-remoteip 192.168.0.234-238,192.168.0.245
-</code></pre>
+<h2>根据文件扩展名指定类型</h2>
 
-<h1>添加用于登录的账户</h1>
+<ol>
+<li><p>创建 <code>xml</code> 文件, 指定类型, 如将 <code>*.org</code> 指定为 <code>text/org-mode</code>, 文件内容如下:</p>
 
-<p><code>vi /etc/ppp/chap-secrets</code></p>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;mime-info xmlns=&quot;http://www.freedesktop.org/standards/shared-mime-info&quot;&gt;
+  &lt;mime-type type=&quot;text/org-mode&quot;&gt;
+         &lt;comment xml:lang=&quot;en&quot;&gt;Org-Mode File&lt;/comment&gt;
+         &lt;glob pattern=&quot;*.org&quot;/&gt;
+  &lt;/mime-type&gt;
+&lt;/mime-info&gt;
+</code></pre></li>
 
-<p>格式如下</p>
+<li><p>将上面的 <code>xml</code> 文件复制到 <code>$XDG_DATA_DIRS/mime/packages</code> 中, 即文件要在 <code>~/.local/share/mime/packages, /usr/local/share/mime/packages, /usr/share/mime/packages</code> 这几个目录中的一个</p></li>
 
-<p><code>用户名    pptpd   &quot;密码&quot;    *</code></p>
+<li><p>执行 <code>update-mime-database &lt;MIME DIR&gt;</code> 更新 <code>mime datebase</code>, 上面的目录去掉 <code>packages</code> 就是 <code>MIME DIR</code></p></li>
+</ol>
 
-<p>密码需要用英文双引号，最后的星号(*)代表允许接入的 <code>IP</code> 可以是任意 <code>IP</code></p>
-
-<h1>设置 <code>DNS</code></h1>
-
-<p><code>vi /etc/ppp/pptpd-options</code></p>
-
-<p>找到 <code>ms-dns</code>，取消掉注释，并修改 <code>DNS</code> 地址，推荐使用 <code>Google DNS</code></p>
-
-<pre><code class="language-shell"> 8.8.8.8 
- 8.8.4.4
-</code></pre>
-
-<h1>打开内核 <code>IP</code> 转发</h1>
-
-<p><code>vi /etc/sysctl.conf</code></p>
-
-<p>取消以下内容的注释：</p>
-
-<p><code>net.ipv4.ip_forward=1</code></p>
-
-<p>使其生效</p>
-
-<pre><code class="language-shell">sysctl -p
-/etc/init.d/procps restart
-</code></pre>
-
-<h1>安装 <code>iptables</code> 并设置</h1>
-
-<p>开放主机防火墙 <code>VPN</code> 端口（默认为 <code>1723</code>）</p>
-
-<p><code>iptables -I INPUT -p tcp --dport 1723 -j ACCEPT</code></p>
-
-<p>立刻让内核支持 <code>NAT</code></p>
-
-<p><code>iptables --table nat --append POSTROUTING --jump MASQUERADE</code></p>
-
-<p>为了让每次重启都生效，还需要在 <code>/etc/rc.local</code> 文件添加命令</p>
-
-<p><code>iptables --table nat --append POSTROUTING --jump MASQUERADE</code></p>
-
-<h1>SSH` 代理</h1>
-
-<p>如要使用 <code>ssh</code> 作为代理，则需要创建用户。若此用户只作为 <code>ssh</code> 代理用，则不要登录 <code>shell</code> 及主目录，使用以下命令</p>
-
-<p><code>useradd -s /bin/false  test</code></p>
-
-<p>在客户端(<code>linux</code>)中使用以下命令连接</p>
-
-<p><code>ssh -qTfnN -D 7070 test@xxx.xxx.xxx.xxx</code></p>
+<p>这样 <code>*.org</code> 的类型就变为 <code>text/org-mode</code> 了, 参考 <a href="https://freedesktop.org/wiki/Specifications/AddingMIMETutor/">Add MIME Type</a></p>
 
     <hr>
     <div class="pagination">
       <ul>
         <ul>
           
-            <li class="prev"><a href="/Blog/chroot-%E8%84%9A%E6%9C%AC/" title="chroot 脚本">&larr; Previous</a></li>
           
+            <li class="prev disabled"><a>&larr; Previous</a></li>
           
 
             <li><a href="/archive">Archive</a></li>
 
           
-            <li class="next"><a href="/Note/Go-%E7%AC%94%E8%AE%B0--md5-sum/" title="Go 笔记: md5 sum">Next &rarr;</a></li>
+            <li class="next"><a href="/Note/DDE-Package-List/" title="DDE Package List">Next &rarr;</a></li>
           
           
         </ul>
@@ -193,7 +163,7 @@ remoteip 192.168.0.234-238,192.168.0.245
   
   <div class="span4">
     <h4>Published</h4>
-    <div class="date"><span>2014-07-04</span></div>
+    <div class="date"><span>2016-12-14</span></div>
     <br>
     <h4>Categories</h4>
     <ul class="tag_box">
@@ -208,15 +178,7 @@ remoteip 192.168.0.234-238,192.168.0.245
     <ul class="tag_box">
     
       <li>
-  <a href="/tags/#vps-ref">vps <span>1</span></a>
-</li>
-    
-      <li>
-  <a href="/tags/#vpn-ref">vpn <span>1</span></a>
-</li>
-    
-      <li>
-  <a href="/tags/#ssh-ref">ssh <span>1</span></a>
+  <a href="/tags/#mime-ref">mime <span>1</span></a>
 </li>
     
     </ul>

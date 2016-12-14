@@ -82,6 +82,49 @@
 
 
 <div class="post">
+  <h3 class="title"><a href="/Blog/MIME-Usage/">MIME Usage</a> <span class="date">2016-12-14</span></h3>
+
+  <h2>基本使用</h2>
+
+<p>使用到的工具为: xdg-mime, gvfs-mime</p>
+
+<ul>
+<li>查询文件的类型</li>
+</ul>
+
+<blockquote>
+<p>使用 <code>xdg-mime query filetype &lt;filepath&gt;</code> 可以得到文件的类型</p>
+</blockquote>
+
+<ul>
+<li>查询默认程序</li>
+</ul>
+
+<blockquote>
+<p>使用 <code>xdg-mime query default text/plain</code> 或 <code>gvfs-mime --query &lt;mimetype&gt;</code>, <code>gvfs-mime</code> 还会列出支持此 <code>mimetype</code> 的所有程序</p>
+</blockquote>
+
+<ul>
+<li>设置默认程序</li>
+</ul>
+
+<blockquote>
+<p>如将 <code>text/plain</code> 的默认打开程序设置为 <code>gvim.desktop</code>, 可以执行 <code>xdg-mime default gvim.desktop text/plain</code> 或 <code>gvfs-mime --set text/plain gvim.desktop</code></p>
+</blockquote>
+
+<h2>根据文件扩展名指定类型</h2>
+
+<ol>
+<li>创建 <code>xml</code> 文件, 指定类型, 如将 <code>*.org</code> 指定为 <code>text/org-mode</code>, 文件内容如下:</li>
+</ol>
+
+
+  <div class="more">
+    <a href="/Blog/MIME-Usage/" class="btn">read more..</a>
+  </div>
+</div>
+
+<div class="post">
   <h3 class="title"><a href="/Note/DDE-Package-List/">DDE Package List</a> <span class="date">2016-08-04</span></h3>
 
   <p>现决定龙芯与专业版使用同一分支进行打包, 两者要保持版本一致, 对于需要特殊设置的地方, 请已 <code>patch</code> 的方式存放到单独的仓库, 打包时去自动拉取.</p>
@@ -499,36 +542,6 @@ sudo chroot /mnt/arch /usr/bin/bash
 
   <div class="more">
     <a href="/Blog/chroot-%E8%84%9A%E6%9C%AC/" class="btn">read more..</a>
-  </div>
-</div>
-
-<div class="post">
-  <h3 class="title"><a href="/Blog/%E5%9C%A8-VPS-%E4%B8%AD%E6%90%AD%E5%BB%BA-VPN-%E6%9C%8D%E5%8A%A1%E5%99%A8/">在 VPS 中搭建 VPN 服务器</a> <span class="date">2014-07-04</span></h3>
-
-  <p>最近 <code>Google</code> 被封，而用 <code>Goagent</code> 做代理进行访问的效果而不是很理想，所以就想去买 <code>VPN/VPS</code>。几经考虑后，就去买了个便宜 <code>VPS</code>，这样也就可以分享给家人用了。</p>
-
-<p><code>VPS</code> 中安装的是 <code>Ubuntu</code>，所以搭建 <code>VPN</code> 服务器也就是在 <code>Ubuntu</code> 上面搭建，具体方法如下。</p>
-
-<p>注意：下面所有的操作都是以 <code>root</code> 用户进行的，非 <code>root</code> 用户请在命令前加上 <code>sudo</code></p>
-
-<h1>安装 <code>pptp</code></h1>
-
-<p><code>apt-get install pptpd</code></p>
-
-<p>配置 <code>IP</code> 地址范围及服务器 <code>IP</code></p>
-
-<p><code>vi /etc/pptpd.conf</code></p>
-
-<p>取消下面内容的注释</p>
-
-<pre><code class="language-shell">option /etc/ppp/pptpd-options
-localip 192.168.0.1
-remoteip 192.168.0.234-238,192.168.0.245
-</code></pre>
-
-
-  <div class="more">
-    <a href="/Blog/%E5%9C%A8-VPS-%E4%B8%AD%E6%90%AD%E5%BB%BA-VPN-%E6%9C%8D%E5%8A%A1%E5%99%A8/" class="btn">read more..</a>
   </div>
 </div>
 
