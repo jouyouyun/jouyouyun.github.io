@@ -82,6 +82,42 @@
 
 
 <div class="post">
+  <h3 class="title"><a href="/Blog/OpenVPN-Install/">OpenVPN Install</a> <span class="date">2016-12-27</span></h3>
+
+  <h2>安装所需软件</h2>
+
+<p>Arch: <code>yaourt -S openvpn easy-rsa</code></p>
+
+<h2>生成证书</h2>
+
+<h3>Server 端</h3>
+
+<ul>
+<li><p>Copy template file</p>
+
+<pre><code class="language-shell">sudo mkdir -p /etc/openvpn
+sudo cp -R /etc/easy-rsa /etc/openvpn
+</code></pre></li>
+
+<li><p>Config vars
+取消并修改以下项:</p></li>
+</ul>
+
+<pre><code class="language-shell">set_var EASYRSA_REQ_COUNTRY     &quot;CN&quot;
+set_var EASYRSA_REQ_PROVINCE    &quot;Hongkong&quot;
+set_var EASYRSA_REQ_CITY        &quot;Hongkong&quot;
+set_var EASYRSA_REQ_ORG         &quot;jouyouyun.info&quot;
+set_var EASYRSA_REQ_EMAIL       &quot;wen@jouyouyun.iofn&quot;
+set_var EASYRSA_REQ_OU          &quot;Jouyouyun OpenVPN&quot;
+</code></pre>
+
+
+  <div class="more">
+    <a href="/Blog/OpenVPN-Install/" class="btn">read more..</a>
+  </div>
+</div>
+
+<div class="post">
   <h3 class="title"><a href="/Blog/MIME-Usage/">MIME Usage</a> <span class="date">2016-12-14</span></h3>
 
   <h2>基本使用</h2>
@@ -490,58 +526,6 @@ package main</p>
 
   <div class="more">
     <a href="/Note/Go-%E7%AC%94%E8%AE%B0%EF%BC%9AGob-Write%2FRead-File/" class="btn">read more..</a>
-  </div>
-</div>
-
-<div class="post">
-  <h3 class="title"><a href="/Blog/chroot-%E8%84%9A%E6%9C%AC/">chroot 脚本</a> <span class="date">2014-07-05</span></h3>
-
-  <p>最近测试了以下 <code>chroot</code>，然后把步骤写成了下面两个脚本，方便以后使用。</p>
-
-<p><code>Arch</code> 分区结构</p>
-
-<pre><code class="language-shell">/dev/sda5	/
-/dev/sda1	/boot
-/dev/sda6	/home
-/dev/sda8	Swap
-</code></pre>
-
-<h2><code>chroot</code> 挂载脚本</h2>
-
-<pre><code class="language-shell">#!/bin/bash
-
-_ROOT=/dev/sda5
-_BOOT=/dev/sda1
-#_HOME=/dev/sda6
-
-#创建目录结构
-sudo mkdir -p /mnt/arch
-sudo mkdir -p /mnt/arch/boot
-#sudo mkdir -p /mnt/arch/home
-
-#挂载分区
-sudo mount $_ROOT /mnt/arch
-sudo mount $_BOOT /mnt/arch/boot
-#sudo mount $_HOME /mnt/arch/home
-
-#挂载临时文件系统
-cd /mnt/arch
-sudo mount -t proc proc proc/
-sudo mount -t sysfs sys sys/
-sudo mount -o bind /dev dev/
-sudo mount -t devpts pts dev/pts
-
-#如果你已经建立了一个网络连接并且想要在chroot环境中使用它，
-#你可能不得不拷贝你的DNS服务器配置让你能够解析主机名
-sudo  cp -L /etc/resolv.conf etc/resolv.conf
-
-# chroot 并指定 shell
-sudo chroot /mnt/arch /usr/bin/bash
-</code></pre>
-
-
-  <div class="more">
-    <a href="/Blog/chroot-%E8%84%9A%E6%9C%AC/" class="btn">read more..</a>
   </div>
 </div>
 
