@@ -82,6 +82,48 @@
 
 
 <div class="post">
+  <h3 class="title"><a href="/Note/Miraclecast-%E4%BB%A3%E7%A0%81%E6%95%B4%E7%90%86/">Miraclecast 代码整理</a> <span class="date">2017-05-16</span></h3>
+
+  <h2>命令介绍</h2>
+
+<ul>
+<li>miracle-wifid</li>
+</ul>
+
+<blockquote>
+<p>管理 link 及 peer, 控制 wpa_supplicant, 在 group 建立后启用 DHCP</p>
+</blockquote>
+
+<ul>
+<li>miracle-wifictl</li>
+</ul>
+
+<blockquote>
+<p>建立 P2P Group , 可直接在命令行使用, 类似 bluetoothctl</p>
+</blockquote>
+
+<ul>
+<li>miracle-sinkctl</li>
+</ul>
+
+<blockquote>
+<p>包含 wifictl 的功能, 加上 wifi-display sink 的功能. 会启用 gstplayer, uibc(需要添加命令行参数来启用) 来接受 source 画面并发送 sink 的输入</p>
+
+<p>连接之后主动向 source 发送 sink 信息, 如: 分辨率, profile, level.
+其中 profile 决定了 encode/decode 的技巧, level 决定了色彩, 2者共同决定了传输的质量及画面的清晰度</p>
+</blockquote>
+
+<ul>
+<li>miracle-dispd</li>
+</ul>
+
+
+  <div class="more">
+    <a href="/Note/Miraclecast-%E4%BB%A3%E7%A0%81%E6%95%B4%E7%90%86/" class="btn">read more..</a>
+  </div>
+</div>
+
+<div class="post">
   <h3 class="title"><a href="/Blog/OpenVPN-Install/">OpenVPN Install</a> <span class="date">2016-12-27</span></h3>
 
   <h2>安装所需软件</h2>
@@ -498,34 +540,6 @@ package main</p>
 
   <div class="more">
     <a href="/Note/Go-%E7%AC%94%E8%AE%B0--%E7%AE%80%E5%8D%95%E7%9A%84-TCP-Socket-%E7%A4%BA%E4%BE%8B/" class="btn">read more..</a>
-  </div>
-</div>
-
-<div class="post">
-  <h3 class="title"><a href="/Note/Go-%E7%AC%94%E8%AE%B0%EF%BC%9AGob-Write%2FRead-File/">Go 笔记：Gob Write/Read File</a> <span class="date">2014-07-07 13:06:28</span></h3>
-
-  <p><code>Gob</code> 使用实例，将结构体写入文件里，在需要的时候再从文件中读取出来。</p>
-
-<p>```go
-package main</p>
-
-<p>import (
-    &ldquo;bytes&rdquo;
-    &ldquo;encoding/gob&rdquo;
-    &ldquo;fmt&rdquo;
-    &ldquo;io/ioutil&rdquo;
-    &ldquo;os&rdquo;
-)</p>
-
-<p>type Writer struct {
-    Id    int
-    Name  string
-    Value string
-}</p>
-
-
-  <div class="more">
-    <a href="/Note/Go-%E7%AC%94%E8%AE%B0%EF%BC%9AGob-Write%2FRead-File/" class="btn">read more..</a>
   </div>
 </div>
 

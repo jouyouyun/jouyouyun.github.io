@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Go 笔记: 判断文件是否存在</title>
+    <title>Miraclecast 代码整理</title>
   
     <meta name="author" content="jouyouyun">
 
@@ -71,43 +71,158 @@
 
       <div class="content">
         <div class="page-header">
-  <h1>Go 笔记: 判断文件是否存在 </h1>
+  <h1>Miraclecast 代码整理 </h1>
 </div>
 
 <div class="row">
   <div class="span8">
-    <p>使用 GoLang 判断文件是否存在。</p>
+    <h2>命令介绍</h2>
 
-<pre><code class="language-go">package utils
+<ul>
+<li>miracle-wifid</li>
+</ul>
 
-import (
-	&quot;os&quot;
-)
+<blockquote>
+<p>管理 link 及 peer, 控制 wpa_supplicant, 在 group 建立后启用 DHCP</p>
+</blockquote>
 
-func isFileExist(filename string) bool {
-	if len(filename) &lt; 1 {
-		return false
-	}
+<ul>
+<li>miracle-wifictl</li>
+</ul>
 
-	_, err := os.Stat(filename)
+<blockquote>
+<p>建立 P2P Group , 可直接在命令行使用, 类似 bluetoothctl</p>
+</blockquote>
 
-	return err == nil || os.IsExist(err)
-}
-</code></pre>
+<ul>
+<li>miracle-sinkctl</li>
+</ul>
+
+<blockquote>
+<p>包含 wifictl 的功能, 加上 wifi-display sink 的功能. 会启用 gstplayer, uibc(需要添加命令行参数来启用) 来接受 source 画面并发送 sink 的输入</p>
+
+<p>连接之后主动向 source 发送 sink 信息, 如: 分辨率, profile, level.
+其中 profile 决定了 encode/decode 的技巧, level 决定了色彩, 2者共同决定了传输的质量及画面的清晰度</p>
+</blockquote>
+
+<ul>
+<li>miracle-dispd</li>
+</ul>
+
+<blockquote>
+<p>实现了 wifi-display source 的功能, 管理 session, 启动 gstencoder 发送画面</p>
+</blockquote>
+
+<h2>代码结构</h2>
+
+<ul>
+<li>wifi</li>
+</ul>
+
+<blockquote>
+<ul>
+<li><p>下达命令给 wpa_supplicant, 管理 link 及开启 P2P 模式. 必须先 unmanage nm device</p></li>
+
+<li><p>管理 link 状态</p></li>
+
+<li><p>管理 DHCP client/server</p></li>
+
+<li><p>提供 dbus 操作</p></li>
+</ul>
+</blockquote>
+
+<ul>
+<li>ctl</li>
+</ul>
+
+<blockquote>
+<p>操作 sink/link/peer, 用到 miracle-sinkctl 和 miracle-wifictl</p>
+
+<p>操作 group 建立后虚拟出的网卡, 可以测速, 检查丢包率等</p>
+</blockquote>
+
+<ul>
+<li>uibc</li>
+</ul>
+
+<blockquote>
+<p>反馈 sink 输入给 source , 在 source 端解析执行 sink 的输入</p>
+</blockquote>
+
+<ul>
+<li>shared</li>
+</ul>
+
+<blockquote>
+<p>rtsp 协议的解析, 与通用的不同</p>
+</blockquote>
+
+<ul>
+<li>dispd</li>
+</ul>
+
+<blockquote>
+<p>管理 session</p>
+
+<p>连接 server bus</p>
+
+<p>encode 数据, gstencoder 的 wrapper, gst encode/decode 在 res 目录中</p>
+</blockquote>
+
+<h2>连接流程</h2>
+
+<ol>
+<li><p>获取网卡的管理权, 先取消掉其它程序对网卡的管理权</p></li>
+
+<li><p>设置 SubElements 包含了扮演的角色(sink or source or dual), 监听的 port 等数据</p></li>
+
+<li><p>开始 scan 功能, 并向周围设备广播自己的信息, 根据 Group Owner 优先级开始建组, 值越大优先级越高, 如果相同则由程序自行调整.
+建组失败发送 GoNegFailure 事件, 成功后由 Owner 向组内成员分配 IP, 分配失败发送 FormationFailure 事件</p></li>
+
+<li><p>开始连接</p></li>
+</ol>
+
+<blockquote>
+<ol>
+<li><p>source 向 sink 发送版本信息, sink 发回确认信息</p></li>
+
+<li><p>source 询问 video-formats, audio-formats 等信息, sink 回应</p></li>
+
+<li><p>source 向 sink 设置适合的参数, sink 回应</p></li>
+
+<li><p>接下来就是执行 SETUP, PLAY, PAUSE, TEARDOWN 等命令, 都是由 source 先向 sink 发起执行命令的请求, sink 才向 source 发起需要执行的命令</p></li>
+</ol>
+</blockquote>
+
+<h2>存在的问题</h2>
+
+<ul>
+<li><p>声音传输还未测试</p></li>
+
+<li><p>连接意外崩溃后 gstreamer 未终止</p></li>
+
+<li><p>程序意外崩溃后界面未做处理</p></li>
+</ul>
+
+<h2>Debug</h2>
+
+<ul>
+<li>若一直连接失败, 可能是建组失败, IP 分配失败, 防火墙屏蔽了输入输出</li>
+</ul>
 
     <hr>
     <div class="pagination">
       <ul>
         <ul>
           
-            <li class="prev"><a href="/Note/Go-%E7%AC%94%E8%AE%B0--md5-sum/" title="Go 笔记: md5 sum">&larr; Previous</a></li>
           
+            <li class="prev disabled"><a>&larr; Previous</a></li>
           
 
             <li><a href="/archive">Archive</a></li>
 
           
-            <li class="next"><a href="/Note/Go-%E7%AC%94%E8%AE%B0--URI-Encode%2FDecode/" title="Go 笔记: URI Encode/Decode">Next &rarr;</a></li>
+            <li class="next"><a href="/Blog/OpenVPN-Install/" title="OpenVPN Install">Next &rarr;</a></li>
           
           
         </ul>
@@ -133,7 +248,7 @@ func isFileExist(filename string) bool {
   
   <div class="span4">
     <h4>Published</h4>
-    <div class="date"><span>2014-06-20 21:38:13</span></div>
+    <div class="date"><span>2017-05-16</span></div>
     <br>
     <h4>Categories</h4>
     <ul class="tag_box">
@@ -148,7 +263,15 @@ func isFileExist(filename string) bool {
     <ul class="tag_box">
     
       <li>
-  <a href="/tags/#go-ref">go <span>5</span></a>
+  <a href="/tags/#miracle-ref">miracle <span>1</span></a>
+</li>
+    
+      <li>
+  <a href="/tags/#miracast-ref">miracast <span>1</span></a>
+</li>
+    
+      <li>
+  <a href="/tags/#WIFI-Direct-ref">WIFI Direct <span>1</span></a>
 </li>
     
     </ul>

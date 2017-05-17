@@ -1,85 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
-		<loc>http://45.62.229.81:8080/</loc>
+		<loc>http://jouyouyun.github.io/</loc>
 	</url>
 	<url>
-		<loc>http://45.62.229.81:8080/Blog/OpenVPN-Install/</loc>
+		<loc>http://jouyouyun.github.io/Note/Miraclecast-%E4%BB%A3%E7%A0%81%E6%95%B4%E7%90%86/</loc>
+		<lastmod>2017-05-16</lastmod>
+		<changefreq>weekly</changefreq>
+	</url>
+	<url>
+		<loc>http://jouyouyun.github.io/Blog/OpenVPN-Install/</loc>
 		<lastmod>2016-12-27</lastmod>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-		<loc>http://45.62.229.81:8080/Blog/MIME-Usage/</loc>
+		<loc>http://jouyouyun.github.io/Blog/MIME-Usage/</loc>
 		<lastmod>2016-12-14</lastmod>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-		<loc>http://45.62.229.81:8080/Note/DDE-Package-List/</loc>
+		<loc>http://jouyouyun.github.io/Note/DDE-Package-List/</loc>
 		<lastmod>2016-08-04</lastmod>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-		<loc>http://45.62.229.81:8080/Blog/xrandr-examples/</loc>
+		<loc>http://jouyouyun.github.io/Blog/xrandr-examples/</loc>
 		<lastmod>2016-06-06 16:52:30</lastmod>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-		<loc>http://45.62.229.81:8080/Note/Enable-coredump/</loc>
+		<loc>http://jouyouyun.github.io/Note/Enable-coredump/</loc>
 		<lastmod>2016-04-25 19:04:33</lastmod>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-		<loc>http://45.62.229.81:8080/Blog/Auto-Hidden-Cursor/</loc>
+		<loc>http://jouyouyun.github.io/Blog/Auto-Hidden-Cursor/</loc>
 		<lastmod>2016-04-22</lastmod>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-		<loc>http://45.62.229.81:8080/Note/debug-%E5%B0%8F%E7%BB%93/</loc>
+		<loc>http://jouyouyun.github.io/Note/debug-%E5%B0%8F%E7%BB%93/</loc>
 		<lastmod>2016-02-03 15:06:35</lastmod>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-		<loc>http://45.62.229.81:8080/Blog/xsetwacom-%E9%80%89%E9%A1%B9%E8%AF%B4%E6%98%8E/</loc>
+		<loc>http://jouyouyun.github.io/Blog/xsetwacom-%E9%80%89%E9%A1%B9%E8%AF%B4%E6%98%8E/</loc>
 		<lastmod>2016-02-03 14:58:29</lastmod>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-		<loc>http://45.62.229.81:8080/Note/Go-%E7%AC%94%E8%AE%B0--%E7%AE%80%E5%8D%95%E7%9A%84-TCP-Socket-%E7%A4%BA%E4%BE%8B/</loc>
+		<loc>http://jouyouyun.github.io/Note/Go-%E7%AC%94%E8%AE%B0--%E7%AE%80%E5%8D%95%E7%9A%84-TCP-Socket-%E7%A4%BA%E4%BE%8B/</loc>
 		<lastmod>2014-07-20 00:54:43</lastmod>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-		<loc>http://45.62.229.81:8080/Note/Go-%E7%AC%94%E8%AE%B0%EF%BC%9AGob-Write%2FRead-File/</loc>
+		<loc>http://jouyouyun.github.io/Note/Go-%E7%AC%94%E8%AE%B0%EF%BC%9AGob-Write%2FRead-File/</loc>
 		<lastmod>2014-07-07 13:06:28</lastmod>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-		<loc>http://45.62.229.81:8080/Blog/chroot-%E8%84%9A%E6%9C%AC/</loc>
+		<loc>http://jouyouyun.github.io/Blog/chroot-%E8%84%9A%E6%9C%AC/</loc>
 		<lastmod>2014-07-05</lastmod>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-		<loc>http://45.62.229.81:8080/Blog/%E5%9C%A8-VPS-%E4%B8%AD%E6%90%AD%E5%BB%BA-VPN-%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
+		<loc>http://jouyouyun.github.io/Blog/%E5%9C%A8-VPS-%E4%B8%AD%E6%90%AD%E5%BB%BA-VPN-%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
 		<lastmod>2014-07-04</lastmod>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-		<loc>http://45.62.229.81:8080/Note/Go-%E7%AC%94%E8%AE%B0--md5-sum/</loc>
+		<loc>http://jouyouyun.github.io/Note/Go-%E7%AC%94%E8%AE%B0--md5-sum/</loc>
 		<lastmod>2014-06-22 22:54:38</lastmod>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-		<loc>http://45.62.229.81:8080/Note/Go-%E7%AC%94%E8%AE%B0--%E5%88%A4%E6%96%AD%E6%96%87%E4%BB%B6%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8/</loc>
+		<loc>http://jouyouyun.github.io/Note/Go-%E7%AC%94%E8%AE%B0--%E5%88%A4%E6%96%AD%E6%96%87%E4%BB%B6%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8/</loc>
 		<lastmod>2014-06-20 21:38:13</lastmod>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-		<loc>http://45.62.229.81:8080/Note/Go-%E7%AC%94%E8%AE%B0--URI-Encode%2FDecode/</loc>
+		<loc>http://jouyouyun.github.io/Note/Go-%E7%AC%94%E8%AE%B0--URI-Encode%2FDecode/</loc>
 		<lastmod>2014-06-20 21:20:12</lastmod>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-		<loc>http://45.62.229.81:8080/Note/XRecord-%E7%A4%BA%E4%BE%8B/</loc>
+		<loc>http://jouyouyun.github.io/Note/XRecord-%E7%A4%BA%E4%BE%8B/</loc>
 		<lastmod>2014-04-18 17:42:15</lastmod>
 		<changefreq>weekly</changefreq>
 	</url>
