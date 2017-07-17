@@ -82,44 +82,35 @@
 
 
 <div class="post">
-  <h3 class="title"><a href="/Note/Miraclecast-%E4%BB%A3%E7%A0%81%E6%95%B4%E7%90%86/">Miraclecast 代码整理</a> <span class="date">2017-05-16</span></h3>
+  <h3 class="title"><a href="/Blog/Leanote-Install/">Leanote Install</a> <span class="date">2017-07-17</span></h3>
 
-  <h2>命令介绍</h2>
+  <p><code>Leanote</code> 是一款开源的笔记软件, 支持使用 <code>markdown</code> 来编辑笔记, 并可选择是否将笔记导出成博客, 这对于知识整理及写博客都是非常方便的, 故来尝试下.</p>
 
-<ul>
-<li>miracle-wifid</li>
-</ul>
+<hr />
 
-<blockquote>
-<p>管理 link 及 peer, 控制 wpa_supplicant, 在 group 建立后启用 DHCP</p>
-</blockquote>
+<h2>安装</h2>
 
-<ul>
-<li>miracle-wifictl</li>
-</ul>
+<hr />
 
-<blockquote>
-<p>建立 P2P Group , 可直接在命令行使用, 类似 bluetoothctl</p>
-</blockquote>
+<p><code>Leanote</code> 是使用 <code>Golang</code> 编写的, 可以直接使用官方编译好的可执行文件.
+另外它使用的是 <code>mongodb</code> 数据库, 可以从源里安装, 也可以从官网下载.
+以下的安装和配置都是基于最新的版本, 如果中途出错, 请看官方文档.</p>
 
 <ul>
-<li>miracle-sinkctl</li>
+<li><p><code>Leanote</code> 下载地址: <a href="http://leanote.org/#download">见这里</a></p></li>
+
+<li><p><code>mongodb</code> 下载地址: <a href="https://www.mongodb.com/download-center">见这里</a></p></li>
 </ul>
 
-<blockquote>
-<p>包含 wifictl 的功能, 加上 wifi-display sink 的功能. 会启用 gstplayer, uibc(需要添加命令行参数来启用) 来接受 source 画面并发送 sink 的输入</p>
+<hr />
 
-<p>连接之后主动向 source 发送 sink 信息, 如: 分辨率, profile, level.
-其中 profile 决定了 encode/decode 的技巧, level 决定了色彩, 2者共同决定了传输的质量及画面的清晰度</p>
-</blockquote>
+<h2>配置</h2>
 
-<ul>
-<li>miracle-dispd</li>
-</ul>
+<hr />
 
 
   <div class="more">
-    <a href="/Note/Miraclecast-%E4%BB%A3%E7%A0%81%E6%95%B4%E7%90%86/" class="btn">read more..</a>
+    <a href="/Blog/Leanote-Install/" class="btn">read more..</a>
   </div>
 </div>
 
