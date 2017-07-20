@@ -82,6 +82,43 @@
 
 
 <div class="post">
+  <h3 class="title"><a href="/Blog/TCP-BBR-%E8%AE%BE%E7%BD%AE%E5%8F%8A%E5%85%B6%E5%A2%9E%E5%BC%BA%E7%89%88/">TCP BBR 设置及其增强版</a> <span class="date">2017-07-20</span></h3>
+
+  <h3>启用 BBR</h3>
+
+<p><code>BBR</code> 是在 4.9 以后的内核才开始支持的, 可以试着执行 <code>sudo modprobe tcp_bbr</code> 来确定是否支持, 没有输出就意味着支持, 将下面两行内容添加到 <code>/etc/sysctl.conf</code> 文件里开启用它:</p>
+
+<pre><code class="language-shell">net.core.default_qdisc = fq
+net.ipv4.tcp_congestion_control = bbr
+</code></pre>
+
+<p>使用 <code>sysctl net.ipv4.tcp_available_congestion_control</code> 查看支持的算法, 用<code>sysctl net.ipv4.tcp_congestion_control</code> 查看当前使用的算法.</p>
+
+<p>如果这个模块不会自动加载, 需要把 <code>tcp_bbr_powered</code> 添加到 <code>/etc/modules-load.d/modules.conf</code> 中.
+另外测试发现, 有时 <code>sysctl.conf</code> 里的设置并不会应用, 需要手动执行一下, 因此便写了 <code>reload-sysctl.service</code> 来做这个, <code>systemctl enable</code> 这个服务后, 一切就 OK 了.</p>
+
+<hr />
+
+<h3>使用增强版</h3>
+
+<p>个人电脑不建议使用增强版, 服务器上可以使用, 当然最终还是要根据两者的效果来选择.</p>
+
+<p>来源于: <a href="https://moeclub.org/2017/06/24/278/">Debian/Ubuntu TCP BBR 改进版/增强版</a></p>
+
+<ul>
+<li>Build
+<code>shell
+$ ./build.sh
+</code></li>
+</ul>
+
+
+  <div class="more">
+    <a href="/Blog/TCP-BBR-%E8%AE%BE%E7%BD%AE%E5%8F%8A%E5%85%B6%E5%A2%9E%E5%BC%BA%E7%89%88/" class="btn">read more..</a>
+  </div>
+</div>
+
+<div class="post">
   <h3 class="title"><a href="/Blog/Leanote-Install/">Leanote Install</a> <span class="date">2017-07-17</span></h3>
 
   <p><code>Leanote</code> 是一款开源的笔记软件, 支持使用 <code>markdown</code> 来编辑笔记, 并可选择是否将笔记导出成博客, 这对于知识整理及写博客都是非常方便的, 故来尝试下.</p>
@@ -500,37 +537,6 @@ invisibleCursor = XCreatePixmapCursor(display, bitmapNoData, bitmapNoData, &amp;
 
   <div class="more">
     <a href="/Blog/xsetwacom-%E9%80%89%E9%A1%B9%E8%AF%B4%E6%98%8E/" class="btn">read more..</a>
-  </div>
-</div>
-
-<div class="post">
-  <h3 class="title"><a href="/Note/Go-%E7%AC%94%E8%AE%B0--%E7%AE%80%E5%8D%95%E7%9A%84-TCP-Socket-%E7%A4%BA%E4%BE%8B/">Go 笔记: 简单的 TCP Socket 示例</a> <span class="date">2014-07-20 00:54:43</span></h3>
-
-  <p>一个简单的 <code>TCP Socket</code> 的示例，使用 <code>gob</code> 处理传输的数据。</p>
-
-<h2><code>server.go</code></h2>
-
-<p>```go
-package main</p>
-
-<p>import (
-    &ldquo;bytes&rdquo;
-    &ldquo;encoding/gob&rdquo;
-    &ldquo;fmt&rdquo;
-    &ldquo;io&rdquo;
-    &ldquo;net&rdquo;
-)</p>
-
-<p>type personInfo struct {
-    Name  string
-    Age   int32
-    Phone string
-    Addr  string
-}</p>
-
-
-  <div class="more">
-    <a href="/Note/Go-%E7%AC%94%E8%AE%B0--%E7%AE%80%E5%8D%95%E7%9A%84-TCP-Socket-%E7%A4%BA%E4%BE%8B/" class="btn">read more..</a>
   </div>
 </div>
 

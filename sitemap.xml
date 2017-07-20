@@ -4,6 +4,11 @@
 		<loc>http://45.62.229.81:8080/</loc>
 	</url>
 	<url>
+		<loc>http://45.62.229.81:8080/Blog/TCP-BBR-%E8%AE%BE%E7%BD%AE%E5%8F%8A%E5%85%B6%E5%A2%9E%E5%BC%BA%E7%89%88/</loc>
+		<lastmod>2017-07-20</lastmod>
+		<changefreq>weekly</changefreq>
+	</url>
+	<url>
 		<loc>http://45.62.229.81:8080/Blog/Leanote-Install/</loc>
 		<lastmod>2017-07-17</lastmod>
 		<changefreq>weekly</changefreq>
