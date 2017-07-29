@@ -82,6 +82,45 @@
 
 
 <div class="post">
+  <h3 class="title"><a href="/Blog/%E8%AE%BE%E7%BD%AE-Grub2-%E5%88%86%E8%BE%A8%E7%8E%87/">设置 Grub2 分辨率</a> <span class="date">2017-07-29</span></h3>
+
+  <h2>背景</h2>
+
+<p>平时经常用显示器的分辨率去设置 <code>Grub</code> 的分辨率，虽然大部分都没有问题，但有时却没有用。所以就把 <code>Grub</code> 分辨率的设置方法详细说明一下，留档记录。</p>
+
+<hr />
+
+<h2>查询支持的分辨率</h2>
+
+<p>在设置 <code>Grub</code> 分辨率之前，需要先知道支持的分辨率列表，而幸运的是可以到 <code>Grub</code> 命令行查询。</p>
+
+<ol>
+<li>进入 <code>Grub</code> 命令行</li>
+</ol>
+
+<blockquote>
+<p>在 <code>Grub</code> 启动界面，按下 <code>c</code> 键就可以进入命令行界面了。</p>
+</blockquote>
+
+<ol>
+<li>查询支持的分辨率</li>
+</ol>
+
+<blockquote>
+<p>在命令行界面输入 <code>videoinfo</code> 就可以得到支持的分辨率列表。</p>
+</blockquote>
+
+<ol>
+<li>测试效果</li>
+</ol>
+
+
+  <div class="more">
+    <a href="/Blog/%E8%AE%BE%E7%BD%AE-Grub2-%E5%88%86%E8%BE%A8%E7%8E%87/" class="btn">read more..</a>
+  </div>
+</div>
+
+<div class="post">
   <h3 class="title"><a href="/Blog/TCP-BBR-%E8%AE%BE%E7%BD%AE%E5%8F%8A%E5%85%B6%E5%A2%9E%E5%BC%BA%E7%89%88/">TCP BBR 设置及其增强版</a> <span class="date">2017-07-20</span></h3>
 
   <h3>启用 BBR</h3>
@@ -508,35 +547,6 @@ invisibleCursor = XCreatePixmapCursor(display, bitmapNoData, bitmapNoData, &amp;
 
   <div class="more">
     <a href="/Note/debug-%E5%B0%8F%E7%BB%93/" class="btn">read more..</a>
-  </div>
-</div>
-
-<div class="post">
-  <h3 class="title"><a href="/Blog/xsetwacom-%E9%80%89%E9%A1%B9%E8%AF%B4%E6%98%8E/">xsetwacom 选项说明</a> <span class="date">2016-02-03 14:58:29</span></h3>
-
-  <p><code>xsetwacom</code> 是一个设置数位板的命令行工具, 在 <code>Debian/Ubuntu/deepin</code> 上可以通过安装 <code>xserver-xorg-input-wacom</code> 来获取它.</p>
-
-<p>可以通过 <code>man xsetwacom</code> 看到它的帮助文档, 下面就简单说明下它的部份选项:</p>
-
-<hr />
-
-<h2>Options</h2>
-
-<h3>Area</h3>
-
-<ul>
-<li><p>args: x1 y1 x2 y2</p></li>
-
-<li><p>default: 0 0 x2 y2,</p></li>
-
-<li><p>description: 设置数位板可使用的区域</p></li>
-</ul>
-
-<h3>Button</h3>
-
-
-  <div class="more">
-    <a href="/Blog/xsetwacom-%E9%80%89%E9%A1%B9%E8%AF%B4%E6%98%8E/" class="btn">read more..</a>
   </div>
 </div>
 

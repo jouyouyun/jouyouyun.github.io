@@ -2,7 +2,13 @@
 <rss version="2.0">  <channel>
     <title>Jouyouyun&#39;s Blog</title>
     <link>http://45.62.229.81:8080</link>
-    <pubDate>20 Jul 17 15:13 CST</pubDate>
+    <pubDate>29 Jul 17 18:31 CST</pubDate>
+    <item>
+      <title>设置 Grub2 分辨率</title>
+      <link>http://45.62.229.81:8080/Blog/%E8%AE%BE%E7%BD%AE-Grub2-%E5%88%86%E8%BE%A8%E7%8E%87/</link>
+      <pubDate>2017-07-29 12:00:00 +0800</pubDate>
+      <description>&lt;h2&gt;背景&lt;/h2&gt;&#xA;&#xA;&lt;p&gt;平时经常用显示器的分辨率去设置 &lt;code&gt;Grub&lt;/code&gt; 的分辨率，虽然大部分都没有问题，但有时却没有用。所以就把 &lt;code&gt;Grub&lt;/code&gt; 分辨率的设置方法详细说明一下，留档记录。&lt;/p&gt;&#xA;&#xA;&lt;hr /&gt;&#xA;&#xA;&lt;h2&gt;查询支持的分辨率&lt;/h2&gt;&#xA;&#xA;&lt;p&gt;在设置 &lt;code&gt;Grub&lt;/code&gt; 分辨率之前，需要先知道支持的分辨率列表，而幸运的是可以到 &lt;code&gt;Grub&lt;/code&gt; 命令行查询。&lt;/p&gt;&#xA;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;进入 &lt;code&gt;Grub&lt;/code&gt; 命令行&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;在 &lt;code&gt;Grub&lt;/code&gt; 启动界面，按下 &lt;code&gt;c&lt;/code&gt; 键就可以进入命令行界面了。&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;查询支持的分辨率&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;在命令行界面输入 &lt;code&gt;videoinfo&lt;/code&gt; 就可以得到支持的分辨率列表。&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;测试效果&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;可以在命令行下输入 &lt;code&gt;terminal_output console&lt;/code&gt; 进入终端模式，然后输入 &lt;code&gt;set gfxmode=&amp;lt;分辨率&amp;gt;&lt;/code&gt; 设置要测试的分辨率，然后查看效果。&#xA;测试完后输入 &lt;code&gt;terminal_output gfxterm&lt;/code&gt; 回到图形模式&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&#xA;&lt;p&gt;找到合适的分辨率后，重启进入系统，然后开始设置分辨率。&lt;/p&gt;&#xA;&#xA;&lt;hr /&gt;&#xA;&#xA;&lt;h2&gt;设置分辨率&lt;/h2&gt;&#xA;&#xA;&lt;p&gt;启动菜单是在 &lt;code&gt;/boot/grub/grub.cfg&lt;/code&gt;，而这个文件是根据 &lt;code&gt;/etc/default/grub&lt;/code&gt; 里的配置生成的，所以修改分辨率时只需修改 &lt;code&gt;/etc/default/grub&lt;/code&gt; 这个文件。&lt;/p&gt;&#xA;&#xA;&lt;p&gt;&lt;code&gt;GRUB_GFXMODE&lt;/code&gt; 这个字段控制着分辨率，只需将它的值指定为上面找到的分辨率，然后用命令 &lt;code&gt;sudo grub-mkconfig -o /boot/grub/grub.cfg&lt;/code&gt; 重新生成启动菜单即可。&lt;/p&gt;&#xA;</description>
+    </item>
     <item>
       <title>TCP BBR 设置及其增强版</title>
       <link>http://45.62.229.81:8080/Blog/TCP-BBR-%E8%AE%BE%E7%BD%AE%E5%8F%8A%E5%85%B6%E5%A2%9E%E5%BC%BA%E7%89%88/</link>
