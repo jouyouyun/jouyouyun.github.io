@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>xrandr examples</title>
+    <title>REST API 简介</title>
   
     <meta name="author" content="jouyouyun">
 
@@ -71,93 +71,59 @@
 
       <div class="content">
         <div class="page-header">
-  <h1>xrandr examples </h1>
+  <h1>REST API 简介 </h1>
 </div>
 
 <div class="row">
   <div class="span8">
-    <p>由于经常会用到使用 <code>xrandr</code> 设置屏幕属性, 而每次用的时候都要去查 <code>man</code> 手册, 有时还需要上网搜索例子.
-这样一来就比较麻烦, 所以就想整理下 <code>xrandr</code> 的用法, 给出一些常用的例子.</p>
+    <h2>什么是 REST？</h2>
 
-<h3>查询</h3>
+<p><code>REST</code> 是 <code>Representational State Transfer</code> 的缩写，即表述性状态转移，是用来描述创建 <code>API</code> 方法的规范。</p>
 
-<p>使用 <code>xrandr -q</code> 命令可以查询当前的显示器状态, 使用 <code>xrandr --verbose</code> 将会显示更详细的信息.</p>
+<p>使用 <code>HTTP</code> 提供的 <code>POST，DELETE，PUT，GET</code> 方法来实现 <code>API</code> 需要的增删改查的功能。</p>
 
-<h3>设置分辨率</h3>
+<h2>REST API 原则</h2>
 
-<p>设置分辨率时需要指定设置的 <code>ouput</code> 以及 <code>mode</code>, 如将 <code>eDP1</code> 的分辨率改为 <code>1920x1080</code>, 命令就是 <code>xrandr --output eDP1 --mode 1920x1080</code>.</p>
+<ul>
+<li>为每一种资源建立一个 <code>URL</code>
+利用 <code>HTTP</code> 的标准方法来完成资源的相关操作，允许资源多重表达(嵌套)</li>
+<li>传输的数据为 <code>json</code> 格式
+即需要设置 <code>Content-Type</code> 为 <code>application/json</code></li>
+<li>使用标准的 <code>HTTP</code> 方法</li>
+</ul>
 
-<p>但是单屏时不用这么麻烦, 可以直接使用命令 <code>xrandr -s 1920x1080</code> 来更改.</p>
+<h2>示例</h2>
 
-<h3>添加分辨率</h3>
+<p>如一个用户管理的 <code>API</code>，针对增删改查的功能，可以用 <code>/api/users/:user</code> 这一个 <code>URL</code> 和 <code>POST, DELETE, PUT, GET</code> 来完成，详情如下：</p>
 
-<p>如果 <code>xrandr -q</code> 查询的结果中没有合适的分辨率, 则可以通过 <code>newmode</code> 来添加一个, 下面将给出为 <code>eDP1</code> 添加 <code>1440x900x60</code> 的分辨率的方法.</p>
-
-<ol>
-<li><p>使用 <code>cvt</code> 生成一个 <code>modeline</code>, 命令如下:</p>
-
-<pre><code class="language-shell">-&gt;cvt 1440 900 60
-# 1440x900 59.89 Hz (CVT 1.30MA) hsync: 55.93 kHz; pclk: 106.50 MHz
-Modeline &quot;1440x900_60.00&quot;  106.50  1440 1528 1672 1904  900 903 909 934 -hsync +vsync
-</code></pre></li>
-
-<li><p>使用 <code>newmode</code> 创建一个 <code>mode</code>, 参数就是上面 <code>Modeline</code> 后的内容, 命令如下:</p>
-
-<pre><code class="language-shell">-&gt;xrandr --newmode &quot;1440x900_60.00&quot;  106.50  1440 1528 1672 1904  900 903 909 934 -hsync +vsync
-</code></pre></li>
-
-<li><p>将上面的 <code>mode</code> 添加到 <code>eDP1</code> 中:</p>
-
-<pre><code class="language-shell">-&gt;xrandr --addmode eDP1 1440x900_60.00
+<pre><code class="language-go">router.POST(&quot;/api/users/:user&quot;, handler)
+router.DELETE(&quot;/api/users/:user&quot;, handler)
+router.PUT(&quot;/api/users/:user&quot;, handler)
+router.GET(&quot;/api/users/:user&quot;, handler)
 </code></pre>
 
-<p>如果执行出错, 则说明不支持此模式. 如果没有错误则添加完成, 然后就可以设置此 <code>mode</code> 为分辨率了.</p></li>
-</ol>
+<h2>参考文档</h2>
 
-<h3>双屏配置</h3>
-
-<p>如现在有两个 <code>output</code>, 分别是 <code>eDP1</code> 和 <code>VGA1</code>.</p>
-
-<h4>设置主屏</h4>
-
-<p>通过指定 <code>--primary</code> 参数来设置主屏, 如设置 <code>eDP1</code> 为主屏: <code>xrandr --auto --output eDP1 --primary</code>, <code>--auto</code> 可以自动启用关闭的屏幕.</p>
-
-<h4>复制模式</h4>
-
-<p>复制模式最好使用两个显示器都有的 <code>mode</code> 作为默认的 <code>mode</code>, 命令是 <code>xrandr --auto --output eDP1 --pos 0x0 --mode 1440x900 --output VGA1 --same-as eDP1</code>.</p>
-
-<h4>扩展模式</h4>
-
-<p>命令是 <code>xrandr --auto --output eDP1 --pos 0x0 --mode 1920x1080 --primary --output VGA1 --mode 1440x900 --right-of eDP1</code>.</p>
-
-<p>命令的结果就是 <code>VGA1</code> 会在 <code>eDP1</code> 的右边, <code>eDP1</code> 为主屏, 另外位置的参数还有 <code>left-of</code>, <code>--above</code>, <code>--below</code> 等.</p>
-
-<p>如果需要自定义两个屏幕的位置, 可以通过计算每个屏幕的分辨率, 用 <code>--pos</code> 参数来指定每个屏幕显示的位置.</p>
-
-<h4>单屏模式</h4>
-
-<p>这个模式是只显示某一个屏幕, 如只显示 <code>eDP1</code>, 可以使用命令 <code>xrandr --output eDP1 --pos 0x0 --mode 1920x1080 --primary --output VGA1 --off</code>,
-这样就会把 <code>VGA1</code> 给关闭.</p>
-
-<h4>其它</h4>
-
-<p>另外屏幕的旋转, 镜像和缩放可以分别使用 <code>--rotate</code>, <code>reflect</code> 和 <code>--scale</code> 参数来实现.</p>
-
-<p>至于更详细的信息请使用 <code>man xrandr</code> 来查看.</p>
+<ul>
+<li><a href="http://www.infoq.com/cn/articles/rest-introduction">深入浅出REST</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2011/09/restful.html">理解RESTful架构</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2014/05/restful_api.html">RESTful API 设计指南</a></li>
+<li><a href="http://novoland.github.io/%E8%AE%BE%E8%AE%A1/2015/08/17/Restful%20API%20%E7%9A%84%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83.html">Restful API 的设计规范</a></li>
+</ul>
 
     <hr>
     <div class="pagination">
       <ul>
         <ul>
           
-            <li class="prev"><a href="/Note/DDE-Package-List/" title="DDE Package List">&larr; Previous</a></li>
           
+            <li class="prev disabled"><a>&larr; Previous</a></li>
           
 
             <li><a href="/archive">Archive</a></li>
 
           
-            <li class="next"><a href="/Note/Enable-coredump/" title="Enable coredump">Next &rarr;</a></li>
+            <li class="next"><a href="/Blog/Bluetooth-FAQ/" title="Bluetooth FAQ">Next &rarr;</a></li>
           
           
         </ul>
@@ -183,7 +149,7 @@ Modeline &quot;1440x900_60.00&quot;  106.50  1440 1528 1672 1904  900 903 909 93
   
   <div class="span4">
     <h4>Published</h4>
-    <div class="date"><span>2016-06-06 16:52:30</span></div>
+    <div class="date"><span>2018-04-07</span></div>
     <br>
     <h4>Categories</h4>
     <ul class="tag_box">
@@ -198,7 +164,7 @@ Modeline &quot;1440x900_60.00&quot;  106.50  1440 1528 1672 1904  900 903 909 93
     <ul class="tag_box">
     
       <li>
-  <a href="/tags/#xrandr-ref">xrandr <span>1</span></a>
+  <a href="/tags/#rest-ref">rest <span>1</span></a>
 </li>
     
     </ul>

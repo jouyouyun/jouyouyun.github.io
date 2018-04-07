@@ -82,6 +82,41 @@
 
 
 <div class="post">
+  <h3 class="title"><a href="/Blog/REST-API-%E7%AE%80%E4%BB%8B/">REST API 简介</a> <span class="date">2018-04-07</span></h3>
+
+  <h2>什么是 REST？</h2>
+
+<p><code>REST</code> 是 <code>Representational State Transfer</code> 的缩写，即表述性状态转移，是用来描述创建 <code>API</code> 方法的规范。</p>
+
+<p>使用 <code>HTTP</code> 提供的 <code>POST，DELETE，PUT，GET</code> 方法来实现 <code>API</code> 需要的增删改查的功能。</p>
+
+<h2>REST API 原则</h2>
+
+<ul>
+<li>为每一种资源建立一个 <code>URL</code>
+利用 <code>HTTP</code> 的标准方法来完成资源的相关操作，允许资源多重表达(嵌套)</li>
+<li>传输的数据为 <code>json</code> 格式
+即需要设置 <code>Content-Type</code> 为 <code>application/json</code></li>
+<li>使用标准的 <code>HTTP</code> 方法</li>
+</ul>
+
+<h2>示例</h2>
+
+<p>如一个用户管理的 <code>API</code>，针对增删改查的功能，可以用 <code>/api/users/:user</code> 这一个 <code>URL</code> 和 <code>POST, DELETE, PUT, GET</code> 来完成，详情如下：</p>
+
+<pre><code class="language-go">router.POST(&quot;/api/users/:user&quot;, handler)
+router.DELETE(&quot;/api/users/:user&quot;, handler)
+router.PUT(&quot;/api/users/:user&quot;, handler)
+router.GET(&quot;/api/users/:user&quot;, handler)
+</code></pre>
+
+
+  <div class="more">
+    <a href="/Blog/REST-API-%E7%AE%80%E4%BB%8B/" class="btn">read more..</a>
+  </div>
+</div>
+
+<div class="post">
   <h3 class="title"><a href="/Blog/Bluetooth-FAQ/">Bluetooth FAQ</a> <span class="date">2017-11-20</span></h3>
 
   <p>收集遇到的 <code>bluetooth</code> 问题，使用的是 <code>deepin</code>。</p>
@@ -508,43 +543,6 @@ set_var EASYRSA_REQ_OU          &quot;Jouyouyun OpenVPN&quot;
 
   <div class="more">
     <a href="/Note/Enable-coredump/" class="btn">read more..</a>
-  </div>
-</div>
-
-<div class="post">
-  <h3 class="title"><a href="/Blog/Auto-Hidden-Cursor/">Auto Hidden Cursor</a> <span class="date">2016-04-22</span></h3>
-
-  <p>最近需要做一个隐藏光标的功能, 在这里将了解到的知识总结一下.</p>
-
-<h2>原理</h2>
-
-<p>隐藏光标的原理就是把光标设置为一个 <code>x11 null cursor</code>, 不需要隐藏时再将它设为 <code>x11 left_ptr cursor</code>.</p>
-
-<h3>设置光标</h3>
-
-<p>设置光标主要需要调用下面两个函数:</p>
-
-<pre><code class="language-c">int XDefineCursor(Display *display, Window w, Cursor cursor);
-void XFixesChangeCursorByName (Display *dpy, Cursor source, const char *name);
-</code></pre>
-
-<h3>创建光标</h3>
-
-<p>至于创建 <code>null cursor</code> 可以见下面的代码:</p>
-
-<pre><code class="language-c">window = DefaultRootWindow(display);
-Cursor invisibleCursor;
-Pixmap bitmapNoData;
-XColor black;
-static char noData[] = { 0,0,0,0,0,0,0,0 };
-black.red = black.green = black.blue = 0;
-bitmapNoData = XCreateBitmapFromData(display, window, noData, 8, 8);
-invisibleCursor = XCreatePixmapCursor(display, bitmapNoData, bitmapNoData, &amp;black, &amp;black, 0, 0);
-</code></pre>
-
-
-  <div class="more">
-    <a href="/Blog/Auto-Hidden-Cursor/" class="btn">read more..</a>
   </div>
 </div>
 
