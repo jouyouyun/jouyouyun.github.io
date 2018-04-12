@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Bluetooth FAQ</title>
+    <title>Git Rebase 回退</title>
   
     <meta name="author" content="jouyouyun">
 
@@ -71,106 +71,50 @@
 
       <div class="content">
         <div class="page-header">
-  <h1>Bluetooth FAQ </h1>
+  <h1>Git Rebase 回退 </h1>
 </div>
 
 <div class="row">
   <div class="span8">
-    <p>收集遇到的 <code>bluetooth</code> 问题，使用的是 <code>deepin</code>。</p>
+    <p>在开发新功能或修复 <code>bug</code> 时，一般需要新建一个分支，然后在它之上进行开发。在多人协同开发时，经常会同时修改相同的分支或相同的文件，这时就需要进行 <code>rebase</code> 操作在提交你的代码之前。</p>
 
-<hr />
+<p>但有时 <code>rebase</code> 会带来不想要的提交，或处理冲突时误操作执行了 <code>git rebase --skip</code> 。此时就想要回退到之前的提交，恢复自己的数据，<code>reflog</code> 就可以帮助你完成数据恢复。</p>
 
-<h2>控制中心不显示蓝牙模块</h2>
+<h2>reflog</h2>
 
-<p>蓝牙模块不显示时，可以按照以下步骤来查找原因：</p>
+<p>当你工作时，<code>Git</code> 会在你每次修改了 <code>HEAD</code> 时悄悄地将改动记录下来。当你提交或修改分支时，<code>reflog</code> 就会更新。通过 <code>git reflog</code> 命令可以查看当前的状态：</p>
 
-<ol>
-<li><p>执行 <code>sudo dmesg|grub bluetooth</code> 查看输出结果</p>
+<pre><code class="language-shell">7115aff (HEAD -&gt; master, tag: 3.1.21, origin/master, origin/HEAD) HEAD@{0}: pull: Fast-forward
+c0a16ee HEAD@{1}: pull: Fast-forward
+abf0bfb (tag: 3.1.20) HEAD@{2}: pull: Fast-forward
+c469d2c HEAD@{3}: pull: Fast-forward
+9148742 HEAD@{4}: pull: Fast-forward
+0dc73dd HEAD@{5}: pull: Fast-forward
+4dea91e (gerrit/master) HEAD@{6}: checkout: moving from rename-mousearea to master
+0dc73dd HEAD@{7}: reset: moving to 0dc73ddd5f28118c428cfb952a5cfea557239aef
+0dc73dd HEAD@{8}: rebase -i (finish): returning to refs/heads/rename-mousearea
+0dc73dd HEAD@{9}: rebase -i (pick): updating HEAD
+</code></pre>
 
-<ul>
-<li><p>输出里有 <code>timeout</code></p>
+<p>找到你提交所在的 <code>HEAD</code> 后，如 <code>HEAD@{8}</code> ，就可以用命令下面的命令来恢复你的代码了：</p>
 
-<p>此时再用 <code>systemctl status bluetooth.service</code> 看下服务有没有正常启动，错误信息是什么，然后根据错误去网上搜索答案。</p>
+<p><code>git reset --hard HEAD@{8}</code></p>
 
-<p>如果蓝牙是由网卡提供的，此时可以试着开关一下网卡的硬件开关。因为内核在初始化网卡之前初始化蓝牙，就会导致蓝牙设备不可用，重新初始化一次就好了。
-如果还是无效那就重启进入 <code>window</code>，再 <code>window</code> 里开关一次蓝牙再重启到 <code>linux</code>。</p></li>
-
-<li><p>输出里无 <code>timeout</code></p>
-
-<p>这就表明初始化没问题，继续下一步</p></li>
-</ul></li>
-</ol>
-
-<hr />
-
-<ol>
-<li><p>执行 <code>sudo hciconfig</code> 查看设备当前的状态</p>
-
-<ul>
-<li><p>状态为 <code>DOWN</code></p>
-
-<p>则执行 <code>sudo hciconfig hci&lt;number&gt; up</code>，其中 <strong>number</strong> 为前面输出显示的。
-如果命令执行失败，参照第一步。</p></li>
-
-<li><p>状态为 <code>UP</code></p>
-
-<p>继续下一步</p></li>
-</ul></li>
-</ol>
-
-<hr />
-
-<ol>
-<li><p>执行 <code>sudo rfkill list</code> 查看设备是否被 <code>block</code></p>
-
-<ul>
-<li><p>被 <code>block</code></p>
-
-<p>则执行 <code>sudo rfkill &lt;dev&gt; unblock</code></p></li>
-</ul></li>
-</ol>
-
-<p>如果尝试完上述步骤，蓝牙仍不可用，那就反馈吧，提供日志及 <code>lsusb</code> 输出，等待问题被解决。</p>
-
-<hr />
-
-<h2>蓝牙鼠标使用中频繁断开</h2>
-
-<p>蓝牙鼠标在使用过程中频繁出现了断开问题，应在断开后执行 <code>sudo dmesg</code> 来查看是否有错误，如果没有错误信息，那就反馈吧。
-如果出现 <code>firmware</code> 加载失败，记住这个固件名。试着从 <code>window</code> 那里获取最新的驱动，然后转成 <code>linux firmware</code>，方法如下:</p>
-
-<ol>
-<li><p>查找并下载本机蓝牙适配器的驱动，一般可在笔记本或蓝牙适配器的官网下载到</p></li>
-
-<li><p>然后解压，如果是 <code>.exe</code> 文件就安装 <code>innoextract</code> 来解压</p></li>
-
-<li><p>然后查看驱动信息的 <code>.inf</code> 文件，比如 <code>thinkpad x230 win8 64</code> 的文件就是 <code>app/Win64/bcbtums-win8x64-brcm.inf</code></p></li>
-
-<li><p>执行 <code>lsusb</code> 获取蓝牙设备的 <code>ID</code>。如 <code>x230</code> 即是 <code>ID 0a5c:21e6 Broadcom Corp. BCM20702 Bluetooth 4.0 [ThinkPad]</code>，然后搜索 <code>0a5c 21e6</code> 相关的内容，找到对应的 <code>.hex</code> 文件。如 <code>x230</code> 即是 <code>BCM20702A1_001.002.014.1443.1453.hex</code></p></li>
-
-<li><p>使用 <code>hex2hcd xxx.hex</code> 将 <code>xxx.hex</code> 转为 <code>.hcd</code> 文件，然后重命名为缺失的固件名，复制到 <code>/lib/firmware/</code> 下对应的位置</p></li>
-</ol>
-
-<hr />
-
-<h2>蓝牙音箱/耳机连上就断开</h2>
-
-<p>蓝牙音箱如果断开，先按照蓝牙耳机的方法试一下。如果不是，那就考虑是不是电脑的蓝牙不支持蓝牙高保真输出，因为 <code>deepin</code> 默认开启高保真。
-试着安装 <code>pavucontrol</code> 将蓝牙的 <code>profile(配置)</code> 切换为其它的，不过这样会导致音效很差，建议换掉电脑的蓝牙设备吧。</p>
+<p>同样这种方法也适用与其它的 <code>Git</code> 误操作。</p>
 
     <hr>
     <div class="pagination">
       <ul>
         <ul>
           
-            <li class="prev"><a href="/Blog/REST-API-%E7%AE%80%E4%BB%8B/" title="REST API 简介">&larr; Previous</a></li>
           
+            <li class="prev disabled"><a>&larr; Previous</a></li>
           
 
             <li><a href="/archive">Archive</a></li>
 
           
-            <li class="next"><a href="/Blog/%E8%AE%BE%E7%BD%AE-Grub2-%E5%88%86%E8%BE%A8%E7%8E%87/" title="设置 Grub2 分辨率">Next &rarr;</a></li>
+            <li class="next"><a href="/Blog/CUPS-%E8%B5%84%E6%96%99/" title="CUPS 资料">Next &rarr;</a></li>
           
           
         </ul>
@@ -196,7 +140,7 @@
   
   <div class="span4">
     <h4>Published</h4>
-    <div class="date"><span>2017-11-20</span></div>
+    <div class="date"><span>2018-04-12</span></div>
     <br>
     <h4>Categories</h4>
     <ul class="tag_box">
@@ -211,7 +155,19 @@
     <ul class="tag_box">
     
       <li>
-  <a href="/tags/#bluetooth-ref">bluetooth <span>1</span></a>
+  <a href="/tags/#git-ref">git <span>1</span></a>
+</li>
+    
+      <li>
+  <a href="/tags/#rebase-ref">rebase <span>1</span></a>
+</li>
+    
+      <li>
+  <a href="/tags/#reflog-ref">reflog <span>1</span></a>
+</li>
+    
+      <li>
+  <a href="/tags/#recovery-ref">recovery <span>1</span></a>
 </li>
     
     </ul>

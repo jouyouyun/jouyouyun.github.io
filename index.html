@@ -82,6 +82,35 @@
 
 
 <div class="post">
+  <h3 class="title"><a href="/Blog/Git-Rebase-%E5%9B%9E%E9%80%80/">Git Rebase 回退</a> <span class="date">2018-04-12</span></h3>
+
+  <p>在开发新功能或修复 <code>bug</code> 时，一般需要新建一个分支，然后在它之上进行开发。在多人协同开发时，经常会同时修改相同的分支或相同的文件，这时就需要进行 <code>rebase</code> 操作在提交你的代码之前。</p>
+
+<p>但有时 <code>rebase</code> 会带来不想要的提交，或处理冲突时误操作执行了 <code>git rebase --skip</code> 。此时就想要回退到之前的提交，恢复自己的数据，<code>reflog</code> 就可以帮助你完成数据恢复。</p>
+
+<h2>reflog</h2>
+
+<p>当你工作时，<code>Git</code> 会在你每次修改了 <code>HEAD</code> 时悄悄地将改动记录下来。当你提交或修改分支时，<code>reflog</code> 就会更新。通过 <code>git reflog</code> 命令可以查看当前的状态：</p>
+
+<pre><code class="language-shell">7115aff (HEAD -&gt; master, tag: 3.1.21, origin/master, origin/HEAD) HEAD@{0}: pull: Fast-forward
+c0a16ee HEAD@{1}: pull: Fast-forward
+abf0bfb (tag: 3.1.20) HEAD@{2}: pull: Fast-forward
+c469d2c HEAD@{3}: pull: Fast-forward
+9148742 HEAD@{4}: pull: Fast-forward
+0dc73dd HEAD@{5}: pull: Fast-forward
+4dea91e (gerrit/master) HEAD@{6}: checkout: moving from rename-mousearea to master
+0dc73dd HEAD@{7}: reset: moving to 0dc73ddd5f28118c428cfb952a5cfea557239aef
+0dc73dd HEAD@{8}: rebase -i (finish): returning to refs/heads/rename-mousearea
+0dc73dd HEAD@{9}: rebase -i (pick): updating HEAD
+</code></pre>
+
+
+  <div class="more">
+    <a href="/Blog/Git-Rebase-%E5%9B%9E%E9%80%80/" class="btn">read more..</a>
+  </div>
+</div>
+
+<div class="post">
   <h3 class="title"><a href="/Blog/CUPS-%E8%B5%84%E6%96%99/">CUPS 资料</a> <span class="date">2018-04-08</span></h3>
 
   <h2>Installation</h2>
@@ -529,32 +558,6 @@ set_var EASYRSA_REQ_OU          &quot;Jouyouyun OpenVPN&quot;
 
   <div class="more">
     <a href="/Note/DDE-Package-List/" class="btn">read more..</a>
-  </div>
-</div>
-
-<div class="post">
-  <h3 class="title"><a href="/Blog/xrandr-examples/">xrandr examples</a> <span class="date">2016-06-06 16:52:30</span></h3>
-
-  <p>由于经常会用到使用 <code>xrandr</code> 设置屏幕属性, 而每次用的时候都要去查 <code>man</code> 手册, 有时还需要上网搜索例子.
-这样一来就比较麻烦, 所以就想整理下 <code>xrandr</code> 的用法, 给出一些常用的例子.</p>
-
-<h3>查询</h3>
-
-<p>使用 <code>xrandr -q</code> 命令可以查询当前的显示器状态, 使用 <code>xrandr --verbose</code> 将会显示更详细的信息.</p>
-
-<h3>设置分辨率</h3>
-
-<p>设置分辨率时需要指定设置的 <code>ouput</code> 以及 <code>mode</code>, 如将 <code>eDP1</code> 的分辨率改为 <code>1920x1080</code>, 命令就是 <code>xrandr --output eDP1 --mode 1920x1080</code>.</p>
-
-<p>但是单屏时不用这么麻烦, 可以直接使用命令 <code>xrandr -s 1920x1080</code> 来更改.</p>
-
-<h3>添加分辨率</h3>
-
-<p>如果 <code>xrandr -q</code> 查询的结果中没有合适的分辨率, 则可以通过 <code>newmode</code> 来添加一个, 下面将给出为 <code>eDP1</code> 添加 <code>1440x900x60</code> 的分辨率的方法.</p>
-
-
-  <div class="more">
-    <a href="/Blog/xrandr-examples/" class="btn">read more..</a>
   </div>
 </div>
 

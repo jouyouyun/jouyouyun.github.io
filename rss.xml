@@ -2,7 +2,13 @@
 <rss version="2.0">  <channel>
     <title>Jouyouyun&#39;s Blog</title>
     <link>http://45.62.229.81:8080</link>
-    <pubDate>08 Apr 18 10:22 CST</pubDate>
+    <pubDate>12 Apr 18 20:31 CST</pubDate>
+    <item>
+      <title>Git Rebase 回退</title>
+      <link>http://45.62.229.81:8080/Blog/Git-Rebase-%E5%9B%9E%E9%80%80/</link>
+      <pubDate>2018-04-12 12:00:00 +0800</pubDate>
+      <description>&lt;p&gt;在开发新功能或修复 &lt;code&gt;bug&lt;/code&gt; 时，一般需要新建一个分支，然后在它之上进行开发。在多人协同开发时，经常会同时修改相同的分支或相同的文件，这时就需要进行 &lt;code&gt;rebase&lt;/code&gt; 操作在提交你的代码之前。&lt;/p&gt;&#xA;&#xA;&lt;p&gt;但有时 &lt;code&gt;rebase&lt;/code&gt; 会带来不想要的提交，或处理冲突时误操作执行了 &lt;code&gt;git rebase --skip&lt;/code&gt; 。此时就想要回退到之前的提交，恢复自己的数据，&lt;code&gt;reflog&lt;/code&gt; 就可以帮助你完成数据恢复。&lt;/p&gt;&#xA;&#xA;&lt;h2&gt;reflog&lt;/h2&gt;&#xA;&#xA;&lt;p&gt;当你工作时，&lt;code&gt;Git&lt;/code&gt; 会在你每次修改了 &lt;code&gt;HEAD&lt;/code&gt; 时悄悄地将改动记录下来。当你提交或修改分支时，&lt;code&gt;reflog&lt;/code&gt; 就会更新。通过 &lt;code&gt;git reflog&lt;/code&gt; 命令可以查看当前的状态：&lt;/p&gt;&#xA;&#xA;&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;7115aff (HEAD -&amp;gt; master, tag: 3.1.21, origin/master, origin/HEAD) HEAD@{0}: pull: Fast-forward&#xA;c0a16ee HEAD@{1}: pull: Fast-forward&#xA;abf0bfb (tag: 3.1.20) HEAD@{2}: pull: Fast-forward&#xA;c469d2c HEAD@{3}: pull: Fast-forward&#xA;9148742 HEAD@{4}: pull: Fast-forward&#xA;0dc73dd HEAD@{5}: pull: Fast-forward&#xA;4dea91e (gerrit/master) HEAD@{6}: checkout: moving from rename-mousearea to master&#xA;0dc73dd HEAD@{7}: reset: moving to 0dc73ddd5f28118c428cfb952a5cfea557239aef&#xA;0dc73dd HEAD@{8}: rebase -i (finish): returning to refs/heads/rename-mousearea&#xA;0dc73dd HEAD@{9}: rebase -i (pick): updating HEAD&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;p&gt;找到你提交所在的 &lt;code&gt;HEAD&lt;/code&gt; 后，如 &lt;code&gt;HEAD@{8}&lt;/code&gt; ，就可以用命令下面的命令来恢复你的代码了：&lt;/p&gt;&#xA;&#xA;&lt;p&gt;&lt;code&gt;git reset --hard HEAD@{8}&lt;/code&gt;&lt;/p&gt;&#xA;&#xA;&lt;p&gt;同样这种方法也适用与其它的 &lt;code&gt;Git&lt;/code&gt; 误操作。&lt;/p&gt;&#xA;</description>
+    </item>
     <item>
       <title>CUPS 资料</title>
       <link>http://45.62.229.81:8080/Blog/CUPS-%E8%B5%84%E6%96%99/</link>
