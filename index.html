@@ -82,6 +82,51 @@
 
 
 <div class="post">
+  <h3 class="title"><a href="/Blog/RESTfull-%E7%AE%80%E4%BB%8B/">RESTfull 简介</a> <span class="date">2018-05-10</span></h3>
+
+  <h2>简介</h2>
+
+<p><code>RESTfull</code> 即表现层状态转换，是一种设计风格，不是标准。其要点如下：</p>
+
+<ul>
+<li>资源由 <code>URI</code> 来指定</li>
+</ul>
+
+<blockquote>
+<p>每个资源都有与之对应的 <code>URI</code>，一个 <code>URI</code> 只能对应一种资源，但一种资源可以对应多个 <code>URI</code>(不同的分类方法)。</p>
+</blockquote>
+
+<ul>
+<li>对资源的操作对应到 <code>HTTP</code> 协议提供的方法</li>
+</ul>
+
+<blockquote>
+<p>如增删改查等操作，对应 <code>HTTP</code> 协议的 <code>POST, DELETE, PUT, GET</code> 等方法</p>
+</blockquote>
+
+<ul>
+<li>资源的表现形式通常广泛流行的协议和标准</li>
+</ul>
+
+<blockquote>
+<p>如 <code>JSON, XML, HTML</code> 等格式，当然也可以是其它格式或者私有格式，但一定足够能描述自己</p>
+</blockquote>
+
+<ul>
+<li>通过操作资源的表现形式来操作资源</li>
+</ul>
+
+<blockquote>
+<p>通过修改表现形式再辅以 <code>HTTP</code> 协议的方法，应用就可以管理资源</p>
+</blockquote>
+
+
+  <div class="more">
+    <a href="/Blog/RESTfull-%E7%AE%80%E4%BB%8B/" class="btn">read more..</a>
+  </div>
+</div>
+
+<div class="post">
   <h3 class="title"><a href="/Blog/Git-Rebase-%E5%9B%9E%E9%80%80/">Git Rebase 回退</a> <span class="date">2018-04-12</span></h3>
 
   <p>在开发新功能或修复 <code>bug</code> 时，一般需要新建一个分支，然后在它之上进行开发。在多人协同开发时，经常会同时修改相同的分支或相同的文件，这时就需要进行 <code>rebase</code> 操作在提交你的代码之前。</p>
@@ -146,41 +191,6 @@ c469d2c HEAD@{3}: pull: Fast-forward
 
   <div class="more">
     <a href="/Blog/CUPS-%E8%B5%84%E6%96%99/" class="btn">read more..</a>
-  </div>
-</div>
-
-<div class="post">
-  <h3 class="title"><a href="/Blog/REST-API-%E7%AE%80%E4%BB%8B/">REST API 简介</a> <span class="date">2018-04-07</span></h3>
-
-  <h2>什么是 REST？</h2>
-
-<p><code>REST</code> 是 <code>Representational State Transfer</code> 的缩写，即表述性状态转移，是用来描述创建 <code>API</code> 方法的规范。</p>
-
-<p>使用 <code>HTTP</code> 提供的 <code>POST，DELETE，PUT，GET</code> 方法来实现 <code>API</code> 需要的增删改查的功能。</p>
-
-<h2>REST API 原则</h2>
-
-<ul>
-<li>为每一种资源建立一个 <code>URL</code>
-利用 <code>HTTP</code> 的标准方法来完成资源的相关操作，允许资源多重表达(嵌套)</li>
-<li>传输的数据为 <code>json</code> 格式
-即需要设置 <code>Content-Type</code> 为 <code>application/json</code></li>
-<li>使用标准的 <code>HTTP</code> 方法</li>
-</ul>
-
-<h2>示例</h2>
-
-<p>如一个用户管理的 <code>API</code>，针对增删改查的功能，可以用 <code>/api/users/:user</code> 这一个 <code>URL</code> 和 <code>POST, DELETE, PUT, GET</code> 来完成，详情如下：</p>
-
-<pre><code class="language-go">router.POST(&quot;/api/users/:user&quot;, handler)
-router.DELETE(&quot;/api/users/:user&quot;, handler)
-router.PUT(&quot;/api/users/:user&quot;, handler)
-router.GET(&quot;/api/users/:user&quot;, handler)
-</code></pre>
-
-
-  <div class="more">
-    <a href="/Blog/REST-API-%E7%AE%80%E4%BB%8B/" class="btn">read more..</a>
   </div>
 </div>
 

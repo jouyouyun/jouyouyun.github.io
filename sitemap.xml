@@ -4,6 +4,11 @@
 		<loc>http://45.62.229.81:8080/</loc>
 	</url>
 	<url>
+		<loc>http://45.62.229.81:8080/Blog/RESTfull-%E7%AE%80%E4%BB%8B/</loc>
+		<lastmod>2018-05-10</lastmod>
+		<changefreq>weekly</changefreq>
+	</url>
+	<url>
 		<loc>http://45.62.229.81:8080/Blog/Git-Rebase-%E5%9B%9E%E9%80%80/</loc>
 		<lastmod>2018-04-12</lastmod>
 		<changefreq>weekly</changefreq>
@@ -11,11 +16,6 @@
 	<url>
 		<loc>http://45.62.229.81:8080/Blog/CUPS-%E8%B5%84%E6%96%99/</loc>
 		<lastmod>2018-04-08</lastmod>
-		<changefreq>weekly</changefreq>
-	</url>
-	<url>
-		<loc>http://45.62.229.81:8080/Blog/REST-API-%E7%AE%80%E4%BB%8B/</loc>
-		<lastmod>2018-04-07</lastmod>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>

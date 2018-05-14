@@ -2,9 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>CUPS 资料</title>
-  
-    <meta name="description" content="搜集的 CUPS 资料">
+    <title>RESTfull 入门</title>
   
     <meta name="author" content="jouyouyun">
 
@@ -73,139 +71,145 @@
 
       <div class="content">
         <div class="page-header">
-  <h1>CUPS 资料 </h1>
+  <h1>RESTfull 入门 </h1>
 </div>
 
 <div class="row">
   <div class="span8">
-    <h2>Installation</h2>
+    <h2>简介</h2>
 
-<p><code>sudo apt install cups ghostscript gsfonts</code></p>
-
-<h3>Driver</h3>
+<p><code>RESTfull</code> 即表现层状态转换，是一种设计风格，不是标准。其要点如下：</p>
 
 <ul>
-<li>gutenprint</li>
+<li>资源由 <code>URI</code> 来指定</li>
 </ul>
 
 <blockquote>
-<p>一组质量非常好的驱动集合，支持的目标机型包括 Canon, Epson, Lexmark, Sony, Olympus；以及配合CUPS/GhostSscript/Foomatic/GIMP使用的 PCL printers。</p>
-
-<p>安装包: <code>cups-driver-gutenprint gimp-gutenprint ijsgutenprint printer-driver-gutenprint</code></p>
+<p>每个资源都有与之对应的 <code>URI</code>，一个 <code>URI</code> 只能对应一种资源，但一种资源可以对应多个 <code>URI</code>(不同的分类方法)。</p>
 </blockquote>
 
 <ul>
-<li>foomatic</li>
+<li>对资源的操作对应到 <code>HTTP</code> 协议提供的方法</li>
 </ul>
 
 <blockquote>
-<p>Foomatic 是一个基于数据库的，集成自由软件打印机驱动和脱机打印程序的系统。</p>
-
-<p>安装包: <code>foomatic-db foomatic-db-engine foomatic-db-compressed-ppds foomatic-db-gutenprint foomatic-filters</code> 以及 <code>foomatic-db-nonfree</code></p>
+<p>如增删改查等操作，对应 <code>HTTP</code> 协议的 <code>POST, DELETE, PUT, GET</code> 等方法</p>
 </blockquote>
 
 <ul>
-<li>foo2zjs</li>
+<li>资源的表现形式通常广泛流行的协议和标准</li>
 </ul>
 
 <blockquote>
-<p>Drivers for ZjStream protocol printers such as the HP Laserjet 1018.</p>
-
-<p>安装包: <code>printer-driver-foo2zjs</code></p>
+<p>如 <code>JSON, XML, HTML</code> 等格式，当然也可以是其它格式或者私有格式，但一定足够能描述自己</p>
 </blockquote>
 
 <ul>
-<li>hplip</li>
+<li>通过操作资源的表现形式来操作资源</li>
 </ul>
 
 <blockquote>
-<p>HP GNU/Linux 驱动. 支持 DeskJet, OfficeJet, Photosmart, Business Inkjet 和一些 LaserJet printer 型的, 以及一些兄弟打印机。</p>
-
-<p>安装包: <code>hplip hplip-gui hplip-plugin</code></p>
+<p>通过修改表现形式再辅以 <code>HTTP</code> 协议的方法，应用就可以管理资源</p>
 </blockquote>
 
 <ul>
-<li>splix</li>
+<li>以超媒体作为应用状态的引擎</li>
 </ul>
 
 <blockquote>
-<p>三星驱动，支持SPL打印机(SPL：Samsung Printer Language)  (USB打印机要配合 cups-usblp 使用)</p>
+<p>资源相关操作的 <code>URI</code> 可附加在表现形式内，应用根据自身状态选择相应的 <code>URI</code> 来更改状态。</p>
 
-<p>安装包: <code>printer-driver-splix splix samsung-printers samsung-print firmware-samsung</code></p>
+<p>操作可以是 <code>URI</code> 外，也可以是一段代码，让应用执行。</p>
 </blockquote>
 
+<p>总结起来就是：通过改变资源的表现形式来更改资源状态，以表现形式里的超媒体信息来引导应用的状态改变。</p>
+
+<p>现在很多设计只用到了 <strong>资源 <code>+</code> <code>HTTP</code>动词</strong> 的方式，但 <strong>超媒体</strong> 不容忽视，是与应用交互的核心。</p>
+
+<h2><code>HTTP</code> 方法使用</h2>
+
+<p>下面介绍几种常用的 <code>HTTP</code> 协议方法:</p>
+
 <ul>
-<li>cndrvcups</li>
+<li>POST</li>
 </ul>
 
 <blockquote>
-<p>佳能 UFR2 驱动，支持LBP, iR 和 MF 系列打印机.</p>
-
-<p>安装包: <code>cndrvcups-capt cndrvcups-ufr2-uk cndrvcups-ufr2lt-uk cndrvcups-utility</code></p>
+<p>用于资源的添加</p>
 </blockquote>
 
 <ul>
-<li>cups-pdf</li>
+<li>DELETE</li>
 </ul>
 
 <blockquote>
-<p>PDF虚拟打印机，这个东西可以把发送给他的打印任务输出为PDF文件。</p>
+<p>用于资源的删除</p>
 </blockquote>
 
-<p>这些驱动可以全部预装。</p>
+<ul>
+<li>PUT</li>
+</ul>
 
-<p>有些打印机需要 <code>PPD</code> 文件，上面的驱动会自带一部分，如果没有就需要去查找了：</p>
+<blockquote>
+<p>用于修改资源，需要提供完整的资源信息，可用于修改资源多项字段</p>
+</blockquote>
 
 <ul>
-<li>到源里查找，包括其他发行版，如 <a href="https://wiki.archlinux.org/index.php/AUR">aur</a> 中找</li>
-<li>到 <a href="http://www.openprinting.org/printers"> OpenPrinting database</a> 选择制造商和型号</li>
-<li>到制造商官网查找</li>
+<li>GET</li>
 </ul>
+
+<blockquote>
+<p>用于资源的获取</p>
+</blockquote>
+
+<ul>
+<li>PATCH</li>
+</ul>
+
+<blockquote>
+<p>用于修改资源的单个字段</p>
+</blockquote>
+
+<h2>示例</h2>
+
+<p>如构建一个用户信息服务，<code>API</code> 按照 <code>RESTfull</code> 风格可设计如下：</p>
+
+<ul>
+<li><p><code>[POST] /users/:user</code> 添加用户</p></li>
+
+<li><p><code>[DELETE] /users/:user</code> 删除用户</p></li>
+
+<li><p><code>[PUT] /users/:user</code> 修改用户整体信息</p></li>
+
+<li><p><code>[PATCH] /users/:user</code> 修改用户的单个字段</p></li>
+
+<li><p><code>[GET] /users/:user</code> 获取用户信息</p></li>
+
+<li><p><code>[GET] /users</code> 获取所有用户信息</p></li>
+</ul>
+
+<p>另外在 <code>GET</code> 的信息中加入 <code>DELETE, PUT, PATCH</code> 的 <code>URI</code>，应用就可以根据这些 <code>URI</code> 显示可以进行的操作，动态的生成页面。
+此种方法也减少了耦合，避免了 <code>URI</code> 变更时大量的修改。</p>
 
 <hr />
 
-<h2>Configuration</h2>
+<p>尽管上面的描述很简单，但也能发现采用 <code>RESTfull</code> 来设计 <code>Web API</code> 是一种简洁明了的方案，通过与 <code>HTTP</code> 动词结合，避免了在 <code>URI</code> 中设置大量动词的问题，需要关注的只是对资源的抽象和划分。</p>
 
-<p>配置文件在 <code>/etc/cups</code> 这个目录，为了方便排错，建议把 <code>/etc/cups/cupsd.conf</code> 中 <code>LogLevel</code> 设置为 <code>debug2</code>.</p>
-
-<h3>USB 打印机</h3>
-
-<p>使用 <code>lsusb</code> 查看设备。</p>
-
-<p>需要加载模块 <code>usbcore</code>, 有的打印机还需要加载 <code>usblp</code> 而有的需要把它屏蔽</p>
-
-<h3>并口打印机</h3>
-
-<p>使用 <code>sudo dmesg | grep -i parport</code> 查看设备</p>
-
-<p>需要加载模块 <code>lp parport parport_pc</code></p>
-
-<p>有些使用 <code>usb to parallel</code> 的打印机可能无法识别，需要使用不同的连接方式，并将 <code>DeviceID</code> 写入到文件 <code>/etc/cups/printers.conf</code>，如 <code>DeviceID = parallel:/dev/usb/lp0</code></p>
-
-<hr />
-
-<h2>Links</h2>
-
-<ul>
-<li><a href="https://wiki.archlinux.org/index.php/CUPS">Arch Wiki CUPS</a></li>
-<li><a href="https://wiki.archlinux.org/index.php/CUPS/Troubleshooting">Troubleshooting</a></li>
-<li><a href="https://wiki.archlinux.org/index.php/CUPS/Printer-specific_problems">Arch Printer Driver</a></li>
-<li><a href="https://wiki.deepin.org/index.php?title=%E6%89%93%E5%8D%B0%E6%9C%BA">Deepin Wiki CUPS</a></li>
-</ul>
+<p>本文到此为止，关于 <code>RESTfull</code> 更多更详尽的内容请自行查找。</p>
 
     <hr>
     <div class="pagination">
       <ul>
         <ul>
           
-            <li class="prev"><a href="/Blog/Git-Rebase-%E5%9B%9E%E9%80%80/" title="Git Rebase 回退">&larr; Previous</a></li>
           
+            <li class="prev disabled"><a>&larr; Previous</a></li>
           
 
             <li><a href="/archive">Archive</a></li>
 
           
-            <li class="next"><a href="/Blog/Bluetooth-FAQ/" title="Bluetooth FAQ">Next &rarr;</a></li>
+            <li class="next"><a href="/Blog/Git-Rebase-%E5%9B%9E%E9%80%80/" title="Git Rebase 回退">Next &rarr;</a></li>
           
           
         </ul>
@@ -231,13 +235,13 @@
   
   <div class="span4">
     <h4>Published</h4>
-    <div class="date"><span>2018-04-08</span></div>
+    <div class="date"><span>2018-05-10</span></div>
     <br>
     <h4>Categories</h4>
     <ul class="tag_box">
     
       <li>
-  <a href="/categories/#Blog-ref">Blog <span>14</span></a>
+  <a href="/categories/#Blog-ref">Blog <span>15</span></a>
 </li>
     
     </ul>
@@ -246,7 +250,11 @@
     <ul class="tag_box">
     
       <li>
-  <a href="/tags/#cups-ref">cups <span>1</span></a>
+  <a href="/tags/#rest-ref">rest <span>2</span></a>
+</li>
+    
+      <li>
+  <a href="/tags/#restfull-ref">restfull <span>1</span></a>
 </li>
     
     </ul>
