@@ -2,7 +2,13 @@
 <rss version="2.0">  <channel>
     <title>Jouyouyun&#39;s Blog</title>
     <link>http://45.62.229.81:8080</link>
-    <pubDate>14 May 18 10:19 CST</pubDate>
+    <pubDate>27 Jul 18 17:05 CST</pubDate>
+    <item>
+      <title>修复 superblock</title>
+      <link>http://45.62.229.81:8080/Blog/%E4%BF%AE%E5%A4%8D-superblock/</link>
+      <pubDate>2018-07-27 12:00:00 +0800</pubDate>
+      <description>&lt;p&gt;当开机进入了 &lt;code&gt;initramfs mode&lt;/code&gt; 并提示 &lt;code&gt;filesystem invalid superblock checksum error&lt;/code&gt;, 此时你的 &lt;code&gt;superblock&lt;/code&gt; 已损坏，需要修复才能进入系统。&lt;/p&gt;&#xA;&#xA;&lt;p&gt;修复主要是从备份中恢复，假设受损的分区(一般为 /boot 所在的分区)为 &lt;code&gt;/dev/sda2&lt;/code&gt; 格式为 &lt;code&gt;ext4&lt;/code&gt;。首先列出备份信息，命令如下：&lt;/p&gt;&#xA;&#xA;&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ sudo mke2fs -n /dev/sda2&#xA;mke2fs 1.44.2 (14-May-2018)&#xA; /dev/sda7 有一个 ext4 文件系统&#xA;&#x9;上一次挂载于 /， 时间 Thu May 17 17:15:32 2018&#xA;Proceed anyway? (y,N) y&#xA;创建含有 7864320 个块（每块 4k）和 1966080 个inode的文件系统&#xA;文件系统UUID：dd407bb8-e38a-42f8-ae3f-38081af46323&#xA;超级块的备份存储于下列块：&#xA;&#x9;32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632, 2654208,&#xA;&#x9;4096000&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;p&gt;然后使用备份中的第一个 &lt;code&gt;number&lt;/code&gt; 进行恢复，如下：&lt;/p&gt;&#xA;&#xA;&lt;p&gt;&lt;code&gt;sudo e2fsck -b 32768 /dev/sda2 -y&lt;/code&gt;&lt;/p&gt;&#xA;&#xA;&lt;p&gt;完成后重启，如果重启还是无效，那就尝试之后的 &lt;code&gt;number&lt;/code&gt;。&lt;/p&gt;&#xA;</description>
+    </item>
     <item>
       <title>RESTfull 简介</title>
       <link>http://45.62.229.81:8080/Blog/RESTfull-%E7%AE%80%E4%BB%8B/</link>

@@ -2,7 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Git Rebase 回退</title>
+    <title>修复 superblock</title>
+  
+    <meta name="description" content="修复受损的 `superblock`">
   
     <meta name="author" content="jouyouyun">
 
@@ -71,50 +73,46 @@
 
       <div class="content">
         <div class="page-header">
-  <h1>Git Rebase 回退 </h1>
+  <h1>修复 superblock </h1>
 </div>
 
 <div class="row">
   <div class="span8">
-    <p>在开发新功能或修复 <code>bug</code> 时，一般需要新建一个分支，然后在它之上进行开发。在多人协同开发时，经常会同时修改相同的分支或相同的文件，这时就需要进行 <code>rebase</code> 操作在提交你的代码之前。</p>
+    <p>当开机进入了 <code>initramfs mode</code> 并提示 <code>filesystem invalid superblock checksum error</code>, 此时你的 <code>superblock</code> 已损坏，需要修复才能进入系统。</p>
 
-<p>但有时 <code>rebase</code> 会带来不想要的提交，或处理冲突时误操作执行了 <code>git rebase --skip</code> 。此时就想要回退到之前的提交，恢复自己的数据，<code>reflog</code> 就可以帮助你完成数据恢复。</p>
+<p>修复主要是从备份中恢复，假设受损的分区(一般为 /boot 所在的分区)为 <code>/dev/sda2</code> 格式为 <code>ext4</code>。首先列出备份信息，命令如下：</p>
 
-<h2>reflog</h2>
-
-<p>当你工作时，<code>Git</code> 会在你每次修改了 <code>HEAD</code> 时悄悄地将改动记录下来。当你提交或修改分支时，<code>reflog</code> 就会更新。通过 <code>git reflog</code> 命令可以查看当前的状态：</p>
-
-<pre><code class="language-shell">7115aff (HEAD -&gt; master, tag: 3.1.21, origin/master, origin/HEAD) HEAD@{0}: pull: Fast-forward
-c0a16ee HEAD@{1}: pull: Fast-forward
-abf0bfb (tag: 3.1.20) HEAD@{2}: pull: Fast-forward
-c469d2c HEAD@{3}: pull: Fast-forward
-9148742 HEAD@{4}: pull: Fast-forward
-0dc73dd HEAD@{5}: pull: Fast-forward
-4dea91e (gerrit/master) HEAD@{6}: checkout: moving from rename-mousearea to master
-0dc73dd HEAD@{7}: reset: moving to 0dc73ddd5f28118c428cfb952a5cfea557239aef
-0dc73dd HEAD@{8}: rebase -i (finish): returning to refs/heads/rename-mousearea
-0dc73dd HEAD@{9}: rebase -i (pick): updating HEAD
+<pre><code class="language-shell">$ sudo mke2fs -n /dev/sda2
+mke2fs 1.44.2 (14-May-2018)
+ /dev/sda7 有一个 ext4 文件系统
+	上一次挂载于 /， 时间 Thu May 17 17:15:32 2018
+Proceed anyway? (y,N) y
+创建含有 7864320 个块（每块 4k）和 1966080 个inode的文件系统
+文件系统UUID：dd407bb8-e38a-42f8-ae3f-38081af46323
+超级块的备份存储于下列块：
+	32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632, 2654208,
+	4096000
 </code></pre>
 
-<p>找到你提交所在的 <code>HEAD</code> 后，如 <code>HEAD@{8}</code> ，就可以用命令下面的命令来恢复你的代码了：</p>
+<p>然后使用备份中的第一个 <code>number</code> 进行恢复，如下：</p>
 
-<p><code>git reset --hard HEAD@{8}</code></p>
+<p><code>sudo e2fsck -b 32768 /dev/sda2 -y</code></p>
 
-<p>同样这种方法也适用与其它的 <code>Git</code> 误操作。</p>
+<p>完成后重启，如果重启还是无效，那就尝试之后的 <code>number</code>。</p>
 
     <hr>
     <div class="pagination">
       <ul>
         <ul>
           
-            <li class="prev"><a href="/Blog/RESTfull-%E7%AE%80%E4%BB%8B/" title="RESTfull 简介">&larr; Previous</a></li>
           
+            <li class="prev disabled"><a>&larr; Previous</a></li>
           
 
             <li><a href="/archive">Archive</a></li>
 
           
-            <li class="next"><a href="/Blog/CUPS-%E8%B5%84%E6%96%99/" title="CUPS 资料">Next &rarr;</a></li>
+            <li class="next"><a href="/Blog/RESTfull-%E7%AE%80%E4%BB%8B/" title="RESTfull 简介">Next &rarr;</a></li>
           
           
         </ul>
@@ -140,7 +138,7 @@ c469d2c HEAD@{3}: pull: Fast-forward
   
   <div class="span4">
     <h4>Published</h4>
-    <div class="date"><span>2018-04-12</span></div>
+    <div class="date"><span>2018-07-27</span></div>
     <br>
     <h4>Categories</h4>
     <ul class="tag_box">
@@ -155,19 +153,7 @@ c469d2c HEAD@{3}: pull: Fast-forward
     <ul class="tag_box">
     
       <li>
-  <a href="/tags/#git-ref">git <span>1</span></a>
-</li>
-    
-      <li>
-  <a href="/tags/#rebase-ref">rebase <span>1</span></a>
-</li>
-    
-      <li>
-  <a href="/tags/#reflog-ref">reflog <span>1</span></a>
-</li>
-    
-      <li>
-  <a href="/tags/#recovery-ref">recovery <span>1</span></a>
+  <a href="/tags/#superblock-ref">superblock <span>1</span></a>
 </li>
     
     </ul>
