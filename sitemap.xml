@@ -4,6 +4,11 @@
 		<loc>http://45.62.229.81:8080/</loc>
 	</url>
 	<url>
+		<loc>http://45.62.229.81:8080/Blog/Linux-%E6%97%B6%E9%97%B4%E6%A0%87%E5%87%86/</loc>
+		<lastmod>2018-08-27</lastmod>
+		<changefreq>weekly</changefreq>
+	</url>
+	<url>
 		<loc>http://45.62.229.81:8080/Blog/%E4%BF%AE%E5%A4%8D-superblock/</loc>
 		<lastmod>2018-07-27</lastmod>
 		<changefreq>weekly</changefreq>

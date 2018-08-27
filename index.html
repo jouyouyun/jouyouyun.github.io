@@ -82,6 +82,40 @@
 
 
 <div class="post">
+  <h3 class="title"><a href="/Blog/Linux-%E6%97%B6%E9%97%B4%E6%A0%87%E5%87%86/">Linux 时间标准</a> <span class="date">2018-08-27</span></h3>
+
+  <h2>系统如何设置时间</h2>
+
+<ol>
+<li>开机时根据硬件时钟来设置系统时钟.</li>
+<li>如果开启了 <code>NTP</code> 服务, 会根据网络时间来校正系统时钟，确保时间准确.</li>
+<li>关机时会根据系统时钟来设置硬件时钟(<code>localtime</code> 标准除外).</li>
+</ol>
+
+<h3>时钟</h3>
+
+<ul>
+<li>硬件时钟: 即实时时钟 <code>RTC</code> 或 <code>CMOS</code> 时钟, 仅能保存年、月、日、时、分、秒这些时间数值，无法保存时间标准和是否使用夏令时调节.</li>
+<li>系统时钟: 即软件时间, 与硬件时间分别维护，保存了时间、时区和夏令时设置.初始系统时钟是从硬件时间计算得来，计算时会考虑 <code>/etc/adjtime</code> 的设置.</li>
+<li><code>/etc/adjtime</code>: 这个文件中记录了时区标准和时间偏移, 根据硬件时钟设置系统时间和设置硬件时钟都会根据时间偏移来计算的.所有的时钟都是有误差的，但是一般有固定的偏移, 这种于基值的差称为“time skew”或“时间偏移”.</li>
+</ul>
+
+<hr />
+
+<h3>时间标准</h3>
+
+<ul>
+<li><code>UTC</code> 是与时区无关的全球时间标准, 会根据夏令时自动调整时间, <strong>推荐使用</strong>.</li>
+<li><code>localtime</code> 则依赖于当前时区, 不会根据夏令时自动调整.</li>
+</ul>
+
+
+  <div class="more">
+    <a href="/Blog/Linux-%E6%97%B6%E9%97%B4%E6%A0%87%E5%87%86/" class="btn">read more..</a>
+  </div>
+</div>
+
+<div class="post">
   <h3 class="title"><a href="/Blog/%E4%BF%AE%E5%A4%8D-superblock/">修复 superblock</a> <span class="date">2018-07-27</span></h3>
 
   <p>本周去某公司调试系统，他们硬件测试部分送来了一台系统无法进入的机器，他们也不知道怎么弄得，让我看下是系统原因还是 <code>SSD</code> 硬件有问题。</p>
@@ -395,49 +429,6 @@ set_var EASYRSA_REQ_OU          &quot;Jouyouyun OpenVPN&quot;
 
   <div class="more">
     <a href="/Blog/OpenVPN-Install/" class="btn">read more..</a>
-  </div>
-</div>
-
-<div class="post">
-  <h3 class="title"><a href="/Blog/MIME-Usage/">MIME Usage</a> <span class="date">2016-12-14</span></h3>
-
-  <h2>基本使用</h2>
-
-<p>使用到的工具为: xdg-mime, gvfs-mime</p>
-
-<ul>
-<li>查询文件的类型</li>
-</ul>
-
-<blockquote>
-<p>使用 <code>xdg-mime query filetype &lt;filepath&gt;</code> 可以得到文件的类型</p>
-</blockquote>
-
-<ul>
-<li>查询默认程序</li>
-</ul>
-
-<blockquote>
-<p>使用 <code>xdg-mime query default text/plain</code> 或 <code>gvfs-mime --query &lt;mimetype&gt;</code>, <code>gvfs-mime</code> 还会列出支持此 <code>mimetype</code> 的所有程序</p>
-</blockquote>
-
-<ul>
-<li>设置默认程序</li>
-</ul>
-
-<blockquote>
-<p>如将 <code>text/plain</code> 的默认打开程序设置为 <code>gvim.desktop</code>, 可以执行 <code>xdg-mime default gvim.desktop text/plain</code> 或 <code>gvfs-mime --set text/plain gvim.desktop</code></p>
-</blockquote>
-
-<h2>根据文件扩展名指定类型</h2>
-
-<ol>
-<li>创建 <code>xml</code> 文件, 指定类型, 如将 <code>*.org</code> 指定为 <code>text/org-mode</code>, 文件内容如下:</li>
-</ol>
-
-
-  <div class="more">
-    <a href="/Blog/MIME-Usage/" class="btn">read more..</a>
   </div>
 </div>
 
