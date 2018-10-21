@@ -82,6 +82,36 @@
 
 
 <div class="post">
+  <h3 class="title"><a href="/Blog/Linux-%E4%BC%91%E7%9C%A0%E8%87%AA%E5%8A%A8%E5%94%A4%E9%86%92/">Linux 休眠自动唤醒</a> <span class="date">2018-10-21</span></h3>
+
+  <p>最近做无线网络在系统多次休眠唤醒后是否正常的测试，但每次休眠后都需要手动点击键盘来唤醒系统，显而易见的这种方法需要人来值守，很不放便。</p>
+
+<p>此时便想是否有做自动唤醒的程序，毕竟这种需求也挺正常的，应该有人已经做过了。因此就开始查找自动唤醒的方法，果然就发现了 <code>rtcwake</code> 这个程序，这个程序是让系统进入休眠模式并在指定的时间后唤醒。立刻便觉得这个程序很神奇，然后就去看它的源码来找出它的实现方式，这边发现了本文的主题 <code>RTC</code> 子系统。</p>
+
+<h2><code>RTC</code> 子系统</h2>
+
+<p><code>RTC</code> 子系统在目录 <code>/sys/class/rtc/</code> 下，会根据设备创建对应的目录，需要在内核中开启支持，配置如下：</p>
+
+<pre><code class="language-shell">CONFIG_HPET_EMULATE_RTC=y
+CONFIG_PM_TRACE_RTC=y
+CONFIG_RTC_LIB=y
+CONFIG_RTC_CLASS=y
+CONFIG_RTC_HCTOSYS=y
+CONFIG_RTC_HCTOSYS_DEVICE=&quot;rtc0&quot;
+# CONFIG_RTC_DEBUG is not set
+# RTC interfaces
+CONFIG_RTC_INTF_SYSFS=y
+CONFIG_RTC_INTF_PROC=y
+... (略)
+</code></pre>
+
+
+  <div class="more">
+    <a href="/Blog/Linux-%E4%BC%91%E7%9C%A0%E8%87%AA%E5%8A%A8%E5%94%A4%E9%86%92/" class="btn">read more..</a>
+  </div>
+</div>
+
+<div class="post">
   <h3 class="title"><a href="/Blog/Linux-%E6%97%B6%E9%97%B4%E6%A0%87%E5%87%86/">Linux 时间标准</a> <span class="date">2018-08-27</span></h3>
 
   <h2>系统如何设置时间</h2>
@@ -393,42 +423,6 @@ $ ./build.sh
 
   <div class="more">
     <a href="/Blog/Leanote-Install/" class="btn">read more..</a>
-  </div>
-</div>
-
-<div class="post">
-  <h3 class="title"><a href="/Blog/OpenVPN-Install/">OpenVPN Install</a> <span class="date">2016-12-27</span></h3>
-
-  <h2>安装所需软件</h2>
-
-<p>Arch: <code>yaourt -S openvpn easy-rsa</code></p>
-
-<h2>生成证书</h2>
-
-<h3>Server 端</h3>
-
-<ul>
-<li><p>Copy template file</p>
-
-<pre><code class="language-shell">sudo mkdir -p /etc/openvpn
-sudo cp -R /etc/easy-rsa /etc/openvpn
-</code></pre></li>
-
-<li><p>Config vars
-取消并修改以下项:</p></li>
-</ul>
-
-<pre><code class="language-shell">set_var EASYRSA_REQ_COUNTRY     &quot;CN&quot;
-set_var EASYRSA_REQ_PROVINCE    &quot;Hongkong&quot;
-set_var EASYRSA_REQ_CITY        &quot;Hongkong&quot;
-set_var EASYRSA_REQ_ORG         &quot;jouyouyun.info&quot;
-set_var EASYRSA_REQ_EMAIL       &quot;wen@jouyouyun.iofn&quot;
-set_var EASYRSA_REQ_OU          &quot;Jouyouyun OpenVPN&quot;
-</code></pre>
-
-
-  <div class="more">
-    <a href="/Blog/OpenVPN-Install/" class="btn">read more..</a>
   </div>
 </div>
 

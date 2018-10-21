@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Auto Hidden Cursor</title>
+    <title>Linux 休眠自动唤醒</title>
   
     <meta name="author" content="jouyouyun">
 
@@ -71,67 +71,73 @@
 
       <div class="content">
         <div class="page-header">
-  <h1>Auto Hidden Cursor </h1>
+  <h1>Linux 休眠自动唤醒 </h1>
 </div>
 
 <div class="row">
   <div class="span8">
-    <p>最近需要做一个隐藏光标的功能, 在这里将了解到的知识总结一下.</p>
+    <p>最近做无线网络在系统多次休眠唤醒后是否正常的测试，但每次休眠后都需要手动点击键盘来唤醒系统，显而易见的这种方法需要人来值守，很不放便。</p>
 
-<h2>原理</h2>
+<p>此时便想是否有做自动唤醒的程序，毕竟这种需求也挺正常的，应该有人已经做过了。因此就开始查找自动唤醒的方法，果然就发现了 <code>rtcwake</code> 这个程序，这个程序是让系统进入休眠模式并在指定的时间后唤醒。立刻便觉得这个程序很神奇，然后就去看它的源码来找出它的实现方式，这边发现了本文的主题 <code>RTC</code> 子系统。</p>
 
-<p>隐藏光标的原理就是把光标设置为一个 <code>x11 null cursor</code>, 不需要隐藏时再将它设为 <code>x11 left_ptr cursor</code>.</p>
+<h2><code>RTC</code> 子系统</h2>
 
-<h3>设置光标</h3>
+<p><code>RTC</code> 子系统在目录 <code>/sys/class/rtc/</code> 下，会根据设备创建对应的目录，需要在内核中开启支持，配置如下：</p>
 
-<p>设置光标主要需要调用下面两个函数:</p>
-
-<pre><code class="language-c">int XDefineCursor(Display *display, Window w, Cursor cursor);
-void XFixesChangeCursorByName (Display *dpy, Cursor source, const char *name);
+<pre><code class="language-shell">CONFIG_HPET_EMULATE_RTC=y
+CONFIG_PM_TRACE_RTC=y
+CONFIG_RTC_LIB=y
+CONFIG_RTC_CLASS=y
+CONFIG_RTC_HCTOSYS=y
+CONFIG_RTC_HCTOSYS_DEVICE=&quot;rtc0&quot;
+# CONFIG_RTC_DEBUG is not set
+# RTC interfaces
+CONFIG_RTC_INTF_SYSFS=y
+CONFIG_RTC_INTF_PROC=y
+... (略)
 </code></pre>
 
-<h3>创建光标</h3>
+<p><code>debian/ubuntu</code> 的系统可以在 <code>/boot/config-$(uname -r)</code> 查看内核的编译选项，<code>archlinux</code> 可以在 <code>/proc/config.gz</code> 查看。</p>
 
-<p>至于创建 <code>null cursor</code> 可以见下面的代码:</p>
+<p><code>RTC</code> 目录下的文件含义可以在 <a href="https://www.kernel.org/doc/Documentation/ABI/testing/sysfs-class-rtc">sysfs-class-rtc</a> 中查看。</p>
 
-<pre><code class="language-c">window = DefaultRootWindow(display);
-Cursor invisibleCursor;
-Pixmap bitmapNoData;
-XColor black;
-static char noData[] = { 0,0,0,0,0,0,0,0 };
-black.red = black.green = black.blue = 0;
-bitmapNoData = XCreateBitmapFromData(display, window, noData, 8, 8);
-invisibleCursor = XCreatePixmapCursor(display, bitmapNoData, bitmapNoData, &amp;black, &amp;black, 0, 0);
+<h3><code>wakealarm</code></h3>
+
+<p><code>RTC</code> 目录中的 <code>wakealarm</code> 文件内容便是下次触发唤醒时间的时间，默认这个文件是没有值的。文件的内容需要设置是时间的秒数，可以向下面这样设置：</p>
+
+<pre><code class="language-shell"># echo $(date +%s --date 'now + 1 minutes') &gt; /sys/class/rtc/rtc0/wakealarm
 </code></pre>
 
-<p>创建完后, 将其设置为默认光标就可以了.</p>
+<p>这就表示在 <code>1 minute</code> 后触发唤醒事件。</p>
 
-<p>另外 <code>libxfixes</code> 也提供了隐藏/显示光标的接口:</p>
+<p>所以做休眠唤醒测试的流程如下：</p>
 
-<pre><code class="language-c">void XFixesHideCursor (Display *dpy, Window win);
-void XFixesShowCursor (Display *dpy, Window win);
-</code></pre>
+<ol>
+<li>设置下次唤醒的时间到 <code>wakealarm</code> 中</li>
+<li>休眠系统</li>
+<li>被 <code>wakealarm</code> 唤醒后，开始做一些期望的事情(如检查系统是否正常)，然后继续执行步骤 <code>1</code>，就这样一直循环，直至满足条件后终止</li>
+</ol>
 
-<h2>其它</h2>
+<h2>FAQ</h2>
 
-<p>隐藏光标推荐使用 <code>unclutter</code> 来设置, 它可以自定义空闲时间, 具体功能请见 <code>man</code> 手册.</p>
-
-<p>如果使用 <code>lightdm</code> 作为登录管理器, 可以编辑 <code>/etc/lightdm/lightdm.conf</code> 文件,
-在 <code>[Seat:*]</code> 后添加 <code>xserver-command=X -bs -core -nocursor</code>.</p>
+<ul>
+<li>设置无效？
+首先检查内涵是否开启了 <code>rtc</code> 支持，如果支持就检查时间标准是否是 <code>UTC</code>，<code>localtime</code> 时间标准时设置 <code>wakealarm</code> 是不生效的，内容一直是空的。通过 <code>timedatectl</code> 命令可以查询和设置时间标准。</li>
+</ul>
 
     <hr>
     <div class="pagination">
       <ul>
         <ul>
           
-            <li class="prev"><a href="/Note/Enable-coredump/" title="Enable coredump">&larr; Previous</a></li>
           
+            <li class="prev disabled"><a>&larr; Previous</a></li>
           
 
             <li><a href="/archive">Archive</a></li>
 
           
-            <li class="next"><a href="/Note/debug-%E5%B0%8F%E7%BB%93/" title="debug 小结">Next &rarr;</a></li>
+            <li class="next"><a href="/Blog/Linux-%E6%97%B6%E9%97%B4%E6%A0%87%E5%87%86/" title="Linux 时间标准">Next &rarr;</a></li>
           
           
         </ul>
@@ -157,7 +163,7 @@ void XFixesShowCursor (Display *dpy, Window win);
   
   <div class="span4">
     <h4>Published</h4>
-    <div class="date"><span>2016-04-22</span></div>
+    <div class="date"><span>2018-10-21</span></div>
     <br>
     <h4>Categories</h4>
     <ul class="tag_box">
@@ -172,7 +178,15 @@ void XFixesShowCursor (Display *dpy, Window win);
     <ul class="tag_box">
     
       <li>
-  <a href="/tags/#cursor-ref">cursor <span>1</span></a>
+  <a href="/tags/#suspend-ref">suspend <span>1</span></a>
+</li>
+    
+      <li>
+  <a href="/tags/#wakeup-ref">wakeup <span>1</span></a>
+</li>
+    
+      <li>
+  <a href="/tags/#rtc-ref">rtc <span>2</span></a>
 </li>
     
     </ul>
