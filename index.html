@@ -82,6 +82,37 @@
 
 
 <div class="post">
+  <h3 class="title"><a href="/Blog/linux-%E4%B8%8B-deepin-%E5%92%8C-gnome-%E6%A1%8C%E9%9D%A2%E7%9A%84%E5%A4%96%E8%A7%82%E8%AE%BE%E7%BD%AE/">linux 下 deepin 和 gnome 桌面的外观设置</a> <span class="date">2018-10-23</span></h3>
+
+  <p>桌面的外观设置一般包括窗口主题、图标主题、光标主题和字体设置，其中窗口主题就是常见的 <code>gtk</code> 主题，字体设置又包括标准字体、等款字体和字体大小。对于进些年的高分屏，又添加了字体缩放和窗口缩放这2个选项。</p>
+
+<p>界面上设置方法就不介绍了，都可以在各自桌面的控制中心中找到，这里主要介绍命令行下的。</p>
+
+<p><code>deepin</code> 和 <code>gnome</code> 桌面环境的外观配置数据是使用 <code>gsettings</code> 来存储，所以可以通过 <code>gsettings</code> 来设置和读取。<code>gsettings</code> 相比设置界面就是 可以设置到更多的选项，设置的值更加精确。</p>
+
+<p>下面先简单介绍下 <code>gsettings</code> 的用法。</p>
+
+<h2><code>GSettings</code></h2>
+
+<ul>
+<li><p>获取 <code>key</code></p>
+
+<p><code>gsettings get &lt;schema_id&gt; &lt;key&gt;</code></p></li>
+
+<li><p>设置 <code>key</code></p>
+
+<p><code>gsettings set &lt;schema_id&gt; &lt;key&gt; &lt;value&gt;</code></p></li>
+</ul>
+
+<p>其中 <code>schema</code> 是在 <code>/usr/share/glib-2.0/schemas</code> 这个目录下，<code>schema_id</code> 是文件内容中 <code>id</code> 的值，<code>key</code> 就是文件中描述的，每个 <code>key</code> 都有一个默认值。</p>
+
+
+  <div class="more">
+    <a href="/Blog/linux-%E4%B8%8B-deepin-%E5%92%8C-gnome-%E6%A1%8C%E9%9D%A2%E7%9A%84%E5%A4%96%E8%A7%82%E8%AE%BE%E7%BD%AE/" class="btn">read more..</a>
+  </div>
+</div>
+
+<div class="post">
   <h3 class="title"><a href="/Blog/Linux-%E4%BC%91%E7%9C%A0%E8%87%AA%E5%8A%A8%E5%94%A4%E9%86%92/">Linux 休眠自动唤醒</a> <span class="date">2018-10-21</span></h3>
 
   <p>最近做无线网络在系统多次休眠唤醒后是否正常的测试，但每次休眠后都需要手动点击键盘来唤醒系统，显而易见的这种方法需要人来值守，很不放便。</p>
@@ -390,39 +421,6 @@ $ ./build.sh
 
   <div class="more">
     <a href="/Blog/TCP-BBR-%E8%AE%BE%E7%BD%AE%E5%8F%8A%E5%85%B6%E5%A2%9E%E5%BC%BA%E7%89%88/" class="btn">read more..</a>
-  </div>
-</div>
-
-<div class="post">
-  <h3 class="title"><a href="/Blog/Leanote-Install/">Leanote Install</a> <span class="date">2017-07-17</span></h3>
-
-  <p><code>Leanote</code> 是一款开源的笔记软件, 支持使用 <code>markdown</code> 来编辑笔记, 并可选择是否将笔记导出成博客, 这对于知识整理及写博客都是非常方便的, 故来尝试下.</p>
-
-<hr />
-
-<h2>安装</h2>
-
-<hr />
-
-<p><code>Leanote</code> 是使用 <code>Golang</code> 编写的, 可以直接使用官方编译好的可执行文件.
-另外它使用的是 <code>mongodb</code> 数据库, 可以从源里安装, 也可以从官网下载.
-以下的安装和配置都是基于最新的版本, 如果中途出错, 请看官方文档.</p>
-
-<ul>
-<li><p><code>Leanote</code> 下载地址: <a href="http://leanote.org/#download">见这里</a></p></li>
-
-<li><p><code>mongodb</code> 下载地址: <a href="https://www.mongodb.com/download-center">见这里</a></p></li>
-</ul>
-
-<hr />
-
-<h2>配置</h2>
-
-<hr />
-
-
-  <div class="more">
-    <a href="/Blog/Leanote-Install/" class="btn">read more..</a>
   </div>
 </div>
 
