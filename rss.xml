@@ -2,7 +2,13 @@
 <rss version="2.0">  <channel>
     <title>Jouyouyun&#39;s Blog</title>
     <link>http://45.62.229.81:8080</link>
-    <pubDate>23 Oct 18 21:56 CST</pubDate>
+    <pubDate>11 Nov 18 21:36 CST</pubDate>
+    <item>
+      <title>怎么处理 &#39;Origin&#39;值从&#39;Google, Inc.&#39;修改到了&#39;Google LLC&#39; 的 APT 错误</title>
+      <link>http://45.62.229.81:8080/Blog/%E6%80%8E%E4%B9%88%E5%A4%84%E7%90%86-%27Origin%27%E5%80%BC%E4%BB%8E%27Google%2C-Inc.%27%E4%BF%AE%E6%94%B9%E5%88%B0%E4%BA%86%27Google-LLC%27-%E7%9A%84-APT-%E9%94%99%E8%AF%AF/</link>
+      <pubDate>2018-11-07 12:00:00 +0800</pubDate>
+      <description>&lt;p&gt;今天在执行 &lt;code&gt;sudo apt-get update&lt;/code&gt; 出现了下面的错误提示：&lt;/p&gt;&#xA;&#xA;&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;E: 仓库&#39;http://dl.google.com/linux/chrome/deb stable Release&#39;将其&#39;Origin&#39;值从&#39;Google, Inc.&#39;修改到了&#39;Google LLC&#39;&#xA;N: 为了让这个仓库能够应用，这必须在更新之前显式接受。更多细节请参阅 apt-secure(8) 手册。&#xA;&#xA;# 英语环境下的输出&#xA;E: Repository ‘http://dl.google.com/linux/chrome-remote-desktop/deb stable Release’ changed its ‘Origin’ value from ‘Google, Inc.’ to ‘Google LLC’&#xA;N: This must be accepted explicitly before updates for this repository can be applied. See apt-secure(8) manpage for details.&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;p&gt;这个错误导致无法升级系统，错误说明了原因：是由于 &lt;code&gt;Google Chrome&lt;/code&gt; 的 &lt;code&gt;Origin&lt;/code&gt; 改变引起的，也给出了解决思路：手动接受这个改变。&lt;/p&gt;&#xA;&#xA;&lt;p&gt;所以修复这个错误就很容易了，只需执行：&lt;/p&gt;&#xA;&#xA;&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;sudo apt update&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;p&gt;执行后会看到下面的提示：&lt;/p&gt;&#xA;&#xA;&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;E: 仓库&#39;http://dl.google.com/linux/chrome/deb stable Release&#39;将其&#39;Origin&#39;值从&#39;Google, Inc.&#39;修改到了&#39;Google LLC&#39;&#xA;N: 为了让这个仓库能够应用，这必须在更新之前显式接受。更多细节请参阅 apt-secure(8) 手册。&#xA;您是否愿意接受这些更改，并且继续从此仓库更新？ [y/N] y&#xA;&#xA;# 英语环境下的输出&#xA;E: Repository ‘http://dl.google.com/linux/chrome-remote-desktop/deb stable Release’ changed its ‘Origin’ value from ‘Google, Inc.’ to ‘Google LLC’&#xA;N: This must be accepted explicitly before updates for this repository can be applied. See apt-secure(8) manpage for details.&#xA;Do you want to accept these changes and continue updating from this repository? [y/N] y&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;p&gt;此时输入 &lt;code&gt;y&lt;/code&gt; 接受就可解决问题。&lt;/p&gt;&#xA;</description>
+    </item>
     <item>
       <title>linux 下 deepin 和 gnome 桌面的外观设置</title>
       <link>http://45.62.229.81:8080/Blog/linux-%E4%B8%8B-deepin-%E5%92%8C-gnome-%E6%A1%8C%E9%9D%A2%E7%9A%84%E5%A4%96%E8%A7%82%E8%AE%BE%E7%BD%AE/</link>
