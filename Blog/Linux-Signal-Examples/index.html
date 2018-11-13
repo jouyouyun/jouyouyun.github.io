@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Linux Signal Examples</title>
+  
+    <meta name="author" content="jouyouyun">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/twitter/stylesheets/bootstrap.min.css" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/stylesheets/style.css" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/widgets/google_prettify/stylesheets/twitter-bootstrap.css" type="text/css" rel="stylesheet" media="all">
+ 
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/">Jouyouyun&#39;s Blog</a>
+          <ul class="nav">
+            
+              
+
+
+  <li><a href="/archive">Archive</a></li>
+
+
+            
+              
+
+
+  <li><a href="/tags">Tags</a></li>
+
+
+            
+              
+
+
+  <li><a href="/categories">Categories</a></li>
+
+
+            
+              
+
+
+  <li><a href="/about">About Me</a></li>
+
+
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="content">
+        <div class="page-header">
+  <h1>Linux Signal Examples </h1>
+</div>
+
+<div class="row">
+  <div class="span8">
+    <p>信号是系统响应某些条件而产生的一个事件，接收到该信的进程做出相应的处理。通常信是由错误产生的，如段错误(<code>SIGSEGV</code>)。 但信还可以作为进程间通信的一种方式，由一个进程发送给另一个进程。</p>
+
+<p>信号定义在 <code>signal.h</code> 文件中，以 <code>SIG</code> 作为开头，可用 <code>kill -l</code> 命令查看，详细信息参见 <a href="http://man7.org/linux/man-pages/man7/signal.7.html">man 7 signal</a>。</p>
+
+<h2>信号处理</h2>
+
+<p>信号可以通过 <code>signal</code> 和 <code>sigaction</code> 函数来注册处理， <code>signal</code> 函数是 <code>struct sigaction</code> 中 <code>sa_handler</code> 的一种便捷实现。</p>
+
+<h3><code>signal</code> 函数</h3>
+
+<p><strong>原型：</strong></p>
+
+<pre><code class="language-c">void (*signal(int sig, void (*func)(int)))(int);
+</code></pre>
+
+<p>其中 <code>sig</code> 是需要捕获的 <code>signal number</code>, 后一个是捕获到信号后的处理函数指针，所以处理函数的原型必须是 <code>void func(int)</code> ，简单的代码示例如下：</p>
+
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;signal.h&gt;
+
+static void
+handler(int sig)
+{
+        printf(&quot;Recieved signal: %d\n&quot;, sig);
+}
+
+int
+main(int argc, char *argv[])
+{
+        signal(SIGINT, handler);
+
+        printf(&quot;Caught SIGINT, input 'quit' to exit...\n&quot;);
+        // wait signal caught
+        char buf[1024] = {0};
+        while (1) {
+                printf(&quot;Please input: &quot;);
+                scanf(&quot;%s&quot;, buf);
+                if (strcmp(buf, &quot;quit&quot;) == 0) {
+                        break;
+                }
+        }
+        printf(&quot;Exit...\n&quot;);
+        return 0;
+}
+</code></pre>
+
+<p>另外 <code>api</code> 中也提供了下面 2 个特殊的 <code>handler</code>:</p>
+
+<ul>
+<li><p><code>SIG_IGN</code></p>
+
+<p>忽略此信号</p></li>
+
+<li><p><code>SIG_DFL</code></p>
+
+<p>恢复此信号的默认行为</p></li>
+</ul>
+
+<h3><code>sigaction</code> 函数</h3>
+
+<p><strong>原型：</strong></p>
+
+<pre><code class="language-c">int sigaction(int sig, const struct sigaction *restrict act,
+           struct sigaction *restrict oact);
+</code></pre>
+
+<p>其中 <code>sig</code> 为 <code>signal number</code>, <code>act</code> 指定信号的处理行为， <code>oact</code> 如果不为 <code>NULL</code> 则返回信号之前的处理行为。</p>
+
+<p><code>struct sigaction</code> 的主要成员如下：</p>
+
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>名称</th>
+<th>描述</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>void(*) (int)</td>
+<td>sa_handler</td>
+<td>处理函数指针，同 signal 函数中的 <code>func</code> 参数</td>
+</tr>
+
+<tr>
+<td>sigset_t</td>
+<td>sa_mask</td>
+<td>信号屏蔽字，是指当前被阻塞的一组信号，不能被当前进程收到</td>
+</tr>
+
+<tr>
+<td>int</td>
+<td>sa_flags</td>
+<td>处理行为修改器，指明哪种处理函数生效，详见下文</td>
+</tr>
+
+<tr>
+<td>void(*) (int, siginfo_t *, void *)</td>
+<td>sa_sigaction</td>
+<td>处理函数指针，仅 sa_flags == SA_SIGINFO 时有效</td>
+</tr>
+</tbody>
+</table>
+
+<p>其中 <code>sa_flags</code> 主要可以设置为以下值：</p>
+
+<ul>
+<li><p>SA_NOCLDSTOP</p>
+
+<p>子进程停止时不产生 <code>SIGCHLD</code> 信号</p></li>
+
+<li><p>SA_RESETHAND</p>
+
+<p>将信号的处理函数在处理函数的入口重置为 <code>SIG_DFL</code></p></li>
+
+<li><p>SA_RESTART</p>
+
+<p>重启可中断的函数而不是给出 <code>EINTR</code> 错误</p></li>
+
+<li><p>SA_SIGINFO</p>
+
+<p>使用 <code>sa_sigaction</code> 做为信号的处理函数</p></li>
+
+<li><p>SA_NODEFER</p>
+
+<p>捕获到信号时不将它添加到信号屏蔽字中</p></li>
+</ul>
+
+<p>简单的代码示例如下：</p>
+
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;signal.h&gt;
+
+#define SIG SIGINT
+
+static void
+sig_handler(int sig, siginfo_t *si, void *data)
+{
+        printf(&quot;Caught signal: %d\n&quot;, sig);
+        printf(&quot;Sender pid: %d\n&quot;, si-&gt;si_pid);
+        printf(&quot;Sender uid: %d\n&quot;, si-&gt;si_uid);
+}
+
+static int
+sig_caught(int sig)
+{
+        printf(&quot;Start caught signal: %d\n&quot;, sig);
+        struct sigaction sa;
+        sa.sa_flags = SA_SIGINFO;
+        sa.sa_sigaction = sig_handler;
+        sigemptyset(&amp;sa.sa_mask);
+        int ret = sigaction(sig, &amp;sa, NULL);
+        if (ret == -1) {
+                printf(&quot;Failed to caught signal: %d\n&quot;, sig);
+                return -1;
+        }
+
+        return 0;
+}
+
+int
+main(int argc, char *argv[])
+{
+        if (sig_caught(SIG) == -1) {
+                return -1;
+        }
+
+        printf(&quot;Caught signal(%d), input 'quit' to exit...\n&quot;, SIG);
+        char buf[1024] = {0};
+        while(1) {
+                printf(&quot;Please input: &quot;);
+                scanf(&quot;%s&quot;, buf);
+                if (strcmp(buf, &quot;quit&quot;) == 0) {
+                        break;
+                }
+        }
+        printf(&quot;Exit...\n&quot;);
+        return 0;
+}
+</code></pre>
+
+<h3>信号屏蔽字</h3>
+
+<p>考虑一下这种情况：在 <code>signal()/sigaction()</code> 返回之前进程就已经收到了需要处理的信号，此时进程会以默认行为来处理，这显然不符合我们的期望。 这时就需要用到信号屏蔽字了，在进程启动时就将需要处理的信号加入的屏蔽字中，等 <code>signal()/sigaction()</code> 返回后再解除屏蔽，解除屏蔽后至少会将收到的待处理信号发送一个给进程。</p>
+
+<p>屏蔽字用到一下函数：</p>
+
+<pre><code class="language-c">int sigemptyset(sigset_t *set);
+int sigaddset(sigset_t *set, int signo);
+int sigprocmask(int how, const sigset_t *restrict set,
+           sigset_t *restrict oset);
+</code></pre>
+
+<p><code>sigprocmask</code> 中 <code>set</code> 为需要设置的屏蔽字集， <code>oset</code> 为之前的屏蔽字集， <code>how</code> 控制着 <code>set</code> 如何生效，可设置为以下值：</p>
+
+<ul>
+<li><p>SIG_BLOCK</p>
+
+<p>该进程的屏蔽字集将为当期屏蔽字集与 <code>set</code> 的并集， <code>set</code> 中包含了需要屏蔽的信号集</p></li>
+
+<li><p>SIG_UNBLOCK</p>
+
+<p>该进程的屏蔽字集将为当期屏蔽字集与 <code>set</code> 的补集的交集， <code>set</code> 中包含了需要解除屏蔽的信号集</p></li>
+
+<li><p>SIG_SETMASK</p>
+
+<p>该进程的屏蔽字集将设置为 <code>set</code> 的值</p></li>
+</ul>
+
+<p>简单的设置流程如下：</p>
+
+<pre><code class="language-c">int
+sig_block(int sig, int how)
+{
+        sigset_t mask;
+        sigemptyset(&amp;mask)
+        sigaddset(&amp;mask, sig);
+        sigprocmask(how, &amp;mask, NULL);
+}
+</code></pre>
+
+<h2>信号发送</h2>
+
+<p>信号可以通过 <code>kill</code> 函数发送给指定进程，也可以通过 <code>raise</code> 或者 <code>alarm</code> 函数发送给当前执行的线程或进程，下面来分别说说这几个函数。</p>
+
+<h3>kill</h3>
+
+<p><strong>原型：</strong></p>
+
+<pre><code class="language-c">int kill(pid_t pid, int sig);
+</code></pre>
+
+<p><code>kill</code> 函数向指定进程发送指定的信号，如果信号为 0 将执行错误检查，信号并不会发送，可以用来检查 <code>pid</code> 的有效性。</p>
+
+<p><code>pid</code> 大于 0 时信号将发送给此进程， <code>pid</code> 小于等于 0 时，如下：</p>
+
+<ul>
+<li><p>等于 0</p>
+
+<p>信号将发送给发送者所在组里的所有进程</p></li>
+
+<li><p>等于 -1</p>
+
+<p>信号将发送给所有进程</p></li>
+
+<li><p>小于 -1</p>
+
+<p>信号将发送给进程组为 <code>pid</code> 绝对值的所有组内进程</p></li>
+</ul>
+
+<h3>alarm</h3>
+
+<p><strong>原型：</strong></p>
+
+<pre><code class="language-c">unsigned alarm(unsigned seconds);
+</code></pre>
+
+<p><code>alarm</code> 函数将在指定的 <code>seconds</code> 之后发送一个 <code>SIGALRM</code> 信号，如果 <code>seconds</code> 为 0, 则取消之前的定时器请求。如果不为 0 则取消之前的请求，重新设置为 <code>seconds</code> 。 如果在等待结束之前有其他的事件产生，那定时器请求也将被取消。</p>
+
+<p>简单的代码示例如下：</p>
+
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;signal.h&gt;
+
+static void
+handler(int sig)
+{
+        printf(&quot;alarm arrived: %d\n&quot;, sig);
+}
+
+int
+main(int argc, char *argv[])
+{
+        signal(SIGALRM, handler);
+
+        alarm(2);
+
+        sleep(2);
+        printf(&quot;alarm 5s over\n&quot;);
+
+        alarm(10);
+        sleep(1);
+
+        unsigned int remaining = alarm(3);
+        printf(&quot;alarm 10s remain: %u, reset to 3\n&quot;, remaining);
+        sleep(3);
+        printf(&quot;alarm 3s over\n&quot;);
+
+        alarm(20);
+        sleep(3);
+
+        remaining = alarm(0);
+        printf(&quot;cancel alarm 20s, remian: %u, exit...\n&quot;, remaining);
+}
+</code></pre>
+
+<h3>raise</h3>
+
+<p><strong>原型：</strong></p>
+
+<pre><code class="language-c">int raise(int sig);
+</code></pre>
+
+<p><code>raise</code> 函数将给当前执行的线程或进程发送信号，如果信号处理函数已经被调用， <code>raise</code> 函数将等待信号处理函数调用结束才返回。</p>
+
+<h2>结语</h2>
+
+<p>信号处理函数是会被重复调用的，所以必要保存其是可重入的，注意处理逻辑。</p>
+
+<p>另外本文中的代码都在 <a href="https://github.com/jouyouyun/examples/tree/master/signal">signal</a> 中，这个 <code>repo</code> 也有其它的示例，有兴趣的可以看看。</p>
+
+<h2>附录</h2>
+
+<h3>信号表</h3>
+
+<pre><code class="language-c">/* ISO C99 signals.  */
+#define	SIGINT		2	/* Interactive attention signal.  */
+#define	SIGILL		4	/* Illegal instruction.  */
+#define	SIGABRT		6	/* Abnormal termination.  */
+#define	SIGFPE		8	/* Erroneous arithmetic operation.  */
+#define	SIGSEGV		11	/* Invalid access to storage.  */
+#define	SIGTERM		15	/* Termination request.  */
+
+/* Historical signals specified by POSIX. */
+#define	SIGHUP		1	/* Hangup.  */
+#define	SIGQUIT		3	/* Quit.  */
+#define	SIGTRAP		5	/* Trace/breakpoint trap.  */
+#define	SIGKILL		9	/* Killed.  */
+#define SIGBUS		10	/* Bus error.  */
+#define	SIGSYS		12	/* Bad system call.  */
+#define	SIGPIPE		13	/* Broken pipe.  */
+#define	SIGALRM		14	/* Alarm clock.  */
+
+/* New(er) POSIX signals (1003.1-2008, 1003.1-2013).  */
+#define	SIGURG		16	/* Urgent data is available at a socket.  */
+#define	SIGSTOP		17	/* Stop, unblockable.  */
+#define	SIGTSTP		18	/* Keyboard stop.  */
+#define	SIGCONT		19	/* Continue.  */
+#define	SIGCHLD		20	/* Child terminated or stopped.  */
+#define	SIGTTIN		21	/* Background read from control terminal.  */
+#define	SIGTTOU		22	/* Background write to control terminal.  */
+#define	SIGPOLL		23	/* Pollable event occurred (System V).  */
+#define	SIGXCPU		24	/* CPU time limit exceeded.  */
+#define	SIGXFSZ		25	/* File size limit exceeded.  */
+#define	SIGVTALRM	26	/* Virtual timer expired.  */
+#define	SIGPROF		27	/* Profiling timer expired.  */
+#define	SIGUSR1		30	/* User-defined signal 1.  */
+#define	SIGUSR2		31	/* User-defined signal 2.  */
+
+/* Nonstandard signals found in all modern POSIX systems
+   (including both BSD and Linux).  */
+#define	SIGWINCH	28	/* Window size change (4.3 BSD, Sun).  */
+
+/* Archaic names for compatibility.  */
+#define	SIGIO		SIGPOLL	/* I/O now possible (4.2 BSD).  */
+#define	SIGIOT		SIGABRT	/* IOT instruction, abort() on a PDP-11.  */
+#define	SIGCLD		SIGCHLD	/* Old System V name */
+
+/* Not all systems support real-time signals.  bits/signum.h indicates
+   that they are supported by overriding __SIGRTMAX to a value greater
+   than __SIGRTMIN.  These constants give the kernel-level hard limits,
+   but some real-time signals may be used internally by glibc.  Do not
+   use these constants in application code; use SIGRTMIN and SIGRTMAX
+   (defined in signal.h) instead.  */
+#define __SIGRTMIN	32
+#define __SIGRTMAX	__SIGRTMIN
+
+/* Biggest signal number + 1 (including real-time signals).  */
+#define _NSIG		(__SIGRTMAX + 1)
+</code></pre>
+
+    <hr>
+    <div class="pagination">
+      <ul>
+        <ul>
+          
+          
+            <li class="prev disabled"><a>&larr; Previous</a></li>
+          
+
+            <li><a href="/archive">Archive</a></li>
+
+          
+            <li class="next"><a href="/Blog/%E6%80%8E%E4%B9%88%E5%A4%84%E7%90%86-%27Origin%27%E5%80%BC%E4%BB%8E%27Google%2C-Inc.%27%E4%BF%AE%E6%94%B9%E5%88%B0%E4%BA%86%27Google-LLC%27-%E7%9A%84-APT-%E9%94%99%E8%AF%AF/" title="怎么处理 &#39;Origin&#39;值从&#39;Google, Inc.&#39;修改到了&#39;Google LLC&#39; 的 APT 错误">Next &rarr;</a></li>
+          
+          
+        </ul>
+      </ul>
+    </div>
+    <hr>
+    
+<div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'jekyllbootstrap'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </div>
+  
+  <div class="span4">
+    <h4>Published</h4>
+    <div class="date"><span>2018-11-13</span></div>
+    <br>
+    <h4>Categories</h4>
+    <ul class="tag_box">
+    
+      <li>
+  <a href="/categories/#Blog-ref">Blog <span>20</span></a>
+</li>
+    
+    </ul>
+    <br>
+    <h4>Tags</h4>
+    <ul class="tag_box">
+    
+      <li>
+  <a href="/tags/#signal-ref">signal <span>1</span></a>
+</li>
+    
+      <li>
+  <a href="/tags/#sigaction-ref">sigaction <span>1</span></a>
+</li>
+    
+      <li>
+  <a href="/tags/#alarm-ref">alarm <span>1</span></a>
+</li>
+    
+      <li>
+  <a href="/tags/#kill-ref">kill <span>1</span></a>
+</li>
+    
+      <li>
+  <a href="/tags/#raise-ref">raise <span>1</span></a>
+</li>
+    
+    </ul>
+  </div>
+</div>
+
+      </div>
+
+      <footer>
+        <p>&copy; jouyouyun 2013 
+          with help from <a href="http://github.com/wendal/gor" target="_blank" title="Gor -- Fast Blog">Gor</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+		  and Idea from <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">ruhoh</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+<script src="//cdnjscn.b0.upaiyun.com/libs/prettify/r298/prettify.min.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+
+    
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-123-12']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  </body>
+</html>

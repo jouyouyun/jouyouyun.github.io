@@ -82,6 +82,62 @@
 
 
 <div class="post">
+  <h3 class="title"><a href="/Blog/Linux-Signal-Examples/">Linux Signal Examples</a> <span class="date">2018-11-13</span></h3>
+
+  <p>信号是系统响应某些条件而产生的一个事件，接收到该信的进程做出相应的处理。通常信是由错误产生的，如段错误(<code>SIGSEGV</code>)。 但信还可以作为进程间通信的一种方式，由一个进程发送给另一个进程。</p>
+
+<p>信号定义在 <code>signal.h</code> 文件中，以 <code>SIG</code> 作为开头，可用 <code>kill -l</code> 命令查看，详细信息参见 <a href="http://man7.org/linux/man-pages/man7/signal.7.html">man 7 signal</a>。</p>
+
+<h2>信号处理</h2>
+
+<p>信号可以通过 <code>signal</code> 和 <code>sigaction</code> 函数来注册处理， <code>signal</code> 函数是 <code>struct sigaction</code> 中 <code>sa_handler</code> 的一种便捷实现。</p>
+
+<h3><code>signal</code> 函数</h3>
+
+<p><strong>原型：</strong></p>
+
+<pre><code class="language-c">void (*signal(int sig, void (*func)(int)))(int);
+</code></pre>
+
+<p>其中 <code>sig</code> 是需要捕获的 <code>signal number</code>, 后一个是捕获到信号后的处理函数指针，所以处理函数的原型必须是 <code>void func(int)</code> ，简单的代码示例如下：</p>
+
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;signal.h&gt;
+
+static void
+handler(int sig)
+{
+        printf(&quot;Recieved signal: %d\n&quot;, sig);
+}
+
+int
+main(int argc, char *argv[])
+{
+        signal(SIGINT, handler);
+
+        printf(&quot;Caught SIGINT, input 'quit' to exit...\n&quot;);
+        // wait signal caught
+        char buf[1024] = {0};
+        while (1) {
+                printf(&quot;Please input: &quot;);
+                scanf(&quot;%s&quot;, buf);
+                if (strcmp(buf, &quot;quit&quot;) == 0) {
+                        break;
+                }
+        }
+        printf(&quot;Exit...\n&quot;);
+        return 0;
+}
+</code></pre>
+
+
+  <div class="more">
+    <a href="/Blog/Linux-Signal-Examples/" class="btn">read more..</a>
+  </div>
+</div>
+
+<div class="post">
   <h3 class="title"><a href="/Blog/%E6%80%8E%E4%B9%88%E5%A4%84%E7%90%86-%27Origin%27%E5%80%BC%E4%BB%8E%27Google%2C-Inc.%27%E4%BF%AE%E6%94%B9%E5%88%B0%E4%BA%86%27Google-LLC%27-%E7%9A%84-APT-%E9%94%99%E8%AF%AF/">怎么处理 &#39;Origin&#39;值从&#39;Google, Inc.&#39;修改到了&#39;Google LLC&#39; 的 APT 错误</a> <span class="date">2018-11-07</span></h3>
 
   <p>今天在执行 <code>sudo apt-get update</code> 出现了下面的错误提示：</p>
@@ -371,45 +427,6 @@ c469d2c HEAD@{3}: pull: Fast-forward
 
   <div class="more">
     <a href="/Blog/Bluetooth-FAQ/" class="btn">read more..</a>
-  </div>
-</div>
-
-<div class="post">
-  <h3 class="title"><a href="/Blog/%E8%AE%BE%E7%BD%AE-Grub2-%E5%88%86%E8%BE%A8%E7%8E%87/">设置 Grub2 分辨率</a> <span class="date">2017-07-29</span></h3>
-
-  <h2>背景</h2>
-
-<p>平时经常用显示器的分辨率去设置 <code>Grub</code> 的分辨率，虽然大部分都没有问题，但有时却没有用。所以就把 <code>Grub</code> 分辨率的设置方法详细说明一下，留档记录。</p>
-
-<hr />
-
-<h2>查询支持的分辨率</h2>
-
-<p>在设置 <code>Grub</code> 分辨率之前，需要先知道支持的分辨率列表，而幸运的是可以到 <code>Grub</code> 命令行查询。</p>
-
-<ol>
-<li>进入 <code>Grub</code> 命令行</li>
-</ol>
-
-<blockquote>
-<p>在 <code>Grub</code> 启动界面，按下 <code>c</code> 键就可以进入命令行界面了。</p>
-</blockquote>
-
-<ol>
-<li>查询支持的分辨率</li>
-</ol>
-
-<blockquote>
-<p>在命令行界面输入 <code>videoinfo</code> 就可以得到支持的分辨率列表。</p>
-</blockquote>
-
-<ol>
-<li>测试效果</li>
-</ol>
-
-
-  <div class="more">
-    <a href="/Blog/%E8%AE%BE%E7%BD%AE-Grub2-%E5%88%86%E8%BE%A8%E7%8E%87/" class="btn">read more..</a>
   </div>
 </div>
 
