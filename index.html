@@ -82,6 +82,35 @@
 
 
 <div class="post">
+  <h3 class="title"><a href="/Blog/Go-%E5%8C%85%E7%AE%A1%E7%90%86%E4%B9%8Bmodule/">Go 包管理之module</a> <span class="date">2018-11-27</span></h3>
+
+  <h1>Go Module 使用</h1>
+
+<p><code>Go Module</code> 是官方用来管理 <code>package</code> 依赖的工具, <code>1.11</code> 新加的, 使用时需要设置变量: <code>GO111MODULE=on</code> .</p>
+
+<p><code>go mod help</code> 可以查看其帮助文档:</p>
+
+<p>```shell
+$ go help mod
+Go mod provides access to operations on modules.</p>
+
+<p>Note that support for modules is built into all the go commands,
+not just &lsquo;go mod&rsquo;. For example, day-to-day adding, removing, upgrading,
+and downgrading of dependencies should be done using &lsquo;go get&rsquo;.
+See &lsquo;go help modules&rsquo; for an overview of module functionality.</p>
+
+<p>Usage:</p>
+
+<pre><code>    go mod &lt;command&gt; [arguments]
+</code></pre>
+
+
+  <div class="more">
+    <a href="/Blog/Go-%E5%8C%85%E7%AE%A1%E7%90%86%E4%B9%8Bmodule/" class="btn">read more..</a>
+  </div>
+</div>
+
+<div class="post">
   <h3 class="title"><a href="/Blog/Linux-Signal-Examples/">Linux Signal Examples</a> <span class="date">2018-11-13</span></h3>
 
   <p>信号是系统响应某些条件而产生的一个事件，接收到该信的进程做出相应的处理。通常信是由错误产生的，如段错误(<code>SIGSEGV</code>)。 但信还可以作为进程间通信的一种方式，由一个进程发送给另一个进程。</p>
@@ -395,38 +424,6 @@ c469d2c HEAD@{3}: pull: Fast-forward
 
   <div class="more">
     <a href="/Blog/CUPS-%E8%B5%84%E6%96%99/" class="btn">read more..</a>
-  </div>
-</div>
-
-<div class="post">
-  <h3 class="title"><a href="/Blog/Bluetooth-FAQ/">Bluetooth FAQ</a> <span class="date">2017-11-20</span></h3>
-
-  <p>收集遇到的 <code>bluetooth</code> 问题，使用的是 <code>deepin</code>。</p>
-
-<hr />
-
-<h2>控制中心不显示蓝牙模块</h2>
-
-<p>蓝牙模块不显示时，可以按照以下步骤来查找原因：</p>
-
-<ol>
-<li><p>执行 <code>sudo dmesg|grub bluetooth</code> 查看输出结果</p>
-
-<ul>
-<li><p>输出里有 <code>timeout</code></p>
-
-<p>此时再用 <code>systemctl status bluetooth.service</code> 看下服务有没有正常启动，错误信息是什么，然后根据错误去网上搜索答案。</p>
-
-<p>如果蓝牙是由网卡提供的，此时可以试着开关一下网卡的硬件开关。因为内核在初始化网卡之前初始化蓝牙，就会导致蓝牙设备不可用，重新初始化一次就好了。
-如果还是无效那就重启进入 <code>window</code>，再 <code>window</code> 里开关一次蓝牙再重启到 <code>linux</code>。</p></li>
-
-<li><p>输出里无 <code>timeout</code></p></li>
-</ul></li>
-</ol>
-
-
-  <div class="more">
-    <a href="/Blog/Bluetooth-FAQ/" class="btn">read more..</a>
   </div>
 </div>
 
