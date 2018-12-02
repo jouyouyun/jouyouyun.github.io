@@ -4,6 +4,11 @@
 		<loc>http://45.62.229.81:8080/</loc>
 	</url>
 	<url>
+		<loc>http://45.62.229.81:8080/Blog/python3-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
+		<lastmod>2018-12-02</lastmod>
+		<changefreq>weekly</changefreq>
+	</url>
+	<url>
 		<loc>http://45.62.229.81:8080/Blog/Go-%E5%8C%85%E7%AE%A1%E7%90%86%E4%B9%8Bmodule/</loc>
 		<lastmod>2018-11-27</lastmod>
 		<changefreq>weekly</changefreq>

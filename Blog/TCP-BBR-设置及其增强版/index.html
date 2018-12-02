@@ -101,18 +101,19 @@ net.ipv4.tcp_congestion_control = bbr
 <li><p>Build</p>
 
 <pre><code class="language-shell">$ ./build.sh
-</code></pre></li>
+</code></pre>
 
-<li><p>Install</p>
-
-<pre><code class="language-shell">$ ./install.sh
-</code></pre></li>
+<ul>
+<li>Install
+<code>shell
+$ ./install.sh
+</code></li>
+</ul></li>
 
 <li><p>Clean</p>
 
 <pre><code class="language-shell">$ rm Makefile tcp_bbr_powered.*
-</code></pre></li>
-</ul>
+</code></pre>
 
 <p>使用 <code>sysctl net.ipv4.tcp_available_congestion_control</code> 查看支持的算法, 用<code>sysctl net.ipv4.tcp_congestion_control</code> 查看当前使用的算法.</p>
 
@@ -124,16 +125,17 @@ net.ipv4.tcp_congestion_control = bbr
 <h3>附件</h3>
 
 <ul>
-<li><p>build.sh</p>
+<li>build.sh
+```shell
+wget --no-check-certificate -qO- &lsquo;<a href="https://moeclub.org/attachment/LinuxSoftware/bbr/tcp_bbr_powered.c.deb'">https://moeclub.org/attachment/LinuxSoftware/bbr/tcp_bbr_powered.c.deb'</a> &gt;./tcp_bbr_powered.c
+echo &lsquo;obj-m:=tcp_bbr_powered.o&rsquo; &gt;./Makefile
+echo &lsquo;clean: &lsquo; &gt;&gt; ./Makefile
+echo -e &lsquo;\trm -r Module.symvers modules.order tcp_bbr_powered.mod.* tcp_bbr_powered.o .tcp_bbr_powered.* .tmp_versions&rsquo; &gt;&gt; ./Makefile</li>
+</ul>
 
-<pre><code class="language-shell">wget --no-check-certificate -qO- 'https://moeclub.org/attachment/LinuxSoftware/bbr/tcp_bbr_powered.c.deb' &gt;./tcp_bbr_powered.c
-echo 'obj-m:=tcp_bbr_powered.o' &gt;./Makefile
-echo 'clean: ' &gt;&gt; ./Makefile
-echo -e '\trm -r Module.symvers modules.order tcp_bbr_powered.mod.* tcp_bbr_powered.o .tcp_bbr_powered.* .tmp_versions' &gt;&gt; ./Makefile
-
-make -s -C /lib/modules/$(uname -r)/build M=`pwd` modules CC=`which gcc`
+<p>make -s -C /lib/modules/$(uname -r)/build M=<code>pwd</code> modules CC=<code>which gcc</code>
 make clean
-</code></pre></li>
+```</p></li>
 
 <li><p>install.sh</p>
 
@@ -159,21 +161,23 @@ exit 0
 echo &quot;Error, Loading BBR POWERED.&quot;        
 exit 1                                    
 }
-</code></pre></li>
+</code></pre>
 
-<li><p>reload-sysctl.service</p>
-
-<pre><code class="language-shell">[Unit]
+<ul>
+<li>reload-sysctl.service
+```shell
+[Unit]
 Description=Reload sysctl
-Before=network.target
+Before=network.target</li>
+</ul>
 
-[Service]
+<p>[Service]
 Type=simple
-ExecStart=/usr/bin/sysctl -p
+ExecStart=/usr/bin/sysctl -p</p>
 
-[Install]
+<p>[Install]
 WantedBy=multi-user.target
-</code></pre></li>
+```</p></li>
 </ul>
 
     <hr>
@@ -220,7 +224,7 @@ WantedBy=multi-user.target
     <ul class="tag_box">
     
       <li>
-  <a href="/categories/#Blog-ref">Blog <span>21</span></a>
+  <a href="/categories/#Blog-ref">Blog <span>22</span></a>
 </li>
     
     </ul>

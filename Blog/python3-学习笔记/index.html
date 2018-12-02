@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>python3 学习笔记</title>
+  
+    <meta name="author" content="jouyouyun">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/twitter/stylesheets/bootstrap.min.css" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/stylesheets/style.css" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/widgets/google_prettify/stylesheets/twitter-bootstrap.css" type="text/css" rel="stylesheet" media="all">
+ 
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/">Jouyouyun&#39;s Blog</a>
+          <ul class="nav">
+            
+              
+
+
+  <li><a href="/archive">Archive</a></li>
+
+
+            
+              
+
+
+  <li><a href="/tags">Tags</a></li>
+
+
+            
+              
+
+
+  <li><a href="/categories">Categories</a></li>
+
+
+            
+              
+
+
+  <li><a href="/about">About Me</a></li>
+
+
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="content">
+        <div class="page-header">
+  <h1>python3 学习笔记 </h1>
+</div>
+
+<div class="row">
+  <div class="span8">
+    <h1>Python3 Study Notes</h1>
+
+<p>本人很少写 <code>python</code> 代码, 一般都是用 <code>go</code> 的, 去年时用 <code>python</code> 写过一些收集系统信息的工具, 当时是边看手册边写的. 如今又要用 <code>python</code> 来写一个生成 <code>xlsx</code> 的工具, 就又需要查看手册了, 至于为什么不用 <code>go</code> 写? 那是因为 <code>go</code> 的库不兼容永中. 在这里不得不说, 虽然 <code>go</code> 很火, 但是一些库还是不如 <code>python</code> 多, 不如 <code>python</code> 兼容性好.</p>
+
+<p>为了避免以后再出这种事情, 这次就好好的了解下 <code>python</code>, 将它的用法按照自己对语言的理解分块记录下来. 要使用某种语言, 个人认为需要了解这些方面:</p>
+
+<ul>
+<li>编码风格</li>
+<li>变量的类型, 声明及使用方式</li>
+<li>输入/输出</li>
+<li>控制语句的写法</li>
+<li>错误处理的用法</li>
+<li>函数的用法, 还有语言支持的一些特性, <code>python</code> 中就有装饰器, <code>lambda</code> 语句等</li>
+<li>对于面向对象语言还需要了解类的声明, 继承, 多态等的用法</li>
+</ul>
+
+<p>还有一些就是此语言的一些特性, <code>python</code> 就还需要了解以下特性:</p>
+
+<ul>
+<li>模块的使用</li>
+</ul>
+
+<p>下文就将按照这些内容来一一记录.</p>
+
+<hr />
+
+<h2>编码风格</h2>
+
+<ul>
+<li>变量名, 方法名和模块名建议小写, 单词以 <code>_</code> 分割, 类名建议驼峰命名风格, 首字母大写, 私有类可用一个 <code>_</code> 开头.</li>
+<li>每行结尾尽量不要添加 <code>;</code>, 多行代码也不要写在一行</li>
+<li><code>python</code> 是以缩进来控制代码段的, 所以缩减建议使用 4 个空格</li>
+<li>编码尽量使用 <code>utf-8</code>, <code>python</code> 默认使用 <code>ASCII</code>, 所以要在文件的开头添加 <code># -*- coding: UTF-8 -*-</code> 或者 <code>#coding=utf-8</code> 来指定</li>
+<li><code>python</code> 有独一无二的注释方式: 文档字符串, 所以注释尽量用文档字符串(<code>&quot;&quot;&quot;xxxx&quot;&quot;&quot;</code>)</li>
+<li>如果一个类不从其他类继承, 就显示的从 <code>object</code> 类继承</li>
+<li>使用 <code>with</code> 语句来管理文件, 如 <code>open</code> 或 <code>close</code></li>
+<li>添加 <code>TODO</code> 时, 尽量在其后紧跟 <code>()</code>, 在里面写明作者名或 <code>email</code> 等其他标识信息, 然后紧跟一个 <code>:</code> 后面接着写要做的事情</li>
+<li>每个导入模块都占一行, 不要一行导入多个模块</li>
+<li>尽量定义一个 <code>main</code> 函数, 将主程序放入其中, 并在 &ldquo;if <span class="underline"><span class="underline">name</span></span> <code>= '__main__':&quot; 成立时执行 =main</code>, 这样被当作模块导入时就不会执行主程序</li>
+</ul>
+
+<h2>变量</h2>
+
+<p><code>Python</code> 是动态语言, 变量的类型不固定, 根据值的类型而决定, 所以不用显示的声明变量， 用的时候直接赋值即可，如下:</p>
+
+<pre><code class="language-python">a = 1; // 此时是整型
+print(a);
+a = 'hello'; // 此时又为字符串类型
+</code></pre>
+
+<p>通常变量名全部大写的为 <strong>常量</strong>, <strong>空值</strong> 用 <code>None</code> 表示.</p>
+
+<p>以 <code>_xxx</code> 或 <code>__xxx</code> 命名的函数或变量是私有变量, 不能被其他模块直接引用</p>
+
+<h3>基础类型</h3>
+
+<p>这里将整型, 浮点型, 布尔和字符串看作是基本类型, 整型和浮点型的使用就不再介绍了, 布尔的值只能为 <code>True/False</code>, 而字符串的常见操作如下:</p>
+
+<ul>
+<li>使用 <code>&quot;&quot;&quot;</code> 或 <code>'''</code> 可以嵌入长字符串</li>
+<li>字符串可以通过下标来索引, <code>len</code> 函数获取长度</li>
+<li>使用 <code>+</code> 进行拼接操作</li>
+<li>字符串对象还内置了很多方法提供了一些常见功能, 具体请查阅手册</li>
+</ul>
+
+<p>另外它们之间的相互转换是通过 <code>int(arg), float(arg), str(arg)</code> 这些内置的方法来处理的.</p>
+
+<h3>列表</h3>
+
+<p>列表中可以包含不同类型的数据, 如:</p>
+
+<pre><code class="language-python">list = [&quot;eggs&quot;, 1, 67.12];
+</code></pre>
+
+<p>通过 <code>list(seq)</code> 可以将一个序列转换为列表.</p>
+
+<p><strong>array</strong> 模块提供了固定类型的数据, 可以指定要转换的类型, 具体请查阅手册.</p>
+
+<p>列表通过下标索引, <code>len</code> 函数获取大小.</p>
+
+<p>列表对象常用的方法如下:</p>
+
+<ul>
+<li><strong>append(item):</strong> 附加元素</li>
+<li><strong>insert(idx, item):</strong> 插入元素</li>
+<li><strong>pop(idx):</strong> 删除指定位置的元素, 参数为空则删除最后一个元素</li>
+</ul>
+
+<p>列表遍历:</p>
+
+<pre><code class="language-python">for &lt;variable&gt; in &lt;array&gt;:
+    // do
+
+// 带下标
+for idx, name in enumerate(&lt;array&gt;):
+    // do
+
+// 列表中多个元素
+for x, y in [(1, 1), (2, 4), (3, 9)]:
+    // do
+
+// 用 zip 同时遍历多个数组
+a = [1, 2];
+b = [5, 6];
+for av, bv in zip(a, b):
+    // do av=1, bv=5
+
+// 生成
+[x * x for x in range(1, 11) if x % 2 == 0]
+</code></pre>
+
+<h3>元组</h3>
+
+<p>元组(tuple) 是一个不可修改的列表, 元组中每个元素的指向是不可更改的, 但指向里的内容是可以更改的, 如元组中包含一个数组:</p>
+
+<pre><code class="language-python">t = ('1', 1, [&quot;A&quot;, &quot;B&quot;]);
+t[2][0] = &quot;X&quot;;
+t[2][1] = &quot;Y&quot;;
+</code></pre>
+
+<hr />
+
+<h3>字典</h3>
+
+<p>语法:</p>
+
+<pre><code class="language-python">dict = {'&lt;key&gt;':&lt;value&gt;}
+</code></pre>
+
+<p>常用的对象方法:</p>
+
+<ul>
+<li><strong>get(key, value):</strong> 获取指定 <code>key</code> 的值, 如果不存在则返回 <code>value</code>, 如果 <code>value</code> 未指定则返回 <code>None</code></li>
+<li><strong>pop(key):</strong> 删除指定的 <code>key</code></li>
+</ul>
+
+<p>使用字典需要注意以下几点:</p>
+
+<ul>
+<li>字典中的 <code>key</code> 不能重复</li>
+<li>字典中的 <code>key</code> 不可变, 所以只能用数字, 字符串和元组</li>
+<li>字典的值则没有限制, 可以是任意对象</li>
+</ul>
+
+<hr />
+
+<h3>集合</h3>
+
+<p>集合与字典类似, 是一组 <code>key</code> 的集合, 但不存储 <code>value</code>, 没有重复的 <code>key</code>.</p>
+
+<p>要创建一个集合, 需要传入一个数组, 重复的元素会被自动过滤.</p>
+
+<p>遍历:</p>
+
+<pre><code class="language-python">for &lt;key&gt; in &lt;dict&gt;:
+    // do
+
+// 带下标
+for idx, name in dict.items():
+    // do
+</code></pre>
+
+<pre><code class="language-python">s = set([1, 2, 3 ,3]); // s: {1,2,3}
+</code></pre>
+
+<p>常用的对象方法:</p>
+
+<ul>
+<li><strong>add(key):</strong> 添加 <code>key</code></li>
+<li><strong>remove(key):</strong> 删除 <code>key</code></li>
+</ul>
+
+<hr />
+
+<h3>global 关键字</h3>
+
+<p><code>global</code> 关键字用于声明变量的作用域, 用法如下:</p>
+
+<pre><code class="language-python"># 全局变量
+a = 1
+
+def test():
+    # 若下面这行注释掉, 则下面的 a 是局部变量, 'Global' 处的输出还是全局变量 1
+    # 若下面这行取消注释, 则下面的 a 是全局变量, 'Gloabl' 出的输出是 5
+    # global a
+    a = 5
+    print(&quot;In test:&quot;, a)
+
+# Global
+print(&quot;Global:&quot;, a)
+</code></pre>
+
+<p>输出, <code>global a</code> 注释掉时:</p>
+
+<pre><code class="language-python">In test: 5
+Global: 1
+</code></pre>
+
+<p>输出, <code>global a</code> 取消注释时:</p>
+
+<pre><code class="language-python">In test: 5
+Global: 5
+</code></pre>
+
+<hr />
+
+<h3>更多</h3>
+
+<p>上面的只是基础，想要更好的使用变量，还需要了解以下内容：</p>
+
+<ul>
+<li><p>类型对象的方法</p>
+
+<p><code>python</code> 中每种类型都是对象, 都提供了一些内置方法, 如字符串类型的 <code>replace()</code> 等</p></li>
+
+<li><p>变量的内存分配</p>
+
+<p>变量只是值的引用, 具体的内存分配是在值的这一边, 有些类型的值是不可变的, 这些是需要深入了解的</p></li>
+
+<li><p>结构体</p>
+
+<p><code>python</code> 中没有结构体, 可以使用下列方式实现:</p>
+
+<ul>
+<li>使用 <code>struct</code> 模块来实现, 需要了解与 <code>c</code> 中类型的格式对照, 创建时需要指定结构体的成员类型</li>
+<li>使用类来实现, 在类的构造函数 <code>__init__</code> 中定义结构体成员</li>
+</ul></li>
+</ul>
+
+<hr />
+
+<h2>输入/输出</h2>
+
+<h3>输入</h3>
+
+<p>使用 <code>raw_input(prompt)</code> 可以接受控制台的输入</p>
+
+<h3>输出</h3>
+
+<p>使用 <code>print()</code> 可以打印内容到控制台, 格式化输出:</p>
+
+<pre><code class="language-python">n = 1;
+s = &quot;Joy&quot;;
+print(&quot;The %d student's name is %s&quot; % (n, s));
+</code></pre>
+
+<p>也可以使用 <code>format</code> 来格式化, 它会用传入的参数依次替换字符串内的占位符 {0}、{1}…… :</p>
+
+<pre><code class="language-python">// {3:.1f} 表示保留一位小数
+s = &quot;The {0} student's name is {1}, score: {3:.1f}&quot;.format(1, &quot;Joy&quot;, 87.75);
+print(s);
+</code></pre>
+
+<hr />
+
+<h2>控制语句</h2>
+
+<p>控制语句中可以使用 <code>break, continue, pass</code> 关键字, <code>break</code> 与 <code>continue</code> 的作用与其他语言中的一样, <code>pass</code> 则是一个空语句, 不做任何事情, 一般是为了保持结构的完整性, 常被用来占位, 表明之后会实现.</p>
+
+<p><strong>注意:</strong> <code>python</code> 中没有 <code>goto</code> 和 <code>switch</code>.</p>
+
+<h3>IF</h3>
+
+<p>语法:</p>
+
+<pre><code class="language-python">if &lt;condition&gt;:
+elif &lt;condition&gt;:
+else:
+</code></pre>
+
+<h3>FOR</h3>
+
+<pre><code class="language-python">for &lt;variable&gt; in &lt;array&gt;:
+    // do
+else:
+</code></pre>
+
+<p><code>else</code> 可选</p>
+
+<h3>WHILE</h3>
+
+<pre><code class="language-python">while &lt;condition&gt;:
+    // do
+else:
+</code></pre>
+
+<p><code>else</code> 可选</p>
+
+<hr />
+
+<h2>错误处理</h2>
+
+<p>语法:</p>
+
+<pre><code class="language-python">try:
+    // do
+except &lt;error type&gt; as e:
+   // do
+except &lt;error type&gt; as e:
+else:
+   // no error
+finally:
+   // do
+</code></pre>
+
+<p>如果 <code>finally</code> 存在, 则无论有没有异常都会执行, <code>else</code> 则在 <code>except</code> 都没进入时才执行.</p>
+
+<hr />
+
+<h2>函数</h2>
+
+<p>语法:</p>
+
+<pre><code class="language-python">def func(arg1, arg2=value, arg3=value):
+    // do
+    return ret1, ret2
+
+# 不定长参数
+def func(arg1, *vartuple):
+   &quot;打印所有参数&quot;
+   print(arg1)
+   for var in vartuple:
+       print(var)
+   return
+</code></pre>
+
+<p>定义函数时可以给参数指定默认值, 这样在调用时就可以不传入这些参数, 没有默认值的参数是必须要传入的.</p>
+
+<p>定义默认参数要牢记一点：默认参数必须指向不变对象(数, 字符串, 元组)！</p>
+
+<p>参数前加了 <code>*</code> 的变量会存放所有未命名的变量.</p>
+
+<p><code>__name__</code> 是函数对象的一个属性, 可以拿到此函数的名称</p>
+
+<h3>Lambda</h3>
+
+<p>使用关键字 <code>lambda</code>, 就可以创建短小的匿名函式, 如:</p>
+
+<pre><code class="language-python"># 语法
+lambda [arg1 [,arg2,.....argn]]:expression
+
+sum = lambda arg1, arg2: arg1 + arg2
+print(sum(10, 10) # 20
+print(sum(10, 20) # 30
+</code></pre>
+
+<p>特点:</p>
+
+<ul>
+<li><code>lambda</code> 只是一个表达式, 函数体比 <code>def</code> 简单的多, 近能封装有限的逻辑进去</li>
+<li><code>lambda</code> 函数拥有自己的命名空间, 并且不能访问自有参数之外或全局命名的参数</li>
+<li><code>lambda</code> 函数虽然间短, 但不等同于 <strong>内联函数</strong></li>
+</ul>
+
+<h3>装饰器</h3>
+
+<p>当需要增强某个函数的功能时, 但有不希望修改函数, 此时可以使用装饰器. 如添加日志功能:</p>
+
+<pre><code class="language-python">def log(func):
+    def wrapper(*args, **kw):
+        print('call %s():' % func.__name__)
+        return func(*args, **kw)
+    return wrapper
+
+@log
+def test():
+    print(&quot;Test&quot;)
+</code></pre>
+
+<p>通过 <code>@</code> 语法就给函数 <code>test</code> 添加了日志功能</p>
+
+<hr />
+
+<h2>模块</h2>
+
+<p>模块就是一个 <code>python</code> 文件, 使用 <code>import</code> 导入模块, 调用模块中的方法时就必须以 <code>&lt;module&gt;.&lt;func&gt;</code> 来调用.</p>
+
+<p><code>from &lt;module&gt; import &lt;func1&gt;,&lt;func2&gt;...</code> 语句是从模块中导入指定的函数, <code>from &lt;module&gt; import *</code> 则将模块中的所有方法都导入</p>
+
+<p>导入一个模块时的路径搜索顺序如下:</p>
+
+<ol>
+<li>先从当前目录查找是否有此模块</li>
+<li>如果当前目录没有, 就从 <code>PYTHONPATH</code> 定义的目录下查找</li>
+<li>如果都找不到, 就查看默认路径, <code>linux</code> 下一般是 <code>/usr/lib/python</code></li>
+</ol>
+
+<p>搜索路径定义在 <code>sys.path</code> 中, 可以用 <code>append</code> 函数来添加指定目录, 如项目中模块不再同一个目录就可以添加 <code>path</code> 来导入</p>
+
+<h3>包</h3>
+
+<p><code>python</code> 中的包就是一个分层次的目录, 定义了一个由模块及子包组成的环境.</p>
+
+<p>包简单来说就是一个目录, 目录中必须包含一个 <code>__init__.py</code>, 该文件可以为空, 目的使用来标识这个目录是一个包, 一个简单的例子如下:</p>
+
+<p>如存在目录 <code>package_test</code> , 此目录下有 <code>__init__.py, foo1.py, foo2.py</code> 等文件</p>
+
+<p><code>foo1.py</code> 文件:</p>
+
+<pre><code class="language-python">#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+def foo1():
+    print(&quot;Foo1 test&quot;)
+</code></pre>
+
+<p><code>foo2.py</code> 文件:</p>
+
+<pre><code class="language-python">#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+def foo2():
+    print(&quot;Foo2 test&quot;)
+</code></pre>
+
+<p>调用:</p>
+
+<pre><code class="language-python">#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+from package_test.foo1 import foo1
+from package_test.foo2 import foo2
+
+if __name__ == &quot;__main__&quot;:
+    foo1()
+    foo2()
+</code></pre>
+
+<hr />
+
+<h2>类</h2>
+
+<p><code>python</code> 是一门面向对象语言, 所以创建类和对象是很容易的, 先简单介绍下面向对象的一些基本特征:</p>
+
+<ul>
+<li>类: 用来描述具有相同属性和方法的对象的集合, 定义了每个对象共有的属性和方法, 对象是类的实例</li>
+<li>数据成员: 类中的变量, 用于处理类及对象的相关的数据</li>
+<li>私有成员: 只能在类的内部方法中访问的成员</li>
+<li>受保护成员: 只能由本类或子类访问的成员</li>
+<li>公有成员: 全局的, 类内部, 外部和子类都能访问的成员</li>
+<li>方法: 类中定义的函数</li>
+<li>方法重写: 如果从父类继承的方法不满足需求, 可以对其重新实现, 这个过程就叫重写</li>
+<li>操作符重载: 自定义某些操作符的功能, 如 <code>+</code> 操作符, 指明2个对象的数据如何相加</li>
+<li>继承: 从一个父类派生出一个子类</li>
+<li>多态: 如果多个对象都继承子一个父类, 通过传入一个父类变量来调用某个方法时, 如果此时传入的是子类的对象, 则会调用这个子类中实现的方法(方法已被重写)</li>
+</ul>
+
+<h3>类的创建</h3>
+
+<p><code>python</code> 中类创建的语法如下:</p>
+
+<pre><code class="language-python"># 创建一个类
+class Human:
+    # 类变量
+    var1 = 0 # 公有成员
+    _var2 = 0 # 受保护成员
+    __var3 = 0 # 私有成员
+
+    # 构造函数, 也可以在里面定义类变量, 但这些变量在实例化之后才能使用
+    def __init__(self, arg1, arg2...):
+        self.arg1 = arg1
+        self._arg2 = arg2
+        self.__arg3 = arg3
+
+    # 类方法
+    def foo(self):
+        print(&quot;Var1:&quot;, var1)
+        print(&quot;Arg1:&quot;, self.arg1)
+
+&quot;&quot;&quot;
+动态类型的语言在创建实例后, 可以给实例绑定任何的属性和方法, 但这些绑定只对当前实例有效
+如果要对所以实例生效, 可以在创建实例前给动态的给类绑定
+&quot;&quot;&quot;
+
+# 动态的给类绑定属性和方法, 这些属性和方法所有实例都可用
+Human.school = ''
+# 实例化
+h = Human(arg1, arg2...)
+print(h.school)
+# 方法调用
+h.foo()
+# 动态的给实例绑定属性和方法, 这些属性和方法只能该实例可用
+h.parent = 'Big Joy'
+# 类的销毁
+del h
+</code></pre>
+
+<p>类的实例化是通过调用构造函数完成的, <code>__init__</code> 函数中定义了实例化时需要的参数.</p>
+
+<p>类中以一个 <code>_</code> 开头命令的变量或方法叫做受保护成员, 以二个 <code>_</code> 开头命名的叫做私有成员, 以 <code>__</code> 开头并以 <code>__</code> 结尾的为系统定义的, 一般是内置的成员.</p>
+
+<p>使用 <code>del</code> 则可销毁一个类实例.</p>
+
+<p>类内置了以下属性:</p>
+
+<ul>
+<li><strong>__dict__:</strong> 类的数据属性组成的字典</li>
+<li><strong>__doc__:</strong> 类的文档</li>
+<li><strong>__name__:</strong> 类名</li>
+<li><strong>__module__:</strong> 类定义所在的模块名</li>
+<li><strong>__bases__:</strong> 类继承的所有父类的元组</li>
+</ul>
+
+<hr />
+
+<h3>类的继承</h3>
+
+<p>语法如下:</p>
+
+<pre><code class="language-python">class SubName(Parent1, Parent2...):
+    pass
+</code></pre>
+
+<p>一个子类可以继承多个父类, 使用 <code>isintance(obj, type)</code> 可以判断一个对象的类型, 使用 <code>issubclass(sub, parent)</code> 可以判断是否为另一个类的子类.</p>
+
+<h3>方法重写</h3>
+
+<p>如果父类的方法不能满足子类的需求, 子类就可重写此方法, 在使用子类对象调用此方法时会调用重写后的方法.</p>
+
+<p><strong>运算符重载</strong> 也是方法的重写, 只不过是对一些内置方法进行重写.</p>
+
+<p>下面列出一些基本的内置方法:</p>
+
+<ul>
+<li><strong>__init__(self, [, args&#x2026;]):</strong> 构造函数, 用户实例化对象</li>
+<li><strong>__del__(self):</strong> 析构函数, 用于删除对象</li>
+<li><strong>__repr__(self):</strong> 转化为供解释器读取的形式</li>
+<li><strong>__str__(self):</strong> 用于将值转化为适于人阅读的形式</li>
+<li><strong>__cmp__(self, obj):</strong> 对象比较</li>
+<li><strong>__add__(self, obj):</strong> &lsquo;+&rsquo; 对象相加</li>
+<li><strong>__sub__(self, obj):</strong> &lsquo;-&rsquo; 对象相减</li>
+<li><strong>__eq__(self, obj):</strong> &lsquo;==&rsquo; 对象是否相等</li>
+<li><strong>__gt__(self, obj):</strong> &lsquo;&gt;&rsquo; 对象是否小于</li>
+<li><strong>__lt__(self, obj):</strong> &lsquo;&lt;&rsquo; 对象是否小于</li>
+<li><strong>__iadd__(self, obj):</strong> &lsquo;+=&rsquo; 对象相加</li>
+</ul>
+
+<p>更多的内置方法请查阅手册</p>
+
+<hr />
+
+<p>以上就介绍完了 <code>python</code> 的基础知识, 按照上面的内容就能够写出 <code>python</code> 程序了, 当然前提是你不是一个小白, 至少熟悉一门编程语言.</p>
+
+<p>但 <code>python</code> 还有很多高级知识则需要你自行使用学习了, 如文件操作, 进程和线程, 网络编程, 图形编程等等. 本文的目的只是让你明白 <code>python</code> 程序应该怎么写, 怎么把你用其他语言写的程序转换成 <code>python</code> 语言的, 更多高级的特性只能靠你自己学习尝试.</p>
+
+    <hr>
+    <div class="pagination">
+      <ul>
+        <ul>
+          
+          
+            <li class="prev disabled"><a>&larr; Previous</a></li>
+          
+
+            <li><a href="/archive">Archive</a></li>
+
+          
+            <li class="next"><a href="/Blog/Go-%E5%8C%85%E7%AE%A1%E7%90%86%E4%B9%8Bmodule/" title="Go 包管理之module">Next &rarr;</a></li>
+          
+          
+        </ul>
+      </ul>
+    </div>
+    <hr>
+    
+<div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'jekyllbootstrap'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </div>
+  
+  <div class="span4">
+    <h4>Published</h4>
+    <div class="date"><span>2018-12-02</span></div>
+    <br>
+    <h4>Categories</h4>
+    <ul class="tag_box">
+    
+      <li>
+  <a href="/categories/#Blog-ref">Blog <span>22</span></a>
+</li>
+    
+    </ul>
+    <br>
+    <h4>Tags</h4>
+    <ul class="tag_box">
+    
+      <li>
+  <a href="/tags/#python3-ref">python3 <span>1</span></a>
+</li>
+    
+      <li>
+  <a href="/tags/#notes-ref">notes <span>1</span></a>
+</li>
+    
+    </ul>
+  </div>
+</div>
+
+      </div>
+
+      <footer>
+        <p>&copy; jouyouyun 2013 
+          with help from <a href="http://github.com/wendal/gor" target="_blank" title="Gor -- Fast Blog">Gor</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+		  and Idea from <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">ruhoh</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+<script src="//cdnjscn.b0.upaiyun.com/libs/prettify/r298/prettify.min.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+
+    
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-123-12']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  </body>
+</html>
