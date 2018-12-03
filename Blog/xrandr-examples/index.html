@@ -99,21 +99,20 @@
 <pre><code class="language-shell">-&gt;cvt 1440 900 60
 # 1440x900 59.89 Hz (CVT 1.30MA) hsync: 55.93 kHz; pclk: 106.50 MHz
 Modeline &quot;1440x900_60.00&quot;  106.50  1440 1528 1672 1904  900 903 909 934 -hsync +vsync
-</code></pre>
+</code></pre></li>
 
-<ol>
-<li>使用 <code>newmode</code> 创建一个 <code>mode</code>, 参数就是上面 <code>Modeline</code> 后的内容, 命令如下:
-<code>shell
--&gt;xrandr --newmode &quot;1440x900_60.00&quot;  106.50  1440 1528 1672 1904  900 903 909 934 -hsync +vsync
-</code></li>
-</ol></li>
+<li><p>使用 <code>newmode</code> 创建一个 <code>mode</code>, 参数就是上面 <code>Modeline</code> 后的内容, 命令如下:</p>
+
+<pre><code class="language-shell">-&gt;xrandr --newmode &quot;1440x900_60.00&quot;  106.50  1440 1528 1672 1904  900 903 909 934 -hsync +vsync
+</code></pre></li>
 
 <li><p>将上面的 <code>mode</code> 添加到 <code>eDP1</code> 中:</p>
 
 <pre><code class="language-shell">-&gt;xrandr --addmode eDP1 1440x900_60.00
 </code></pre>
 
-<p>如果执行出错, 则说明不支持此模式. 如果没有错误则添加完成, 然后就可以设置此 <code>mode</code> 为分辨率了.</p>
+<p>如果执行出错, 则说明不支持此模式. 如果没有错误则添加完成, 然后就可以设置此 <code>mode</code> 为分辨率了.</p></li>
+</ol>
 
 <h3>双屏配置</h3>
 
@@ -144,8 +143,7 @@ Modeline &quot;1440x900_60.00&quot;  106.50  1440 1528 1672 1904  900 903 909 93
 
 <p>另外屏幕的旋转, 镜像和缩放可以分别使用 <code>--rotate</code>, <code>reflect</code> 和 <code>--scale</code> 参数来实现.</p>
 
-<p>至于更详细的信息请使用 <code>man xrandr</code> 来查看.</p></li>
-</ol>
+<p>至于更详细的信息请使用 <code>man xrandr</code> 来查看.</p>
 
     <hr>
     <div class="pagination">

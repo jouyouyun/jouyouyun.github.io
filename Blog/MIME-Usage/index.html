@@ -116,15 +116,14 @@
          &lt;glob pattern=&quot;*.org&quot;/&gt;
   &lt;/mime-type&gt;
 &lt;/mime-info&gt;
-</code></pre>
+</code></pre></li>
 
-<ol>
-<li>将上面的 <code>xml</code> 文件复制到 <code>$XDG_DATA_DIRS/mime/packages</code> 中, 即文件要在 <code>~/.local/share/mime/packages, /usr/local/share/mime/packages, /usr/share/mime/packages</code> 这几个目录中的一个</li>
-<li>执行 <code>update-mime-database &lt;MIME DIR&gt;</code> 更新 <code>mime datebase</code>, 上面的目录去掉 <code>packages</code> 就是 <code>MIME DIR</code></li>
+<li><p>将上面的 <code>xml</code> 文件复制到 <code>$XDG_DATA_DIRS/mime/packages</code> 中, 即文件要在 <code>~/.local/share/mime/packages, /usr/local/share/mime/packages, /usr/share/mime/packages</code> 这几个目录中的一个</p></li>
+
+<li><p>执行 <code>update-mime-database &lt;MIME DIR&gt;</code> 更新 <code>mime datebase</code>, 上面的目录去掉 <code>packages</code> 就是 <code>MIME DIR</code></p></li>
 </ol>
 
-<p>这样 <code>*.org</code> 的类型就变为 <code>text/org-mode</code> 了, 参考 <a href="https://freedesktop.org/wiki/Specifications/AddingMIMETutor/">Add MIME Type</a></p></li>
-</ol>
+<p>这样 <code>*.org</code> 的类型就变为 <code>text/org-mode</code> 了, 参考 <a href="https://freedesktop.org/wiki/Specifications/AddingMIMETutor/">Add MIME Type</a></p>
 
     <hr>
     <div class="pagination">

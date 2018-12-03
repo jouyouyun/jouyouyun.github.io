@@ -89,11 +89,10 @@
 
 <pre><code class="language-shell">sudo mkdir -p /etc/openvpn
 sudo cp -R /etc/easy-rsa /etc/openvpn
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>Config vars
-取消并修改以下项:</li>
+<li><p>Config vars
+取消并修改以下项:</p></li>
 </ul>
 
 <pre><code class="language-shell">set_var EASYRSA_REQ_COUNTRY     &quot;CN&quot;
@@ -102,25 +101,26 @@ set_var EASYRSA_REQ_CITY        &quot;Hongkong&quot;
 set_var EASYRSA_REQ_ORG         &quot;jouyouyun.info&quot;
 set_var EASYRSA_REQ_EMAIL       &quot;wen@jouyouyun.iofn&quot;
 set_var EASYRSA_REQ_OU          &quot;Jouyouyun OpenVPN&quot;
-</code></pre></li>
+</code></pre>
 
+<ul>
 <li><p>创建根证书
 <code>ca</code> 证书需要输入密码，这个密码是给服务器端和客户端签名时用的</p>
 
 <pre><code class="language-shell">easyrsa init-pki
 easyrsa build-ca
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>创建并签名服务器端证书</li>
+<li><p>创建并签名服务器端证书</p></li>
 </ul>
 
 <pre><code class="language-shell">easyrsa gen-req &lt;server name&gt; nopass
 easyrsa sign server &lt;server name&gt;
-</code></pre></li>
+</code></pre>
 
-<li><p>创建Diffie-Hellman证书
-该证书主要作用是确保共享KEY安全穿越不安全网络</p></li>
+<ul>
+<li>创建Diffie-Hellman证书
+该证书主要作用是确保共享KEY安全穿越不安全网络</li>
 </ul>
 
 <pre><code class="language-shell">easyrsa gen-dh
