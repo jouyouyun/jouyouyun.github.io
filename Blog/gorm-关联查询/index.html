@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Bluetooth FAQ</title>
+    <title>gorm 关联查询</title>
   
     <meta name="author" content="jouyouyun">
 
@@ -71,106 +71,89 @@
 
       <div class="content">
         <div class="page-header">
-  <h1>Bluetooth FAQ </h1>
+  <h1>gorm 关联查询 </h1>
 </div>
 
 <div class="row">
   <div class="span8">
-    <p>收集遇到的 <code>bluetooth</code> 问题，使用的是 <code>deepin</code>。</p>
+    <p>定义了一个 <code>User</code> 和 <code>Company</code>, <code>User</code> 中可以包含多个 <code>Company</code>, 如下:</p>
+
+<pre><code class="language-go">type User struct {
+        ID        int        `gorm:&quot;TYPE:int(11);NOT NULL;PRIMARY_KEY;INDEX&quot;`
+        Name      string     `gorm:&quot;TYPE: VARCHAR(255); DEFAULT:'';INDEX&quot;`
+        Companies []Company  `gorm:&quot;FOREIGNKEY:UserId;ASSOCIATION_FOREIGNKEY:ID&quot;`
+        CreatedAt time.Time  `gorm:&quot;TYPE:DATETIME&quot;`
+        UpdatedAt time.Time  `gorm:&quot;TYPE:DATETIME&quot;`
+        DeletedAt *time.Time `gorm:&quot;TYPE:DATETIME;DEFAULT:NULL&quot;`
+}
+
+type Company struct {
+        gorm.Model
+        Industry int    `gorm:&quot;TYPE:INT(11);DEFAULT:0&quot;`
+        Name     string `gorm:&quot;TYPE:VARCHAR(255);DEFAULT:'';INDEX&quot;`
+        Job      string `gorm:&quot;TYPE:VARCHAR(255);DEFAULT:''&quot;`
+        UserId   int    `gorm:&quot;TYPE:int(11);NOT NULL;INDEX&quot;`
+}
+</code></pre>
+
+<p>在查询 <code>User</code> 时希望把 <code>Company</code> 的信息也一并查询, 有以下三种方法:</p>
+
+<h2>Related</h2>
+
+<p>使用 <code>Related</code> 方法, 需要把把 <code>User</code> 查询好, 然后根据 <code>User</code> 定义中指定的 <code>FOREIGNKEY</code> 去查找 <code>Company</code>, 如果没定义, 则调用时需要指定, 如下:</p>
+
+<pre><code class="language-go">var u User
+db.First(&amp;u)
+db.Model(&amp;u).Related(&amp;u.Companies).Find(&amp;u.Companies)
+</code></pre>
+
+<p><code>User</code> 列表时遍历列表一一查询 <code>Company</code></p>
+
+<h2>Association</h2>
+
+<p>使用 <code>Association</code> 方法, 需要把把 <code>User</code> 查询好, 然后根据 <code>User</code> 定义中指定的 <code>AssociationForeignKey</code> 去查找 <code>Company</code>, <strong>必须定义</strong>, 如下:</p>
+
+<pre><code class="language-go">var u User
+db.First(&amp;u)
+db.Model(&amp;u).Association(&quot;Companies&quot;).Find(&amp;u.Companies)
+</code></pre>
+
+<h2>Preload</h2>
+
+<p>使用 <code>Preload</code> 方法, 在查询 <code>User</code> 时先去获取 <code>Company</code> 的记录, 如下:</p>
+
+<pre><code class="language-go">// 查询单条 user
+var u User
+db.Debug().Preload(&quot;Companies&quot;).First(&amp;u)
+// 对应的 sql 语句
+// SELECT * FROM users LIMIT 1;
+// SELECT * FROM companies WHERE user_id IN (1);
+
+// 查询所有 user
+var list []User
+db.Debug().Preload(&quot;Companies&quot;).Find(&amp;list)
+// 对应的 sql 语句
+// SELECT * FROM users;
+// SELECT * FROM companies WHERE user_id IN (1,2,3...);
+</code></pre>
 
 <hr />
 
-<h2>控制中心不显示蓝牙模块</h2>
-
-<p>蓝牙模块不显示时，可以按照以下步骤来查找原因：</p>
-
-<ol>
-<li><p>执行 <code>sudo dmesg|grub bluetooth</code> 查看输出结果</p>
-
-<ul>
-<li><p>输出里有 <code>timeout</code></p>
-
-<p>此时再用 <code>systemctl status bluetooth.service</code> 看下服务有没有正常启动，错误信息是什么，然后根据错误去网上搜索答案。</p>
-
-<p>如果蓝牙是由网卡提供的，此时可以试着开关一下网卡的硬件开关。因为内核在初始化网卡之前初始化蓝牙，就会导致蓝牙设备不可用，重新初始化一次就好了。
-如果还是无效那就重启进入 <code>window</code>，再 <code>window</code> 里开关一次蓝牙再重启到 <code>linux</code>。</p></li>
-
-<li><p>输出里无 <code>timeout</code></p>
-
-<p>这就表明初始化没问题，继续下一步</p></li>
-</ul></li>
-</ol>
-
-<hr />
-
-<ol>
-<li><p>执行 <code>sudo hciconfig</code> 查看设备当前的状态</p>
-
-<ul>
-<li><p>状态为 <code>DOWN</code></p>
-
-<p>则执行 <code>sudo hciconfig hci&lt;number&gt; up</code>，其中 <strong>number</strong> 为前面输出显示的。
-如果命令执行失败，参照第一步。</p></li>
-
-<li><p>状态为 <code>UP</code></p>
-
-<p>继续下一步</p></li>
-</ul></li>
-</ol>
-
-<hr />
-
-<ol>
-<li><p>执行 <code>sudo rfkill list</code> 查看设备是否被 <code>block</code></p>
-
-<ul>
-<li><p>被 <code>block</code></p>
-
-<p>则执行 <code>sudo rfkill &lt;dev&gt; unblock</code></p></li>
-</ul></li>
-</ol>
-
-<p>如果尝试完上述步骤，蓝牙仍不可用，那就反馈吧，提供日志及 <code>lsusb</code> 输出，等待问题被解决。</p>
-
-<hr />
-
-<h2>蓝牙鼠标使用中频繁断开</h2>
-
-<p>蓝牙鼠标在使用过程中频繁出现了断开问题，应在断开后执行 <code>sudo dmesg</code> 来查看是否有错误，如果没有错误信息，那就反馈吧。
-如果出现 <code>firmware</code> 加载失败，记住这个固件名。试着从 <code>window</code> 那里获取最新的驱动，然后转成 <code>linux firmware</code>，方法如下:</p>
-
-<ol>
-<li><p>查找并下载本机蓝牙适配器的驱动，一般可在笔记本或蓝牙适配器的官网下载到</p></li>
-
-<li><p>然后解压，如果是 <code>.exe</code> 文件就安装 <code>innoextract</code> 来解压</p></li>
-
-<li><p>然后查看驱动信息的 <code>.inf</code> 文件，比如 <code>thinkpad x230 win8 64</code> 的文件就是 <code>app/Win64/bcbtums-win8x64-brcm.inf</code></p></li>
-
-<li><p>执行 <code>lsusb</code> 获取蓝牙设备的 <code>ID</code>。如 <code>x230</code> 即是 <code>ID 0a5c:21e6 Broadcom Corp. BCM20702 Bluetooth 4.0 [ThinkPad]</code>，然后搜索 <code>0a5c 21e6</code> 相关的内容，找到对应的 <code>.hex</code> 文件。如 <code>x230</code> 即是 <code>BCM20702A1_001.002.014.1443.1453.hex</code></p></li>
-
-<li><p>使用 <code>hex2hcd xxx.hex</code> 将 <code>xxx.hex</code> 转为 <code>.hcd</code> 文件，然后重命名为缺失的固件名，复制到 <code>/lib/firmware/</code> 下对应的位置</p></li>
-</ol>
-
-<hr />
-
-<h2>蓝牙音箱/耳机连上就断开</h2>
-
-<p>蓝牙音箱如果断开，先按照蓝牙耳机的方法试一下。如果不是，那就考虑是不是电脑的蓝牙不支持蓝牙高保真输出，因为 <code>deepin</code> 默认开启高保真。
-试着安装 <code>pavucontrol</code> 将蓝牙的 <code>profile(配置)</code> 切换为其它的，不过这样会导致音效很差，建议换掉电脑的蓝牙设备吧。</p>
+<p>本文中是一对多, 一对一的也是类似的, 完整代码见: <a href="https://github.com/jouyouyun/examples/tree/master/gorm/related">GORM Related</a></p>
 
     <hr>
     <div class="pagination">
       <ul>
         <ul>
           
-            <li class="prev"><a href="/Blog/CUPS-%E8%B5%84%E6%96%99/" title="CUPS 资料">&larr; Previous</a></li>
           
+            <li class="prev disabled"><a>&larr; Previous</a></li>
           
 
             <li><a href="/archive">Archive</a></li>
 
           
-            <li class="next"><a href="/Blog/%E8%AE%BE%E7%BD%AE-Grub2-%E5%88%86%E8%BE%A8%E7%8E%87/" title="设置 Grub2 分辨率">Next &rarr;</a></li>
+            <li class="next"><a href="/Blog/python3-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="python3 学习笔记">Next &rarr;</a></li>
           
           
         </ul>
@@ -196,7 +179,7 @@
   
   <div class="span4">
     <h4>Published</h4>
-    <div class="date"><span>2017-11-20</span></div>
+    <div class="date"><span>2018-12-05</span></div>
     <br>
     <h4>Categories</h4>
     <ul class="tag_box">
@@ -211,7 +194,11 @@
     <ul class="tag_box">
     
       <li>
-  <a href="/tags/#bluetooth-ref">bluetooth <span>1</span></a>
+  <a href="/tags/#gorm-ref">gorm <span>1</span></a>
+</li>
+    
+      <li>
+  <a href="/tags/#association-ref">association <span>1</span></a>
 </li>
     
     </ul>
