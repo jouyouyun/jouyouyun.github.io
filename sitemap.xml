@@ -1,166 +1,690 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml-stylesheet type="text/xsl" href="https://jouyouyun.github.io/sitemap.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-	<url>
-		<loc>http://45.62.229.81:8080/</loc>
-	</url>
-	<url>
-		<loc>http://45.62.229.81:8080/Blog/gorm-%E5%85%B3%E8%81%94%E6%9F%A5%E8%AF%A2/</loc>
-		<lastmod>2018-12-05</lastmod>
-		<changefreq>weekly</changefreq>
-	</url>
-	<url>
-		<loc>http://45.62.229.81:8080/Blog/python3-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
-		<lastmod>2018-12-02</lastmod>
-		<changefreq>weekly</changefreq>
-	</url>
-	<url>
-		<loc>http://45.62.229.81:8080/Blog/Go-%E5%8C%85%E7%AE%A1%E7%90%86%E4%B9%8Bmodule/</loc>
-		<lastmod>2018-11-27</lastmod>
-		<changefreq>weekly</changefreq>
-	</url>
-	<url>
-		<loc>http://45.62.229.81:8080/Blog/Linux-Signal-Examples/</loc>
-		<lastmod>2018-11-13</lastmod>
-		<changefreq>weekly</changefreq>
-	</url>
-	<url>
-		<loc>http://45.62.229.81:8080/Blog/%E6%80%8E%E4%B9%88%E5%A4%84%E7%90%86-%27Origin%27%E5%80%BC%E4%BB%8E%27Google%2C-Inc.%27%E4%BF%AE%E6%94%B9%E5%88%B0%E4%BA%86%27Google-LLC%27-%E7%9A%84-APT-%E9%94%99%E8%AF%AF/</loc>
-		<lastmod>2018-11-07</lastmod>
-		<changefreq>weekly</changefreq>
-	</url>
-	<url>
-		<loc>http://45.62.229.81:8080/Blog/linux-%E4%B8%8B-deepin-%E5%92%8C-gnome-%E6%A1%8C%E9%9D%A2%E7%9A%84%E5%A4%96%E8%A7%82%E8%AE%BE%E7%BD%AE/</loc>
-		<lastmod>2018-10-23</lastmod>
-		<changefreq>weekly</changefreq>
-	</url>
-	<url>
-		<loc>http://45.62.229.81:8080/Blog/Linux-%E4%BC%91%E7%9C%A0%E8%87%AA%E5%8A%A8%E5%94%A4%E9%86%92/</loc>
-		<lastmod>2018-10-21</lastmod>
-		<changefreq>weekly</changefreq>
-	</url>
-	<url>
-		<loc>http://45.62.229.81:8080/Blog/Linux-%E6%97%B6%E9%97%B4%E6%A0%87%E5%87%86/</loc>
-		<lastmod>2018-08-27</lastmod>
-		<changefreq>weekly</changefreq>
-	</url>
-	<url>
-		<loc>http://45.62.229.81:8080/Blog/%E4%BF%AE%E5%A4%8D-superblock/</loc>
-		<lastmod>2018-07-27</lastmod>
-		<changefreq>weekly</changefreq>
-	</url>
-	<url>
-		<loc>http://45.62.229.81:8080/Blog/RESTfull-%E7%AE%80%E4%BB%8B/</loc>
-		<lastmod>2018-05-10</lastmod>
-		<changefreq>weekly</changefreq>
-	</url>
-	<url>
-		<loc>http://45.62.229.81:8080/Blog/Git-Rebase-%E5%9B%9E%E9%80%80/</loc>
-		<lastmod>2018-04-12</lastmod>
-		<changefreq>weekly</changefreq>
-	</url>
-	<url>
-		<loc>http://45.62.229.81:8080/Blog/CUPS-%E8%B5%84%E6%96%99/</loc>
-		<lastmod>2018-04-08</lastmod>
-		<changefreq>weekly</changefreq>
-	</url>
-	<url>
-		<loc>http://45.62.229.81:8080/Blog/Bluetooth-FAQ/</loc>
-		<lastmod>2017-11-20</lastmod>
-		<changefreq>weekly</changefreq>
-	</url>
-	<url>
-		<loc>http://45.62.229.81:8080/Blog/%E8%AE%BE%E7%BD%AE-Grub2-%E5%88%86%E8%BE%A8%E7%8E%87/</loc>
-		<lastmod>2017-07-29</lastmod>
-		<changefreq>weekly</changefreq>
-	</url>
-	<url>
-		<loc>http://45.62.229.81:8080/Blog/TCP-BBR-%E8%AE%BE%E7%BD%AE%E5%8F%8A%E5%85%B6%E5%A2%9E%E5%BC%BA%E7%89%88/</loc>
-		<lastmod>2017-07-20</lastmod>
-		<changefreq>weekly</changefreq>
-	</url>
-	<url>
-		<loc>http://45.62.229.81:8080/Blog/Leanote-Install/</loc>
-		<lastmod>2017-07-17</lastmod>
-		<changefreq>weekly</changefreq>
-	</url>
-	<url>
-		<loc>http://45.62.229.81:8080/Blog/OpenVPN-Install/</loc>
-		<lastmod>2016-12-27</lastmod>
-		<changefreq>weekly</changefreq>
-	</url>
-	<url>
-		<loc>http://45.62.229.81:8080/Blog/MIME-Usage/</loc>
-		<lastmod>2016-12-14</lastmod>
-		<changefreq>weekly</changefreq>
-	</url>
-	<url>
-		<loc>http://45.62.229.81:8080/Note/DDE-Package-List/</loc>
-		<lastmod>2016-08-04</lastmod>
-		<changefreq>weekly</changefreq>
-	</url>
-	<url>
-		<loc>http://45.62.229.81:8080/Blog/xrandr-examples/</loc>
-		<lastmod>2016-06-06T16:52:30+08:00</lastmod>
-		<changefreq>weekly</changefreq>
-	</url>
-	<url>
-		<loc>http://45.62.229.81:8080/Note/Enable-coredump/</loc>
-		<lastmod>2016-04-25T19:04:33+08:00</lastmod>
-		<changefreq>weekly</changefreq>
-	</url>
-	<url>
-		<loc>http://45.62.229.81:8080/Blog/Auto-Hidden-Cursor/</loc>
-		<lastmod>2016-04-22</lastmod>
-		<changefreq>weekly</changefreq>
-	</url>
-	<url>
-		<loc>http://45.62.229.81:8080/Note/debug-%E5%B0%8F%E7%BB%93/</loc>
-		<lastmod>2016-02-03T15:06:35+08:00</lastmod>
-		<changefreq>weekly</changefreq>
-	</url>
-	<url>
-		<loc>http://45.62.229.81:8080/Blog/xsetwacom-%E9%80%89%E9%A1%B9%E8%AF%B4%E6%98%8E/</loc>
-		<lastmod>2016-02-03T14:58:29+08:00</lastmod>
-		<changefreq>weekly</changefreq>
-	</url>
-	<url>
-		<loc>http://45.62.229.81:8080/Note/Go-%E7%AC%94%E8%AE%B0--%E7%AE%80%E5%8D%95%E7%9A%84-TCP-Socket-%E7%A4%BA%E4%BE%8B/</loc>
-		<lastmod>2014-07-20T00:54:43+08:00</lastmod>
-		<changefreq>weekly</changefreq>
-	</url>
-	<url>
-		<loc>http://45.62.229.81:8080/Note/Go-%E7%AC%94%E8%AE%B0%EF%BC%9AGob-Write%2FRead-File/</loc>
-		<lastmod>2014-07-07T13:06:28+08:00</lastmod>
-		<changefreq>weekly</changefreq>
-	</url>
-	<url>
-		<loc>http://45.62.229.81:8080/Blog/chroot-%E8%84%9A%E6%9C%AC/</loc>
-		<lastmod>2014-07-05</lastmod>
-		<changefreq>weekly</changefreq>
-	</url>
-	<url>
-		<loc>http://45.62.229.81:8080/Blog/%E5%9C%A8-VPS-%E4%B8%AD%E6%90%AD%E5%BB%BA-VPN-%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
-		<lastmod>2014-07-04</lastmod>
-		<changefreq>weekly</changefreq>
-	</url>
-	<url>
-		<loc>http://45.62.229.81:8080/Note/Go-%E7%AC%94%E8%AE%B0--md5-sum/</loc>
-		<lastmod>2014-06-22T22:54:38+08:00</lastmod>
-		<changefreq>weekly</changefreq>
-	</url>
-	<url>
-		<loc>http://45.62.229.81:8080/Note/Go-%E7%AC%94%E8%AE%B0--%E5%88%A4%E6%96%AD%E6%96%87%E4%BB%B6%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8/</loc>
-		<lastmod>2014-06-20T21:38:13+08:00</lastmod>
-		<changefreq>weekly</changefreq>
-	</url>
-	<url>
-		<loc>http://45.62.229.81:8080/Note/Go-%E7%AC%94%E8%AE%B0--URI-Encode%2FDecode/</loc>
-		<lastmod>2014-06-20T21:20:12+08:00</lastmod>
-		<changefreq>weekly</changefreq>
-	</url>
-	<url>
-		<loc>http://45.62.229.81:8080/Note/XRecord-%E7%A4%BA%E4%BE%8B/</loc>
-		<lastmod>2014-04-18T17:42:15+08:00</lastmod>
-		<changefreq>weekly</changefreq>
-	</url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/post/hugo-github/</loc>
+    <lastmod>2019-02-10T17:54:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/post/gorm-association/</loc>
+    <lastmod>2019-02-10T17:54:07+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/post/python-learn-note/</loc>
+    <lastmod>2019-02-10T17:55:18+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/post/go-package-management/</loc>
+    <lastmod>2019-02-10T17:53:40+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/post/linux-signal-example/</loc>
+    <lastmod>2019-02-10T18:00:35+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/post/how-to-solved-origin-changed-apt-error/</loc>
+    <lastmod>2019-02-10T17:54:14+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/post/set-appearance-in-deepin-or-gnome/</loc>
+    <lastmod>2019-02-10T18:16:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/post/linux-auto-suspend/</loc>
+    <lastmod>2019-02-10T17:54:36+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/post/linux-time-standard/</loc>
+    <lastmod>2019-02-10T17:54:51+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/post/fixed-superblock/</loc>
+    <lastmod>2019-02-10T18:18:05+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/post/restfull-introduction/</loc>
+    <lastmod>2019-02-10T17:57:06+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/post/git-rebase/</loc>
+    <lastmod>2019-02-10T18:19:21+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/post/cups-notes/</loc>
+    <lastmod>2019-02-10T18:21:51+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/post/bluetooth-faq/</loc>
+    <lastmod>2019-02-10T18:22:34+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/post/set-grup2-resolution/</loc>
+    <lastmod>2019-02-10T17:57:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/post/tcp-bbr/</loc>
+    <lastmod>2019-02-10T17:57:28+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/post/leanote-installation/</loc>
+    <lastmod>2019-02-10T17:54:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/post/openvpn-installation/</loc>
+    <lastmod>2019-02-10T17:55:11+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/post/mime-usage/</loc>
+    <lastmod>2019-02-10T18:24:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/post/xrandr-examples/</loc>
+    <lastmod>2019-02-10T17:57:35+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/post/enable-coredump/</loc>
+    <lastmod>2019-02-10T17:52:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/post/auto-hidden-cursor/</loc>
+    <lastmod>2019-02-10T17:52:03+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/post/debug-summary/</loc>
+    <lastmod>2019-02-10T17:52:42+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/post/xsetwacom-options/</loc>
+    <lastmod>2019-02-10T17:57:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/post/go-tcp-socket-example/</loc>
+    <lastmod>2019-02-10T17:53:51+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/post/go-gob-rw-file/</loc>
+    <lastmod>2019-02-10T17:53:25+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/post/chroot-shell/</loc>
+    <lastmod>2019-02-10T17:52:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/post/build-vpn/</loc>
+    <lastmod>2019-02-10T18:26:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/post/go-md5-sum/</loc>
+    <lastmod>2019-02-10T17:53:32+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/post/go-file-exist/</loc>
+    <lastmod>2019-02-10T17:53:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/post/go-uri-encode/</loc>
+    <lastmod>2019-02-10T17:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/post/xrecord-example/</loc>
+    <lastmod>2019-02-10T17:57:41+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/categories/blog/</loc>
+    <lastmod>2019-02-10T17:54:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/categories/</loc>
+    <lastmod>2019-02-10T17:54:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/categories/note/</loc>
+    <lastmod>2019-02-10T17:55:18+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/post/</loc>
+    <lastmod>2019-02-10T17:54:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/alarm/</loc>
+    <lastmod>2019-02-10T18:00:35+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/apt/</loc>
+    <lastmod>2019-02-10T17:54:14+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/association/</loc>
+    <lastmod>2019-02-10T17:54:07+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/bbr/</loc>
+    <lastmod>2019-02-10T17:57:28+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/bluetooth/</loc>
+    <lastmod>2019-02-10T18:22:34+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/chroot/</loc>
+    <lastmod>2019-02-10T17:52:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/coredump/</loc>
+    <lastmod>2019-02-10T17:52:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/cups/</loc>
+    <lastmod>2019-02-10T18:21:51+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/cursor/</loc>
+    <lastmod>2019-02-10T18:16:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/debug/</loc>
+    <lastmod>2019-02-10T17:52:42+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/deepin/</loc>
+    <lastmod>2019-02-10T18:16:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/file/</loc>
+    <lastmod>2019-02-10T17:53:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/font/</loc>
+    <lastmod>2019-02-10T18:16:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/git/</loc>
+    <lastmod>2019-02-10T18:19:21+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/gnome/</loc>
+    <lastmod>2019-02-10T18:16:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/go/</loc>
+    <lastmod>2019-02-10T17:53:40+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/gob/</loc>
+    <lastmod>2019-02-10T17:53:25+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/gom/</loc>
+    <lastmod>2019-02-10T17:53:40+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/google/</loc>
+    <lastmod>2019-02-10T17:54:14+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/gorm/</loc>
+    <lastmod>2019-02-10T17:54:07+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/grub2/</loc>
+    <lastmod>2019-02-10T17:57:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/gtk/</loc>
+    <lastmod>2019-02-10T18:16:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/hugo/</loc>
+    <lastmod>2019-02-10T17:54:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/icon/</loc>
+    <lastmod>2019-02-10T18:16:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/</loc>
+    <lastmod>2019-02-10T17:54:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/kill/</loc>
+    <lastmod>2019-02-10T18:00:35+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/leanote/</loc>
+    <lastmod>2019-02-10T17:54:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/localtime/</loc>
+    <lastmod>2019-02-10T17:54:51+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/md5/</loc>
+    <lastmod>2019-02-10T17:53:32+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/mime/</loc>
+    <lastmod>2019-02-10T18:24:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/module/</loc>
+    <lastmod>2019-02-10T17:53:40+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/openvpn/</loc>
+    <lastmod>2019-02-10T17:55:11+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/origin/</loc>
+    <lastmod>2019-02-10T17:54:14+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/package/</loc>
+    <lastmod>2019-02-10T17:53:40+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/python/</loc>
+    <lastmod>2019-02-10T17:55:18+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/raise/</loc>
+    <lastmod>2019-02-10T18:00:35+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/rebase/</loc>
+    <lastmod>2019-02-10T18:19:21+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/recovery/</loc>
+    <lastmod>2019-02-10T18:19:21+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/reflog/</loc>
+    <lastmod>2019-02-10T18:19:21+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/resolution/</loc>
+    <lastmod>2019-02-10T17:57:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/restfull/</loc>
+    <lastmod>2019-02-10T17:57:06+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/rtc/</loc>
+    <lastmod>2019-02-10T17:54:36+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/sigaction/</loc>
+    <lastmod>2019-02-10T18:00:35+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/signal/</loc>
+    <lastmod>2019-02-10T18:00:35+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/socket/</loc>
+    <lastmod>2019-02-10T17:53:51+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/ssh/</loc>
+    <lastmod>2019-02-10T18:26:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/superblock/</loc>
+    <lastmod>2019-02-10T18:18:05+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/suspend/</loc>
+    <lastmod>2019-02-10T17:54:36+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/tcp/</loc>
+    <lastmod>2019-02-10T17:53:51+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/theme/</loc>
+    <lastmod>2019-02-10T18:16:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/timezone/</loc>
+    <lastmod>2019-02-10T17:54:51+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/uri/</loc>
+    <lastmod>2019-02-10T17:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/utc/</loc>
+    <lastmod>2019-02-10T17:54:51+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/vpn/</loc>
+    <lastmod>2019-02-10T18:26:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/vps/</loc>
+    <lastmod>2019-02-10T18:26:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/wacom/</loc>
+    <lastmod>2019-02-10T17:57:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/wakeup/</loc>
+    <lastmod>2019-02-10T17:54:36+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/xrandr/</loc>
+    <lastmod>2019-02-10T17:57:35+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/xrecord/</loc>
+    <lastmod>2019-02-10T17:57:41+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/xsetwacom/</loc>
+    <lastmod>2019-02-10T17:57:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/xtst/</loc>
+    <lastmod>2019-02-10T17:57:41+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
 </urlset>

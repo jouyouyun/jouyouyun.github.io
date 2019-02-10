@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>wacom on jouyouyun&#39;s blog</title>
+    <link>https://jouyouyun.github.io/tags/wacom/</link>
+    <description>Recent content in wacom on jouyouyun&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>jouyouyun</copyright>
+    <lastBuildDate>Wed, 03 Feb 2016 14:58:21 +0800</lastBuildDate>
+    
+	<atom:link href="https://jouyouyun.github.io/tags/wacom/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>xsetwacom 选项说明</title>
+      <link>https://jouyouyun.github.io/post/xsetwacom-options/</link>
+      <pubDate>Wed, 03 Feb 2016 14:58:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/xsetwacom-options/</guid>
+      <description>xsetwacom 是一个设置数位板的命令行工具, 在 Debian/Ubuntu/deepin 上可以通过安装 xserver-xorg-input-wacom 来获取它. 可以通过 man xsetwacom 看到它的帮助文档, 下面就简单说明下它的部份选项: Options Area args: x1 y1 x2 y2 default: 0</description>
+    </item>
+    
+  </channel>
+</rss>

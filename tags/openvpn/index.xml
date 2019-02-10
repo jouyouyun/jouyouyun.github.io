@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>openvpn on jouyouyun&#39;s blog</title>
+    <link>https://jouyouyun.github.io/tags/openvpn/</link>
+    <description>Recent content in openvpn on jouyouyun&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>jouyouyun</copyright>
+    <lastBuildDate>Tue, 27 Dec 2016 21:38:21 +0800</lastBuildDate>
+    
+	<atom:link href="https://jouyouyun.github.io/tags/openvpn/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>OpenVPN Installation</title>
+      <link>https://jouyouyun.github.io/post/openvpn-installation/</link>
+      <pubDate>Tue, 27 Dec 2016 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/openvpn-installation/</guid>
+      <description>安装所需软件 Arch: yaourt -S openvpn easy-rsa 生成证书 Server 端 Copy template file 1 2 sudo mkdir -p /etc/openvpn sudo cp -R /etc/easy-rsa /etc/openvpn Config vars 取消并修改以下项: 1 2 3 4 5 6 set_var EASYRSA_REQ_COUNTRY &amp;#34;CN&amp;#34; set_var EASYRSA_REQ_PROVINCE &amp;#34;Hongkong&amp;#34; set_var EASYRSA_REQ_CITY &amp;#34;Hongkong&amp;#34; set_var EASYRSA_REQ_ORG &amp;#34;jouyouyun.info&amp;#34; set_var EASYRSA_REQ_EMAIL &amp;#34;wen@jouyouyun.iofn&amp;#34; set_var EASYRSA_REQ_OU &amp;#34;Jouyouyun OpenVPN&amp;#34; 创建根</description>
+    </item>
+    
+  </channel>
+</rss>

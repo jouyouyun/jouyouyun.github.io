@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>bbr on jouyouyun&#39;s blog</title>
+    <link>https://jouyouyun.github.io/tags/bbr/</link>
+    <description>Recent content in bbr on jouyouyun&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>jouyouyun</copyright>
+    <lastBuildDate>Thu, 20 Jul 2017 21:38:21 +0800</lastBuildDate>
+    
+	<atom:link href="https://jouyouyun.github.io/tags/bbr/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>TCP BBR</title>
+      <link>https://jouyouyun.github.io/post/tcp-bbr/</link>
+      <pubDate>Thu, 20 Jul 2017 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/tcp-bbr/</guid>
+      <description>启用 BBR BBR 是在 4.9 以后的内核才开始支持的, 可以试着执行 sudo modprobe tcp_bbr 来确定是否支持, 没有输出就意味着支持, 将下面两行内容添加到 /etc/sysctl.conf 文件里开启用它: 1 2 net.core.default_qdisc =</description>
+    </item>
+    
+  </channel>
+</rss>

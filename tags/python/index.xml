@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>python on jouyouyun&#39;s blog</title>
+    <link>https://jouyouyun.github.io/tags/python/</link>
+    <description>Recent content in python on jouyouyun&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>jouyouyun</copyright>
+    <lastBuildDate>Sun, 02 Dec 2018 21:38:21 +0800</lastBuildDate>
+    
+	<atom:link href="https://jouyouyun.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>python3 学习笔记</title>
+      <link>https://jouyouyun.github.io/post/python-learn-note/</link>
+      <pubDate>Sun, 02 Dec 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/python-learn-note/</guid>
+      <description>Python3 Study Notes 本人很少写 python 代码, 一般都是用 go 的, 去年时用 python 写过一些收集系统信息的工具, 当时是边看手册边写的. 如今又要用 python 来写一个生成 xlsx 的工具, 就又需</description>
+    </item>
+    
+  </channel>
+</rss>

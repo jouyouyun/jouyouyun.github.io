@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>resolution on jouyouyun&#39;s blog</title>
+    <link>https://jouyouyun.github.io/tags/resolution/</link>
+    <description>Recent content in resolution on jouyouyun&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>jouyouyun</copyright>
+    <lastBuildDate>Sat, 29 Jul 2017 21:38:21 +0800</lastBuildDate>
+    
+	<atom:link href="https://jouyouyun.github.io/tags/resolution/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>设置 Grub2 分辨率</title>
+      <link>https://jouyouyun.github.io/post/set-grup2-resolution/</link>
+      <pubDate>Sat, 29 Jul 2017 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/set-grup2-resolution/</guid>
+      <description>背景 平时经常用显示器的分辨率去设置 Grub 的分辨率，虽然大部分都没有问题，但有时却没有用。所以就把 Grub 分辨率的设置方法详细说明一下，留档记录。 查询支</description>
+    </item>
+    
+  </channel>
+</rss>

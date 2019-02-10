@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>google on jouyouyun&#39;s blog</title>
+    <link>https://jouyouyun.github.io/tags/google/</link>
+    <description>Recent content in google on jouyouyun&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>jouyouyun</copyright>
+    <lastBuildDate>Wed, 07 Nov 2018 21:38:21 +0800</lastBuildDate>
+    
+	<atom:link href="https://jouyouyun.github.io/tags/google/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>怎么处理 &#39;Origin&#39;值从&#39;Google, Inc.&#39;修改到了&#39;Google LLC&#39; 的 APT 错误</title>
+      <link>https://jouyouyun.github.io/post/how-to-solved-origin-changed-apt-error/</link>
+      <pubDate>Wed, 07 Nov 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/how-to-solved-origin-changed-apt-error/</guid>
+      <description>今天在执行 sudo apt-get update 出现了下面的错误提示： 1 2 3 4 5 6 E: 仓库&amp;#39;http://dl.google.com/linux/chrome/deb</description>
+    </item>
+    
+  </channel>
+</rss>

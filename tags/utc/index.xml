@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>utc on jouyouyun&#39;s blog</title>
+    <link>https://jouyouyun.github.io/tags/utc/</link>
+    <description>Recent content in utc on jouyouyun&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>jouyouyun</copyright>
+    <lastBuildDate>Mon, 27 Aug 2018 21:38:21 +0800</lastBuildDate>
+    
+	<atom:link href="https://jouyouyun.github.io/tags/utc/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Linux 时间标准</title>
+      <link>https://jouyouyun.github.io/post/linux-time-standard/</link>
+      <pubDate>Mon, 27 Aug 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/linux-time-standard/</guid>
+      <description>系统如何设置时间 开机时根据硬件时钟来设置系统时钟. 如果开启了 NTP 服务, 会根据网络时间来校正系统时钟，确保时间准确. 关机时会根据系统时钟来设置硬</description>
+    </item>
+    
+  </channel>
+</rss>

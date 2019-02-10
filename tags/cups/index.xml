@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>cups on jouyouyun&#39;s blog</title>
+    <link>https://jouyouyun.github.io/tags/cups/</link>
+    <description>Recent content in cups on jouyouyun&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>jouyouyun</copyright>
+    <lastBuildDate>Sun, 08 Apr 2018 21:38:21 +0800</lastBuildDate>
+    
+	<atom:link href="https://jouyouyun.github.io/tags/cups/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>CUPS 资料</title>
+      <link>https://jouyouyun.github.io/post/cups-notes/</link>
+      <pubDate>Sun, 08 Apr 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/cups-notes/</guid>
+      <description>Installation sudo apt install cups ghostscript gsfonts Driver gutenprint 一组质量非常好的驱动集合，支持的目标机型包括 Canon, Epson, Lexmark, Sony, Olympus ；以及配合 CUPS/GhostSscript/Foomatic/GIMP 使用的 PCL printers 。 安装包: cups-driver-gutenprint gimp-gutenprint ijsgutenprint printer-driver-gutenprint foomatic Foomatic 是一个基于数据库的，集成</description>
+    </item>
+    
+  </channel>
+</rss>

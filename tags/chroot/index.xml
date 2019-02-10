@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>chroot on jouyouyun&#39;s blog</title>
+    <link>https://jouyouyun.github.io/tags/chroot/</link>
+    <description>Recent content in chroot on jouyouyun&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>jouyouyun</copyright>
+    <lastBuildDate>Sat, 05 Jul 2014 21:38:21 +0800</lastBuildDate>
+    
+	<atom:link href="https://jouyouyun.github.io/tags/chroot/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>chroot 脚本</title>
+      <link>https://jouyouyun.github.io/post/chroot-shell/</link>
+      <pubDate>Sat, 05 Jul 2014 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/chroot-shell/</guid>
+      <description>最近测试了以下 chroot ，然后把步骤写成了下面两个脚本，方便以后使用。 使用时需要确定每条命令都执行成功了 Arch 分区结构 1 2 3 4 /dev/sda5 / /dev/sda1 /boot /dev/sda6 /home /dev/sda8 Swap chroot 挂载脚本</description>
+    </item>
+    
+  </channel>
+</rss>

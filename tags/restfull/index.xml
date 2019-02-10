@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>restfull on jouyouyun&#39;s blog</title>
+    <link>https://jouyouyun.github.io/tags/restfull/</link>
+    <description>Recent content in restfull on jouyouyun&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>jouyouyun</copyright>
+    <lastBuildDate>Thu, 10 May 2018 21:38:21 +0800</lastBuildDate>
+    
+	<atom:link href="https://jouyouyun.github.io/tags/restfull/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>RESTfull 简介</title>
+      <link>https://jouyouyun.github.io/post/restfull-introduction/</link>
+      <pubDate>Thu, 10 May 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/restfull-introduction/</guid>
+      <description>简介 RESTfull 即表现层状态转换，是一种设计风格，不是标准。其要点如下： 资源由 URI 来指定 每个资源都有与之对应的 URI=，一个 =URI 只能对应一种资源，但一种资</description>
+    </item>
+    
+  </channel>
+</rss>

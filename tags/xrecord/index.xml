@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>xrecord on jouyouyun&#39;s blog</title>
+    <link>https://jouyouyun.github.io/tags/xrecord/</link>
+    <description>Recent content in xrecord on jouyouyun&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>jouyouyun</copyright>
+    <lastBuildDate>Fri, 18 Apr 2014 17:42:15 +0800</lastBuildDate>
+    
+	<atom:link href="https://jouyouyun.github.io/tags/xrecord/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>XRecord 示例</title>
+      <link>https://jouyouyun.github.io/post/xrecord-example/</link>
+      <pubDate>Fri, 18 Apr 2014 17:42:15 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/xrecord-example/</guid>
+      <description>最近在做快捷键绑定的项目，但在绑定单按键时发现 XGrabKey 无法处理。遂请教组长，得知 XRecord 可以处理，于是就去查找 XRecord 的相关资料，但却很少。 所以在此记录一下整</description>
+    </item>
+    
+  </channel>
+</rss>

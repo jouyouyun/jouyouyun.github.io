@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>leanote on jouyouyun&#39;s blog</title>
+    <link>https://jouyouyun.github.io/tags/leanote/</link>
+    <description>Recent content in leanote on jouyouyun&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>jouyouyun</copyright>
+    <lastBuildDate>Mon, 17 Jul 2017 21:38:21 +0800</lastBuildDate>
+    
+	<atom:link href="https://jouyouyun.github.io/tags/leanote/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Leanote Installation</title>
+      <link>https://jouyouyun.github.io/post/leanote-installation/</link>
+      <pubDate>Mon, 17 Jul 2017 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/leanote-installation/</guid>
+      <description>Leanote 是一款开源的笔记软件, 支持使用 markdown 来编辑笔记, 并可选择是否将笔记导出成博客, 这对于知识整理及写博客都是非常方便的, 故来尝试下. 安装 Leanote 是使用 Golang</description>
+    </item>
+    
+  </channel>
+</rss>

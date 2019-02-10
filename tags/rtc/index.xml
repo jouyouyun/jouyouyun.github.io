@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>rtc on jouyouyun&#39;s blog</title>
+    <link>https://jouyouyun.github.io/tags/rtc/</link>
+    <description>Recent content in rtc on jouyouyun&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>jouyouyun</copyright>
+    <lastBuildDate>Sun, 21 Oct 2018 21:38:21 +0800</lastBuildDate>
+    
+	<atom:link href="https://jouyouyun.github.io/tags/rtc/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Linux 休眠自动唤醒</title>
+      <link>https://jouyouyun.github.io/post/linux-auto-suspend/</link>
+      <pubDate>Sun, 21 Oct 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/linux-auto-suspend/</guid>
+      <description>最近做无线网络在系统多次休眠唤醒后是否正常的测试，但每次休眠后都需要手动点击键盘来唤醒系统，显而易见的这种方法需要人来值守，很不放便。 此时便</description>
+    </item>
+    
+    <item>
+      <title>Linux 时间标准</title>
+      <link>https://jouyouyun.github.io/post/linux-time-standard/</link>
+      <pubDate>Mon, 27 Aug 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/linux-time-standard/</guid>
+      <description>系统如何设置时间 开机时根据硬件时钟来设置系统时钟. 如果开启了 NTP 服务, 会根据网络时间来校正系统时钟，确保时间准确. 关机时会根据系统时钟来设置硬</description>
+    </item>
+    
+  </channel>
+</rss>

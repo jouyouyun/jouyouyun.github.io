@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>rebase on jouyouyun&#39;s blog</title>
+    <link>https://jouyouyun.github.io/tags/rebase/</link>
+    <description>Recent content in rebase on jouyouyun&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>jouyouyun</copyright>
+    <lastBuildDate>Thu, 12 Apr 2018 21:38:21 +0800</lastBuildDate>
+    
+	<atom:link href="https://jouyouyun.github.io/tags/rebase/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Git Rebase 回退</title>
+      <link>https://jouyouyun.github.io/post/git-rebase/</link>
+      <pubDate>Thu, 12 Apr 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/git-rebase/</guid>
+      <description>在开发新功能或修复 bug 时，一般需要新建一个分支，然后在它之上进行开发。在多人协同开发时，经常会同时修改相同的分支或相同的文件，这时就需要进行 rebase</description>
+    </item>
+    
+  </channel>
+</rss>

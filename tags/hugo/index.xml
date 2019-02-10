@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hugo on jouyouyun&#39;s blog</title>
+    <link>https://jouyouyun.github.io/tags/hugo/</link>
+    <description>Recent content in hugo on jouyouyun&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>jouyouyun</copyright>
+    <lastBuildDate>Sat, 02 Feb 2019 17:31:21 +0800</lastBuildDate>
+    
+	<atom:link href="https://jouyouyun.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>使用 hugo 写博客</title>
+      <link>https://jouyouyun.github.io/post/hugo-github/</link>
+      <pubDate>Sat, 02 Feb 2019 17:31:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/hugo-github/</guid>
+      <description>hugo 是由 Go 语言实现的静态网站生成器, 简单、易用、高效、易扩展、快速部署。 安装 到 Release 下载对应系统的二进制文件压缩包, 然后解压, 并把得到的二进制复制</description>
+    </item>
+    
+  </channel>
+</rss>

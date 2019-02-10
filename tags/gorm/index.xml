@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gorm on jouyouyun&#39;s blog</title>
+    <link>https://jouyouyun.github.io/tags/gorm/</link>
+    <description>Recent content in gorm on jouyouyun&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>jouyouyun</copyright>
+    <lastBuildDate>Wed, 05 Dec 2018 21:38:21 +0800</lastBuildDate>
+    
+	<atom:link href="https://jouyouyun.github.io/tags/gorm/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>gorm 关联查询</title>
+      <link>https://jouyouyun.github.io/post/gorm-association/</link>
+      <pubDate>Wed, 05 Dec 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/gorm-association/</guid>
+      <description>定义了一个 User 和 Company, User 中可以包含多个 Company, 如下: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 type User struct { ID int `gorm:&amp;#34;TYPE:int(11);NOT NULL;PRIMARY_KEY;INDEX&amp;#34;` Name string `gorm:&amp;#34;TYPE: VARCHAR(255); DEFAULT:&amp;#39;&amp;#39;;INDEX&amp;#34;` Companies []Company `gorm:&amp;#34;FOREIGNKEY:UserId;ASSOCIATION_FOREIGNKEY:ID&amp;#34;` CreatedAt time.Time `gorm:&amp;#34;TYPE:DATETIME&amp;#34;` UpdatedAt time.Time `gorm:&amp;#34;TYPE:DATETIME&amp;#34;` DeletedAt *time.Time `gorm:&amp;#34;TYPE:DATETIME;DEFAULT:NULL&amp;#34;` } type Company struct { gorm.Model Industry int `gorm:&amp;#34;TYPE:INT(11);DEFAULT:0&amp;#34;`</description>
+    </item>
+    
+  </channel>
+</rss>

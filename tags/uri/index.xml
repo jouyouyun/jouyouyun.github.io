@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>uri on jouyouyun&#39;s blog</title>
+    <link>https://jouyouyun.github.io/tags/uri/</link>
+    <description>Recent content in uri on jouyouyun&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>jouyouyun</copyright>
+    <lastBuildDate>Fri, 20 Jun 2014 21:20:12 +0800</lastBuildDate>
+    
+	<atom:link href="https://jouyouyun.github.io/tags/uri/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Go 笔记: URI Encode/Decode</title>
+      <link>https://jouyouyun.github.io/post/go-uri-encode/</link>
+      <pubDate>Fri, 20 Jun 2014 21:20:12 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/go-uri-encode/</guid>
+      <description>最近在处理路径时，要求统一用 URI (通用资源标识符) 的格式来表示。偶尔会遇到 URI 被编码的情况，这就需要解码了，故在此把 Encode/Decode URI 的方法记录在此，以备后用</description>
+    </item>
+    
+  </channel>
+</rss>

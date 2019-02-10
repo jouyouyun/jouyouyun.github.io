@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>MIME Usage - jouyouyun&#39;s blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="jouyouyun" /><meta name="description" content="基本使用 使用到的工具为: xdg-mime, gvfs-mime 查询文件的类型 使用 xdg-mime query filetype &amp;lt;filepath&amp;gt; 可以得到文件的类型 查询默认程序 使用 xdg-mime query default text/plain 或 gvfs-mime --query &amp;lt;mimetype&amp;gt;, gvfs-mime 还会列出支持此 mimetype 的所有程序 设置默认" /><meta name="keywords" content="jouyouyun, Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://jouyouyun.github.io/post/mime-usage/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.93844dae.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="MIME Usage" />
+<meta property="og:description" content="基本使用 使用到的工具为: xdg-mime, gvfs-mime 查询文件的类型 使用 xdg-mime query filetype &lt;filepath&gt; 可以得到文件的类型 查询默认程序 使用 xdg-mime query default text/plain 或 gvfs-mime --query &lt;mimetype&gt;, gvfs-mime 还会列出支持此 mimetype 的所有程序 设置默认" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jouyouyun.github.io/post/mime-usage/" />
+<meta property="article:published_time" content="2016-12-14T21:38:21&#43;08:00"/>
+<meta property="article:modified_time" content="2019-02-10T18:24:30&#43;08:00"/>
+
+<meta itemprop="name" content="MIME Usage">
+<meta itemprop="description" content="基本使用 使用到的工具为: xdg-mime, gvfs-mime 查询文件的类型 使用 xdg-mime query filetype &lt;filepath&gt; 可以得到文件的类型 查询默认程序 使用 xdg-mime query default text/plain 或 gvfs-mime --query &lt;mimetype&gt;, gvfs-mime 还会列出支持此 mimetype 的所有程序 设置默认">
+
+
+<meta itemprop="datePublished" content="2016-12-14T21:38:21&#43;08:00" />
+<meta itemprop="dateModified" content="2019-02-10T18:24:30&#43;08:00" />
+<meta itemprop="wordCount" content="224">
+
+
+
+<meta itemprop="keywords" content="mime," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="MIME Usage"/>
+<meta name="twitter:description" content="基本使用 使用到的工具为: xdg-mime, gvfs-mime 查询文件的类型 使用 xdg-mime query filetype &lt;filepath&gt; 可以得到文件的类型 查询默认程序 使用 xdg-mime query default text/plain 或 gvfs-mime --query &lt;mimetype&gt;, gvfs-mime 还会列出支持此 mimetype 的所有程序 设置默认"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">jouyouyun</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">jouyouyun</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">MIME Usage</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2016-12-14 </span>
+        <div class="post-category">
+            <a href="/categories/blog/"> BLOG </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#基本使用">基本使用</a></li>
+<li><a href="#根据文件扩展名指定类型">根据文件扩展名指定类型</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h2 id="基本使用">基本使用</h2>
+
+<p>使用到的工具为: <code>xdg-mime, gvfs-mime</code></p>
+
+<ul>
+<li><p>查询文件的类型</p>
+
+<p>使用 <code>xdg-mime query filetype &lt;filepath&gt;</code> 可以得到文件的类型</p></li>
+
+<li><p>查询默认程序</p>
+
+<p>使用 <code>xdg-mime query default text/plain</code> 或 <code>gvfs-mime --query &lt;mimetype&gt;</code>, <code>gvfs-mime</code> 还会列出支持此 <code>mimetype</code> 的所有程序</p></li>
+
+<li><p>设置默认程序</p>
+
+<p>如将 <code>text/plain</code> 的默认打开程序设置为 <code>gvim.desktop</code>, 可以执行 <code>xdg-mime default gvim.desktop text/plain</code> 或 <code>gvfs-mime --set text/plain gvim.desktop</code></p></li>
+</ul>
+
+<h2 id="根据文件扩展名指定类型">根据文件扩展名指定类型</h2>
+
+<ol>
+<li>创建 <code>xml</code> 文件, 指定类型, 如将 <code>*.org</code> 指定为 <code>text/org-mode</code>, 文件内容如下:</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span class="nt">&lt;mime-info</span> <span class="na">xmlns=</span><span class="s">&#34;http://www.freedesktop.org/standards/shared-mime-info&#34;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;mime-type</span> <span class="na">type=</span><span class="s">&#34;text/org-mode&#34;</span><span class="nt">&gt;</span>
+         <span class="nt">&lt;comment</span> <span class="na">xml:lang=</span><span class="s">&#34;en&#34;</span><span class="nt">&gt;</span>Org-Mode File<span class="nt">&lt;/comment&gt;</span>
+         <span class="nt">&lt;glob</span> <span class="na">pattern=</span><span class="s">&#34;*.org&#34;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;/mime-type&gt;</span>
+<span class="nt">&lt;/mime-info&gt;</span></code></pre></td></tr></table>
+</div>
+</div>
+<ol>
+<li>将上面的 <code>xml</code> 文件复制到 <code>$XDG_DATA_DIRS/mime/packages</code> 中, 即文件要在 <code>~/.local/share/mime/packages, /usr/local/share/mime/packages, /usr/share/mime/packages</code> 这几个目录中的一个</li>
+<li>执行 <code>update-mime-database &lt;MIME DIR&gt;</code> 更新 <code>mime datebase</code>, 上面的目录去掉 <code>packages</code> 就是 <code>MIME DIR</code></li>
+</ol>
+
+<p>这样 <code>*.org</code> 的类型就变为 <code>text/org-mode</code> 了, 参考 <a href="https://freedesktop.org/wiki/Specifications/AddingMIMETutor/">Add MIME Type</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">jouyouyun</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">2019-02-10</span>
+  </p>
+  
+  
+</div><div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/images/reward/wechat-qr-code.png">
+        <span>微信打赏</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/images/reward/alipay-qr-code.png">
+        <span>支付宝打赏</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/mime/">mime</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/openvpn-installation/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">OpenVPN Installation</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/xrandr-examples/">
+            <span class="next-text nav-default">XRandr Examples</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:jouyouwen717@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://twitter.com/jouyouyun" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://github.com/jouyouyun" class="iconfont icon-github" title="github"></a>
+  <a href="https://jouyouyun.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2014 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">jouyouyun</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.ece58db6.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

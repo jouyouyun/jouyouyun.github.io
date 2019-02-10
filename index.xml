@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>jouyouyun&#39;s blog</title>
+    <link>https://jouyouyun.github.io/</link>
+    <description>Recent content on jouyouyun&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>jouyouyun</copyright>
+    <lastBuildDate>Sat, 02 Feb 2019 17:31:21 +0800</lastBuildDate>
+    
+	<atom:link href="https://jouyouyun.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>使用 hugo 写博客</title>
+      <link>https://jouyouyun.github.io/post/hugo-github/</link>
+      <pubDate>Sat, 02 Feb 2019 17:31:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/hugo-github/</guid>
+      <description>hugo 是由 Go 语言实现的静态网站生成器, 简单、易用、高效、易扩展、快速部署。 安装 到 Release 下载对应系统的二进制文件压缩包, 然后解压, 并把得到的二进制复制</description>
+    </item>
+    
+    <item>
+      <title>gorm 关联查询</title>
+      <link>https://jouyouyun.github.io/post/gorm-association/</link>
+      <pubDate>Wed, 05 Dec 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/gorm-association/</guid>
+      <description>定义了一个 User 和 Company, User 中可以包含多个 Company, 如下: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 type User struct { ID int `gorm:&amp;#34;TYPE:int(11);NOT NULL;PRIMARY_KEY;INDEX&amp;#34;` Name string `gorm:&amp;#34;TYPE: VARCHAR(255); DEFAULT:&amp;#39;&amp;#39;;INDEX&amp;#34;` Companies []Company `gorm:&amp;#34;FOREIGNKEY:UserId;ASSOCIATION_FOREIGNKEY:ID&amp;#34;` CreatedAt time.Time `gorm:&amp;#34;TYPE:DATETIME&amp;#34;` UpdatedAt time.Time `gorm:&amp;#34;TYPE:DATETIME&amp;#34;` DeletedAt *time.Time `gorm:&amp;#34;TYPE:DATETIME;DEFAULT:NULL&amp;#34;` } type Company struct { gorm.Model Industry int `gorm:&amp;#34;TYPE:INT(11);DEFAULT:0&amp;#34;`</description>
+    </item>
+    
+    <item>
+      <title>python3 学习笔记</title>
+      <link>https://jouyouyun.github.io/post/python-learn-note/</link>
+      <pubDate>Sun, 02 Dec 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/python-learn-note/</guid>
+      <description>Python3 Study Notes 本人很少写 python 代码, 一般都是用 go 的, 去年时用 python 写过一些收集系统信息的工具, 当时是边看手册边写的. 如今又要用 python 来写一个生成 xlsx 的工具, 就又需</description>
+    </item>
+    
+    <item>
+      <title>Go 包管理之gom</title>
+      <link>https://jouyouyun.github.io/post/go-package-management/</link>
+      <pubDate>Tue, 27 Nov 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/go-package-management/</guid>
+      <description>Go Module 使用 Go Module 是官方用来管理 package 依赖的工具, 1.11 新加的, 使用时需要设置变量: GO111MODULE=on . go mod help 可以查看其帮助文档: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20</description>
+    </item>
+    
+    <item>
+      <title>Linux Signal Examples</title>
+      <link>https://jouyouyun.github.io/post/linux-signal-example/</link>
+      <pubDate>Tue, 13 Nov 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/linux-signal-example/</guid>
+      <description>信号是系统响应某些条件而产生的一个事件，接收到该信的进程做出相应的处理。通常信是由错误产生的，如段错误(SIGSEGV)。 但信还可以作为进程</description>
+    </item>
+    
+    <item>
+      <title>怎么处理 &#39;Origin&#39;值从&#39;Google, Inc.&#39;修改到了&#39;Google LLC&#39; 的 APT 错误</title>
+      <link>https://jouyouyun.github.io/post/how-to-solved-origin-changed-apt-error/</link>
+      <pubDate>Wed, 07 Nov 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/how-to-solved-origin-changed-apt-error/</guid>
+      <description>今天在执行 sudo apt-get update 出现了下面的错误提示： 1 2 3 4 5 6 E: 仓库&amp;#39;http://dl.google.com/linux/chrome/deb</description>
+    </item>
+    
+    <item>
+      <title>linux 下 deepin 和 gnome 桌面的外观设置</title>
+      <link>https://jouyouyun.github.io/post/set-appearance-in-deepin-or-gnome/</link>
+      <pubDate>Tue, 23 Oct 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/set-appearance-in-deepin-or-gnome/</guid>
+      <description>桌面的外观设置一般包括窗口主题、图标主题、光标主题和字体设置，其中窗口主题就是常见的 gtk 主题，字体设置又包括标准字体、等款字体和字体大小。对于</description>
+    </item>
+    
+    <item>
+      <title>Linux 休眠自动唤醒</title>
+      <link>https://jouyouyun.github.io/post/linux-auto-suspend/</link>
+      <pubDate>Sun, 21 Oct 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/linux-auto-suspend/</guid>
+      <description>最近做无线网络在系统多次休眠唤醒后是否正常的测试，但每次休眠后都需要手动点击键盘来唤醒系统，显而易见的这种方法需要人来值守，很不放便。 此时便</description>
+    </item>
+    
+    <item>
+      <title>Linux 时间标准</title>
+      <link>https://jouyouyun.github.io/post/linux-time-standard/</link>
+      <pubDate>Mon, 27 Aug 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/linux-time-standard/</guid>
+      <description>系统如何设置时间 开机时根据硬件时钟来设置系统时钟. 如果开启了 NTP 服务, 会根据网络时间来校正系统时钟，确保时间准确. 关机时会根据系统时钟来设置硬</description>
+    </item>
+    
+    <item>
+      <title>修复 superblock</title>
+      <link>https://jouyouyun.github.io/post/fixed-superblock/</link>
+      <pubDate>Fri, 27 Jul 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/fixed-superblock/</guid>
+      <description>本周去某公司调试系统，他们硬件测试部分送来了一台系统无法进入的机器，他们也不知道怎么弄得，让我看下是系统原因还是 SSD 硬件有问题。 拿到机器开机后</description>
+    </item>
+    
+    <item>
+      <title>RESTfull 简介</title>
+      <link>https://jouyouyun.github.io/post/restfull-introduction/</link>
+      <pubDate>Thu, 10 May 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/restfull-introduction/</guid>
+      <description>简介 RESTfull 即表现层状态转换，是一种设计风格，不是标准。其要点如下： 资源由 URI 来指定 每个资源都有与之对应的 URI=，一个 =URI 只能对应一种资源，但一种资</description>
+    </item>
+    
+    <item>
+      <title>Git Rebase 回退</title>
+      <link>https://jouyouyun.github.io/post/git-rebase/</link>
+      <pubDate>Thu, 12 Apr 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/git-rebase/</guid>
+      <description>在开发新功能或修复 bug 时，一般需要新建一个分支，然后在它之上进行开发。在多人协同开发时，经常会同时修改相同的分支或相同的文件，这时就需要进行 rebase</description>
+    </item>
+    
+    <item>
+      <title>CUPS 资料</title>
+      <link>https://jouyouyun.github.io/post/cups-notes/</link>
+      <pubDate>Sun, 08 Apr 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/cups-notes/</guid>
+      <description>Installation sudo apt install cups ghostscript gsfonts Driver gutenprint 一组质量非常好的驱动集合，支持的目标机型包括 Canon, Epson, Lexmark, Sony, Olympus ；以及配合 CUPS/GhostSscript/Foomatic/GIMP 使用的 PCL printers 。 安装包: cups-driver-gutenprint gimp-gutenprint ijsgutenprint printer-driver-gutenprint foomatic Foomatic 是一个基于数据库的，集成</description>
+    </item>
+    
+    <item>
+      <title>Bluetooth FAQ</title>
+      <link>https://jouyouyun.github.io/post/bluetooth-faq/</link>
+      <pubDate>Mon, 20 Nov 2017 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/bluetooth-faq/</guid>
+      <description>收集遇到的 bluetooth 问题，使用的是 deepin 。 控制中心不显示蓝牙模块 蓝牙模块不显示时，可以按照以下步骤来查找原因： 执行 sudo dmesg|grub bluetooth 查看输出结果 输出里有 timeout 此时再用 systemctl</description>
+    </item>
+    
+    <item>
+      <title>设置 Grub2 分辨率</title>
+      <link>https://jouyouyun.github.io/post/set-grup2-resolution/</link>
+      <pubDate>Sat, 29 Jul 2017 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/set-grup2-resolution/</guid>
+      <description>背景 平时经常用显示器的分辨率去设置 Grub 的分辨率，虽然大部分都没有问题，但有时却没有用。所以就把 Grub 分辨率的设置方法详细说明一下，留档记录。 查询支</description>
+    </item>
+    
+    <item>
+      <title>TCP BBR</title>
+      <link>https://jouyouyun.github.io/post/tcp-bbr/</link>
+      <pubDate>Thu, 20 Jul 2017 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/tcp-bbr/</guid>
+      <description>启用 BBR BBR 是在 4.9 以后的内核才开始支持的, 可以试着执行 sudo modprobe tcp_bbr 来确定是否支持, 没有输出就意味着支持, 将下面两行内容添加到 /etc/sysctl.conf 文件里开启用它: 1 2 net.core.default_qdisc =</description>
+    </item>
+    
+    <item>
+      <title>Leanote Installation</title>
+      <link>https://jouyouyun.github.io/post/leanote-installation/</link>
+      <pubDate>Mon, 17 Jul 2017 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/leanote-installation/</guid>
+      <description>Leanote 是一款开源的笔记软件, 支持使用 markdown 来编辑笔记, 并可选择是否将笔记导出成博客, 这对于知识整理及写博客都是非常方便的, 故来尝试下. 安装 Leanote 是使用 Golang</description>
+    </item>
+    
+    <item>
+      <title>OpenVPN Installation</title>
+      <link>https://jouyouyun.github.io/post/openvpn-installation/</link>
+      <pubDate>Tue, 27 Dec 2016 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/openvpn-installation/</guid>
+      <description>安装所需软件 Arch: yaourt -S openvpn easy-rsa 生成证书 Server 端 Copy template file 1 2 sudo mkdir -p /etc/openvpn sudo cp -R /etc/easy-rsa /etc/openvpn Config vars 取消并修改以下项: 1 2 3 4 5 6 set_var EASYRSA_REQ_COUNTRY &amp;#34;CN&amp;#34; set_var EASYRSA_REQ_PROVINCE &amp;#34;Hongkong&amp;#34; set_var EASYRSA_REQ_CITY &amp;#34;Hongkong&amp;#34; set_var EASYRSA_REQ_ORG &amp;#34;jouyouyun.info&amp;#34; set_var EASYRSA_REQ_EMAIL &amp;#34;wen@jouyouyun.iofn&amp;#34; set_var EASYRSA_REQ_OU &amp;#34;Jouyouyun OpenVPN&amp;#34; 创建根</description>
+    </item>
+    
+    <item>
+      <title>MIME Usage</title>
+      <link>https://jouyouyun.github.io/post/mime-usage/</link>
+      <pubDate>Wed, 14 Dec 2016 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/mime-usage/</guid>
+      <description>基本使用 使用到的工具为: xdg-mime, gvfs-mime 查询文件的类型 使用 xdg-mime query filetype &amp;lt;filepath&amp;gt; 可以得到文件的类型 查询默认程序 使用 xdg-mime query default text/plain 或 gvfs-mime --query &amp;lt;mimetype&amp;gt;, gvfs-mime 还会列出支持此 mimetype 的所有程序 设置默认</description>
+    </item>
+    
+    <item>
+      <title>XRandr Examples</title>
+      <link>https://jouyouyun.github.io/post/xrandr-examples/</link>
+      <pubDate>Mon, 06 Jun 2016 16:52:30 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/xrandr-examples/</guid>
+      <description>由于经常会用到使用 xrandr 设置屏幕属性, 而每次用的时候都要去查 man 手册, 有时还需要上网搜索例子. 这样一来就比较麻烦, 所以就想整理下 xrandr 的用法, 给出一些</description>
+    </item>
+    
+    <item>
+      <title>Enable Coredump</title>
+      <link>https://jouyouyun.github.io/post/enable-coredump/</link>
+      <pubDate>Mon, 25 Apr 2016 19:04:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/enable-coredump/</guid>
+      <description>简介 当一个程序崩溃时会产生一个 core 文件, 里面记录了这个程序崩溃的原因, 这些信息对于开发者是很有用的. 但是 core dumps 在大多数 linux 上是被禁用的, 下面就介绍</description>
+    </item>
+    
+    <item>
+      <title>Auto Hidden Cursor</title>
+      <link>https://jouyouyun.github.io/post/auto-hidden-cursor/</link>
+      <pubDate>Fri, 22 Apr 2016 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/auto-hidden-cursor/</guid>
+      <description>最近需要做一个隐藏光标的功能, 在这里将了解到的知识总结一下. 原理 隐藏光标的原理就是把光标设置为一个 x11 null cursor, 不需要隐藏时再将它设为 x11 left_ptr cursor. 设置光标</description>
+    </item>
+    
+    <item>
+      <title>Debug 小结</title>
+      <link>https://jouyouyun.github.io/post/debug-summary/</link>
+      <pubDate>Wed, 03 Feb 2016 15:06:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/debug-summary/</guid>
+      <description>调试 bug 的时候要有耐心, 要不断测试, 直到找到问题原因. 确定 bug 出现的方式 一定要找到稳定重现的方式, 这样才能方便下面的调试 如果找不到稳定重现的方法</description>
+    </item>
+    
+    <item>
+      <title>xsetwacom 选项说明</title>
+      <link>https://jouyouyun.github.io/post/xsetwacom-options/</link>
+      <pubDate>Wed, 03 Feb 2016 14:58:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/xsetwacom-options/</guid>
+      <description>xsetwacom 是一个设置数位板的命令行工具, 在 Debian/Ubuntu/deepin 上可以通过安装 xserver-xorg-input-wacom 来获取它. 可以通过 man xsetwacom 看到它的帮助文档, 下面就简单说明下它的部份选项: Options Area args: x1 y1 x2 y2 default: 0</description>
+    </item>
+    
+    <item>
+      <title>Go 笔记: 简单的 TCP Socket 示例</title>
+      <link>https://jouyouyun.github.io/post/go-tcp-socket-example/</link>
+      <pubDate>Sun, 20 Jul 2014 00:54:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/go-tcp-socket-example/</guid>
+      <description>一个简单的 TCP Socket 的示例，使用 gob 处理传输的数据。 server.go 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47</description>
+    </item>
+    
+    <item>
+      <title>Go 笔记: Gob Write/Read File</title>
+      <link>https://jouyouyun.github.io/post/go-gob-rw-file/</link>
+      <pubDate>Mon, 07 Jul 2014 13:06:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/go-gob-rw-file/</guid>
+      <description>Gob 使用实例，将结构体写入文件里，在需要的时候再从文件中读取出来。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38</description>
+    </item>
+    
+    <item>
+      <title>chroot 脚本</title>
+      <link>https://jouyouyun.github.io/post/chroot-shell/</link>
+      <pubDate>Sat, 05 Jul 2014 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/chroot-shell/</guid>
+      <description>最近测试了以下 chroot ，然后把步骤写成了下面两个脚本，方便以后使用。 使用时需要确定每条命令都执行成功了 Arch 分区结构 1 2 3 4 /dev/sda5 / /dev/sda1 /boot /dev/sda6 /home /dev/sda8 Swap chroot 挂载脚本</description>
+    </item>
+    
+    <item>
+      <title>在 VPS 中搭建 VPN 服务器</title>
+      <link>https://jouyouyun.github.io/post/build-vpn/</link>
+      <pubDate>Fri, 04 Jul 2014 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/build-vpn/</guid>
+      <description>最近 Google 被封，而用 Goagent 做代理进行访问的效果而不是很理想，所以就想去买 VPN/VPS . 几经考虑后，就去买了个便宜 VPS , 这样也就可以分享给家人用了。 VPS 中安装的是 U</description>
+    </item>
+    
+    <item>
+      <title>Go 笔记: md5 sum</title>
+      <link>https://jouyouyun.github.io/post/go-md5-sum/</link>
+      <pubDate>Sun, 22 Jun 2014 22:54:38 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/go-md5-sum/</guid>
+      <description>使用 Go 语言实现字符串与文件的 MD5 值计算，但是大文件不要使用此方法。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38</description>
+    </item>
+    
+    <item>
+      <title>Go 笔记: 判断文件是否存在</title>
+      <link>https://jouyouyun.github.io/post/go-file-exist/</link>
+      <pubDate>Fri, 20 Jun 2014 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/go-file-exist/</guid>
+      <description>使用 GoLang 判断文件是否存在。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 package utils import ( &amp;#34;os&amp;#34; ) func isFileExist(filename string) bool { if len(filename) &amp;lt; 1 { return false } _, err := os.Stat(filename) return err == nil || os.IsExist(err) }</description>
+    </item>
+    
+    <item>
+      <title>Go 笔记: URI Encode/Decode</title>
+      <link>https://jouyouyun.github.io/post/go-uri-encode/</link>
+      <pubDate>Fri, 20 Jun 2014 21:20:12 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/go-uri-encode/</guid>
+      <description>最近在处理路径时，要求统一用 URI (通用资源标识符) 的格式来表示。偶尔会遇到 URI 被编码的情况，这就需要解码了，故在此把 Encode/Decode URI 的方法记录在此，以备后用</description>
+    </item>
+    
+    <item>
+      <title>XRecord 示例</title>
+      <link>https://jouyouyun.github.io/post/xrecord-example/</link>
+      <pubDate>Fri, 18 Apr 2014 17:42:15 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/xrecord-example/</guid>
+      <description>最近在做快捷键绑定的项目，但在绑定单按键时发现 XGrabKey 无法处理。遂请教组长，得知 XRecord 可以处理，于是就去查找 XRecord 的相关资料，但却很少。 所以在此记录一下整</description>
+    </item>
+    
+  </channel>
+</rss>

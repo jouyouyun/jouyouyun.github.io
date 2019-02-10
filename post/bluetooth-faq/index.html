@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Bluetooth FAQ - jouyouyun&#39;s blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="jouyouyun" /><meta name="description" content="收集遇到的 bluetooth 问题，使用的是 deepin 。 控制中心不显示蓝牙模块 蓝牙模块不显示时，可以按照以下步骤来查找原因： 执行 sudo dmesg|grub bluetooth 查看输出结果 输出里有 timeout 此时再用 systemctl" /><meta name="keywords" content="jouyouyun, Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://jouyouyun.github.io/post/bluetooth-faq/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.93844dae.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Bluetooth FAQ" />
+<meta property="og:description" content="收集遇到的 bluetooth 问题，使用的是 deepin 。 控制中心不显示蓝牙模块 蓝牙模块不显示时，可以按照以下步骤来查找原因： 执行 sudo dmesg|grub bluetooth 查看输出结果 输出里有 timeout 此时再用 systemctl" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jouyouyun.github.io/post/bluetooth-faq/" />
+<meta property="article:published_time" content="2017-11-20T21:38:21&#43;08:00"/>
+<meta property="article:modified_time" content="2019-02-10T18:22:34&#43;08:00"/>
+
+<meta itemprop="name" content="Bluetooth FAQ">
+<meta itemprop="description" content="收集遇到的 bluetooth 问题，使用的是 deepin 。 控制中心不显示蓝牙模块 蓝牙模块不显示时，可以按照以下步骤来查找原因： 执行 sudo dmesg|grub bluetooth 查看输出结果 输出里有 timeout 此时再用 systemctl">
+
+
+<meta itemprop="datePublished" content="2017-11-20T21:38:21&#43;08:00" />
+<meta itemprop="dateModified" content="2019-02-10T18:22:34&#43;08:00" />
+<meta itemprop="wordCount" content="758">
+
+
+
+<meta itemprop="keywords" content="bluetooth," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Bluetooth FAQ"/>
+<meta name="twitter:description" content="收集遇到的 bluetooth 问题，使用的是 deepin 。 控制中心不显示蓝牙模块 蓝牙模块不显示时，可以按照以下步骤来查找原因： 执行 sudo dmesg|grub bluetooth 查看输出结果 输出里有 timeout 此时再用 systemctl"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">jouyouyun</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">jouyouyun</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Bluetooth FAQ</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2017-11-20 </span>
+        <div class="post-category">
+            <a href="/categories/blog/"> BLOG </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#控制中心不显示蓝牙模块">控制中心不显示蓝牙模块</a></li>
+<li><a href="#蓝牙鼠标使用中频繁断开">蓝牙鼠标使用中频繁断开</a></li>
+<li><a href="#蓝牙音箱-耳机连上就断开">蓝牙音箱/耳机连上就断开</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<p>收集遇到的 <code>bluetooth</code> 问题，使用的是 <code>deepin</code> 。</p>
+
+<hr />
+
+<h2 id="控制中心不显示蓝牙模块">控制中心不显示蓝牙模块</h2>
+
+<p>蓝牙模块不显示时，可以按照以下步骤来查找原因：</p>
+
+<ol>
+<li><p>执行 <code>sudo dmesg|grub bluetooth</code> 查看输出结果</p>
+
+<ul>
+<li><p>输出里有 <code>timeout</code></p>
+
+<p>此时再用 <code>systemctl status bluetooth.service</code> 看下服务有没有正常启动，错误信息是什么，然后根据错误去网上搜索答案。</p>
+
+<p>如果蓝牙是由网卡提供的，此时可以试着开关一下网卡的硬件开关。因为内核在初始化网卡之前初始化蓝牙，就会导致蓝牙设备不可用，重新初始化一次就好了。
+如果还是无效那就重启进入 <code>window</code> ，再 <code>window</code> 里开关一次蓝牙再重启到 <code>linux</code> 。</p></li>
+
+<li><p>输出里无 <code>timeout</code></p>
+
+<p>这就表明初始化没问题，继续下一步</p></li>
+</ul></li>
+</ol>
+
+<hr />
+
+<ol>
+<li><p>执行 <code>sudo hciconfig</code> 查看设备当前的状态</p>
+
+<ul>
+<li><p>状态为 <code>DOWN</code></p>
+
+<p>则执行 <code>sudo hciconfig hci&lt;number&gt; up</code> ，其中 <strong>number</strong> 为前面输出显示的。
+如果命令执行失败，参照第一步。</p></li>
+
+<li><p>状态为 <code>UP</code></p>
+
+<p>继续下一步</p></li>
+</ul></li>
+</ol>
+
+<hr />
+
+<ol>
+<li><p>执行 <code>sudo rfkill list</code> 查看设备是否被 <code>block</code></p>
+
+<ul>
+<li><p>被 <code>block</code></p>
+
+<p>则执行 <code>sudo rfkill &lt;dev&gt; unblock</code></p></li>
+</ul></li>
+</ol>
+
+<p>如果尝试完上述步骤，蓝牙仍不可用，那就反馈吧，提供日志及 <code>lsusb</code> 输出，等待问题被解决。</p>
+
+<hr />
+
+<h2 id="蓝牙鼠标使用中频繁断开">蓝牙鼠标使用中频繁断开</h2>
+
+<p>蓝牙鼠标在使用过程中频繁出现了断开问题，应在断开后执行 <code>sudo dmesg</code> 来查看是否有错误，如果没有错误信息，那就反馈吧。
+如果出现 <code>firmware</code> 加载失败，记住这个固件名。试着从 <code>window</code> 那里获取最新的驱动，然后转成 =linux firmware=，方法如下:</p>
+
+<ol>
+<li><p>查找并下载本机蓝牙适配器的驱动，一般可在笔记本或蓝牙适配器的官网下载到</p></li>
+
+<li><p>然后解压，如果是 <code>.exe</code> 文件就安装 <code>innoextract</code> 来解压</p></li>
+
+<li><p>然后查看驱动信息的 <code>.inf</code> 文件，比如 <code>thinkpad x230 win8 64</code> 的文件就是 <code>app/Win64/bcbtums-win8x64-brcm.inf</code></p></li>
+
+<li><p>执行 <code>lsusb</code> 获取蓝牙设备的 <code>ID=。如 =x230</code> 即是 <code>ID 0a5c:21e6 Broadcom Corp. BCM20702 Bluetooth 4.0 [ThinkPad]</code> ，然后搜索 <code>0a5c 21e6</code> 相关的内容，找到对应的 <code>.hex</code> 文件。如 <code>x230</code> 即是 <code>BCM20702A1_001.002.014.1443.1453.hex</code></p></li>
+
+<li><p>使用 <code>hex2hcd xxx.hex</code> 将 <code>xxx.hex</code> 转为 <code>.hcd</code> 文件，然后重命名为缺失的固件名，复制到 <code>/lib/firmware/</code> 下对应的位置</p></li>
+</ol>
+
+<hr />
+
+<h2 id="蓝牙音箱-耳机连上就断开">蓝牙音箱/耳机连上就断开</h2>
+
+<p>蓝牙音箱如果断开，先按照蓝牙耳机的方法试一下。如果不是，那就考虑是不是电脑的蓝牙不支持蓝牙高保真输出，因为 <code>deepin</code> 默认开启高保真。
+试着安装 <code>pavucontrol</code> 将蓝牙的 <code>profile(配置)</code> 切换为其它的，不过这样会导致音效很差，建议换掉电脑的蓝牙设备吧。</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">jouyouyun</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">2019-02-10</span>
+  </p>
+  
+  
+</div><div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/images/reward/wechat-qr-code.png">
+        <span>微信打赏</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/images/reward/alipay-qr-code.png">
+        <span>支付宝打赏</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/bluetooth/">bluetooth</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/cups-notes/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">CUPS 资料</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/set-grup2-resolution/">
+            <span class="next-text nav-default">设置 Grub2 分辨率</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:jouyouwen717@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://twitter.com/jouyouyun" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://github.com/jouyouyun" class="iconfont icon-github" title="github"></a>
+  <a href="https://jouyouyun.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2014 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">jouyouyun</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.ece58db6.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

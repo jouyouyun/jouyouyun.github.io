@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>BLOG on jouyouyun&#39;s blog</title>
+    <link>https://jouyouyun.github.io/categories/blog/</link>
+    <description>Recent content in BLOG on jouyouyun&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>jouyouyun</copyright>
+    <lastBuildDate>Sat, 02 Feb 2019 17:31:21 +0800</lastBuildDate>
+    
+	<atom:link href="https://jouyouyun.github.io/categories/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>使用 hugo 写博客</title>
+      <link>https://jouyouyun.github.io/post/hugo-github/</link>
+      <pubDate>Sat, 02 Feb 2019 17:31:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/hugo-github/</guid>
+      <description>hugo 是由 Go 语言实现的静态网站生成器, 简单、易用、高效、易扩展、快速部署。 安装 到 Release 下载对应系统的二进制文件压缩包, 然后解压, 并把得到的二进制复制</description>
+    </item>
+    
+    <item>
+      <title>gorm 关联查询</title>
+      <link>https://jouyouyun.github.io/post/gorm-association/</link>
+      <pubDate>Wed, 05 Dec 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/gorm-association/</guid>
+      <description>定义了一个 User 和 Company, User 中可以包含多个 Company, 如下: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 type User struct { ID int `gorm:&amp;#34;TYPE:int(11);NOT NULL;PRIMARY_KEY;INDEX&amp;#34;` Name string `gorm:&amp;#34;TYPE: VARCHAR(255); DEFAULT:&amp;#39;&amp;#39;;INDEX&amp;#34;` Companies []Company `gorm:&amp;#34;FOREIGNKEY:UserId;ASSOCIATION_FOREIGNKEY:ID&amp;#34;` CreatedAt time.Time `gorm:&amp;#34;TYPE:DATETIME&amp;#34;` UpdatedAt time.Time `gorm:&amp;#34;TYPE:DATETIME&amp;#34;` DeletedAt *time.Time `gorm:&amp;#34;TYPE:DATETIME;DEFAULT:NULL&amp;#34;` } type Company struct { gorm.Model Industry int `gorm:&amp;#34;TYPE:INT(11);DEFAULT:0&amp;#34;`</description>
+    </item>
+    
+    <item>
+      <title>怎么处理 &#39;Origin&#39;值从&#39;Google, Inc.&#39;修改到了&#39;Google LLC&#39; 的 APT 错误</title>
+      <link>https://jouyouyun.github.io/post/how-to-solved-origin-changed-apt-error/</link>
+      <pubDate>Wed, 07 Nov 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/how-to-solved-origin-changed-apt-error/</guid>
+      <description>今天在执行 sudo apt-get update 出现了下面的错误提示： 1 2 3 4 5 6 E: 仓库&amp;#39;http://dl.google.com/linux/chrome/deb</description>
+    </item>
+    
+    <item>
+      <title>linux 下 deepin 和 gnome 桌面的外观设置</title>
+      <link>https://jouyouyun.github.io/post/set-appearance-in-deepin-or-gnome/</link>
+      <pubDate>Tue, 23 Oct 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/set-appearance-in-deepin-or-gnome/</guid>
+      <description>桌面的外观设置一般包括窗口主题、图标主题、光标主题和字体设置，其中窗口主题就是常见的 gtk 主题，字体设置又包括标准字体、等款字体和字体大小。对于</description>
+    </item>
+    
+    <item>
+      <title>Linux 休眠自动唤醒</title>
+      <link>https://jouyouyun.github.io/post/linux-auto-suspend/</link>
+      <pubDate>Sun, 21 Oct 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/linux-auto-suspend/</guid>
+      <description>最近做无线网络在系统多次休眠唤醒后是否正常的测试，但每次休眠后都需要手动点击键盘来唤醒系统，显而易见的这种方法需要人来值守，很不放便。 此时便</description>
+    </item>
+    
+    <item>
+      <title>Linux 时间标准</title>
+      <link>https://jouyouyun.github.io/post/linux-time-standard/</link>
+      <pubDate>Mon, 27 Aug 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/linux-time-standard/</guid>
+      <description>系统如何设置时间 开机时根据硬件时钟来设置系统时钟. 如果开启了 NTP 服务, 会根据网络时间来校正系统时钟，确保时间准确. 关机时会根据系统时钟来设置硬</description>
+    </item>
+    
+    <item>
+      <title>修复 superblock</title>
+      <link>https://jouyouyun.github.io/post/fixed-superblock/</link>
+      <pubDate>Fri, 27 Jul 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/fixed-superblock/</guid>
+      <description>本周去某公司调试系统，他们硬件测试部分送来了一台系统无法进入的机器，他们也不知道怎么弄得，让我看下是系统原因还是 SSD 硬件有问题。 拿到机器开机后</description>
+    </item>
+    
+    <item>
+      <title>RESTfull 简介</title>
+      <link>https://jouyouyun.github.io/post/restfull-introduction/</link>
+      <pubDate>Thu, 10 May 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/restfull-introduction/</guid>
+      <description>简介 RESTfull 即表现层状态转换，是一种设计风格，不是标准。其要点如下： 资源由 URI 来指定 每个资源都有与之对应的 URI=，一个 =URI 只能对应一种资源，但一种资</description>
+    </item>
+    
+    <item>
+      <title>Git Rebase 回退</title>
+      <link>https://jouyouyun.github.io/post/git-rebase/</link>
+      <pubDate>Thu, 12 Apr 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/git-rebase/</guid>
+      <description>在开发新功能或修复 bug 时，一般需要新建一个分支，然后在它之上进行开发。在多人协同开发时，经常会同时修改相同的分支或相同的文件，这时就需要进行 rebase</description>
+    </item>
+    
+    <item>
+      <title>Bluetooth FAQ</title>
+      <link>https://jouyouyun.github.io/post/bluetooth-faq/</link>
+      <pubDate>Mon, 20 Nov 2017 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/bluetooth-faq/</guid>
+      <description>收集遇到的 bluetooth 问题，使用的是 deepin 。 控制中心不显示蓝牙模块 蓝牙模块不显示时，可以按照以下步骤来查找原因： 执行 sudo dmesg|grub bluetooth 查看输出结果 输出里有 timeout 此时再用 systemctl</description>
+    </item>
+    
+    <item>
+      <title>设置 Grub2 分辨率</title>
+      <link>https://jouyouyun.github.io/post/set-grup2-resolution/</link>
+      <pubDate>Sat, 29 Jul 2017 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/set-grup2-resolution/</guid>
+      <description>背景 平时经常用显示器的分辨率去设置 Grub 的分辨率，虽然大部分都没有问题，但有时却没有用。所以就把 Grub 分辨率的设置方法详细说明一下，留档记录。 查询支</description>
+    </item>
+    
+    <item>
+      <title>TCP BBR</title>
+      <link>https://jouyouyun.github.io/post/tcp-bbr/</link>
+      <pubDate>Thu, 20 Jul 2017 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/tcp-bbr/</guid>
+      <description>启用 BBR BBR 是在 4.9 以后的内核才开始支持的, 可以试着执行 sudo modprobe tcp_bbr 来确定是否支持, 没有输出就意味着支持, 将下面两行内容添加到 /etc/sysctl.conf 文件里开启用它: 1 2 net.core.default_qdisc =</description>
+    </item>
+    
+    <item>
+      <title>Leanote Installation</title>
+      <link>https://jouyouyun.github.io/post/leanote-installation/</link>
+      <pubDate>Mon, 17 Jul 2017 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/leanote-installation/</guid>
+      <description>Leanote 是一款开源的笔记软件, 支持使用 markdown 来编辑笔记, 并可选择是否将笔记导出成博客, 这对于知识整理及写博客都是非常方便的, 故来尝试下. 安装 Leanote 是使用 Golang</description>
+    </item>
+    
+    <item>
+      <title>OpenVPN Installation</title>
+      <link>https://jouyouyun.github.io/post/openvpn-installation/</link>
+      <pubDate>Tue, 27 Dec 2016 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/openvpn-installation/</guid>
+      <description>安装所需软件 Arch: yaourt -S openvpn easy-rsa 生成证书 Server 端 Copy template file 1 2 sudo mkdir -p /etc/openvpn sudo cp -R /etc/easy-rsa /etc/openvpn Config vars 取消并修改以下项: 1 2 3 4 5 6 set_var EASYRSA_REQ_COUNTRY &amp;#34;CN&amp;#34; set_var EASYRSA_REQ_PROVINCE &amp;#34;Hongkong&amp;#34; set_var EASYRSA_REQ_CITY &amp;#34;Hongkong&amp;#34; set_var EASYRSA_REQ_ORG &amp;#34;jouyouyun.info&amp;#34; set_var EASYRSA_REQ_EMAIL &amp;#34;wen@jouyouyun.iofn&amp;#34; set_var EASYRSA_REQ_OU &amp;#34;Jouyouyun OpenVPN&amp;#34; 创建根</description>
+    </item>
+    
+    <item>
+      <title>MIME Usage</title>
+      <link>https://jouyouyun.github.io/post/mime-usage/</link>
+      <pubDate>Wed, 14 Dec 2016 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/mime-usage/</guid>
+      <description>基本使用 使用到的工具为: xdg-mime, gvfs-mime 查询文件的类型 使用 xdg-mime query filetype &amp;lt;filepath&amp;gt; 可以得到文件的类型 查询默认程序 使用 xdg-mime query default text/plain 或 gvfs-mime --query &amp;lt;mimetype&amp;gt;, gvfs-mime 还会列出支持此 mimetype 的所有程序 设置默认</description>
+    </item>
+    
+    <item>
+      <title>Enable Coredump</title>
+      <link>https://jouyouyun.github.io/post/enable-coredump/</link>
+      <pubDate>Mon, 25 Apr 2016 19:04:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/enable-coredump/</guid>
+      <description>简介 当一个程序崩溃时会产生一个 core 文件, 里面记录了这个程序崩溃的原因, 这些信息对于开发者是很有用的. 但是 core dumps 在大多数 linux 上是被禁用的, 下面就介绍</description>
+    </item>
+    
+    <item>
+      <title>Auto Hidden Cursor</title>
+      <link>https://jouyouyun.github.io/post/auto-hidden-cursor/</link>
+      <pubDate>Fri, 22 Apr 2016 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/auto-hidden-cursor/</guid>
+      <description>最近需要做一个隐藏光标的功能, 在这里将了解到的知识总结一下. 原理 隐藏光标的原理就是把光标设置为一个 x11 null cursor, 不需要隐藏时再将它设为 x11 left_ptr cursor. 设置光标</description>
+    </item>
+    
+    <item>
+      <title>在 VPS 中搭建 VPN 服务器</title>
+      <link>https://jouyouyun.github.io/post/build-vpn/</link>
+      <pubDate>Fri, 04 Jul 2014 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/build-vpn/</guid>
+      <description>最近 Google 被封，而用 Goagent 做代理进行访问的效果而不是很理想，所以就想去买 VPN/VPS . 几经考虑后，就去买了个便宜 VPS , 这样也就可以分享给家人用了。 VPS 中安装的是 U</description>
+    </item>
+    
+  </channel>
+</rss>

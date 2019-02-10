@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>xsetwacom 选项说明 - jouyouyun&#39;s blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="jouyouyun" /><meta name="description" content="xsetwacom 是一个设置数位板的命令行工具, 在 Debian/Ubuntu/deepin 上可以通过安装 xserver-xorg-input-wacom 来获取它. 可以通过 man xsetwacom 看到它的帮助文档, 下面就简单说明下它的部份选项: Options Area args: x1 y1 x2 y2 default: 0" /><meta name="keywords" content="jouyouyun, Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://jouyouyun.github.io/post/xsetwacom-options/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.93844dae.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="xsetwacom 选项说明" />
+<meta property="og:description" content="xsetwacom 是一个设置数位板的命令行工具, 在 Debian/Ubuntu/deepin 上可以通过安装 xserver-xorg-input-wacom 来获取它. 可以通过 man xsetwacom 看到它的帮助文档, 下面就简单说明下它的部份选项: Options Area args: x1 y1 x2 y2 default: 0" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jouyouyun.github.io/post/xsetwacom-options/" />
+<meta property="article:published_time" content="2016-02-03T14:58:21&#43;08:00"/>
+<meta property="article:modified_time" content="2019-02-10T17:57:48&#43;08:00"/>
+
+<meta itemprop="name" content="xsetwacom 选项说明">
+<meta itemprop="description" content="xsetwacom 是一个设置数位板的命令行工具, 在 Debian/Ubuntu/deepin 上可以通过安装 xserver-xorg-input-wacom 来获取它. 可以通过 man xsetwacom 看到它的帮助文档, 下面就简单说明下它的部份选项: Options Area args: x1 y1 x2 y2 default: 0">
+
+
+<meta itemprop="datePublished" content="2016-02-03T14:58:21&#43;08:00" />
+<meta itemprop="dateModified" content="2019-02-10T17:57:48&#43;08:00" />
+<meta itemprop="wordCount" content="449">
+
+
+
+<meta itemprop="keywords" content="xsetwacom,wacom," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="xsetwacom 选项说明"/>
+<meta name="twitter:description" content="xsetwacom 是一个设置数位板的命令行工具, 在 Debian/Ubuntu/deepin 上可以通过安装 xserver-xorg-input-wacom 来获取它. 可以通过 man xsetwacom 看到它的帮助文档, 下面就简单说明下它的部份选项: Options Area args: x1 y1 x2 y2 default: 0"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">jouyouyun</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">jouyouyun</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">xsetwacom 选项说明</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2016-02-03 </span>
+        <div class="post-category">
+            <a href="/categories/note/"> NOTE </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#options">Options</a>
+<ul>
+<li><a href="#area">Area</a></li>
+<li><a href="#button">Button</a></li>
+<li><a href="#maptooutput">MapToOutput</a></li>
+<li><a href="#mode">Mode</a></li>
+<li><a href="#pressurecurve">PressureCurve</a></li>
+<li><a href="#rawsample">RawSample</a></li>
+<li><a href="#rotate">Rotate</a></li>
+<li><a href="#suppress">Suppress</a></li>
+<li><a href="#touch">Touch</a></li>
+<li><a href="#hwtouchswitchstate">HWTouchSwitchState</a></li>
+<li><a href="#threshold">Threshold</a></li>
+</ul></li>
+<li><a href="#其他">其他</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<p><code>xsetwacom</code> 是一个设置数位板的命令行工具, 在 <code>Debian/Ubuntu/deepin</code> 上可以通过安装 <code>xserver-xorg-input-wacom</code> 来获取它.</p>
+
+<p>可以通过 <code>man xsetwacom</code> 看到它的帮助文档, 下面就简单说明下它的部份选项:</p>
+
+<hr />
+
+<h2 id="options">Options</h2>
+
+<h3 id="area">Area</h3>
+
+<ul>
+<li><p>args: x1 y1 x2 y2</p></li>
+
+<li><p>default: 0 0 x2 y2,</p></li>
+
+<li><p>description: 设置数位板可使用的区域</p></li>
+</ul>
+
+<h3 id="button">Button</h3>
+
+<ul>
+<li><p>args: button-number [mapping]</p></li>
+
+<li><p>description: 设置数位笔按钮的功能，可自定义为组合键，详细使用方法见文档</p></li>
+</ul>
+
+<h3 id="maptooutput">MapToOutput</h3>
+
+<ul>
+<li><p>args: output</p></li>
+
+<li><p>description: 设置数位板与显示屏的映射，可以使用 <code>output</code>, <code>Head Number</code>, <code>X11 geometry</code> 三种方式设置</p>
+
+<ul>
+<li><p>output: 如 <code>VGA1</code></p></li>
+
+<li><p>Head Number: 通过 <code>XRandR extension</code> 得到的</p></li>
+
+<li><p>X11 geometry: 格式如 <code>WIDTHxHEIGHT+X+Y</code></p></li>
+</ul></li>
+</ul>
+
+<h3 id="mode">Mode</h3>
+
+<ul>
+<li><p>args: Absolute|Relative</p></li>
+
+<li><p>default: Absolute</p></li>
+
+<li><p>description: 设置笔模式。</p>
+
+<ul>
+<li><p>Absolute: 模式时数位笔对应的是数位板或屏幕的真实位置</p></li>
+
+<li><p>Relative: 模式时数位笔就像是一个鼠标</p></li>
+</ul></li>
+</ul>
+
+<h3 id="pressurecurve">PressureCurve</h3>
+
+<ul>
+<li><p>args: x1 y1 x2 y2</p></li>
+
+<li><p>default: 0 0 100 100</p></li>
+
+<li><p>description: 压力曲线，(x1<y1 x2<y2) to "soften"，(x1>y1 x2&gt;y2) to &ldquo;firmer&rdquo;</p></li>
+</ul>
+
+<h3 id="rawsample">RawSample</h3>
+
+<ul>
+<li><p>args: level(0 ~ 20)</p></li>
+
+<li><p>default: 4</p></li>
+
+<li><p>description: 设置数位笔原始采样率对应的窗口大小，不太清楚有什么用</p></li>
+</ul>
+
+<h3 id="rotate">Rotate</h3>
+
+<ul>
+<li><p>args: none|half|cw|ccw</p></li>
+
+<li><p>default: none</p></li>
+
+<li><p>description: 设置旋转度</p>
+
+<ul>
+<li><p>none: 不旋转</p></li>
+
+<li><p>half: 上下翻转</p></li>
+
+<li><p>cw: 顺时针旋转 90 度</p></li>
+
+<li><p>ccw: 逆时针旋转 90 度</p></li>
+</ul></li>
+</ul>
+
+<h3 id="suppress">Suppress</h3>
+
+<ul>
+<li><p>args: level(0 ~ 100)</p></li>
+
+<li><p>default: 2</p></li>
+
+<li><p>description: 设置移动灵敏度，值越大灵敏度越低</p></li>
+</ul>
+
+<h3 id="touch">Touch</h3>
+
+<ul>
+<li><p>args: on|off</p></li>
+
+<li><p>default: on</p></li>
+
+<li><p>description: 是否允许触摸</p></li>
+</ul>
+
+<h3 id="hwtouchswitchstate">HWTouchSwitchState</h3>
+
+<ul>
+<li><p>args: on|off</p></li>
+
+<li><p>default: on</p></li>
+
+<li><p>description: 是否允许调节 <code>Touch</code> 选项</p></li>
+</ul>
+
+<h3 id="threshold">Threshold</h3>
+
+<ul>
+<li><p>args: level(0 ~ 2047)</p></li>
+
+<li><p>default: 27</p></li>
+
+<li><p>description: 设置产生按键事件的最小力度</p></li>
+</ul>
+
+<hr />
+
+<h2 id="其他">其他</h2>
+
+<p>对于压力曲线，这里给出了一些测试值，从 <code>soften</code> 到 <code>firmer</code> :</p>
+
+<ul>
+<li>0 100 0 100</li>
+<li>20 80 20 80</li>
+<li>30 70 30 70</li>
+<li>0 0 100 100</li>
+<li>60 40 60 40</li>
+<li>70 30 70 30</li>
+<li>75 25 75 25</li>
+<li>80 20 80 20</li>
+<li>90 10 90 10</li>
+<li>100 0 100 0</li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">jouyouyun</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">2019-02-10</span>
+  </p>
+  
+  
+</div><div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/images/reward/wechat-qr-code.png">
+        <span>微信打赏</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/images/reward/alipay-qr-code.png">
+        <span>支付宝打赏</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/xsetwacom/">xsetwacom</a>
+          <a href="/tags/wacom/">wacom</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/debug-summary/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Debug 小结</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/go-tcp-socket-example/">
+            <span class="next-text nav-default">Go 笔记: 简单的 TCP Socket 示例</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:jouyouwen717@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://twitter.com/jouyouyun" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://github.com/jouyouyun" class="iconfont icon-github" title="github"></a>
+  <a href="https://jouyouyun.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2014 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">jouyouyun</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.ece58db6.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>OpenVPN Installation - jouyouyun&#39;s blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="jouyouyun" /><meta name="description" content="安装所需软件 Arch: yaourt -S openvpn easy-rsa 生成证书 Server 端 Copy template file 1 2 sudo mkdir -p /etc/openvpn sudo cp -R /etc/easy-rsa /etc/openvpn Config vars 取消并修改以下项: 1 2 3 4 5 6 set_var EASYRSA_REQ_COUNTRY &amp;#34;CN&amp;#34; set_var EASYRSA_REQ_PROVINCE &amp;#34;Hongkong&amp;#34; set_var EASYRSA_REQ_CITY &amp;#34;Hongkong&amp;#34; set_var EASYRSA_REQ_ORG &amp;#34;jouyouyun.info&amp;#34; set_var EASYRSA_REQ_EMAIL &amp;#34;wen@jouyouyun.iofn&amp;#34; set_var EASYRSA_REQ_OU &amp;#34;Jouyouyun OpenVPN&amp;#34; 创建根" /><meta name="keywords" content="jouyouyun, Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://jouyouyun.github.io/post/openvpn-installation/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.93844dae.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="OpenVPN Installation" />
+<meta property="og:description" content="安装所需软件 Arch: yaourt -S openvpn easy-rsa 生成证书 Server 端 Copy template file 1 2 sudo mkdir -p /etc/openvpn sudo cp -R /etc/easy-rsa /etc/openvpn Config vars 取消并修改以下项: 1 2 3 4 5 6 set_var EASYRSA_REQ_COUNTRY &#34;CN&#34; set_var EASYRSA_REQ_PROVINCE &#34;Hongkong&#34; set_var EASYRSA_REQ_CITY &#34;Hongkong&#34; set_var EASYRSA_REQ_ORG &#34;jouyouyun.info&#34; set_var EASYRSA_REQ_EMAIL &#34;wen@jouyouyun.iofn&#34; set_var EASYRSA_REQ_OU &#34;Jouyouyun OpenVPN&#34; 创建根" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jouyouyun.github.io/post/openvpn-installation/" />
+<meta property="article:published_time" content="2016-12-27T21:38:21&#43;08:00"/>
+<meta property="article:modified_time" content="2019-02-10T17:55:11&#43;08:00"/>
+
+<meta itemprop="name" content="OpenVPN Installation">
+<meta itemprop="description" content="安装所需软件 Arch: yaourt -S openvpn easy-rsa 生成证书 Server 端 Copy template file 1 2 sudo mkdir -p /etc/openvpn sudo cp -R /etc/easy-rsa /etc/openvpn Config vars 取消并修改以下项: 1 2 3 4 5 6 set_var EASYRSA_REQ_COUNTRY &#34;CN&#34; set_var EASYRSA_REQ_PROVINCE &#34;Hongkong&#34; set_var EASYRSA_REQ_CITY &#34;Hongkong&#34; set_var EASYRSA_REQ_ORG &#34;jouyouyun.info&#34; set_var EASYRSA_REQ_EMAIL &#34;wen@jouyouyun.iofn&#34; set_var EASYRSA_REQ_OU &#34;Jouyouyun OpenVPN&#34; 创建根">
+
+
+<meta itemprop="datePublished" content="2016-12-27T21:38:21&#43;08:00" />
+<meta itemprop="dateModified" content="2019-02-10T17:55:11&#43;08:00" />
+<meta itemprop="wordCount" content="1070">
+
+
+
+<meta itemprop="keywords" content="openvpn," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="OpenVPN Installation"/>
+<meta name="twitter:description" content="安装所需软件 Arch: yaourt -S openvpn easy-rsa 生成证书 Server 端 Copy template file 1 2 sudo mkdir -p /etc/openvpn sudo cp -R /etc/easy-rsa /etc/openvpn Config vars 取消并修改以下项: 1 2 3 4 5 6 set_var EASYRSA_REQ_COUNTRY &#34;CN&#34; set_var EASYRSA_REQ_PROVINCE &#34;Hongkong&#34; set_var EASYRSA_REQ_CITY &#34;Hongkong&#34; set_var EASYRSA_REQ_ORG &#34;jouyouyun.info&#34; set_var EASYRSA_REQ_EMAIL &#34;wen@jouyouyun.iofn&#34; set_var EASYRSA_REQ_OU &#34;Jouyouyun OpenVPN&#34; 创建根"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">jouyouyun</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">jouyouyun</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">OpenVPN Installation</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2016-12-27 </span>
+        <div class="post-category">
+            <a href="/categories/blog/"> BLOG </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#安装所需软件">安装所需软件</a></li>
+<li><a href="#生成证书">生成证书</a>
+<ul>
+<li><a href="#server-端">Server 端</a></li>
+</ul></li>
+<li><a href="#配置服务器端">配置服务器端</a></li>
+<li><a href="#配置客户端">配置客户端</a></li>
+<li><a href="#开启路由转发">开启路由转发</a></li>
+<li><a href="#示例">示例</a>
+<ul>
+<li><a href="#证书认证">证书认证</a></li>
+<li><a href="#用户名密码认证">用户名密码认证</a></li>
+</ul></li>
+<li><a href="#参考">参考</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h2 id="安装所需软件">安装所需软件</h2>
+
+<p>Arch: <code>yaourt -S openvpn easy-rsa</code></p>
+
+<h2 id="生成证书">生成证书</h2>
+
+<h3 id="server-端">Server 端</h3>
+
+<ul>
+<li>Copy template file</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">sudo mkdir -p /etc/openvpn
+sudo cp -R /etc/easy-rsa /etc/openvpn</code></pre></td></tr></table>
+</div>
+</div>
+<ul>
+<li>Config vars</li>
+</ul>
+
+<p>取消并修改以下项:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">set_var EASYRSA_REQ_COUNTRY     <span class="s2">&#34;CN&#34;</span>
+set_var EASYRSA_REQ_PROVINCE    <span class="s2">&#34;Hongkong&#34;</span>
+set_var EASYRSA_REQ_CITY        <span class="s2">&#34;Hongkong&#34;</span>
+set_var EASYRSA_REQ_ORG         <span class="s2">&#34;jouyouyun.info&#34;</span>
+set_var EASYRSA_REQ_EMAIL       <span class="s2">&#34;wen@jouyouyun.iofn&#34;</span>
+set_var EASYRSA_REQ_OU          <span class="s2">&#34;Jouyouyun OpenVPN&#34;</span></code></pre></td></tr></table>
+</div>
+</div>
+<ul>
+<li>创建根证书</li>
+</ul>
+
+<p><code>ca</code> 证书需要输入密码，这个密码是给服务器端和客户端签名时用的</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">easyrsa init-pki
+easyrsa build-ca</code></pre></td></tr></table>
+</div>
+</div>
+<ul>
+<li>创建并签名服务器端证书</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">easyrsa gen-req &lt;server name&gt; nopass
+easyrsa sign server &lt;server name&gt;</code></pre></td></tr></table>
+</div>
+</div>
+<ul>
+<li>创建Diffie-Hellman证书</li>
+</ul>
+
+<p>该证书主要作用是确保共享KEY安全穿越不安全网络</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">easyrsa gen-dh</code></pre></td></tr></table>
+</div>
+</div>
+<ul>
+<li>创建并签名客户端证书</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">easyrsa gen-req &lt;client name&gt; nopass
+easyrsa sign client &lt;client name&gt;</code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="配置服务器端">配置服务器端</h2>
+
+<p>复制一份模板文件(<code>/usr/share/openvpn/examples/server.conf</code>)到 <code>/etc/openvpn</code> 目录, 然后开始修改相关项.</p>
+
+<p>然后将证书文件放在 <code>/etc/openvpn</code> 目录下, 需要的文件包括:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">easy-rsa/pki/ca.crt
+easy-rsa/pki/dh.pem
+easy-rsa/pki/issued/&lt;server name&gt;.crt
+easy-rsa/pki/private/&lt;server name&gt;.key</code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="配置客户端">配置客户端</h2>
+
+<p>复制一份模板文件 <code>/usr/share/openvpn/examples/client.conf</code>, 然后开始修改相关项.</p>
+
+<p>将以下证书文件与配置文件放在一起, 需要的文件包括:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">easy-rsa/pki/ca.crt
+easy-rsa/pki/issued/&lt;client name&gt;.crt
+easy-rsa/pki/private/&lt;client name&gt;.key</code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="开启路由转发">开启路由转发</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">sed -i <span class="s1">&#39;/net.ipv4.ip_forward/s/0/1/&#39;</span> /etc/sysctl.conf
+sysctl -p
+<span class="c1"># 允许vpn客户端所在网段流量转发到其它网卡</span>
+iptables -I FORWARD -s <span class="m">10</span>.8.0.0/24 -j ACCEPT
+<span class="c1"># 将vpn客户端的流量转到eth0，允许vpn客户端上网，即NAT</span>
+iptables -t nat -A POSTROUTING -s <span class="m">10</span>.8.0.0/24 -o eth0 -j  MASQUERADE</code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="示例">示例</h2>
+
+<p>认证可以通过证书认证也可以使用用户名密码认证，推荐使用用户名密码认证, 这样方便添加用户.</p>
+
+<h3 id="证书认证">证书认证</h3>
+
+<ul>
+<li>服务端</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">port <span class="m">1194</span>
+proto tcp
+dev tun
+
+ca /etc/openvpn/ca.crt
+cert /etc/openvpn/server.crt
+key /etc/openvpn/server.key
+dh /etc/openvpn/dh.pem
+
+server <span class="m">10</span>.8.0.0 <span class="m">255</span>.255.255.0
+ifconfig-pool-persist /etc/openvpn/ipp.txt
+push <span class="s2">&#34;redirect-gateway def1 bypass-dhcp&#34;</span>
+push <span class="s2">&#34;dhcp-option DNS 8.8.8.8&#34;</span>
+push <span class="s2">&#34;dhcp-option DNS 8.8.4.4&#34;</span>
+client-to-client
+keepalive <span class="m">10</span> <span class="m">120</span>
+cipher AES-256-CBC
+<span class="p">;</span>comp-lzo <span class="c1"># 禁用压缩，如果开启客户端配置中也需要开启</span>
+max-clients <span class="m">100</span>
+persist-key
+persist-tun
+
+status /var/log/openvpn/openvpn-status.log
+log         /var/log/openvpn/openvpn.log
+log-append  /var/log/openvpn/openvpn.log
+verb <span class="m">3</span></code></pre></td></tr></table>
+</div>
+</div>
+<ul>
+<li>客户端</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">client
+dev tun
+proto tcp
+
+resolv-retry infinite
+remote &lt;your vps ip&gt; <span class="m">1194</span>
+nobind
+
+persist-key
+persist-tun
+
+ca ca.crt
+cert client.crt
+key client.key
+
+cipher AES-256-CBC
+<span class="c1">#comp-lzo</span>
+verb <span class="m">3</span></code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="用户名密码认证">用户名密码认证</h3>
+
+<p>需要加入 <code>auth-user-pass-verify</code> ，开启用户密码脚本, 脚本示例, 读取 <code>/etc/openvpn/passwd</code> 文件:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="cp">#!/bin/sh
+</span><span class="cp"></span><span class="c1">###########################################################</span>
+<span class="c1"># checkpsw.sh (C) 2004 Mathias Sundman &lt;mathias@openvpn.se&gt;</span>
+#
+<span class="c1"># This script will authenticate OpenVPN users against</span>
+<span class="c1"># a plain text file. The passfile should simply contain</span>
+<span class="c1"># one row per user with the username first followed by</span>
+<span class="c1"># one or more space(s) or tab(s) and then the password.</span>
+
+<span class="nv">PASSFILE</span><span class="o">=</span><span class="s2">&#34;/etc/openvpn/passwd&#34;</span>
+<span class="nv">LOG_FILE</span><span class="o">=</span><span class="s2">&#34;/var/log/openvpn/openvpn-password.log&#34;</span>
+<span class="nv">TIME_STAMP</span><span class="o">=</span><span class="sb">`</span>date <span class="s2">&#34;+%Y-%m-%d %T&#34;</span><span class="sb">`</span>
+
+<span class="c1">###########################################################</span>
+
+<span class="k">if</span> <span class="o">[</span> ! -r <span class="s2">&#34;</span><span class="si">${</span><span class="nv">PASSFILE</span><span class="si">}</span><span class="s2">&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+  <span class="nb">echo</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">TIME_STAMP</span><span class="si">}</span><span class="s2">: Could not open password file \&#34;</span><span class="si">${</span><span class="nv">PASSFILE</span><span class="si">}</span><span class="s2">\&#34; for reading.&#34;</span> &gt;&gt; <span class="si">${</span><span class="nv">LOG_FILE</span><span class="si">}</span>
+  <span class="nb">exit</span> <span class="m">1</span>
+<span class="k">fi</span>
+
+<span class="nv">CORRECT_PASSWORD</span><span class="o">=</span><span class="sb">`</span>awk <span class="s1">&#39;!/^;/&amp;&amp;!/^#/&amp;&amp;$1==&#34;&#39;</span><span class="si">${</span><span class="nv">username</span><span class="si">}</span><span class="s1">&#39;&#34;{print $2;exit}&#39;</span> <span class="si">${</span><span class="nv">PASSFILE</span><span class="si">}</span><span class="sb">`</span>
+
+<span class="k">if</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">CORRECT_PASSWORD</span><span class="si">}</span><span class="s2">&#34;</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+  <span class="nb">echo</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">TIME_STAMP</span><span class="si">}</span><span class="s2">: User does not exist: username=\&#34;</span><span class="si">${</span><span class="nv">username</span><span class="si">}</span><span class="s2">\&#34;, password=\&#34;</span><span class="si">${</span><span class="nv">password</span><span class="si">}</span><span class="s2">\&#34;.&#34;</span> &gt;&gt; <span class="si">${</span><span class="nv">LOG_FILE</span><span class="si">}</span>
+  <span class="nb">exit</span> <span class="m">1</span>
+<span class="k">fi</span>
+
+<span class="k">if</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">password</span><span class="si">}</span><span class="s2">&#34;</span> <span class="o">=</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">CORRECT_PASSWORD</span><span class="si">}</span><span class="s2">&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+  <span class="nb">echo</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">TIME_STAMP</span><span class="si">}</span><span class="s2">: Successful authentication: username=\&#34;</span><span class="si">${</span><span class="nv">username</span><span class="si">}</span><span class="s2">\&#34;.&#34;</span> &gt;&gt; <span class="si">${</span><span class="nv">LOG_FILE</span><span class="si">}</span>
+  <span class="nb">exit</span> <span class="m">0</span>
+<span class="k">fi</span>
+
+<span class="nb">echo</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">TIME_STAMP</span><span class="si">}</span><span class="s2">: Incorrect password: username=\&#34;</span><span class="si">${</span><span class="nv">username</span><span class="si">}</span><span class="s2">\&#34;, password=\&#34;</span><span class="si">${</span><span class="nv">password</span><span class="si">}</span><span class="s2">\&#34;.&#34;</span> &gt;&gt; <span class="si">${</span><span class="nv">LOG_FILE</span><span class="si">}</span>
+<span class="nb">exit</span> <span class="m">1</span></code></pre></td></tr></table>
+</div>
+</div>
+<ul>
+<li>服务端</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">port <span class="m">1194</span>
+proto tcp
+dev tap
+
+<span class="c1">#不要求客户端有证书</span>
+client-cert-not-required
+username-as-common-name
+
+script-security <span class="m">3</span> system
+<span class="c1">#使用脚本验证密码</span>
+auth-user-pass-verify /etc/openvpn/checkpsw.sh via-env
+
+ca   /etc/openvpn/keys/ca.crt
+cert /etc/openvpn/keys/server.crt
+key  /etc/openvpn/keys/server.key
+dh   /etc/openvpn/keys/dh1024.pem
+
+server <span class="m">10</span>.8.6.0 <span class="m">255</span>.255.255.0
+
+<span class="c1">#保存已有的用户和ip的对应关系</span>
+ifconfig-pool-persist ipp.txt
+
+<span class="c1">#允许客户端之间互访</span>
+client-to-client
+
+keepalive <span class="m">10</span> <span class="m">120</span>
+
+user nobody
+group nogroup
+
+persist-key
+persist-tun
+
+<span class="c1">#保存日志</span>
+status openvpn-status.log
+<span class="c1">#日志冗余级别</span>
+verb <span class="m">3</span></code></pre></td></tr></table>
+</div>
+</div>
+<ul>
+<li>客户端</li>
+</ul>
+
+<p>客户端配置文件中去掉于证书相关的配置，加入 <code>auth-user-pass</code> 打开用户名密码验证.
+可以加入 <code>auth-nocache</code> 可以在断线后防止内存中保存用户名和密码来提高安全性。</p>
+
+<h2 id="参考">参考</h2>
+
+<ul>
+<li><a href="http://blog.chinaunix.net/uid-24250828-id-3536671.html">Linux 下OpenVPN 密钥认证 和 用户名/密码认证 笔记</a></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">jouyouyun</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">2019-02-10</span>
+  </p>
+  
+  
+</div><div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/images/reward/wechat-qr-code.png">
+        <span>微信打赏</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/images/reward/alipay-qr-code.png">
+        <span>支付宝打赏</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/openvpn/">openvpn</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/leanote-installation/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Leanote Installation</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/mime-usage/">
+            <span class="next-text nav-default">MIME Usage</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:jouyouwen717@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://twitter.com/jouyouyun" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://github.com/jouyouyun" class="iconfont icon-github" title="github"></a>
+  <a href="https://jouyouyun.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2014 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">jouyouyun</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.ece58db6.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

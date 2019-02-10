@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>wakeup on jouyouyun&#39;s blog</title>
+    <link>https://jouyouyun.github.io/tags/wakeup/</link>
+    <description>Recent content in wakeup on jouyouyun&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>jouyouyun</copyright>
+    <lastBuildDate>Sun, 21 Oct 2018 21:38:21 +0800</lastBuildDate>
+    
+	<atom:link href="https://jouyouyun.github.io/tags/wakeup/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Linux 休眠自动唤醒</title>
+      <link>https://jouyouyun.github.io/post/linux-auto-suspend/</link>
+      <pubDate>Sun, 21 Oct 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/linux-auto-suspend/</guid>
+      <description>最近做无线网络在系统多次休眠唤醒后是否正常的测试，但每次休眠后都需要手动点击键盘来唤醒系统，显而易见的这种方法需要人来值守，很不放便。 此时便</description>
+    </item>
+    
+  </channel>
+</rss>

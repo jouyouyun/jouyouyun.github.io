@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mime on jouyouyun&#39;s blog</title>
+    <link>https://jouyouyun.github.io/tags/mime/</link>
+    <description>Recent content in mime on jouyouyun&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>jouyouyun</copyright>
+    <lastBuildDate>Wed, 14 Dec 2016 21:38:21 +0800</lastBuildDate>
+    
+	<atom:link href="https://jouyouyun.github.io/tags/mime/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>MIME Usage</title>
+      <link>https://jouyouyun.github.io/post/mime-usage/</link>
+      <pubDate>Wed, 14 Dec 2016 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/mime-usage/</guid>
+      <description>基本使用 使用到的工具为: xdg-mime, gvfs-mime 查询文件的类型 使用 xdg-mime query filetype &amp;lt;filepath&amp;gt; 可以得到文件的类型 查询默认程序 使用 xdg-mime query default text/plain 或 gvfs-mime --query &amp;lt;mimetype&amp;gt;, gvfs-mime 还会列出支持此 mimetype 的所有程序 设置默认</description>
+    </item>
+    
+  </channel>
+</rss>

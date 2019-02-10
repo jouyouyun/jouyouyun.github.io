@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>sigaction on jouyouyun&#39;s blog</title>
+    <link>https://jouyouyun.github.io/tags/sigaction/</link>
+    <description>Recent content in sigaction on jouyouyun&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>jouyouyun</copyright>
+    <lastBuildDate>Tue, 13 Nov 2018 21:38:21 +0800</lastBuildDate>
+    
+	<atom:link href="https://jouyouyun.github.io/tags/sigaction/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Linux Signal Examples</title>
+      <link>https://jouyouyun.github.io/post/linux-signal-example/</link>
+      <pubDate>Tue, 13 Nov 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/linux-signal-example/</guid>
+      <description>信号是系统响应某些条件而产生的一个事件，接收到该信的进程做出相应的处理。通常信是由错误产生的，如段错误(SIGSEGV)。 但信还可以作为进程</description>
+    </item>
+    
+  </channel>
+</rss>

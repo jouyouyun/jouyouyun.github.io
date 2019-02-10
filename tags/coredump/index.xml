@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>coredump on jouyouyun&#39;s blog</title>
+    <link>https://jouyouyun.github.io/tags/coredump/</link>
+    <description>Recent content in coredump on jouyouyun&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>jouyouyun</copyright>
+    <lastBuildDate>Mon, 25 Apr 2016 19:04:21 +0800</lastBuildDate>
+    
+	<atom:link href="https://jouyouyun.github.io/tags/coredump/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Enable Coredump</title>
+      <link>https://jouyouyun.github.io/post/enable-coredump/</link>
+      <pubDate>Mon, 25 Apr 2016 19:04:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/enable-coredump/</guid>
+      <description>简介 当一个程序崩溃时会产生一个 core 文件, 里面记录了这个程序崩溃的原因, 这些信息对于开发者是很有用的. 但是 core dumps 在大多数 linux 上是被禁用的, 下面就介绍</description>
+    </item>
+    
+  </channel>
+</rss>

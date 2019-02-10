@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>bluetooth on jouyouyun&#39;s blog</title>
+    <link>https://jouyouyun.github.io/tags/bluetooth/</link>
+    <description>Recent content in bluetooth on jouyouyun&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>jouyouyun</copyright>
+    <lastBuildDate>Mon, 20 Nov 2017 21:38:21 +0800</lastBuildDate>
+    
+	<atom:link href="https://jouyouyun.github.io/tags/bluetooth/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Bluetooth FAQ</title>
+      <link>https://jouyouyun.github.io/post/bluetooth-faq/</link>
+      <pubDate>Mon, 20 Nov 2017 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/bluetooth-faq/</guid>
+      <description>收集遇到的 bluetooth 问题，使用的是 deepin 。 控制中心不显示蓝牙模块 蓝牙模块不显示时，可以按照以下步骤来查找原因： 执行 sudo dmesg|grub bluetooth 查看输出结果 输出里有 timeout 此时再用 systemctl</description>
+    </item>
+    
+  </channel>
+</rss>

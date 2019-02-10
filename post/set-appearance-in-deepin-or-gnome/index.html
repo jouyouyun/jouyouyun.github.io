@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>linux 下 deepin 和 gnome 桌面的外观设置 - jouyouyun&#39;s blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="jouyouyun" /><meta name="description" content="桌面的外观设置一般包括窗口主题、图标主题、光标主题和字体设置，其中窗口主题就是常见的 gtk 主题，字体设置又包括标准字体、等款字体和字体大小。对于" /><meta name="keywords" content="jouyouyun, Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://jouyouyun.github.io/post/set-appearance-in-deepin-or-gnome/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.93844dae.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="linux 下 deepin 和 gnome 桌面的外观设置" />
+<meta property="og:description" content="桌面的外观设置一般包括窗口主题、图标主题、光标主题和字体设置，其中窗口主题就是常见的 gtk 主题，字体设置又包括标准字体、等款字体和字体大小。对于" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jouyouyun.github.io/post/set-appearance-in-deepin-or-gnome/" />
+<meta property="article:published_time" content="2018-10-23T21:38:21&#43;08:00"/>
+<meta property="article:modified_time" content="2019-02-10T18:16:19&#43;08:00"/>
+
+<meta itemprop="name" content="linux 下 deepin 和 gnome 桌面的外观设置">
+<meta itemprop="description" content="桌面的外观设置一般包括窗口主题、图标主题、光标主题和字体设置，其中窗口主题就是常见的 gtk 主题，字体设置又包括标准字体、等款字体和字体大小。对于">
+
+
+<meta itemprop="datePublished" content="2018-10-23T21:38:21&#43;08:00" />
+<meta itemprop="dateModified" content="2019-02-10T18:16:19&#43;08:00" />
+<meta itemprop="wordCount" content="1115">
+
+
+
+<meta itemprop="keywords" content="deepin,gnome,theme,gtk,icon,cursor,font," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="linux 下 deepin 和 gnome 桌面的外观设置"/>
+<meta name="twitter:description" content="桌面的外观设置一般包括窗口主题、图标主题、光标主题和字体设置，其中窗口主题就是常见的 gtk 主题，字体设置又包括标准字体、等款字体和字体大小。对于"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">jouyouyun</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">jouyouyun</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">linux 下 deepin 和 gnome 桌面的外观设置</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-10-23 </span>
+        <div class="post-category">
+            <a href="/categories/blog/"> BLOG </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#gsettings"><code>GSettings</code></a></li>
+<li><a href="#外观设置">外观设置</a>
+<ul>
+<li><a href="#窗口主题">窗口主题</a>
+<ul>
+<li><a href="#读取">读取</a></li>
+<li><a href="#设置">设置</a></li>
+<li><a href="#恢复默认值">恢复默认值</a></li>
+</ul></li>
+<li><a href="#图标和光标主题">图标和光标主题</a></li>
+<li><a href="#字体设置">字体设置</a>
+<ul>
+<li><a href="#hidpi-缩放"><code>HIDPI</code> 缩放</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<p>桌面的外观设置一般包括窗口主题、图标主题、光标主题和字体设置，其中窗口主题就是常见的 <code>gtk</code> 主题，字体设置又包括标准字体、等款字体和字体大小。对于进些年的高分屏，又添加了字体缩放和窗口缩放这2个选项。</p>
+
+<p>界面上设置方法就不介绍了，都可以在各自桌面的控制中心中找到，这里主要介绍命令行下的。</p>
+
+<p><code>deepin</code> 和 <code>gnome</code> 桌面环境的外观配置数据是使用 <code>gsettings</code> 来存储，所以可以通过 <code>gsettings</code> 来设置和读取。 <code>gsettings</code> 相比设置界面就是 可以设置到更多的选项，设置的值更加精确。</p>
+
+<p>下面先简单介绍下 <code>gsettings</code> 的用法。</p>
+
+<h2 id="gsettings"><code>GSettings</code></h2>
+
+<ul>
+<li><p>获取 <code>key</code></p>
+
+<p><code>gsettings get &lt;schema_id&gt; &lt;key&gt;</code></p></li>
+
+<li><p>设置 <code>key</code></p>
+
+<p><code>gsettings set &lt;schema_id&gt; &lt;key&gt; &lt;value&gt;</code></p></li>
+</ul>
+
+<p>其中 <code>schema</code> 是在 <code>/usr/share/glib-2.0/schemas</code> 这个目录下， <code>schema_id</code> 是文件内容中 <code>id</code> 的值, <code>key</code> 就是文件中描述的，每个 <code>key</code> 都有一个默认值。</p>
+
+<p>如 <code>deepin</code> 的主题配置文件是 =com.deepin.dde.appearance.gchema.xml=，通过其文件开头的内容</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;schema</span> <span class="na">path=</span><span class="s">&#34;/com/deepin/dde/appearance/&#34;</span> <span class="na">id=</span><span class="s">&#34;com.deepin.dde.appearance&#34;</span> <span class="na">gettext-domain=</span><span class="s">&#34;DDE&#34;</span><span class="nt">&gt;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>可知，其 <code>schema_id</code> 就是 <code>com.deepin.dde.appearance</code> 。</p>
+
+<h2 id="外观设置">外观设置</h2>
+
+<p><code>gnome</code> 的外观配置的 <code>id</code> 是 <code>org.gnome.desktop.interface=，=deepin</code> 的则是 <code>com.deepin.dde.appearance</code> 和 <code>com.deepin.xsettings</code> 。</p>
+
+<p>通过命令 <code>gsettings list-keys &lt;schema_id&gt;</code> 可以查询到所有支持的 <code>key=，如查询 =gnome</code> 支持的 <code>key</code> ：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">$ gsettings list-keys org.gnome.desktop.interface
+gtk-theme
+cursor-blink-timeout
+gtk-color-palette
+gtk-timeout-repeat
+toolkit-accessibility
+cursor-theme
+toolbar-style
+toolbar-icons-size
+text-scaling-factor
+icon-theme
+gtk-timeout-initial
+scaling-factor
+...</code></pre></td></tr></table>
+</div>
+</div>
+<p>每个 <code>key</code> 的含义请阅读对应的 <code>schema</code> 文件来查询。</p>
+
+<h3 id="窗口主题">窗口主题</h3>
+
+<p>窗口主题对应的 <code>key</code> 是 =gtk-theme=，值是字符串类型。</p>
+
+<p>所有系统附带的 <code>gtk</code> 主题都在 <code>/usr/share/themes</code> 目录下。</p>
+
+<h4 id="读取">读取</h4>
+
+<ul>
+<li><p><code>gnome</code></p>
+
+<p><code>gsettings get org.gnome.desktop.interface gtk-theme</code></p></li>
+
+<li><p><code>deepin</code></p>
+
+<p><code>gsettings get com.deepin.dde.appearance gtk-theme</code></p></li>
+</ul>
+
+<h4 id="设置">设置</h4>
+
+<p>如设置 <code>Adapta</code> 作为窗口主题</p>
+
+<ul>
+<li><p><code>gnome</code></p>
+
+<p><code>gsettings set org.gnome.desktop.interface gtk-theme Adapta</code></p></li>
+
+<li><p><code>deepin</code></p>
+
+<p><code>gsettings set com.deepin.dde.appearance gtk-them Adapta</code></p></li>
+</ul>
+
+<h4 id="恢复默认值">恢复默认值</h4>
+
+<ul>
+<li><p><code>gnome</code></p>
+
+<p><code>gsettings reset org.gnome.desktop.interface gtk-theme</code></p></li>
+
+<li><p><code>deepin</code></p>
+
+<p><code>gsettings reset com.deepin.dde.appearance gtk-theme</code></p></li>
+</ul>
+
+<h3 id="图标和光标主题">图标和光标主题</h3>
+
+<p>图标主题的 <code>key</code> 是 <code>icon-theme</code> ，光标主题的 <code>key</code> 是 <code>cursor-theme</code> ，值都是字符串类型，系统附带的图标和光标主题都在 <code>/usr/share/icons/</code> 目录下。</p>
+
+<p>主题的设置和获取方法与上面的窗口主题一样，这里就不再赘述了。</p>
+
+<h3 id="字体设置">字体设置</h3>
+
+<p><code>gnome</code> 标准字体设置的 <code>key</code> 是 <code>font-name</code> ，等宽字体的 <code>key</code> 是 <code>monospace-font-name</code> ，值也都是字符串类型，字体的大小附加在字体名称后面一起设置，如设置标准字体：</p>
+
+<p><code>gsettings set org.gnome.desktop.interface font-name 'Cantarell 11'</code></p>
+
+<p><code>deepin</code> 下标准字体的 <code>key</code> 是 <code>font-standard</code> ，等宽字体的是 <code>font-monospace</code> ，值也是字符串类型。但它的字体大小是单独在 <code>font-size</code> 中设置的，值是浮点数类型。
+使用 <code>gsettings</code> 操作的方法就不再赘述了，与窗口主题一致。</p>
+
+<h4 id="hidpi-缩放"><code>HIDPI</code> 缩放</h4>
+
+<p><code>gnome</code> 下字体缩放的 <code>key</code> 是 <code>text-scaling-factor=，它的值是浮点数类型；窗口缩放的 =key</code> 是 <code>scaling-factor</code> ，但它的值是无符号整型，即非负的整数。</p>
+
+<p><code>deepin</code> 下缩放的 <strong>schema_id</strong> 变为了 <strong>com.deepin.xsettings</strong> ，字体缩放的 <code>key</code> 是 <code>scale-factor</code> ，它的值也是浮点数类型；窗口缩放的 <code>key</code> 是 <code>window-scale</code> ，它的值也是无符号整型。</p>
+
+<p><strong>注意：</strong> 只有在设置 <code>deepin</code> 缩放时 <code>schema_id</code> 才是 <code>com.deepin.xsettings</code> ，其他的设置时都是 <code>com.deepin.dde.appearance</code> 。</p>
+
+<hr />
+
+<p>以上介绍的设置方法在使用 <code>deepin</code> 或 <code>gnome</code> 作为桌面的 <code>linux</code> 发行版都可以适用，如 <code>ubuntu=，=fedora</code> 和 <code>deepin</code> 等，这些设置的改变桌面环境是会实时响应。</p>
+
+<p>希望这些能够帮助到你，如写一个自动备份和恢复的脚本等&hellip;</p>
+
+<p>如果你是想知道这些设置是如何生效的，请持续关注哦，本人计划在下篇文章中介绍 <code>deepin</code> 下的实现原理，谢谢支持。</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">jouyouyun</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">2019-02-10</span>
+  </p>
+  
+  
+</div><div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/images/reward/wechat-qr-code.png">
+        <span>微信打赏</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/images/reward/alipay-qr-code.png">
+        <span>支付宝打赏</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/deepin/">deepin</a>
+          <a href="/tags/gnome/">gnome</a>
+          <a href="/tags/theme/">theme</a>
+          <a href="/tags/gtk/">gtk</a>
+          <a href="/tags/icon/">icon</a>
+          <a href="/tags/cursor/">cursor</a>
+          <a href="/tags/font/">font</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/how-to-solved-origin-changed-apt-error/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">怎么处理 &#39;Origin&#39;值从&#39;Google, Inc.&#39;修改到了&#39;Google LLC&#39; 的 APT 错误</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/linux-auto-suspend/">
+            <span class="next-text nav-default">Linux 休眠自动唤醒</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:jouyouwen717@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://twitter.com/jouyouyun" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://github.com/jouyouyun" class="iconfont icon-github" title="github"></a>
+  <a href="https://jouyouyun.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2014 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">jouyouyun</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.ece58db6.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

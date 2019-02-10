@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>icon on jouyouyun&#39;s blog</title>
+    <link>https://jouyouyun.github.io/tags/icon/</link>
+    <description>Recent content in icon on jouyouyun&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>jouyouyun</copyright>
+    <lastBuildDate>Tue, 23 Oct 2018 21:38:21 +0800</lastBuildDate>
+    
+	<atom:link href="https://jouyouyun.github.io/tags/icon/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>linux 下 deepin 和 gnome 桌面的外观设置</title>
+      <link>https://jouyouyun.github.io/post/set-appearance-in-deepin-or-gnome/</link>
+      <pubDate>Tue, 23 Oct 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/set-appearance-in-deepin-or-gnome/</guid>
+      <description>桌面的外观设置一般包括窗口主题、图标主题、光标主题和字体设置，其中窗口主题就是常见的 gtk 主题，字体设置又包括标准字体、等款字体和字体大小。对于</description>
+    </item>
+    
+  </channel>
+</rss>

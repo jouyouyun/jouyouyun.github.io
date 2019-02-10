@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>module on jouyouyun&#39;s blog</title>
+    <link>https://jouyouyun.github.io/tags/module/</link>
+    <description>Recent content in module on jouyouyun&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>jouyouyun</copyright>
+    <lastBuildDate>Tue, 27 Nov 2018 21:38:21 +0800</lastBuildDate>
+    
+	<atom:link href="https://jouyouyun.github.io/tags/module/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Go 包管理之gom</title>
+      <link>https://jouyouyun.github.io/post/go-package-management/</link>
+      <pubDate>Tue, 27 Nov 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/go-package-management/</guid>
+      <description>Go Module 使用 Go Module 是官方用来管理 package 依赖的工具, 1.11 新加的, 使用时需要设置变量: GO111MODULE=on . go mod help 可以查看其帮助文档: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20</description>
+    </item>
+    
+  </channel>
+</rss>
