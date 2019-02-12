@@ -16,7 +16,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="jouyouyun" /><meta name="description" content="由于经常会用到使用 xrandr 设置屏幕属性, 而每次用的时候都要去查 man 手册, 有时还需要上网搜索例子. 这样一来就比较麻烦, 所以就想整理下 xrandr 的用法, 给出一些" /><meta name="keywords" content="jouyouyun, Hugo, theme, even" />
+<meta name="author" content="jouyouyun" /><meta name="description" content="由于经常会用到使用 xrandr 设置屏幕属性, 而每次用的时候都要去查 man 手册, 有时还需要上网搜索例子. 这样一来就比较麻烦, 所以就想整理下 xrandr 的用法, 给出一些常用的例子.
+查询 使用 xrandr -q 命令可以查询当前的显示器状态, 使用 xrandr --verbose 将会显示更详细的信息.
+设置分辨率 设置分辨率时需要指定设置的 ouput 以及 mode, 如将 eDP1 的分辨率改为 1920x1080, 命令就是 xrandr --output eDP1 --mode 1920x1080.
+但是单屏时不用这么麻烦, 可以直接使用命令 xrandr -s 1920x1080 来更改.
+" /><meta name="keywords" content="jouyouyun, Hugo, theme, even" />
 
 
 
@@ -39,18 +43,40 @@
 
 
 <meta property="og:title" content="XRandr Examples" />
-<meta property="og:description" content="由于经常会用到使用 xrandr 设置屏幕属性, 而每次用的时候都要去查 man 手册, 有时还需要上网搜索例子. 这样一来就比较麻烦, 所以就想整理下 xrandr 的用法, 给出一些" />
+<meta property="og:description" content="由于经常会用到使用 xrandr 设置屏幕属性, 而每次用的时候都要去查 man 手册, 有时还需要上网搜索例子.
+这样一来就比较麻烦, 所以就想整理下 xrandr 的用法, 给出一些常用的例子.
+
+查询
+
+使用 xrandr -q 命令可以查询当前的显示器状态, 使用 xrandr --verbose 将会显示更详细的信息.
+
+设置分辨率
+
+设置分辨率时需要指定设置的 ouput 以及 mode, 如将 eDP1 的分辨率改为 1920x1080, 命令就是 xrandr --output eDP1 --mode 1920x1080.
+
+但是单屏时不用这么麻烦, 可以直接使用命令 xrandr -s 1920x1080 来更改." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jouyouyun.github.io/post/xrandr-examples/" />
 <meta property="article:published_time" content="2016-06-06T16:52:30&#43;08:00"/>
-<meta property="article:modified_time" content="2019-02-10T17:57:35&#43;08:00"/>
+<meta property="article:modified_time" content="2019-02-12T14:36:53&#43;08:00"/>
 
 <meta itemprop="name" content="XRandr Examples">
-<meta itemprop="description" content="由于经常会用到使用 xrandr 设置屏幕属性, 而每次用的时候都要去查 man 手册, 有时还需要上网搜索例子. 这样一来就比较麻烦, 所以就想整理下 xrandr 的用法, 给出一些">
+<meta itemprop="description" content="由于经常会用到使用 xrandr 设置屏幕属性, 而每次用的时候都要去查 man 手册, 有时还需要上网搜索例子.
+这样一来就比较麻烦, 所以就想整理下 xrandr 的用法, 给出一些常用的例子.
+
+查询
+
+使用 xrandr -q 命令可以查询当前的显示器状态, 使用 xrandr --verbose 将会显示更详细的信息.
+
+设置分辨率
+
+设置分辨率时需要指定设置的 ouput 以及 mode, 如将 eDP1 的分辨率改为 1920x1080, 命令就是 xrandr --output eDP1 --mode 1920x1080.
+
+但是单屏时不用这么麻烦, 可以直接使用命令 xrandr -s 1920x1080 来更改.">
 
 
 <meta itemprop="datePublished" content="2016-06-06T16:52:30&#43;08:00" />
-<meta itemprop="dateModified" content="2019-02-10T17:57:35&#43;08:00" />
+<meta itemprop="dateModified" content="2019-02-12T14:36:53&#43;08:00" />
 <meta itemprop="wordCount" content="682">
 
 
@@ -58,7 +84,18 @@
 <meta itemprop="keywords" content="xrandr," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="XRandr Examples"/>
-<meta name="twitter:description" content="由于经常会用到使用 xrandr 设置屏幕属性, 而每次用的时候都要去查 man 手册, 有时还需要上网搜索例子. 这样一来就比较麻烦, 所以就想整理下 xrandr 的用法, 给出一些"/>
+<meta name="twitter:description" content="由于经常会用到使用 xrandr 设置屏幕属性, 而每次用的时候都要去查 man 手册, 有时还需要上网搜索例子.
+这样一来就比较麻烦, 所以就想整理下 xrandr 的用法, 给出一些常用的例子.
+
+查询
+
+使用 xrandr -q 命令可以查询当前的显示器状态, 使用 xrandr --verbose 将会显示更详细的信息.
+
+设置分辨率
+
+设置分辨率时需要指定设置的 ouput 以及 mode, 如将 eDP1 的分辨率改为 1920x1080, 命令就是 xrandr --output eDP1 --mode 1920x1080.
+
+但是单屏时不用这么麻烦, 可以直接使用命令 xrandr -s 1920x1080 来更改."/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -152,9 +189,7 @@
   </div>
 </div>
     <div class="post-content">
-      
-
-<p>由于经常会用到使用 <code>xrandr</code> 设置屏幕属性, 而每次用的时候都要去查 <code>man</code> 手册, 有时还需要上网搜索例子.
+      <p>由于经常会用到使用 <code>xrandr</code> 设置屏幕属性, 而每次用的时候都要去查 <code>man</code> 手册, 有时还需要上网搜索例子.
 这样一来就比较麻烦, 所以就想整理下 <code>xrandr</code> 的用法, 给出一些常用的例子.</p>
 
 <h2 id="查询">查询</h2>
@@ -240,7 +275,6 @@ Modeline <span class="s2">&#34;1440x900_60.00&#34;</span>  <span class="m">106</
 <p>另外屏幕的旋转, 镜像和缩放可以分别使用 <code>--rotate</code>, <code>reflect</code> 和 <code>--scale</code> 参数来实现.</p>
 
 <p>至于更详细的信息请使用 <code>man xrandr</code> 来查看.</p>
-
     </div>
 
     <div class="post-copyright">
@@ -250,7 +284,7 @@ Modeline <span class="s2">&#34;1440x900_60.00&#34;</span>  <span class="m">106</
   </p>
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
-    <span class="item-content">2019-02-10</span>
+    <span class="item-content">2019-02-12</span>
   </p>
   
   

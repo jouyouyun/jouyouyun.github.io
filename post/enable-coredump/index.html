@@ -16,7 +16,13 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="jouyouyun" /><meta name="description" content="简介 当一个程序崩溃时会产生一个 core 文件, 里面记录了这个程序崩溃的原因, 这些信息对于开发者是很有用的. 但是 core dumps 在大多数 linux 上是被禁用的, 下面就介绍" /><meta name="keywords" content="jouyouyun, Hugo, theme, even" />
+<meta name="author" content="jouyouyun" /><meta name="description" content="简介 当一个程序崩溃时会产生一个 core 文件, 里面记录了这个程序崩溃的原因, 这些信息对于开发者是很有用的.
+但是 core dumps 在大多数 linux 上是被禁用的, 下面就介绍下如何开启这个功能.
+开启 可以通过 ulimit -c 的输出知道此功能是否开启, 输出为 0 表示禁用, 否则为开启.
+临时开启 通过 ulimit -c unlimited 命令来开启 coredump 功能, 它会程序运行的当前目录生成一个 core 文件, 新的 core 会覆盖旧的.
+通过可以修改 /proc/sys/kernel/core_uses_pid 文件内容为 1 来生成以 pid 作为扩展名的 core 文件.
+通过修改 /proc/sys/kernel/core_pattern 可以修改 core 文件的保存位置和格式. 如把内容改为 /tmp/core-%e-%p-%t, 就表示把 core 文件保存到 /tmp 目录下, 文件名的格式为 core-命令名-pid-时间戳 .
+" /><meta name="keywords" content="jouyouyun, Hugo, theme, even" />
 
 
 
@@ -39,18 +45,50 @@
 
 
 <meta property="og:title" content="Enable Coredump" />
-<meta property="og:description" content="简介 当一个程序崩溃时会产生一个 core 文件, 里面记录了这个程序崩溃的原因, 这些信息对于开发者是很有用的. 但是 core dumps 在大多数 linux 上是被禁用的, 下面就介绍" />
+<meta property="og:description" content="简介
+
+当一个程序崩溃时会产生一个 core 文件, 里面记录了这个程序崩溃的原因, 这些信息对于开发者是很有用的.
+
+但是 core dumps 在大多数 linux 上是被禁用的, 下面就介绍下如何开启这个功能.
+
+开启
+
+可以通过 ulimit -c 的输出知道此功能是否开启, 输出为 0 表示禁用, 否则为开启.
+
+临时开启
+
+通过 ulimit -c unlimited 命令来开启 coredump 功能, 它会程序运行的当前目录生成一个 core 文件, 新的 core 会覆盖旧的.
+
+通过可以修改 /proc/sys/kernel/core_uses_pid 文件内容为 1 来生成以 pid 作为扩展名的 core 文件.
+
+通过修改 /proc/sys/kernel/core_pattern 可以修改 core 文件的保存位置和格式. 如把内容改为 /tmp/core-%e-%p-%t, 就表示把 core 文件保存到 /tmp 目录下, 文件名的格式为 core-命令名-pid-时间戳 ." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jouyouyun.github.io/post/enable-coredump/" />
 <meta property="article:published_time" content="2016-04-25T19:04:21&#43;08:00"/>
-<meta property="article:modified_time" content="2019-02-10T17:52:48&#43;08:00"/>
+<meta property="article:modified_time" content="2019-02-12T14:32:12&#43;08:00"/>
 
 <meta itemprop="name" content="Enable Coredump">
-<meta itemprop="description" content="简介 当一个程序崩溃时会产生一个 core 文件, 里面记录了这个程序崩溃的原因, 这些信息对于开发者是很有用的. 但是 core dumps 在大多数 linux 上是被禁用的, 下面就介绍">
+<meta itemprop="description" content="简介
+
+当一个程序崩溃时会产生一个 core 文件, 里面记录了这个程序崩溃的原因, 这些信息对于开发者是很有用的.
+
+但是 core dumps 在大多数 linux 上是被禁用的, 下面就介绍下如何开启这个功能.
+
+开启
+
+可以通过 ulimit -c 的输出知道此功能是否开启, 输出为 0 表示禁用, 否则为开启.
+
+临时开启
+
+通过 ulimit -c unlimited 命令来开启 coredump 功能, 它会程序运行的当前目录生成一个 core 文件, 新的 core 会覆盖旧的.
+
+通过可以修改 /proc/sys/kernel/core_uses_pid 文件内容为 1 来生成以 pid 作为扩展名的 core 文件.
+
+通过修改 /proc/sys/kernel/core_pattern 可以修改 core 文件的保存位置和格式. 如把内容改为 /tmp/core-%e-%p-%t, 就表示把 core 文件保存到 /tmp 目录下, 文件名的格式为 core-命令名-pid-时间戳 .">
 
 
 <meta itemprop="datePublished" content="2016-04-25T19:04:21&#43;08:00" />
-<meta itemprop="dateModified" content="2019-02-10T17:52:48&#43;08:00" />
+<meta itemprop="dateModified" content="2019-02-12T14:32:12&#43;08:00" />
 <meta itemprop="wordCount" content="427">
 
 
@@ -58,7 +96,23 @@
 <meta itemprop="keywords" content="coredump," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Enable Coredump"/>
-<meta name="twitter:description" content="简介 当一个程序崩溃时会产生一个 core 文件, 里面记录了这个程序崩溃的原因, 这些信息对于开发者是很有用的. 但是 core dumps 在大多数 linux 上是被禁用的, 下面就介绍"/>
+<meta name="twitter:description" content="简介
+
+当一个程序崩溃时会产生一个 core 文件, 里面记录了这个程序崩溃的原因, 这些信息对于开发者是很有用的.
+
+但是 core dumps 在大多数 linux 上是被禁用的, 下面就介绍下如何开启这个功能.
+
+开启
+
+可以通过 ulimit -c 的输出知道此功能是否开启, 输出为 0 表示禁用, 否则为开启.
+
+临时开启
+
+通过 ulimit -c unlimited 命令来开启 coredump 功能, 它会程序运行的当前目录生成一个 core 文件, 新的 core 会覆盖旧的.
+
+通过可以修改 /proc/sys/kernel/core_uses_pid 文件内容为 1 来生成以 pid 作为扩展名的 core 文件.
+
+通过修改 /proc/sys/kernel/core_pattern 可以修改 core 文件的保存位置和格式. 如把内容改为 /tmp/core-%e-%p-%t, 就表示把 core 文件保存到 /tmp 目录下, 文件名的格式为 core-命令名-pid-时间戳 ."/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -148,9 +202,7 @@
   </div>
 </div>
     <div class="post-content">
-      
-
-<h2 id="简介">简介</h2>
+      <h2 id="简介">简介</h2>
 
 <p>当一个程序崩溃时会产生一个 <code>core</code> 文件, 里面记录了这个程序崩溃的原因, 这些信息对于开发者是很有用的.</p>
 
@@ -215,7 +267,6 @@ kernel.core_pattern <span class="o">=</span> /tmp/core-%e-%s-%u-%g-%p-%t</code><
 
 <li><p><a href="http://www.cyberciti.biz/tips/linux-core-dumps.html">HowTo: Debug Crashed Linux Application Core Files</a></p></li>
 </ul>
-
     </div>
 
     <div class="post-copyright">
@@ -225,7 +276,7 @@ kernel.core_pattern <span class="o">=</span> /tmp/core-%e-%s-%u-%g-%p-%t</code><
   </p>
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
-    <span class="item-content">2019-02-10</span>
+    <span class="item-content">2019-02-12</span>
   </p>
   
   

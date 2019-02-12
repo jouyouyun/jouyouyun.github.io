@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="jouyouyun" /><meta name="description" content="系统如何设置时间 开机时根据硬件时钟来设置系统时钟. 如果开启了 NTP 服务, 会根据网络时间来校正系统时钟，确保时间准确. 关机时会根据系统时钟来设置硬" /><meta name="keywords" content="jouyouyun, Hugo, theme, even" />
+<meta name="author" content="jouyouyun" /><meta name="description" content="系统如何设置时间  开机时根据硬件时钟来设置系统时钟. 如果开启了 NTP 服务, 会根据网络时间来校正系统时钟，确保时间准确. 关机时会根据系统时钟来设置硬件时钟(localtime 标准除外).  时钟  硬件时钟: 即实时时钟 RTC 或 CMOS 时钟, 仅能保存年、月、日、时、分、秒这些时间数值，无法保存时间标准和是否使用夏令时调节. 系统时钟: 即软件时间, 与硬件时间分别维护，保存了时间、时区和夏令时设置.初始系统时钟是从硬件时间计算得来，计算时会考虑 /etc/adjtime 的设置. /etc/adjtime: 这个文件中记录了时区标准和时间偏移, 根据硬件时钟设置系统时间和设置硬件时钟都会根据时间偏移来计算的.所有的时钟都是有误差的，但是一般有固定的偏移, 这种于基值的差称为“time skew”或“时间偏移”. " /><meta name="keywords" content="jouyouyun, Hugo, theme, even" />
 
 
 
@@ -39,18 +39,46 @@
 
 
 <meta property="og:title" content="Linux 时间标准" />
-<meta property="og:description" content="系统如何设置时间 开机时根据硬件时钟来设置系统时钟. 如果开启了 NTP 服务, 会根据网络时间来校正系统时钟，确保时间准确. 关机时会根据系统时钟来设置硬" />
+<meta property="og:description" content="系统如何设置时间
+
+
+开机时根据硬件时钟来设置系统时钟.
+如果开启了 NTP 服务, 会根据网络时间来校正系统时钟，确保时间准确.
+关机时会根据系统时钟来设置硬件时钟(localtime 标准除外).
+
+
+时钟
+
+
+硬件时钟: 即实时时钟 RTC 或 CMOS 时钟, 仅能保存年、月、日、时、分、秒这些时间数值，无法保存时间标准和是否使用夏令时调节.
+系统时钟: 即软件时间, 与硬件时间分别维护，保存了时间、时区和夏令时设置.初始系统时钟是从硬件时间计算得来，计算时会考虑 /etc/adjtime 的设置.
+/etc/adjtime: 这个文件中记录了时区标准和时间偏移, 根据硬件时钟设置系统时间和设置硬件时钟都会根据时间偏移来计算的.所有的时钟都是有误差的，但是一般有固定的偏移, 这种于基值的差称为“time skew”或“时间偏移”.
+" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jouyouyun.github.io/post/linux-time-standard/" />
 <meta property="article:published_time" content="2018-08-27T21:38:21&#43;08:00"/>
-<meta property="article:modified_time" content="2019-02-10T17:54:51&#43;08:00"/>
+<meta property="article:modified_time" content="2019-02-12T14:35:18&#43;08:00"/>
 
 <meta itemprop="name" content="Linux 时间标准">
-<meta itemprop="description" content="系统如何设置时间 开机时根据硬件时钟来设置系统时钟. 如果开启了 NTP 服务, 会根据网络时间来校正系统时钟，确保时间准确. 关机时会根据系统时钟来设置硬">
+<meta itemprop="description" content="系统如何设置时间
+
+
+开机时根据硬件时钟来设置系统时钟.
+如果开启了 NTP 服务, 会根据网络时间来校正系统时钟，确保时间准确.
+关机时会根据系统时钟来设置硬件时钟(localtime 标准除外).
+
+
+时钟
+
+
+硬件时钟: 即实时时钟 RTC 或 CMOS 时钟, 仅能保存年、月、日、时、分、秒这些时间数值，无法保存时间标准和是否使用夏令时调节.
+系统时钟: 即软件时间, 与硬件时间分别维护，保存了时间、时区和夏令时设置.初始系统时钟是从硬件时间计算得来，计算时会考虑 /etc/adjtime 的设置.
+/etc/adjtime: 这个文件中记录了时区标准和时间偏移, 根据硬件时钟设置系统时间和设置硬件时钟都会根据时间偏移来计算的.所有的时钟都是有误差的，但是一般有固定的偏移, 这种于基值的差称为“time skew”或“时间偏移”.
+">
 
 
 <meta itemprop="datePublished" content="2018-08-27T21:38:21&#43;08:00" />
-<meta itemprop="dateModified" content="2019-02-10T17:54:51&#43;08:00" />
+<meta itemprop="dateModified" content="2019-02-12T14:35:18&#43;08:00" />
 <meta itemprop="wordCount" content="1224">
 
 
@@ -58,7 +86,21 @@
 <meta itemprop="keywords" content="timezone,localtime,rtc,utc," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Linux 时间标准"/>
-<meta name="twitter:description" content="系统如何设置时间 开机时根据硬件时钟来设置系统时钟. 如果开启了 NTP 服务, 会根据网络时间来校正系统时钟，确保时间准确. 关机时会根据系统时钟来设置硬"/>
+<meta name="twitter:description" content="系统如何设置时间
+
+
+开机时根据硬件时钟来设置系统时钟.
+如果开启了 NTP 服务, 会根据网络时间来校正系统时钟，确保时间准确.
+关机时会根据系统时钟来设置硬件时钟(localtime 标准除外).
+
+
+时钟
+
+
+硬件时钟: 即实时时钟 RTC 或 CMOS 时钟, 仅能保存年、月、日、时、分、秒这些时间数值，无法保存时间标准和是否使用夏令时调节.
+系统时钟: 即软件时间, 与硬件时间分别维护，保存了时间、时区和夏令时设置.初始系统时钟是从硬件时间计算得来，计算时会考虑 /etc/adjtime 的设置.
+/etc/adjtime: 这个文件中记录了时区标准和时间偏移, 根据硬件时钟设置系统时间和设置硬件时钟都会根据时间偏移来计算的.所有的时钟都是有误差的，但是一般有固定的偏移, 这种于基值的差称为“time skew”或“时间偏移”.
+"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -154,9 +196,7 @@
   </div>
 </div>
     <div class="post-content">
-      
-
-<h2 id="系统如何设置时间">系统如何设置时间</h2>
+      <h2 id="系统如何设置时间">系统如何设置时间</h2>
 
 <ol>
 <li>开机时根据硬件时钟来设置系统时钟.</li>
@@ -341,7 +381,6 @@ America/New_York  Sun Nov  <span class="m">6</span> <span class="m">06</span>:00
 </div>
 </div>
 <p>其中 <code>isdst=1</code> 就表示夏令时被启用.</p>
-
     </div>
 
     <div class="post-copyright">
@@ -351,7 +390,7 @@ America/New_York  Sun Nov  <span class="m">6</span> <span class="m">06</span>:00
   </p>
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
-    <span class="item-content">2019-02-10</span>
+    <span class="item-content">2019-02-12</span>
   </p>
   
   

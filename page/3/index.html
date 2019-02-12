@@ -122,7 +122,33 @@
   
   <div class="post-content">
     <div class="post-summary">
-      简介 RESTfull 即表现层状态转换，是一种设计风格，不是标准。其要点如下： 资源由 URI 来指定 每个资源都有与之对应的 URI=，一个 =URI 只能对应一种资源，但一种资
+      <h2 id="简介">简介</h2>
+
+<p><code>RESTfull</code> 即表现层状态转换，是一种设计风格，不是标准。其要点如下：</p>
+
+<ul>
+<li><p>资源由 <code>URI</code> 来指定</p>
+
+<p>每个资源都有与之对应的 <code>URI=，一个 =URI</code> 只能对应一种资源，但一种资源可以对应多个 <code>URI</code> 不同的分类方法)。</p></li>
+
+<li><p>对资源的操作对应到 <code>HTTP</code> 协议提供的方法</p>
+
+<p>如增删改查等操作，对应 <code>HTTP</code> 协议的 <code>POST, DELETE, PUT, GET</code> 等方法</p></li>
+
+<li><p>资源的表现形式通常广泛流行的协议和标准</p>
+
+<p>如 <code>JSON, XML, HTML</code> 等格式，当然也可以是其它格式或者私有格式，但一定足够能描述自己</p></li>
+
+<li><p>通过操作资源的表现形式来操作资源</p>
+
+<p>通过修改表现形式再辅以 <code>HTTP</code> 协议的方法，应用就可以管理资源</p></li>
+
+<li><p>以超媒体作为应用状态的引擎</p>
+
+<p>资源相关操作的 <code>URI</code> 可附加在表现形式内，应用根据自身状态选择相应的 <code>URI</code> 来更改状态。</p>
+
+<p>操作可以是 <code>URI</code> 外，也可以是一段代码，让应用执行。</p></li>
+</ul>
     </div>
     <div class="read-more">
       <a href="/post/restfull-introduction/" class="read-more-link">阅读更多</a>
@@ -143,7 +169,13 @@
   
   <div class="post-content">
     <div class="post-summary">
-      在开发新功能或修复 bug 时，一般需要新建一个分支，然后在它之上进行开发。在多人协同开发时，经常会同时修改相同的分支或相同的文件，这时就需要进行 rebase
+      <p>在开发新功能或修复 <code>bug</code> 时，一般需要新建一个分支，然后在它之上进行开发。在多人协同开发时，经常会同时修改相同的分支或相同的文件，这时就需要进行 <code>rebase</code> 操作在提交你的代码之前。</p>
+
+<p>但有时 <code>rebase</code> 会带来不想要的提交，或处理冲突时误操作执行了 <code>git rebase --skip</code> 。此时就想要回退到之前的提交，恢复自己的数据， <code>reflog</code> 就可以帮助你完成数据恢复。</p>
+
+<h2 id="reflog">reflog</h2>
+
+<p>当你工作时，=Git= 会在你每次修改了 <code>HEAD</code> 时悄悄地将改动记录下来。当你提交或修改分支时， <code>reflog</code> 就会更新。通过 <code>git reflog</code> 命令可以查看当前的状态：</p>
     </div>
     <div class="read-more">
       <a href="/post/git-rebase/" class="read-more-link">阅读更多</a>
@@ -164,7 +196,25 @@
   
   <div class="post-content">
     <div class="post-summary">
-      Installation sudo apt install cups ghostscript gsfonts Driver gutenprint 一组质量非常好的驱动集合，支持的目标机型包括 Canon, Epson, Lexmark, Sony, Olympus ；以及配合 CUPS/GhostSscript/Foomatic/GIMP 使用的 PCL printers 。 安装包: cups-driver-gutenprint gimp-gutenprint ijsgutenprint printer-driver-gutenprint foomatic Foomatic 是一个基于数据库的，集成
+      <h2 id="installation">Installation</h2>
+
+<p><code>sudo apt install cups ghostscript gsfonts</code></p>
+
+<h2 id="driver">Driver</h2>
+
+<ul>
+<li><p>gutenprint</p>
+
+<p>一组质量非常好的驱动集合，支持的目标机型包括 <code>Canon, Epson, Lexmark, Sony, Olympus</code> ；以及配合 <code>CUPS/GhostSscript/Foomatic/GIMP</code> 使用的 <code>PCL printers</code> 。</p>
+
+<p>安装包: <code>cups-driver-gutenprint gimp-gutenprint ijsgutenprint printer-driver-gutenprint</code></p></li>
+
+<li><p>foomatic</p>
+
+<p><code>Foomatic</code> 是一个基于数据库的，集成自由软件打印机驱动和脱机打印程序的系统。</p>
+
+<p>安装包: <code>foomatic-db foomatic-db-engine foomatic-db-compressed-ppds foomatic-db-gutenprint foomatic-filters</code> 以及 <code>foomatic-db-nonfree</code></p></li>
+</ul>
     </div>
     <div class="read-more">
       <a href="/post/cups-notes/" class="read-more-link">阅读更多</a>
@@ -185,7 +235,30 @@
   
   <div class="post-content">
     <div class="post-summary">
-      收集遇到的 bluetooth 问题，使用的是 deepin 。 控制中心不显示蓝牙模块 蓝牙模块不显示时，可以按照以下步骤来查找原因： 执行 sudo dmesg|grub bluetooth 查看输出结果 输出里有 timeout 此时再用 systemctl
+      <p>收集遇到的 <code>bluetooth</code> 问题，使用的是 <code>deepin</code> 。</p>
+
+<h2 id="控制中心不显示蓝牙模块">控制中心不显示蓝牙模块</h2>
+
+<p>蓝牙模块不显示时，可以按照以下步骤来查找原因：</p>
+
+<ol>
+<li><p>执行 <code>sudo dmesg|grub bluetooth</code> 查看输出结果</p>
+
+<ul>
+<li><p>输出里有 <code>timeout</code></p>
+
+<p>此时再用 <code>systemctl status bluetooth.service</code> 看下服务有没有正常启动，错误信息是什么，然后根据错误去网上搜索答案。</p>
+
+<p>如果蓝牙是由网卡提供的，此时可以试着开关一下网卡的硬件开关。因为内核在初始化网卡之前初始化蓝牙，就会导致蓝牙设备不可用，重新初始化一次就好了。
+如果还是无效那就重启进入 <code>window</code> ，再 <code>window</code> 里开关一次蓝牙再重启到 <code>linux</code> 。</p></li>
+
+<li><p>输出里无 <code>timeout</code></p>
+
+<p>这就表明初始化没问题，继续下一步</p></li>
+</ul></li>
+</ol>
+
+<hr />
     </div>
     <div class="read-more">
       <a href="/post/bluetooth-faq/" class="read-more-link">阅读更多</a>
@@ -206,7 +279,13 @@
   
   <div class="post-content">
     <div class="post-summary">
-      背景 平时经常用显示器的分辨率去设置 Grub 的分辨率，虽然大部分都没有问题，但有时却没有用。所以就把 Grub 分辨率的设置方法详细说明一下，留档记录。 查询支
+      <h2 id="背景">背景</h2>
+
+<p>平时经常用显示器的分辨率去设置 <code>Grub</code> 的分辨率，虽然大部分都没有问题，但有时却没有用。所以就把 <code>Grub</code> 分辨率的设置方法详细说明一下，留档记录。</p>
+
+<h2 id="查询支持的分辨率">查询支持的分辨率</h2>
+
+<p>在设置 <code>Grub</code> 分辨率之前，需要先知道支持的分辨率列表，而幸运的是可以到 <code>Grub</code> 命令行查询。</p>
     </div>
     <div class="read-more">
       <a href="/post/set-grup2-resolution/" class="read-more-link">阅读更多</a>

@@ -18,7 +18,9 @@
       <pubDate>Sun, 20 Jul 2014 00:54:21 +0800</pubDate>
       
       <guid>https://jouyouyun.github.io/post/go-tcp-socket-example/</guid>
-      <description>一个简单的 TCP Socket 的示例，使用 gob 处理传输的数据。 server.go 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47</description>
+      <description>&lt;p&gt;一个简单的 &lt;code&gt;TCP Socket&lt;/code&gt; 的示例，使用 &lt;code&gt;gob&lt;/code&gt; 处理传输的数据。&lt;/p&gt;
+
+&lt;h2 id=&#34;server-dot-go&#34;&gt;&lt;code&gt;server.go&lt;/code&gt;&lt;/h2&gt;</description>
     </item>
     
   </channel>

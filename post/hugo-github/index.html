@@ -16,7 +16,10 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="jouyouyun" /><meta name="description" content="hugo 是由 Go 语言实现的静态网站生成器, 简单、易用、高效、易扩展、快速部署。 安装 到 Release 下载对应系统的二进制文件压缩包, 然后解压, 并把得到的二进制复制" /><meta name="keywords" content="jouyouyun, Hugo, theme, even" />
+<meta name="author" content="jouyouyun" /><meta name="description" content="hugo 是由 Go 语言实现的静态网站生成器, 简单、易用、高效、易扩展、快速部署。
+安装 到 Release 下载对应系统的二进制文件压缩包, 然后解压, 并把得到的二进制复制到 Path 中.
+简单使用 创建一个站点 使用命令 hugo new site &amp;lt;dir&amp;gt; 来创建站点, 创建后的结构如下:
+" /><meta name="keywords" content="jouyouyun, Hugo, theme, even" />
 
 
 
@@ -39,26 +42,56 @@
 
 
 <meta property="og:title" content="使用 hugo 写博客" />
-<meta property="og:description" content="hugo 是由 Go 语言实现的静态网站生成器, 简单、易用、高效、易扩展、快速部署。 安装 到 Release 下载对应系统的二进制文件压缩包, 然后解压, 并把得到的二进制复制" />
+<meta property="og:description" content="hugo 是由 Go 语言实现的静态网站生成器, 简单、易用、高效、易扩展、快速部署。
+
+安装
+
+到 Release 下载对应系统的二进制文件压缩包, 然后解压, 并把得到的二进制复制到 Path 中.
+
+简单使用
+
+创建一个站点
+
+使用命令 hugo new site &lt;dir&gt; 来创建站点, 创建后的结构如下:" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jouyouyun.github.io/post/hugo-github/" />
 <meta property="article:published_time" content="2019-02-02T17:31:21&#43;08:00"/>
-<meta property="article:modified_time" content="2019-02-10T17:54:23&#43;08:00"/>
+<meta property="article:modified_time" content="2019-02-12T14:22:14&#43;08:00"/>
 
 <meta itemprop="name" content="使用 hugo 写博客">
-<meta itemprop="description" content="hugo 是由 Go 语言实现的静态网站生成器, 简单、易用、高效、易扩展、快速部署。 安装 到 Release 下载对应系统的二进制文件压缩包, 然后解压, 并把得到的二进制复制">
+<meta itemprop="description" content="hugo 是由 Go 语言实现的静态网站生成器, 简单、易用、高效、易扩展、快速部署。
+
+安装
+
+到 Release 下载对应系统的二进制文件压缩包, 然后解压, 并把得到的二进制复制到 Path 中.
+
+简单使用
+
+创建一个站点
+
+使用命令 hugo new site &lt;dir&gt; 来创建站点, 创建后的结构如下:">
 
 
 <meta itemprop="datePublished" content="2019-02-02T17:31:21&#43;08:00" />
-<meta itemprop="dateModified" content="2019-02-10T17:54:23&#43;08:00" />
+<meta itemprop="dateModified" content="2019-02-12T14:22:14&#43;08:00" />
 <meta itemprop="wordCount" content="848">
 
 
 
-<meta itemprop="keywords" content="hugo," />
+<meta itemprop="keywords" content="hugo,even," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="使用 hugo 写博客"/>
-<meta name="twitter:description" content="hugo 是由 Go 语言实现的静态网站生成器, 简单、易用、高效、易扩展、快速部署。 安装 到 Release 下载对应系统的二进制文件压缩包, 然后解压, 并把得到的二进制复制"/>
+<meta name="twitter:description" content="hugo 是由 Go 语言实现的静态网站生成器, 简单、易用、高效、易扩展、快速部署。
+
+安装
+
+到 Release 下载对应系统的二进制文件压缩包, 然后解压, 并把得到的二进制复制到 Path 中.
+
+简单使用
+
+创建一个站点
+
+使用命令 hugo new site &lt;dir&gt; 来创建站点, 创建后的结构如下:"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -152,9 +185,7 @@
   </div>
 </div>
     <div class="post-content">
-      
-
-<p><a href="https://github.com/gohugoio/hugo">hugo</a> 是由 <code>Go</code> 语言实现的静态网站生成器, 简单、易用、高效、易扩展、快速部署。</p>
+      <p><a href="https://github.com/gohugoio/hugo">hugo</a> 是由 <code>Go</code> 语言实现的静态网站生成器, 简单、易用、高效、易扩展、快速部署。</p>
 
 <h2 id="安装">安装</h2>
 
@@ -165,6 +196,7 @@
 <h3 id="创建一个站点">创建一个站点</h3>
 
 <p>使用命令 <code>hugo new site &lt;dir&gt;</code> 来创建站点, 创建后的结构如下:</p>
+
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
@@ -287,8 +319,7 @@ git commit -am <span class="s2">&#34;Update submodule url.&#34;</span></code></p
 
 <h2 id="自动发布到-github-page">自动发布到 <code>Github Page</code></h2>
 
-<p>在 <code>github</code> 创建一个以 <code>&lt;username&gt;.github.io</code> 命令的仓库, 然后将 <code>public</code> 中的文件 <code>push</code> 到刚才的 <code>repo</code> 中.</p>
-
+<p>在 <code>github</code> 创建一个以 <code>&lt;username&gt;.github.io</code> 命名的仓库, 然后将 <code>public</code> 中的文件 <code>push</code> 到刚才的 <code>repo</code> 中.</p>
     </div>
 
     <div class="post-copyright">
@@ -298,7 +329,7 @@ git commit -am <span class="s2">&#34;Update submodule url.&#34;</span></code></p
   </p>
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
-    <span class="item-content">2019-02-10</span>
+    <span class="item-content">2019-02-12</span>
   </p>
   
   
@@ -319,6 +350,7 @@ git commit -am <span class="s2">&#34;Update submodule url.&#34;</span></code></p
 </div><footer class="post-footer">
       <div class="post-tags">
           <a href="/tags/hugo/">hugo</a>
+          <a href="/tags/even/">even</a>
           </div>
       <nav class="post-nav">
         

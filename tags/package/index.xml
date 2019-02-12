@@ -18,7 +18,11 @@
       <pubDate>Tue, 27 Nov 2018 21:38:21 +0800</pubDate>
       
       <guid>https://jouyouyun.github.io/post/go-package-management/</guid>
-      <description>Go Module 使用 Go Module 是官方用来管理 package 依赖的工具, 1.11 新加的, 使用时需要设置变量: GO111MODULE=on . go mod help 可以查看其帮助文档: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20</description>
+      <description>&lt;h2 id=&#34;go-module-使用&#34;&gt;Go Module 使用&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;Go Module&lt;/code&gt; 是官方用来管理 &lt;code&gt;package&lt;/code&gt; 依赖的工具, &lt;code&gt;1.11&lt;/code&gt; 新加的, 使用时需要设置变量: &lt;code&gt;GO111MODULE=on&lt;/code&gt; .&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;go mod help&lt;/code&gt; 可以查看其帮助文档:&lt;/p&gt;</description>
     </item>
     
   </channel>

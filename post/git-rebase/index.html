@@ -16,7 +16,10 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="jouyouyun" /><meta name="description" content="在开发新功能或修复 bug 时，一般需要新建一个分支，然后在它之上进行开发。在多人协同开发时，经常会同时修改相同的分支或相同的文件，这时就需要进行 rebase" /><meta name="keywords" content="jouyouyun, Hugo, theme, even" />
+<meta name="author" content="jouyouyun" /><meta name="description" content="在开发新功能或修复 bug 时，一般需要新建一个分支，然后在它之上进行开发。在多人协同开发时，经常会同时修改相同的分支或相同的文件，这时就需要进行 rebase 操作在提交你的代码之前。
+但有时 rebase 会带来不想要的提交，或处理冲突时误操作执行了 git rebase --skip 。此时就想要回退到之前的提交，恢复自己的数据， reflog 就可以帮助你完成数据恢复。
+reflog 当你工作时，=Git= 会在你每次修改了 HEAD 时悄悄地将改动记录下来。当你提交或修改分支时， reflog 就会更新。通过 git reflog 命令可以查看当前的状态：
+" /><meta name="keywords" content="jouyouyun, Hugo, theme, even" />
 
 
 
@@ -39,18 +42,30 @@
 
 
 <meta property="og:title" content="Git Rebase 回退" />
-<meta property="og:description" content="在开发新功能或修复 bug 时，一般需要新建一个分支，然后在它之上进行开发。在多人协同开发时，经常会同时修改相同的分支或相同的文件，这时就需要进行 rebase" />
+<meta property="og:description" content="在开发新功能或修复 bug 时，一般需要新建一个分支，然后在它之上进行开发。在多人协同开发时，经常会同时修改相同的分支或相同的文件，这时就需要进行 rebase 操作在提交你的代码之前。
+
+但有时 rebase 会带来不想要的提交，或处理冲突时误操作执行了 git rebase --skip 。此时就想要回退到之前的提交，恢复自己的数据， reflog 就可以帮助你完成数据恢复。
+
+reflog
+
+当你工作时，=Git= 会在你每次修改了 HEAD 时悄悄地将改动记录下来。当你提交或修改分支时， reflog 就会更新。通过 git reflog 命令可以查看当前的状态：" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jouyouyun.github.io/post/git-rebase/" />
 <meta property="article:published_time" content="2018-04-12T21:38:21&#43;08:00"/>
-<meta property="article:modified_time" content="2019-02-10T18:19:21&#43;08:00"/>
+<meta property="article:modified_time" content="2019-02-12T14:32:41&#43;08:00"/>
 
 <meta itemprop="name" content="Git Rebase 回退">
-<meta itemprop="description" content="在开发新功能或修复 bug 时，一般需要新建一个分支，然后在它之上进行开发。在多人协同开发时，经常会同时修改相同的分支或相同的文件，这时就需要进行 rebase">
+<meta itemprop="description" content="在开发新功能或修复 bug 时，一般需要新建一个分支，然后在它之上进行开发。在多人协同开发时，经常会同时修改相同的分支或相同的文件，这时就需要进行 rebase 操作在提交你的代码之前。
+
+但有时 rebase 会带来不想要的提交，或处理冲突时误操作执行了 git rebase --skip 。此时就想要回退到之前的提交，恢复自己的数据， reflog 就可以帮助你完成数据恢复。
+
+reflog
+
+当你工作时，=Git= 会在你每次修改了 HEAD 时悄悄地将改动记录下来。当你提交或修改分支时， reflog 就会更新。通过 git reflog 命令可以查看当前的状态：">
 
 
 <meta itemprop="datePublished" content="2018-04-12T21:38:21&#43;08:00" />
-<meta itemprop="dateModified" content="2019-02-10T18:19:21&#43;08:00" />
+<meta itemprop="dateModified" content="2019-02-12T14:32:41&#43;08:00" />
 <meta itemprop="wordCount" content="343">
 
 
@@ -58,7 +73,13 @@
 <meta itemprop="keywords" content="git,rebase,reflog,recovery," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Git Rebase 回退"/>
-<meta name="twitter:description" content="在开发新功能或修复 bug 时，一般需要新建一个分支，然后在它之上进行开发。在多人协同开发时，经常会同时修改相同的分支或相同的文件，这时就需要进行 rebase"/>
+<meta name="twitter:description" content="在开发新功能或修复 bug 时，一般需要新建一个分支，然后在它之上进行开发。在多人协同开发时，经常会同时修改相同的分支或相同的文件，这时就需要进行 rebase 操作在提交你的代码之前。
+
+但有时 rebase 会带来不想要的提交，或处理冲突时误操作执行了 git rebase --skip 。此时就想要回退到之前的提交，恢复自己的数据， reflog 就可以帮助你完成数据恢复。
+
+reflog
+
+当你工作时，=Git= 会在你每次修改了 HEAD 时悄悄地将改动记录下来。当你提交或修改分支时， reflog 就会更新。通过 git reflog 命令可以查看当前的状态："/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -142,15 +163,14 @@
   </div>
 </div>
     <div class="post-content">
-      
-
-<p>在开发新功能或修复 <code>bug</code> 时，一般需要新建一个分支，然后在它之上进行开发。在多人协同开发时，经常会同时修改相同的分支或相同的文件，这时就需要进行 <code>rebase</code> 操作在提交你的代码之前。</p>
+      <p>在开发新功能或修复 <code>bug</code> 时，一般需要新建一个分支，然后在它之上进行开发。在多人协同开发时，经常会同时修改相同的分支或相同的文件，这时就需要进行 <code>rebase</code> 操作在提交你的代码之前。</p>
 
 <p>但有时 <code>rebase</code> 会带来不想要的提交，或处理冲突时误操作执行了 <code>git rebase --skip</code> 。此时就想要回退到之前的提交，恢复自己的数据， <code>reflog</code> 就可以帮助你完成数据恢复。</p>
 
 <h2 id="reflog">reflog</h2>
 
 <p>当你工作时，=Git= 会在你每次修改了 <code>HEAD</code> 时悄悄地将改动记录下来。当你提交或修改分支时， <code>reflog</code> 就会更新。通过 <code>git reflog</code> 命令可以查看当前的状态：</p>
+
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
@@ -182,7 +202,6 @@ c469d2c HEAD@<span class="o">{</span><span class="m">3</span><span class="o">}</
 <p><code>git reset --hard HEAD@{8}</code></p>
 
 <p>同样这种方法也适用与其它的 <code>Git</code> 误操作。</p>
-
     </div>
 
     <div class="post-copyright">
@@ -192,7 +211,7 @@ c469d2c HEAD@<span class="o">{</span><span class="m">3</span><span class="o">}</
   </p>
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
-    <span class="item-content">2019-02-10</span>
+    <span class="item-content">2019-02-12</span>
   </p>
   
   

@@ -16,7 +16,15 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="jouyouyun" /><meta name="description" content="收集遇到的 bluetooth 问题，使用的是 deepin 。 控制中心不显示蓝牙模块 蓝牙模块不显示时，可以按照以下步骤来查找原因： 执行 sudo dmesg|grub bluetooth 查看输出结果 输出里有 timeout 此时再用 systemctl" /><meta name="keywords" content="jouyouyun, Hugo, theme, even" />
+<meta name="author" content="jouyouyun" /><meta name="description" content="收集遇到的 bluetooth 问题，使用的是 deepin 。
+控制中心不显示蓝牙模块 蓝牙模块不显示时，可以按照以下步骤来查找原因：
+ 执行 sudo dmesg|grub bluetooth 查看输出结果
+ 输出里有 timeout
+此时再用 systemctl status bluetooth.service 看下服务有没有正常启动，错误信息是什么，然后根据错误去网上搜索答案。
+如果蓝牙是由网卡提供的，此时可以试着开关一下网卡的硬件开关。因为内核在初始化网卡之前初始化蓝牙，就会导致蓝牙设备不可用，重新初始化一次就好了。 如果还是无效那就重启进入 window ，再 window 里开关一次蓝牙再重启到 linux 。
+ 输出里无 timeout
+这就表明初始化没问题，继续下一步
+   " /><meta name="keywords" content="jouyouyun, Hugo, theme, even" />
 
 
 
@@ -39,18 +47,64 @@
 
 
 <meta property="og:title" content="Bluetooth FAQ" />
-<meta property="og:description" content="收集遇到的 bluetooth 问题，使用的是 deepin 。 控制中心不显示蓝牙模块 蓝牙模块不显示时，可以按照以下步骤来查找原因： 执行 sudo dmesg|grub bluetooth 查看输出结果 输出里有 timeout 此时再用 systemctl" />
+<meta property="og:description" content="收集遇到的 bluetooth 问题，使用的是 deepin 。
+
+控制中心不显示蓝牙模块
+
+蓝牙模块不显示时，可以按照以下步骤来查找原因：
+
+
+执行 sudo dmesg|grub bluetooth 查看输出结果
+
+
+输出里有 timeout
+
+此时再用 systemctl status bluetooth.service 看下服务有没有正常启动，错误信息是什么，然后根据错误去网上搜索答案。
+
+如果蓝牙是由网卡提供的，此时可以试着开关一下网卡的硬件开关。因为内核在初始化网卡之前初始化蓝牙，就会导致蓝牙设备不可用，重新初始化一次就好了。
+如果还是无效那就重启进入 window ，再 window 里开关一次蓝牙再重启到 linux 。
+
+输出里无 timeout
+
+这就表明初始化没问题，继续下一步
+
+
+
+" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jouyouyun.github.io/post/bluetooth-faq/" />
 <meta property="article:published_time" content="2017-11-20T21:38:21&#43;08:00"/>
-<meta property="article:modified_time" content="2019-02-10T18:22:34&#43;08:00"/>
+<meta property="article:modified_time" content="2019-02-12T14:30:09&#43;08:00"/>
 
 <meta itemprop="name" content="Bluetooth FAQ">
-<meta itemprop="description" content="收集遇到的 bluetooth 问题，使用的是 deepin 。 控制中心不显示蓝牙模块 蓝牙模块不显示时，可以按照以下步骤来查找原因： 执行 sudo dmesg|grub bluetooth 查看输出结果 输出里有 timeout 此时再用 systemctl">
+<meta itemprop="description" content="收集遇到的 bluetooth 问题，使用的是 deepin 。
+
+控制中心不显示蓝牙模块
+
+蓝牙模块不显示时，可以按照以下步骤来查找原因：
+
+
+执行 sudo dmesg|grub bluetooth 查看输出结果
+
+
+输出里有 timeout
+
+此时再用 systemctl status bluetooth.service 看下服务有没有正常启动，错误信息是什么，然后根据错误去网上搜索答案。
+
+如果蓝牙是由网卡提供的，此时可以试着开关一下网卡的硬件开关。因为内核在初始化网卡之前初始化蓝牙，就会导致蓝牙设备不可用，重新初始化一次就好了。
+如果还是无效那就重启进入 window ，再 window 里开关一次蓝牙再重启到 linux 。
+
+输出里无 timeout
+
+这就表明初始化没问题，继续下一步
+
+
+
+">
 
 
 <meta itemprop="datePublished" content="2017-11-20T21:38:21&#43;08:00" />
-<meta itemprop="dateModified" content="2019-02-10T18:22:34&#43;08:00" />
+<meta itemprop="dateModified" content="2019-02-12T14:30:09&#43;08:00" />
 <meta itemprop="wordCount" content="758">
 
 
@@ -58,7 +112,30 @@
 <meta itemprop="keywords" content="bluetooth," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Bluetooth FAQ"/>
-<meta name="twitter:description" content="收集遇到的 bluetooth 问题，使用的是 deepin 。 控制中心不显示蓝牙模块 蓝牙模块不显示时，可以按照以下步骤来查找原因： 执行 sudo dmesg|grub bluetooth 查看输出结果 输出里有 timeout 此时再用 systemctl"/>
+<meta name="twitter:description" content="收集遇到的 bluetooth 问题，使用的是 deepin 。
+
+控制中心不显示蓝牙模块
+
+蓝牙模块不显示时，可以按照以下步骤来查找原因：
+
+
+执行 sudo dmesg|grub bluetooth 查看输出结果
+
+
+输出里有 timeout
+
+此时再用 systemctl status bluetooth.service 看下服务有没有正常启动，错误信息是什么，然后根据错误去网上搜索答案。
+
+如果蓝牙是由网卡提供的，此时可以试着开关一下网卡的硬件开关。因为内核在初始化网卡之前初始化蓝牙，就会导致蓝牙设备不可用，重新初始化一次就好了。
+如果还是无效那就重启进入 window ，再 window 里开关一次蓝牙再重启到 linux 。
+
+输出里无 timeout
+
+这就表明初始化没问题，继续下一步
+
+
+
+"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -144,11 +221,7 @@
   </div>
 </div>
     <div class="post-content">
-      
-
-<p>收集遇到的 <code>bluetooth</code> 问题，使用的是 <code>deepin</code> 。</p>
-
-<hr />
+      <p>收集遇到的 <code>bluetooth</code> 问题，使用的是 <code>deepin</code> 。</p>
 
 <h2 id="控制中心不显示蓝牙模块">控制中心不显示蓝牙模块</h2>
 
@@ -227,7 +300,6 @@
 
 <p>蓝牙音箱如果断开，先按照蓝牙耳机的方法试一下。如果不是，那就考虑是不是电脑的蓝牙不支持蓝牙高保真输出，因为 <code>deepin</code> 默认开启高保真。
 试着安装 <code>pavucontrol</code> 将蓝牙的 <code>profile(配置)</code> 切换为其它的，不过这样会导致音效很差，建议换掉电脑的蓝牙设备吧。</p>
-
     </div>
 
     <div class="post-copyright">
@@ -237,7 +309,7 @@
   </p>
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
-    <span class="item-content">2019-02-10</span>
+    <span class="item-content">2019-02-12</span>
   </p>
   
   

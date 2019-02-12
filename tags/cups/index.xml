@@ -18,7 +18,25 @@
       <pubDate>Sun, 08 Apr 2018 21:38:21 +0800</pubDate>
       
       <guid>https://jouyouyun.github.io/post/cups-notes/</guid>
-      <description>Installation sudo apt install cups ghostscript gsfonts Driver gutenprint 一组质量非常好的驱动集合，支持的目标机型包括 Canon, Epson, Lexmark, Sony, Olympus ；以及配合 CUPS/GhostSscript/Foomatic/GIMP 使用的 PCL printers 。 安装包: cups-driver-gutenprint gimp-gutenprint ijsgutenprint printer-driver-gutenprint foomatic Foomatic 是一个基于数据库的，集成</description>
+      <description>&lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;sudo apt install cups ghostscript gsfonts&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;driver&#34;&gt;Driver&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;gutenprint&lt;/p&gt;
+
+&lt;p&gt;一组质量非常好的驱动集合，支持的目标机型包括 &lt;code&gt;Canon, Epson, Lexmark, Sony, Olympus&lt;/code&gt; ；以及配合 &lt;code&gt;CUPS/GhostSscript/Foomatic/GIMP&lt;/code&gt; 使用的 &lt;code&gt;PCL printers&lt;/code&gt; 。&lt;/p&gt;
+
+&lt;p&gt;安装包: &lt;code&gt;cups-driver-gutenprint gimp-gutenprint ijsgutenprint printer-driver-gutenprint&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;foomatic&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Foomatic&lt;/code&gt; 是一个基于数据库的，集成自由软件打印机驱动和脱机打印程序的系统。&lt;/p&gt;
+
+&lt;p&gt;安装包: &lt;code&gt;foomatic-db foomatic-db-engine foomatic-db-compressed-ppds foomatic-db-gutenprint foomatic-filters&lt;/code&gt; 以及 &lt;code&gt;foomatic-db-nonfree&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
     </item>
     
   </channel>

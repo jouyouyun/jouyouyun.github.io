@@ -16,7 +16,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="jouyouyun" /><meta name="description" content="本周去某公司调试系统，他们硬件测试部分送来了一台系统无法进入的机器，他们也不知道怎么弄得，让我看下是系统原因还是 SSD 硬件有问题。 拿到机器开机后" /><meta name="keywords" content="jouyouyun, Hugo, theme, even" />
+<meta name="author" content="jouyouyun" /><meta name="description" content="本周去某公司调试系统，他们硬件测试部分送来了一台系统无法进入的机器，他们也不知道怎么弄得，让我看下是系统原因还是 SSD 硬件有问题。
+拿到机器开机后，没有正常的进入系统，直接进入了 initramfs mode 并有 filesystem invalid superblock checksum error 的错误提示，遂告诉他们是系统的 filesystem 挂了，然后开始查找修复方法，最后找到了方法并修复了机器，在此记录一下。
+修复方法 下面的命令都是在 initramfs shell 中执行的。
+先确定你系统所在的分区 可以执行 lsblk 来查看分区信息，然后确定，假如是 /dev/sdaX
+" /><meta name="keywords" content="jouyouyun, Hugo, theme, even" />
 
 
 
@@ -39,26 +43,56 @@
 
 
 <meta property="og:title" content="修复 superblock" />
-<meta property="og:description" content="本周去某公司调试系统，他们硬件测试部分送来了一台系统无法进入的机器，他们也不知道怎么弄得，让我看下是系统原因还是 SSD 硬件有问题。 拿到机器开机后" />
+<meta property="og:description" content="本周去某公司调试系统，他们硬件测试部分送来了一台系统无法进入的机器，他们也不知道怎么弄得，让我看下是系统原因还是 SSD 硬件有问题。
+
+拿到机器开机后，没有正常的进入系统，直接进入了 initramfs mode 并有 filesystem invalid superblock checksum error 的错误提示，遂告诉他们是系统的 filesystem 挂了，然后开始查找修复方法，最后找到了方法并修复了机器，在此记录一下。
+
+修复方法
+
+下面的命令都是在 initramfs shell 中执行的。
+
+先确定你系统所在的分区
+
+可以执行 lsblk 来查看分区信息，然后确定，假如是 /dev/sdaX" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jouyouyun.github.io/post/fixed-superblock/" />
 <meta property="article:published_time" content="2018-07-27T21:38:21&#43;08:00"/>
-<meta property="article:modified_time" content="2019-02-10T18:18:05&#43;08:00"/>
+<meta property="article:modified_time" content="2019-02-12T14:38:17&#43;08:00"/>
 
 <meta itemprop="name" content="修复 superblock">
-<meta itemprop="description" content="本周去某公司调试系统，他们硬件测试部分送来了一台系统无法进入的机器，他们也不知道怎么弄得，让我看下是系统原因还是 SSD 硬件有问题。 拿到机器开机后">
+<meta itemprop="description" content="本周去某公司调试系统，他们硬件测试部分送来了一台系统无法进入的机器，他们也不知道怎么弄得，让我看下是系统原因还是 SSD 硬件有问题。
+
+拿到机器开机后，没有正常的进入系统，直接进入了 initramfs mode 并有 filesystem invalid superblock checksum error 的错误提示，遂告诉他们是系统的 filesystem 挂了，然后开始查找修复方法，最后找到了方法并修复了机器，在此记录一下。
+
+修复方法
+
+下面的命令都是在 initramfs shell 中执行的。
+
+先确定你系统所在的分区
+
+可以执行 lsblk 来查看分区信息，然后确定，假如是 /dev/sdaX">
 
 
 <meta itemprop="datePublished" content="2018-07-27T21:38:21&#43;08:00" />
-<meta itemprop="dateModified" content="2019-02-10T18:18:05&#43;08:00" />
-<meta itemprop="wordCount" content="462">
+<meta itemprop="dateModified" content="2019-02-12T14:38:17&#43;08:00" />
+<meta itemprop="wordCount" content="442">
 
 
 
 <meta itemprop="keywords" content="superblock," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="修复 superblock"/>
-<meta name="twitter:description" content="本周去某公司调试系统，他们硬件测试部分送来了一台系统无法进入的机器，他们也不知道怎么弄得，让我看下是系统原因还是 SSD 硬件有问题。 拿到机器开机后"/>
+<meta name="twitter:description" content="本周去某公司调试系统，他们硬件测试部分送来了一台系统无法进入的机器，他们也不知道怎么弄得，让我看下是系统原因还是 SSD 硬件有问题。
+
+拿到机器开机后，没有正常的进入系统，直接进入了 initramfs mode 并有 filesystem invalid superblock checksum error 的错误提示，遂告诉他们是系统的 filesystem 挂了，然后开始查找修复方法，最后找到了方法并修复了机器，在此记录一下。
+
+修复方法
+
+下面的命令都是在 initramfs shell 中执行的。
+
+先确定你系统所在的分区
+
+可以执行 lsblk 来查看分区信息，然后确定，假如是 /dev/sdaX"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -147,13 +181,9 @@
   </div>
 </div>
     <div class="post-content">
-      
+      <p>本周去某公司调试系统，他们硬件测试部分送来了一台系统无法进入的机器，他们也不知道怎么弄得，让我看下是系统原因还是 <code>SSD</code> 硬件有问题。</p>
 
-<p>本周去某公司调试系统，他们硬件测试部分送来了一台系统无法进入的机器，他们也不知道怎么弄得，让我看下是系统原因还是 <code>SSD</code> 硬件有问题。</p>
-
-<p>拿到机器开机后，没有正常的进入系统，直接进入了=initramfs mode= 并有=filesystem invalid superblock checksum error = 的错误提示，遂告诉他们是系统的 <code>filesystem</code> 挂了，然后开始查找修复方法，最后找到了方法并修复了机器，在此记录一下。</p>
-
-<hr />
+<p>拿到机器开机后，没有正常的进入系统，直接进入了 <code>initramfs mode</code> 并有 <code>filesystem invalid superblock checksum error</code> 的错误提示，遂告诉他们是系统的 <code>filesystem</code> 挂了，然后开始查找修复方法，最后找到了方法并修复了机器，在此记录一下。</p>
 
 <h2 id="修复方法">修复方法</h2>
 
@@ -211,7 +241,6 @@ Proceed anyway? <span class="o">(</span>y,N<span class="o">)</span> y
 <p>先使用备份中列块的第一个 <code>number</code> 进行恢复，命令： <code>e2fsck -b 32768 /dev/sdaX -y</code> , 执行完成后重启。</p>
 
 <p>如果重启还是进不了系统，就换一个 <code>列块 number</code> 继续恢复，然后重启，直至成功。</p>
-
     </div>
 
     <div class="post-copyright">
@@ -221,7 +250,7 @@ Proceed anyway? <span class="o">(</span>y,N<span class="o">)</span> y
   </p>
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
-    <span class="item-content">2019-02-10</span>
+    <span class="item-content">2019-02-12</span>
   </p>
   
   

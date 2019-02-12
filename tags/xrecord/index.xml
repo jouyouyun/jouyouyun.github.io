@@ -18,7 +18,8 @@
       <pubDate>Fri, 18 Apr 2014 17:42:15 +0800</pubDate>
       
       <guid>https://jouyouyun.github.io/post/xrecord-example/</guid>
-      <description>最近在做快捷键绑定的项目，但在绑定单按键时发现 XGrabKey 无法处理。遂请教组长，得知 XRecord 可以处理，于是就去查找 XRecord 的相关资料，但却很少。 所以在此记录一下整</description>
+      <description>&lt;p&gt;最近在做快捷键绑定的项目，但在绑定单按键时发现 &lt;code&gt;XGrabKey&lt;/code&gt; 无法处理。遂请教组长，得知 &lt;code&gt;XRecord&lt;/code&gt; 可以处理，于是就去查找 &lt;code&gt;XRecord&lt;/code&gt; 的相关资料，但却很少。
+所以在此记录一下整理的示例代码，以便日后查看，其功能在代码注释中写出。&lt;/p&gt;</description>
     </item>
     
   </channel>

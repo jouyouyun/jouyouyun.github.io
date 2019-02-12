@@ -18,7 +18,13 @@
       <pubDate>Wed, 03 Feb 2016 14:58:21 +0800</pubDate>
       
       <guid>https://jouyouyun.github.io/post/xsetwacom-options/</guid>
-      <description>xsetwacom 是一个设置数位板的命令行工具, 在 Debian/Ubuntu/deepin 上可以通过安装 xserver-xorg-input-wacom 来获取它. 可以通过 man xsetwacom 看到它的帮助文档, 下面就简单说明下它的部份选项: Options Area args: x1 y1 x2 y2 default: 0</description>
+      <description>&lt;p&gt;&lt;code&gt;xsetwacom&lt;/code&gt; 是一个设置数位板的命令行工具, 在 &lt;code&gt;Debian/Ubuntu/deepin&lt;/code&gt; 上可以通过安装 &lt;code&gt;xserver-xorg-input-wacom&lt;/code&gt; 来获取它.&lt;/p&gt;
+
+&lt;p&gt;可以通过 &lt;code&gt;man xsetwacom&lt;/code&gt; 看到它的帮助文档, 下面就简单说明下它的部份选项:&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;options&#34;&gt;Options&lt;/h2&gt;</description>
     </item>
     
   </channel>

@@ -18,7 +18,30 @@
       <pubDate>Mon, 20 Nov 2017 21:38:21 +0800</pubDate>
       
       <guid>https://jouyouyun.github.io/post/bluetooth-faq/</guid>
-      <description>收集遇到的 bluetooth 问题，使用的是 deepin 。 控制中心不显示蓝牙模块 蓝牙模块不显示时，可以按照以下步骤来查找原因： 执行 sudo dmesg|grub bluetooth 查看输出结果 输出里有 timeout 此时再用 systemctl</description>
+      <description>&lt;p&gt;收集遇到的 &lt;code&gt;bluetooth&lt;/code&gt; 问题，使用的是 &lt;code&gt;deepin&lt;/code&gt; 。&lt;/p&gt;
+
+&lt;h2 id=&#34;控制中心不显示蓝牙模块&#34;&gt;控制中心不显示蓝牙模块&lt;/h2&gt;
+
+&lt;p&gt;蓝牙模块不显示时，可以按照以下步骤来查找原因：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;执行 &lt;code&gt;sudo dmesg|grub bluetooth&lt;/code&gt; 查看输出结果&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;输出里有 &lt;code&gt;timeout&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;此时再用 &lt;code&gt;systemctl status bluetooth.service&lt;/code&gt; 看下服务有没有正常启动，错误信息是什么，然后根据错误去网上搜索答案。&lt;/p&gt;
+
+&lt;p&gt;如果蓝牙是由网卡提供的，此时可以试着开关一下网卡的硬件开关。因为内核在初始化网卡之前初始化蓝牙，就会导致蓝牙设备不可用，重新初始化一次就好了。
+如果还是无效那就重启进入 &lt;code&gt;window&lt;/code&gt; ，再 &lt;code&gt;window&lt;/code&gt; 里开关一次蓝牙再重启到 &lt;code&gt;linux&lt;/code&gt; 。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;输出里无 &lt;code&gt;timeout&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;这就表明初始化没问题，继续下一步&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;</description>
     </item>
     
   </channel>

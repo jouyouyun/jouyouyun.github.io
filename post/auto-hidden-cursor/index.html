@@ -16,7 +16,10 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="jouyouyun" /><meta name="description" content="最近需要做一个隐藏光标的功能, 在这里将了解到的知识总结一下. 原理 隐藏光标的原理就是把光标设置为一个 x11 null cursor, 不需要隐藏时再将它设为 x11 left_ptr cursor. 设置光标" /><meta name="keywords" content="jouyouyun, Hugo, theme, even" />
+<meta name="author" content="jouyouyun" /><meta name="description" content="最近需要做一个隐藏光标的功能, 在这里将了解到的知识总结一下.
+原理 隐藏光标的原理就是把光标设置为一个 x11 null cursor, 不需要隐藏时再将它设为 x11 left_ptr cursor.
+设置光标 设置光标主要需要调用下面两个函数:
+" /><meta name="keywords" content="jouyouyun, Hugo, theme, even" />
 
 
 
@@ -39,18 +42,34 @@
 
 
 <meta property="og:title" content="Auto Hidden Cursor" />
-<meta property="og:description" content="最近需要做一个隐藏光标的功能, 在这里将了解到的知识总结一下. 原理 隐藏光标的原理就是把光标设置为一个 x11 null cursor, 不需要隐藏时再将它设为 x11 left_ptr cursor. 设置光标" />
+<meta property="og:description" content="最近需要做一个隐藏光标的功能, 在这里将了解到的知识总结一下.
+
+原理
+
+隐藏光标的原理就是把光标设置为一个 x11 null cursor, 不需要隐藏时再将它设为 x11 left_ptr cursor.
+
+设置光标
+
+设置光标主要需要调用下面两个函数:" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jouyouyun.github.io/post/auto-hidden-cursor/" />
 <meta property="article:published_time" content="2016-04-22T21:38:21&#43;08:00"/>
-<meta property="article:modified_time" content="2019-02-10T17:52:03&#43;08:00"/>
+<meta property="article:modified_time" content="2019-02-12T14:29:40&#43;08:00"/>
 
 <meta itemprop="name" content="Auto Hidden Cursor">
-<meta itemprop="description" content="最近需要做一个隐藏光标的功能, 在这里将了解到的知识总结一下. 原理 隐藏光标的原理就是把光标设置为一个 x11 null cursor, 不需要隐藏时再将它设为 x11 left_ptr cursor. 设置光标">
+<meta itemprop="description" content="最近需要做一个隐藏光标的功能, 在这里将了解到的知识总结一下.
+
+原理
+
+隐藏光标的原理就是把光标设置为一个 x11 null cursor, 不需要隐藏时再将它设为 x11 left_ptr cursor.
+
+设置光标
+
+设置光标主要需要调用下面两个函数:">
 
 
 <meta itemprop="datePublished" content="2016-04-22T21:38:21&#43;08:00" />
-<meta itemprop="dateModified" content="2019-02-10T17:52:03&#43;08:00" />
+<meta itemprop="dateModified" content="2019-02-12T14:29:40&#43;08:00" />
 <meta itemprop="wordCount" content="288">
 
 
@@ -58,7 +77,15 @@
 <meta itemprop="keywords" content="cursor," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Auto Hidden Cursor"/>
-<meta name="twitter:description" content="最近需要做一个隐藏光标的功能, 在这里将了解到的知识总结一下. 原理 隐藏光标的原理就是把光标设置为一个 x11 null cursor, 不需要隐藏时再将它设为 x11 left_ptr cursor. 设置光标"/>
+<meta name="twitter:description" content="最近需要做一个隐藏光标的功能, 在这里将了解到的知识总结一下.
+
+原理
+
+隐藏光标的原理就是把光标设置为一个 x11 null cursor, 不需要隐藏时再将它设为 x11 left_ptr cursor.
+
+设置光标
+
+设置光标主要需要调用下面两个函数:"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -147,9 +174,7 @@
   </div>
 </div>
     <div class="post-content">
-      
-
-<p>最近需要做一个隐藏光标的功能, 在这里将了解到的知识总结一下.</p>
+      <p>最近需要做一个隐藏光标的功能, 在这里将了解到的知识总结一下.</p>
 
 <h2 id="原理">原理</h2>
 
@@ -158,6 +183,7 @@
 <h3 id="设置光标">设置光标</h3>
 
 <p>设置光标主要需要调用下面两个函数:</p>
+
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-c" data-lang="c"><span class="lnt">1
@@ -212,7 +238,6 @@
 
 <p>如果使用 <code>lightdm</code> 作为登录管理器, 可以编辑 <code>/etc/lightdm/lightdm.conf</code> 文件,
 在 <code>[Seat:*]</code> 后添加 <code>xserver-command=X -bs -core -nocursor</code>.</p>
-
     </div>
 
     <div class="post-copyright">
@@ -222,7 +247,7 @@
   </p>
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
-    <span class="item-content">2019-02-10</span>
+    <span class="item-content">2019-02-12</span>
   </p>
   
   

@@ -18,7 +18,19 @@
       <pubDate>Mon, 17 Jul 2017 21:38:21 +0800</pubDate>
       
       <guid>https://jouyouyun.github.io/post/leanote-installation/</guid>
-      <description>Leanote 是一款开源的笔记软件, 支持使用 markdown 来编辑笔记, 并可选择是否将笔记导出成博客, 这对于知识整理及写博客都是非常方便的, 故来尝试下. 安装 Leanote 是使用 Golang</description>
+      <description>&lt;p&gt;&lt;code&gt;Leanote&lt;/code&gt; 是一款开源的笔记软件, 支持使用 &lt;code&gt;markdown&lt;/code&gt; 来编辑笔记, 并可选择是否将笔记导出成博客, 这对于知识整理及写博客都是非常方便的, 故来尝试下.&lt;/p&gt;
+
+&lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;Leanote&lt;/code&gt; 是使用 &lt;code&gt;Golang&lt;/code&gt; 编写的, 可以直接使用官方编译好的可执行文件.
+另外它使用的是 &lt;code&gt;mongodb&lt;/code&gt; 数据库, 可以从源里安装, 也可以从官网下载.
+以下的安装和配置都是基于最新的版本, 如果中途出错, 请看官方文档.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;Leanote&lt;/code&gt; 下载地址: &lt;a href=&#34;http://leanote.org/#download&#34;&gt;见这里&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;mongodb&lt;/code&gt; 下载地址: &lt;a href=&#34;https://www.mongodb.com/download-center&#34;&gt;见这里&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
     </item>
     
   </channel>

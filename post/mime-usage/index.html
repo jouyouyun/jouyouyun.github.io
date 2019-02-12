@@ -16,7 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="jouyouyun" /><meta name="description" content="基本使用 使用到的工具为: xdg-mime, gvfs-mime 查询文件的类型 使用 xdg-mime query filetype &amp;lt;filepath&amp;gt; 可以得到文件的类型 查询默认程序 使用 xdg-mime query default text/plain 或 gvfs-mime --query &amp;lt;mimetype&amp;gt;, gvfs-mime 还会列出支持此 mimetype 的所有程序 设置默认" /><meta name="keywords" content="jouyouyun, Hugo, theme, even" />
+<meta name="author" content="jouyouyun" /><meta name="description" content="基本使用 使用到的工具为: xdg-mime, gvfs-mime
+ 查询文件的类型
+使用 xdg-mime query filetype &amp;lt;filepath&amp;gt; 可以得到文件的类型
+ 查询默认程序
+使用 xdg-mime query default text/plain 或 gvfs-mime --query &amp;lt;mimetype&amp;gt;, gvfs-mime 还会列出支持此 mimetype 的所有程序
+ 设置默认程序
+如将 text/plain 的默认打开程序设置为 gvim.desktop, 可以执行 xdg-mime default gvim.desktop text/plain 或 gvfs-mime --set text/plain gvim.desktop
+ " /><meta name="keywords" content="jouyouyun, Hugo, theme, even" />
 
 
 
@@ -39,18 +46,50 @@
 
 
 <meta property="og:title" content="MIME Usage" />
-<meta property="og:description" content="基本使用 使用到的工具为: xdg-mime, gvfs-mime 查询文件的类型 使用 xdg-mime query filetype &lt;filepath&gt; 可以得到文件的类型 查询默认程序 使用 xdg-mime query default text/plain 或 gvfs-mime --query &lt;mimetype&gt;, gvfs-mime 还会列出支持此 mimetype 的所有程序 设置默认" />
+<meta property="og:description" content="基本使用
+
+使用到的工具为: xdg-mime, gvfs-mime
+
+
+查询文件的类型
+
+使用 xdg-mime query filetype &lt;filepath&gt; 可以得到文件的类型
+
+查询默认程序
+
+使用 xdg-mime query default text/plain 或 gvfs-mime --query &lt;mimetype&gt;, gvfs-mime 还会列出支持此 mimetype 的所有程序
+
+设置默认程序
+
+如将 text/plain 的默认打开程序设置为 gvim.desktop, 可以执行 xdg-mime default gvim.desktop text/plain 或 gvfs-mime --set text/plain gvim.desktop
+" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jouyouyun.github.io/post/mime-usage/" />
 <meta property="article:published_time" content="2016-12-14T21:38:21&#43;08:00"/>
-<meta property="article:modified_time" content="2019-02-10T18:24:30&#43;08:00"/>
+<meta property="article:modified_time" content="2019-02-12T14:35:27&#43;08:00"/>
 
 <meta itemprop="name" content="MIME Usage">
-<meta itemprop="description" content="基本使用 使用到的工具为: xdg-mime, gvfs-mime 查询文件的类型 使用 xdg-mime query filetype &lt;filepath&gt; 可以得到文件的类型 查询默认程序 使用 xdg-mime query default text/plain 或 gvfs-mime --query &lt;mimetype&gt;, gvfs-mime 还会列出支持此 mimetype 的所有程序 设置默认">
+<meta itemprop="description" content="基本使用
+
+使用到的工具为: xdg-mime, gvfs-mime
+
+
+查询文件的类型
+
+使用 xdg-mime query filetype &lt;filepath&gt; 可以得到文件的类型
+
+查询默认程序
+
+使用 xdg-mime query default text/plain 或 gvfs-mime --query &lt;mimetype&gt;, gvfs-mime 还会列出支持此 mimetype 的所有程序
+
+设置默认程序
+
+如将 text/plain 的默认打开程序设置为 gvim.desktop, 可以执行 xdg-mime default gvim.desktop text/plain 或 gvfs-mime --set text/plain gvim.desktop
+">
 
 
 <meta itemprop="datePublished" content="2016-12-14T21:38:21&#43;08:00" />
-<meta itemprop="dateModified" content="2019-02-10T18:24:30&#43;08:00" />
+<meta itemprop="dateModified" content="2019-02-12T14:35:27&#43;08:00" />
 <meta itemprop="wordCount" content="224">
 
 
@@ -58,7 +97,23 @@
 <meta itemprop="keywords" content="mime," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="MIME Usage"/>
-<meta name="twitter:description" content="基本使用 使用到的工具为: xdg-mime, gvfs-mime 查询文件的类型 使用 xdg-mime query filetype &lt;filepath&gt; 可以得到文件的类型 查询默认程序 使用 xdg-mime query default text/plain 或 gvfs-mime --query &lt;mimetype&gt;, gvfs-mime 还会列出支持此 mimetype 的所有程序 设置默认"/>
+<meta name="twitter:description" content="基本使用
+
+使用到的工具为: xdg-mime, gvfs-mime
+
+
+查询文件的类型
+
+使用 xdg-mime query filetype &lt;filepath&gt; 可以得到文件的类型
+
+查询默认程序
+
+使用 xdg-mime query default text/plain 或 gvfs-mime --query &lt;mimetype&gt;, gvfs-mime 还会列出支持此 mimetype 的所有程序
+
+设置默认程序
+
+如将 text/plain 的默认打开程序设置为 gvim.desktop, 可以执行 xdg-mime default gvim.desktop text/plain 或 gvfs-mime --set text/plain gvim.desktop
+"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -143,9 +198,7 @@
   </div>
 </div>
     <div class="post-content">
-      
-
-<h2 id="基本使用">基本使用</h2>
+      <h2 id="基本使用">基本使用</h2>
 
 <p>使用到的工具为: <code>xdg-mime, gvfs-mime</code></p>
 
@@ -194,7 +247,6 @@
 </ol>
 
 <p>这样 <code>*.org</code> 的类型就变为 <code>text/org-mode</code> 了, 参考 <a href="https://freedesktop.org/wiki/Specifications/AddingMIMETutor/">Add MIME Type</a></p>
-
     </div>
 
     <div class="post-copyright">
@@ -204,7 +256,7 @@
   </p>
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
-    <span class="item-content">2019-02-10</span>
+    <span class="item-content">2019-02-12</span>
   </p>
   
   

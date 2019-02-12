@@ -16,7 +16,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="jouyouyun" /><meta name="description" content="Leanote 是一款开源的笔记软件, 支持使用 markdown 来编辑笔记, 并可选择是否将笔记导出成博客, 这对于知识整理及写博客都是非常方便的, 故来尝试下. 安装 Leanote 是使用 Golang" /><meta name="keywords" content="jouyouyun, Hugo, theme, even" />
+<meta name="author" content="jouyouyun" /><meta name="description" content="Leanote 是一款开源的笔记软件, 支持使用 markdown 来编辑笔记, 并可选择是否将笔记导出成博客, 这对于知识整理及写博客都是非常方便的, 故来尝试下.
+安装 Leanote 是使用 Golang 编写的, 可以直接使用官方编译好的可执行文件. 另外它使用的是 mongodb 数据库, 可以从源里安装, 也可以从官网下载. 以下的安装和配置都是基于最新的版本, 如果中途出错, 请看官方文档.
+ Leanote 下载地址: 见这里
+ mongodb 下载地址: 见这里
+ " /><meta name="keywords" content="jouyouyun, Hugo, theme, even" />
 
 
 
@@ -39,18 +43,42 @@
 
 
 <meta property="og:title" content="Leanote Installation" />
-<meta property="og:description" content="Leanote 是一款开源的笔记软件, 支持使用 markdown 来编辑笔记, 并可选择是否将笔记导出成博客, 这对于知识整理及写博客都是非常方便的, 故来尝试下. 安装 Leanote 是使用 Golang" />
+<meta property="og:description" content="Leanote 是一款开源的笔记软件, 支持使用 markdown 来编辑笔记, 并可选择是否将笔记导出成博客, 这对于知识整理及写博客都是非常方便的, 故来尝试下.
+
+安装
+
+Leanote 是使用 Golang 编写的, 可以直接使用官方编译好的可执行文件.
+另外它使用的是 mongodb 数据库, 可以从源里安装, 也可以从官网下载.
+以下的安装和配置都是基于最新的版本, 如果中途出错, 请看官方文档.
+
+
+Leanote 下载地址: 见这里
+
+mongodb 下载地址: 见这里
+" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jouyouyun.github.io/post/leanote-installation/" />
 <meta property="article:published_time" content="2017-07-17T21:38:21&#43;08:00"/>
-<meta property="article:modified_time" content="2019-02-10T17:54:29&#43;08:00"/>
+<meta property="article:modified_time" content="2019-02-12T14:34:41&#43;08:00"/>
 
 <meta itemprop="name" content="Leanote Installation">
-<meta itemprop="description" content="Leanote 是一款开源的笔记软件, 支持使用 markdown 来编辑笔记, 并可选择是否将笔记导出成博客, 这对于知识整理及写博客都是非常方便的, 故来尝试下. 安装 Leanote 是使用 Golang">
+<meta itemprop="description" content="Leanote 是一款开源的笔记软件, 支持使用 markdown 来编辑笔记, 并可选择是否将笔记导出成博客, 这对于知识整理及写博客都是非常方便的, 故来尝试下.
+
+安装
+
+Leanote 是使用 Golang 编写的, 可以直接使用官方编译好的可执行文件.
+另外它使用的是 mongodb 数据库, 可以从源里安装, 也可以从官网下载.
+以下的安装和配置都是基于最新的版本, 如果中途出错, 请看官方文档.
+
+
+Leanote 下载地址: 见这里
+
+mongodb 下载地址: 见这里
+">
 
 
 <meta itemprop="datePublished" content="2017-07-17T21:38:21&#43;08:00" />
-<meta itemprop="dateModified" content="2019-02-10T17:54:29&#43;08:00" />
+<meta itemprop="dateModified" content="2019-02-12T14:34:41&#43;08:00" />
 <meta itemprop="wordCount" content="745">
 
 
@@ -58,7 +86,19 @@
 <meta itemprop="keywords" content="leanote," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Leanote Installation"/>
-<meta name="twitter:description" content="Leanote 是一款开源的笔记软件, 支持使用 markdown 来编辑笔记, 并可选择是否将笔记导出成博客, 这对于知识整理及写博客都是非常方便的, 故来尝试下. 安装 Leanote 是使用 Golang"/>
+<meta name="twitter:description" content="Leanote 是一款开源的笔记软件, 支持使用 markdown 来编辑笔记, 并可选择是否将笔记导出成博客, 这对于知识整理及写博客都是非常方便的, 故来尝试下.
+
+安装
+
+Leanote 是使用 Golang 编写的, 可以直接使用官方编译好的可执行文件.
+另外它使用的是 mongodb 数据库, 可以从源里安装, 也可以从官网下载.
+以下的安装和配置都是基于最新的版本, 如果中途出错, 请看官方文档.
+
+
+Leanote 下载地址: 见这里
+
+mongodb 下载地址: 见这里
+"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -153,9 +193,7 @@
   </div>
 </div>
     <div class="post-content">
-      
-
-<p><code>Leanote</code> 是一款开源的笔记软件, 支持使用 <code>markdown</code> 来编辑笔记, 并可选择是否将笔记导出成博客, 这对于知识整理及写博客都是非常方便的, 故来尝试下.</p>
+      <p><code>Leanote</code> 是一款开源的笔记软件, 支持使用 <code>markdown</code> 来编辑笔记, 并可选择是否将笔记导出成博客, 这对于知识整理及写博客都是非常方便的, 故来尝试下.</p>
 
 <h2 id="安装">安装</h2>
 
@@ -277,7 +315,7 @@ switched to db leanote
   </p>
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
-    <span class="item-content">2019-02-10</span>
+    <span class="item-content">2019-02-12</span>
   </p>
   
   

@@ -122,7 +122,7 @@
   
   <div class="post-content">
     <div class="post-summary">
-      Gob 使用实例，将结构体写入文件里，在需要的时候再从文件中读取出来。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38
+      <p><code>Gob</code> 使用实例，将结构体写入文件里，在需要的时候再从文件中读取出来。</p>
     </div>
     <div class="read-more">
       <a href="/post/go-gob-rw-file/" class="read-more-link">阅读更多</a>
@@ -143,7 +143,25 @@
   
   <div class="post-content">
     <div class="post-summary">
-      最近测试了以下 chroot ，然后把步骤写成了下面两个脚本，方便以后使用。 使用时需要确定每条命令都执行成功了 Arch 分区结构 1 2 3 4 /dev/sda5 / /dev/sda1 /boot /dev/sda6 /home /dev/sda8 Swap chroot 挂载脚本
+      <p>最近测试了以下 <code>chroot</code> ，然后把步骤写成了下面两个脚本，方便以后使用。</p>
+
+<p><strong>使用时需要确定每条命令都执行成功了</strong></p>
+
+<p><code>Arch</code> 分区结构</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">/dev/sda5	/
+/dev/sda1	/boot
+/dev/sda6	/home
+/dev/sda8	Swap</code></pre></td></tr></table>
+</div>
+</div>
     </div>
     <div class="read-more">
       <a href="/post/chroot-shell/" class="read-more-link">阅读更多</a>
@@ -164,7 +182,21 @@
   
   <div class="post-content">
     <div class="post-summary">
-      最近 Google 被封，而用 Goagent 做代理进行访问的效果而不是很理想，所以就想去买 VPN/VPS . 几经考虑后，就去买了个便宜 VPS , 这样也就可以分享给家人用了。 VPS 中安装的是 U
+      <p>最近 <code>Google</code> 被封，而用 <code>Goagent</code> 做代理进行访问的效果而不是很理想，所以就想去买 <code>VPN/VPS</code> . 几经考虑后，就去买了个便宜 <code>VPS</code> , 这样也就可以分享给家人用了。</p>
+
+<p><code>VPS</code> 中安装的是 <code>Ubuntu=，所以搭建 =VPN</code> 服务器也就是在 <code>Ubuntu</code> 上面搭建，具体方法如下。</p>
+
+<p>注意：下面所有的操作都是以 <code>root</code> 用户进行的，非 <code>root</code> 用户请在命令前加上 <code>sudo</code></p>
+
+<p><strong>安装 <code>pptp</code></strong></p>
+
+<p><code>apt-get install pptpd</code></p>
+
+<p>配置 <code>IP</code> 地址范围及服务器 <code>IP</code></p>
+
+<p><code>vi /etc/pptpd.conf</code></p>
+
+<p>取消下面内容的注释</p>
     </div>
     <div class="read-more">
       <a href="/post/build-vpn/" class="read-more-link">阅读更多</a>
@@ -185,7 +217,7 @@
   
   <div class="post-content">
     <div class="post-summary">
-      使用 Go 语言实现字符串与文件的 MD5 值计算，但是大文件不要使用此方法。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38
+      <p>使用 Go 语言实现字符串与文件的 MD5 值计算，但是大文件不要使用此方法。</p>
     </div>
     <div class="read-more">
       <a href="/post/go-md5-sum/" class="read-more-link">阅读更多</a>
@@ -206,7 +238,43 @@
   
   <div class="post-content">
     <div class="post-summary">
-      使用 GoLang 判断文件是否存在。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 package utils import ( &#34;os&#34; ) func isFileExist(filename string) bool { if len(filename) &lt; 1 { return false } _, err := os.Stat(filename) return err == nil || os.IsExist(err) }
+      <p>使用 GoLang 判断文件是否存在。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">utils</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+        <span class="s">&#34;os&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span> <span class="nf">isFileExist</span><span class="p">(</span><span class="nx">filename</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">filename</span><span class="p">)</span> <span class="p">&lt;</span> <span class="mi">1</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="kc">false</span>
+        <span class="p">}</span>
+
+        <span class="nx">_</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Stat</span><span class="p">(</span><span class="nx">filename</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="nx">err</span> <span class="o">==</span> <span class="kc">nil</span> <span class="o">||</span> <span class="nx">os</span><span class="p">.</span><span class="nf">IsExist</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
     </div>
     <div class="read-more">
       <a href="/post/go-file-exist/" class="read-more-link">阅读更多</a>

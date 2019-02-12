@@ -122,7 +122,23 @@
   
   <div class="post-content">
     <div class="post-summary">
-      简介 当一个程序崩溃时会产生一个 core 文件, 里面记录了这个程序崩溃的原因, 这些信息对于开发者是很有用的. 但是 core dumps 在大多数 linux 上是被禁用的, 下面就介绍
+      <h2 id="简介">简介</h2>
+
+<p>当一个程序崩溃时会产生一个 <code>core</code> 文件, 里面记录了这个程序崩溃的原因, 这些信息对于开发者是很有用的.</p>
+
+<p>但是 <code>core dumps</code> 在大多数 <code>linux</code> 上是被禁用的, 下面就介绍下如何开启这个功能.</p>
+
+<h2 id="开启">开启</h2>
+
+<p>可以通过 <code>ulimit -c</code> 的输出知道此功能是否开启, 输出为 <code>0</code> 表示禁用, 否则为开启.</p>
+
+<h3 id="临时开启">临时开启</h3>
+
+<p>通过 <code>ulimit -c unlimited</code> 命令来开启 <code>coredump</code> 功能, 它会程序运行的当前目录生成一个 <code>core</code> 文件, 新的 <code>core</code> 会覆盖旧的.</p>
+
+<p>通过可以修改 <code>/proc/sys/kernel/core_uses_pid</code> 文件内容为 <code>1</code> 来生成以 <code>pid</code> 作为扩展名的 <code>core</code> 文件.</p>
+
+<p>通过修改 <code>/proc/sys/kernel/core_pattern</code> 可以修改 <code>core</code> 文件的保存位置和格式. 如把内容改为 <code>/tmp/core-%e-%p-%t</code>, 就表示把 <code>core</code> 文件保存到 <code>/tmp</code> 目录下, 文件名的格式为 <code>core-命令名-pid-时间戳</code> .</p>
     </div>
     <div class="read-more">
       <a href="/post/enable-coredump/" class="read-more-link">阅读更多</a>
@@ -143,7 +159,15 @@
   
   <div class="post-content">
     <div class="post-summary">
-      最近需要做一个隐藏光标的功能, 在这里将了解到的知识总结一下. 原理 隐藏光标的原理就是把光标设置为一个 x11 null cursor, 不需要隐藏时再将它设为 x11 left_ptr cursor. 设置光标
+      <p>最近需要做一个隐藏光标的功能, 在这里将了解到的知识总结一下.</p>
+
+<h2 id="原理">原理</h2>
+
+<p>隐藏光标的原理就是把光标设置为一个 <code>x11 null cursor</code>, 不需要隐藏时再将它设为 <code>x11 left_ptr cursor</code>.</p>
+
+<h3 id="设置光标">设置光标</h3>
+
+<p>设置光标主要需要调用下面两个函数:</p>
     </div>
     <div class="read-more">
       <a href="/post/auto-hidden-cursor/" class="read-more-link">阅读更多</a>
@@ -185,7 +209,13 @@
   
   <div class="post-content">
     <div class="post-summary">
-      xsetwacom 是一个设置数位板的命令行工具, 在 Debian/Ubuntu/deepin 上可以通过安装 xserver-xorg-input-wacom 来获取它. 可以通过 man xsetwacom 看到它的帮助文档, 下面就简单说明下它的部份选项: Options Area args: x1 y1 x2 y2 default: 0
+      <p><code>xsetwacom</code> 是一个设置数位板的命令行工具, 在 <code>Debian/Ubuntu/deepin</code> 上可以通过安装 <code>xserver-xorg-input-wacom</code> 来获取它.</p>
+
+<p>可以通过 <code>man xsetwacom</code> 看到它的帮助文档, 下面就简单说明下它的部份选项:</p>
+
+<hr />
+
+<h2 id="options">Options</h2>
     </div>
     <div class="read-more">
       <a href="/post/xsetwacom-options/" class="read-more-link">阅读更多</a>
@@ -206,7 +236,9 @@
   
   <div class="post-content">
     <div class="post-summary">
-      一个简单的 TCP Socket 的示例，使用 gob 处理传输的数据。 server.go 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47
+      <p>一个简单的 <code>TCP Socket</code> 的示例，使用 <code>gob</code> 处理传输的数据。</p>
+
+<h2 id="server-dot-go"><code>server.go</code></h2>
     </div>
     <div class="read-more">
       <a href="/post/go-tcp-socket-example/" class="read-more-link">阅读更多</a>

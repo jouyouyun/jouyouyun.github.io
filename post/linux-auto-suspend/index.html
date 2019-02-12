@@ -16,7 +16,10 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="jouyouyun" /><meta name="description" content="最近做无线网络在系统多次休眠唤醒后是否正常的测试，但每次休眠后都需要手动点击键盘来唤醒系统，显而易见的这种方法需要人来值守，很不放便。 此时便" /><meta name="keywords" content="jouyouyun, Hugo, theme, even" />
+<meta name="author" content="jouyouyun" /><meta name="description" content="最近做无线网络在系统多次休眠唤醒后是否正常的测试，但每次休眠后都需要手动点击键盘来唤醒系统，显而易见的这种方法需要人来值守，很不放便。
+此时便想是否有做自动唤醒的程序，毕竟这种需求也挺正常的，应该有人已经做过了。因此就开始查找自动唤醒的方法，果然就发现了 rtcwake 这个程序，这个程序是让系统进入休眠模式并在指定的时间后唤醒。立刻便觉得这个程序很神奇，然后就去看它的源码来找出它的实现方式，这边发现了本文的主题 RTC 子系统。
+RTC 子系统 RTC 子系统在目录 /sys/class/rtc/ 下，会根据设备创建对应的目录，需要在内核中开启支持，配置如下：
+" /><meta name="keywords" content="jouyouyun, Hugo, theme, even" />
 
 
 
@@ -39,18 +42,30 @@
 
 
 <meta property="og:title" content="Linux 休眠自动唤醒" />
-<meta property="og:description" content="最近做无线网络在系统多次休眠唤醒后是否正常的测试，但每次休眠后都需要手动点击键盘来唤醒系统，显而易见的这种方法需要人来值守，很不放便。 此时便" />
+<meta property="og:description" content="最近做无线网络在系统多次休眠唤醒后是否正常的测试，但每次休眠后都需要手动点击键盘来唤醒系统，显而易见的这种方法需要人来值守，很不放便。
+
+此时便想是否有做自动唤醒的程序，毕竟这种需求也挺正常的，应该有人已经做过了。因此就开始查找自动唤醒的方法，果然就发现了 rtcwake 这个程序，这个程序是让系统进入休眠模式并在指定的时间后唤醒。立刻便觉得这个程序很神奇，然后就去看它的源码来找出它的实现方式，这边发现了本文的主题 RTC 子系统。
+
+RTC 子系统
+
+RTC 子系统在目录 /sys/class/rtc/ 下，会根据设备创建对应的目录，需要在内核中开启支持，配置如下：" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jouyouyun.github.io/post/linux-auto-suspend/" />
 <meta property="article:published_time" content="2018-10-21T21:38:21&#43;08:00"/>
-<meta property="article:modified_time" content="2019-02-10T17:54:36&#43;08:00"/>
+<meta property="article:modified_time" content="2019-02-12T14:34:50&#43;08:00"/>
 
 <meta itemprop="name" content="Linux 休眠自动唤醒">
-<meta itemprop="description" content="最近做无线网络在系统多次休眠唤醒后是否正常的测试，但每次休眠后都需要手动点击键盘来唤醒系统，显而易见的这种方法需要人来值守，很不放便。 此时便">
+<meta itemprop="description" content="最近做无线网络在系统多次休眠唤醒后是否正常的测试，但每次休眠后都需要手动点击键盘来唤醒系统，显而易见的这种方法需要人来值守，很不放便。
+
+此时便想是否有做自动唤醒的程序，毕竟这种需求也挺正常的，应该有人已经做过了。因此就开始查找自动唤醒的方法，果然就发现了 rtcwake 这个程序，这个程序是让系统进入休眠模式并在指定的时间后唤醒。立刻便觉得这个程序很神奇，然后就去看它的源码来找出它的实现方式，这边发现了本文的主题 RTC 子系统。
+
+RTC 子系统
+
+RTC 子系统在目录 /sys/class/rtc/ 下，会根据设备创建对应的目录，需要在内核中开启支持，配置如下：">
 
 
 <meta itemprop="datePublished" content="2018-10-21T21:38:21&#43;08:00" />
-<meta itemprop="dateModified" content="2019-02-10T17:54:36&#43;08:00" />
+<meta itemprop="dateModified" content="2019-02-12T14:34:50&#43;08:00" />
 <meta itemprop="wordCount" content="599">
 
 
@@ -58,7 +73,13 @@
 <meta itemprop="keywords" content="suspend,wakeup,rtc," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Linux 休眠自动唤醒"/>
-<meta name="twitter:description" content="最近做无线网络在系统多次休眠唤醒后是否正常的测试，但每次休眠后都需要手动点击键盘来唤醒系统，显而易见的这种方法需要人来值守，很不放便。 此时便"/>
+<meta name="twitter:description" content="最近做无线网络在系统多次休眠唤醒后是否正常的测试，但每次休眠后都需要手动点击键盘来唤醒系统，显而易见的这种方法需要人来值守，很不放便。
+
+此时便想是否有做自动唤醒的程序，毕竟这种需求也挺正常的，应该有人已经做过了。因此就开始查找自动唤醒的方法，果然就发现了 rtcwake 这个程序，这个程序是让系统进入休眠模式并在指定的时间后唤醒。立刻便觉得这个程序很神奇，然后就去看它的源码来找出它的实现方式，这边发现了本文的主题 RTC 子系统。
+
+RTC 子系统
+
+RTC 子系统在目录 /sys/class/rtc/ 下，会根据设备创建对应的目录，需要在内核中开启支持，配置如下："/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -146,15 +167,14 @@
   </div>
 </div>
     <div class="post-content">
-      
-
-<p>最近做无线网络在系统多次休眠唤醒后是否正常的测试，但每次休眠后都需要手动点击键盘来唤醒系统，显而易见的这种方法需要人来值守，很不放便。</p>
+      <p>最近做无线网络在系统多次休眠唤醒后是否正常的测试，但每次休眠后都需要手动点击键盘来唤醒系统，显而易见的这种方法需要人来值守，很不放便。</p>
 
 <p>此时便想是否有做自动唤醒的程序，毕竟这种需求也挺正常的，应该有人已经做过了。因此就开始查找自动唤醒的方法，果然就发现了 <code>rtcwake</code> 这个程序，这个程序是让系统进入休眠模式并在指定的时间后唤醒。立刻便觉得这个程序很神奇，然后就去看它的源码来找出它的实现方式，这边发现了本文的主题 <code>RTC</code> 子系统。</p>
 
 <h2 id="rtc-子系统"><code>RTC</code> 子系统</h2>
 
 <p><code>RTC</code> 子系统在目录 <code>/sys/class/rtc/</code> 下，会根据设备创建对应的目录，需要在内核中开启支持，配置如下：</p>
+
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
@@ -214,7 +234,6 @@
 <li>设置无效？
 首先检查内涵是否开启了 <code>rtc</code> 支持，如果支持就检查时间标准是否是 <code>UTC=，=localtime</code> 时间标准时设置 <code>wakealarm</code> 是不生效的，内容一直是空的。通过 <code>timedatectl</code> 命令可以查询和设置时间标准。</li>
 </ul>
-
     </div>
 
     <div class="post-copyright">
@@ -224,7 +243,7 @@
   </p>
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
-    <span class="item-content">2019-02-10</span>
+    <span class="item-content">2019-02-12</span>
   </p>
   
   

@@ -16,7 +16,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="jouyouyun" /><meta name="description" content="桌面的外观设置一般包括窗口主题、图标主题、光标主题和字体设置，其中窗口主题就是常见的 gtk 主题，字体设置又包括标准字体、等款字体和字体大小。对于" /><meta name="keywords" content="jouyouyun, Hugo, theme, even" />
+<meta name="author" content="jouyouyun" /><meta name="description" content="桌面的外观设置一般包括窗口主题、图标主题、光标主题和字体设置，其中窗口主题就是常见的 gtk 主题，字体设置又包括标准字体、等款字体和字体大小。对于进些年的高分屏，又添加了字体缩放和窗口缩放这2个选项。
+界面上设置方法就不介绍了，都可以在各自桌面的控制中心中找到，这里主要介绍命令行下的。
+deepin 和 gnome 桌面环境的外观配置数据是使用 gsettings 来存储，所以可以通过 gsettings 来设置和读取。 gsettings 相比设置界面就是 可以设置到更多的选项，设置的值更加精确。
+下面先简单介绍下 gsettings 的用法。
+GSettings" /><meta name="keywords" content="jouyouyun, Hugo, theme, even" />
 
 
 
@@ -39,18 +43,34 @@
 
 
 <meta property="og:title" content="linux 下 deepin 和 gnome 桌面的外观设置" />
-<meta property="og:description" content="桌面的外观设置一般包括窗口主题、图标主题、光标主题和字体设置，其中窗口主题就是常见的 gtk 主题，字体设置又包括标准字体、等款字体和字体大小。对于" />
+<meta property="og:description" content="桌面的外观设置一般包括窗口主题、图标主题、光标主题和字体设置，其中窗口主题就是常见的 gtk 主题，字体设置又包括标准字体、等款字体和字体大小。对于进些年的高分屏，又添加了字体缩放和窗口缩放这2个选项。
+
+界面上设置方法就不介绍了，都可以在各自桌面的控制中心中找到，这里主要介绍命令行下的。
+
+deepin 和 gnome 桌面环境的外观配置数据是使用 gsettings 来存储，所以可以通过 gsettings 来设置和读取。 gsettings 相比设置界面就是 可以设置到更多的选项，设置的值更加精确。
+
+下面先简单介绍下 gsettings 的用法。
+
+GSettings" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jouyouyun.github.io/post/set-appearance-in-deepin-or-gnome/" />
 <meta property="article:published_time" content="2018-10-23T21:38:21&#43;08:00"/>
-<meta property="article:modified_time" content="2019-02-10T18:16:19&#43;08:00"/>
+<meta property="article:modified_time" content="2019-02-12T14:36:19&#43;08:00"/>
 
 <meta itemprop="name" content="linux 下 deepin 和 gnome 桌面的外观设置">
-<meta itemprop="description" content="桌面的外观设置一般包括窗口主题、图标主题、光标主题和字体设置，其中窗口主题就是常见的 gtk 主题，字体设置又包括标准字体、等款字体和字体大小。对于">
+<meta itemprop="description" content="桌面的外观设置一般包括窗口主题、图标主题、光标主题和字体设置，其中窗口主题就是常见的 gtk 主题，字体设置又包括标准字体、等款字体和字体大小。对于进些年的高分屏，又添加了字体缩放和窗口缩放这2个选项。
+
+界面上设置方法就不介绍了，都可以在各自桌面的控制中心中找到，这里主要介绍命令行下的。
+
+deepin 和 gnome 桌面环境的外观配置数据是使用 gsettings 来存储，所以可以通过 gsettings 来设置和读取。 gsettings 相比设置界面就是 可以设置到更多的选项，设置的值更加精确。
+
+下面先简单介绍下 gsettings 的用法。
+
+GSettings">
 
 
 <meta itemprop="datePublished" content="2018-10-23T21:38:21&#43;08:00" />
-<meta itemprop="dateModified" content="2019-02-10T18:16:19&#43;08:00" />
+<meta itemprop="dateModified" content="2019-02-12T14:36:19&#43;08:00" />
 <meta itemprop="wordCount" content="1115">
 
 
@@ -58,7 +78,15 @@
 <meta itemprop="keywords" content="deepin,gnome,theme,gtk,icon,cursor,font," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="linux 下 deepin 和 gnome 桌面的外观设置"/>
-<meta name="twitter:description" content="桌面的外观设置一般包括窗口主题、图标主题、光标主题和字体设置，其中窗口主题就是常见的 gtk 主题，字体设置又包括标准字体、等款字体和字体大小。对于"/>
+<meta name="twitter:description" content="桌面的外观设置一般包括窗口主题、图标主题、光标主题和字体设置，其中窗口主题就是常见的 gtk 主题，字体设置又包括标准字体、等款字体和字体大小。对于进些年的高分屏，又添加了字体缩放和窗口缩放这2个选项。
+
+界面上设置方法就不介绍了，都可以在各自桌面的控制中心中找到，这里主要介绍命令行下的。
+
+deepin 和 gnome 桌面环境的外观配置数据是使用 gsettings 来存储，所以可以通过 gsettings 来设置和读取。 gsettings 相比设置界面就是 可以设置到更多的选项，设置的值更加精确。
+
+下面先简单介绍下 gsettings 的用法。
+
+GSettings"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -156,9 +184,7 @@
   </div>
 </div>
     <div class="post-content">
-      
-
-<p>桌面的外观设置一般包括窗口主题、图标主题、光标主题和字体设置，其中窗口主题就是常见的 <code>gtk</code> 主题，字体设置又包括标准字体、等款字体和字体大小。对于进些年的高分屏，又添加了字体缩放和窗口缩放这2个选项。</p>
+      <p>桌面的外观设置一般包括窗口主题、图标主题、光标主题和字体设置，其中窗口主题就是常见的 <code>gtk</code> 主题，字体设置又包括标准字体、等款字体和字体大小。对于进些年的高分屏，又添加了字体缩放和窗口缩放这2个选项。</p>
 
 <p>界面上设置方法就不介绍了，都可以在各自桌面的控制中心中找到，这里主要介绍命令行下的。</p>
 
@@ -306,7 +332,6 @@ scaling-factor
 <p>希望这些能够帮助到你，如写一个自动备份和恢复的脚本等&hellip;</p>
 
 <p>如果你是想知道这些设置是如何生效的，请持续关注哦，本人计划在下篇文章中介绍 <code>deepin</code> 下的实现原理，谢谢支持。</p>
-
     </div>
 
     <div class="post-copyright">
@@ -316,7 +341,7 @@ scaling-factor
   </p>
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
-    <span class="item-content">2019-02-10</span>
+    <span class="item-content">2019-02-12</span>
   </p>
   
   

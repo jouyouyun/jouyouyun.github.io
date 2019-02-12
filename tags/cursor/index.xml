@@ -18,7 +18,15 @@
       <pubDate>Tue, 23 Oct 2018 21:38:21 +0800</pubDate>
       
       <guid>https://jouyouyun.github.io/post/set-appearance-in-deepin-or-gnome/</guid>
-      <description>桌面的外观设置一般包括窗口主题、图标主题、光标主题和字体设置，其中窗口主题就是常见的 gtk 主题，字体设置又包括标准字体、等款字体和字体大小。对于</description>
+      <description>&lt;p&gt;桌面的外观设置一般包括窗口主题、图标主题、光标主题和字体设置，其中窗口主题就是常见的 &lt;code&gt;gtk&lt;/code&gt; 主题，字体设置又包括标准字体、等款字体和字体大小。对于进些年的高分屏，又添加了字体缩放和窗口缩放这2个选项。&lt;/p&gt;
+
+&lt;p&gt;界面上设置方法就不介绍了，都可以在各自桌面的控制中心中找到，这里主要介绍命令行下的。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;deepin&lt;/code&gt; 和 &lt;code&gt;gnome&lt;/code&gt; 桌面环境的外观配置数据是使用 &lt;code&gt;gsettings&lt;/code&gt; 来存储，所以可以通过 &lt;code&gt;gsettings&lt;/code&gt; 来设置和读取。 &lt;code&gt;gsettings&lt;/code&gt; 相比设置界面就是 可以设置到更多的选项，设置的值更加精确。&lt;/p&gt;
+
+&lt;p&gt;下面先简单介绍下 &lt;code&gt;gsettings&lt;/code&gt; 的用法。&lt;/p&gt;
+
+&lt;h2 id=&#34;gsettings&#34;&gt;&lt;code&gt;GSettings&lt;/code&gt;&lt;/h2&gt;</description>
     </item>
     
     <item>
@@ -27,7 +35,15 @@
       <pubDate>Fri, 22 Apr 2016 21:38:21 +0800</pubDate>
       
       <guid>https://jouyouyun.github.io/post/auto-hidden-cursor/</guid>
-      <description>最近需要做一个隐藏光标的功能, 在这里将了解到的知识总结一下. 原理 隐藏光标的原理就是把光标设置为一个 x11 null cursor, 不需要隐藏时再将它设为 x11 left_ptr cursor. 设置光标</description>
+      <description>&lt;p&gt;最近需要做一个隐藏光标的功能, 在这里将了解到的知识总结一下.&lt;/p&gt;
+
+&lt;h2 id=&#34;原理&#34;&gt;原理&lt;/h2&gt;
+
+&lt;p&gt;隐藏光标的原理就是把光标设置为一个 &lt;code&gt;x11 null cursor&lt;/code&gt;, 不需要隐藏时再将它设为 &lt;code&gt;x11 left_ptr cursor&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;设置光标&#34;&gt;设置光标&lt;/h3&gt;
+
+&lt;p&gt;设置光标主要需要调用下面两个函数:&lt;/p&gt;</description>
     </item>
     
   </channel>

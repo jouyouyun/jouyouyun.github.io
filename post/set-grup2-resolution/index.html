@@ -16,7 +16,9 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="jouyouyun" /><meta name="description" content="背景 平时经常用显示器的分辨率去设置 Grub 的分辨率，虽然大部分都没有问题，但有时却没有用。所以就把 Grub 分辨率的设置方法详细说明一下，留档记录。 查询支" /><meta name="keywords" content="jouyouyun, Hugo, theme, even" />
+<meta name="author" content="jouyouyun" /><meta name="description" content="背景 平时经常用显示器的分辨率去设置 Grub 的分辨率，虽然大部分都没有问题，但有时却没有用。所以就把 Grub 分辨率的设置方法详细说明一下，留档记录。
+查询支持的分辨率 在设置 Grub 分辨率之前，需要先知道支持的分辨率列表，而幸运的是可以到 Grub 命令行查询。
+" /><meta name="keywords" content="jouyouyun, Hugo, theme, even" />
 
 
 
@@ -39,18 +41,30 @@
 
 
 <meta property="og:title" content="设置 Grub2 分辨率" />
-<meta property="og:description" content="背景 平时经常用显示器的分辨率去设置 Grub 的分辨率，虽然大部分都没有问题，但有时却没有用。所以就把 Grub 分辨率的设置方法详细说明一下，留档记录。 查询支" />
+<meta property="og:description" content="背景
+
+平时经常用显示器的分辨率去设置 Grub 的分辨率，虽然大部分都没有问题，但有时却没有用。所以就把 Grub 分辨率的设置方法详细说明一下，留档记录。
+
+查询支持的分辨率
+
+在设置 Grub 分辨率之前，需要先知道支持的分辨率列表，而幸运的是可以到 Grub 命令行查询。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jouyouyun.github.io/post/set-grup2-resolution/" />
 <meta property="article:published_time" content="2017-07-29T21:38:21&#43;08:00"/>
-<meta property="article:modified_time" content="2019-02-10T17:57:23&#43;08:00"/>
+<meta property="article:modified_time" content="2019-02-12T14:36:30&#43;08:00"/>
 
 <meta itemprop="name" content="设置 Grub2 分辨率">
-<meta itemprop="description" content="背景 平时经常用显示器的分辨率去设置 Grub 的分辨率，虽然大部分都没有问题，但有时却没有用。所以就把 Grub 分辨率的设置方法详细说明一下，留档记录。 查询支">
+<meta itemprop="description" content="背景
+
+平时经常用显示器的分辨率去设置 Grub 的分辨率，虽然大部分都没有问题，但有时却没有用。所以就把 Grub 分辨率的设置方法详细说明一下，留档记录。
+
+查询支持的分辨率
+
+在设置 Grub 分辨率之前，需要先知道支持的分辨率列表，而幸运的是可以到 Grub 命令行查询。">
 
 
 <meta itemprop="datePublished" content="2017-07-29T21:38:21&#43;08:00" />
-<meta itemprop="dateModified" content="2019-02-10T17:57:23&#43;08:00" />
+<meta itemprop="dateModified" content="2019-02-12T14:36:30&#43;08:00" />
 <meta itemprop="wordCount" content="395">
 
 
@@ -58,7 +72,13 @@
 <meta itemprop="keywords" content="grub2,resolution," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="设置 Grub2 分辨率"/>
-<meta name="twitter:description" content="背景 平时经常用显示器的分辨率去设置 Grub 的分辨率，虽然大部分都没有问题，但有时却没有用。所以就把 Grub 分辨率的设置方法详细说明一下，留档记录。 查询支"/>
+<meta name="twitter:description" content="背景
+
+平时经常用显示器的分辨率去设置 Grub 的分辨率，虽然大部分都没有问题，但有时却没有用。所以就把 Grub 分辨率的设置方法详细说明一下，留档记录。
+
+查询支持的分辨率
+
+在设置 Grub 分辨率之前，需要先知道支持的分辨率列表，而幸运的是可以到 Grub 命令行查询。"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -144,9 +164,7 @@
   </div>
 </div>
     <div class="post-content">
-      
-
-<h2 id="背景">背景</h2>
+      <h2 id="背景">背景</h2>
 
 <p>平时经常用显示器的分辨率去设置 <code>Grub</code> 的分辨率，虽然大部分都没有问题，但有时却没有用。所以就把 <code>Grub</code> 分辨率的设置方法详细说明一下，留档记录。</p>
 
@@ -177,7 +195,6 @@
 <p>启动菜单是在 <code>/boot/grub/grub.cfg=，而这个文件是根据 =/etc/default/grub</code> 里的配置生成的，所以修改分辨率时只需修改 <code>/etc/default/grub</code> 这个文件。</p>
 
 <p><code>GRUB_GFXMODE</code> 这个字段控制着分辨率，只需将它的值指定为上面找到的分辨率，然后用命令 <code>sudo grub-mkconfig -o /boot/grub/grub.cfg</code> 重新生成启动菜单即可。</p>
-
     </div>
 
     <div class="post-copyright">
@@ -187,7 +204,7 @@
   </p>
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
-    <span class="item-content">2019-02-10</span>
+    <span class="item-content">2019-02-12</span>
   </p>
   
   
