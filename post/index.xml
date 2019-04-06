@@ -7,10 +7,46 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>jouyouyun</copyright>
-    <lastBuildDate>Sat, 02 Feb 2019 17:31:21 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 05 Apr 2019 21:04:21 +0800</lastBuildDate>
     
 	<atom:link href="https://jouyouyun.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>MySQL 常用命令</title>
+      <link>https://jouyouyun.github.io/post/mysql_commands/</link>
+      <pubDate>Fri, 05 Apr 2019 21:04:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/mysql_commands/</guid>
+      <description>&lt;p&gt;大学学的数据库系统概论工作后几年没有使用都已忘了, 现在项目需要用到数据库, 但来不及细看相关书籍了, 遂将一些常用的记录下来.&lt;/p&gt;
+
+&lt;h2 id=&#34;常用类型&#34;&gt;常用类型&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;MySQL&lt;/code&gt; 支持多种类型, 大致可以分为三类: 数值, 日期/时间和字符串(字符)类型, 大致如下:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;数值类型&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;整数: &lt;code&gt;tinyint&lt;/code&gt;, &lt;code&gt;smallint&lt;/code&gt;, &lt;code&gt;mediumint&lt;/code&gt;, &lt;code&gt;int&lt;/code&gt;, &lt;code&gt;bigint&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;浮点数: &lt;code&gt;float&lt;/code&gt;, &lt;code&gt;double&lt;/code&gt;, &lt;code&gt;decimal&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;日期和时间&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;date&lt;/code&gt;, &lt;code&gt;time&lt;/code&gt;, &lt;code&gt;datetime&lt;/code&gt;, &lt;code&gt;timestamp&lt;/code&gt;, &lt;code&gt;year&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;字符串类型&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;字符串: &lt;code&gt;char&lt;/code&gt;, &lt;code&gt;varchar&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;文本: &lt;code&gt;tinytext&lt;/code&gt;, &lt;code&gt;text&lt;/code&gt;, &lt;code&gt;mediumtext&lt;/code&gt;, &lt;code&gt;longtext&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;二进制字符串: &lt;code&gt;tinyblob&lt;/code&gt;, &lt;code&gt;blob&lt;/code&gt;, &lt;code&gt;mediumblob&lt;/code&gt;, &lt;code&gt;longblob&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;下面将详细给出每种类型的大小和描述.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>使用 hugo 写博客</title>
