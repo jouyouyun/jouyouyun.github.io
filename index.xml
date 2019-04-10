@@ -272,14 +272,14 @@ N: This must be accepted explicitly before updates &lt;span class=&#34;k&#34;&gt
     </item>
     
     <item>
-      <title>RESTfull 简介</title>
-      <link>https://jouyouyun.github.io/post/restfull-introduction/</link>
+      <title>RESTful 简介</title>
+      <link>https://jouyouyun.github.io/post/restful-introduction/</link>
       <pubDate>Thu, 10 May 2018 21:38:21 +0800</pubDate>
       
-      <guid>https://jouyouyun.github.io/post/restfull-introduction/</guid>
+      <guid>https://jouyouyun.github.io/post/restful-introduction/</guid>
       <description>&lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;
 
-&lt;p&gt;&lt;code&gt;RESTfull&lt;/code&gt; 即表现层状态转换，是一种设计风格，不是标准。其要点如下：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;RESTful&lt;/code&gt; 即表现层状态转换，是一种设计风格，不是标准。其要点如下：&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;资源由 &lt;code&gt;URI&lt;/code&gt; 来指定&lt;/p&gt;
