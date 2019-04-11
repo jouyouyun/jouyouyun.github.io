@@ -7,10 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>jouyouyun</copyright>
-    <lastBuildDate>Fri, 05 Apr 2019 21:04:21 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 11 Apr 2019 14:49:00 +0800</lastBuildDate>
     
 	<atom:link href="https://jouyouyun.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>清理无用的 local branch</title>
+      <link>https://jouyouyun.github.io/post/clean_invalid_branch_in_git/</link>
+      <pubDate>Thu, 11 Apr 2019 14:49:00 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/clean_invalid_branch_in_git/</guid>
+      <description>&lt;p&gt;在开发新功能或修复 &lt;code&gt;bug&lt;/code&gt; 时, 会从 &lt;code&gt;master&lt;/code&gt; 上新建 &lt;code&gt;branch&lt;/code&gt; 来处理, 当完成后会将这个 &lt;code&gt;branch&lt;/code&gt; 推送到 &lt;code&gt;origin&lt;/code&gt; 中, 如:
+&lt;code&gt;git push origin &amp;lt;branch name&amp;gt;:&amp;lt;branch name&amp;gt;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;origin&lt;/code&gt; 审核代码没有问题后就会 &lt;strong&gt;合并分支并删除&lt;/strong&gt;, 但 &lt;strong&gt;本地&lt;/strong&gt; 在 &lt;code&gt;git pull&lt;/code&gt; 删除本地分支后, 仍能通过 &lt;code&gt;git branch -a&lt;/code&gt; 看到这个 &lt;code&gt;branch&lt;/code&gt; 的 &lt;code&gt;origin ref&lt;/code&gt;.
+日积月累之下本地就会有很多这样无用的 &lt;code&gt;branch ref&lt;/code&gt;, 很是让人厌烦, 遂在此记录清理的方法.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>MySQL 常用命令</title>
