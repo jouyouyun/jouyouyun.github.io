@@ -3,6 +3,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jouyouyun.github.io/post/influxdb-introduction/</loc>
+    <lastmod>2019-04-14T01:13:09+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://jouyouyun.github.io/post/clean_invalid_branch_in_git/</loc>
     <lastmod>2019-04-11T15:12:26+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -242,14 +249,14 @@
   
   <url>
     <loc>https://jouyouyun.github.io/categories/blog/</loc>
-    <lastmod>2019-04-11T15:12:26+08:00</lastmod>
+    <lastmod>2019-04-14T01:13:09+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://jouyouyun.github.io/categories/</loc>
-    <lastmod>2019-04-11T15:12:26+08:00</lastmod>
+    <lastmod>2019-04-14T01:13:09+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -263,7 +270,7 @@
   
   <url>
     <loc>https://jouyouyun.github.io/post/</loc>
-    <lastmod>2019-04-11T15:12:26+08:00</lastmod>
+    <lastmod>2019-04-14T01:13:09+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -478,6 +485,13 @@
   </url>
   
   <url>
+    <loc>https://jouyouyun.github.io/tags/influxdb/</loc>
+    <lastmod>2019-04-14T01:13:09+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://jouyouyun.github.io/tags/join/</loc>
     <lastmod>2019-04-07T00:29:18+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -486,7 +500,7 @@
   
   <url>
     <loc>https://jouyouyun.github.io/</loc>
-    <lastmod>2019-04-11T15:12:26+08:00</lastmod>
+    <lastmod>2019-04-14T01:13:09+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -522,6 +536,13 @@
   <url>
     <loc>https://jouyouyun.github.io/tags/md5/</loc>
     <lastmod>2019-02-12T14:33:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/measurement/</loc>
+    <lastmod>2019-04-14T01:13:09+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -632,6 +653,13 @@
   </url>
   
   <url>
+    <loc>https://jouyouyun.github.io/tags/series/</loc>
+    <lastmod>2019-04-14T01:13:09+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://jouyouyun.github.io/tags/sigaction/</loc>
     <lastmod>2019-02-12T14:35:03+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -697,6 +725,13 @@
   <url>
     <loc>https://jouyouyun.github.io/tags/timezone/</loc>
     <lastmod>2019-02-12T14:35:18+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/tsdb/</loc>
+    <lastmod>2019-04-14T01:13:09+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>

@@ -45,7 +45,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://jouyouyun.github.io/" />
 
-<meta property="og:updated_time" content="2016-12-14T21:38:21&#43;08:00"/>
+<meta property="og:updated_time" content="2016-12-27T21:38:21&#43;08:00"/>
 
 <meta itemprop="name" content="jouyouyun&#39;s blog">
 <meta itemprop="description" content="jouyouyun&#39;s blog">
@@ -109,6 +109,52 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/openvpn-installation/">OpenVPN Installation</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2016-12-27 </span>
+      <div class="post-category">
+          <a href="/categories/blog/"> BLOG </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h2 id="安装所需软件">安装所需软件</h2>
+
+<p>Arch: <code>yaourt -S openvpn easy-rsa</code></p>
+
+<h2 id="生成证书">生成证书</h2>
+
+<h3 id="server-端">Server 端</h3>
+
+<ul>
+<li>Copy template file</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">sudo mkdir -p /etc/openvpn
+sudo cp -R /etc/easy-rsa /etc/openvpn</code></pre></td></tr></table>
+</div>
+</div>
+<ul>
+<li>Config vars</li>
+</ul>
+
+<p>取消并修改以下项:</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/openvpn-installation/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/mime-usage/">MIME Usage</a></h1>
@@ -240,27 +286,6 @@
     </div>
     <div class="read-more">
       <a href="/post/auto-hidden-cursor/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/debug-summary/">Debug 小结</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2016-02-03 </span>
-      <div class="post-category">
-          <a href="/categories/note/"> NOTE </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      调试 bug 的时候要有耐心, 要不断测试, 直到找到问题原因. 确定 bug 出现的方式 一定要找到稳定重现的方式, 这样才能方便下面的调试 如果找不到稳定重现的方法
-    </div>
-    <div class="read-more">
-      <a href="/post/debug-summary/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>

@@ -45,7 +45,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://jouyouyun.github.io/" />
 
-<meta property="og:updated_time" content="2018-11-27T21:38:21&#43;08:00"/>
+<meta property="og:updated_time" content="2018-12-02T21:38:21&#43;08:00"/>
 
 <meta itemprop="name" content="jouyouyun&#39;s blog">
 <meta itemprop="description" content="jouyouyun&#39;s blog">
@@ -109,6 +109,43 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/python-learn-note/">python3 学习笔记</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-12-02 </span>
+      <div class="post-category">
+          <a href="/categories/note/"> NOTE </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h2 id="python3-study-notes">Python3 Study Notes</h2>
+
+<p>本人很少写 <code>python</code> 代码, 一般都是用 <code>go</code> 的, 去年时用 <code>python</code> 写过一些收集系统信息的工具, 当时是边看手册边写的. 如今又要用 <code>python</code> 来写一个生成 <code>xlsx</code> 的工具, 就又需要查看手册了, 至于为什么不用 <code>go</code> 写? 那是因为 <code>go</code> 的库不兼容永中. 在这里不得不说, 虽然 <code>go</code> 很火, 但是一些库还是不如 <code>python</code> 多, 不如 <code>python</code> 兼容性好.</p>
+
+<p>为了避免以后再出这种事情, 这次就好好的了解下 <code>python</code>, 将它的用法按照自己对语言的理解分块记录下来. 要使用某种语言, 个人认为需要了解这些方面:</p>
+
+<ul>
+<li>编码风格</li>
+<li>变量的类型, 声明及使用方式</li>
+<li>输入/输出</li>
+<li>控制语句的写法</li>
+<li>错误处理的用法</li>
+<li>函数的用法, 还有语言支持的一些特性, <code>python</code> 中就有装饰器, <code>lambda</code> 语句等</li>
+<li>对于面向对象语言还需要了解类的声明, 继承, 多态等的用法</li>
+</ul>
+
+<p>还有一些就是此语言的一些特性, <code>python</code> 就还需要了解以下特性:</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/python-learn-note/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/go-package-management/">Go 包管理之gom</a></h1>
@@ -228,33 +265,6 @@ N: This must be accepted explicitly before updates <span class="k">for</span> th
     </div>
     <div class="read-more">
       <a href="/post/set-appearance-in-deepin-or-gnome/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/linux-auto-suspend/">Linux 休眠自动唤醒</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2018-10-21 </span>
-      <div class="post-category">
-          <a href="/categories/blog/"> BLOG </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>最近做无线网络在系统多次休眠唤醒后是否正常的测试，但每次休眠后都需要手动点击键盘来唤醒系统，显而易见的这种方法需要人来值守，很不放便。</p>
-
-<p>此时便想是否有做自动唤醒的程序，毕竟这种需求也挺正常的，应该有人已经做过了。因此就开始查找自动唤醒的方法，果然就发现了 <code>rtcwake</code> 这个程序，这个程序是让系统进入休眠模式并在指定的时间后唤醒。立刻便觉得这个程序很神奇，然后就去看它的源码来找出它的实现方式，这边发现了本文的主题 <code>RTC</code> 子系统。</p>
-
-<h2 id="rtc-子系统"><code>RTC</code> 子系统</h2>
-
-<p><code>RTC</code> 子系统在目录 <code>/sys/class/rtc/</code> 下，会根据设备创建对应的目录，需要在内核中开启支持，配置如下：</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/linux-auto-suspend/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>

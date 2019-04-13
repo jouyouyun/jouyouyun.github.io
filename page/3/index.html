@@ -45,7 +45,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://jouyouyun.github.io/" />
 
-<meta property="og:updated_time" content="2018-08-27T21:38:21&#43;08:00"/>
+<meta property="og:updated_time" content="2018-10-21T21:38:21&#43;08:00"/>
 
 <meta itemprop="name" content="jouyouyun&#39;s blog">
 <meta itemprop="description" content="jouyouyun&#39;s blog">
@@ -109,6 +109,33 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/linux-auto-suspend/">Linux 休眠自动唤醒</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-10-21 </span>
+      <div class="post-category">
+          <a href="/categories/blog/"> BLOG </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p>最近做无线网络在系统多次休眠唤醒后是否正常的测试，但每次休眠后都需要手动点击键盘来唤醒系统，显而易见的这种方法需要人来值守，很不放便。</p>
+
+<p>此时便想是否有做自动唤醒的程序，毕竟这种需求也挺正常的，应该有人已经做过了。因此就开始查找自动唤醒的方法，果然就发现了 <code>rtcwake</code> 这个程序，这个程序是让系统进入休眠模式并在指定的时间后唤醒。立刻便觉得这个程序很神奇，然后就去看它的源码来找出它的实现方式，这边发现了本文的主题 <code>RTC</code> 子系统。</p>
+
+<h2 id="rtc-子系统"><code>RTC</code> 子系统</h2>
+
+<p><code>RTC</code> 子系统在目录 <code>/sys/class/rtc/</code> 下，会根据设备创建对应的目录，需要在内核中开启支持，配置如下：</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/linux-auto-suspend/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/linux-time-standard/">Linux 时间标准</a></h1>
@@ -245,45 +272,6 @@
     </div>
     <div class="read-more">
       <a href="/post/git-rebase/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/cups-notes/">CUPS 资料</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2018-04-08 </span>
-      <div class="post-category">
-          <a href="/categories/note/"> NOTE </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <h2 id="installation">Installation</h2>
-
-<p><code>sudo apt install cups ghostscript gsfonts</code></p>
-
-<h2 id="driver">Driver</h2>
-
-<ul>
-<li><p>gutenprint</p>
-
-<p>一组质量非常好的驱动集合，支持的目标机型包括 <code>Canon, Epson, Lexmark, Sony, Olympus</code> ；以及配合 <code>CUPS/GhostSscript/Foomatic/GIMP</code> 使用的 <code>PCL printers</code> 。</p>
-
-<p>安装包: <code>cups-driver-gutenprint gimp-gutenprint ijsgutenprint printer-driver-gutenprint</code></p></li>
-
-<li><p>foomatic</p>
-
-<p><code>Foomatic</code> 是一个基于数据库的，集成自由软件打印机驱动和脱机打印程序的系统。</p>
-
-<p>安装包: <code>foomatic-db foomatic-db-engine foomatic-db-compressed-ppds foomatic-db-gutenprint foomatic-filters</code> 以及 <code>foomatic-db-nonfree</code></p></li>
-</ul>
-    </div>
-    <div class="read-more">
-      <a href="/post/cups-notes/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>
