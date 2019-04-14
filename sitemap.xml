@@ -4,7 +4,7 @@
   
   <url>
     <loc>https://jouyouyun.github.io/post/influxdb-introduction/</loc>
-    <lastmod>2019-04-14T01:13:09+08:00</lastmod>
+    <lastmod>2019-04-14T13:01:09+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -249,14 +249,14 @@
   
   <url>
     <loc>https://jouyouyun.github.io/categories/blog/</loc>
-    <lastmod>2019-04-14T01:13:09+08:00</lastmod>
+    <lastmod>2019-04-14T13:01:09+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://jouyouyun.github.io/categories/</loc>
-    <lastmod>2019-04-14T01:13:09+08:00</lastmod>
+    <lastmod>2019-04-14T13:01:09+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -270,7 +270,7 @@
   
   <url>
     <loc>https://jouyouyun.github.io/post/</loc>
-    <lastmod>2019-04-14T01:13:09+08:00</lastmod>
+    <lastmod>2019-04-14T13:01:09+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -486,7 +486,7 @@
   
   <url>
     <loc>https://jouyouyun.github.io/tags/influxdb/</loc>
-    <lastmod>2019-04-14T01:13:09+08:00</lastmod>
+    <lastmod>2019-04-14T13:01:09+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -500,7 +500,7 @@
   
   <url>
     <loc>https://jouyouyun.github.io/</loc>
-    <lastmod>2019-04-14T01:13:09+08:00</lastmod>
+    <lastmod>2019-04-14T13:01:09+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -542,7 +542,7 @@
   
   <url>
     <loc>https://jouyouyun.github.io/tags/measurement/</loc>
-    <lastmod>2019-04-14T01:13:09+08:00</lastmod>
+    <lastmod>2019-04-14T13:01:09+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -654,7 +654,7 @@
   
   <url>
     <loc>https://jouyouyun.github.io/tags/series/</loc>
-    <lastmod>2019-04-14T01:13:09+08:00</lastmod>
+    <lastmod>2019-04-14T13:01:09+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -731,7 +731,7 @@
   
   <url>
     <loc>https://jouyouyun.github.io/tags/tsdb/</loc>
-    <lastmod>2019-04-14T01:13:09+08:00</lastmod>
+    <lastmod>2019-04-14T13:01:09+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
