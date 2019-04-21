@@ -45,7 +45,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://jouyouyun.github.io/" />
 
-<meta property="og:updated_time" content="2019-04-13T16:55:00&#43;08:00"/>
+<meta property="og:updated_time" content="2019-04-21T12:58:00&#43;08:00"/>
 
 <meta itemprop="name" content="jouyouyun&#39;s blog">
 <meta itemprop="description" content="jouyouyun&#39;s blog">
@@ -109,6 +109,29 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/docker-data-storage/">更改 Docker 数据的存储目录</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2019-04-21 </span>
+      <div class="post-category">
+          <a href="/categories/blog/"> BLOG </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p><code>Docker</code> 安装后默认将数据存储在 <code>/var/lib/docker</code> 下，随着 <code>image</code> 和 <code>container</code> 的增多，会导致 <code>/</code> 分区的空间被用完，如果 <code>/</code> 分区特别大就请忽略这篇文章。</p>
+
+<p>因此需要将一些软件的数据存储到空间大的分区，与 <code>/</code> 分区分开。不仅 <code>Docker</code> 需要这样处理，如 <code>mysql/postgresql</code> 等软件也需要这样处理。</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/docker-data-storage/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/influxdb-introduction/">InfluxDB 简介</a></h1>
@@ -233,65 +256,6 @@
     </div>
     <div class="read-more">
       <a href="/post/hugo-github/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/gorm-association/">gorm 关联查询</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2018-12-05 </span>
-      <div class="post-category">
-          <a href="/categories/blog/"> BLOG </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>定义了一个 <code>User</code> 和 <code>Company</code>, <code>User</code> 中可以包含多个 <code>Company</code>, 如下:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">User</span> <span class="kd">struct</span> <span class="p">{</span>
-        <span class="nx">ID</span>        <span class="kt">int</span>        <span class="s">`gorm:&#34;TYPE:int(11);NOT NULL;PRIMARY_KEY;INDEX&#34;`</span>
-        <span class="nx">Name</span>      <span class="kt">string</span>     <span class="s">`gorm:&#34;TYPE: VARCHAR(255); DEFAULT:&#39;&#39;;INDEX&#34;`</span>
-        <span class="nx">Companies</span> <span class="p">[]</span><span class="nx">Company</span>  <span class="s">`gorm:&#34;FOREIGNKEY:UserId;ASSOCIATION_FOREIGNKEY:ID&#34;`</span>
-        <span class="nx">CreatedAt</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Time</span>  <span class="s">`gorm:&#34;TYPE:DATETIME&#34;`</span>
-        <span class="nx">UpdatedAt</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Time</span>  <span class="s">`gorm:&#34;TYPE:DATETIME&#34;`</span>
-        <span class="nx">DeletedAt</span> <span class="o">*</span><span class="nx">time</span><span class="p">.</span><span class="nx">Time</span> <span class="s">`gorm:&#34;TYPE:DATETIME;DEFAULT:NULL&#34;`</span>
-<span class="p">}</span>
-
-<span class="kd">type</span> <span class="nx">Company</span> <span class="kd">struct</span> <span class="p">{</span>
-        <span class="nx">gorm</span><span class="p">.</span><span class="nx">Model</span>
-        <span class="nx">Industry</span> <span class="kt">int</span>    <span class="s">`gorm:&#34;TYPE:INT(11);DEFAULT:0&#34;`</span>
-        <span class="nx">Name</span>     <span class="kt">string</span> <span class="s">`gorm:&#34;TYPE:VARCHAR(255);DEFAULT:&#39;&#39;;INDEX&#34;`</span>
-        <span class="nx">Job</span>      <span class="kt">string</span> <span class="s">`gorm:&#34;TYPE:VARCHAR(255);DEFAULT:&#39;&#39;&#34;`</span>
-        <span class="nx">UserId</span>   <span class="kt">int</span>    <span class="s">`gorm:&#34;TYPE:int(11);NOT NULL;INDEX&#34;`</span>
-<span class="p">}</span></code></pre></td></tr></table>
-</div>
-</div>
-    </div>
-    <div class="read-more">
-      <a href="/post/gorm-association/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>

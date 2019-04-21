@@ -45,7 +45,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://jouyouyun.github.io/" />
 
-<meta property="og:updated_time" content="2016-02-03T15:06:21&#43;08:00"/>
+<meta property="og:updated_time" content="2016-04-22T21:38:21&#43;08:00"/>
 
 <meta itemprop="name" content="jouyouyun&#39;s blog">
 <meta itemprop="description" content="jouyouyun&#39;s blog">
@@ -109,6 +109,35 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/auto-hidden-cursor/">Auto Hidden Cursor</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2016-04-22 </span>
+      <div class="post-category">
+          <a href="/categories/blog/"> BLOG </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p>最近需要做一个隐藏光标的功能, 在这里将了解到的知识总结一下.</p>
+
+<h2 id="原理">原理</h2>
+
+<p>隐藏光标的原理就是把光标设置为一个 <code>x11 null cursor</code>, 不需要隐藏时再将它设为 <code>x11 left_ptr cursor</code>.</p>
+
+<h3 id="设置光标">设置光标</h3>
+
+<p>设置光标主要需要调用下面两个函数:</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/auto-hidden-cursor/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/debug-summary/">Debug 小结</a></h1>
@@ -197,45 +226,6 @@
     </div>
     <div class="read-more">
       <a href="/post/go-gob-rw-file/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/chroot-shell/">chroot 脚本</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2014-07-05 </span>
-      <div class="post-category">
-          <a href="/categories/note/"> NOTE </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>最近测试了以下 <code>chroot</code> ，然后把步骤写成了下面两个脚本，方便以后使用。</p>
-
-<p><strong>使用时需要确定每条命令都执行成功了</strong></p>
-
-<p><code>Arch</code> 分区结构</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">/dev/sda5	/
-/dev/sda1	/boot
-/dev/sda6	/home
-/dev/sda8	Swap</code></pre></td></tr></table>
-</div>
-</div>
-    </div>
-    <div class="read-more">
-      <a href="/post/chroot-shell/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>

@@ -45,7 +45,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://jouyouyun.github.io/" />
 
-<meta property="og:updated_time" content="2018-12-02T21:38:21&#43;08:00"/>
+<meta property="og:updated_time" content="2018-12-05T21:38:21&#43;08:00"/>
 
 <meta itemprop="name" content="jouyouyun&#39;s blog">
 <meta itemprop="description" content="jouyouyun&#39;s blog">
@@ -109,6 +109,65 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/gorm-association/">gorm 关联查询</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-12-05 </span>
+      <div class="post-category">
+          <a href="/categories/blog/"> BLOG </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p>定义了一个 <code>User</code> 和 <code>Company</code>, <code>User</code> 中可以包含多个 <code>Company</code>, 如下:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">User</span> <span class="kd">struct</span> <span class="p">{</span>
+        <span class="nx">ID</span>        <span class="kt">int</span>        <span class="s">`gorm:&#34;TYPE:int(11);NOT NULL;PRIMARY_KEY;INDEX&#34;`</span>
+        <span class="nx">Name</span>      <span class="kt">string</span>     <span class="s">`gorm:&#34;TYPE: VARCHAR(255); DEFAULT:&#39;&#39;;INDEX&#34;`</span>
+        <span class="nx">Companies</span> <span class="p">[]</span><span class="nx">Company</span>  <span class="s">`gorm:&#34;FOREIGNKEY:UserId;ASSOCIATION_FOREIGNKEY:ID&#34;`</span>
+        <span class="nx">CreatedAt</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Time</span>  <span class="s">`gorm:&#34;TYPE:DATETIME&#34;`</span>
+        <span class="nx">UpdatedAt</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Time</span>  <span class="s">`gorm:&#34;TYPE:DATETIME&#34;`</span>
+        <span class="nx">DeletedAt</span> <span class="o">*</span><span class="nx">time</span><span class="p">.</span><span class="nx">Time</span> <span class="s">`gorm:&#34;TYPE:DATETIME;DEFAULT:NULL&#34;`</span>
+<span class="p">}</span>
+
+<span class="kd">type</span> <span class="nx">Company</span> <span class="kd">struct</span> <span class="p">{</span>
+        <span class="nx">gorm</span><span class="p">.</span><span class="nx">Model</span>
+        <span class="nx">Industry</span> <span class="kt">int</span>    <span class="s">`gorm:&#34;TYPE:INT(11);DEFAULT:0&#34;`</span>
+        <span class="nx">Name</span>     <span class="kt">string</span> <span class="s">`gorm:&#34;TYPE:VARCHAR(255);DEFAULT:&#39;&#39;;INDEX&#34;`</span>
+        <span class="nx">Job</span>      <span class="kt">string</span> <span class="s">`gorm:&#34;TYPE:VARCHAR(255);DEFAULT:&#39;&#39;&#34;`</span>
+        <span class="nx">UserId</span>   <span class="kt">int</span>    <span class="s">`gorm:&#34;TYPE:int(11);NOT NULL;INDEX&#34;`</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+    <div class="read-more">
+      <a href="/post/gorm-association/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/python-learn-note/">python3 学习笔记</a></h1>
@@ -236,35 +295,6 @@ N: This must be accepted explicitly before updates <span class="k">for</span> th
     </div>
     <div class="read-more">
       <a href="/post/how-to-solved-origin-changed-apt-error/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/set-appearance-in-deepin-or-gnome/">linux 下 deepin 和 gnome 桌面的外观设置</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2018-10-23 </span>
-      <div class="post-category">
-          <a href="/categories/blog/"> BLOG </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>桌面的外观设置一般包括窗口主题、图标主题、光标主题和字体设置，其中窗口主题就是常见的 <code>gtk</code> 主题，字体设置又包括标准字体、等款字体和字体大小。对于进些年的高分屏，又添加了字体缩放和窗口缩放这2个选项。</p>
-
-<p>界面上设置方法就不介绍了，都可以在各自桌面的控制中心中找到，这里主要介绍命令行下的。</p>
-
-<p><code>deepin</code> 和 <code>gnome</code> 桌面环境的外观配置数据是使用 <code>gsettings</code> 来存储，所以可以通过 <code>gsettings</code> 来设置和读取。 <code>gsettings</code> 相比设置界面就是 可以设置到更多的选项，设置的值更加精确。</p>
-
-<p>下面先简单介绍下 <code>gsettings</code> 的用法。</p>
-
-<h2 id="gsettings"><code>GSettings</code></h2>
-    </div>
-    <div class="read-more">
-      <a href="/post/set-appearance-in-deepin-or-gnome/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>
