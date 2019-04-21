@@ -10,6 +10,13 @@
   </url>
   
   <url>
+    <loc>https://jouyouyun.github.io/post/docker-intro/</loc>
+    <lastmod>2019-04-21T17:36:52+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://jouyouyun.github.io/post/influxdb-introduction/</loc>
     <lastmod>2019-04-14T13:01:09+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -359,6 +366,20 @@
   </url>
   
   <url>
+    <loc>https://jouyouyun.github.io/tags/compose/</loc>
+    <lastmod>2019-04-21T17:36:52+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/container/</loc>
+    <lastmod>2019-04-21T17:36:52+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://jouyouyun.github.io/tags/coredump/</loc>
     <lastmod>2019-02-12T14:32:12+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -494,6 +515,13 @@
   <url>
     <loc>https://jouyouyun.github.io/tags/icon/</loc>
     <lastmod>2019-02-12T14:36:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/image/</loc>
+    <lastmod>2019-04-21T17:36:52+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
