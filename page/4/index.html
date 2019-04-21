@@ -45,7 +45,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://jouyouyun.github.io/" />
 
-<meta property="og:updated_time" content="2018-05-10T21:38:21&#43;08:00"/>
+<meta property="og:updated_time" content="2018-07-27T21:38:21&#43;08:00"/>
 
 <meta itemprop="name" content="jouyouyun&#39;s blog">
 <meta itemprop="description" content="jouyouyun&#39;s blog">
@@ -109,6 +109,37 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/fixed-superblock/">修复 superblock</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-07-27 </span>
+      <div class="post-category">
+          <a href="/categories/blog/"> BLOG </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p>本周去某公司调试系统，他们硬件测试部分送来了一台系统无法进入的机器，他们也不知道怎么弄得，让我看下是系统原因还是 <code>SSD</code> 硬件有问题。</p>
+
+<p>拿到机器开机后，没有正常的进入系统，直接进入了 <code>initramfs mode</code> 并有 <code>filesystem invalid superblock checksum error</code> 的错误提示，遂告诉他们是系统的 <code>filesystem</code> 挂了，然后开始查找修复方法，最后找到了方法并修复了机器，在此记录一下。</p>
+
+<h2 id="修复方法">修复方法</h2>
+
+<p>下面的命令都是在 <code>initramfs shell</code> 中执行的。</p>
+
+<h3 id="先确定你系统所在的分区">先确定你系统所在的分区</h3>
+
+<p>可以执行 <code>lsblk</code> 来查看分区信息，然后确定，假如是 <code>/dev/sdaX</code></p>
+    </div>
+    <div class="read-more">
+      <a href="/post/fixed-superblock/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/restful-introduction/">RESTful 简介</a></h1>
@@ -262,33 +293,6 @@
     </div>
     <div class="read-more">
       <a href="/post/bluetooth-faq/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/set-grup2-resolution/">设置 Grub2 分辨率</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2017-07-29 </span>
-      <div class="post-category">
-          <a href="/categories/blog/"> BLOG </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <h2 id="背景">背景</h2>
-
-<p>平时经常用显示器的分辨率去设置 <code>Grub</code> 的分辨率，虽然大部分都没有问题，但有时却没有用。所以就把 <code>Grub</code> 分辨率的设置方法详细说明一下，留档记录。</p>
-
-<h2 id="查询支持的分辨率">查询支持的分辨率</h2>
-
-<p>在设置 <code>Grub</code> 分辨率之前，需要先知道支持的分辨率列表，而幸运的是可以到 <code>Grub</code> 命令行查询。</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/set-grup2-resolution/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>

@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Jenkins API 使用 - jouyouyun&#39;s blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="jouyouyun" /><meta name="description" content="Jenkins 是一款流行的开源持续集成工具，可以用来做一些软件开发的自动化工作，如打包，测试，自动部署等。
+Jenkins 中有 view 和 job 的概念， view 相当于组， job 则是具体的任务。 view 下面可以创建 job ，但 job 可以不在任何 view 下。
+这里主要介绍 Jenkins 提供的 HTTP API ，至于如何使用 Jenkins 请参看 Jenkins User Documentation。
+" /><meta name="keywords" content="jouyouyun, Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://jouyouyun.github.io/post/jenkins-api-usage/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.93844dae.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Jenkins API 使用" />
+<meta property="og:description" content="Jenkins 是一款流行的开源持续集成工具，可以用来做一些软件开发的自动化工作，如打包，测试，自动部署等。
+
+Jenkins 中有 view 和 job 的概念， view 相当于组， job 则是具体的任务。
+view 下面可以创建 job ，但 job 可以不在任何 view 下。
+
+这里主要介绍 Jenkins 提供的 HTTP API ，至于如何使用 Jenkins 请参看 Jenkins User Documentation。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jouyouyun.github.io/post/jenkins-api-usage/" />
+<meta property="article:published_time" content="2019-04-21T20:02:00&#43;08:00"/>
+<meta property="article:modified_time" content="2019-04-21T21:07:07&#43;08:00"/>
+
+<meta itemprop="name" content="Jenkins API 使用">
+<meta itemprop="description" content="Jenkins 是一款流行的开源持续集成工具，可以用来做一些软件开发的自动化工作，如打包，测试，自动部署等。
+
+Jenkins 中有 view 和 job 的概念， view 相当于组， job 则是具体的任务。
+view 下面可以创建 job ，但 job 可以不在任何 view 下。
+
+这里主要介绍 Jenkins 提供的 HTTP API ，至于如何使用 Jenkins 请参看 Jenkins User Documentation。">
+
+
+<meta itemprop="datePublished" content="2019-04-21T20:02:00&#43;08:00" />
+<meta itemprop="dateModified" content="2019-04-21T21:07:07&#43;08:00" />
+<meta itemprop="wordCount" content="1136">
+
+
+
+<meta itemprop="keywords" content="jenkins,rest,api," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Jenkins API 使用"/>
+<meta name="twitter:description" content="Jenkins 是一款流行的开源持续集成工具，可以用来做一些软件开发的自动化工作，如打包，测试，自动部署等。
+
+Jenkins 中有 view 和 job 的概念， view 相当于组， job 则是具体的任务。
+view 下面可以创建 job ，但 job 可以不在任何 view 下。
+
+这里主要介绍 Jenkins 提供的 HTTP API ，至于如何使用 Jenkins 请参看 Jenkins User Documentation。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">jouyouyun</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">jouyouyun</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Jenkins API 使用</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-04-21 </span>
+        <div class="post-category">
+            <a href="/categories/blog/"> BLOG </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#api">API</a>
+<ul>
+<li><a href="#鉴权">鉴权</a></li>
+<li><a href="#view">View</a></li>
+<li><a href="#job">Job</a></li>
+<li><a href="#job-build">Job Build</a></li>
+</ul></li>
+<li><a href="#附录">附录</a>
+<ul>
+<li><a href="#使用-go-编写触发构建的程序">使用 <code>Go</code> 编写触发构建的程序</a></li>
+<li><a href="#参考资料">参考资料</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p><code>Jenkins</code> 是一款流行的开源持续集成工具，可以用来做一些软件开发的自动化工作，如打包，测试，自动部署等。</p>
+
+<p><code>Jenkins</code> 中有 <code>view</code> 和 <code>job</code> 的概念， <code>view</code> 相当于组， <code>job</code> 则是具体的任务。
+<code>view</code> 下面可以创建 <code>job</code> ，但 <code>job</code> 可以不在任何 <code>view</code> 下。</p>
+
+<p>这里主要介绍 <code>Jenkins</code> 提供的 <code>HTTP API</code> ，至于如何使用 <code>Jenkins</code> 请参看 <a href="https://jenkins.io/doc/">Jenkins User Documentation</a>。</p>
+
+<h2 id="api">API</h2>
+
+<h3 id="鉴权">鉴权</h3>
+
+<p><code>Jenkins</code> 使用 <code>Baisc Auth</code> 的权限验证方式，需要传入 <code>username</code> 和 <code>api token</code> 。
+其中 <code>api token</code> 需要在用户的设置界面去创建。</p>
+
+<p>但在 <code>Job</code> 的远程触发中，可以设置用于远程触发的 <code>token</code> (在 <code>Job</code> 的配置页面设置)，这样在触发 <code>Job</code> 时就不需要传入 <code>Basic Auth</code> 了。
+远程触发的 <code>token</code> 使用 <code>urlencode</code> 的方式放在请求的 <code>body</code> 中，其原始数据为： <code>token=&lt;Token Value&gt;</code></p>
+
+<p>下面给出两种方式触发 <code>Job</code> 的例子：</p>
+
+<ul>
+<li><p><strong>Basic Auth</strong></p>
+
+<p><code>curl -X POST &lt;jenkins url&gt;/view/&lt;view name&gt;/job/&lt;job name&gt;/build --user &lt;username&gt;:&lt;api token&gt;</code></p></li>
+
+<li><p><strong>Token</strong></p>
+
+<p><code>curl -X POST &lt;jenkins url&gt;/view/&lt;view name&gt;/job/&lt;job name&gt;/build --data-urlencode token=&lt;Token Value&gt;</code></p></li>
+</ul>
+
+<h3 id="view">View</h3>
+
+<ul>
+<li><p>创建</p>
+
+<p><strong>API:</strong> <code>&lt;jenkins url&gt;/createView</code></p>
+
+<p><strong>curl:</strong> <code>curl -X POST &lt;jenkins url&gt;/createView?name=&lt;view name&gt; --data-binary &quot;@viewCofnig.xml&quot; -H &quot;Content-Type: text/xml&quot; --auth &lt;u&gt;:&lt;p&gt;</code></p></li>
+
+<li><p>删除</p>
+
+<p><strong>API:</strong> <code>&lt;jenkins url&gt;/view/&lt;view name&gt;/doDelete</code></p>
+
+<p><strong>curl:</strong> <code>curl -X POST &lt;jenkins url&gt;/view/&lt;view name&gt;/doDelete --auth &lt;u&gt;:&lt;p&gt;</code></p></li>
+</ul>
+
+<!--listend-->
+
+<ul>
+<li><p>查询状态</p>
+
+<p><strong>API:</strong> <code>&lt;jenkins url&gt;/view/&lt;view name&gt;/api/json</code></p>
+
+<p><strong>curl:</strong> <code>curl -X GET &lt;jenkins url&gt;/view/&lt;view name&gt;/api/json --auth &lt;u&gt;:&lt;p&gt;</code></p></li>
+
+<li><p>查询配置</p>
+
+<p><strong>API:</strong> <code>&lt;jenkins url&gt;/view/&lt;view name&gt;/config.xml</code></p>
+
+<p><strong>curl:</strong> <code>curl -X GET &lt;jenkins url&gt;/view/&lt;view name&gt;/config.xml --auth &lt;u&gt;:&lt;p&gt;</code></p></li>
+</ul>
+
+<!--listend-->
+
+<ul>
+<li><p>更新配置</p>
+
+<p><strong>API:</strong> <code>&lt;jenkins url&gt;/view/&lt;view name&gt;/config.xml</code></p>
+
+<p><strong>curl:</strong> <code>curl -X POST &lt;jenkins url&gt;/view/&lt;view name&gt;/config.xml --data-binary &quot;@newCofnig.xml&quot; -H &quot;Content-Type: text/xml&quot; --auth &lt;u&gt;:&lt;p&gt;</code></p></li>
+</ul>
+
+<h3 id="job">Job</h3>
+
+<ul>
+<li><p>创建</p>
+
+<p><strong>API:</strong> <code>&lt;jenkins url&gt;/createItem</code></p>
+
+<p><strong>curl:</strong> <code>curl -X POST &lt;jenkins url&gt;/createItem?name=&lt;job name&gt; --data-binary &quot;@jobConfig.xml&quot; -H &quot;Content-Type: text/xml&quot; --auth &lt;u&gt;:&lt;p&gt;</code></p></li>
+
+<li><p>删除</p>
+
+<p><strong>API:</strong> <code>&lt;jenkins url&gt;/job/&lt;job name&gt;/doDelete</code></p>
+
+<p><strong>curl:</strong> <code>curl -X POST &lt;jenkins url&gt;/job/&lt;job name&gt;/doDelete --auth &lt;u&gt;:&lt;p&gt;</code></p></li>
+
+<li><p>查询状态</p>
+
+<p><strong>API:</strong> <code>&lt;jenkins url&gt;/view/&lt;view name&gt;/job/&lt;job name&gt;/api/json</code></p>
+
+<p><strong>curl:</strong> <code>curl -X GET &lt;jenkins url&gt;/view/&lt;view name&gt;/job/&lt;job name&gt;/api/json --auth &lt;u&gt;:&lt;p&gt;</code></p></li>
+
+<li><p>启用</p>
+
+<p><strong>API:</strong> <code>&lt;jenkins url&gt;/view/&lt;view name&gt;/job/&lt;job name&gt;/enable</code></p></li>
+
+<li><p>禁用</p>
+
+<p><strong>API:</strong> <code>&lt;jenkins url&gt;/view/&lt;view name&gt;/job/&lt;job name&gt;/disable</code></p></li>
+
+<li><p>查询配置</p>
+
+<p><strong>API:</strong> <code>&lt;jenkins url&gt;/view/&lt;view name&gt;/job/&lt;job name&gt;/config.xml</code></p>
+
+<p><strong>curl:</strong> <code>curl -X GET &lt;jenkins url&gt;/view/&lt;view name&gt;/job/&lt;job name&gt;/config.xml --auth &lt;u&gt;:&lt;p&gt;</code></p></li>
+</ul>
+
+<!--listend-->
+
+<ul>
+<li><p>更新配置</p>
+
+<p><strong>API:</strong> <code>&lt;jenkins url&gt;/view/&lt;view name&gt;/job/&lt;job name&gt;/config.xml</code></p>
+
+<p><strong>curl:</strong> <code>curl -X POST &lt;jenkins url&gt;/view/&lt;view name&gt;/job/&lt;job name&gt;/config.xml --data-binary &quot;@newCofnig.xml&quot; -H &quot;Content-Type: text/xml&quot; --auth &lt;u&gt;:&lt;p&gt;</code></p></li>
+</ul>
+
+<h3 id="job-build">Job Build</h3>
+
+<p>为了描述方便，这里先定义 <code>baseURL=&lt;jenkins url&gt;/view/&lt;view name&gt;/job/&lt;job name&gt;</code> ，下面的 <code>API</code> 都需要加上 <code>baseURL</code> 才是完整的 =URL=。</p>
+
+<ul>
+<li><p>触发构建</p>
+
+<p><strong>API:</strong> <code>/build</code></p>
+
+<p>支持 <code>token</code> 触发，支持填入构建参数，构建参数是在 <code>Job</code> 配置页面创建的。</p>
+
+<p>如使用 <code>token</code> 并有字符参数 <code>branch</code> 和 <code>target</code> 的例子：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">curl -X POST &lt;api&gt; --data-urlencode <span class="nv">token</span><span class="o">=</span>&lt;token value&gt; <span class="se">\
+</span><span class="se"></span>--data-urlencode <span class="nv">json</span><span class="o">=</span><span class="s1">&#39;{&#34;parameters&#34;: [{&#34;name&#34;: &#34;branch&#34;, &#34;value&#34;: &#34;master&#34;},{&#34;name&#34;:&#34;target&#34;,&#34;value&#34;:&#34;mirror&#34;}]}&#39;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>触发成功后，会在 <code>header</code> 的 <code>Location</code> 字段指明 <code>queue url</code> ，再通过查询 <code>queue</code> 就可获取到 <code>build id</code> 了。</p></li>
+
+<li><p>停止构建</p>
+
+<p><strong>API:</strong> <code>/&lt;id&gt;/stop</code></p></li>
+
+<li><p>删除构建</p>
+
+<p><strong>API:</strong> <code>/&lt;id&gt;/doDelete</code></p></li>
+
+<li><p>构建状态</p>
+
+<p><strong>API:</strong> <code>/&lt;id&gt;/api/json</code></p></li>
+
+<li><p>最后一次构建</p>
+
+<p><strong>API:</strong> <code>/lastBuild/api/json</code></p></li>
+</ul>
+
+<h2 id="附录">附录</h2>
+
+<h3 id="使用-go-编写触发构建的程序">使用 <code>Go</code> 编写触发构建的程序</h3>
+
+<p>这里只给出关键代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span><span class="lnt">85
+</span><span class="lnt">86
+</span><span class="lnt">87
+</span><span class="lnt">88
+</span><span class="lnt">89
+</span><span class="lnt">90
+</span><span class="lnt">91
+</span><span class="lnt">92
+</span><span class="lnt">93
+</span><span class="lnt">94
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// QueueInfo jenkins return&#39;s info by queue json api
+</span><span class="c1"></span><span class="kd">type</span> <span class="nx">QueueInfo</span> <span class="kd">struct</span> <span class="p">{</span>
+        <span class="nx">Executable</span> <span class="kd">struct</span> <span class="p">{</span>
+                <span class="nx">Number</span> <span class="kt">int</span>    <span class="s">`json:&#34;number&#34;`</span>
+                <span class="nx">URL</span>    <span class="kt">string</span> <span class="s">`json:&#34;url&#34;`</span>
+        <span class="p">}</span> <span class="s">`json:&#34;Executable&#34;`</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="p">(</span>
+        <span class="nx">jenkinsURL</span>   <span class="p">=</span> <span class="nx">flag</span><span class="p">.</span><span class="nf">String</span><span class="p">(</span><span class="s">&#34;url&#34;</span><span class="p">,</span> <span class="s">&#34;https://ci.deepin.io&#34;</span><span class="p">,</span> <span class="s">&#34;Jenkins site url&#34;</span><span class="p">)</span>
+        <span class="nx">jenkinsView</span>  <span class="p">=</span> <span class="nx">flag</span><span class="p">.</span><span class="nf">String</span><span class="p">(</span><span class="s">&#34;view&#34;</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="s">&#34;Jenkins job view&#34;</span><span class="p">)</span>
+        <span class="nx">jenkinsJob</span>   <span class="p">=</span> <span class="nx">flag</span><span class="p">.</span><span class="nf">String</span><span class="p">(</span><span class="s">&#34;job&#34;</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="s">&#34;Jenkins job name&#34;</span><span class="p">)</span>
+        <span class="nx">jenkinsToken</span> <span class="p">=</span> <span class="nx">flag</span><span class="p">.</span><span class="nf">String</span><span class="p">(</span><span class="s">&#34;token&#34;</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="s">&#34;Jenkins job token&#34;</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="c1">// BuildJob trigger a job build
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">BuildJob</span><span class="p">(</span><span class="nx">params</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="p">)</span> <span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">api</span> <span class="p">=</span> <span class="o">*</span><span class="nx">jenkinsURL</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="o">*</span><span class="nx">jenkinsView</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span> <span class="p">{</span>
+                <span class="nx">api</span> <span class="o">+=</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;/view/%s&#34;</span><span class="p">,</span> <span class="o">*</span><span class="nx">jenkinsView</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="o">*</span><span class="nx">jenkinsJob</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span> <span class="p">{</span>
+                <span class="nx">api</span> <span class="o">+=</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;/job/%s&#34;</span><span class="p">,</span> <span class="o">*</span><span class="nx">jenkinsJob</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="nx">api</span> <span class="o">+=</span> <span class="s">&#34;/build&#34;</span>
+
+        <span class="c1">// params must encode by url
+</span><span class="c1"></span>        <span class="kd">var</span> <span class="nx">values</span> <span class="p">=</span> <span class="nb">make</span><span class="p">(</span><span class="nx">url</span><span class="p">.</span><span class="nx">Values</span><span class="p">)</span>
+        <span class="k">for</span> <span class="nx">k</span><span class="p">,</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">params</span> <span class="p">{</span>
+                <span class="nx">values</span><span class="p">.</span><span class="nf">Set</span><span class="p">(</span><span class="nx">k</span><span class="p">,</span> <span class="nx">v</span><span class="p">)</span>
+        <span class="p">}</span>
+
+        <span class="nx">req</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">http</span><span class="p">.</span><span class="nf">NewRequest</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nx">MethodPost</span><span class="p">,</span> <span class="nx">api</span><span class="p">,</span>
+                <span class="nx">bytes</span><span class="p">.</span><span class="nf">NewBufferString</span><span class="p">(</span><span class="nx">values</span><span class="p">.</span><span class="nf">Encode</span><span class="p">()))</span>
+        <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nx">err</span>
+        <span class="p">}</span>
+        <span class="c1">// must set &#39;Content-Type&#39; to &#39;application/x-www-form-urlencoded&#39;
+</span><span class="c1"></span>        <span class="nx">req</span><span class="p">.</span><span class="nx">Header</span><span class="p">.</span><span class="nf">Set</span><span class="p">(</span><span class="s">&#34;Content-Type&#34;</span><span class="p">,</span> <span class="s">&#34;application/x-www-form-urlencoded; charset=utf-8&#34;</span><span class="p">)</span>
+
+        <span class="nx">resp</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">http</span><span class="p">.</span><span class="nx">DefaultClient</span><span class="p">.</span><span class="nf">Do</span><span class="p">(</span><span class="nx">req</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nx">err</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">Body</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+                <span class="k">defer</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">Body</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+                <span class="nx">data</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">ioutil</span><span class="p">.</span><span class="nf">ReadAll</span><span class="p">(</span><span class="nx">resp</span><span class="p">.</span><span class="nx">Body</span><span class="p">)</span>
+                <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+                        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Failed to read response content:&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Response content:&#34;</span><span class="p">,</span> <span class="nb">string</span><span class="p">(</span><span class="nx">data</span><span class="p">))</span>
+                <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Status:&#34;</span><span class="p">,</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">Status</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">StatusCode</span> <span class="p">&lt;</span> <span class="mi">200</span> <span class="o">||</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">StatusCode</span> <span class="o">&gt;=</span> <span class="mi">300</span> <span class="p">{</span>
+                <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Failed to build job&#34;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;build job failure&#34;</span><span class="p">)</span>
+        <span class="p">}</span>
+
+        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Response headers:&#34;</span><span class="p">,</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">Header</span><span class="p">)</span>
+        <span class="nx">queueAPI</span> <span class="o">:=</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">Header</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="s">&#34;Location&#34;</span><span class="p">)</span>
+        <span class="nx">queue</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nf">GetQueue</span><span class="p">(</span><span class="nx">queueAPI</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nx">err</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="nx">queue</span><span class="p">.</span><span class="nx">Executable</span><span class="p">.</span><span class="nx">Number</span><span class="p">,</span> <span class="kc">nil</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">GetQueue</span><span class="p">(</span><span class="nx">api</span> <span class="kt">string</span><span class="p">)</span> <span class="p">(</span><span class="o">*</span><span class="nx">QueueInfo</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">resp</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">http</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="nx">api</span> <span class="o">+</span> <span class="s">&#34;/api/json&#34;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+                <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Failed to get queue:&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+                <span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">err</span>
+        <span class="p">}</span>
+        <span class="k">defer</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">Body</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+
+        <span class="nx">data</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">ioutil</span><span class="p">.</span><span class="nf">ReadAll</span><span class="p">(</span><span class="nx">resp</span><span class="p">.</span><span class="nx">Body</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+                <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Failed to read response content:&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">StatusCode</span> <span class="p">&lt;</span> <span class="mi">200</span> <span class="o">||</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">StatusCode</span> <span class="o">&gt;=</span> <span class="mi">300</span> <span class="p">{</span>
+                <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Failed to get queue info&#34;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;get queue info failure&#34;</span><span class="p">)</span>
+        <span class="p">}</span>
+
+        <span class="kd">var</span> <span class="nx">info</span> <span class="nx">QueueInfo</span>
+        <span class="nx">err</span> <span class="p">=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">Unmarshal</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">info</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">err</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="o">&amp;</span><span class="nx">info</span><span class="p">,</span> <span class="kc">nil</span>
+<span class="p">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="参考资料">参考资料</h3>
+
+<p>没有在 <a href="https://wiki.jenkins.io/display/JENKINS/Remote+access+API">Jenkins REST API 文档</a> 中找到过多的 <code>API</code> 信息，但在 <a href="https://opendev.org/jjb/python-jenkins">python-jenkins</a> 的 <a href="https://opendev.org/jjb/python-jenkins/src/branch/master/jenkins/%5F%5Finit%5F%5F.py">代码</a> 中找到，所以想要了解更多请看代码。</p>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">jouyouyun</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">2019-04-21</span>
+  </p>
+  
+  
+</div><div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/images/reward/wechat-qr-code.png">
+        <span>微信打赏</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/images/reward/alipay-qr-code.png">
+        <span>支付宝打赏</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/jenkins/">jenkins</a>
+          <a href="/tags/rest/">rest</a>
+          <a href="/tags/api/">api</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/docker-data-storage/">
+            <span class="next-text nav-default">更改 Docker 数据的存储目录</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:jouyouwen717@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://twitter.com/jouyouyun" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://github.com/jouyouyun" class="iconfont icon-github" title="github"></a>
+  <a href="https://jouyouyun.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2014 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">jouyouyun</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.ece58db6.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

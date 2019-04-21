@@ -45,7 +45,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://jouyouyun.github.io/" />
 
-<meta property="og:updated_time" content="2019-04-21T12:58:00&#43;08:00"/>
+<meta property="og:updated_time" content="2019-04-21T20:02:00&#43;08:00"/>
 
 <meta itemprop="name" content="jouyouyun&#39;s blog">
 <meta itemprop="description" content="jouyouyun&#39;s blog">
@@ -109,6 +109,32 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/jenkins-api-usage/">Jenkins API 使用</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2019-04-21 </span>
+      <div class="post-category">
+          <a href="/categories/blog/"> BLOG </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p><code>Jenkins</code> 是一款流行的开源持续集成工具，可以用来做一些软件开发的自动化工作，如打包，测试，自动部署等。</p>
+
+<p><code>Jenkins</code> 中有 <code>view</code> 和 <code>job</code> 的概念， <code>view</code> 相当于组， <code>job</code> 则是具体的任务。
+<code>view</code> 下面可以创建 <code>job</code> ，但 <code>job</code> 可以不在任何 <code>view</code> 下。</p>
+
+<p>这里主要介绍 <code>Jenkins</code> 提供的 <code>HTTP API</code> ，至于如何使用 <code>Jenkins</code> 请参看 <a href="https://jenkins.io/doc/">Jenkins User Documentation</a>。</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/jenkins-api-usage/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/docker-data-storage/">更改 Docker 数据的存储目录</a></h1>
@@ -210,54 +236,6 @@
     </div>
     <div class="read-more">
       <a href="/post/clean_invalid_branch_in_git/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/mysql_commands/">MySQL 常用命令</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2019-04-05 </span>
-      <div class="post-category">
-          <a href="/categories/blog/"> BLOG </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>大学学的数据库系统概论工作后几年没有使用都已忘了, 现在项目需要用到数据库, 但来不及细看相关书籍了, 遂将一些常用的记录下来.</p>
-
-<h2 id="常用类型">常用类型</h2>
-
-<p><code>MySQL</code> 支持多种类型, 大致可以分为三类: 数值, 日期/时间和字符串(字符)类型, 大致如下:</p>
-
-<ul>
-<li><p>数值类型</p>
-
-<ul>
-<li>整数: <code>tinyint</code>, <code>smallint</code>, <code>mediumint</code>, <code>int</code>, <code>bigint</code></li>
-<li>浮点数: <code>float</code>, <code>double</code>, <code>decimal</code></li>
-</ul></li>
-
-<li><p>日期和时间</p>
-
-<p><code>date</code>, <code>time</code>, <code>datetime</code>, <code>timestamp</code>, <code>year</code></p></li>
-
-<li><p>字符串类型</p>
-
-<ul>
-<li>字符串: <code>char</code>, <code>varchar</code></li>
-<li>文本: <code>tinytext</code>, <code>text</code>, <code>mediumtext</code>, <code>longtext</code></li>
-<li>二进制字符串: <code>tinyblob</code>, <code>blob</code>, <code>mediumblob</code>, <code>longblob</code></li>
-</ul></li>
-</ul>
-
-<p>下面将详细给出每种类型的大小和描述.</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/mysql_commands/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>
