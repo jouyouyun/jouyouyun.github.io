@@ -74,7 +74,7 @@
   
   <url>
     <loc>https://jouyouyun.github.io/post/linux-signal-example/</loc>
-    <lastmod>2019-02-12T14:35:03+08:00</lastmod>
+    <lastmod>2019-04-23T16:13:41+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -304,7 +304,7 @@
   
   <url>
     <loc>https://jouyouyun.github.io/tags/alarm/</loc>
-    <lastmod>2019-02-12T14:35:03+08:00</lastmod>
+    <lastmod>2019-04-23T16:13:41+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -570,7 +570,7 @@
   
   <url>
     <loc>https://jouyouyun.github.io/tags/kill/</loc>
-    <lastmod>2019-02-12T14:35:03+08:00</lastmod>
+    <lastmod>2019-04-23T16:13:41+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -661,7 +661,7 @@
   
   <url>
     <loc>https://jouyouyun.github.io/tags/raise/</loc>
-    <lastmod>2019-02-12T14:35:03+08:00</lastmod>
+    <lastmod>2019-04-23T16:13:41+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -731,14 +731,14 @@
   
   <url>
     <loc>https://jouyouyun.github.io/tags/sigaction/</loc>
-    <lastmod>2019-02-12T14:35:03+08:00</lastmod>
+    <lastmod>2019-04-23T16:13:41+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://jouyouyun.github.io/tags/signal/</loc>
-    <lastmod>2019-02-12T14:35:03+08:00</lastmod>
+    <lastmod>2019-04-23T16:13:41+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
