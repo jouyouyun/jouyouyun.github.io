@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>系统安装二三事 - jouyouyun&#39;s blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="jouyouyun" /><meta name="description" content="在重装系统时, 需要考虑软件与数据的备份恢复, 遂记录下需要用到的软件, 自定义的配置和数据恢复. 软件 换源 Archlinux 在 /etc/pacman.d/mirrorlist 只启用中国区的源, 另添加以下内容到" /><meta name="keywords" content="jouyouyun, Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://jouyouyun.github.io/post/installation/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.93844dae.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="系统安装二三事" />
+<meta property="og:description" content="在重装系统时, 需要考虑软件与数据的备份恢复, 遂记录下需要用到的软件, 自定义的配置和数据恢复. 软件 换源 Archlinux 在 /etc/pacman.d/mirrorlist 只启用中国区的源, 另添加以下内容到" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jouyouyun.github.io/post/installation/" />
+<meta property="article:published_time" content="2019-05-02T11:27:00&#43;08:00"/>
+<meta property="article:modified_time" content="2019-05-02T22:20:56&#43;08:00"/>
+
+<meta itemprop="name" content="系统安装二三事">
+<meta itemprop="description" content="在重装系统时, 需要考虑软件与数据的备份恢复, 遂记录下需要用到的软件, 自定义的配置和数据恢复. 软件 换源 Archlinux 在 /etc/pacman.d/mirrorlist 只启用中国区的源, 另添加以下内容到">
+
+
+<meta itemprop="datePublished" content="2019-05-02T11:27:00&#43;08:00" />
+<meta itemprop="dateModified" content="2019-05-02T22:20:56&#43;08:00" />
+<meta itemprop="wordCount" content="455">
+
+
+
+<meta itemprop="keywords" content="installation," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="系统安装二三事"/>
+<meta name="twitter:description" content="在重装系统时, 需要考虑软件与数据的备份恢复, 遂记录下需要用到的软件, 自定义的配置和数据恢复. 软件 换源 Archlinux 在 /etc/pacman.d/mirrorlist 只启用中国区的源, 另添加以下内容到"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">jouyouyun</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">jouyouyun</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">系统安装二三事</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-05-02 </span>
+        <div class="post-category">
+            <a href="/categories/note/"> NOTE </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#软件">软件</a>
+<ul>
+<li><a href="#换源">换源</a></li>
+<li><a href="#输入法">输入法</a></li>
+<li><a href="#常用工具">常用工具</a></li>
+<li><a href="#开发">开发</a></li>
+</ul></li>
+<li><a href="#配置">配置</a></li>
+<li><a href="#数据">数据</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<p>在重装系统时, 需要考虑软件与数据的备份恢复, 遂记录下需要用到的软件, 自定义的配置和数据恢复.</p>
+
+<h2 id="软件">软件</h2>
+
+<h3 id="换源">换源</h3>
+
+<ul>
+<li><p><code>Archlinux</code></p>
+
+<p>在 <code>/etc/pacman.d/mirrorlist</code> 只启用中国区的源, 另添加以下内容到 <code>/etc/pacman.conf</code> 中来启用 <code>yaourt aur</code> 源:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="o">[</span>archlinuxcn<span class="o">]</span>
+<span class="nv">SigLevel</span> <span class="o">=</span> Optional TrustAll
+<span class="nv">Server</span> <span class="o">=</span> https://mirrors.ustc.edu.cn/archlinuxcn/<span class="nv">$arch</span>~</code></pre></td></tr></table>
+</div>
+</div></li>
+
+<li><p><code>Deepin</code></p>
+
+<p>这里使用 <code>163</code> 的源</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">http://mirrors.163.com/deepin stable main contrib non-free</code></pre></td></tr></table>
+</div>
+</div>
+<p>具体的 <code>distribution</code>, <code>componments</code> 则根据安装后默认的源来填写.</p></li>
+</ul>
+
+<h3 id="输入法">输入法</h3>
+
+<ul>
+<li><p><code>Archlinux</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">yaourt -S fcitx fcitx-googlepinyin fcitx-frontend-gtk2 fcitx-frontend-gtk3 fcitx-frontend-qt4 fcitx-module-x11 fcitx-module-dbus fcitx-table fcitx-ui-classic</code></pre></td></tr></table>
+</div>
+</div></li>
+
+<li><p><code>Deepin</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">sudo apt-get install fcitx-googlepinyin
+<span class="c1"># remove sogoupinyin</span>
+sudo apt-get purge sogoupinyin fcitx-sogoupinyin-uk</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+
+<h3 id="常用工具">常用工具</h3>
+
+<ul>
+<li><p><code>Archlinux</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">yaourt -S zsh tmux gvim openssh most firefox albert parcellite the_silver_searcher wget xelatex wkhtmltopdf pandoc vlc zhcon terminator git emacs w3m curl <span class="se">\
+</span><span class="se"></span>dia inkscape wireshark wps-office aria2 mpv htop gpicview deepin-screenshot foxitreader python-pip</code></pre></td></tr></table>
+</div>
+</div></li>
+
+<li><p><code>Deepin</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">sudo apt-get install zsh tmux vim-gtk3 openssh-server firefox albert parcellite silversearcher-ag xelatex wkhtmltopdf pandoc vlc zhcon terminator git emacs w3m <span class="se">\
+</span><span class="se"></span>curl dia inkscape wireshark wps-office aria2 mpv htop gpicview deepin-screenshot foxitreader python-pip python3-pip</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+
+<h3 id="开发">开发</h3>
+
+<ul>
+<li><p><code>Archlinux</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">yaourt -S valgrind ctags go hugo boost boost-libs nodejs d-feet devhelp cmake clang clang-format astyle</code></pre></td></tr></table>
+</div>
+</div></li>
+
+<li><p><code>Deepin</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">sudo apt-get install valgrind exuberant-ctags golang-go golang-src hugo libboost-all-dev nodejs nodejs d-feet devhelp cmake clang clang-format libclang-dev astyle <span class="se">\
+</span><span class="se"></span>libpython-dev
+sudo apt-get build-dep dde-daemon startdde dde-api</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+
+<h2 id="配置">配置</h2>
+
+<ul>
+<li><p><code>nodjs</code></p>
+
+<p>设置 <code>npm</code> 加速镜像源与全局目录:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># ~/.npmrc</span>
+<span class="nv">registry</span> <span class="o">=</span> http://registry.cnpmjs.org
+<span class="nv">prefix</span><span class="o">=</span>/Data/npm-global</code></pre></td></tr></table>
+</div>
+</div></li>
+
+<li><p><code>pip</code></p>
+
+<p>设置 <code>pip</code> 加速镜像源:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># ~/.pip/pip.conf</span>
+<span class="o">[</span>global<span class="o">]</span>
+index-url <span class="o">=</span> https://pypi.douban.com/simple</code></pre></td></tr></table>
+</div>
+</div></li>
+
+<li><p><code>docker</code></p>
+
+<p>设置 <code>pip</code> 加速镜像源:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># /etc/docker/daemon.json</span>
+<span class="o">{</span>
+  <span class="s2">&#34;registry-mirrors&#34;</span>: <span class="o">[</span><span class="s2">&#34;https://registry.docker-cn.com&#34;</span><span class="o">]</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>存储目录的设置参见: <a href="http://jouyouyun.github.io/post/docker-data-storage/">更改 Docker 数据的存储目录</a></p></li>
+
+<li><p>其它</p>
+
+<p><code>vim, tmux, git, ssh, ss-tproxy</code> 的配置在 <a href="https://gitee.com/jouyouyun/conf.d">conf.d</a> 中, <code>emacs</code> 的配置在 <a href="https://github.com/jouyouyun/prelude">prelude</a> 中.</p>
+
+<p><code>ss-tproxy</code> 执行 <code>git clone https://github.com/zfl9/ss-tproxy.git</code> 下载.</p></li>
+</ul>
+
+<h2 id="数据">数据</h2>
+
+<p>由于将数据都单独保存在分区 <code>/Data</code> 中, 所以重装系统时只要不将其格式化就好, 装好后在修改 <code>/etc/fstab</code> 挂载上去, 如:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nv">UUID</span><span class="o">=</span>6f8f77fb-f8ca-43cb-bb40-4e8e7ca8e009   /Data           ext4        rw,relatime,data<span class="o">=</span>ordered    <span class="m">0</span> <span class="m">1</span></code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">jouyouyun</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">2019-05-02</span>
+  </p>
+  
+  
+</div><div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/images/reward/wechat-qr-code.png">
+        <span>微信打赏</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/images/reward/alipay-qr-code.png">
+        <span>支付宝打赏</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/installation/">installation</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/jenkins-api-usage/">
+            <span class="next-text nav-default">Jenkins API 使用</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:jouyouwen717@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://twitter.com/jouyouyun" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://github.com/jouyouyun" class="iconfont icon-github" title="github"></a>
+  <a href="https://jouyouyun.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2014 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">jouyouyun</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.ece58db6.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

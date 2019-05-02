@@ -45,7 +45,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://jouyouyun.github.io/" />
 
-<meta property="og:updated_time" content="2019-04-05T21:04:21&#43;08:00"/>
+<meta property="og:updated_time" content="2019-04-11T14:49:00&#43;08:00"/>
 
 <meta itemprop="name" content="jouyouyun&#39;s blog">
 <meta itemprop="description" content="jouyouyun&#39;s blog">
@@ -109,6 +109,31 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/clean_invalid_branch_in_git/">清理无用的 local branch</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2019-04-11 </span>
+      <div class="post-category">
+          <a href="/categories/blog/"> BLOG </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p>在开发新功能或修复 <code>bug</code> 时, 会从 <code>master</code> 上新建 <code>branch</code> 来处理, 当完成后会将这个 <code>branch</code> 推送到 <code>origin</code> 中, 如:
+<code>git push origin &lt;branch name&gt;:&lt;branch name&gt;</code>.</p>
+
+<p><code>origin</code> 审核代码没有问题后就会 <strong>合并分支并删除</strong>, 但 <strong>本地</strong> 在 <code>git pull</code> 删除本地分支后, 仍能通过 <code>git branch -a</code> 看到这个 <code>branch</code> 的 <code>origin ref</code>.
+日积月累之下本地就会有很多这样无用的 <code>branch ref</code>, 很是让人厌烦, 遂在此记录清理的方法.</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/clean_invalid_branch_in_git/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/mysql_commands/">MySQL 常用命令</a></h1>
@@ -280,31 +305,6 @@
     </div>
     <div class="read-more">
       <a href="/post/python-learn-note/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/go-package-management/">Go 包管理之gom</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2018-11-27 </span>
-      <div class="post-category">
-          <a href="/categories/note/"> NOTE </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <h2 id="go-module-使用">Go Module 使用</h2>
-
-<p><code>Go Module</code> 是官方用来管理 <code>package</code> 依赖的工具, <code>1.11</code> 新加的, 使用时需要设置变量: <code>GO111MODULE=on</code> .</p>
-
-<p><code>go mod help</code> 可以查看其帮助文档:</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/go-package-management/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>
