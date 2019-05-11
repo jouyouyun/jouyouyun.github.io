@@ -29,7 +29,7 @@ Docker 容器应用直接运行与宿主内核，无需启动完整的操作系�
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.55.5 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://jouyouyun.github.io/post/docker-intro/" />
@@ -284,8 +284,7 @@ Docker 容器应用直接运行与宿主内核，无需启动完整的操作系�
 </div>
 <p>便可使用 <code>Docker</code> 在中国的镜像加速站。</p>
 
-<p>对于企业用户还可搭建自己的私有镜像仓库，方便管理内部镜像。</p></li>
-</ul>
+<p>对于企业用户还可搭建自己的私有镜像仓库，方便管理内部镜像。</p>
 
 <h3 id="镜像">镜像</h3>
 
@@ -296,52 +295,67 @@ Docker 容器应用直接运行与宿主内核，无需启动完整的操作系�
 <p>这里简单介绍下 <code>Dockerfile</code> 中常用的命令:</p>
 
 <ul>
-<li><p>FROM</p>
+<li>FROM</li>
+</ul>
 
-<p>指明基于那个镜像，通常是一个系统环境，如 <code>debian</code> 。在多阶段(<code>stage</code>)构建中可使用 <code>FROM ... AS ...</code> 来命令阶段，供后面的阶段使用</p></li>
+<p>指明基于那个镜像，通常是一个系统环境，如 <code>debian</code> 。在多阶段(<code>stage</code>)构建中可使用 <code>FROM ... AS ...</code> 来命令阶段，供后面的阶段使用</p>
 
-<li><p>ENV</p>
+<ul>
+<li>ENV</li>
+</ul>
 
-<p>设置镜像的环境变量</p></li>
+<p>设置镜像的环境变量</p>
 
-<li><p>EXPOSE</p>
+<ul>
+<li>EXPOSE</li>
+</ul>
 
-<p>导出端口，语法： <code>EXPOSE port/protocol</code></p></li>
+<p>导出端口，语法： <code>EXPOSE port/protocol</code></p>
 
-<li><p>RUN</p>
+<ul>
+<li>RUN</li>
+</ul>
 
-<p>执行一条命令</p></li>
+<p>执行一条命令</p>
 
-<li><p>COPY</p>
+<ul>
+<li>COPY</li>
+</ul>
 
-<p>复制镜像内部的文件，也可从指定 <code>stage</code> 中复制文件，使用 <code>--from=&lt;stage name&gt;</code> 来实现</p></li>
+<p>复制镜像内部的文件，也可从指定 <code>stage</code> 中复制文件，使用 <code>--from=&lt;stage name&gt;</code> 来实现</p>
 
-<li><p>ADD</p>
+<ul>
+<li>ADD</li>
+</ul>
 
-<p>复制本地文件到镜像中，并做了一些额外工作，如自动解压文件、保持文件属性等</p></li>
+<p>复制本地文件到镜像中，并做了一些额外工作，如自动解压文件、保持文件属性等</p>
 
-<li><p>WORKDIR</p>
+<ul>
+<li>WORKDIR</li>
+</ul>
 
-<p>切换工作目录</p></li>
+<p>切换工作目录</p>
 
-<li><p>CMD</p>
+<ul>
+<li>CMD</li>
+</ul>
 
 <p>执行命令，极容易在 <code>docker run</code> 时被覆盖。主要用于指定镜像的默认启动命令，有以下三种语法：</p>
 
 <ul>
 <li><code>CMD [&quot;executable&quot;, &quot;param1&quot;, &quot;param2&quot;]</code> <code>Exec</code> 模式，首先</li>
 <li><code>CMD [&quot;param1&quot;, &quot;param2&quot;]</code> 设置 <code>ENTRYPOINT</code> 的默认参数</li>
-<li><code>CMD command param1 param2</code> <code>Shell</code> 模式</li>
-</ul></li>
 
-<li><p>ENTRYPOINT</p>
+<li><p><code>CMD command param1 param2</code> <code>Shell</code> 模式</p></li>
+
+<li><p>ENTRYPOINT</p></li>
+</ul>
 
 <p>指定镜像默认的运行命令，可以使用 <code>--entrypoint</code> 参数在 <code>docker run</code> 时覆盖 <code>Dockerfile</code> 内的 <code>ENTRYPOINT</code></p>
 
 <p>有 <code>Exec</code> 和 <code>Shell</code> 两种模式</p>
 
-<p>通常使用这个命令来指定镜像的启动命令，因为 <code>CMD</code> 稍不注意就被覆盖了</p></li>
-</ul>
+<p>通常使用这个命令来指定镜像的启动命令，因为 <code>CMD</code> 稍不注意就被覆盖了</p>
 
 <p>更多关于 <code>Dockerfile</code> 内容请参见： <a href="https://docs.docker.com/engine/reference/builder/">Dockerfile reference</a></p>
 
@@ -357,7 +371,9 @@ Docker 容器应用直接运行与宿主内核，无需启动完整的操作系�
 </span><span class="err"></span><span class="k">ADD</span><span class="s"> rootfs.tar.xz /</span><span class="err">
 </span><span class="err"></span><span class="k">CMD</span><span class="s"> [&#34;bash&#34;]</span></code></pre></td></tr></table>
 </div>
-</div>
+</div></li>
+</ul>
+
 <h4 id="创建">创建</h4>
 
 <p>使用 <code>docker build -f &lt;Dockerfile path&gt; [-t &lt;image name&gt;[:&lt;tag&gt;]] .</code> 创建镜像和标记 <code>Tag</code></p>

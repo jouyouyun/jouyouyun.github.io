@@ -25,7 +25,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.55.5 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://jouyouyun.github.io/post/docker-data-storage/" />
@@ -192,9 +192,10 @@ sudo rsync -avPHSX /var/lib/docker /Data/var/ <span class="c1"># -H 处理Hardli
 sudo rm -rf /var/lib/docker
 sudo mkdir /var/lib/docker</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>目录绑定</p>
+</div>
+<ol>
+<li>目录绑定</li>
+</ol>
 
 <p>添加 <code>/Data/var/docker /var/lib/docker none bind 0 0</code> 到 <code>/etc/fstab</code> 中</p></li>
 </ol>

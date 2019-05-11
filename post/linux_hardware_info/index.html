@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Linux 硬件信息获取 - jouyouyun&#39;s blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="jouyouyun" /><meta name="description" content="在 linux 上可以通过 dmidecode 或是 lshw 来获取硬件信息，能够方便的查看系统配置。 但它们的输出信息过多，解析起来有些麻烦，另外 lshw 对 usb 接口的网卡支持不好，显示的信息不够， 所以在此整理下通过读文件或是一些简单命令来获取硬件信息的方法。
+DMI 一般情况下内核默认加载了 dmi sysfs ，路径是 /sys/class/dmi 。里面包含了 bios ， board ， product 等信息。
+" /><meta name="keywords" content="jouyouyun, Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.5 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://jouyouyun.github.io/post/linux_hardware_info/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.93844dae.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Linux 硬件信息获取" />
+<meta property="og:description" content="在 linux 上可以通过 dmidecode 或是 lshw 来获取硬件信息，能够方便的查看系统配置。
+但它们的输出信息过多，解析起来有些麻烦，另外 lshw 对 usb 接口的网卡支持不好，显示的信息不够，
+所以在此整理下通过读文件或是一些简单命令来获取硬件信息的方法。
+
+DMI
+
+一般情况下内核默认加载了 dmi sysfs ，路径是 /sys/class/dmi 。里面包含了 bios ， board ， product 等信息。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jouyouyun.github.io/post/linux_hardware_info/" />
+<meta property="article:published_time" content="2019-05-08T17:50:00&#43;08:00"/>
+<meta property="article:modified_time" content="2019-05-11T16:03:04&#43;08:00"/>
+
+<meta itemprop="name" content="Linux 硬件信息获取">
+<meta itemprop="description" content="在 linux 上可以通过 dmidecode 或是 lshw 来获取硬件信息，能够方便的查看系统配置。
+但它们的输出信息过多，解析起来有些麻烦，另外 lshw 对 usb 接口的网卡支持不好，显示的信息不够，
+所以在此整理下通过读文件或是一些简单命令来获取硬件信息的方法。
+
+DMI
+
+一般情况下内核默认加载了 dmi sysfs ，路径是 /sys/class/dmi 。里面包含了 bios ， board ， product 等信息。">
+
+
+<meta itemprop="datePublished" content="2019-05-08T17:50:00&#43;08:00" />
+<meta itemprop="dateModified" content="2019-05-11T16:03:04&#43;08:00" />
+<meta itemprop="wordCount" content="2984">
+
+
+
+<meta itemprop="keywords" content="hardware,cpu,disk,network,wireless,wired,memory,dmi,bios,board,lsblk,lspci,lsusb,lshw,dmidecode," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Linux 硬件信息获取"/>
+<meta name="twitter:description" content="在 linux 上可以通过 dmidecode 或是 lshw 来获取硬件信息，能够方便的查看系统配置。
+但它们的输出信息过多，解析起来有些麻烦，另外 lshw 对 usb 接口的网卡支持不好，显示的信息不够，
+所以在此整理下通过读文件或是一些简单命令来获取硬件信息的方法。
+
+DMI
+
+一般情况下内核默认加载了 dmi sysfs ，路径是 /sys/class/dmi 。里面包含了 bios ， board ， product 等信息。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">jouyouyun</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">jouyouyun</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Linux 硬件信息获取</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-05-08 </span>
+        <div class="post-category">
+            <a href="/categories/blog/"> BLOG </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#dmi"><strong>DMI</strong></a>
+<ul>
+<li><a href="#bios"><strong>Bios</strong></a></li>
+<li><a href="#board"><strong>Board</strong></a></li>
+<li><a href="#product"><strong>Product</strong></a></li>
+</ul></li>
+<li><a href="#cpu"><strong>CPU</strong></a></li>
+<li><a href="#memory"><strong>Memory</strong></a></li>
+<li><a href="#disk"><strong>Disk</strong></a></li>
+<li><a href="#network"><strong>Network</strong></a>
+<ul>
+<li><a href="#interface-name"><strong>Interface Name</strong></a></li>
+<li><a href="#mac-address"><strong>Mac Address</strong></a></li>
+<li><a href="#ip"><strong>IP</strong></a></li>
+<li><a href="#model"><strong>Model</strong></a></li>
+</ul></li>
+<li><a href="#bluetooth"><strong>Bluetooth</strong></a></li>
+<li><a href="#graphic"><strong>Graphic</strong></a>
+<ul>
+<li><a href="#display-monitor">Display Monitor</a></li>
+</ul></li>
+<li><a href="#sound">Sound</a></li>
+<li><a href="#input-output-device"><strong>Input/Output Device</strong></a></li>
+<li><a href="#battery"><strong>Battery</strong></a></li>
+<li><a href="#backlight">Backlight</a></li>
+<li><a href="#camera">Camera</a></li>
+<li><a href="#printer">Printer</a></li>
+<li><a href="#fingerprint">Fingerprint</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>在 <code>linux</code> 上可以通过 <code>dmidecode</code> 或是 <code>lshw</code> 来获取硬件信息，能够方便的查看系统配置。
+但它们的输出信息过多，解析起来有些麻烦，另外 <code>lshw</code> 对 <code>usb</code> 接口的网卡支持不好，显示的信息不够，
+所以在此整理下通过读文件或是一些简单命令来获取硬件信息的方法。</p>
+
+<h2 id="dmi"><strong>DMI</strong></h2>
+
+<p>一般情况下内核默认加载了 <code>dmi sysfs</code> ，路径是 <code>/sys/class/dmi</code> 。里面包含了 <code>bios</code> ， <code>board</code> ， <code>product</code> 等信息。</p>
+
+<h3 id="bios"><strong>Bios</strong></h3>
+
+<p>通过命令 <code>ls -l /sys/class/dmi/id/bios_*</code> 可以看到支持的 <code>bios</code> 字段，如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">$ ls -l /sys/class/dmi/id/bios_*
+-r--r--r-- <span class="m">1</span> root root <span class="m">4</span>.0K 5月   <span class="m">8</span> <span class="m">17</span>:18 /sys/class/dmi/id/bios_date
+-r--r--r-- <span class="m">1</span> root root <span class="m">4</span>.0K 5月   <span class="m">8</span> <span class="m">17</span>:18 /sys/class/dmi/id/bios_vendor
+-r--r--r-- <span class="m">1</span> root root <span class="m">4</span>.0K 5月   <span class="m">8</span> <span class="m">17</span>:18 /sys/class/dmi/id/bios_version</code></pre></td></tr></table>
+</div>
+</div>
+<p>直接读文件即可获取对应值。</p>
+
+<h3 id="board"><strong>Board</strong></h3>
+
+<p>通过命令 <code>ls -l /sys/class/dmi/id/board_*</code> 可以看到支持的 <code>board</code> 字段，如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">$ ls -l /sys/class/dmi/id/board_*
+-r--r--r-- <span class="m">1</span> root root <span class="m">4</span>.0K 5月   <span class="m">8</span> <span class="m">08</span>:45 /sys/class/dmi/id/board_asset_tag
+-r--r--r-- <span class="m">1</span> root root <span class="m">4</span>.0K 5月   <span class="m">8</span> <span class="m">08</span>:45 /sys/class/dmi/id/board_name
+-r-------- <span class="m">1</span> root root <span class="m">4</span>.0K 5月   <span class="m">8</span> <span class="m">08</span>:45 /sys/class/dmi/id/board_serial
+-r--r--r-- <span class="m">1</span> root root <span class="m">4</span>.0K 5月   <span class="m">8</span> <span class="m">08</span>:43 /sys/class/dmi/id/board_vendor
+-r--r--r-- <span class="m">1</span> root root <span class="m">4</span>.0K 5月   <span class="m">8</span> <span class="m">08</span>:45 /sys/class/dmi/id/board_version</code></pre></td></tr></table>
+</div>
+</div>
+<p>直接读文件即可获取对应值，但有些文件需要 <code>root</code> 权限。</p>
+
+<h3 id="product"><strong>Product</strong></h3>
+
+<p>通过命令 <code>ls -l /sys/class/dmi/id/product_*</code> 可以看到支持的 <code>product</code> 字段，如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">$ ls -l /sys/class/dmi/id/product_*
+-r--r--r-- <span class="m">1</span> root root <span class="m">4</span>.0K 5月   <span class="m">8</span> <span class="m">08</span>:45 /sys/class/dmi/id/product_family
+-r--r--r-- <span class="m">1</span> root root <span class="m">4</span>.0K 5月   <span class="m">8</span> <span class="m">08</span>:43 /sys/class/dmi/id/product_name
+-r-------- <span class="m">1</span> root root <span class="m">4</span>.0K 5月   <span class="m">8</span> <span class="m">08</span>:45 /sys/class/dmi/id/product_serial
+-r--r--r-- <span class="m">1</span> root root <span class="m">4</span>.0K 5月   <span class="m">8</span> <span class="m">17</span>:12 /sys/class/dmi/id/product_sku
+-r-------- <span class="m">1</span> root root <span class="m">4</span>.0K 5月   <span class="m">8</span> <span class="m">08</span>:45 /sys/class/dmi/id/product_uuid
+-r--r--r-- <span class="m">1</span> root root <span class="m">4</span>.0K 5月   <span class="m">8</span> <span class="m">08</span>:45 /sys/class/dmi/id/product_version</code></pre></td></tr></table>
+</div>
+</div>
+<p>直接读文件即可获取对应值，但有些文件需要 <code>root</code> 权限。</p>
+
+<p>其中 <code>product_uuid</code> 可作为机器的唯一 <code>ID</code> 。</p>
+
+<h2 id="cpu"><strong>CPU</strong></h2>
+
+<p>通过读取文件 <code>/proc/cpuinfo</code> 可获取 <code>cpu</code> 的信息，一般 <code>model name</code> 字段为 <code>cpu</code> 名称，如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">$ cat /proc/cpuinfo<span class="p">|</span>grep <span class="s1">&#39;model name&#39;</span>
+model name      : Intel<span class="o">(</span>R<span class="o">)</span> Core<span class="o">(</span>TM<span class="o">)</span> i7-3520M CPU @ <span class="m">2</span>.90GHz
+model name      : Intel<span class="o">(</span>R<span class="o">)</span> Core<span class="o">(</span>TM<span class="o">)</span> i7-3520M CPU @ <span class="m">2</span>.90GHz
+model name      : Intel<span class="o">(</span>R<span class="o">)</span> Core<span class="o">(</span>TM<span class="o">)</span> i7-3520M CPU @ <span class="m">2</span>.90GHz
+model name      : Intel<span class="o">(</span>R<span class="o">)</span> Core<span class="o">(</span>TM<span class="o">)</span> i7-3520M CPU @ <span class="m">2</span>.90GHz</code></pre></td></tr></table>
+</div>
+</div>
+<p><strong>但在龙芯，申威上可能不是这个字段，需要根据文件内容确定。</strong></p>
+
+<h2 id="memory"><strong>Memory</strong></h2>
+
+<p>通过读取文件 <code>/proc/meminfo</code> 可获取内存总大小，字段是 <code>MemTotal</code> ，如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">$ cat /proc/meminfo <span class="p">|</span>grep MemTotal
+MemTotal:        <span class="m">7860064</span> kB</code></pre></td></tr></table>
+</div>
+</div>
+<p><strong>对于内存厂商等信息还未找到获取方法，待以后补全。</strong></p>
+
+<h2 id="disk"><strong>Disk</strong></h2>
+
+<p>硬盘信息这里使用 <code>lsblk</code> 来获取，通过指定它的参数来获取，如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">$ lsblk -J -bno NAME,SERIAL,TYPE,SIZE,VENDOR,MODEL,MOUNTPOINT
+<span class="o">{</span>
+   <span class="s2">&#34;blockdevices&#34;</span>: <span class="o">[</span>
+      <span class="o">{</span><span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;sda&#34;</span>, <span class="s2">&#34;serial&#34;</span>: <span class="s2">&#34;TF0500WE0GAV0V&#34;</span>, <span class="s2">&#34;type&#34;</span>: <span class="s2">&#34;disk&#34;</span>, <span class="s2">&#34;size&#34;</span>: <span class="s2">&#34;500107862016&#34;</span>, <span class="s2">&#34;vendor&#34;</span>: <span class="s2">&#34;ATA     &#34;</span>, <span class="s2">&#34;model&#34;</span>: <span class="s2">&#34;HGST HTS725050A7&#34;</span>, <span class="s2">&#34;mountpoint&#34;</span>: null,
+         <span class="s2">&#34;children&#34;</span>: <span class="o">[</span>
+            <span class="o">{</span><span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;sda1&#34;</span>, <span class="s2">&#34;serial&#34;</span>: null, <span class="s2">&#34;type&#34;</span>: <span class="s2">&#34;part&#34;</span>, <span class="s2">&#34;size&#34;</span>: <span class="s2">&#34;4294967296&#34;</span>, <span class="s2">&#34;vendor&#34;</span>: null, <span class="s2">&#34;model&#34;</span>: null, <span class="s2">&#34;mountpoint&#34;</span>: <span class="s2">&#34;/boot&#34;</span><span class="o">}</span>,
+            <span class="o">{</span><span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;sda2&#34;</span>, <span class="s2">&#34;serial&#34;</span>: null, <span class="s2">&#34;type&#34;</span>: <span class="s2">&#34;part&#34;</span>, <span class="s2">&#34;size&#34;</span>: <span class="s2">&#34;4294967296&#34;</span>, <span class="s2">&#34;vendor&#34;</span>: null, <span class="s2">&#34;model&#34;</span>: null, <span class="s2">&#34;mountpoint&#34;</span>: <span class="s2">&#34;[SWAP]&#34;</span><span class="o">}</span>,
+            <span class="o">{</span><span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;sda3&#34;</span>, <span class="s2">&#34;serial&#34;</span>: null, <span class="s2">&#34;type&#34;</span>: <span class="s2">&#34;part&#34;</span>, <span class="s2">&#34;size&#34;</span>: <span class="s2">&#34;1024&#34;</span>, <span class="s2">&#34;vendor&#34;</span>: null, <span class="s2">&#34;model&#34;</span>: null, <span class="s2">&#34;mountpoint&#34;</span>: null<span class="o">}</span>,
+            <span class="o">{</span><span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;sda5&#34;</span>, <span class="s2">&#34;serial&#34;</span>: null, <span class="s2">&#34;type&#34;</span>: <span class="s2">&#34;part&#34;</span>, <span class="s2">&#34;size&#34;</span>: <span class="s2">&#34;107374182400&#34;</span>, <span class="s2">&#34;vendor&#34;</span>: null, <span class="s2">&#34;model&#34;</span>: null, <span class="s2">&#34;mountpoint&#34;</span>: <span class="s2">&#34;/Data&#34;</span><span class="o">}</span>,
+            <span class="o">{</span><span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;sda6&#34;</span>, <span class="s2">&#34;serial&#34;</span>: null, <span class="s2">&#34;type&#34;</span>: <span class="s2">&#34;part&#34;</span>, <span class="s2">&#34;size&#34;</span>: <span class="s2">&#34;64424509440&#34;</span>, <span class="s2">&#34;vendor&#34;</span>: null, <span class="s2">&#34;model&#34;</span>: null, <span class="s2">&#34;mountpoint&#34;</span>: <span class="s2">&#34;/&#34;</span><span class="o">}</span>
+         <span class="o">]</span>
+      <span class="o">}</span>
+   <span class="o">]</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>参数的含义通过 <code>lsblk -h</code> 命令查看。</p>
+
+<p><strong>只有 <code>type</code> 为 <code>disk</code> 时才表示为一块硬盘，其它如 <code>loop</code> 则应该过滤掉。</strong> 每块硬盘中的 <code>children</code> 表示它下面的分区，通过 <code>mountpoint</code> 可确定硬盘在此系统上的使用情况。</p>
+
+<h2 id="network"><strong>Network</strong></h2>
+
+<p>这里是先获取系统上的网络接口，这包括了物理网卡和虚拟网卡(如 <code>docker</code> 创建的)。</p>
+
+<p><del>所以要先过滤，过滤顺序如下：</del></p>
+
+<p><del>1. 按名字过滤</del></p>
+
+<p><del>过滤掉 <code>lo</code></del></p>
+
+<p><del>2. 按驱动过滤</del></p>
+
+<p><del>过滤掉驱动为 <code>dummy, veth, vboxnet, vmnet, vmxnet, vmxnet2, vmxnet3</code> 的网卡, 虚拟机中的</del></p>
+
+<p><del>3. 按网卡类型过滤</del></p>
+
+<p><del>过滤掉 <code>bridge</code> 类型的网卡</del></p>
+
+<p>如果网卡接口同时存在于 <code>/sys/class/net/</code> 和 <code>/sys/devices/virtual/net/</code> 中，则需要过滤掉。</p>
+
+<p>接下来分别给出网卡信息获取的方法：</p>
+
+<h3 id="interface-name"><strong>Interface Name</strong></h3>
+
+<p>即是上面的目录下的子目录名</p>
+
+<h3 id="mac-address"><strong>Mac Address</strong></h3>
+
+<p>读取文件 <code>/sys/class/net/&lt;iface name&gt;/address</code> 可得到</p>
+
+<h3 id="ip"><strong>IP</strong></h3>
+
+<p>通过调用 <code>ioctl</code> 来获取指定 <code>iface name</code> 的 <code>ip</code> ，代码大致如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">char* get_ip_for_iface<span class="o">(</span>char *iface<span class="o">)</span>
+<span class="o">{</span>
+    int fd<span class="p">;</span>
+    struct ifreq ifr<span class="p">;</span>
+
+    <span class="nv">fd</span> <span class="o">=</span> socket<span class="o">(</span>AF_INET, SOCK_DGRAM, <span class="m">0</span><span class="o">)</span><span class="p">;</span>
+    <span class="k">if</span> <span class="o">(</span><span class="nv">fd</span> <span class="o">==</span> -1<span class="o">)</span> <span class="o">{</span>
+        fprintf<span class="o">(</span>stderr, <span class="s2">&#34;open socket failed: %s&#34;</span>, strerror<span class="o">(</span>errno<span class="o">))</span><span class="p">;</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="o">}</span>
+
+    // must init ifr
+    memset<span class="o">(</span><span class="p">&amp;</span>ifr, <span class="m">0</span>, sizeof<span class="o">(</span>ifr<span class="o">))</span><span class="p">;</span>
+    ifr.ifr_addr.sa_family <span class="o">=</span> AF_INET<span class="p">;</span>
+    strncpy<span class="o">(</span>ifr.ifr_name, name.c_str<span class="o">()</span>, IFNAMSIZ - <span class="m">1</span><span class="o">)</span><span class="p">;</span>
+    ioctl<span class="o">(</span>fd, SIOCGIFADDR, <span class="p">&amp;</span>ifr<span class="o">)</span><span class="p">;</span>
+    close<span class="o">(</span>fd<span class="o">)</span><span class="p">;</span>
+
+    char *c_addr <span class="o">=</span> inet_ntoa<span class="o">(((</span>struct sockaddr_in *<span class="o">)</span><span class="p">&amp;</span>ifr.ifr_addr<span class="o">)</span>-&gt;sin_addr<span class="o">)</span><span class="p">;</span>
+    char *ip <span class="o">=</span> calloc<span class="o">(</span>strlen<span class="o">(</span>c_addr<span class="o">)</span>+1, sizeof<span class="o">(</span>char<span class="o">))</span><span class="p">;</span>
+    memcpy<span class="o">(</span>ip, c_addr, strlen<span class="o">(</span>c_addr<span class="o">))</span><span class="p">;</span>
+
+    <span class="k">return</span> ip<span class="p">;</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p><code>ipv6</code> 的暂未测试。</p>
+
+<h3 id="model"><strong>Model</strong></h3>
+
+<p>网卡一般在 <code>pci</code> 接口上，但也有些实在 <code>usb</code> 接口上，要分别获取。</p>
+
+<p>不过都要先读取文件 <code>/sys/class/net/enp0s25/device/uevent</code> ，然后分别处理。</p>
+
+<ul>
+<li><p><strong>pci</strong></p>
+
+<p><code>uevent</code> 内容如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nv">DRIVER</span><span class="o">=</span>e1000e
+<span class="nv">PCI_CLASS</span><span class="o">=</span><span class="m">20000</span>
+<span class="nv">PCI_ID</span><span class="o">=</span><span class="m">8086</span>:1502
+<span class="nv">PCI_SUBSYS_ID</span><span class="o">=</span>17AA:21F3
+<span class="nv">PCI_SLOT_NAME</span><span class="o">=</span><span class="m">0000</span>:00:19.0
+<span class="nv">MODALIAS</span><span class="o">=</span>pci:v00008086d00001502sv000017AAsd000021F3bc02sc00i00</code></pre></td></tr></table>
+</div>
+</div>
+<p>取到其中的 <code>PCI_SLOT_NAME</code> ，然后执行 <code>lspci -k -s &lt;PCI_SLOT_NAME&gt;</code> 来获取 <code>model</code> 信息，如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">$ lspci -k -s <span class="m">0000</span>:00:19.0
+<span class="m">00</span>:19.0 Ethernet controller: Intel Corporation 82579LM Gigabit Network Connection <span class="o">(</span>Lewisville<span class="o">)</span> <span class="o">(</span>rev <span class="m">04</span><span class="o">)</span>
+        Subsystem: Lenovo 82579LM Gigabit Network Connection
+        Kernel driver in use: e1000e
+        Kernel modules: e1000e</code></pre></td></tr></table>
+</div>
+</div>
+<p>其中 <code>Subsystem</code> 之后的即是 <code>model</code> 信息。</p></li>
+
+<li><p><strong>usb</strong></p>
+
+<p><code>uevent</code> 内容如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nv">DEVTYPE</span><span class="o">=</span>usb_interface
+<span class="nv">DRIVER</span><span class="o">=</span>ath9k_htc
+<span class="nv">PRODUCT</span><span class="o">=</span>cf3/9271/108
+<span class="nv">TYPE</span><span class="o">=</span><span class="m">255</span>/255/255
+<span class="nv">INTERFACE</span><span class="o">=</span><span class="m">255</span>/0/0
+<span class="nv">MODALIAS</span><span class="o">=</span>usb:v0CF3p9271d0108dcFFdscFFdpFFicFFisc00ip00in00</code></pre></td></tr></table>
+</div>
+</div>
+<p>取到其中的 <code>PRODUCT</code> ，然后将 <code>/</code> 替换为 <code>:</code> ，
+然后执行 <code>lsusb -d &lt;product&gt;</code> 来获取 <code>model</code> 信息，如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 可以不要最后的 &#39;108&#39;</span>
+$ lsusb -d cf3:9271:108
+Bus <span class="m">001</span> Device <span class="m">007</span>: ID 0cf3:9271 Atheros Communications, Inc. AR9271 <span class="m">802</span>.11n</code></pre></td></tr></table>
+</div>
+</div>
+<p>其中 <code>Subsystem</code> 之后的即是 <code>model</code> 信息。</p></li>
+</ul>
+
+<h2 id="bluetooth"><strong>Bluetooth</strong></h2>
+
+<p>在 <code>/sys/class/bluetooth/</code> 下是蓝牙设备，与 <strong>网卡</strong> 一样，根据 <code>/sys/class/bluetooth/&lt;hciX&gt;/device/uevent</code> 的内容使用 <code>lspci</code> 或 <code>lsusb</code> 来获取 <code>model</code> 信息。</p>
+
+<p>如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">$ cat /sys/class/bluetooth/hci0/device/uevent
+<span class="nv">DEVTYPE</span><span class="o">=</span>usb_interface
+<span class="nv">DRIVER</span><span class="o">=</span>btusb
+<span class="nv">PRODUCT</span><span class="o">=</span>a5c/21e6/112
+<span class="nv">TYPE</span><span class="o">=</span><span class="m">255</span>/1/1
+<span class="nv">INTERFACE</span><span class="o">=</span><span class="m">255</span>/1/1
+<span class="nv">MODALIAS</span><span class="o">=</span>usb:v0A5Cp21E6d0112dcFFdsc01dp01icFFisc01ip01in00</code></pre></td></tr></table>
+</div>
+</div>
+<p>这就是一个 <code>usb</code> 接口的设备，所以使用 <code>lsusb</code> 来获取 <code>model</code> 信息，如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">$ lsusb -d a5c:21e6:112
+Bus <span class="m">001</span> Device <span class="m">003</span>: ID 0a5c:21e6 Broadcom Corp. BCM20702 Bluetooth <span class="m">4</span>.0 <span class="o">[</span>ThinkPad<span class="o">]</span></code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="graphic"><strong>Graphic</strong></h2>
+
+<p>显卡信息在 <code>/sys/class/drm/</code> 下，里面还包含了显卡支持输出接口，但只有 <code>card+integer</code> 组成的目录才是显卡的，如本机的信息：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">$ ls /sys/class/drm/
+card0@  card0-DP-1@  card0-DP-2@  card0-DP-3@  card0-HDMI-A-1@  card0-HDMI-A-2@  card0-HDMI-A-3@  card0-LVDS-1@  card0-VGA-1@  renderD128@  version</code></pre></td></tr></table>
+</div>
+</div>
+<p>根据输出可知只有一块显卡 <code>card0</code> ，通过读取文件 <code>card0/device/uevent</code> 获取设备类型，然后同 <strong>网卡</strong> 一样查询 <code>model</code> 信息，如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">$ cat /sys/class/drm/card0/device/uevent
+<span class="nv">DRIVER</span><span class="o">=</span>i915
+<span class="nv">PCI_CLASS</span><span class="o">=</span><span class="m">30000</span>
+<span class="nv">PCI_ID</span><span class="o">=</span><span class="m">8086</span>:0166
+<span class="nv">PCI_SUBSYS_ID</span><span class="o">=</span>17AA:21FA
+<span class="nv">PCI_SLOT_NAME</span><span class="o">=</span><span class="m">0000</span>:00:02.0
+<span class="nv">MODALIAS</span><span class="o">=</span>pci:v00008086d00000166sv000017AAsd000021FAbc03sc00i00
+
+$ lspci -k -s <span class="m">0000</span>:00:02.0
+<span class="m">00</span>:02.0 VGA compatible controller: Intel Corporation 3rd Gen Core processor Graphics Controller <span class="o">(</span>rev <span class="m">09</span><span class="o">)</span>
+        Subsystem: Lenovo 3rd Gen Core processor Graphics Controller
+        Kernel driver in use: i915
+        Kernel modules: i915</code></pre></td></tr></table>
+</div>
+</div>
+<p>另外 <code>/sys/class/hwmon/</code> 和 <code>/sys/class/graphics/</code> 下有当前使用中的显卡设备，也是对应子目录下的 <code>device/uevent</code> 来获取信息。</p>
+
+<p>若无 <code>device</code> 目录或是 <code>device/uevent</code> 中的内容既没有 <code>pci</code> 信息也没有 <code>usb</code> 信息，则过滤掉，有就如下所示获取：</p>
+
+<p><strong><code>hwmon</code></strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">$ cat /sys/class/hwmon/hwmon2/device/uevent
+<span class="nv">DRIVER</span><span class="o">=</span>nouveau
+<span class="nv">PCI_CLASS</span><span class="o">=</span><span class="m">30000</span>
+<span class="nv">PCI_ID</span><span class="o">=</span>10DE:0A75
+<span class="nv">PCI_SUBSYS_ID</span><span class="o">=</span>17AA:3957
+<span class="nv">PCI_SLOT_NAME</span><span class="o">=</span><span class="m">0000</span>:02:00.0
+<span class="nv">MODALIAS</span><span class="o">=</span>pci:v000010DEd00000A75sv000017AAsd00003957bc03sc00i00
+
+$ lspci -k -s <span class="m">0000</span>:02:00.0
+<span class="m">02</span>:00.0 VGA compatible controller: NVIDIA Corporation GT218M <span class="o">[</span>GeForce 310M<span class="o">]</span> <span class="o">(</span>rev a2<span class="o">)</span>
+        Subsystem: Lenovo GT218M <span class="o">[</span>GeForce 310M<span class="o">]</span>
+        Kernel driver in use: nouveau
+        Kernel modules: nouveau</code></pre></td></tr></table>
+</div>
+</div>
+<p><strong><code>graphics</code></strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">$ cat /sys/class/graphics/fb0/device/uevent
+<span class="nv">DRIVER</span><span class="o">=</span>i915
+<span class="nv">PCI_CLASS</span><span class="o">=</span><span class="m">30000</span>
+<span class="nv">PCI_ID</span><span class="o">=</span><span class="m">8086</span>:0166
+<span class="nv">PCI_SUBSYS_ID</span><span class="o">=</span>17AA:21FA
+<span class="nv">PCI_SLOT_NAME</span><span class="o">=</span><span class="m">0000</span>:00:02.0
+<span class="nv">MODALIAS</span><span class="o">=</span>pci:v00008086d00000166sv000017AAsd000021FAbc03sc00i00
+
+$ lspci -k -s <span class="m">0000</span>:00:02.0
+<span class="m">00</span>:02.0 VGA compatible controller: Intel Corporation 3rd Gen Core processor Graphics Controller <span class="o">(</span>rev <span class="m">09</span><span class="o">)</span>
+        Subsystem: Lenovo 3rd Gen Core processor Graphics Controller
+        Kernel driver in use: i915
+        Kernel modules: i915</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="display-monitor">Display Monitor</h3>
+
+<p>显示器的信息目前是从 <code>edid</code> 中获取，先确定显示器连接的显卡端口，然后使用 <code>edid-decode</code> (需要安装)解析其的 <code>edid</code> 文件，就可得到详细信息。
+如本机是 <code>card0-LVDS-1</code> ：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">$ cat /sys/class/drm/card0-LVDS-1/edid<span class="p">|</span>edid-decode
+Extracted contents:
+header:          <span class="m">00</span> ff ff ff ff ff ff <span class="m">00</span>
+serial number:   <span class="m">06</span> af 6c <span class="m">10</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">14</span>
+version:         <span class="m">01</span> <span class="m">04</span>
+basic params:    <span class="m">90</span> 1c <span class="m">10</span> <span class="m">78</span> <span class="m">02</span>
+chroma info:     <span class="m">20</span> e5 <span class="m">92</span> <span class="m">55</span> <span class="m">54</span> <span class="m">92</span> <span class="m">28</span> <span class="m">25</span> <span class="m">50</span> <span class="m">54</span>
+established:     <span class="m">00</span> <span class="m">00</span> <span class="m">00</span>
+standard:        <span class="m">01</span> <span class="m">01</span> <span class="m">01</span> <span class="m">01</span> <span class="m">01</span> <span class="m">01</span> <span class="m">01</span> <span class="m">01</span> <span class="m">01</span> <span class="m">01</span> <span class="m">01</span> <span class="m">01</span> <span class="m">01</span> <span class="m">01</span> <span class="m">01</span> <span class="m">01</span>
+descriptor <span class="m">1</span>:    <span class="m">12</span> 1b <span class="m">56</span> <span class="m">58</span> <span class="m">50</span> <span class="m">00</span> <span class="m">19</span> <span class="m">30</span> <span class="m">30</span> <span class="m">20</span> <span class="m">36</span> <span class="m">00</span> <span class="m">15</span> 9c <span class="m">10</span> <span class="m">00</span> <span class="m">00</span> <span class="m">18</span>
+descriptor <span class="m">2</span>:    <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> 0f <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> <span class="m">20</span>
+descriptor <span class="m">3</span>:    <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> fe <span class="m">00</span> <span class="m">41</span> <span class="m">55</span> 4f 0a <span class="m">20</span> <span class="m">20</span> <span class="m">20</span> <span class="m">20</span> <span class="m">20</span> <span class="m">20</span> <span class="m">20</span> <span class="m">20</span> <span class="m">20</span>
+descriptor <span class="m">4</span>:    <span class="m">00</span> <span class="m">00</span> <span class="m">00</span> fe <span class="m">00</span> <span class="m">42</span> <span class="m">31</span> <span class="m">32</span> <span class="m">35</span> <span class="m">58</span> <span class="m">57</span> <span class="m">30</span> <span class="m">31</span> <span class="m">20</span> <span class="m">56</span> <span class="m">30</span> <span class="m">20</span> 0a
+extensions:      <span class="m">00</span>
+checksum:        ec
+
+Manufacturer: AUO Model 106c Serial Number <span class="m">0</span>
+Made week <span class="m">0</span> of <span class="m">2010</span>
+EDID version: <span class="m">1</span>.4
+Digital display
+<span class="m">6</span> bits per primary color channel
+Digital interface is not defined
+Maximum image size: <span class="m">28</span> cm x <span class="m">16</span> cm
+Gamma: <span class="m">2</span>.20
+Supported color formats: RGB <span class="m">4</span>:4:4
+First detailed timing is preferred timing
+Established timings supported:
+Standard timings supported:
+Detailed mode: Clock <span class="m">69</span>.300 MHz, <span class="m">277</span> mm x <span class="m">156</span> mm
+               <span class="m">1366</span> <span class="m">1414</span> <span class="m">1446</span> <span class="m">1454</span> hborder <span class="m">0</span>
+                <span class="m">768</span>  <span class="m">771</span>  <span class="m">777</span>  <span class="m">793</span> vborder <span class="m">0</span>
+               -hsync -vsync
+Manufacturer-specified data, tag <span class="m">15</span>
+ASCII string: AUO
+ASCII string: B125XW01
+Checksum: 0xec <span class="o">(</span>valid<span class="o">)</span>
+EDID block does NOT conform to EDID <span class="m">1</span>.3!
+        Missing name descriptor
+        Missing monitor ranges
+        Detailed block string not properly terminated</code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="sound">Sound</h2>
+
+<p>声卡设备在 <code>/sys/class/sound</code> 目录下，目录名一般是 <code>card+integer</code> 组成，如本机的信息：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">$ ls /sys/class/sound/
+card0@  controlC0@  hwC0D0@  hwC0D3@  pcmC0D0c@  pcmC0D0p@  pcmC0D3p@  pcmC0D7p@  pcmC0D8p@  timer@</code></pre></td></tr></table>
+</div>
+</div>
+<p>就只有一块声卡 <code>card0</code> ，通过读取文件 <code>card0/device/uevent</code> 获取设备类型，然后同 <strong>网卡</strong> 一样查询 <code>model</code> 信息，如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">$ cat /sys/class/sound/card0/device/uevent
+<span class="nv">DRIVER</span><span class="o">=</span>snd_hda_intel
+<span class="nv">PCI_CLASS</span><span class="o">=</span><span class="m">40300</span>
+<span class="nv">PCI_ID</span><span class="o">=</span><span class="m">8086</span>:1E20
+<span class="nv">PCI_SUBSYS_ID</span><span class="o">=</span>17AA:21FA
+<span class="nv">PCI_SLOT_NAME</span><span class="o">=</span><span class="m">0000</span>:00:1b.0
+<span class="nv">MODALIAS</span><span class="o">=</span>pci:v00008086d00001E20sv000017AAsd000021FAbc04sc03i00
+
+$ lspci -k -s <span class="m">0000</span>:00:1b.0
+<span class="m">00</span>:1b.0 Audio device: Intel Corporation <span class="m">7</span> Series/C216 Chipset Family High Definition Audio Controller <span class="o">(</span>rev <span class="m">04</span><span class="o">)</span>
+        Subsystem: Lenovo <span class="m">7</span> Series/C216 Chipset Family High Definition Audio Controller
+        Kernel driver in use: snd_hda_intel
+        Kernel modules: snd_hda_intel</code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="input-output-device"><strong>Input/Output Device</strong></h2>
+
+<p>输入设备的信息可以从 <code>/proc/bus/input/devices</code> 文件中获取，如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">I: <span class="nv">Bus</span><span class="o">=</span><span class="m">0019</span> <span class="nv">Vendor</span><span class="o">=</span><span class="m">0000</span> <span class="nv">Product</span><span class="o">=</span><span class="m">0005</span> <span class="nv">Version</span><span class="o">=</span><span class="m">0000</span>
+N: <span class="nv">Name</span><span class="o">=</span><span class="s2">&#34;Lid Switch&#34;</span>
+P: <span class="nv">Phys</span><span class="o">=</span>PNP0C0D/button/input0
+S: <span class="nv">Sysfs</span><span class="o">=</span>/devices/LNXSYSTM:00/LNXSYBUS:00/PNP0C0D:00/input/input0
+U: <span class="nv">Uniq</span><span class="o">=</span>
+H: <span class="nv">Handlers</span><span class="o">=</span>event0
+B: <span class="nv">PROP</span><span class="o">=</span><span class="m">0</span>
+B: <span class="nv">EV</span><span class="o">=</span><span class="m">21</span>
+B: <span class="nv">SW</span><span class="o">=</span><span class="m">1</span>
+
+I: <span class="nv">Bus</span><span class="o">=</span><span class="m">0011</span> <span class="nv">Vendor</span><span class="o">=</span><span class="m">0001</span> <span class="nv">Product</span><span class="o">=</span><span class="m">0001</span> <span class="nv">Version</span><span class="o">=</span>ab54
+N: <span class="nv">Name</span><span class="o">=</span><span class="s2">&#34;AT Translated Set 2 keyboard&#34;</span>
+P: <span class="nv">Phys</span><span class="o">=</span>isa0060/serio0/input0
+S: <span class="nv">Sysfs</span><span class="o">=</span>/devices/platform/i8042/serio0/input/input3
+U: <span class="nv">Uniq</span><span class="o">=</span>
+H: <span class="nv">Handlers</span><span class="o">=</span>sysrq kbd event3 leds
+B: <span class="nv">PROP</span><span class="o">=</span><span class="m">0</span>
+B: <span class="nv">EV</span><span class="o">=</span><span class="m">120013</span>
+B: <span class="nv">KEY</span><span class="o">=</span><span class="m">10000</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">1000402000000</span> 3803078f800d001 feffffdfffefffff fffffffffffffffe
+B: <span class="nv">MSC</span><span class="o">=</span><span class="m">10</span>
+B: <span class="nv">LED</span><span class="o">=</span><span class="m">7</span>
+
+I: <span class="nv">Bus</span><span class="o">=</span><span class="m">0011</span> <span class="nv">Vendor</span><span class="o">=</span><span class="m">0002</span> <span class="nv">Product</span><span class="o">=</span><span class="m">0007</span> <span class="nv">Version</span><span class="o">=</span>01b1
+N: <span class="nv">Name</span><span class="o">=</span><span class="s2">&#34;SynPS/2 Synaptics TouchPad&#34;</span>
+P: <span class="nv">Phys</span><span class="o">=</span>isa0060/serio1/input0
+S: <span class="nv">Sysfs</span><span class="o">=</span>/devices/platform/i8042/serio1/input/input5
+U: <span class="nv">Uniq</span><span class="o">=</span>
+H: <span class="nv">Handlers</span><span class="o">=</span>mouse0 event5
+B: <span class="nv">PROP</span><span class="o">=</span><span class="m">5</span>
+B: <span class="nv">EV</span><span class="o">=</span>b
+B: <span class="nv">KEY</span><span class="o">=</span>e520 <span class="m">10000</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span> <span class="m">0</span>
+B: <span class="nv">ABS</span><span class="o">=</span><span class="m">660800011000003</span>
+
+...</code></pre></td></tr></table>
+</div>
+</div>
+<p>由于内容太多，这里就只显示部分内容。</p>
+
+<p>另外也可通过 <code>xinput</code> 命令获取，如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">$ xinput
+⎡ Virtual core pointer                          <span class="nv">id</span><span class="o">=</span><span class="m">2</span>    <span class="o">[</span>master pointer  <span class="o">(</span><span class="m">3</span><span class="o">)]</span>
+⎜   ↳ Virtual core XTEST pointer                <span class="nv">id</span><span class="o">=</span><span class="m">4</span>    <span class="o">[</span>slave  pointer  <span class="o">(</span><span class="m">2</span><span class="o">)]</span>
+⎜   ↳ SynPS/2 Synaptics TouchPad                <span class="nv">id</span><span class="o">=</span><span class="m">11</span>   <span class="o">[</span>slave  pointer  <span class="o">(</span><span class="m">2</span><span class="o">)]</span>
+⎜   ↳ TPPS/2 IBM TrackPoint                     <span class="nv">id</span><span class="o">=</span><span class="m">12</span>   <span class="o">[</span>slave  pointer  <span class="o">(</span><span class="m">2</span><span class="o">)]</span>
+⎣ Virtual core keyboard                         <span class="nv">id</span><span class="o">=</span><span class="m">3</span>    <span class="o">[</span>master keyboard <span class="o">(</span><span class="m">2</span><span class="o">)]</span>
+    ↳ Virtual core XTEST keyboard               <span class="nv">id</span><span class="o">=</span><span class="m">5</span>    <span class="o">[</span>slave  keyboard <span class="o">(</span><span class="m">3</span><span class="o">)]</span>
+    ↳ Power Button                              <span class="nv">id</span><span class="o">=</span><span class="m">6</span>    <span class="o">[</span>slave  keyboard <span class="o">(</span><span class="m">3</span><span class="o">)]</span>
+    ↳ Video Bus                                 <span class="nv">id</span><span class="o">=</span><span class="m">7</span>    <span class="o">[</span>slave  keyboard <span class="o">(</span><span class="m">3</span><span class="o">)]</span>
+    ↳ Sleep Button                              <span class="nv">id</span><span class="o">=</span><span class="m">8</span>    <span class="o">[</span>slave  keyboard <span class="o">(</span><span class="m">3</span><span class="o">)]</span>
+    ↳ Integrated Camera: Integrated C           <span class="nv">id</span><span class="o">=</span><span class="m">9</span>    <span class="o">[</span>slave  keyboard <span class="o">(</span><span class="m">3</span><span class="o">)]</span>
+    ↳ AT Translated Set <span class="m">2</span> keyboard              <span class="nv">id</span><span class="o">=</span><span class="m">10</span>   <span class="o">[</span>slave  keyboard <span class="o">(</span><span class="m">3</span><span class="o">)]</span>
+    ↳ ThinkPad Extra Buttons                    <span class="nv">id</span><span class="o">=</span><span class="m">13</span>   <span class="o">[</span>slave  keyboard <span class="o">(</span><span class="m">3</span><span class="o">)]</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>使用 <code>xinput list-prop &lt;device id&gt;</code> 可以查看设备的属性。</p>
+
+<h2 id="battery"><strong>Battery</strong></h2>
+
+<p>电池信息可以从 <code>/sys/class/power_supply/&lt;name&gt;/uevent</code> 文件中获取，电池的名称一般以 <code>BAT</code> 开头。如本机的信息：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">$ cat /sys/class/power_supply/BAT0/uevent
+<span class="nv">POWER_SUPPLY_NAME</span><span class="o">=</span>BAT0
+<span class="nv">POWER_SUPPLY_STATUS</span><span class="o">=</span>Full
+<span class="nv">POWER_SUPPLY_PRESENT</span><span class="o">=</span><span class="m">1</span>
+<span class="nv">POWER_SUPPLY_TECHNOLOGY</span><span class="o">=</span>Li-ion
+<span class="nv">POWER_SUPPLY_CYCLE_COUNT</span><span class="o">=</span><span class="m">0</span>
+<span class="nv">POWER_SUPPLY_VOLTAGE_MIN_DESIGN</span><span class="o">=</span><span class="m">11100000</span>
+<span class="nv">POWER_SUPPLY_VOLTAGE_NOW</span><span class="o">=</span><span class="m">12226000</span>
+<span class="nv">POWER_SUPPLY_POWER_NOW</span><span class="o">=</span><span class="m">0</span>
+<span class="nv">POWER_SUPPLY_ENERGY_FULL_DESIGN</span><span class="o">=</span><span class="m">57720000</span>
+<span class="nv">POWER_SUPPLY_ENERGY_FULL</span><span class="o">=</span><span class="m">48000000</span>
+<span class="nv">POWER_SUPPLY_ENERGY_NOW</span><span class="o">=</span><span class="m">48000000</span>
+<span class="nv">POWER_SUPPLY_CAPACITY</span><span class="o">=</span><span class="m">100</span>
+<span class="nv">POWER_SUPPLY_CAPACITY_LEVEL</span><span class="o">=</span>Full
+<span class="nv">POWER_SUPPLY_MODEL_NAME</span><span class="o">=</span>45N1023
+<span class="nv">POWER_SUPPLY_MANUFACTURER</span><span class="o">=</span>SANYO
+<span class="nv">POWER_SUPPLY_SERIAL_NUMBER</span><span class="o">=</span><span class="m">15921</span></code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="backlight">Backlight</h2>
+
+<p><code>/sys/class/backlight/</code> 目录下的是背光设备，如显示屏，背光键盘等，可以更改文件内容来调节这些设备的亮度。
+如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">$ ls /sys/class/backlight/intel_backlight/
+actual_brightness  bl_power  brightness  device@  max_brightness  power/  subsystem@  <span class="nb">type</span>  uevent</code></pre></td></tr></table>
+</div>
+</div>
+<ul>
+<li><p><strong>brightness</strong></p>
+
+<p>更改这个文件可以修改此设备的当前亮度</p></li>
+
+<li><p><strong>max_brightness</strong></p>
+
+<p>这个文件显示的是此设备支持的最大亮度</p></li>
+</ul>
+
+<p>另外背光设备 <code>device</code> 可能只想真实的显卡设备，一般是子目录中包含 <code>video</code> 的。</p>
+
+<h2 id="camera">Camera</h2>
+
+<p><code>/sys/class/video4linux/</code> 下是摄像头设备，不同子目录中的设备可能是同一个，也是读取 <code>device/uevent</code> 文件来选择 <code>lspci</code> 或 <code>lsusb</code> 获取设备信息，
+如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">$ cat /sys/class/video4linux/video0/device/uevent
+<span class="nv">DEVTYPE</span><span class="o">=</span>usb_interface
+<span class="nv">DRIVER</span><span class="o">=</span>uvcvideo
+<span class="nv">PRODUCT</span><span class="o">=</span><span class="m">5986</span>/2d2/11
+<span class="nv">TYPE</span><span class="o">=</span><span class="m">239</span>/2/1
+<span class="nv">INTERFACE</span><span class="o">=</span><span class="m">14</span>/1/0
+<span class="nv">MODALIAS</span><span class="o">=</span>usb:v5986p02D2d0011dcEFdsc02dp01ic0Eisc01ip00in00
+
+$ lsusb -d <span class="m">5986</span>:2d2:11
+Bus <span class="m">001</span> Device <span class="m">004</span>: ID <span class="m">5986</span>:02d2 Acer, Inc</code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="printer">Printer</h2>
+
+<p>打印机应该是在 <code>/sys/class/printer</code> 下，信息获取方法应该与上文一致，本人手中没有打印机就不给出示例了。</p>
+
+<h2 id="fingerprint">Fingerprint</h2>
+
+<p>指纹的功能目前是由 <code>libfprint</code> 项目提供，调用其提供的接口来获取。</p>
+
+<p>如使用 <code>qdbus</code> 来获取：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">$ qdbus --system --literal net.reactivated.Fprint /net/reactivated/Fprint/Manager net.reactivated.Fprint.Manager.GetDevices
+<span class="o">[</span>Argument: ao <span class="o">{}]</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>输出可知本机没有指纹设备。</p>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">jouyouyun</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">2019-05-11</span>
+  </p>
+  
+  
+</div><div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/images/reward/wechat-qr-code.png">
+        <span>微信打赏</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/images/reward/alipay-qr-code.png">
+        <span>支付宝打赏</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/hardware/">hardware</a>
+          <a href="/tags/cpu/">cpu</a>
+          <a href="/tags/disk/">disk</a>
+          <a href="/tags/network/">network</a>
+          <a href="/tags/wireless/">wireless</a>
+          <a href="/tags/wired/">wired</a>
+          <a href="/tags/memory/">memory</a>
+          <a href="/tags/dmi/">dmi</a>
+          <a href="/tags/bios/">bios</a>
+          <a href="/tags/board/">board</a>
+          <a href="/tags/lsblk/">lsblk</a>
+          <a href="/tags/lspci/">lspci</a>
+          <a href="/tags/lsusb/">lsusb</a>
+          <a href="/tags/lshw/">lshw</a>
+          <a href="/tags/dmidecode/">dmidecode</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/installation/">
+            <span class="next-text nav-default">系统安装二三事</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:jouyouwen717@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://twitter.com/jouyouyun" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://github.com/jouyouyun" class="iconfont icon-github" title="github"></a>
+  <a href="https://jouyouyun.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2014 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">jouyouyun</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.ece58db6.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

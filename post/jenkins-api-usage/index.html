@@ -26,7 +26,7 @@ Jenkins 中有 view 和 job 的概念， view 相当于组， job 则是具体�
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.55.5 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://jouyouyun.github.io/post/jenkins-api-usage/" />
@@ -310,24 +310,31 @@ view 下面可以创建 job ，但 job 可以不在任何 view 下。
 </span><span class="se"></span>--data-urlencode <span class="nv">json</span><span class="o">=</span><span class="s1">&#39;{&#34;parameters&#34;: [{&#34;name&#34;: &#34;branch&#34;, &#34;value&#34;: &#34;master&#34;},{&#34;name&#34;:&#34;target&#34;,&#34;value&#34;:&#34;mirror&#34;}]}&#39;</span></code></pre></td></tr></table>
 </div>
 </div>
-<p>触发成功后，会在 <code>header</code> 的 <code>Location</code> 字段指明 <code>queue url</code> ，再通过查询 <code>queue</code> 就可获取到 <code>build id</code> 了。</p></li>
+<p>触发成功后，会在 <code>header</code> 的 <code>Location</code> 字段指明 <code>queue url</code> ，再通过查询 <code>queue</code> 就可获取到 <code>build id</code> 了。</p>
 
-<li><p>停止构建</p>
-
-<p><strong>API:</strong> <code>/&lt;id&gt;/stop</code></p></li>
-
-<li><p>删除构建</p>
-
-<p><strong>API:</strong> <code>/&lt;id&gt;/doDelete</code></p></li>
-
-<li><p>构建状态</p>
-
-<p><strong>API:</strong> <code>/&lt;id&gt;/api/json</code></p></li>
-
-<li><p>最后一次构建</p>
-
-<p><strong>API:</strong> <code>/lastBuild/api/json</code></p></li>
+<ul>
+<li>停止构建</li>
 </ul>
+
+<p><strong>API:</strong> <code>/&lt;id&gt;/stop</code></p>
+
+<ul>
+<li>删除构建</li>
+</ul>
+
+<p><strong>API:</strong> <code>/&lt;id&gt;/doDelete</code></p>
+
+<ul>
+<li>构建状态</li>
+</ul>
+
+<p><strong>API:</strong> <code>/&lt;id&gt;/api/json</code></p>
+
+<ul>
+<li>最后一次构建</li>
+</ul>
+
+<p><strong>API:</strong> <code>/lastBuild/api/json</code></p>
 
 <h2 id="附录">附录</h2>
 
@@ -434,100 +441,102 @@ view 下面可以创建 job ，但 job 可以不在任何 view 下。
 <td class="lntd">
 <pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// QueueInfo jenkins return&#39;s info by queue json api
 </span><span class="c1"></span><span class="kd">type</span> <span class="nx">QueueInfo</span> <span class="kd">struct</span> <span class="p">{</span>
-        <span class="nx">Executable</span> <span class="kd">struct</span> <span class="p">{</span>
-                <span class="nx">Number</span> <span class="kt">int</span>    <span class="s">`json:&#34;number&#34;`</span>
-                <span class="nx">URL</span>    <span class="kt">string</span> <span class="s">`json:&#34;url&#34;`</span>
-        <span class="p">}</span> <span class="s">`json:&#34;Executable&#34;`</span>
+    <span class="nx">Executable</span> <span class="kd">struct</span> <span class="p">{</span>
+            <span class="nx">Number</span> <span class="kt">int</span>    <span class="s">`json:&#34;number&#34;`</span>
+            <span class="nx">URL</span>    <span class="kt">string</span> <span class="s">`json:&#34;url&#34;`</span>
+    <span class="p">}</span> <span class="s">`json:&#34;Executable&#34;`</span>
 <span class="p">}</span>
 
 <span class="kd">var</span> <span class="p">(</span>
-        <span class="nx">jenkinsURL</span>   <span class="p">=</span> <span class="nx">flag</span><span class="p">.</span><span class="nf">String</span><span class="p">(</span><span class="s">&#34;url&#34;</span><span class="p">,</span> <span class="s">&#34;https://ci.deepin.io&#34;</span><span class="p">,</span> <span class="s">&#34;Jenkins site url&#34;</span><span class="p">)</span>
-        <span class="nx">jenkinsView</span>  <span class="p">=</span> <span class="nx">flag</span><span class="p">.</span><span class="nf">String</span><span class="p">(</span><span class="s">&#34;view&#34;</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="s">&#34;Jenkins job view&#34;</span><span class="p">)</span>
-        <span class="nx">jenkinsJob</span>   <span class="p">=</span> <span class="nx">flag</span><span class="p">.</span><span class="nf">String</span><span class="p">(</span><span class="s">&#34;job&#34;</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="s">&#34;Jenkins job name&#34;</span><span class="p">)</span>
-        <span class="nx">jenkinsToken</span> <span class="p">=</span> <span class="nx">flag</span><span class="p">.</span><span class="nf">String</span><span class="p">(</span><span class="s">&#34;token&#34;</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="s">&#34;Jenkins job token&#34;</span><span class="p">)</span>
+    <span class="nx">jenkinsURL</span>   <span class="p">=</span> <span class="nx">flag</span><span class="p">.</span><span class="nf">String</span><span class="p">(</span><span class="s">&#34;url&#34;</span><span class="p">,</span> <span class="s">&#34;https://ci.deepin.io&#34;</span><span class="p">,</span> <span class="s">&#34;Jenkins site url&#34;</span><span class="p">)</span>
+    <span class="nx">jenkinsView</span>  <span class="p">=</span> <span class="nx">flag</span><span class="p">.</span><span class="nf">String</span><span class="p">(</span><span class="s">&#34;view&#34;</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="s">&#34;Jenkins job view&#34;</span><span class="p">)</span>
+    <span class="nx">jenkinsJob</span>   <span class="p">=</span> <span class="nx">flag</span><span class="p">.</span><span class="nf">String</span><span class="p">(</span><span class="s">&#34;job&#34;</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="s">&#34;Jenkins job name&#34;</span><span class="p">)</span>
+    <span class="nx">jenkinsToken</span> <span class="p">=</span> <span class="nx">flag</span><span class="p">.</span><span class="nf">String</span><span class="p">(</span><span class="s">&#34;token&#34;</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="s">&#34;Jenkins job token&#34;</span><span class="p">)</span>
 <span class="p">)</span>
 
 <span class="c1">// BuildJob trigger a job build
 </span><span class="c1"></span><span class="kd">func</span> <span class="nf">BuildJob</span><span class="p">(</span><span class="nx">params</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="p">)</span> <span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kd">var</span> <span class="nx">api</span> <span class="p">=</span> <span class="o">*</span><span class="nx">jenkinsURL</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="o">*</span><span class="nx">jenkinsView</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span> <span class="p">{</span>
-                <span class="nx">api</span> <span class="o">+=</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;/view/%s&#34;</span><span class="p">,</span> <span class="o">*</span><span class="nx">jenkinsView</span><span class="p">)</span>
-        <span class="p">}</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="o">*</span><span class="nx">jenkinsJob</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span> <span class="p">{</span>
-                <span class="nx">api</span> <span class="o">+=</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;/job/%s&#34;</span><span class="p">,</span> <span class="o">*</span><span class="nx">jenkinsJob</span><span class="p">)</span>
-        <span class="p">}</span>
-        <span class="nx">api</span> <span class="o">+=</span> <span class="s">&#34;/build&#34;</span>
+    <span class="kd">var</span> <span class="nx">api</span> <span class="p">=</span> <span class="o">*</span><span class="nx">jenkinsURL</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="o">*</span><span class="nx">jenkinsView</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span> <span class="p">{</span>
+            <span class="nx">api</span> <span class="o">+=</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;/view/%s&#34;</span><span class="p">,</span> <span class="o">*</span><span class="nx">jenkinsView</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="o">*</span><span class="nx">jenkinsJob</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span> <span class="p">{</span>
+            <span class="nx">api</span> <span class="o">+=</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;/job/%s&#34;</span><span class="p">,</span> <span class="o">*</span><span class="nx">jenkinsJob</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="nx">api</span> <span class="o">+=</span> <span class="s">&#34;/build&#34;</span>
 
-        <span class="c1">// params must encode by url
-</span><span class="c1"></span>        <span class="kd">var</span> <span class="nx">values</span> <span class="p">=</span> <span class="nb">make</span><span class="p">(</span><span class="nx">url</span><span class="p">.</span><span class="nx">Values</span><span class="p">)</span>
-        <span class="k">for</span> <span class="nx">k</span><span class="p">,</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">params</span> <span class="p">{</span>
-                <span class="nx">values</span><span class="p">.</span><span class="nf">Set</span><span class="p">(</span><span class="nx">k</span><span class="p">,</span> <span class="nx">v</span><span class="p">)</span>
-        <span class="p">}</span>
+    <span class="c1">// params must encode by url
+</span><span class="c1"></span>    <span class="kd">var</span> <span class="nx">values</span> <span class="p">=</span> <span class="nb">make</span><span class="p">(</span><span class="nx">url</span><span class="p">.</span><span class="nx">Values</span><span class="p">)</span>
+    <span class="k">for</span> <span class="nx">k</span><span class="p">,</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">params</span> <span class="p">{</span>
+            <span class="nx">values</span><span class="p">.</span><span class="nf">Set</span><span class="p">(</span><span class="nx">k</span><span class="p">,</span> <span class="nx">v</span><span class="p">)</span>
+    <span class="p">}</span>
 
-        <span class="nx">req</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">http</span><span class="p">.</span><span class="nf">NewRequest</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nx">MethodPost</span><span class="p">,</span> <span class="nx">api</span><span class="p">,</span>
-                <span class="nx">bytes</span><span class="p">.</span><span class="nf">NewBufferString</span><span class="p">(</span><span class="nx">values</span><span class="p">.</span><span class="nf">Encode</span><span class="p">()))</span>
-        <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-                <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nx">err</span>
-        <span class="p">}</span>
-        <span class="c1">// must set &#39;Content-Type&#39; to &#39;application/x-www-form-urlencoded&#39;
-</span><span class="c1"></span>        <span class="nx">req</span><span class="p">.</span><span class="nx">Header</span><span class="p">.</span><span class="nf">Set</span><span class="p">(</span><span class="s">&#34;Content-Type&#34;</span><span class="p">,</span> <span class="s">&#34;application/x-www-form-urlencoded; charset=utf-8&#34;</span><span class="p">)</span>
+    <span class="nx">req</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">http</span><span class="p">.</span><span class="nf">NewRequest</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nx">MethodPost</span><span class="p">,</span> <span class="nx">api</span><span class="p">,</span>
+            <span class="nx">bytes</span><span class="p">.</span><span class="nf">NewBufferString</span><span class="p">(</span><span class="nx">values</span><span class="p">.</span><span class="nf">Encode</span><span class="p">()))</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nx">err</span>
+    <span class="p">}</span>
+    <span class="c1">// must set &#39;Content-Type&#39; to &#39;application/x-www-form-urlencoded&#39;
+</span><span class="c1"></span>    <span class="nx">req</span><span class="p">.</span><span class="nx">Header</span><span class="p">.</span><span class="nf">Set</span><span class="p">(</span><span class="s">&#34;Content-Type&#34;</span><span class="p">,</span> <span class="s">&#34;application/x-www-form-urlencoded; charset=utf-8&#34;</span><span class="p">)</span>
 
-        <span class="nx">resp</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">http</span><span class="p">.</span><span class="nx">DefaultClient</span><span class="p">.</span><span class="nf">Do</span><span class="p">(</span><span class="nx">req</span><span class="p">)</span>
-        <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-                <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nx">err</span>
-        <span class="p">}</span>
-        <span class="k">if</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">Body</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-                <span class="k">defer</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">Body</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
-                <span class="nx">data</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">ioutil</span><span class="p">.</span><span class="nf">ReadAll</span><span class="p">(</span><span class="nx">resp</span><span class="p">.</span><span class="nx">Body</span><span class="p">)</span>
-                <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-                        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Failed to read response content:&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
-                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-                        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Response content:&#34;</span><span class="p">,</span> <span class="nb">string</span><span class="p">(</span><span class="nx">data</span><span class="p">))</span>
-                <span class="p">}</span>
-        <span class="p">}</span>
-        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Status:&#34;</span><span class="p">,</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">Status</span><span class="p">)</span>
-        <span class="k">if</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">StatusCode</span> <span class="p">&lt;</span> <span class="mi">200</span> <span class="o">||</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">StatusCode</span> <span class="o">&gt;=</span> <span class="mi">300</span> <span class="p">{</span>
-                <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Failed to build job&#34;</span><span class="p">)</span>
-                <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;build job failure&#34;</span><span class="p">)</span>
-        <span class="p">}</span>
+    <span class="nx">resp</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">http</span><span class="p">.</span><span class="nx">DefaultClient</span><span class="p">.</span><span class="nf">Do</span><span class="p">(</span><span class="nx">req</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nx">err</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">Body</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+            <span class="k">defer</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">Body</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+            <span class="nx">data</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">ioutil</span><span class="p">.</span><span class="nf">ReadAll</span><span class="p">(</span><span class="nx">resp</span><span class="p">.</span><span class="nx">Body</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+                    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Failed to read response content:&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Response content:&#34;</span><span class="p">,</span> <span class="nb">string</span><span class="p">(</span><span class="nx">data</span><span class="p">))</span>
+            <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Status:&#34;</span><span class="p">,</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">Status</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">StatusCode</span> <span class="p">&lt;</span> <span class="mi">200</span> <span class="o">||</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">StatusCode</span> <span class="o">&gt;=</span> <span class="mi">300</span> <span class="p">{</span>
+            <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Failed to build job&#34;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;build job failure&#34;</span><span class="p">)</span>
+    <span class="p">}</span>
 
-        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Response headers:&#34;</span><span class="p">,</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">Header</span><span class="p">)</span>
-        <span class="nx">queueAPI</span> <span class="o">:=</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">Header</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="s">&#34;Location&#34;</span><span class="p">)</span>
-        <span class="nx">queue</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nf">GetQueue</span><span class="p">(</span><span class="nx">queueAPI</span><span class="p">)</span>
-        <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-                <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nx">err</span>
-        <span class="p">}</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Response headers:&#34;</span><span class="p">,</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">Header</span><span class="p">)</span>
+    <span class="nx">queueAPI</span> <span class="o">:=</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">Header</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="s">&#34;Location&#34;</span><span class="p">)</span>
+    <span class="nx">queue</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nf">GetQueue</span><span class="p">(</span><span class="nx">queueAPI</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nx">err</span>
+    <span class="p">}</span>
 
-        <span class="k">return</span> <span class="nx">queue</span><span class="p">.</span><span class="nx">Executable</span><span class="p">.</span><span class="nx">Number</span><span class="p">,</span> <span class="kc">nil</span>
+    <span class="k">return</span> <span class="nx">queue</span><span class="p">.</span><span class="nx">Executable</span><span class="p">.</span><span class="nx">Number</span><span class="p">,</span> <span class="kc">nil</span>
 <span class="p">}</span>
 
 <span class="kd">func</span> <span class="nf">GetQueue</span><span class="p">(</span><span class="nx">api</span> <span class="kt">string</span><span class="p">)</span> <span class="p">(</span><span class="o">*</span><span class="nx">QueueInfo</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">resp</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">http</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="nx">api</span> <span class="o">+</span> <span class="s">&#34;/api/json&#34;</span><span class="p">)</span>
-        <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-                <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Failed to get queue:&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
-                <span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">err</span>
-        <span class="p">}</span>
-        <span class="k">defer</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">Body</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+    <span class="nx">resp</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">http</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="nx">api</span> <span class="o">+</span> <span class="s">&#34;/api/json&#34;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+            <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Failed to get queue:&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">err</span>
+    <span class="p">}</span>
+    <span class="k">defer</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">Body</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
 
-        <span class="nx">data</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">ioutil</span><span class="p">.</span><span class="nf">ReadAll</span><span class="p">(</span><span class="nx">resp</span><span class="p">.</span><span class="nx">Body</span><span class="p">)</span>
-        <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-                <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Failed to read response content:&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
-        <span class="p">}</span>
+    <span class="nx">data</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">ioutil</span><span class="p">.</span><span class="nf">ReadAll</span><span class="p">(</span><span class="nx">resp</span><span class="p">.</span><span class="nx">Body</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+            <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Failed to read response content:&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+    <span class="p">}</span>
 
-        <span class="k">if</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">StatusCode</span> <span class="p">&lt;</span> <span class="mi">200</span> <span class="o">||</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">StatusCode</span> <span class="o">&gt;=</span> <span class="mi">300</span> <span class="p">{</span>
-                <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Failed to get queue info&#34;</span><span class="p">)</span>
-                <span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;get queue info failure&#34;</span><span class="p">)</span>
-        <span class="p">}</span>
+    <span class="k">if</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">StatusCode</span> <span class="p">&lt;</span> <span class="mi">200</span> <span class="o">||</span> <span class="nx">resp</span><span class="p">.</span><span class="nx">StatusCode</span> <span class="o">&gt;=</span> <span class="mi">300</span> <span class="p">{</span>
+            <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Failed to get queue info&#34;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;get queue info failure&#34;</span><span class="p">)</span>
+    <span class="p">}</span>
 
-        <span class="kd">var</span> <span class="nx">info</span> <span class="nx">QueueInfo</span>
-        <span class="nx">err</span> <span class="p">=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">Unmarshal</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">info</span><span class="p">)</span>
-        <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-                <span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">err</span>
-        <span class="p">}</span>
-        <span class="k">return</span> <span class="o">&amp;</span><span class="nx">info</span><span class="p">,</span> <span class="kc">nil</span>
+    <span class="kd">var</span> <span class="nx">info</span> <span class="nx">QueueInfo</span>
+    <span class="nx">err</span> <span class="p">=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">Unmarshal</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">info</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">err</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="o">&amp;</span><span class="nx">info</span><span class="p">,</span> <span class="kc">nil</span>
 <span class="p">}</span></code></pre></td></tr></table>
 </div>
-</div>
+</div></li>
+</ul>
+
 <h3 id="参考资料">参考资料</h3>
 
 <p>没有在 <a href="https://wiki.jenkins.io/display/JENKINS/Remote+access+API">Jenkins REST API 文档</a> 中找到过多的 <code>API</code> 信息，但在 <a href="https://opendev.org/jjb/python-jenkins">python-jenkins</a> 的 <a href="https://opendev.org/jjb/python-jenkins/src/branch/master/jenkins/%5F%5Finit%5F%5F.py">代码</a> 中找到，所以想要了解更多请看代码。</p>

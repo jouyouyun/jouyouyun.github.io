@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.55.5 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://jouyouyun.github.io/" />
@@ -45,7 +45,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://jouyouyun.github.io/" />
 
-<meta property="og:updated_time" content="2019-05-02T11:27:00&#43;08:00"/>
+<meta property="og:updated_time" content="2019-05-08T17:50:00&#43;08:00"/>
 
 <meta itemprop="name" content="jouyouyun&#39;s blog">
 <meta itemprop="description" content="jouyouyun&#39;s blog">
@@ -109,6 +109,33 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/linux_hardware_info/">Linux 硬件信息获取</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2019-05-08 </span>
+      <div class="post-category">
+          <a href="/categories/blog/"> BLOG </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p>在 <code>linux</code> 上可以通过 <code>dmidecode</code> 或是 <code>lshw</code> 来获取硬件信息，能够方便的查看系统配置。
+但它们的输出信息过多，解析起来有些麻烦，另外 <code>lshw</code> 对 <code>usb</code> 接口的网卡支持不好，显示的信息不够，
+所以在此整理下通过读文件或是一些简单命令来获取硬件信息的方法。</p>
+
+<h2 id="dmi"><strong>DMI</strong></h2>
+
+<p>一般情况下内核默认加载了 <code>dmi sysfs</code> ，路径是 <code>/sys/class/dmi</code> 。里面包含了 <code>bios</code> ， <code>board</code> ， <code>product</code> 等信息。</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/linux_hardware_info/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/installation/">系统安装二三事</a></h1>
@@ -208,30 +235,6 @@
     </div>
     <div class="read-more">
       <a href="/post/docker-intro/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/influxdb-introduction/">InfluxDB 简介</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2019-04-13 </span>
-      <div class="post-category">
-          <a href="/categories/blog/"> BLOG </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p><code>InfluxDB</code> 是一个时间序列数据库(<code>TSDB</code>), 被设计用来处理高写入、高查询负载，是 <a href="https://www.influxdata.com/time-series-platform/">TICK</a> 的一部分。</p>
-
-<p><code>TSDB</code> 是针对时间戳或时间序列数据进行优化的数据库，专门为处理带有时间戳的度量和事件或度量而构建的。
-而时间序列数据可以是随时间跟踪、监视、下采样和聚合的度量或事件，如服务器指标、应用程序性能、网络数据、传感器数据以及许多其他类型的分析数据。</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/influxdb-introduction/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>

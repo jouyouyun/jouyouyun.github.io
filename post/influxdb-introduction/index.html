@@ -25,7 +25,7 @@ TSDB 是针对时间戳或时间序列数据进行优化的数据库，专门为
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.55.5 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://jouyouyun.github.io/post/influxdb-introduction/" />
@@ -275,9 +275,11 @@ TSDB 是针对时间戳或时间序列数据进行优化的数据库，专门为
 <p>插入一条 <code>cpu load</code> 的数据： <code>INSERT cpu_load,machine=001,region=ch value=0.56</code> ，
 这就向名为 <code>cpu_load</code> 的 <code>measurement</code> 中添加了 <code>tags</code> 为 <code>machine</code> 和 <code>region</code> ， <code>fields</code> 为 <code>value</code> 的 <code>point</code> 。</p>
 
-<p>不指定 <code>timestamp</code> 时，默认会使用 <strong>本地的当前时间</strong> 作为 <code>timestamp</code> 。</p></li>
+<p>不指定 <code>timestamp</code> 时，默认会使用 <strong>本地的当前时间</strong> 作为 <code>timestamp</code> 。</p>
 
-<li><p>查询数据</p>
+<ul>
+<li>查询数据</li>
+</ul>
 
 <p>查询语法：</p>
 <div class="highlight"><div class="chroma">
@@ -354,9 +356,10 @@ TSDB 是针对时间戳或时间序列数据进行优化的数据库，专门为
 <td class="lntd">
 <pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">DROP</span> <span class="n">SERIES</span> <span class="k">FROM</span> <span class="o">&lt;</span><span class="n">measurement</span><span class="o">&gt;</span> <span class="k">WHERE</span> <span class="p">[</span><span class="n">condition</span><span class="p">]</span></code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>DELETE</p>
+</div>
+<ul>
+<li>DELETE</li>
+</ul>
 
 <p><code>DELETE</code> 将删除所有的记录，但不会删除索引，并支持在 <code>WHERE</code> 语句中使用 =timestamp=，语法：</p>
 <div class="highlight"><div class="chroma">
@@ -474,13 +477,17 @@ TSDB 是针对时间戳或时间序列数据进行优化的数据库，专门为
 </tbody>
 </table>
 
-<p>如果 <code>RP Duration</code> 大于 <code>0s</code> 小于 <code>1 hour</code> ， <code>Shard Duration</code> 仍将设置为 <code>1 hour</code> 。</p></li>
+<p>如果 <code>RP Duration</code> 大于 <code>0s</code> 小于 <code>1 hour</code> ， <code>Shard Duration</code> 仍将设置为 <code>1 hour</code> 。</p>
 
-<li><p>删除</p>
+<ul>
+<li>删除</li>
+</ul>
 
-<p><code>DROP RETENTION POLICY &lt;rp_name&gt;</code></p></li>
+<p><code>DROP RETENTION POLICY &lt;rp_name&gt;</code></p>
 
-<li><p>修改</p>
+<ul>
+<li>修改</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-sql" data-lang="sql"><span class="lnt">1
@@ -508,9 +515,10 @@ TSDB 是针对时间戳或时间序列数据进行优化的数据库，专门为
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell">curl -X POST http://localhost:8086/query --data-urlencode <span class="s2">&#34;q=CREATE DATABASE &lt;database name&gt;&#34;</span></code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>查询</p>
+</div>
+<ul>
+<li>查询</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
@@ -559,9 +567,11 @@ TSDB 是针对时间戳或时间序列数据进行优化的数据库，专门为
 <pre class="chroma"><code class="language-shell" data-lang="shell">curl -X POST http://localhost:8086/write?db<span class="o">=</span>&lt;database name&gt; --data-binary <span class="s2">&#34;cpu_load,machine=001,region=cn value=0.56 1555164637838240795&#34;</span></code></pre></td></tr></table>
 </div>
 </div>
-<p>必须指定 <code>database name</code></p></li>
+<p>必须指定 <code>database name</code></p>
 
-<li><p>插入多条 <code>Point</code></p>
+<ul>
+<li>插入多条 <code>Point</code></li>
+</ul>
 
 <p>多条 <code>Point</code> 之间用行分割，如：</p>
 <div class="highlight"><div class="chroma">

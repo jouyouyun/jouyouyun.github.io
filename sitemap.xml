@@ -1,10 +1,148 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <?xml-stylesheet type="text/xsl" href="https://jouyouyun.github.io/sitemap.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jouyouyun.github.io/categories/blog/</loc>
+    <lastmod>2019-05-11T16:03:04+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/categories/</loc>
+    <lastmod>2019-05-11T16:03:04+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/post/linux_hardware_info/</loc>
+    <lastmod>2019-05-11T16:03:04+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/post/</loc>
+    <lastmod>2019-05-11T16:03:04+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/</loc>
+    <lastmod>2019-05-11T16:03:04+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/bios/</loc>
+    <lastmod>2019-05-11T16:03:04+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/board/</loc>
+    <lastmod>2019-05-11T16:03:04+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/cpu/</loc>
+    <lastmod>2019-05-11T16:03:04+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/disk/</loc>
+    <lastmod>2019-05-11T16:03:04+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/dmi/</loc>
+    <lastmod>2019-05-11T16:03:04+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/dmidecode/</loc>
+    <lastmod>2019-05-11T16:03:04+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/hardware/</loc>
+    <lastmod>2019-05-11T16:03:04+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/</loc>
+    <lastmod>2019-05-11T16:03:04+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/lsblk/</loc>
+    <lastmod>2019-05-11T16:03:04+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/lshw/</loc>
+    <lastmod>2019-05-11T16:03:04+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/lspci/</loc>
+    <lastmod>2019-05-11T16:03:04+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/lsusb/</loc>
+    <lastmod>2019-05-11T16:03:04+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/memory/</loc>
+    <lastmod>2019-05-11T16:03:04+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/network/</loc>
+    <lastmod>2019-05-11T16:03:04+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/wired/</loc>
+    <lastmod>2019-05-11T16:03:04+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/wireless/</loc>
+    <lastmod>2019-05-11T16:03:04+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/categories/note/</loc>
+    <lastmod>2019-05-08T16:55:07+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/installation/</loc>
+    <lastmod>2019-05-08T16:55:07+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://jouyouyun.github.io/post/installation/</loc>
-    <lastmod>2019-05-02T22:20:56+08:00</lastmod>
+    <lastmod>2019-05-08T16:55:07+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -14,6 +152,36 @@
     <lastmod>2019-04-21T21:07:07+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/api/</loc>
+    <lastmod>2019-04-21T21:07:07+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/jenkins/</loc>
+    <lastmod>2019-04-21T21:07:07+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/rest/</loc>
+    <lastmod>2019-04-21T21:07:07+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/docker/</loc>
+    <lastmod>2019-04-21T17:36:52+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/storage/</loc>
+    <lastmod>2019-04-21T13:46:19+08:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -31,10 +199,76 @@
   </url>
   
   <url>
+    <loc>https://jouyouyun.github.io/tags/compose/</loc>
+    <lastmod>2019-04-21T17:36:52+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/container/</loc>
+    <lastmod>2019-04-21T17:36:52+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/image/</loc>
+    <lastmod>2019-04-21T17:36:52+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://jouyouyun.github.io/post/influxdb-introduction/</loc>
     <lastmod>2019-04-14T13:01:09+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/influxdb/</loc>
+    <lastmod>2019-04-14T13:01:09+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/measurement/</loc>
+    <lastmod>2019-04-14T13:01:09+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/series/</loc>
+    <lastmod>2019-04-14T13:01:09+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/tsdb/</loc>
+    <lastmod>2019-04-14T13:01:09+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/branch/</loc>
+    <lastmod>2019-04-11T15:12:26+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/git/</loc>
+    <lastmod>2019-04-11T15:12:26+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/local/</loc>
+    <lastmod>2019-04-11T15:12:26+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/remote/</loc>
+    <lastmod>2019-04-11T15:12:26+08:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -52,6 +286,54 @@
   </url>
   
   <url>
+    <loc>https://jouyouyun.github.io/tags/alter/</loc>
+    <lastmod>2019-04-07T00:29:18+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/character/</loc>
+    <lastmod>2019-04-07T00:29:18+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/charset/</loc>
+    <lastmod>2019-04-07T00:29:18+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/join/</loc>
+    <lastmod>2019-04-07T00:29:18+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/mysql/</loc>
+    <lastmod>2019-04-07T00:29:18+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/sql/</loc>
+    <lastmod>2019-04-07T00:29:18+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/even/</loc>
+    <lastmod>2019-02-12T14:22:14+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/hugo/</loc>
+    <lastmod>2019-02-12T14:22:14+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://jouyouyun.github.io/post/hugo-github/</loc>
     <lastmod>2019-02-12T14:22:14+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -59,10 +341,28 @@
   </url>
   
   <url>
+    <loc>https://jouyouyun.github.io/tags/association/</loc>
+    <lastmod>2019-02-12T14:34:13+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/gorm/</loc>
+    <lastmod>2019-02-12T14:34:13+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://jouyouyun.github.io/post/gorm-association/</loc>
     <lastmod>2019-02-12T14:34:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/python/</loc>
+    <lastmod>2019-03-25T20:07:49+08:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -80,10 +380,82 @@
   </url>
   
   <url>
+    <loc>https://jouyouyun.github.io/tags/go/</loc>
+    <lastmod>2019-02-12T14:34:02+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/gom/</loc>
+    <lastmod>2019-02-12T14:33:42+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/module/</loc>
+    <lastmod>2019-02-12T14:33:42+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/package/</loc>
+    <lastmod>2019-02-12T14:33:42+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://jouyouyun.github.io/post/linux-signal-example/</loc>
     <lastmod>2019-04-23T16:13:41+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/alarm/</loc>
+    <lastmod>2019-04-23T16:13:41+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/kill/</loc>
+    <lastmod>2019-04-23T16:13:41+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/raise/</loc>
+    <lastmod>2019-04-23T16:13:41+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/sigaction/</loc>
+    <lastmod>2019-04-23T16:13:41+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/signal/</loc>
+    <lastmod>2019-04-23T16:13:41+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/apt/</loc>
+    <lastmod>2019-02-12T14:34:23+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/google/</loc>
+    <lastmod>2019-02-12T14:34:23+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/origin/</loc>
+    <lastmod>2019-02-12T14:34:23+08:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -94,10 +466,52 @@
   </url>
   
   <url>
+    <loc>https://jouyouyun.github.io/tags/cursor/</loc>
+    <lastmod>2019-02-12T14:36:19+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/deepin/</loc>
+    <lastmod>2019-02-12T14:36:19+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/font/</loc>
+    <lastmod>2019-02-12T14:36:19+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/gnome/</loc>
+    <lastmod>2019-02-12T14:36:19+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/gtk/</loc>
+    <lastmod>2019-02-12T14:36:19+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/icon/</loc>
+    <lastmod>2019-02-12T14:36:19+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://jouyouyun.github.io/post/set-appearance-in-deepin-or-gnome/</loc>
     <lastmod>2019-02-12T14:36:19+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/theme/</loc>
+    <lastmod>2019-02-12T14:36:19+08:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -108,10 +522,52 @@
   </url>
   
   <url>
+    <loc>https://jouyouyun.github.io/tags/rtc/</loc>
+    <lastmod>2019-02-12T14:35:18+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/suspend/</loc>
+    <lastmod>2019-02-12T14:34:50+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/wakeup/</loc>
+    <lastmod>2019-02-12T14:34:50+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://jouyouyun.github.io/post/linux-time-standard/</loc>
     <lastmod>2019-02-12T14:35:18+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/localtime/</loc>
+    <lastmod>2019-02-12T14:35:18+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/timezone/</loc>
+    <lastmod>2019-02-12T14:35:18+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/utc/</loc>
+    <lastmod>2019-02-12T14:35:18+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/superblock/</loc>
+    <lastmod>2019-02-12T14:38:17+08:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -129,10 +585,34 @@
   </url>
   
   <url>
+    <loc>https://jouyouyun.github.io/tags/restful/</loc>
+    <lastmod>2019-04-10T13:45:04+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://jouyouyun.github.io/post/git-rebase/</loc>
     <lastmod>2019-02-12T14:32:41+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/rebase/</loc>
+    <lastmod>2019-02-12T14:32:41+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/recovery/</loc>
+    <lastmod>2019-02-12T14:32:41+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/reflog/</loc>
+    <lastmod>2019-02-12T14:32:41+08:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -143,10 +623,34 @@
   </url>
   
   <url>
+    <loc>https://jouyouyun.github.io/tags/cups/</loc>
+    <lastmod>2019-02-12T14:31:34+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://jouyouyun.github.io/post/bluetooth-faq/</loc>
     <lastmod>2019-02-12T14:30:09+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/bluetooth/</loc>
+    <lastmod>2019-02-12T14:30:09+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/grub2/</loc>
+    <lastmod>2019-02-12T14:36:30+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/resolution/</loc>
+    <lastmod>2019-02-12T14:36:30+08:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -164,10 +668,22 @@
   </url>
   
   <url>
+    <loc>https://jouyouyun.github.io/tags/bbr/</loc>
+    <lastmod>2019-02-12T14:36:39+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://jouyouyun.github.io/post/leanote-installation/</loc>
     <lastmod>2019-02-12T14:34:41+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/leanote/</loc>
+    <lastmod>2019-02-12T14:34:41+08:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -178,10 +694,22 @@
   </url>
   
   <url>
+    <loc>https://jouyouyun.github.io/tags/openvpn/</loc>
+    <lastmod>2019-02-12T14:35:40+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://jouyouyun.github.io/post/mime-usage/</loc>
     <lastmod>2019-02-12T14:35:27+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/mime/</loc>
+    <lastmod>2019-02-12T14:35:27+08:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -192,10 +720,22 @@
   </url>
   
   <url>
+    <loc>https://jouyouyun.github.io/tags/xrandr/</loc>
+    <lastmod>2019-02-12T14:36:53+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://jouyouyun.github.io/post/enable-coredump/</loc>
     <lastmod>2019-02-12T14:32:12+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/coredump/</loc>
+    <lastmod>2019-02-12T14:32:12+08:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -213,6 +753,24 @@
   </url>
   
   <url>
+    <loc>https://jouyouyun.github.io/tags/debug/</loc>
+    <lastmod>2019-02-10T17:52:42+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/wacom/</loc>
+    <lastmod>2019-02-12T14:37:12+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/xsetwacom/</loc>
+    <lastmod>2019-02-12T14:37:12+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://jouyouyun.github.io/post/xsetwacom-options/</loc>
     <lastmod>2019-02-12T14:37:12+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -227,6 +785,18 @@
   </url>
   
   <url>
+    <loc>https://jouyouyun.github.io/tags/socket/</loc>
+    <lastmod>2019-02-12T14:33:52+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/tcp/</loc>
+    <lastmod>2019-02-12T14:33:52+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://jouyouyun.github.io/post/go-gob-rw-file/</loc>
     <lastmod>2019-02-12T14:33:20+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -234,10 +804,40 @@
   </url>
   
   <url>
+    <loc>https://jouyouyun.github.io/tags/gob/</loc>
+    <lastmod>2019-02-12T14:33:20+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/chroot/</loc>
+    <lastmod>2019-02-12T14:30:40+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://jouyouyun.github.io/post/chroot-shell/</loc>
     <lastmod>2019-02-12T14:30:40+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/ssh/</loc>
+    <lastmod>2019-02-12T14:30:30+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/vpn/</loc>
+    <lastmod>2019-02-12T14:30:30+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/vps/</loc>
+    <lastmod>2019-02-12T14:30:30+08:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -255,10 +855,22 @@
   </url>
   
   <url>
+    <loc>https://jouyouyun.github.io/tags/md5/</loc>
+    <lastmod>2019-02-12T14:33:29+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://jouyouyun.github.io/post/go-file-exist/</loc>
     <lastmod>2019-02-12T14:33:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/file/</loc>
+    <lastmod>2019-02-12T14:33:04+08:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -269,6 +881,12 @@
   </url>
   
   <url>
+    <loc>https://jouyouyun.github.io/tags/uri/</loc>
+    <lastmod>2019-02-12T14:34:02+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://jouyouyun.github.io/post/xrecord-example/</loc>
     <lastmod>2019-02-12T14:37:01+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -276,624 +894,14 @@
   </url>
   
   <url>
-    <loc>https://jouyouyun.github.io/categories/blog/</loc>
-    <lastmod>2019-04-21T21:07:07+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/categories/</loc>
-    <lastmod>2019-04-21T21:07:07+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/categories/note/</loc>
-    <lastmod>2019-05-02T22:20:56+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/post/</loc>
-    <lastmod>2019-05-02T22:20:56+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/alarm/</loc>
-    <lastmod>2019-04-23T16:13:41+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/alter/</loc>
-    <lastmod>2019-04-07T00:29:18+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/api/</loc>
-    <lastmod>2019-04-21T21:07:07+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/apt/</loc>
-    <lastmod>2019-02-12T14:34:23+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/association/</loc>
-    <lastmod>2019-02-12T14:34:13+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/bbr/</loc>
-    <lastmod>2019-02-12T14:36:39+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/bluetooth/</loc>
-    <lastmod>2019-02-12T14:30:09+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/branch/</loc>
-    <lastmod>2019-04-11T15:12:26+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/character/</loc>
-    <lastmod>2019-04-07T00:29:18+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/charset/</loc>
-    <lastmod>2019-04-07T00:29:18+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/chroot/</loc>
-    <lastmod>2019-02-12T14:30:40+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/compose/</loc>
-    <lastmod>2019-04-21T17:36:52+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/container/</loc>
-    <lastmod>2019-04-21T17:36:52+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/coredump/</loc>
-    <lastmod>2019-02-12T14:32:12+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/cups/</loc>
-    <lastmod>2019-02-12T14:31:34+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/cursor/</loc>
-    <lastmod>2019-02-12T14:36:19+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/debug/</loc>
-    <lastmod>2019-02-10T17:52:42+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/deepin/</loc>
-    <lastmod>2019-02-12T14:36:19+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/docker/</loc>
-    <lastmod>2019-04-21T13:46:19+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/even/</loc>
-    <lastmod>2019-02-12T14:22:14+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/file/</loc>
-    <lastmod>2019-02-12T14:33:04+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/font/</loc>
-    <lastmod>2019-02-12T14:36:19+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/git/</loc>
-    <lastmod>2019-04-11T15:12:26+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/gnome/</loc>
-    <lastmod>2019-02-12T14:36:19+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/go/</loc>
-    <lastmod>2019-02-12T14:33:42+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/gob/</loc>
-    <lastmod>2019-02-12T14:33:20+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/gom/</loc>
-    <lastmod>2019-02-12T14:33:42+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/google/</loc>
-    <lastmod>2019-02-12T14:34:23+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/gorm/</loc>
-    <lastmod>2019-02-12T14:34:13+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/grub2/</loc>
-    <lastmod>2019-02-12T14:36:30+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/gtk/</loc>
-    <lastmod>2019-02-12T14:36:19+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/hugo/</loc>
-    <lastmod>2019-02-12T14:22:14+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/icon/</loc>
-    <lastmod>2019-02-12T14:36:19+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/image/</loc>
-    <lastmod>2019-04-21T17:36:52+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/influxdb/</loc>
-    <lastmod>2019-04-14T13:01:09+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/installation/</loc>
-    <lastmod>2019-05-02T22:20:56+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/jenkins/</loc>
-    <lastmod>2019-04-21T21:07:07+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/join/</loc>
-    <lastmod>2019-04-07T00:29:18+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/</loc>
-    <lastmod>2019-05-02T22:20:56+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/kill/</loc>
-    <lastmod>2019-04-23T16:13:41+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/leanote/</loc>
-    <lastmod>2019-02-12T14:34:41+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/local/</loc>
-    <lastmod>2019-04-11T15:12:26+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/localtime/</loc>
-    <lastmod>2019-02-12T14:35:18+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/md5/</loc>
-    <lastmod>2019-02-12T14:33:29+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/measurement/</loc>
-    <lastmod>2019-04-14T13:01:09+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/mime/</loc>
-    <lastmod>2019-02-12T14:35:27+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/module/</loc>
-    <lastmod>2019-02-12T14:33:42+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/mysql/</loc>
-    <lastmod>2019-04-07T00:29:18+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/openvpn/</loc>
-    <lastmod>2019-02-12T14:35:40+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/origin/</loc>
-    <lastmod>2019-02-12T14:34:23+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/package/</loc>
-    <lastmod>2019-02-12T14:33:42+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/python/</loc>
-    <lastmod>2019-03-25T20:07:49+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/raise/</loc>
-    <lastmod>2019-04-23T16:13:41+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/rebase/</loc>
-    <lastmod>2019-02-12T14:32:41+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/recovery/</loc>
-    <lastmod>2019-02-12T14:32:41+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/reflog/</loc>
-    <lastmod>2019-02-12T14:32:41+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/remote/</loc>
-    <lastmod>2019-04-11T15:12:26+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/resolution/</loc>
-    <lastmod>2019-02-12T14:36:30+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/rest/</loc>
-    <lastmod>2019-04-21T21:07:07+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/restful/</loc>
-    <lastmod>2019-04-10T13:45:04+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/rtc/</loc>
-    <lastmod>2019-02-12T14:34:50+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/series/</loc>
-    <lastmod>2019-04-14T13:01:09+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/sigaction/</loc>
-    <lastmod>2019-04-23T16:13:41+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/signal/</loc>
-    <lastmod>2019-04-23T16:13:41+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/socket/</loc>
-    <lastmod>2019-02-12T14:33:52+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/sql/</loc>
-    <lastmod>2019-04-07T00:29:18+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/ssh/</loc>
-    <lastmod>2019-02-12T14:30:30+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/storage/</loc>
-    <lastmod>2019-04-21T13:46:19+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/superblock/</loc>
-    <lastmod>2019-02-12T14:38:17+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/suspend/</loc>
-    <lastmod>2019-02-12T14:34:50+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/tcp/</loc>
-    <lastmod>2019-02-12T14:33:52+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/theme/</loc>
-    <lastmod>2019-02-12T14:36:19+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/timezone/</loc>
-    <lastmod>2019-02-12T14:35:18+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/tsdb/</loc>
-    <lastmod>2019-04-14T13:01:09+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/uri/</loc>
-    <lastmod>2019-02-12T14:34:02+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/utc/</loc>
-    <lastmod>2019-02-12T14:35:18+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/vpn/</loc>
-    <lastmod>2019-02-12T14:30:30+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/vps/</loc>
-    <lastmod>2019-02-12T14:30:30+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/wacom/</loc>
-    <lastmod>2019-02-12T14:37:12+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/wakeup/</loc>
-    <lastmod>2019-02-12T14:34:50+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/xrandr/</loc>
-    <lastmod>2019-02-12T14:36:53+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://jouyouyun.github.io/tags/xrecord/</loc>
     <lastmod>2019-02-12T14:37:01+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/xsetwacom/</loc>
-    <lastmod>2019-02-12T14:37:12+08:00</lastmod>
-    <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://jouyouyun.github.io/tags/xtst/</loc>
     <lastmod>2019-02-12T14:37:01+08:00</lastmod>
-    <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   

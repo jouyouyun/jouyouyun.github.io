@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.55.5 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://jouyouyun.github.io/post/installation/" />
@@ -43,15 +43,15 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jouyouyun.github.io/post/installation/" />
 <meta property="article:published_time" content="2019-05-02T11:27:00&#43;08:00"/>
-<meta property="article:modified_time" content="2019-05-02T22:20:56&#43;08:00"/>
+<meta property="article:modified_time" content="2019-05-08T16:55:07&#43;08:00"/>
 
 <meta itemprop="name" content="系统安装二三事">
 <meta itemprop="description" content="在重装系统时, 需要考虑软件与数据的备份恢复, 遂记录下需要用到的软件, 自定义的配置和数据恢复. 软件 换源 Archlinux 在 /etc/pacman.d/mirrorlist 只启用中国区的源, 另添加以下内容到">
 
 
 <meta itemprop="datePublished" content="2019-05-02T11:27:00&#43;08:00" />
-<meta itemprop="dateModified" content="2019-05-02T22:20:56&#43;08:00" />
-<meta itemprop="wordCount" content="455">
+<meta itemprop="dateModified" content="2019-05-08T16:55:07&#43;08:00" />
+<meta itemprop="wordCount" content="469">
 
 
 
@@ -173,9 +173,10 @@
 <span class="nv">SigLevel</span> <span class="o">=</span> Optional TrustAll
 <span class="nv">Server</span> <span class="o">=</span> https://mirrors.ustc.edu.cn/archlinuxcn/<span class="nv">$arch</span>~</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p><code>Deepin</code></p>
+</div>
+<ul>
+<li><code>Deepin</code></li>
+</ul>
 
 <p>这里使用 <code>163</code> 的源</p>
 <div class="highlight"><div class="chroma">
@@ -200,9 +201,10 @@
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell">yaourt -S fcitx fcitx-googlepinyin fcitx-frontend-gtk2 fcitx-frontend-gtk3 fcitx-frontend-qt4 fcitx-module-x11 fcitx-module-dbus fcitx-table fcitx-ui-classic</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p><code>Deepin</code></p>
+</div>
+<ul>
+<li><code>Deepin</code></li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
@@ -230,19 +232,21 @@ sudo apt-get purge sogoupinyin fcitx-sogoupinyin-uk</code></pre></td></tr></tabl
 <pre class="chroma"><code class="language-shell" data-lang="shell">yaourt -S zsh tmux gvim openssh most firefox albert parcellite the_silver_searcher wget xelatex wkhtmltopdf pandoc vlc zhcon terminator git emacs w3m curl <span class="se">\
 </span><span class="se"></span>dia inkscape wireshark wps-office aria2 mpv htop gpicview deepin-screenshot foxitreader python-pip</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p><code>Deepin</code></p>
+</div>
+<ul>
+<li><code>Deepin</code></li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">sudo apt-get install zsh tmux vim-gtk3 openssh-server firefox albert parcellite silversearcher-ag xelatex wkhtmltopdf pandoc vlc zhcon terminator git emacs w3m <span class="se">\
+<pre class="chroma"><code class="language-shell" data-lang="shell">sudo apt-get install zsh tmux vim-gtk3 openssh-server parcellite silversearcher-ag texlive-xetex wkhtmltopdf pandoc vlc zhcon terminator git emacs w3m <span class="se">\
 </span><span class="se"></span>curl dia inkscape wireshark wps-office aria2 mpv htop gpicview deepin-screenshot foxitreader python-pip python3-pip</code></pre></td></tr></table>
 </div>
-</div></li>
+</div>
+<p><code>firefox, albert</code> 另外安装</p></li>
 </ul>
 
 <h3 id="开发">开发</h3>
@@ -256,9 +260,10 @@ sudo apt-get purge sogoupinyin fcitx-sogoupinyin-uk</code></pre></td></tr></tabl
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell">yaourt -S valgrind ctags go hugo boost boost-libs nodejs d-feet devhelp cmake clang clang-format astyle</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p><code>Deepin</code></p>
+</div>
+<ul>
+<li><code>Deepin</code></li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
@@ -266,7 +271,7 @@ sudo apt-get purge sogoupinyin fcitx-sogoupinyin-uk</code></pre></td></tr></tabl
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">sudo apt-get install valgrind exuberant-ctags golang-go golang-src hugo libboost-all-dev nodejs nodejs d-feet devhelp cmake clang clang-format libclang-dev astyle <span class="se">\
+<pre class="chroma"><code class="language-shell" data-lang="shell">sudo apt-get install valgrind exuberant-ctags golang-go golang-src hugo libboost-all-dev nodejs-bin d-feet devhelp cmake clang clang-format libclang-dev astyle <span class="se">\
 </span><span class="se"></span>libpython-dev
 sudo apt-get build-dep dde-daemon startdde dde-api</code></pre></td></tr></table>
 </div>
@@ -290,9 +295,10 @@ sudo apt-get build-dep dde-daemon startdde dde-api</code></pre></td></tr></table
 <span class="nv">registry</span> <span class="o">=</span> http://registry.cnpmjs.org
 <span class="nv">prefix</span><span class="o">=</span>/Data/npm-global</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p><code>pip</code></p>
+</div>
+<ul>
+<li><code>pip</code></li>
+</ul>
 
 <p>设置 <code>pip</code> 加速镜像源:</p>
 <div class="highlight"><div class="chroma">
@@ -325,14 +331,15 @@ index-url <span class="o">=</span> https://pypi.douban.com/simple</code></pre></
 <span class="o">}</span></code></pre></td></tr></table>
 </div>
 </div>
-<p>存储目录的设置参见: <a href="http://jouyouyun.github.io/post/docker-data-storage/">更改 Docker 数据的存储目录</a></p></li>
+<p>存储目录的设置参见: <a href="http://jouyouyun.github.io/post/docker-data-storage/">更改 Docker 数据的存储目录</a></p>
 
-<li><p>其它</p>
+<ul>
+<li>其它</li>
+</ul>
 
 <p><code>vim, tmux, git, ssh, ss-tproxy</code> 的配置在 <a href="https://gitee.com/jouyouyun/conf.d">conf.d</a> 中, <code>emacs</code> 的配置在 <a href="https://github.com/jouyouyun/prelude">prelude</a> 中.</p>
 
-<p><code>ss-tproxy</code> 执行 <code>git clone https://github.com/zfl9/ss-tproxy.git</code> 下载.</p></li>
-</ul>
+<p><code>ss-tproxy</code> 执行 <code>git clone https://github.com/zfl9/ss-tproxy.git</code> 下载，需要安装 <code>ipset, chinadns, dnsmasq</code> 等依赖。</p>
 
 <h2 id="数据">数据</h2>
 
@@ -344,7 +351,9 @@ index-url <span class="o">=</span> https://pypi.douban.com/simple</code></pre></
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nv">UUID</span><span class="o">=</span>6f8f77fb-f8ca-43cb-bb40-4e8e7ca8e009   /Data           ext4        rw,relatime,data<span class="o">=</span>ordered    <span class="m">0</span> <span class="m">1</span></code></pre></td></tr></table>
 </div>
-</div>
+</div></li>
+</ul>
+
     </div>
 
     <div class="post-copyright">
@@ -354,7 +363,7 @@ index-url <span class="o">=</span> https://pypi.douban.com/simple</code></pre></
   </p>
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
-    <span class="item-content">2019-05-02</span>
+    <span class="item-content">2019-05-08</span>
   </p>
   
   
@@ -377,7 +386,11 @@ index-url <span class="o">=</span> https://pypi.douban.com/simple</code></pre></
           <a href="/tags/installation/">installation</a>
           </div>
       <nav class="post-nav">
-        
+        <a class="prev" href="/post/linux_hardware_info/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Linux 硬件信息获取</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
         <a class="next" href="/post/jenkins-api-usage/">
             <span class="next-text nav-default">Jenkins API 使用</span>
             <span class="next-text nav-mobile">下一篇</span>
