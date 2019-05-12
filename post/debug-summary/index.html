@@ -16,7 +16,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="jouyouyun" /><meta name="description" content="调试 bug 的时候要有耐心, 要不断测试, 直到找到问题原因. 确定 bug 出现的方式 一定要找到稳定重现的方式, 这样才能方便下面的调试 如果找不到稳定重现的方法" /><meta name="keywords" content="jouyouyun, Hugo, theme, even" />
+<meta name="author" content="jouyouyun" /><meta name="description" content="调试 bug 的时候要有耐心, 要不断测试, 直到找到问题原因.
+基本思路 确定 bug 出现的方式  一定要找到稳定重现的方式, 这样才能方便下面的调试 如果找不到稳定重现的方法就只能根据上次出现的情形, 去查看相关的代码, 猜测可能出问题的地方, 然后针对那一块进行调试, 直到找到稳定重现方式  定位出问题的代码  再找到稳定重现方式后, 开始定位出问题的函数, 然后加入调试信息, 不断尝试, 直到找到有问题的代码 找到有问题的代码后, 如果发现是第三方库里的函数,可以打印出每次调用的输入输出参数, 看看是否有迹可循, 可以单独写个小程序, 传入问题的参数, 进行不断测试, 来确定第三方库有没有问题 如果自己程序的代码, 就一行一行的慢慢测试, 确定问题的原因, 原因找到了就可以开始思考解决方法了 " /><meta name="keywords" content="jouyouyun, Hugo, theme, even" />
 
 
 
@@ -39,26 +40,77 @@
 
 
 <meta property="og:title" content="Debug 小结" />
-<meta property="og:description" content="调试 bug 的时候要有耐心, 要不断测试, 直到找到问题原因. 确定 bug 出现的方式 一定要找到稳定重现的方式, 这样才能方便下面的调试 如果找不到稳定重现的方法" />
+<meta property="og:description" content="调试 bug 的时候要有耐心, 要不断测试, 直到找到问题原因.
+
+基本思路
+
+确定 bug 出现的方式
+
+
+一定要找到稳定重现的方式, 这样才能方便下面的调试
+如果找不到稳定重现的方法就只能根据上次出现的情形, 去查看相关的代码, 猜测可能出问题的地方, 然后针对那一块进行调试, 直到找到稳定重现方式
+
+
+定位出问题的代码
+
+
+再找到稳定重现方式后, 开始定位出问题的函数, 然后加入调试信息, 不断尝试, 直到找到有问题的代码
+找到有问题的代码后, 如果发现是第三方库里的函数,可以打印出每次调用的输入输出参数, 看看是否有迹可循, 可以单独写个小程序, 传入问题的参数, 进行不断测试, 来确定第三方库有没有问题
+如果自己程序的代码, 就一行一行的慢慢测试, 确定问题的原因, 原因找到了就可以开始思考解决方法了
+" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jouyouyun.github.io/post/debug-summary/" />
 <meta property="article:published_time" content="2016-02-03T15:06:21&#43;08:00"/>
-<meta property="article:modified_time" content="2019-02-10T17:52:42&#43;08:00"/>
+<meta property="article:modified_time" content="2019-05-12T22:22:49&#43;08:00"/>
 
 <meta itemprop="name" content="Debug 小结">
-<meta itemprop="description" content="调试 bug 的时候要有耐心, 要不断测试, 直到找到问题原因. 确定 bug 出现的方式 一定要找到稳定重现的方式, 这样才能方便下面的调试 如果找不到稳定重现的方法">
+<meta itemprop="description" content="调试 bug 的时候要有耐心, 要不断测试, 直到找到问题原因.
+
+基本思路
+
+确定 bug 出现的方式
+
+
+一定要找到稳定重现的方式, 这样才能方便下面的调试
+如果找不到稳定重现的方法就只能根据上次出现的情形, 去查看相关的代码, 猜测可能出问题的地方, 然后针对那一块进行调试, 直到找到稳定重现方式
+
+
+定位出问题的代码
+
+
+再找到稳定重现方式后, 开始定位出问题的函数, 然后加入调试信息, 不断尝试, 直到找到有问题的代码
+找到有问题的代码后, 如果发现是第三方库里的函数,可以打印出每次调用的输入输出参数, 看看是否有迹可循, 可以单独写个小程序, 传入问题的参数, 进行不断测试, 来确定第三方库有没有问题
+如果自己程序的代码, 就一行一行的慢慢测试, 确定问题的原因, 原因找到了就可以开始思考解决方法了
+">
 
 
 <meta itemprop="datePublished" content="2016-02-03T15:06:21&#43;08:00" />
-<meta itemprop="dateModified" content="2019-02-10T17:52:42&#43;08:00" />
-<meta itemprop="wordCount" content="777">
+<meta itemprop="dateModified" content="2019-05-12T22:22:49&#43;08:00" />
+<meta itemprop="wordCount" content="1285">
 
 
 
-<meta itemprop="keywords" content="debug," />
+<meta itemprop="keywords" content="debug,perf,pprof,gdb,sar,performance," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Debug 小结"/>
-<meta name="twitter:description" content="调试 bug 的时候要有耐心, 要不断测试, 直到找到问题原因. 确定 bug 出现的方式 一定要找到稳定重现的方式, 这样才能方便下面的调试 如果找不到稳定重现的方法"/>
+<meta name="twitter:description" content="调试 bug 的时候要有耐心, 要不断测试, 直到找到问题原因.
+
+基本思路
+
+确定 bug 出现的方式
+
+
+一定要找到稳定重现的方式, 这样才能方便下面的调试
+如果找不到稳定重现的方法就只能根据上次出现的情形, 去查看相关的代码, 猜测可能出问题的地方, 然后针对那一块进行调试, 直到找到稳定重现方式
+
+
+定位出问题的代码
+
+
+再找到稳定重现方式后, 开始定位出问题的函数, 然后加入调试信息, 不断尝试, 直到找到有问题的代码
+找到有问题的代码后, 如果发现是第三方库里的函数,可以打印出每次调用的输入输出参数, 看看是否有迹可循, 可以单独写个小程序, 传入问题的参数, 进行不断测试, 来确定第三方库有没有问题
+如果自己程序的代码, 就一行一行的慢慢测试, 确定问题的原因, 原因找到了就可以开始思考解决方法了
+"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -135,29 +187,41 @@
 <ul>
 <li>
 <ul>
+<li><a href="#基本思路">基本思路</a>
+<ul>
 <li><a href="#确定-bug-出现的方式">确定 <code>bug</code> 出现的方式</a></li>
 <li><a href="#定位出问题的代码">定位出问题的代码</a></li>
 <li><a href="#修复-bug">修复 <code>bug</code></a></li>
-<li><a href="#性能调试工具">性能调试工具</a></li>
-<li><a href="#网站推荐">网站推荐</a></li>
+<li><a href="#使用性能调试工具">使用性能调试工具</a></li>
+<li><a href="#查找资料">查找资料</a></li>
+</ul></li>
+<li><a href="#调试方法">调试方法</a>
+<ul>
+<li><a href="#添加打印信息">添加打印信息</a></li>
+<li><a href="#使用-gdb">使用 <code>gdb</code></a></li>
+<li><a href="#使用-pprof">使用 <code>pprof</code></a></li>
+<li><a href="#使用-perf">使用 <code>perf</code></a></li>
+<li><a href="#分析-proc-syscall">分析 <code>proc syscall</code></a></li>
+</ul></li>
+<li><a href="#性能优化">性能优化</a></li>
 </ul></li>
 </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
+      <p>调试 <code>bug</code> 的时候要有耐心, 要不断测试, 直到找到问题原因.</p>
 
-<p>调试 <code>bug</code> 的时候要有耐心, 要不断测试, 直到找到问题原因.</p>
+<h2 id="基本思路">基本思路</h2>
 
-<h2 id="确定-bug-出现的方式">确定 <code>bug</code> 出现的方式</h2>
+<h3 id="确定-bug-出现的方式">确定 <code>bug</code> 出现的方式</h3>
 
 <ul>
 <li>一定要找到稳定重现的方式, 这样才能方便下面的调试</li>
 <li>如果找不到稳定重现的方法就只能根据上次出现的情形, 去查看相关的代码, 猜测可能出问题的地方, 然后针对那一块进行调试, 直到找到稳定重现方式</li>
 </ul>
 
-<h2 id="定位出问题的代码">定位出问题的代码</h2>
+<h3 id="定位出问题的代码">定位出问题的代码</h3>
 
 <ul>
 <li>再找到稳定重现方式后, 开始定位出问题的函数, 然后加入调试信息, 不断尝试, 直到找到有问题的代码</li>
@@ -165,7 +229,7 @@
 <li>如果自己程序的代码, 就一行一行的慢慢测试, 确定问题的原因, 原因找到了就可以开始思考解决方法了</li>
 </ul>
 
-<h2 id="修复-bug">修复 <code>bug</code></h2>
+<h3 id="修复-bug">修复 <code>bug</code></h3>
 
 <p>修复 <code>bug</code> 时一定要仔细检查新添加的代码, 看看会不会造成其它的 <code>bug</code>, 一定要不断测试, 把函数输入输出状态都打印出来, 以免出现界面是对的, 但函数的数据有误.</p>
 
@@ -175,13 +239,17 @@
 
 <p>若知道问题的原因后(这个原因一定要是相关低层的, 不能说是由于 A 调了 B , B 出问题了, 就把问题原因归与 A 的头上, 一定要是相当精确的), 不知道怎么修改, 这时就可以向组内成员求助, 或者去了解这方面的知识.</p>
 
-<h2 id="性能调试工具">性能调试工具</h2>
+<h3 id="使用性能调试工具">使用性能调试工具</h3>
 
-<p>对于 <code>C/C++</code> 代码, 可以使用 <code>Google Proftools</code> 工具来调试. 它以程序调用的方式生成每次调用的性能消耗图, 方便定位占用资源多的函数.</p>
+<p>在代码中添加 <code>pprof</code> 支持，通过环境变量或指定参数等方法来启用。</p>
+
+<p>对于 <code>C/C++</code> 代码, 可以使用 <code>Google Proftools</code> 工具来调试，而 <code>go</code> 则内置了 <code>pprof</code> 的支持. <code>pprof</code> 以程序调用的方式生成每次调用的性能消耗图, 方便定位占用资源多的函数.</p>
 
 <p>文档见: <a href="http://google-perftools.googlecode.com/svn/trunk/doc/">Google Proftools Documents</a> , 使用方法自行 <code>google</code> .</p>
 
-<h2 id="网站推荐">网站推荐</h2>
+<p><code>go</code> 中 <code>runtime/pprof</code> 和 <code>net/http/pprof</code> 均提供了 <code>pprof</code> 支持，后者启用后提供了 <code>http</code> 接口，文档分别参见： <a href="https://godoc.org/runtime/pprof">runtime/pprof</a> 和 <a href="https://godoc.org/net/http/pprof">net/http/pprof</a></p>
+
+<h3 id="查找资料">查找资料</h3>
 
 <p>还可以去一些开发者网站提问:</p>
 
@@ -193,6 +261,51 @@
 
 <p>或者到 <a href="http://www.ibm.com/developerworks/cn/">IBM Developer</a> 看写相关的技术文章, 前端的话还可以去 <a href="https://developer.mozilla.org/">Mozilla Developer</a> .</p>
 
+<h2 id="调试方法">调试方法</h2>
+
+<p>这里分别列出笔者常用的几种调试方法，并给出用到的场景。</p>
+
+<p>(<strong>注：在调试前安装好需要的 <code>dbg</code> 包</strong>)</p>
+
+<h3 id="添加打印信息">添加打印信息</h3>
+
+<p>使用这种方法的前提是拥有源码，并已经可以确定出现 <code>bug</code> 的范围，然后对产生 <code>bug</code> 的代码添加有意义的打印信息。</p>
+
+<h3 id="使用-gdb">使用 <code>gdb</code></h3>
+
+<p><code>gdb</code> 的适用范围就很广了，如程序异常终止，资源使用异常等。但使用之前需要学习如何使用，这里推荐： <a href="http://blog.jobbole.com/107759/">gdb 调试入门，大牛写的高质量指南</a> 。</p>
+
+<p>另外建议启用 <code>coredump</code> ，这将会在程序崩溃时保留当时的调用栈信息，启用方法参见之前的文章： <a href="http://jouyouyun.github.io/post/enable-coredump/">Enable Coredump</a> 。</p>
+
+<h3 id="使用-pprof">使用 <code>pprof</code></h3>
+
+<p><code>pprof</code> 上文中已经有过介绍，主要用于性能调优，通常在程序资源占用异常时使用，如 <code>cpu 100%</code> 或 =内存泄漏=。</p>
+
+<p>但使用时需要修改代码。</p>
+
+<h3 id="使用-perf">使用 <code>perf</code></h3>
+
+<p><code>perf</code> 与 <code>pprof</code> 类似，但它不需要修改代码。使用方法见：</p>
+
+<ul>
+<li><a href="https://docs-blog.wh-redirect.deepin.cn/?p=735">使用 Perf 优化程序性能 </a></li>
+<li><a href="https://www.ibm.com/developerworks/cn/linux/l-cn-perf1/index.html">Perf &ndash; Linux下的系统性能调优工具</a></li>
+</ul>
+
+<h3 id="分析-proc-syscall">分析 <code>proc syscall</code></h3>
+
+<p>主要是通过分析进程及其线程的调用栈，找到出问题的线程，然后查看其内存数据来确定问题，参见：<a href="https://docs-blog.wh-redirect.deepin.cn/?p=794#i-2">记一次SPECjvm2008问题排查</a></p>
+
+<h2 id="性能优化">性能优化</h2>
+
+<ul>
+<li><a href="http://www.brendangregg.com/Perf/linux%5Fobservability%5Ftools.png">Linux 性能观测工具</a></li>
+<li><a href="http://www.brendangregg.com/Perf/linux%5Fbenchmarking%5Ftools.png">Linux 性能测评工具</a></li>
+<li><a href="http://www.brendangregg.com/Perf/linux%5Ftuning%5Ftools.png">Linux 性能调优工具</a></li>
+<li><a href="http://www.brendangregg.com/Perf/linux%5Fobservability%5Fsar">sar</a></li>
+</ul>
+
+<p>更多工具参加：<a href="http://www.brendangregg.com/linuxperf.html">Linux Performance</a> 。</p>
     </div>
 
     <div class="post-copyright">
@@ -202,7 +315,7 @@
   </p>
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
-    <span class="item-content">2019-02-10</span>
+    <span class="item-content">2019-05-12</span>
   </p>
   
   
@@ -223,6 +336,11 @@
 </div><footer class="post-footer">
       <div class="post-tags">
           <a href="/tags/debug/">debug</a>
+          <a href="/tags/perf/">perf</a>
+          <a href="/tags/pprof/">pprof</a>
+          <a href="/tags/gdb/">gdb</a>
+          <a href="/tags/sar/">sar</a>
+          <a href="/tags/performance/">performance</a>
           </div>
       <nav class="post-nav">
         <a class="prev" href="/post/auto-hidden-cursor/">
