@@ -16,14 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="jouyouyun" /><meta name="description" content="在重装系统时, 需要考虑软件与数据的备份恢复, 遂记录下需要用到的软件, 自定义的配置和数据恢复. 软件 换源 Archlinux 在 /etc/pacman.d/mirrorlist 只启用中国区的源, 另添加以下内容到" /><meta name="keywords" content="jouyouyun, Hugo, theme, even" />
+<meta name="author" content="jouyouyun " /><meta name="description" content="在重装系统时, 需要考虑软件与数据的备份恢复, 遂记录下需要用到的软件, 自定义的配置和数据恢复. 软件 换源 Archlinux 在 /etc/pacman.d/mirrorlist 只启用中国区的源, 另添加以下内容到" /><meta name="keywords" content="jouyouyun, Hugo, theme, even" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.55.5 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.55.6 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://jouyouyun.github.io/post/installation/" />
@@ -43,15 +43,15 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jouyouyun.github.io/post/installation/" />
 <meta property="article:published_time" content="2019-05-02T11:27:00&#43;08:00"/>
-<meta property="article:modified_time" content="2019-05-08T16:55:07&#43;08:00"/>
+<meta property="article:modified_time" content="2019-06-08T18:31:00&#43;08:00"/>
 
 <meta itemprop="name" content="系统安装二三事">
 <meta itemprop="description" content="在重装系统时, 需要考虑软件与数据的备份恢复, 遂记录下需要用到的软件, 自定义的配置和数据恢复. 软件 换源 Archlinux 在 /etc/pacman.d/mirrorlist 只启用中国区的源, 另添加以下内容到">
 
 
 <meta itemprop="datePublished" content="2019-05-02T11:27:00&#43;08:00" />
-<meta itemprop="dateModified" content="2019-05-08T16:55:07&#43;08:00" />
-<meta itemprop="wordCount" content="469">
+<meta itemprop="dateModified" content="2019-06-08T18:31:00&#43;08:00" />
+<meta itemprop="wordCount" content="553">
 
 
 
@@ -334,6 +334,30 @@ index-url <span class="o">=</span> https://pypi.douban.com/simple</code></pre></
 <p>存储目录的设置参见: <a href="http://jouyouyun.github.io/post/docker-data-storage/">更改 Docker 数据的存储目录</a></p>
 
 <ul>
+<li><code>hosts</code></li>
+</ul>
+
+<p>之前用到的设置，重装之前备份好。</p>
+
+<ul>
+<li><code>sysctl.conf</code></li>
+</ul>
+
+<p>文件最大打开数目，=tcp= 相关的配置</p>
+
+<ul>
+<li><code>coredump</code></li>
+</ul>
+
+<p>安装 <code>systemd-coredump</code> 并在 <code>/etc/sysctl.conf</code> 中添加 <code>coredump</code> 的配置。</p>
+
+<ul>
+<li><code>/etc/systemd/</code></li>
+</ul>
+
+<p>此目录下的配置文件的修改需要记录，如 <code>logind.conf</code> 中 <code>lid</code> 相关动作的处理方法。</p>
+
+<ul>
 <li>其它</li>
 </ul>
 
@@ -359,11 +383,11 @@ index-url <span class="o">=</span> https://pypi.douban.com/simple</code></pre></
     <div class="post-copyright">
   <p class="copyright-item">
     <span class="item-title">文章作者</span>
-    <span class="item-content">jouyouyun</span>
+    <span class="item-content">jouyouyun <jouyouwen717@gmail.com></span>
   </p>
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
-    <span class="item-content">2019-05-08</span>
+    <span class="item-content">2019-06-08</span>
   </p>
   
   
