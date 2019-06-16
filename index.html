@@ -122,11 +122,9 @@
   
   <div class="post-content">
     <div class="post-summary">
-      <p>在 <code>linux</code> 上可以通过 <code>dmidecode</code> 或是 <code>lshw</code> 来获取硬件信息，能够方便的查看系统配置。
-但它们的输出信息过多，解析起来有些麻烦，另外 <code>lshw</code> 对 <code>usb</code> 接口的网卡支持不好，显示的信息不够，
-所以在此整理下通过读文件或是一些简单命令来获取硬件信息的方法。</p>
+      <p>在 <code>linux</code> 上可以通过 <code>dmidecode</code> 或是 <code>lshw</code> 来获取硬件信息，能够方便的查看系统配置。但它们的输出信息过多，解析起来有些麻烦，另外 <code>lshw</code> 对 <code>usb</code> 接口的网卡支持不好，显示的信息不够，所以在此整理下通过读文件或是一些简单命令来获取硬件信息的方法。</p>
 
-<h2 id="dmi"><strong>DMI</strong></h2>
+<h3 id="dmi"><strong>DMI</strong></h3>
 
 <p>一般情况下内核默认加载了 <code>dmi sysfs</code> ，路径是 <code>/sys/class/dmi</code> 。里面包含了 <code>bios</code> ， <code>board</code> ， <code>product</code> 等信息。</p>
     </div>
