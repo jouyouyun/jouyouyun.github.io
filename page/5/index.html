@@ -45,7 +45,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://jouyouyun.github.io/" />
 
-<meta property="og:updated_time" content="2018-04-08T21:38:21&#43;08:00"/>
+<meta property="og:updated_time" content="2018-04-12T21:38:21&#43;08:00"/>
 
 <meta itemprop="name" content="jouyouyun&#39;s blog">
 <meta itemprop="description" content="jouyouyun&#39;s blog">
@@ -109,6 +109,33 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/git-rebase/">Git Rebase 回退</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-04-12 </span>
+      <div class="post-category">
+          <a href="/categories/blog/"> BLOG </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p>在开发新功能或修复 <code>bug</code> 时，一般需要新建一个分支，然后在它之上进行开发。在多人协同开发时，经常会同时修改相同的分支或相同的文件，这时就需要进行 <code>rebase</code> 操作在提交你的代码之前。</p>
+
+<p>但有时 <code>rebase</code> 会带来不想要的提交，或处理冲突时误操作执行了 <code>git rebase --skip</code> 。此时就想要回退到之前的提交，恢复自己的数据， <code>reflog</code> 就可以帮助你完成数据恢复。</p>
+
+<h2 id="reflog">reflog</h2>
+
+<p>当你工作时，=Git= 会在你每次修改了 <code>HEAD</code> 时悄悄地将改动记录下来。当你提交或修改分支时， <code>reflog</code> 就会更新。通过 <code>git reflog</code> 命令可以查看当前的状态：</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/git-rebase/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/cups-notes/">CUPS 资料</a></h1>
@@ -252,39 +279,6 @@ net.ipv4.tcp_congestion_control <span class="o">=</span> bbr</code></pre></td></
     </div>
     <div class="read-more">
       <a href="/post/tcp-bbr/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/leanote-installation/">Leanote Installation</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2017-07-17 </span>
-      <div class="post-category">
-          <a href="/categories/blog/"> BLOG </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p><code>Leanote</code> 是一款开源的笔记软件, 支持使用 <code>markdown</code> 来编辑笔记, 并可选择是否将笔记导出成博客, 这对于知识整理及写博客都是非常方便的, 故来尝试下.</p>
-
-<h2 id="安装">安装</h2>
-
-<p><code>Leanote</code> 是使用 <code>Golang</code> 编写的, 可以直接使用官方编译好的可执行文件.
-另外它使用的是 <code>mongodb</code> 数据库, 可以从源里安装, 也可以从官网下载.
-以下的安装和配置都是基于最新的版本, 如果中途出错, 请看官方文档.</p>
-
-<ul>
-<li><p><code>Leanote</code> 下载地址: <a href="http://leanote.org/#download">见这里</a></p></li>
-
-<li><p><code>mongodb</code> 下载地址: <a href="https://www.mongodb.com/download-center">见这里</a></p></li>
-</ul>
-    </div>
-    <div class="read-more">
-      <a href="/post/leanote-installation/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>

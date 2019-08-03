@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>jouyouyun</copyright>
-    <lastBuildDate>Wed, 08 May 2019 17:50:00 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 03 Aug 2019 19:30:21 +0800</lastBuildDate>
     
 	<atom:link href="https://jouyouyun.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>GSettings</title>
+      <link>https://jouyouyun.github.io/post/gsettings/</link>
+      <pubDate>Sat, 03 Aug 2019 19:30:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/gsettings/</guid>
+      <description>&lt;p&gt;&lt;code&gt;GSettings&lt;/code&gt; 实际上是一套可使用多个 &lt;code&gt;storage backends&lt;/code&gt; 的 &lt;code&gt;API&lt;/code&gt; ，默认使用 &lt;code&gt;dconf&lt;/code&gt; 作为 &lt;code&gt;backend&lt;/code&gt; ，也可以使用 &lt;code&gt;keyfile&lt;/code&gt; 作为 &lt;code&gt;backend&lt;/code&gt; 。但由于 &lt;code&gt;gio&lt;/code&gt; 提供了 &lt;code&gt;GKeyFile&lt;/code&gt; 结构来处理 &lt;code&gt;keyfile&lt;/code&gt; 文件，所以解析 &lt;code&gt;keyfile&lt;/code&gt; 文件时很少通过 &lt;code&gt;GSettings API&lt;/code&gt; ，在这里只介绍使用 &lt;code&gt;dconf&lt;/code&gt; 作为 &lt;code&gt;backend&lt;/code&gt; 的使用方法。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Linux 硬件信息获取</title>

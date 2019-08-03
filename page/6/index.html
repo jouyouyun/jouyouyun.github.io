@@ -45,7 +45,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://jouyouyun.github.io/" />
 
-<meta property="og:updated_time" content="2016-12-27T21:38:21&#43;08:00"/>
+<meta property="og:updated_time" content="2017-07-17T21:38:21&#43;08:00"/>
 
 <meta itemprop="name" content="jouyouyun&#39;s blog">
 <meta itemprop="description" content="jouyouyun&#39;s blog">
@@ -109,6 +109,39 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/leanote-installation/">Leanote Installation</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2017-07-17 </span>
+      <div class="post-category">
+          <a href="/categories/blog/"> BLOG </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p><code>Leanote</code> 是一款开源的笔记软件, 支持使用 <code>markdown</code> 来编辑笔记, 并可选择是否将笔记导出成博客, 这对于知识整理及写博客都是非常方便的, 故来尝试下.</p>
+
+<h2 id="安装">安装</h2>
+
+<p><code>Leanote</code> 是使用 <code>Golang</code> 编写的, 可以直接使用官方编译好的可执行文件.
+另外它使用的是 <code>mongodb</code> 数据库, 可以从源里安装, 也可以从官网下载.
+以下的安装和配置都是基于最新的版本, 如果中途出错, 请看官方文档.</p>
+
+<ul>
+<li><p><code>Leanote</code> 下载地址: <a href="http://leanote.org/#download">见这里</a></p></li>
+
+<li><p><code>mongodb</code> 下载地址: <a href="https://www.mongodb.com/download-center">见这里</a></p></li>
+</ul>
+    </div>
+    <div class="read-more">
+      <a href="/post/leanote-installation/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/openvpn-installation/">OpenVPN Installation</a></h1>
@@ -257,35 +290,6 @@ sudo cp -R /etc/easy-rsa /etc/openvpn</code></pre></td></tr></table>
     </div>
     <div class="read-more">
       <a href="/post/enable-coredump/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/auto-hidden-cursor/">Auto Hidden Cursor</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2016-04-22 </span>
-      <div class="post-category">
-          <a href="/categories/blog/"> BLOG </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>最近需要做一个隐藏光标的功能, 在这里将了解到的知识总结一下.</p>
-
-<h2 id="原理">原理</h2>
-
-<p>隐藏光标的原理就是把光标设置为一个 <code>x11 null cursor</code>, 不需要隐藏时再将它设为 <code>x11 left_ptr cursor</code>.</p>
-
-<h3 id="设置光标">设置光标</h3>
-
-<p>设置光标主要需要调用下面两个函数:</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/auto-hidden-cursor/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>

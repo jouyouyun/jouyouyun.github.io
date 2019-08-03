@@ -45,7 +45,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://jouyouyun.github.io/" />
 
-<meta property="og:updated_time" content="2014-07-04T21:38:21&#43;08:00"/>
+<meta property="og:updated_time" content="2014-07-05T21:38:21&#43;08:00"/>
 
 <meta itemprop="name" content="jouyouyun&#39;s blog">
 <meta itemprop="description" content="jouyouyun&#39;s blog">
@@ -109,6 +109,45 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/chroot-shell/">chroot 脚本</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2014-07-05 </span>
+      <div class="post-category">
+          <a href="/categories/note/"> NOTE </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p>最近测试了以下 <code>chroot</code> ，然后把步骤写成了下面两个脚本，方便以后使用。</p>
+
+<p><strong>使用时需要确定每条命令都执行成功了</strong></p>
+
+<p><code>Arch</code> 分区结构</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">/dev/sda5	/
+/dev/sda1	/boot
+/dev/sda6	/home
+/dev/sda8	Swap</code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+    <div class="read-more">
+      <a href="/post/chroot-shell/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/build-vpn/">在 VPS 中搭建 VPN 服务器</a></h1>
@@ -243,28 +282,6 @@
   </div>
 </article>
 
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/xrecord-example/">XRecord 示例</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2014-04-18 </span>
-      <div class="post-category">
-          <a href="/categories/note/"> NOTE </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>最近在做快捷键绑定的项目，但在绑定单按键时发现 <code>XGrabKey</code> 无法处理。遂请教组长，得知 <code>XRecord</code> 可以处理，于是就去查找 <code>XRecord</code> 的相关资料，但却很少。
-所以在此记录一下整理的示例代码，以便日后查看，其功能在代码注释中写出。</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/xrecord-example/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
     </section>
   
   <nav class="pagination">
@@ -272,7 +289,10 @@
         <i class="iconfont icon-left"></i>
         <span class="prev-text">上一页</span>
       </a>
-    
+    <a class="next" href="/page/9/">
+        <span class="next-text">下一页</span>
+        <i class="iconfont icon-right"></i>
+      </a>
   </nav>
         </div>
         

@@ -45,7 +45,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://jouyouyun.github.io/" />
 
-<meta property="og:updated_time" content="2018-10-21T21:38:21&#43;08:00"/>
+<meta property="og:updated_time" content="2018-10-23T21:38:21&#43;08:00"/>
 
 <meta itemprop="name" content="jouyouyun&#39;s blog">
 <meta itemprop="description" content="jouyouyun&#39;s blog">
@@ -109,6 +109,35 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/set-appearance-in-deepin-or-gnome/">linux 下 deepin 和 gnome 桌面的外观设置</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-10-23 </span>
+      <div class="post-category">
+          <a href="/categories/blog/"> BLOG </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p>桌面的外观设置一般包括窗口主题、图标主题、光标主题和字体设置，其中窗口主题就是常见的 <code>gtk</code> 主题，字体设置又包括标准字体、等款字体和字体大小。对于进些年的高分屏，又添加了字体缩放和窗口缩放这2个选项。</p>
+
+<p>界面上设置方法就不介绍了，都可以在各自桌面的控制中心中找到，这里主要介绍命令行下的。</p>
+
+<p><code>deepin</code> 和 <code>gnome</code> 桌面环境的外观配置数据是使用 <code>gsettings</code> 来存储，所以可以通过 <code>gsettings</code> 来设置和读取。 <code>gsettings</code> 相比设置界面就是 可以设置到更多的选项，设置的值更加精确。</p>
+
+<p>下面先简单介绍下 <code>gsettings</code> 的用法。</p>
+
+<h2 id="gsettings"><code>GSettings</code></h2>
+    </div>
+    <div class="read-more">
+      <a href="/post/set-appearance-in-deepin-or-gnome/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/linux-auto-suspend/">Linux 休眠自动唤醒</a></h1>
@@ -245,33 +274,6 @@
     </div>
     <div class="read-more">
       <a href="/post/restful-introduction/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/git-rebase/">Git Rebase 回退</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2018-04-12 </span>
-      <div class="post-category">
-          <a href="/categories/blog/"> BLOG </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>在开发新功能或修复 <code>bug</code> 时，一般需要新建一个分支，然后在它之上进行开发。在多人协同开发时，经常会同时修改相同的分支或相同的文件，这时就需要进行 <code>rebase</code> 操作在提交你的代码之前。</p>
-
-<p>但有时 <code>rebase</code> 会带来不想要的提交，或处理冲突时误操作执行了 <code>git rebase --skip</code> 。此时就想要回退到之前的提交，恢复自己的数据， <code>reflog</code> 就可以帮助你完成数据恢复。</p>
-
-<h2 id="reflog">reflog</h2>
-
-<p>当你工作时，=Git= 会在你每次修改了 <code>HEAD</code> 时悄悄地将改动记录下来。当你提交或修改分支时， <code>reflog</code> 就会更新。通过 <code>git reflog</code> 命令可以查看当前的状态：</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/git-rebase/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>
