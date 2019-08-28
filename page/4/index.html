@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.57.2 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://jouyouyun.github.io/" />
@@ -45,8 +45,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://jouyouyun.github.io/" />
 
-<meta property="og:updated_time" content="2018-10-23T21:38:21&#43;08:00"/>
-
+<meta property="og:updated_time" content="2019-08-28T11:23:21+08:00" />
 <meta itemprop="name" content="jouyouyun&#39;s blog">
 <meta itemprop="description" content="jouyouyun&#39;s blog">
 
@@ -109,6 +108,46 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/how-to-solved-origin-changed-apt-error/">怎么处理 &#39;Origin&#39;值从&#39;Google, Inc.&#39;修改到了&#39;Google LLC&#39; 的 APT 错误</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-11-07 </span>
+      <div class="post-category">
+          <a href="/categories/blog/"> BLOG </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p>今天在执行 <code>sudo apt-get update</code> 出现了下面的错误提示：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">E: 仓库<span class="s1">&#39;http://dl.google.com/linux/chrome/deb stable Release&#39;</span>将其<span class="s1">&#39;Origin&#39;</span>值从<span class="s1">&#39;Google, Inc.&#39;</span>修改到了<span class="s1">&#39;Google LLC&#39;</span>
+N: 为了让这个仓库能够应用，这必须在更新之前显式接受。更多细节请参阅 apt-secure<span class="o">(</span><span class="m">8</span><span class="o">)</span> 手册。
+
+<span class="c1"># 英语环境下的输出</span>
+E: Repository ‘http://dl.google.com/linux/chrome-remote-desktop/deb stable Release’ changed its ‘Origin’ value from ‘Google, Inc.’ to ‘Google LLC’
+N: This must be accepted explicitly before updates <span class="k">for</span> this repository can be applied. See apt-secure<span class="o">(</span><span class="m">8</span><span class="o">)</span> manpage <span class="k">for</span> details.</code></pre></td></tr></table>
+</div>
+</div>
+<p>这个错误导致无法升级系统，错误说明了原因：是由于 <code>Google Chrome</code> 的 <code>Origin</code> 改变引起的，也给出了解决思路：手动接受这个改变。</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/how-to-solved-origin-changed-apt-error/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/set-appearance-in-deepin-or-gnome/">linux 下 deepin 和 gnome 桌面的外观设置</a></h1>
@@ -227,53 +266,6 @@
     </div>
     <div class="read-more">
       <a href="/post/fixed-superblock/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/restful-introduction/">RESTful 简介</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2018-05-10 </span>
-      <div class="post-category">
-          <a href="/categories/blog/"> BLOG </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <h2 id="简介">简介</h2>
-
-<p><code>RESTful</code> 即表现层状态转换，是一种设计风格，不是标准。其要点如下：</p>
-
-<ul>
-<li><p>资源由 <code>URI</code> 来指定</p>
-
-<p>每个资源都有与之对应的 <code>URI=，一个 =URI</code> 只能对应一种资源，但一种资源可以对应多个 <code>URI</code> 不同的分类方法)。</p></li>
-
-<li><p>对资源的操作对应到 <code>HTTP</code> 协议提供的方法</p>
-
-<p>如增删改查等操作，对应 <code>HTTP</code> 协议的 <code>POST, DELETE, PUT, GET</code> 等方法</p></li>
-
-<li><p>资源的表现形式通常广泛流行的协议和标准</p>
-
-<p>如 <code>JSON, XML, HTML</code> 等格式，当然也可以是其它格式或者私有格式，但一定足够能描述自己</p></li>
-
-<li><p>通过操作资源的表现形式来操作资源</p>
-
-<p>通过修改表现形式再辅以 <code>HTTP</code> 协议的方法，应用就可以管理资源</p></li>
-
-<li><p>以超媒体作为应用状态的引擎</p>
-
-<p>资源相关操作的 <code>URI</code> 可附加在表现形式内，应用根据自身状态选择相应的 <code>URI</code> 来更改状态。</p>
-
-<p>操作可以是 <code>URI</code> 外，也可以是一段代码，让应用执行。</p></li>
-</ul>
-    </div>
-    <div class="read-more">
-      <a href="/post/restful-introduction/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>

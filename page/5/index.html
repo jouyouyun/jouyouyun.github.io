@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.57.2 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://jouyouyun.github.io/" />
@@ -45,8 +45,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://jouyouyun.github.io/" />
 
-<meta property="og:updated_time" content="2018-04-12T21:38:21&#43;08:00"/>
-
+<meta property="og:updated_time" content="2019-08-28T11:23:21+08:00" />
 <meta itemprop="name" content="jouyouyun&#39;s blog">
 <meta itemprop="description" content="jouyouyun&#39;s blog">
 
@@ -109,6 +108,53 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/restful-introduction/">RESTful 简介</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-05-10 </span>
+      <div class="post-category">
+          <a href="/categories/blog/"> BLOG </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h2 id="简介">简介</h2>
+
+<p><code>RESTful</code> 即表现层状态转换，是一种设计风格，不是标准。其要点如下：</p>
+
+<ul>
+<li><p>资源由 <code>URI</code> 来指定</p>
+
+<p>每个资源都有与之对应的 <code>URI=，一个 =URI</code> 只能对应一种资源，但一种资源可以对应多个 <code>URI</code> 不同的分类方法)。</p></li>
+
+<li><p>对资源的操作对应到 <code>HTTP</code> 协议提供的方法</p>
+
+<p>如增删改查等操作，对应 <code>HTTP</code> 协议的 <code>POST, DELETE, PUT, GET</code> 等方法</p></li>
+
+<li><p>资源的表现形式通常广泛流行的协议和标准</p>
+
+<p>如 <code>JSON, XML, HTML</code> 等格式，当然也可以是其它格式或者私有格式，但一定足够能描述自己</p></li>
+
+<li><p>通过操作资源的表现形式来操作资源</p>
+
+<p>通过修改表现形式再辅以 <code>HTTP</code> 协议的方法，应用就可以管理资源</p></li>
+
+<li><p>以超媒体作为应用状态的引擎</p>
+
+<p>资源相关操作的 <code>URI</code> 可附加在表现形式内，应用根据自身状态选择相应的 <code>URI</code> 来更改状态。</p>
+
+<p>操作可以是 <code>URI</code> 外，也可以是一段代码，让应用执行。</p></li>
+</ul>
+    </div>
+    <div class="read-more">
+      <a href="/post/restful-introduction/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/git-rebase/">Git Rebase 回退</a></h1>
@@ -242,43 +288,6 @@
     </div>
     <div class="read-more">
       <a href="/post/set-grup2-resolution/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/tcp-bbr/">TCP BBR</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2017-07-20 </span>
-      <div class="post-category">
-          <a href="/categories/blog/"> BLOG </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <h2 id="启用-bbr">启用 BBR</h2>
-
-<p><code>BBR</code> 是在 4.9 以后的内核才开始支持的, 可以试着执行 <code>sudo modprobe tcp_bbr</code> 来确定是否支持, 没有输出就意味着支持, 将下面两行内容添加到 <code>/etc/sysctl.conf</code> 文件里开启用它:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">net.core.default_qdisc <span class="o">=</span> fq
-net.ipv4.tcp_congestion_control <span class="o">=</span> bbr</code></pre></td></tr></table>
-</div>
-</div>
-<p>使用 <code>sysctl net.ipv4.tcp_available_congestion_control</code> 查看支持的算法, 用=sysctl net.ipv4.tcp_congestion_control= 查看当前使用的算法.</p>
-
-<p>如果这个模块不会自动加载, 需要把 <code>tcp_bbr_powered</code> 添加到 <code>/etc/modules-load.d/modules.conf</code> 中.
-另外测试发现, 有时 <code>sysctl.conf</code> 里的设置并不会应用, 需要手动执行一下, 因此便写了 <code>reload-sysctl.service</code> 来做这个, <code>systemctl enable</code> 这个服务后, 一切就 OK 了.</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/tcp-bbr/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>

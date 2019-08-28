@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>jouyouyun</copyright>
-    <lastBuildDate>Tue, 23 Oct 2018 21:38:21 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 28 Aug 2019 11:23:21 +0800</lastBuildDate>
     
 	<atom:link href="https://jouyouyun.github.io/tags/deepin/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Debian CVE Tracker</title>
+      <link>https://jouyouyun.github.io/post/debian-cve-tracker/</link>
+      <pubDate>Wed, 28 Aug 2019 11:23:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/debian-cve-tracker/</guid>
+      <description>Debian CVE Tracker 上记录了很多安全漏洞，有些 Debian 会在当前版本修复，但有些不会。由于 deepin 会在当前版本上停留很久，所以需要修复这些安全漏洞。这就需要自行追踪 CVE Bug</description>
+    </item>
     
     <item>
       <title>linux 下 deepin 和 gnome 桌面的外观设置</title>
