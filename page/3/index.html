@@ -45,7 +45,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://jouyouyun.github.io/" />
 
-<meta property="og:updated_time" content="2019-08-28T11:23:21+08:00" />
+<meta property="og:updated_time" content="2019-09-09T14:10:03+08:00" />
 <meta itemprop="name" content="jouyouyun&#39;s blog">
 <meta itemprop="description" content="jouyouyun&#39;s blog">
 
@@ -108,6 +108,54 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/mysql_commands/">MySQL 常用命令</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2019-04-05 </span>
+      <div class="post-category">
+          <a href="/categories/blog/"> BLOG </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p>大学学的数据库系统概论工作后几年没有使用都已忘了, 现在项目需要用到数据库, 但来不及细看相关书籍了, 遂将一些常用的记录下来.</p>
+
+<h2 id="常用类型">常用类型</h2>
+
+<p><code>MySQL</code> 支持多种类型, 大致可以分为三类: 数值, 日期/时间和字符串(字符)类型, 大致如下:</p>
+
+<ul>
+<li><p>数值类型</p>
+
+<ul>
+<li>整数: <code>tinyint</code>, <code>smallint</code>, <code>mediumint</code>, <code>int</code>, <code>bigint</code></li>
+<li>浮点数: <code>float</code>, <code>double</code>, <code>decimal</code></li>
+</ul></li>
+
+<li><p>日期和时间</p>
+
+<p><code>date</code>, <code>time</code>, <code>datetime</code>, <code>timestamp</code>, <code>year</code></p></li>
+
+<li><p>字符串类型</p>
+
+<ul>
+<li>字符串: <code>char</code>, <code>varchar</code></li>
+<li>文本: <code>tinytext</code>, <code>text</code>, <code>mediumtext</code>, <code>longtext</code></li>
+<li>二进制字符串: <code>tinyblob</code>, <code>blob</code>, <code>mediumblob</code>, <code>longblob</code></li>
+</ul></li>
+</ul>
+
+<p>下面将详细给出每种类型的大小和描述.</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/mysql_commands/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/hugo-github/">使用 hugo 写博客</a></h1>
@@ -256,35 +304,6 @@
     </div>
     <div class="read-more">
       <a href="/post/go-package-management/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/linux-signal-example/">Linux Signal Examples</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2018-11-13 </span>
-      <div class="post-category">
-          <a href="/categories/note/"> NOTE </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>信号是系统响应某些条件而产生的一个事件，接收到该信的进程做出相应的处理。通常信是由错误产生的，如段错误(<code>SIGSEGV</code>)。 但信还可以作为进程间通信的一种方式，由一个进程发送给另一个进程。</p>
-
-<p>信号定义在 <code>signal.h</code> 文件中，以 <code>SIG</code> 作为开头，可用 <code>kill -l</code> 命令查看，详细信息参见 <a href="http://man7.org/linux/man-pages/man7/signal.7.html">man 7 signal</a> 。</p>
-
-<h2 id="信号处理">信号处理</h2>
-
-<p>信号可以通过 <code>signal</code> 和 <code>sigaction</code> 函数来注册处理， <code>signal</code> 函数是 <code>struct sigaction</code> 中 <code>sa_handler</code> 的一种便捷实现。</p>
-
-<h3 id="signal-函数"><code>signal</code> 函数</h3>
-    </div>
-    <div class="read-more">
-      <a href="/post/linux-signal-example/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>

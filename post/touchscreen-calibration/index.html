@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>触摸屏校正 - jouyouyun&#39;s blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="jouyouyun" /><meta name="description" content="有些设备的触摸屏不准，需要校正后才能正常使用。校正实际上就是配置设备在 Xorg 中的属性，具体属性名与驱动相关，后文描述。 下面开始介绍校正方法： 准备" /><meta name="keywords" content="jouyouyun, Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.57.2 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://jouyouyun.github.io/post/touchscreen-calibration/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.93844dae.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="触摸屏校正" />
+<meta property="og:description" content="有些设备的触摸屏不准，需要校正后才能正常使用。校正实际上就是配置设备在 Xorg 中的属性，具体属性名与驱动相关，后文描述。 下面开始介绍校正方法： 准备" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jouyouyun.github.io/post/touchscreen-calibration/" />
+<meta property="article:published_time" content="2019-09-09T14:10:03+08:00" />
+<meta property="article:modified_time" content="2019-09-09T14:10:03+08:00" />
+<meta itemprop="name" content="触摸屏校正">
+<meta itemprop="description" content="有些设备的触摸屏不准，需要校正后才能正常使用。校正实际上就是配置设备在 Xorg 中的属性，具体属性名与驱动相关，后文描述。 下面开始介绍校正方法： 准备">
+
+
+<meta itemprop="dateModified" content="2019-09-09T14:10:03&#43;08:00" />
+<meta itemprop="wordCount" content="1465">
+
+
+
+<meta itemprop="keywords" content="touchscreen,calibration,calibrator," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="触摸屏校正"/>
+<meta name="twitter:description" content="有些设备的触摸屏不准，需要校正后才能正常使用。校正实际上就是配置设备在 Xorg 中的属性，具体属性名与驱动相关，后文描述。 下面开始介绍校正方法： 准备"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">jouyouyun</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">jouyouyun</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">触摸屏校正</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-09-09 </span>
+        <div class="post-category">
+            <a href="/categories/blog/"> BLOG </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#准备">准备</a></li>
+<li><a href="#校正">校正</a>
+<ul>
+<li><a href="#示例">示例</a></li>
+<li><a href="#额外问题">额外问题</a>
+<ul>
+<li><a href="#上下相反">上下相反</a></li>
+<li><a href="#左右相反">左右相反</a></li>
+<li><a href="#边缘偏移">边缘偏移</a></li>
+<li><a href="#xy-相反"><code>XY</code> 相反</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#持久化">持久化</a>
+<ul>
+<li><a href="#evdev">evdev</a></li>
+<li><a href="#libinput">libinput</a></li>
+</ul></li>
+<li><a href="#设备映射">设备映射</a>
+<ul>
+<li><a href="#持久化-1">持久化</a></li>
+</ul></li>
+<li><a href="#参考文档">参考文档</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<p>有些设备的触摸屏不准，需要校正后才能正常使用。校正实际上就是配置设备在 <code>Xorg</code> 中的属性，具体属性名与驱动相关，后文描述。</p>
+
+<p>下面开始介绍校正方法：</p>
+
+<h2 id="准备">准备</h2>
+
+<p>安装需要用到的工具：</p>
+
+<ul>
+<li>xinput-calibrator : 触摸屏校正工具</li>
+<li>xinput : 屏幕映射工具，多屏时使用</li>
+</ul>
+
+<hr />
+
+<h2 id="校正">校正</h2>
+
+<ol>
+<li>执行 <code>xinput_calibrator --list</code> 查看触摸设备列表</li>
+
+<li><p>校正设备 <code>xinput_calibrator -v --device &lt;device name or id&gt;</code></p>
+
+<p><code>device name or id</code> 从上面的  <code>list</code> 中得到</p></li>
+</ol>
+
+<p>此时会出现校正界面，按照提示点击，成功后程序会输出校正后的数据。</p>
+
+<p>接着根据驱动的不同选择不同的设置方法，查看设备使用的驱动可通过 <code>/var/log/Xorg.0.log</code> 文件得到。</p>
+
+<ul>
+<li><p>evdev</p>
+
+<p>使用 <code>evedev</code> 驱动时可直接使用 <code>xinput_calibrator</code> 输出的数据，无需其它设置。</p>
+
+<p>测试时使用 <code>xinput</code> 设置 <code>Evdev Axis Calibration</code> 属性。</p></li>
+
+<li><p>libinput</p>
+
+<p>使用 <code>libinput</code> 驱动时需要将 <code>xinput_calibrator</code> 输出的数据进行计算才可使用，计算方法参见： <a href="https://wiki.archlinux.org/index.php/Talk:Calibrating%5FTouchscreen#Libinput%5Fbreaks%5Fxinput%5Fcalibrator">Libinput breaks xinput_calibrator</a></p>
+
+<p>在此将计算方法写成了一个脚本，内容如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="ch">#!/usr/bin/env python3</span>
+<span class="c1"># -*- coding: UTF-8 -*-</span>
+
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="k">def</span> <span class="nf">usage</span><span class="p">():</span>
+    <span class="n">info</span> <span class="o">=</span> <span class="s2">&#34;Usage: &#34;</span> <span class="o">+</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">info</span> <span class="o">+=</span> <span class="s2">&#34; &lt;screen_width&gt; &lt;screen_height&gt;&#34;</span>
+    <span class="n">info</span> <span class="o">+=</span> <span class="s2">&#34; &lt;click_0_x&gt; &lt;click_0_y&gt;&#34;</span>
+    <span class="n">info</span> <span class="o">+=</span> <span class="s2">&#34; &lt;click_3_x&gt; &lt;click_3_y&gt;&#34;</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\t</span><span class="s2">Screen width/hight by the command &#39;xrandr|grep screen&#39; got&#34;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\t</span><span class="s2">Click x/y by the command &#39;xinput_calibrator -v&#39; got&#34;</span><span class="p">)</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">convert</span><span class="p">(</span><span class="n">screen_x</span><span class="p">,</span> <span class="n">screen_y</span><span class="p">,</span> <span class="n">c0_x</span><span class="p">,</span> <span class="n">c0_y</span><span class="p">,</span> <span class="n">c3_x</span><span class="p">,</span> <span class="n">c3_y</span><span class="p">):</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="n">screen_x</span> <span class="o">*</span> <span class="mi">6</span> <span class="o">/</span> <span class="mi">8</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">c3_x</span> <span class="o">-</span> <span class="n">c0_x</span><span class="p">)</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="p">((</span><span class="n">screen_x</span> <span class="o">/</span> <span class="mi">8</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">c0_x</span><span class="p">))</span> <span class="o">/</span> <span class="n">screen_x</span>
+    <span class="n">e</span> <span class="o">=</span> <span class="p">(</span><span class="n">screen_y</span> <span class="o">*</span> <span class="mi">6</span> <span class="o">/</span> <span class="mi">8</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">c3_y</span> <span class="o">-</span> <span class="n">c0_y</span><span class="p">)</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="p">((</span><span class="n">screen_y</span> <span class="o">/</span> <span class="mi">8</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">e</span> <span class="o">*</span> <span class="n">c0_y</span><span class="p">))</span> <span class="o">/</span> <span class="n">screen_y</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="s2">&#34;Try set &#39;libinput Calibration Matrix&#39; to &#39;</span><span class="si">%.1f</span><span class="s2">, 0.0, </span><span class="si">%.1f</span><span class="s2">, 0.0, </span><span class="si">%.1f</span><span class="s2">, </span><span class="si">%.1f</span><span class="s2">, 0.0, 0.0, 1.0&#39;&#34;</span> <span class="o">%</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">e</span><span class="p">,</span> <span class="n">f</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">7</span><span class="p">:</span>
+        <span class="n">usage</span><span class="p">()</span>
+
+    <span class="n">convert</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">3</span><span class="p">]),</span>
+    <span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">4</span><span class="p">]),</span><span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">5</span><span class="p">]),</span><span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">6</span><span class="p">]))</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>测试时使用 <code>xinput</code> 设置 <code>libinput Calibration Matrix</code> 属性。</p>
+
+<p>若上面计算的值设置后仍有问题，尝试 <a href="https://wiki.archlinux.org/index.php/Calibrating%5FTouchscreen#Calculate%5Fthe%5FCoordinate%5FTransformation%5FMatrix">Calculate the Coordinate Transformation Matrix</a> 这种计算方法。</p>
+
+<p>如若都不行切换到 <code>evdev</code> 驱动，即安装 <code>xserver-xorg-input-evdev</code> 然后添加 <code>99-touchscreen-evdev.conf</code> 到 <code>/etc/X11/xorg.conf.d</code> 目录, 内容如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">Section <span class="s2">&#34;InputClass&#34;</span>
+      Identifier    <span class="s2">&#34;calibration&#34;</span>
+      Driver    <span class="s2">&#34;evdev&#34;</span>
+      MatchProduct  <span class="s2">&#34;&lt;touchscreen product&gt;&#34;</span>
+EndSection</code></pre></td></tr></table>
+</div>
+</div>
+<p>其中的 <code>touchscreen product</code> 可以从 <code>/var/log/Xorg.0.log</code> 得到。</p></li>
+</ul>
+
+<hr />
+
+<h3 id="示例">示例</h3>
+
+<p>如在 <code>Huawei</code> 上执行校正操作的输出如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">deepin@deepin-PC:~$ xinput_calibrator -v
+DEBUG: XInputExtension version is <span class="m">2</span>.3
+DEBUG: Skipping virtual master devices and devices without axis valuators.
+DEBUG: Skipping device <span class="s1">&#39;Virtual core XTEST pointer&#39;</span> <span class="nv">id</span><span class="o">=</span><span class="m">4</span>, does not report Absolute events.
+DEBUG: Skipping device <span class="s1">&#39;SYNA1D31:00 06CB:CD48 Touchpad&#39;</span> <span class="nv">id</span><span class="o">=</span><span class="m">12</span>, does not report Absolute events.
+DEBUG: Selected device: SYNA2393:00 06CB:19AC
+DEBUG: Not usbtouchscreen calibrator: Not a usbtouchscreen device
+DEBUG: Evdev Axis Calibration not set, setting to axis valuators to be sure.
+        Setting calibration data: <span class="m">0</span>, <span class="m">3000</span>, <span class="m">0</span>, <span class="m">2000</span>
+DEBUG: Successfully applied axis calibration.
+DEBUG: Read axes swap value of <span class="m">0</span>.
+DEBUG: Read <span class="nv">InvertX</span><span class="o">=</span><span class="m">0</span>, <span class="nv">InvertY</span><span class="o">=</span><span class="m">0</span>.
+Calibrating EVDEV driver <span class="k">for</span> <span class="s2">&#34;SYNA2393:00 06CB:19AC&#34;</span> <span class="nv">id</span><span class="o">=</span><span class="m">11</span>
+        current calibration values <span class="o">(</span>from XInput<span class="o">)</span>: <span class="nv">min_x</span><span class="o">=</span><span class="m">0</span>, <span class="nv">max_x</span><span class="o">=</span><span class="m">3000</span> and <span class="nv">min_y</span><span class="o">=</span><span class="m">0</span>, <span class="nv">max_y</span><span class="o">=</span><span class="m">2000</span>
+DEBUG: Found that <span class="s1">&#39;SYNA2393:00 06CB:19AC&#39;</span> is a sysfs name.
+DEBUG: Adding click <span class="m">0</span> <span class="o">(</span><span class="nv">X</span><span class="o">=</span><span class="m">382</span>, <span class="nv">Y</span><span class="o">=</span><span class="m">246</span><span class="o">)</span>
+DEBUG: Adding click <span class="m">1</span> <span class="o">(</span><span class="nv">X</span><span class="o">=</span><span class="m">2647</span>, <span class="nv">Y</span><span class="o">=</span><span class="m">246</span><span class="o">)</span>
+DEBUG: Adding click <span class="m">2</span> <span class="o">(</span><span class="nv">X</span><span class="o">=</span><span class="m">376</span>, <span class="nv">Y</span><span class="o">=</span><span class="m">1761</span><span class="o">)</span>
+DEBUG: Adding click <span class="m">3</span> <span class="o">(</span><span class="nv">X</span><span class="o">=</span><span class="m">2640</span>, <span class="nv">Y</span><span class="o">=</span><span class="m">1764</span><span class="o">)</span>
+
+Doing dynamic recalibration:
+        Setting calibration data: <span class="m">2</span>, <span class="m">3021</span>, -7, <span class="m">2015</span>
+DEBUG: Successfully applied axis calibration.
+        --&gt; Making the calibration permanent &lt;--
+DEBUG: Found that <span class="s1">&#39;SYNA2393:00 06CB:19AC&#39;</span> is a sysfs name.
+  copy the snippet below into <span class="s1">&#39;/etc/X11/xorg.conf.d/99-calibration.conf&#39;</span> <span class="o">(</span>/usr/share/X11/xorg.conf.d/ in some distro<span class="err">&#39;</span>s<span class="o">)</span>
+Section <span class="s2">&#34;InputClass&#34;</span>
+        Identifier	<span class="s2">&#34;calibration&#34;</span>
+        MatchProduct	<span class="s2">&#34;SYNA2393:00 06CB:19AC&#34;</span>
+        Option	<span class="s2">&#34;Calibration&#34;</span>	<span class="s2">&#34;2 3021 -7 2015&#34;</span>
+        Option	<span class="s2">&#34;SwapAxes&#34;</span>	<span class="s2">&#34;0&#34;</span>
+EndSection</code></pre></td></tr></table>
+</div>
+</div>
+<p><code>Xorg.0.log</code> 中设备驱动相关的日志如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="o">[</span>  <span class="m">7221</span>.421<span class="o">]</span> <span class="o">(</span>II<span class="o">)</span> config/udev: Adding input device SYNA2393:00 06CB:19AC <span class="o">(</span>/dev/input/event7<span class="o">)</span>
+<span class="o">[</span>  <span class="m">7221</span>.421<span class="o">]</span> <span class="o">(</span>**<span class="o">)</span> SYNA2393:00 06CB:19AC: Applying InputClass <span class="s2">&#34;evdev touchscreen catchall&#34;</span>
+<span class="o">[</span>  <span class="m">7221</span>.421<span class="o">]</span> <span class="o">(</span>**<span class="o">)</span> SYNA2393:00 06CB:19AC: Applying InputClass <span class="s2">&#34;libinput touchscreen catchall&#34;</span>
+<span class="o">[</span>  <span class="m">7221</span>.421<span class="o">]</span> <span class="o">(</span>**<span class="o">)</span> SYNA2393:00 06CB:19AC: Applying InputClass <span class="s2">&#34;calibration&#34;</span>
+<span class="o">[</span>  <span class="m">7221</span>.421<span class="o">]</span> <span class="o">(</span>II<span class="o">)</span> LoadModule: <span class="s2">&#34;evdev&#34;</span>
+<span class="o">[</span>  <span class="m">7221</span>.421<span class="o">]</span> <span class="o">(</span>II<span class="o">)</span> Loading /usr/lib/xorg/modules/input/evdev_drv.so
+<span class="o">[</span>  <span class="m">7221</span>.421<span class="o">]</span> <span class="o">(</span>II<span class="o">)</span> Module evdev: <span class="nv">vendor</span><span class="o">=</span><span class="s2">&#34;X.Org Foundation&#34;</span>
+<span class="o">[</span>  <span class="m">7221</span>.421<span class="o">]</span>    compiled <span class="k">for</span> <span class="m">1</span>.19.1, module <span class="nv">version</span> <span class="o">=</span> <span class="m">2</span>.10.5
+<span class="o">[</span>  <span class="m">7221</span>.421<span class="o">]</span>    Module class: X.Org XInput Driver
+<span class="o">[</span>  <span class="m">7221</span>.421<span class="o">]</span>    ABI class: X.Org XInput driver, version <span class="m">24</span>.1
+<span class="o">[</span>  <span class="m">7221</span>.421<span class="o">]</span> <span class="o">(</span>II<span class="o">)</span> Using input driver <span class="s1">&#39;evdev&#39;</span> <span class="k">for</span> <span class="s1">&#39;SYNA2393:00 06CB:19AC&#39;</span></code></pre></td></tr></table>
+</div>
+</div>
+<hr />
+
+<ul>
+<li>evdev</li>
+</ul>
+
+<p>执行命令 <code>xinput set-prop 11 Evdev Axis Calibration 2 3021 -7 2015</code> 测试效果</p>
+
+<hr />
+
+<ul>
+<li>libinput</li>
+</ul>
+
+<p>使用上面的 <code>click 0</code> 和 <code>click 3</code> 的值以及 <code>xrandr</code> 得到的 <code>screen width/height</code> 计算，得到的值如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">$ python3 ./touchscreen_calibration_convert.py <span class="m">344</span> <span class="m">193</span> <span class="m">382</span> <span class="m">246</span> <span class="m">376</span> <span class="m">1761</span>
+Try <span class="nb">set</span> <span class="s1">&#39;libinput Calibration Matrix&#39;</span> to <span class="s1">&#39;-43.0, 0.0, 47.9, 0.0, 0.1, 0.0, 0.0, 0.0, 1.0&#39;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>执行命令 <code>xinput set-prop 11 libinput Calibration Matrix -43.0 0.0 47.9 0.0 0.1 0.0 0.0 0.0 1.0</code> 测试效果。</p>
+
+<h3 id="额外问题">额外问题</h3>
+
+<p>某些设备按照上述步骤设置后仍然有一些问题，这里列出一些遇到过的，一旦出现下面这些情况，请先切换驱动到 <code>evdev</code> 然后进行设置。</p>
+
+<h4 id="上下相反">上下相反</h4>
+
+<p>如点击 *<strong><em>左上角</em></strong>* 却反馈在 *<strong><em>左下角</em></strong>* ，在 <code>90-touchscreen-calibrator.conf</code> 中加上 <code>Option InvertY &quot;true&quot;</code> 。</p>
+
+<h4 id="左右相反">左右相反</h4>
+
+<p>如点击 *<strong><em>左上角</em></strong>* 却反馈在 *<strong><em>右下角</em></strong>* ，在 <code>90-touchscreen-calibrator.conf</code> 中加上 <code>Option InvertX &quot;true&quot;</code> 。</p>
+
+<h4 id="边缘偏移">边缘偏移</h4>
+
+<p>如点击最右边却反馈在旁边的区域，此时可调整 <code>Option Calibration</code> 的值，其值的含有为： <code>&quot;min-x max-x min-y max-y&quot;</code> 。在四个边缘都试下，然后调整对应的值。</p>
+
+<h4 id="xy-相反"><code>XY</code> 相反</h4>
+
+<p>如点击 *<strong><em>左上角</em></strong>* 却反馈在 *<strong><em>右上角</em></strong>* ，在 <code>90-touchscreen-calibrator.conf</code> 中加上 <code>Option SwapAxes &quot;true&quot;</code> 。</p>
+
+<h2 id="持久化">持久化</h2>
+
+<p>上面的测试无误后，就开始集成到系统中，每次启动时都自动执行。</p>
+
+<p>自动执行通过 <code>xorg.conf.d</code> 钩子执行，添加 <code>90-touchscreen-calibrator.conf</code> 到 <code>/etc/X11/xorg.conf.d/</code> 目录中。</p>
+
+<h3 id="evdev">evdev</h3>
+
+<p>示例内容如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">Section <span class="s2">&#34;InputClass&#34;</span>
+        Identifier	<span class="s2">&#34;calibration&#34;</span>
+        MatchProduct	<span class="s2">&#34;SYNA2393:00 06CB:19AC&#34;</span>
+        Option	<span class="s2">&#34;Calibration&#34;</span>	<span class="s2">&#34;2 3021 -7 2015&#34;</span>
+        Option	<span class="s2">&#34;SwapAxes&#34;</span>	<span class="s2">&#34;0&#34;</span>
+EndSection</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="libinput">libinput</h3>
+
+<p>示例内容如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">Section <span class="s2">&#34;InputClass&#34;</span>
+        Identifier	<span class="s2">&#34;calibration&#34;</span>
+        MatchProduct	<span class="s2">&#34;SYNA2393:00 06CB:19AC&#34;</span>
+        Option	<span class="s2">&#34;CalibrationMatrix&#34;</span>	<span class="s2">&#34;-43.0 0.0 47.9 0.0 0.1 0.0 0.0 0.0 1.0&#34;</span>
+EndSection</code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="设备映射">设备映射</h2>
+
+<p>若存在多块屏幕，这时就需要指定触摸屏对应的设备，使用 <code>xinput --map-output-to &lt;device id&gt; &lt;output name&gt;</code> 。</p>
+
+<p><code>device name</code> 就是上文中得到的 <code>id</code> ， <code>output name</code> 可通过  <code>xrandr</code> 命令得到。</p>
+
+<h3 id="持久化-1">持久化</h3>
+
+<p>可添加 <code>90-touchscreen-map</code> 到 <code>/etc/X11/xinit/xinitrc.d</code> 目录，内容就是上面的命令。</p>
+
+<h2 id="参考文档">参考文档</h2>
+
+<ul>
+<li><code>man 4 evdev</code> : 需要安装 <code>xserver-xorg-input-evdev</code></li>
+<li><code>man 4 libinput</code> : 需要安装 <code>xserver-xorg-input-libinput</code></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">jouyouyun</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">2019-09-09</span>
+  </p>
+  
+  
+</div><div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/images/reward/wechat-qr-code.png">
+        <span>微信打赏</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/images/reward/alipay-qr-code.png">
+        <span>支付宝打赏</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/touchscreen/">touchscreen</a>
+          <a href="/tags/calibration/">calibration</a>
+          <a href="/tags/calibrator/">calibrator</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/debian-cve-tracker/">
+            <span class="next-text nav-default">Debian CVE Tracker</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:jouyouwen717@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://twitter.com/jouyouyun" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://github.com/jouyouyun" class="iconfont icon-github" title="github"></a>
+  <a href="https://jouyouyun.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2014 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">jouyouyun</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.ece58db6.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

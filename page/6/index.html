@@ -45,7 +45,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://jouyouyun.github.io/" />
 
-<meta property="og:updated_time" content="2019-08-28T11:23:21+08:00" />
+<meta property="og:updated_time" content="2019-09-09T14:10:03+08:00" />
 <meta itemprop="name" content="jouyouyun&#39;s blog">
 <meta itemprop="description" content="jouyouyun&#39;s blog">
 
@@ -108,6 +108,33 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/set-grup2-resolution/">设置 Grub2 分辨率</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2017-07-29 </span>
+      <div class="post-category">
+          <a href="/categories/blog/"> BLOG </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h2 id="背景">背景</h2>
+
+<p>平时经常用显示器的分辨率去设置 <code>Grub</code> 的分辨率，虽然大部分都没有问题，但有时却没有用。所以就把 <code>Grub</code> 分辨率的设置方法详细说明一下，留档记录。</p>
+
+<h2 id="查询支持的分辨率">查询支持的分辨率</h2>
+
+<p>在设置 <code>Grub</code> 分辨率之前，需要先知道支持的分辨率列表，而幸运的是可以到 <code>Grub</code> 命令行查询。</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/set-grup2-resolution/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/tcp-bbr/">TCP BBR</a></h1>
@@ -256,38 +283,6 @@ sudo cp -R /etc/easy-rsa /etc/openvpn</code></pre></td></tr></table>
     </div>
     <div class="read-more">
       <a href="/post/mime-usage/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/xrandr-examples/">XRandr Examples</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2016-06-06 </span>
-      <div class="post-category">
-          <a href="/categories/note/"> NOTE </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>由于经常会用到使用 <code>xrandr</code> 设置屏幕属性, 而每次用的时候都要去查 <code>man</code> 手册, 有时还需要上网搜索例子.
-这样一来就比较麻烦, 所以就想整理下 <code>xrandr</code> 的用法, 给出一些常用的例子.</p>
-
-<h2 id="查询">查询</h2>
-
-<p>使用 <code>xrandr -q</code> 命令可以查询当前的显示器状态, 使用 <code>xrandr --verbose</code> 将会显示更详细的信息.</p>
-
-<h2 id="设置分辨率">设置分辨率</h2>
-
-<p>设置分辨率时需要指定设置的 <code>ouput</code> 以及 <code>mode</code>, 如将 <code>eDP1</code> 的分辨率改为 <code>1920x1080</code>, 命令就是 <code>xrandr --output eDP1 --mode 1920x1080</code>.</p>
-
-<p>但是单屏时不用这么麻烦, 可以直接使用命令 <code>xrandr -s 1920x1080</code> 来更改.</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/xrandr-examples/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>

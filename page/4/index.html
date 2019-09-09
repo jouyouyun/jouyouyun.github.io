@@ -45,7 +45,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://jouyouyun.github.io/" />
 
-<meta property="og:updated_time" content="2019-08-28T11:23:21+08:00" />
+<meta property="og:updated_time" content="2019-09-09T14:10:03+08:00" />
 <meta itemprop="name" content="jouyouyun&#39;s blog">
 <meta itemprop="description" content="jouyouyun&#39;s blog">
 
@@ -108,6 +108,35 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/linux-signal-example/">Linux Signal Examples</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-11-13 </span>
+      <div class="post-category">
+          <a href="/categories/note/"> NOTE </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p>信号是系统响应某些条件而产生的一个事件，接收到该信的进程做出相应的处理。通常信是由错误产生的，如段错误(<code>SIGSEGV</code>)。 但信还可以作为进程间通信的一种方式，由一个进程发送给另一个进程。</p>
+
+<p>信号定义在 <code>signal.h</code> 文件中，以 <code>SIG</code> 作为开头，可用 <code>kill -l</code> 命令查看，详细信息参见 <a href="http://man7.org/linux/man-pages/man7/signal.7.html">man 7 signal</a> 。</p>
+
+<h2 id="信号处理">信号处理</h2>
+
+<p>信号可以通过 <code>signal</code> 和 <code>sigaction</code> 函数来注册处理， <code>signal</code> 函数是 <code>struct sigaction</code> 中 <code>sa_handler</code> 的一种便捷实现。</p>
+
+<h3 id="signal-函数"><code>signal</code> 函数</h3>
+    </div>
+    <div class="read-more">
+      <a href="/post/linux-signal-example/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/how-to-solved-origin-changed-apt-error/">怎么处理 &#39;Origin&#39;值从&#39;Google, Inc.&#39;修改到了&#39;Google LLC&#39; 的 APT 错误</a></h1>
@@ -235,37 +264,6 @@ N: This must be accepted explicitly before updates <span class="k">for</span> th
     </div>
     <div class="read-more">
       <a href="/post/linux-time-standard/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/fixed-superblock/">修复 superblock</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2018-07-27 </span>
-      <div class="post-category">
-          <a href="/categories/blog/"> BLOG </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>本周去某公司调试系统，他们硬件测试部分送来了一台系统无法进入的机器，他们也不知道怎么弄得，让我看下是系统原因还是 <code>SSD</code> 硬件有问题。</p>
-
-<p>拿到机器开机后，没有正常的进入系统，直接进入了 <code>initramfs mode</code> 并有 <code>filesystem invalid superblock checksum error</code> 的错误提示，遂告诉他们是系统的 <code>filesystem</code> 挂了，然后开始查找修复方法，最后找到了方法并修复了机器，在此记录一下。</p>
-
-<h2 id="修复方法">修复方法</h2>
-
-<p>下面的命令都是在 <code>initramfs shell</code> 中执行的。</p>
-
-<h3 id="先确定你系统所在的分区">先确定你系统所在的分区</h3>
-
-<p>可以执行 <code>lsblk</code> 来查看分区信息，然后确定，假如是 <code>/dev/sdaX</code></p>
-    </div>
-    <div class="read-more">
-      <a href="/post/fixed-superblock/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>

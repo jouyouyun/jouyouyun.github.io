@@ -2,8 +2,64 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jouyouyun.github.io/categories/blog/</loc>
+    <lastmod>2019-09-09T14:10:03+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/calibration/</loc>
+    <lastmod>2019-09-09T14:10:03+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/calibrator/</loc>
+    <lastmod>2019-09-09T14:10:03+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://jouyouyun.github.io/categories/</loc>
-    <lastmod>2019-08-28T14:59:14+08:00</lastmod>
+    <lastmod>2019-09-09T14:10:03+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/</loc>
+    <lastmod>2019-09-09T14:10:03+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/post/</loc>
+    <lastmod>2019-09-09T14:10:03+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/</loc>
+    <lastmod>2019-09-09T14:10:03+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/tags/touchscreen/</loc>
+    <lastmod>2019-09-09T14:10:03+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jouyouyun.github.io/post/touchscreen-calibration/</loc>
+    <lastmod>2019-09-09T14:10:03+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -37,28 +93,7 @@
   </url>
   
   <url>
-    <loc>https://jouyouyun.github.io/</loc>
-    <lastmod>2019-08-28T14:59:14+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://jouyouyun.github.io/categories/note/</loc>
-    <lastmod>2019-08-28T14:59:14+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/post/</loc>
-    <lastmod>2019-08-28T14:59:14+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/tags/</loc>
     <lastmod>2019-08-28T14:59:14+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -67,13 +102,6 @@
   <url>
     <loc>https://jouyouyun.github.io/tags/tracker/</loc>
     <lastmod>2019-08-28T14:59:14+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://jouyouyun.github.io/categories/blog/</loc>
-    <lastmod>2019-08-06T12:10:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
