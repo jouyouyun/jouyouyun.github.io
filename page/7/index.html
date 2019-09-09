@@ -110,6 +110,43 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/mime-usage/">MIME Usage</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2016-12-14 </span>
+      <div class="post-category">
+          <a href="/categories/blog/"> BLOG </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h2 id="基本使用">基本使用</h2>
+
+<p>使用到的工具为: <code>xdg-mime, gvfs-mime</code></p>
+
+<ul>
+<li><p>查询文件的类型</p>
+
+<p>使用 <code>xdg-mime query filetype &lt;filepath&gt;</code> 可以得到文件的类型</p></li>
+
+<li><p>查询默认程序</p>
+
+<p>使用 <code>xdg-mime query default text/plain</code> 或 <code>gvfs-mime --query &lt;mimetype&gt;</code>, <code>gvfs-mime</code> 还会列出支持此 <code>mimetype</code> 的所有程序</p></li>
+
+<li><p>设置默认程序</p>
+
+<p>如将 <code>text/plain</code> 的默认打开程序设置为 <code>gvim.desktop</code>, 可以执行 <code>xdg-mime default gvim.desktop text/plain</code> 或 <code>gvfs-mime --set text/plain gvim.desktop</code></p></li>
+</ul>
+    </div>
+    <div class="read-more">
+      <a href="/post/mime-usage/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/xrandr-examples/">XRandr Examples</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2016-06-06 </span>
@@ -240,33 +277,6 @@
     </div>
     <div class="read-more">
       <a href="/post/debug-summary/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/xsetwacom-options/">xsetwacom 选项说明</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2016-02-03 </span>
-      <div class="post-category">
-          <a href="/categories/note/"> NOTE </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p><code>xsetwacom</code> 是一个设置数位板的命令行工具, 在 <code>Debian/Ubuntu/deepin</code> 上可以通过安装 <code>xserver-xorg-input-wacom</code> 来获取它.</p>
-
-<p>可以通过 <code>man xsetwacom</code> 看到它的帮助文档, 下面就简单说明下它的部份选项:</p>
-
-<hr />
-
-<h2 id="options">Options</h2>
-    </div>
-    <div class="read-more">
-      <a href="/post/xsetwacom-options/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>

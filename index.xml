@@ -31,6 +31,15 @@
     </item>
     
     <item>
+      <title>Compile Kernel</title>
+      <link>https://jouyouyun.github.io/post/linux-kernel-compile/</link>
+      <pubDate>Tue, 06 Aug 2019 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/linux-kernel-compile/</guid>
+      <description>最近由于要调试 usbhid 模块，所以需要编译 kernel ，在此整理下方法，以免每次都查找。 Dependencies deepin sudo apt-get install build-essential libncurses-dev bison flex libssl-dev libelf-dev archlinux sudo pacman -S gcc ncurses bison flex openssl libelf elfutils 若编译时有报错，请按照错误</description>
+    </item>
+    
+    <item>
       <title>GSettings</title>
       <link>https://jouyouyun.github.io/post/gsettings/</link>
       <pubDate>Sat, 03 Aug 2019 19:30:21 +0800</pubDate>

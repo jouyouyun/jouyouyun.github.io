@@ -110,6 +110,31 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/go-package-management/">Go 包管理之gom</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-11-27 </span>
+      <div class="post-category">
+          <a href="/categories/note/"> NOTE </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h2 id="go-module-使用">Go Module 使用</h2>
+
+<p><code>Go Module</code> 是官方用来管理 <code>package</code> 依赖的工具, <code>1.11</code> 新加的, 使用时需要设置变量: <code>GO111MODULE=on</code> .</p>
+
+<p><code>go mod help</code> 可以查看其帮助文档:</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/go-package-management/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/linux-signal-example/">Linux Signal Examples</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2018-11-13 </span>
@@ -229,41 +254,6 @@ N: This must be accepted explicitly before updates <span class="k">for</span> th
     </div>
     <div class="read-more">
       <a href="/post/linux-auto-suspend/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/linux-time-standard/">Linux 时间标准</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2018-08-27 </span>
-      <div class="post-category">
-          <a href="/categories/blog/"> BLOG </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <h2 id="系统如何设置时间">系统如何设置时间</h2>
-
-<ol>
-<li>开机时根据硬件时钟来设置系统时钟.</li>
-<li>如果开启了 <code>NTP</code> 服务, 会根据网络时间来校正系统时钟，确保时间准确.</li>
-<li>关机时会根据系统时钟来设置硬件时钟(<code>localtime</code> 标准除外).</li>
-</ol>
-
-<h3 id="时钟">时钟</h3>
-
-<ul>
-<li>硬件时钟: 即实时时钟 <code>RTC</code> 或 <code>CMOS</code> 时钟, 仅能保存年、月、日、时、分、秒这些时间数值，无法保存时间标准和是否使用夏令时调节.</li>
-<li>系统时钟: 即软件时间, 与硬件时间分别维护，保存了时间、时区和夏令时设置.初始系统时钟是从硬件时间计算得来，计算时会考虑 <code>/etc/adjtime</code> 的设置.</li>
-<li><code>/etc/adjtime</code>: 这个文件中记录了时区标准和时间偏移, 根据硬件时钟设置系统时间和设置硬件时钟都会根据时间偏移来计算的.所有的时钟都是有误差的，但是一般有固定的偏移, 这种于基值的差称为“time skew”或“时间偏移”.</li>
-</ul>
-    </div>
-    <div class="read-more">
-      <a href="/post/linux-time-standard/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>

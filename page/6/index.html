@@ -110,6 +110,50 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/bluetooth-faq/">Bluetooth FAQ</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2017-11-20 </span>
+      <div class="post-category">
+          <a href="/categories/blog/"> BLOG </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p>收集遇到的 <code>bluetooth</code> 问题，使用的是 <code>deepin</code> 。</p>
+
+<h2 id="控制中心不显示蓝牙模块">控制中心不显示蓝牙模块</h2>
+
+<p>蓝牙模块不显示时，可以按照以下步骤来查找原因：</p>
+
+<ol>
+<li><p>执行 <code>sudo dmesg|grub bluetooth</code> 查看输出结果</p>
+
+<ul>
+<li><p>输出里有 <code>timeout</code></p>
+
+<p>此时再用 <code>systemctl status bluetooth.service</code> 看下服务有没有正常启动，错误信息是什么，然后根据错误去网上搜索答案。</p>
+
+<p>如果蓝牙是由网卡提供的，此时可以试着开关一下网卡的硬件开关。因为内核在初始化网卡之前初始化蓝牙，就会导致蓝牙设备不可用，重新初始化一次就好了。
+如果还是无效那就重启进入 <code>window</code> ，再 <code>window</code> 里开关一次蓝牙再重启到 <code>linux</code> 。</p></li>
+
+<li><p>输出里无 <code>timeout</code></p>
+
+<p>这就表明初始化没问题，继续下一步</p></li>
+</ul></li>
+</ol>
+
+<hr />
+    </div>
+    <div class="read-more">
+      <a href="/post/bluetooth-faq/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/set-grup2-resolution/">设置 Grub2 分辨率</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2017-07-29 </span>
@@ -246,43 +290,6 @@ sudo cp -R /etc/easy-rsa /etc/openvpn</code></pre></td></tr></table>
     </div>
     <div class="read-more">
       <a href="/post/openvpn-installation/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/mime-usage/">MIME Usage</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2016-12-14 </span>
-      <div class="post-category">
-          <a href="/categories/blog/"> BLOG </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <h2 id="基本使用">基本使用</h2>
-
-<p>使用到的工具为: <code>xdg-mime, gvfs-mime</code></p>
-
-<ul>
-<li><p>查询文件的类型</p>
-
-<p>使用 <code>xdg-mime query filetype &lt;filepath&gt;</code> 可以得到文件的类型</p></li>
-
-<li><p>查询默认程序</p>
-
-<p>使用 <code>xdg-mime query default text/plain</code> 或 <code>gvfs-mime --query &lt;mimetype&gt;</code>, <code>gvfs-mime</code> 还会列出支持此 <code>mimetype</code> 的所有程序</p></li>
-
-<li><p>设置默认程序</p>
-
-<p>如将 <code>text/plain</code> 的默认打开程序设置为 <code>gvim.desktop</code>, 可以执行 <code>xdg-mime default gvim.desktop text/plain</code> 或 <code>gvfs-mime --set text/plain gvim.desktop</code></p></li>
-</ul>
-    </div>
-    <div class="read-more">
-      <a href="/post/mime-usage/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>

@@ -110,6 +110,41 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/linux-time-standard/">Linux 时间标准</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-08-27 </span>
+      <div class="post-category">
+          <a href="/categories/blog/"> BLOG </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h2 id="系统如何设置时间">系统如何设置时间</h2>
+
+<ol>
+<li>开机时根据硬件时钟来设置系统时钟.</li>
+<li>如果开启了 <code>NTP</code> 服务, 会根据网络时间来校正系统时钟，确保时间准确.</li>
+<li>关机时会根据系统时钟来设置硬件时钟(<code>localtime</code> 标准除外).</li>
+</ol>
+
+<h3 id="时钟">时钟</h3>
+
+<ul>
+<li>硬件时钟: 即实时时钟 <code>RTC</code> 或 <code>CMOS</code> 时钟, 仅能保存年、月、日、时、分、秒这些时间数值，无法保存时间标准和是否使用夏令时调节.</li>
+<li>系统时钟: 即软件时间, 与硬件时间分别维护，保存了时间、时区和夏令时设置.初始系统时钟是从硬件时间计算得来，计算时会考虑 <code>/etc/adjtime</code> 的设置.</li>
+<li><code>/etc/adjtime</code>: 这个文件中记录了时区标准和时间偏移, 根据硬件时钟设置系统时间和设置硬件时钟都会根据时间偏移来计算的.所有的时钟都是有误差的，但是一般有固定的偏移, 这种于基值的差称为“time skew”或“时间偏移”.</li>
+</ul>
+    </div>
+    <div class="read-more">
+      <a href="/post/linux-time-standard/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/fixed-superblock/">修复 superblock</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2018-07-27 </span>
@@ -248,50 +283,6 @@
     </div>
     <div class="read-more">
       <a href="/post/cups-notes/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/bluetooth-faq/">Bluetooth FAQ</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2017-11-20 </span>
-      <div class="post-category">
-          <a href="/categories/blog/"> BLOG </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>收集遇到的 <code>bluetooth</code> 问题，使用的是 <code>deepin</code> 。</p>
-
-<h2 id="控制中心不显示蓝牙模块">控制中心不显示蓝牙模块</h2>
-
-<p>蓝牙模块不显示时，可以按照以下步骤来查找原因：</p>
-
-<ol>
-<li><p>执行 <code>sudo dmesg|grub bluetooth</code> 查看输出结果</p>
-
-<ul>
-<li><p>输出里有 <code>timeout</code></p>
-
-<p>此时再用 <code>systemctl status bluetooth.service</code> 看下服务有没有正常启动，错误信息是什么，然后根据错误去网上搜索答案。</p>
-
-<p>如果蓝牙是由网卡提供的，此时可以试着开关一下网卡的硬件开关。因为内核在初始化网卡之前初始化蓝牙，就会导致蓝牙设备不可用，重新初始化一次就好了。
-如果还是无效那就重启进入 <code>window</code> ，再 <code>window</code> 里开关一次蓝牙再重启到 <code>linux</code> 。</p></li>
-
-<li><p>输出里无 <code>timeout</code></p>
-
-<p>这就表明初始化没问题，继续下一步</p></li>
-</ul></li>
-</ol>
-
-<hr />
-    </div>
-    <div class="read-more">
-      <a href="/post/bluetooth-faq/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>

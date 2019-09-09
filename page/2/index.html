@@ -110,6 +110,27 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/installation/">系统安装二三事</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2019-05-02 </span>
+      <div class="post-category">
+          <a href="/categories/note/"> NOTE </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      在重装系统时, 需要考虑软件与数据的备份恢复, 遂记录下需要用到的软件, 自定义的配置和数据恢复. 软件 换源 Archlinux 在 /etc/pacman.d/mirrorlist 只启用中国区的源, 另添加以下内容到
+    </div>
+    <div class="read-more">
+      <a href="/post/installation/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/jenkins-api-usage/">Jenkins API 使用</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2019-04-21 </span>
@@ -210,31 +231,6 @@
     </div>
     <div class="read-more">
       <a href="/post/influxdb-introduction/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/clean_invalid_branch_in_git/">清理无用的 local branch</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2019-04-11 </span>
-      <div class="post-category">
-          <a href="/categories/blog/"> BLOG </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>在开发新功能或修复 <code>bug</code> 时, 会从 <code>master</code> 上新建 <code>branch</code> 来处理, 当完成后会将这个 <code>branch</code> 推送到 <code>origin</code> 中, 如:
-<code>git push origin &lt;branch name&gt;:&lt;branch name&gt;</code>.</p>
-
-<p><code>origin</code> 审核代码没有问题后就会 <strong>合并分支并删除</strong>, 但 <strong>本地</strong> 在 <code>git pull</code> 删除本地分支后, 仍能通过 <code>git branch -a</code> 看到这个 <code>branch</code> 的 <code>origin ref</code>.
-日积月累之下本地就会有很多这样无用的 <code>branch ref</code>, 很是让人厌烦, 遂在此记录清理的方法.</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/clean_invalid_branch_in_git/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>
