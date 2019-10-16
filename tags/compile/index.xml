@@ -18,7 +18,21 @@
       <pubDate>Tue, 06 Aug 2019 21:38:21 +0800</pubDate>
       
       <guid>https://jouyouyun.github.io/post/linux-kernel-compile/</guid>
-      <description>最近由于要调试 usbhid 模块，所以需要编译 kernel ，在此整理下方法，以免每次都查找。 Dependencies deepin sudo apt-get install build-essential libncurses-dev bison flex libssl-dev libelf-dev archlinux sudo pacman -S gcc ncurses bison flex openssl libelf elfutils 若编译时有报错，请按照错误</description>
+      <description>&lt;p&gt;最近由于要调试 &lt;code&gt;usbhid&lt;/code&gt; 模块，所以需要编译 &lt;code&gt;kernel&lt;/code&gt; ，在此整理下方法，以免每次都查找。&lt;/p&gt;
+
+&lt;h2 id=&#34;dependencies&#34;&gt;Dependencies&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;deepin&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sudo apt-get install build-essential libncurses-dev bison flex libssl-dev libelf-dev&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;archlinux&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sudo pacman -S gcc ncurses bison flex openssl libelf elfutils&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;若编译时有报错，请按照错误提示按照缺失的依赖。&lt;/p&gt;</description>
     </item>
     
   </channel>

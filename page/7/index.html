@@ -45,7 +45,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://jouyouyun.github.io/" />
 
-<meta property="og:updated_time" content="2019-09-09T14:10:03+08:00" />
+<meta property="og:updated_time" content="2019-10-16T15:00:31+08:00" />
 <meta itemprop="name" content="jouyouyun&#39;s blog">
 <meta itemprop="description" content="jouyouyun&#39;s blog">
 
@@ -164,12 +164,6 @@
 <h2 id="查询">查询</h2>
 
 <p>使用 <code>xrandr -q</code> 命令可以查询当前的显示器状态, 使用 <code>xrandr --verbose</code> 将会显示更详细的信息.</p>
-
-<h2 id="设置分辨率">设置分辨率</h2>
-
-<p>设置分辨率时需要指定设置的 <code>ouput</code> 以及 <code>mode</code>, 如将 <code>eDP1</code> 的分辨率改为 <code>1920x1080</code>, 命令就是 <code>xrandr --output eDP1 --mode 1920x1080</code>.</p>
-
-<p>但是单屏时不用这么麻烦, 可以直接使用命令 <code>xrandr -s 1920x1080</code> 来更改.</p>
     </div>
     <div class="read-more">
       <a href="/post/xrandr-examples/" class="read-more-link">阅读更多</a>
@@ -232,10 +226,6 @@
 <h2 id="原理">原理</h2>
 
 <p>隐藏光标的原理就是把光标设置为一个 <code>x11 null cursor</code>, 不需要隐藏时再将它设为 <code>x11 left_ptr cursor</code>.</p>
-
-<h3 id="设置光标">设置光标</h3>
-
-<p>设置光标主要需要调用下面两个函数:</p>
     </div>
     <div class="read-more">
       <a href="/post/auto-hidden-cursor/" class="read-more-link">阅读更多</a>

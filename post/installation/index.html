@@ -16,7 +16,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="jouyouyun" /><meta name="description" content="在重装系统时, 需要考虑软件与数据的备份恢复, 遂记录下需要用到的软件, 自定义的配置和数据恢复. 软件 换源 Archlinux 在 /etc/pacman.d/mirrorlist 只启用中国区的源, 另添加以下内容到" /><meta name="keywords" content="jouyouyun, Hugo, theme, even" />
+<meta name="author" content="jouyouyun" /><meta name="description" content="在重装系统时, 需要考虑软件与数据的备份恢复, 遂记录下需要用到的软件, 自定义的配置和数据恢复.
+软件 换源  Archlinux " /><meta name="keywords" content="jouyouyun, Hugo, theme, even" />
 
 
 
@@ -39,25 +40,49 @@
 
 
 <meta property="og:title" content="系统安装二三事" />
-<meta property="og:description" content="在重装系统时, 需要考虑软件与数据的备份恢复, 遂记录下需要用到的软件, 自定义的配置和数据恢复. 软件 换源 Archlinux 在 /etc/pacman.d/mirrorlist 只启用中国区的源, 另添加以下内容到" />
+<meta property="og:description" content="在重装系统时, 需要考虑软件与数据的备份恢复, 遂记录下需要用到的软件, 自定义的配置和数据恢复.
+
+软件
+
+换源
+
+
+Archlinux
+" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jouyouyun.github.io/post/installation/" />
 <meta property="article:published_time" content="2019-05-02T11:27:00+08:00" />
-<meta property="article:modified_time" content="2019-06-16T20:08:56+08:00" />
+<meta property="article:modified_time" content="2019-10-16T14:59:59+08:00" />
 <meta itemprop="name" content="系统安装二三事">
-<meta itemprop="description" content="在重装系统时, 需要考虑软件与数据的备份恢复, 遂记录下需要用到的软件, 自定义的配置和数据恢复. 软件 换源 Archlinux 在 /etc/pacman.d/mirrorlist 只启用中国区的源, 另添加以下内容到">
+<meta itemprop="description" content="在重装系统时, 需要考虑软件与数据的备份恢复, 遂记录下需要用到的软件, 自定义的配置和数据恢复.
+
+软件
+
+换源
+
+
+Archlinux
+">
 
 
 <meta itemprop="datePublished" content="2019-05-02T11:27:00&#43;08:00" />
-<meta itemprop="dateModified" content="2019-06-16T20:08:56&#43;08:00" />
-<meta itemprop="wordCount" content="814">
+<meta itemprop="dateModified" content="2019-10-16T14:59:59&#43;08:00" />
+<meta itemprop="wordCount" content="925">
 
 
 
 <meta itemprop="keywords" content="installation," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="系统安装二三事"/>
-<meta name="twitter:description" content="在重装系统时, 需要考虑软件与数据的备份恢复, 遂记录下需要用到的软件, 自定义的配置和数据恢复. 软件 换源 Archlinux 在 /etc/pacman.d/mirrorlist 只启用中国区的源, 另添加以下内容到"/>
+<meta name="twitter:description" content="在重装系统时, 需要考虑软件与数据的备份恢复, 遂记录下需要用到的软件, 自定义的配置和数据恢复.
+
+软件
+
+换源
+
+
+Archlinux
+"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -149,16 +174,15 @@
   </div>
 </div>
     <div class="post-content">
-      
-
-<p>在重装系统时, 需要考虑软件与数据的备份恢复, 遂记录下需要用到的软件, 自定义的配置和数据恢复.</p>
+      <p>在重装系统时, 需要考虑软件与数据的备份恢复, 遂记录下需要用到的软件, 自定义的配置和数据恢复.</p>
 
 <h2 id="软件">软件</h2>
 
 <h3 id="换源">换源</h3>
 
 <ul>
-<li><p><code>Archlinux</code></p>
+<li><code>Archlinux</code></li>
+</ul>
 
 <p>在 <code>/etc/pacman.d/mirrorlist</code> 只启用中国区的源, 另添加以下内容到 <code>/etc/pacman.conf</code> 中来启用 <code>yaourt aur</code> 源:</p>
 <div class="highlight"><div class="chroma">
@@ -172,8 +196,8 @@
 <span class="nv">SigLevel</span> <span class="o">=</span> Optional TrustAll
 <span class="nv">Server</span> <span class="o">=</span> https://mirrors.ustc.edu.cn/archlinuxcn/<span class="nv">$arch</span>~</code></pre></td></tr></table>
 </div>
-</div></li>
-
+</div>
+<ul>
 <li><p><code>Deepin</code></p>
 
 <p>这里使用 <code>163</code> 的源</p>
@@ -333,7 +357,7 @@ index-url <span class="o">=</span> https://pypi.douban.com/simple</code></pre></
 
 <li><p><code>sysctl.conf</code></p>
 
-<p>文件最大打开数目，=tcp= 相关的配置</p></li>
+<p>文件最大打开数目， <code>tcp</code> 相关的配置</p></li>
 
 <li><p><code>coredump</code></p>
 
@@ -366,6 +390,38 @@ index-url <span class="o">=</span> https://pypi.douban.com/simple</code></pre></
 <li><p>持久化： 添加 <code>elevator=noop</code> 到 <code>/etc/default/grub</code> 中的 <code>GRUB_CMDLINE_LINUX</code> 中，然后使用 <code>sudo grub-mkconfig -o /boot/grub/grub.cfg</code> 更新启动项。</p></li>
 </ul></li>
 
+<li><p><code>virtualbox</code></p>
+
+<p>需要备份 <code>~/.config/VirtualBox</code> 和镜像文件</p></li>
+
+<li><p><code>terminator</code></p>
+
+<p>需要备份 <code>~/.config/terminator/</code> 和镜像文件</p></li>
+
+<li><p><code>HIDPI</code></p>
+
+<p>需要备份 <code>grub</code> 和 <code>console</code> 的 <code>HIDPI</code> 配置</p></li>
+
+<li><p><code>nvidia prime</code></p>
+
+<p>需要备份相关的配置文件</p></li>
+
+<li><p>内核模块配置</p>
+
+<p>需要备份 <code>/etc/modprobe.d/</code> 中的设置，如 <code>dell inspiron 7590</code> 的声卡就需要更改参数</p></li>
+
+<li><p>透明代理配置</p>
+
+<p><code>shadowsocks, ss-tproxy, v2ray</code> 的配置需要备份</p></li>
+
+<li><p>文档</p>
+
+<p>备份 <code>zeal</code> 的文档</p></li>
+
+<li><p>开机启动</p>
+
+<p>备份自定义的开机启动</p></li>
+
 <li><p>其它</p>
 
 <p><code>vim, tmux, git, ssh, ss-tproxy</code> 的配置在 <a href="https://gitee.com/jouyouyun/conf.d">conf.d</a> 中, <code>emacs</code> 的配置在 <a href="https://github.com/jouyouyun/prelude">prelude</a> 中.</p>
@@ -393,7 +449,7 @@ index-url <span class="o">=</span> https://pypi.douban.com/simple</code></pre></
   </p>
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
-    <span class="item-content">2019-06-16</span>
+    <span class="item-content">2019-10-16</span>
   </p>
   
   

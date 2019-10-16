@@ -45,7 +45,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://jouyouyun.github.io/" />
 
-<meta property="og:updated_time" content="2019-09-09T14:10:03+08:00" />
+<meta property="og:updated_time" content="2019-10-16T15:00:31+08:00" />
 <meta itemprop="name" content="jouyouyun&#39;s blog">
 <meta itemprop="description" content="jouyouyun&#39;s blog">
 
@@ -112,7 +112,7 @@
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/touchscreen-calibration/">触摸屏校正</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2019-09-09 </span>
+      <span class="post-time"> 2019-10-16 </span>
       <div class="post-category">
           <a href="/categories/blog/"> BLOG </a>
           </div>
@@ -121,7 +121,13 @@
   
   <div class="post-content">
     <div class="post-summary">
-      有些设备的触摸屏不准，需要校正后才能正常使用。校正实际上就是配置设备在 Xorg 中的属性，具体属性名与驱动相关，后文描述。 下面开始介绍校正方法： 准备
+      <p>有些设备的触摸屏不准，需要校正后才能正常使用。校正实际上就是配置设备在 <code>Xorg</code> 中的属性，具体属性名与驱动相关，后文描述。</p>
+
+<p>下面开始介绍校正方法：</p>
+
+<h2 id="准备">准备</h2>
+
+<p>安装需要用到的工具：</p>
     </div>
     <div class="read-more">
       <a href="/post/touchscreen-calibration/" class="read-more-link">阅读更多</a>
@@ -142,7 +148,13 @@
   
   <div class="post-content">
     <div class="post-summary">
-      Debian CVE Tracker 上记录了很多安全漏洞，有些 Debian 会在当前版本修复，但有些不会。由于 deepin 会在当前版本上停留很久，所以需要修复这些安全漏洞。这就需要自行追踪 CVE Bug
+      <p><a href="https://security-tracker.debian.org/tracker/status/release/stable">Debian CVE Tracker</a> 上记录了很多安全漏洞，有些 <code>Debian</code> 会在当前版本修复，但有些不会。由于 <code>deepin</code> 会在当前版本上停留很久，所以需要修复这些安全漏洞。这就需要自行追踪 <code>CVE Bug</code> 的状态和添加 <code>patch</code> ，因此写了个程序 <a href="https://github.com/deepin-cve/tracker">deepin-cve-tracker</a> 来管理。</p>
+
+<p>本文将介绍 <code>deepin-cve-tracker</code> 的使用方法和 <code>patch</code> 的添加方法。</p>
+
+<h2 id="deepin-cve-tracker">Deepin CVE Tracker</h2>
+
+<p><code>deepin-cve-tracker</code> 设计用来追踪 <code>Debain CVE Bug</code> ，会先将 <code>Debian</code> 中的数据爬入自己的数据库中，然后做标记来追踪 <code>bug</code> 的处理状态。提供 <code>HTTP</code> 接口供用户使用，使用 <code>docker</code> 部署。</p>
     </div>
     <div class="read-more">
       <a href="/post/debian-cve-tracker/" class="read-more-link">阅读更多</a>
@@ -163,7 +175,21 @@
   
   <div class="post-content">
     <div class="post-summary">
-      最近由于要调试 usbhid 模块，所以需要编译 kernel ，在此整理下方法，以免每次都查找。 Dependencies deepin sudo apt-get install build-essential libncurses-dev bison flex libssl-dev libelf-dev archlinux sudo pacman -S gcc ncurses bison flex openssl libelf elfutils 若编译时有报错，请按照错误
+      <p>最近由于要调试 <code>usbhid</code> 模块，所以需要编译 <code>kernel</code> ，在此整理下方法，以免每次都查找。</p>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<ul>
+<li><p><code>deepin</code></p>
+
+<p><code>sudo apt-get install build-essential libncurses-dev bison flex libssl-dev libelf-dev</code></p></li>
+
+<li><p><code>archlinux</code></p>
+
+<p><code>sudo pacman -S gcc ncurses bison flex openssl libelf elfutils</code></p></li>
+</ul>
+
+<p>若编译时有报错，请按照错误提示按照缺失的依赖。</p>
     </div>
     <div class="read-more">
       <a href="/post/linux-kernel-compile/" class="read-more-link">阅读更多</a>

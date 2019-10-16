@@ -39,11 +39,7 @@
 
 &lt;h2 id=&#34;原理&#34;&gt;原理&lt;/h2&gt;
 
-&lt;p&gt;隐藏光标的原理就是把光标设置为一个 &lt;code&gt;x11 null cursor&lt;/code&gt;, 不需要隐藏时再将它设为 &lt;code&gt;x11 left_ptr cursor&lt;/code&gt;.&lt;/p&gt;
-
-&lt;h3 id=&#34;设置光标&#34;&gt;设置光标&lt;/h3&gt;
-
-&lt;p&gt;设置光标主要需要调用下面两个函数:&lt;/p&gt;</description>
+&lt;p&gt;隐藏光标的原理就是把光标设置为一个 &lt;code&gt;x11 null cursor&lt;/code&gt;, 不需要隐藏时再将它设为 &lt;code&gt;x11 left_ptr cursor&lt;/code&gt;.&lt;/p&gt;</description>
     </item>
     
   </channel>

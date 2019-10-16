@@ -16,7 +16,13 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="jouyouyun" /><meta name="description" content="最近由于要调试 usbhid 模块，所以需要编译 kernel ，在此整理下方法，以免每次都查找。 Dependencies deepin sudo apt-get install build-essential libncurses-dev bison flex libssl-dev libelf-dev archlinux sudo pacman -S gcc ncurses bison flex openssl libelf elfutils 若编译时有报错，请按照错误" /><meta name="keywords" content="jouyouyun, Hugo, theme, even" />
+<meta name="author" content="jouyouyun" /><meta name="description" content="最近由于要调试 usbhid 模块，所以需要编译 kernel ，在此整理下方法，以免每次都查找。
+Dependencies  deepin
+sudo apt-get install build-essential libncurses-dev bison flex libssl-dev libelf-dev
+ archlinux
+sudo pacman -S gcc ncurses bison flex openssl libelf elfutils
+  若编译时有报错，请按照错误提示按照缺失的依赖。
+" /><meta name="keywords" content="jouyouyun, Hugo, theme, even" />
 
 
 
@@ -39,17 +45,45 @@
 
 
 <meta property="og:title" content="Compile Kernel" />
-<meta property="og:description" content="最近由于要调试 usbhid 模块，所以需要编译 kernel ，在此整理下方法，以免每次都查找。 Dependencies deepin sudo apt-get install build-essential libncurses-dev bison flex libssl-dev libelf-dev archlinux sudo pacman -S gcc ncurses bison flex openssl libelf elfutils 若编译时有报错，请按照错误" />
+<meta property="og:description" content="最近由于要调试 usbhid 模块，所以需要编译 kernel ，在此整理下方法，以免每次都查找。
+
+Dependencies
+
+
+deepin
+
+sudo apt-get install build-essential libncurses-dev bison flex libssl-dev libelf-dev
+
+archlinux
+
+sudo pacman -S gcc ncurses bison flex openssl libelf elfutils
+
+
+若编译时有报错，请按照错误提示按照缺失的依赖。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jouyouyun.github.io/post/linux-kernel-compile/" />
 <meta property="article:published_time" content="2019-08-06T21:38:21+08:00" />
-<meta property="article:modified_time" content="2019-09-09T15:09:33+08:00" />
+<meta property="article:modified_time" content="2019-10-16T15:00:11+08:00" />
 <meta itemprop="name" content="Compile Kernel">
-<meta itemprop="description" content="最近由于要调试 usbhid 模块，所以需要编译 kernel ，在此整理下方法，以免每次都查找。 Dependencies deepin sudo apt-get install build-essential libncurses-dev bison flex libssl-dev libelf-dev archlinux sudo pacman -S gcc ncurses bison flex openssl libelf elfutils 若编译时有报错，请按照错误">
+<meta itemprop="description" content="最近由于要调试 usbhid 模块，所以需要编译 kernel ，在此整理下方法，以免每次都查找。
+
+Dependencies
+
+
+deepin
+
+sudo apt-get install build-essential libncurses-dev bison flex libssl-dev libelf-dev
+
+archlinux
+
+sudo pacman -S gcc ncurses bison flex openssl libelf elfutils
+
+
+若编译时有报错，请按照错误提示按照缺失的依赖。">
 
 
 <meta itemprop="datePublished" content="2019-08-06T21:38:21&#43;08:00" />
-<meta itemprop="dateModified" content="2019-09-09T15:09:33&#43;08:00" />
+<meta itemprop="dateModified" content="2019-10-16T15:00:11&#43;08:00" />
 <meta itemprop="wordCount" content="766">
 
 
@@ -57,7 +91,21 @@
 <meta itemprop="keywords" content="kernel,compile,linux," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Compile Kernel"/>
-<meta name="twitter:description" content="最近由于要调试 usbhid 模块，所以需要编译 kernel ，在此整理下方法，以免每次都查找。 Dependencies deepin sudo apt-get install build-essential libncurses-dev bison flex libssl-dev libelf-dev archlinux sudo pacman -S gcc ncurses bison flex openssl libelf elfutils 若编译时有报错，请按照错误"/>
+<meta name="twitter:description" content="最近由于要调试 usbhid 模块，所以需要编译 kernel ，在此整理下方法，以免每次都查找。
+
+Dependencies
+
+
+deepin
+
+sudo apt-get install build-essential libncurses-dev bison flex libssl-dev libelf-dev
+
+archlinux
+
+sudo pacman -S gcc ncurses bison flex openssl libelf elfutils
+
+
+若编译时有报错，请按照错误提示按照缺失的依赖。"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -165,9 +213,7 @@
   </div>
 </div>
     <div class="post-content">
-      
-
-<p>最近由于要调试 <code>usbhid</code> 模块，所以需要编译 <code>kernel</code> ，在此整理下方法，以免每次都查找。</p>
+      <p>最近由于要调试 <code>usbhid</code> 模块，所以需要编译 <code>kernel</code> ，在此整理下方法，以免每次都查找。</p>
 
 <h2 id="dependencies">Dependencies</h2>
 
@@ -378,7 +424,6 @@ Found initrd image: /boot/initrd.img-4.19.0-5-amd64
 <li><a href="https://linux.die.net/lkmpg/x380.html">Building modules for a precompiled kernel</a></li>
 <li><a href="https://www.acmesystems.it/compile%5Flinux%5Fkernel">Compile the Linux Kernel from sources</a></li>
 </ul>
-
     </div>
 
     <div class="post-copyright">
@@ -388,7 +433,7 @@ Found initrd image: /boot/initrd.img-4.19.0-5-amd64
   </p>
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
-    <span class="item-content">2019-09-09</span>
+    <span class="item-content">2019-10-16</span>
   </p>
   
   

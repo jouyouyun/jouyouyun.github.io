@@ -23,13 +23,7 @@
 
 &lt;h2 id=&#34;查询&#34;&gt;查询&lt;/h2&gt;
 
-&lt;p&gt;使用 &lt;code&gt;xrandr -q&lt;/code&gt; 命令可以查询当前的显示器状态, 使用 &lt;code&gt;xrandr --verbose&lt;/code&gt; 将会显示更详细的信息.&lt;/p&gt;
-
-&lt;h2 id=&#34;设置分辨率&#34;&gt;设置分辨率&lt;/h2&gt;
-
-&lt;p&gt;设置分辨率时需要指定设置的 &lt;code&gt;ouput&lt;/code&gt; 以及 &lt;code&gt;mode&lt;/code&gt;, 如将 &lt;code&gt;eDP1&lt;/code&gt; 的分辨率改为 &lt;code&gt;1920x1080&lt;/code&gt;, 命令就是 &lt;code&gt;xrandr --output eDP1 --mode 1920x1080&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;但是单屏时不用这么麻烦, 可以直接使用命令 &lt;code&gt;xrandr -s 1920x1080&lt;/code&gt; 来更改.&lt;/p&gt;</description>
+&lt;p&gt;使用 &lt;code&gt;xrandr -q&lt;/code&gt; 命令可以查询当前的显示器状态, 使用 &lt;code&gt;xrandr --verbose&lt;/code&gt; 将会显示更详细的信息.&lt;/p&gt;</description>
     </item>
     
   </channel>

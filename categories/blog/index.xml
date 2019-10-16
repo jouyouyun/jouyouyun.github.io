@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>jouyouyun</copyright>
-    <lastBuildDate>Mon, 09 Sep 2019 14:10:03 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 16 Oct 2019 15:00:31 +0800</lastBuildDate>
     
 	<atom:link href="https://jouyouyun.github.io/categories/blog/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,10 +15,16 @@
     <item>
       <title>触摸屏校正</title>
       <link>https://jouyouyun.github.io/post/touchscreen-calibration/</link>
-      <pubDate>Mon, 09 Sep 2019 14:10:03 +0800</pubDate>
+      <pubDate>Wed, 16 Oct 2019 15:00:31 +0800</pubDate>
       
       <guid>https://jouyouyun.github.io/post/touchscreen-calibration/</guid>
-      <description>有些设备的触摸屏不准，需要校正后才能正常使用。校正实际上就是配置设备在 Xorg 中的属性，具体属性名与驱动相关，后文描述。 下面开始介绍校正方法： 准备</description>
+      <description>&lt;p&gt;有些设备的触摸屏不准，需要校正后才能正常使用。校正实际上就是配置设备在 &lt;code&gt;Xorg&lt;/code&gt; 中的属性，具体属性名与驱动相关，后文描述。&lt;/p&gt;
+
+&lt;p&gt;下面开始介绍校正方法：&lt;/p&gt;
+
+&lt;h2 id=&#34;准备&#34;&gt;准备&lt;/h2&gt;
+
+&lt;p&gt;安装需要用到的工具：&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -27,7 +33,21 @@
       <pubDate>Tue, 06 Aug 2019 21:38:21 +0800</pubDate>
       
       <guid>https://jouyouyun.github.io/post/linux-kernel-compile/</guid>
-      <description>最近由于要调试 usbhid 模块，所以需要编译 kernel ，在此整理下方法，以免每次都查找。 Dependencies deepin sudo apt-get install build-essential libncurses-dev bison flex libssl-dev libelf-dev archlinux sudo pacman -S gcc ncurses bison flex openssl libelf elfutils 若编译时有报错，请按照错误</description>
+      <description>&lt;p&gt;最近由于要调试 &lt;code&gt;usbhid&lt;/code&gt; 模块，所以需要编译 &lt;code&gt;kernel&lt;/code&gt; ，在此整理下方法，以免每次都查找。&lt;/p&gt;
+
+&lt;h2 id=&#34;dependencies&#34;&gt;Dependencies&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;deepin&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sudo apt-get install build-essential libncurses-dev bison flex libssl-dev libelf-dev&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;archlinux&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sudo pacman -S gcc ncurses bison flex openssl libelf elfutils&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;若编译时有报错，请按照错误提示按照缺失的依赖。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -563,11 +583,7 @@ sudo cp -R /etc/easy-rsa /etc/openvpn&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr
 
 &lt;h2 id=&#34;原理&#34;&gt;原理&lt;/h2&gt;
 
-&lt;p&gt;隐藏光标的原理就是把光标设置为一个 &lt;code&gt;x11 null cursor&lt;/code&gt;, 不需要隐藏时再将它设为 &lt;code&gt;x11 left_ptr cursor&lt;/code&gt;.&lt;/p&gt;
-
-&lt;h3 id=&#34;设置光标&#34;&gt;设置光标&lt;/h3&gt;
-
-&lt;p&gt;设置光标主要需要调用下面两个函数:&lt;/p&gt;</description>
+&lt;p&gt;隐藏光标的原理就是把光标设置为一个 &lt;code&gt;x11 null cursor&lt;/code&gt;, 不需要隐藏时再将它设为 &lt;code&gt;x11 left_ptr cursor&lt;/code&gt;.&lt;/p&gt;</description>
     </item>
     
     <item>

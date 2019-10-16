@@ -18,7 +18,13 @@
       <pubDate>Wed, 28 Aug 2019 11:23:21 +0800</pubDate>
       
       <guid>https://jouyouyun.github.io/post/debian-cve-tracker/</guid>
-      <description>Debian CVE Tracker 上记录了很多安全漏洞，有些 Debian 会在当前版本修复，但有些不会。由于 deepin 会在当前版本上停留很久，所以需要修复这些安全漏洞。这就需要自行追踪 CVE Bug</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://security-tracker.debian.org/tracker/status/release/stable&#34;&gt;Debian CVE Tracker&lt;/a&gt; 上记录了很多安全漏洞，有些 &lt;code&gt;Debian&lt;/code&gt; 会在当前版本修复，但有些不会。由于 &lt;code&gt;deepin&lt;/code&gt; 会在当前版本上停留很久，所以需要修复这些安全漏洞。这就需要自行追踪 &lt;code&gt;CVE Bug&lt;/code&gt; 的状态和添加 &lt;code&gt;patch&lt;/code&gt; ，因此写了个程序 &lt;a href=&#34;https://github.com/deepin-cve/tracker&#34;&gt;deepin-cve-tracker&lt;/a&gt; 来管理。&lt;/p&gt;
+
+&lt;p&gt;本文将介绍 &lt;code&gt;deepin-cve-tracker&lt;/code&gt; 的使用方法和 &lt;code&gt;patch&lt;/code&gt; 的添加方法。&lt;/p&gt;
+
+&lt;h2 id=&#34;deepin-cve-tracker&#34;&gt;Deepin CVE Tracker&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;deepin-cve-tracker&lt;/code&gt; 设计用来追踪 &lt;code&gt;Debain CVE Bug&lt;/code&gt; ，会先将 &lt;code&gt;Debian&lt;/code&gt; 中的数据爬入自己的数据库中，然后做标记来追踪 &lt;code&gt;bug&lt;/code&gt; 的处理状态。提供 &lt;code&gt;HTTP&lt;/code&gt; 接口供用户使用，使用 &lt;code&gt;docker&lt;/code&gt; 部署。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -27,7 +33,15 @@
       <pubDate>Thu, 02 May 2019 11:27:00 +0800</pubDate>
       
       <guid>https://jouyouyun.github.io/post/installation/</guid>
-      <description>在重装系统时, 需要考虑软件与数据的备份恢复, 遂记录下需要用到的软件, 自定义的配置和数据恢复. 软件 换源 Archlinux 在 /etc/pacman.d/mirrorlist 只启用中国区的源, 另添加以下内容到</description>
+      <description>&lt;p&gt;在重装系统时, 需要考虑软件与数据的备份恢复, 遂记录下需要用到的软件, 自定义的配置和数据恢复.&lt;/p&gt;
+
+&lt;h2 id=&#34;软件&#34;&gt;软件&lt;/h2&gt;
+
+&lt;h3 id=&#34;换源&#34;&gt;换源&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Archlinux&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
     </item>
     
     <item>
@@ -123,13 +137,7 @@
 
 &lt;h2 id=&#34;查询&#34;&gt;查询&lt;/h2&gt;
 
-&lt;p&gt;使用 &lt;code&gt;xrandr -q&lt;/code&gt; 命令可以查询当前的显示器状态, 使用 &lt;code&gt;xrandr --verbose&lt;/code&gt; 将会显示更详细的信息.&lt;/p&gt;
-
-&lt;h2 id=&#34;设置分辨率&#34;&gt;设置分辨率&lt;/h2&gt;
-
-&lt;p&gt;设置分辨率时需要指定设置的 &lt;code&gt;ouput&lt;/code&gt; 以及 &lt;code&gt;mode&lt;/code&gt;, 如将 &lt;code&gt;eDP1&lt;/code&gt; 的分辨率改为 &lt;code&gt;1920x1080&lt;/code&gt;, 命令就是 &lt;code&gt;xrandr --output eDP1 --mode 1920x1080&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;但是单屏时不用这么麻烦, 可以直接使用命令 &lt;code&gt;xrandr -s 1920x1080&lt;/code&gt; 来更改.&lt;/p&gt;</description>
+&lt;p&gt;使用 &lt;code&gt;xrandr -q&lt;/code&gt; 命令可以查询当前的显示器状态, 使用 &lt;code&gt;xrandr --verbose&lt;/code&gt; 将会显示更详细的信息.&lt;/p&gt;</description>
     </item>
     
     <item>
