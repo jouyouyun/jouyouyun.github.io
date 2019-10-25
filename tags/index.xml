@@ -7,15 +7,104 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>jouyouyun</copyright>
-    <lastBuildDate>Wed, 16 Oct 2019 15:00:31 +0800</lastBuildDate>
     
 	<atom:link href="https://jouyouyun.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>alarm</title>
+      <link>https://jouyouyun.github.io/tags/alarm/</link>
+      <pubDate>Tue, 13 Nov 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/alarm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>alter</title>
+      <link>https://jouyouyun.github.io/tags/alter/</link>
+      <pubDate>Fri, 05 Apr 2019 21:04:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/alter/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>api</title>
+      <link>https://jouyouyun.github.io/tags/api/</link>
+      <pubDate>Sun, 21 Apr 2019 20:02:00 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/api/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>apt</title>
+      <link>https://jouyouyun.github.io/tags/apt/</link>
+      <pubDate>Wed, 07 Nov 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/apt/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>association</title>
+      <link>https://jouyouyun.github.io/tags/association/</link>
+      <pubDate>Wed, 05 Dec 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/association/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bbr</title>
+      <link>https://jouyouyun.github.io/tags/bbr/</link>
+      <pubDate>Thu, 20 Jul 2017 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/bbr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bios</title>
+      <link>https://jouyouyun.github.io/tags/bios/</link>
+      <pubDate>Wed, 08 May 2019 17:50:00 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/bios/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bluetooth</title>
+      <link>https://jouyouyun.github.io/tags/bluetooth/</link>
+      <pubDate>Mon, 20 Nov 2017 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/bluetooth/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>board</title>
+      <link>https://jouyouyun.github.io/tags/board/</link>
+      <pubDate>Wed, 08 May 2019 17:50:00 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/board/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>branch</title>
+      <link>https://jouyouyun.github.io/tags/branch/</link>
+      <pubDate>Thu, 11 Apr 2019 14:49:00 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/branch/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>calibration</title>
       <link>https://jouyouyun.github.io/tags/calibration/</link>
-      <pubDate>Wed, 16 Oct 2019 15:00:31 +0800</pubDate>
+      <pubDate>Fri, 25 Oct 2019 13:55:59 +0800</pubDate>
       
       <guid>https://jouyouyun.github.io/tags/calibration/</guid>
       <description></description>
@@ -24,18 +113,99 @@
     <item>
       <title>calibrator</title>
       <link>https://jouyouyun.github.io/tags/calibrator/</link>
-      <pubDate>Wed, 16 Oct 2019 15:00:31 +0800</pubDate>
+      <pubDate>Fri, 25 Oct 2019 13:55:59 +0800</pubDate>
       
       <guid>https://jouyouyun.github.io/tags/calibrator/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>touchscreen</title>
-      <link>https://jouyouyun.github.io/tags/touchscreen/</link>
-      <pubDate>Wed, 16 Oct 2019 15:00:31 +0800</pubDate>
+      <title>character</title>
+      <link>https://jouyouyun.github.io/tags/character/</link>
+      <pubDate>Fri, 05 Apr 2019 21:04:21 +0800</pubDate>
       
-      <guid>https://jouyouyun.github.io/tags/touchscreen/</guid>
+      <guid>https://jouyouyun.github.io/tags/character/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>charset</title>
+      <link>https://jouyouyun.github.io/tags/charset/</link>
+      <pubDate>Fri, 05 Apr 2019 21:04:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/charset/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>chroot</title>
+      <link>https://jouyouyun.github.io/tags/chroot/</link>
+      <pubDate>Sat, 05 Jul 2014 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/chroot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>compile</title>
+      <link>https://jouyouyun.github.io/tags/compile/</link>
+      <pubDate>Tue, 06 Aug 2019 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/compile/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>compose</title>
+      <link>https://jouyouyun.github.io/tags/compose/</link>
+      <pubDate>Sun, 21 Apr 2019 11:58:00 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/compose/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>container</title>
+      <link>https://jouyouyun.github.io/tags/container/</link>
+      <pubDate>Sun, 21 Apr 2019 11:58:00 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/container/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>coredump</title>
+      <link>https://jouyouyun.github.io/tags/coredump/</link>
+      <pubDate>Mon, 25 Apr 2016 19:04:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/coredump/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cpu</title>
+      <link>https://jouyouyun.github.io/tags/cpu/</link>
+      <pubDate>Wed, 08 May 2019 17:50:00 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/cpu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cups</title>
+      <link>https://jouyouyun.github.io/tags/cups/</link>
+      <pubDate>Sun, 08 Apr 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/cups/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cursor</title>
+      <link>https://jouyouyun.github.io/tags/cursor/</link>
+      <pubDate>Tue, 23 Oct 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/cursor/</guid>
       <description></description>
     </item>
     
@@ -58,83 +228,20 @@
     </item>
     
     <item>
+      <title>debug</title>
+      <link>https://jouyouyun.github.io/tags/debug/</link>
+      <pubDate>Wed, 03 Feb 2016 15:06:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/debug/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>deepin</title>
       <link>https://jouyouyun.github.io/tags/deepin/</link>
       <pubDate>Wed, 28 Aug 2019 11:23:21 +0800</pubDate>
       
       <guid>https://jouyouyun.github.io/tags/deepin/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tracker</title>
-      <link>https://jouyouyun.github.io/tags/tracker/</link>
-      <pubDate>Wed, 28 Aug 2019 11:23:21 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/tracker/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>compile</title>
-      <link>https://jouyouyun.github.io/tags/compile/</link>
-      <pubDate>Tue, 06 Aug 2019 21:38:21 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/compile/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>kernel</title>
-      <link>https://jouyouyun.github.io/tags/kernel/</link>
-      <pubDate>Tue, 06 Aug 2019 21:38:21 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/kernel/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>linux</title>
-      <link>https://jouyouyun.github.io/tags/linux/</link>
-      <pubDate>Tue, 06 Aug 2019 21:38:21 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/linux/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>gsettings</title>
-      <link>https://jouyouyun.github.io/tags/gsettings/</link>
-      <pubDate>Sat, 03 Aug 2019 19:30:21 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/gsettings/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>bios</title>
-      <link>https://jouyouyun.github.io/tags/bios/</link>
-      <pubDate>Wed, 08 May 2019 17:50:00 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/bios/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>board</title>
-      <link>https://jouyouyun.github.io/tags/board/</link>
-      <pubDate>Wed, 08 May 2019 17:50:00 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/board/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>cpu</title>
-      <link>https://jouyouyun.github.io/tags/cpu/</link>
-      <pubDate>Wed, 08 May 2019 17:50:00 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/cpu/</guid>
       <description></description>
     </item>
     
@@ -166,11 +273,263 @@
     </item>
     
     <item>
+      <title>docker</title>
+      <link>https://jouyouyun.github.io/tags/docker/</link>
+      <pubDate>Sun, 21 Apr 2019 12:58:00 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>even</title>
+      <link>https://jouyouyun.github.io/tags/even/</link>
+      <pubDate>Sat, 02 Feb 2019 17:31:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/even/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>file</title>
+      <link>https://jouyouyun.github.io/tags/file/</link>
+      <pubDate>Fri, 20 Jun 2014 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/file/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>font</title>
+      <link>https://jouyouyun.github.io/tags/font/</link>
+      <pubDate>Tue, 23 Oct 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/font/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gdb</title>
+      <link>https://jouyouyun.github.io/tags/gdb/</link>
+      <pubDate>Wed, 03 Feb 2016 15:06:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/gdb/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>git</title>
+      <link>https://jouyouyun.github.io/tags/git/</link>
+      <pubDate>Thu, 11 Apr 2019 14:49:00 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gnome</title>
+      <link>https://jouyouyun.github.io/tags/gnome/</link>
+      <pubDate>Tue, 23 Oct 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/gnome/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>go</title>
+      <link>https://jouyouyun.github.io/tags/go/</link>
+      <pubDate>Tue, 27 Nov 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gob</title>
+      <link>https://jouyouyun.github.io/tags/gob/</link>
+      <pubDate>Mon, 07 Jul 2014 13:06:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/gob/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gom</title>
+      <link>https://jouyouyun.github.io/tags/gom/</link>
+      <pubDate>Tue, 27 Nov 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/gom/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>google</title>
+      <link>https://jouyouyun.github.io/tags/google/</link>
+      <pubDate>Wed, 07 Nov 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/google/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gorm</title>
+      <link>https://jouyouyun.github.io/tags/gorm/</link>
+      <pubDate>Wed, 05 Dec 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/gorm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>grub2</title>
+      <link>https://jouyouyun.github.io/tags/grub2/</link>
+      <pubDate>Sat, 29 Jul 2017 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/grub2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gsettings</title>
+      <link>https://jouyouyun.github.io/tags/gsettings/</link>
+      <pubDate>Sat, 03 Aug 2019 19:30:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/gsettings/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gtk</title>
+      <link>https://jouyouyun.github.io/tags/gtk/</link>
+      <pubDate>Tue, 23 Oct 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/gtk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>hardware</title>
       <link>https://jouyouyun.github.io/tags/hardware/</link>
       <pubDate>Wed, 08 May 2019 17:50:00 +0800</pubDate>
       
       <guid>https://jouyouyun.github.io/tags/hardware/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hugo</title>
+      <link>https://jouyouyun.github.io/tags/hugo/</link>
+      <pubDate>Sat, 02 Feb 2019 17:31:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>icon</title>
+      <link>https://jouyouyun.github.io/tags/icon/</link>
+      <pubDate>Tue, 23 Oct 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/icon/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>image</title>
+      <link>https://jouyouyun.github.io/tags/image/</link>
+      <pubDate>Sun, 21 Apr 2019 11:58:00 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/image/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>influxdb</title>
+      <link>https://jouyouyun.github.io/tags/influxdb/</link>
+      <pubDate>Sat, 13 Apr 2019 16:55:00 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/influxdb/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>installation</title>
+      <link>https://jouyouyun.github.io/tags/installation/</link>
+      <pubDate>Thu, 02 May 2019 11:27:00 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/installation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jenkins</title>
+      <link>https://jouyouyun.github.io/tags/jenkins/</link>
+      <pubDate>Sun, 21 Apr 2019 20:02:00 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/jenkins/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>join</title>
+      <link>https://jouyouyun.github.io/tags/join/</link>
+      <pubDate>Fri, 05 Apr 2019 21:04:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/join/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kernel</title>
+      <link>https://jouyouyun.github.io/tags/kernel/</link>
+      <pubDate>Tue, 06 Aug 2019 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/kernel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kill</title>
+      <link>https://jouyouyun.github.io/tags/kill/</link>
+      <pubDate>Tue, 13 Nov 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/kill/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>leanote</title>
+      <link>https://jouyouyun.github.io/tags/leanote/</link>
+      <pubDate>Mon, 17 Jul 2017 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/leanote/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>https://jouyouyun.github.io/tags/linux/</link>
+      <pubDate>Tue, 06 Aug 2019 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>local</title>
+      <link>https://jouyouyun.github.io/tags/local/</link>
+      <pubDate>Thu, 11 Apr 2019 14:49:00 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/local/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>localtime</title>
+      <link>https://jouyouyun.github.io/tags/localtime/</link>
+      <pubDate>Mon, 27 Aug 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/localtime/</guid>
       <description></description>
     </item>
     
@@ -211,128 +570,11 @@
     </item>
     
     <item>
-      <title>memory</title>
-      <link>https://jouyouyun.github.io/tags/memory/</link>
-      <pubDate>Wed, 08 May 2019 17:50:00 +0800</pubDate>
+      <title>md5</title>
+      <link>https://jouyouyun.github.io/tags/md5/</link>
+      <pubDate>Sun, 22 Jun 2014 22:54:38 +0800</pubDate>
       
-      <guid>https://jouyouyun.github.io/tags/memory/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>network</title>
-      <link>https://jouyouyun.github.io/tags/network/</link>
-      <pubDate>Wed, 08 May 2019 17:50:00 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/network/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>wired</title>
-      <link>https://jouyouyun.github.io/tags/wired/</link>
-      <pubDate>Wed, 08 May 2019 17:50:00 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/wired/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>wireless</title>
-      <link>https://jouyouyun.github.io/tags/wireless/</link>
-      <pubDate>Wed, 08 May 2019 17:50:00 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/wireless/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>installation</title>
-      <link>https://jouyouyun.github.io/tags/installation/</link>
-      <pubDate>Thu, 02 May 2019 11:27:00 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/installation/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>api</title>
-      <link>https://jouyouyun.github.io/tags/api/</link>
-      <pubDate>Sun, 21 Apr 2019 20:02:00 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/api/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>jenkins</title>
-      <link>https://jouyouyun.github.io/tags/jenkins/</link>
-      <pubDate>Sun, 21 Apr 2019 20:02:00 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/jenkins/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>rest</title>
-      <link>https://jouyouyun.github.io/tags/rest/</link>
-      <pubDate>Sun, 21 Apr 2019 20:02:00 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/rest/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>docker</title>
-      <link>https://jouyouyun.github.io/tags/docker/</link>
-      <pubDate>Sun, 21 Apr 2019 12:58:00 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/docker/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>storage</title>
-      <link>https://jouyouyun.github.io/tags/storage/</link>
-      <pubDate>Sun, 21 Apr 2019 12:58:00 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/storage/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>compose</title>
-      <link>https://jouyouyun.github.io/tags/compose/</link>
-      <pubDate>Sun, 21 Apr 2019 11:58:00 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/compose/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>container</title>
-      <link>https://jouyouyun.github.io/tags/container/</link>
-      <pubDate>Sun, 21 Apr 2019 11:58:00 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/container/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>image</title>
-      <link>https://jouyouyun.github.io/tags/image/</link>
-      <pubDate>Sun, 21 Apr 2019 11:58:00 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/image/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>influxdb</title>
-      <link>https://jouyouyun.github.io/tags/influxdb/</link>
-      <pubDate>Sat, 13 Apr 2019 16:55:00 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/influxdb/</guid>
+      <guid>https://jouyouyun.github.io/tags/md5/</guid>
       <description></description>
     </item>
     
@@ -346,479 +588,11 @@
     </item>
     
     <item>
-      <title>series</title>
-      <link>https://jouyouyun.github.io/tags/series/</link>
-      <pubDate>Sat, 13 Apr 2019 16:55:00 +0800</pubDate>
+      <title>memory</title>
+      <link>https://jouyouyun.github.io/tags/memory/</link>
+      <pubDate>Wed, 08 May 2019 17:50:00 +0800</pubDate>
       
-      <guid>https://jouyouyun.github.io/tags/series/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tsdb</title>
-      <link>https://jouyouyun.github.io/tags/tsdb/</link>
-      <pubDate>Sat, 13 Apr 2019 16:55:00 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/tsdb/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>branch</title>
-      <link>https://jouyouyun.github.io/tags/branch/</link>
-      <pubDate>Thu, 11 Apr 2019 14:49:00 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/branch/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>git</title>
-      <link>https://jouyouyun.github.io/tags/git/</link>
-      <pubDate>Thu, 11 Apr 2019 14:49:00 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/git/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>local</title>
-      <link>https://jouyouyun.github.io/tags/local/</link>
-      <pubDate>Thu, 11 Apr 2019 14:49:00 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/local/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>remote</title>
-      <link>https://jouyouyun.github.io/tags/remote/</link>
-      <pubDate>Thu, 11 Apr 2019 14:49:00 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/remote/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>alter</title>
-      <link>https://jouyouyun.github.io/tags/alter/</link>
-      <pubDate>Fri, 05 Apr 2019 21:04:21 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/alter/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>character</title>
-      <link>https://jouyouyun.github.io/tags/character/</link>
-      <pubDate>Fri, 05 Apr 2019 21:04:21 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/character/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>charset</title>
-      <link>https://jouyouyun.github.io/tags/charset/</link>
-      <pubDate>Fri, 05 Apr 2019 21:04:21 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/charset/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>join</title>
-      <link>https://jouyouyun.github.io/tags/join/</link>
-      <pubDate>Fri, 05 Apr 2019 21:04:21 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/join/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>mysql</title>
-      <link>https://jouyouyun.github.io/tags/mysql/</link>
-      <pubDate>Fri, 05 Apr 2019 21:04:21 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/mysql/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>sql</title>
-      <link>https://jouyouyun.github.io/tags/sql/</link>
-      <pubDate>Fri, 05 Apr 2019 21:04:21 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/sql/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>even</title>
-      <link>https://jouyouyun.github.io/tags/even/</link>
-      <pubDate>Sat, 02 Feb 2019 17:31:21 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/even/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>hugo</title>
-      <link>https://jouyouyun.github.io/tags/hugo/</link>
-      <pubDate>Sat, 02 Feb 2019 17:31:21 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/hugo/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>association</title>
-      <link>https://jouyouyun.github.io/tags/association/</link>
-      <pubDate>Wed, 05 Dec 2018 21:38:21 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/association/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>gorm</title>
-      <link>https://jouyouyun.github.io/tags/gorm/</link>
-      <pubDate>Wed, 05 Dec 2018 21:38:21 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/gorm/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>python</title>
-      <link>https://jouyouyun.github.io/tags/python/</link>
-      <pubDate>Sun, 02 Dec 2018 21:38:21 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>go</title>
-      <link>https://jouyouyun.github.io/tags/go/</link>
-      <pubDate>Tue, 27 Nov 2018 21:38:21 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/go/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>gom</title>
-      <link>https://jouyouyun.github.io/tags/gom/</link>
-      <pubDate>Tue, 27 Nov 2018 21:38:21 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/gom/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>module</title>
-      <link>https://jouyouyun.github.io/tags/module/</link>
-      <pubDate>Tue, 27 Nov 2018 21:38:21 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/module/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>package</title>
-      <link>https://jouyouyun.github.io/tags/package/</link>
-      <pubDate>Tue, 27 Nov 2018 21:38:21 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/package/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>alarm</title>
-      <link>https://jouyouyun.github.io/tags/alarm/</link>
-      <pubDate>Tue, 13 Nov 2018 21:38:21 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/alarm/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>kill</title>
-      <link>https://jouyouyun.github.io/tags/kill/</link>
-      <pubDate>Tue, 13 Nov 2018 21:38:21 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/kill/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>raise</title>
-      <link>https://jouyouyun.github.io/tags/raise/</link>
-      <pubDate>Tue, 13 Nov 2018 21:38:21 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/raise/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>sigaction</title>
-      <link>https://jouyouyun.github.io/tags/sigaction/</link>
-      <pubDate>Tue, 13 Nov 2018 21:38:21 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/sigaction/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>signal</title>
-      <link>https://jouyouyun.github.io/tags/signal/</link>
-      <pubDate>Tue, 13 Nov 2018 21:38:21 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/signal/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>apt</title>
-      <link>https://jouyouyun.github.io/tags/apt/</link>
-      <pubDate>Wed, 07 Nov 2018 21:38:21 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/apt/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>google</title>
-      <link>https://jouyouyun.github.io/tags/google/</link>
-      <pubDate>Wed, 07 Nov 2018 21:38:21 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/google/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>origin</title>
-      <link>https://jouyouyun.github.io/tags/origin/</link>
-      <pubDate>Wed, 07 Nov 2018 21:38:21 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/origin/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>cursor</title>
-      <link>https://jouyouyun.github.io/tags/cursor/</link>
-      <pubDate>Tue, 23 Oct 2018 21:38:21 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/cursor/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>font</title>
-      <link>https://jouyouyun.github.io/tags/font/</link>
-      <pubDate>Tue, 23 Oct 2018 21:38:21 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/font/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>gnome</title>
-      <link>https://jouyouyun.github.io/tags/gnome/</link>
-      <pubDate>Tue, 23 Oct 2018 21:38:21 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/gnome/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>gtk</title>
-      <link>https://jouyouyun.github.io/tags/gtk/</link>
-      <pubDate>Tue, 23 Oct 2018 21:38:21 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/gtk/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>icon</title>
-      <link>https://jouyouyun.github.io/tags/icon/</link>
-      <pubDate>Tue, 23 Oct 2018 21:38:21 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/icon/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>theme</title>
-      <link>https://jouyouyun.github.io/tags/theme/</link>
-      <pubDate>Tue, 23 Oct 2018 21:38:21 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/theme/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>rtc</title>
-      <link>https://jouyouyun.github.io/tags/rtc/</link>
-      <pubDate>Sun, 21 Oct 2018 21:38:21 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/rtc/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>suspend</title>
-      <link>https://jouyouyun.github.io/tags/suspend/</link>
-      <pubDate>Sun, 21 Oct 2018 21:38:21 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/suspend/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>wakeup</title>
-      <link>https://jouyouyun.github.io/tags/wakeup/</link>
-      <pubDate>Sun, 21 Oct 2018 21:38:21 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/wakeup/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>localtime</title>
-      <link>https://jouyouyun.github.io/tags/localtime/</link>
-      <pubDate>Mon, 27 Aug 2018 21:38:21 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/localtime/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>timezone</title>
-      <link>https://jouyouyun.github.io/tags/timezone/</link>
-      <pubDate>Mon, 27 Aug 2018 21:38:21 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/timezone/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>utc</title>
-      <link>https://jouyouyun.github.io/tags/utc/</link>
-      <pubDate>Mon, 27 Aug 2018 21:38:21 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/utc/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>superblock</title>
-      <link>https://jouyouyun.github.io/tags/superblock/</link>
-      <pubDate>Fri, 27 Jul 2018 21:38:21 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/superblock/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>restful</title>
-      <link>https://jouyouyun.github.io/tags/restful/</link>
-      <pubDate>Thu, 10 May 2018 21:38:21 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/restful/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>rebase</title>
-      <link>https://jouyouyun.github.io/tags/rebase/</link>
-      <pubDate>Thu, 12 Apr 2018 21:38:21 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/rebase/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>recovery</title>
-      <link>https://jouyouyun.github.io/tags/recovery/</link>
-      <pubDate>Thu, 12 Apr 2018 21:38:21 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/recovery/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>reflog</title>
-      <link>https://jouyouyun.github.io/tags/reflog/</link>
-      <pubDate>Thu, 12 Apr 2018 21:38:21 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/reflog/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>cups</title>
-      <link>https://jouyouyun.github.io/tags/cups/</link>
-      <pubDate>Sun, 08 Apr 2018 21:38:21 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/cups/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>bluetooth</title>
-      <link>https://jouyouyun.github.io/tags/bluetooth/</link>
-      <pubDate>Mon, 20 Nov 2017 21:38:21 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/bluetooth/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>grub2</title>
-      <link>https://jouyouyun.github.io/tags/grub2/</link>
-      <pubDate>Sat, 29 Jul 2017 21:38:21 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/grub2/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>resolution</title>
-      <link>https://jouyouyun.github.io/tags/resolution/</link>
-      <pubDate>Sat, 29 Jul 2017 21:38:21 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/resolution/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>bbr</title>
-      <link>https://jouyouyun.github.io/tags/bbr/</link>
-      <pubDate>Thu, 20 Jul 2017 21:38:21 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/bbr/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>leanote</title>
-      <link>https://jouyouyun.github.io/tags/leanote/</link>
-      <pubDate>Mon, 17 Jul 2017 21:38:21 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/leanote/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>openvpn</title>
-      <link>https://jouyouyun.github.io/tags/openvpn/</link>
-      <pubDate>Tue, 27 Dec 2016 21:38:21 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/openvpn/</guid>
+      <guid>https://jouyouyun.github.io/tags/memory/</guid>
       <description></description>
     </item>
     
@@ -832,38 +606,56 @@
     </item>
     
     <item>
-      <title>xrandr</title>
-      <link>https://jouyouyun.github.io/tags/xrandr/</link>
-      <pubDate>Mon, 06 Jun 2016 16:52:30 +0800</pubDate>
+      <title>module</title>
+      <link>https://jouyouyun.github.io/tags/module/</link>
+      <pubDate>Tue, 27 Nov 2018 21:38:21 +0800</pubDate>
       
-      <guid>https://jouyouyun.github.io/tags/xrandr/</guid>
+      <guid>https://jouyouyun.github.io/tags/module/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>coredump</title>
-      <link>https://jouyouyun.github.io/tags/coredump/</link>
-      <pubDate>Mon, 25 Apr 2016 19:04:21 +0800</pubDate>
+      <title>mysql</title>
+      <link>https://jouyouyun.github.io/tags/mysql/</link>
+      <pubDate>Fri, 05 Apr 2019 21:04:21 +0800</pubDate>
       
-      <guid>https://jouyouyun.github.io/tags/coredump/</guid>
+      <guid>https://jouyouyun.github.io/tags/mysql/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>debug</title>
-      <link>https://jouyouyun.github.io/tags/debug/</link>
-      <pubDate>Wed, 03 Feb 2016 15:06:21 +0800</pubDate>
+      <title>network</title>
+      <link>https://jouyouyun.github.io/tags/network/</link>
+      <pubDate>Wed, 08 May 2019 17:50:00 +0800</pubDate>
       
-      <guid>https://jouyouyun.github.io/tags/debug/</guid>
+      <guid>https://jouyouyun.github.io/tags/network/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>gdb</title>
-      <link>https://jouyouyun.github.io/tags/gdb/</link>
-      <pubDate>Wed, 03 Feb 2016 15:06:21 +0800</pubDate>
+      <title>openvpn</title>
+      <link>https://jouyouyun.github.io/tags/openvpn/</link>
+      <pubDate>Tue, 27 Dec 2016 21:38:21 +0800</pubDate>
       
-      <guid>https://jouyouyun.github.io/tags/gdb/</guid>
+      <guid>https://jouyouyun.github.io/tags/openvpn/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>origin</title>
+      <link>https://jouyouyun.github.io/tags/origin/</link>
+      <pubDate>Wed, 07 Nov 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/origin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>package</title>
+      <link>https://jouyouyun.github.io/tags/package/</link>
+      <pubDate>Tue, 27 Nov 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/package/</guid>
       <description></description>
     </item>
     
@@ -895,6 +687,96 @@
     </item>
     
     <item>
+      <title>python</title>
+      <link>https://jouyouyun.github.io/tags/python/</link>
+      <pubDate>Sun, 02 Dec 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>raise</title>
+      <link>https://jouyouyun.github.io/tags/raise/</link>
+      <pubDate>Tue, 13 Nov 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/raise/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rebase</title>
+      <link>https://jouyouyun.github.io/tags/rebase/</link>
+      <pubDate>Thu, 12 Apr 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/rebase/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>recovery</title>
+      <link>https://jouyouyun.github.io/tags/recovery/</link>
+      <pubDate>Thu, 12 Apr 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/recovery/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>reflog</title>
+      <link>https://jouyouyun.github.io/tags/reflog/</link>
+      <pubDate>Thu, 12 Apr 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/reflog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>remote</title>
+      <link>https://jouyouyun.github.io/tags/remote/</link>
+      <pubDate>Thu, 11 Apr 2019 14:49:00 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/remote/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>resolution</title>
+      <link>https://jouyouyun.github.io/tags/resolution/</link>
+      <pubDate>Sat, 29 Jul 2017 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/resolution/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rest</title>
+      <link>https://jouyouyun.github.io/tags/rest/</link>
+      <pubDate>Sun, 21 Apr 2019 20:02:00 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/rest/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>restful</title>
+      <link>https://jouyouyun.github.io/tags/restful/</link>
+      <pubDate>Thu, 10 May 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/restful/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rtc</title>
+      <link>https://jouyouyun.github.io/tags/rtc/</link>
+      <pubDate>Sun, 21 Oct 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/rtc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>sar</title>
       <link>https://jouyouyun.github.io/tags/sar/</link>
       <pubDate>Wed, 03 Feb 2016 15:06:21 +0800</pubDate>
@@ -904,20 +786,29 @@
     </item>
     
     <item>
-      <title>wacom</title>
-      <link>https://jouyouyun.github.io/tags/wacom/</link>
-      <pubDate>Wed, 03 Feb 2016 14:58:21 +0800</pubDate>
+      <title>series</title>
+      <link>https://jouyouyun.github.io/tags/series/</link>
+      <pubDate>Sat, 13 Apr 2019 16:55:00 +0800</pubDate>
       
-      <guid>https://jouyouyun.github.io/tags/wacom/</guid>
+      <guid>https://jouyouyun.github.io/tags/series/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>xsetwacom</title>
-      <link>https://jouyouyun.github.io/tags/xsetwacom/</link>
-      <pubDate>Wed, 03 Feb 2016 14:58:21 +0800</pubDate>
+      <title>sigaction</title>
+      <link>https://jouyouyun.github.io/tags/sigaction/</link>
+      <pubDate>Tue, 13 Nov 2018 21:38:21 +0800</pubDate>
       
-      <guid>https://jouyouyun.github.io/tags/xsetwacom/</guid>
+      <guid>https://jouyouyun.github.io/tags/sigaction/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>signal</title>
+      <link>https://jouyouyun.github.io/tags/signal/</link>
+      <pubDate>Tue, 13 Nov 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/signal/</guid>
       <description></description>
     </item>
     
@@ -931,29 +822,11 @@
     </item>
     
     <item>
-      <title>tcp</title>
-      <link>https://jouyouyun.github.io/tags/tcp/</link>
-      <pubDate>Sun, 20 Jul 2014 00:54:21 +0800</pubDate>
+      <title>sql</title>
+      <link>https://jouyouyun.github.io/tags/sql/</link>
+      <pubDate>Fri, 05 Apr 2019 21:04:21 +0800</pubDate>
       
-      <guid>https://jouyouyun.github.io/tags/tcp/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>gob</title>
-      <link>https://jouyouyun.github.io/tags/gob/</link>
-      <pubDate>Mon, 07 Jul 2014 13:06:21 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/gob/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>chroot</title>
-      <link>https://jouyouyun.github.io/tags/chroot/</link>
-      <pubDate>Sat, 05 Jul 2014 21:38:21 +0800</pubDate>
-      
-      <guid>https://jouyouyun.github.io/tags/chroot/</guid>
+      <guid>https://jouyouyun.github.io/tags/sql/</guid>
       <description></description>
     </item>
     
@@ -963,6 +836,105 @@
       <pubDate>Fri, 04 Jul 2014 21:38:21 +0800</pubDate>
       
       <guid>https://jouyouyun.github.io/tags/ssh/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>storage</title>
+      <link>https://jouyouyun.github.io/tags/storage/</link>
+      <pubDate>Sun, 21 Apr 2019 12:58:00 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/storage/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>superblock</title>
+      <link>https://jouyouyun.github.io/tags/superblock/</link>
+      <pubDate>Fri, 27 Jul 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/superblock/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>suspend</title>
+      <link>https://jouyouyun.github.io/tags/suspend/</link>
+      <pubDate>Sun, 21 Oct 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/suspend/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tcp</title>
+      <link>https://jouyouyun.github.io/tags/tcp/</link>
+      <pubDate>Sun, 20 Jul 2014 00:54:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/tcp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>theme</title>
+      <link>https://jouyouyun.github.io/tags/theme/</link>
+      <pubDate>Tue, 23 Oct 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/theme/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>timezone</title>
+      <link>https://jouyouyun.github.io/tags/timezone/</link>
+      <pubDate>Mon, 27 Aug 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/timezone/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>touchscreen</title>
+      <link>https://jouyouyun.github.io/tags/touchscreen/</link>
+      <pubDate>Fri, 25 Oct 2019 13:55:59 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/touchscreen/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tracker</title>
+      <link>https://jouyouyun.github.io/tags/tracker/</link>
+      <pubDate>Wed, 28 Aug 2019 11:23:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/tracker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tsdb</title>
+      <link>https://jouyouyun.github.io/tags/tsdb/</link>
+      <pubDate>Sat, 13 Apr 2019 16:55:00 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/tsdb/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>uri</title>
+      <link>https://jouyouyun.github.io/tags/uri/</link>
+      <pubDate>Fri, 20 Jun 2014 21:20:12 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/uri/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>utc</title>
+      <link>https://jouyouyun.github.io/tags/utc/</link>
+      <pubDate>Mon, 27 Aug 2018 21:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/utc/</guid>
       <description></description>
     </item>
     
@@ -985,29 +957,47 @@
     </item>
     
     <item>
-      <title>md5</title>
-      <link>https://jouyouyun.github.io/tags/md5/</link>
-      <pubDate>Sun, 22 Jun 2014 22:54:38 +0800</pubDate>
+      <title>wacom</title>
+      <link>https://jouyouyun.github.io/tags/wacom/</link>
+      <pubDate>Wed, 03 Feb 2016 14:58:21 +0800</pubDate>
       
-      <guid>https://jouyouyun.github.io/tags/md5/</guid>
+      <guid>https://jouyouyun.github.io/tags/wacom/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>file</title>
-      <link>https://jouyouyun.github.io/tags/file/</link>
-      <pubDate>Fri, 20 Jun 2014 21:38:21 +0800</pubDate>
+      <title>wakeup</title>
+      <link>https://jouyouyun.github.io/tags/wakeup/</link>
+      <pubDate>Sun, 21 Oct 2018 21:38:21 +0800</pubDate>
       
-      <guid>https://jouyouyun.github.io/tags/file/</guid>
+      <guid>https://jouyouyun.github.io/tags/wakeup/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>uri</title>
-      <link>https://jouyouyun.github.io/tags/uri/</link>
-      <pubDate>Fri, 20 Jun 2014 21:20:12 +0800</pubDate>
+      <title>wired</title>
+      <link>https://jouyouyun.github.io/tags/wired/</link>
+      <pubDate>Wed, 08 May 2019 17:50:00 +0800</pubDate>
       
-      <guid>https://jouyouyun.github.io/tags/uri/</guid>
+      <guid>https://jouyouyun.github.io/tags/wired/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>wireless</title>
+      <link>https://jouyouyun.github.io/tags/wireless/</link>
+      <pubDate>Wed, 08 May 2019 17:50:00 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/wireless/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>xrandr</title>
+      <link>https://jouyouyun.github.io/tags/xrandr/</link>
+      <pubDate>Mon, 06 Jun 2016 16:52:30 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/xrandr/</guid>
       <description></description>
     </item>
     
@@ -1017,6 +1007,15 @@
       <pubDate>Fri, 18 Apr 2014 17:42:15 +0800</pubDate>
       
       <guid>https://jouyouyun.github.io/tags/xrecord/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>xsetwacom</title>
+      <link>https://jouyouyun.github.io/tags/xsetwacom/</link>
+      <pubDate>Wed, 03 Feb 2016 14:58:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/tags/xsetwacom/</guid>
       <description></description>
     </item>
     

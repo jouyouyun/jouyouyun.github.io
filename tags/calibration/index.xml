@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>jouyouyun</copyright>
-    <lastBuildDate>Wed, 16 Oct 2019 15:00:31 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 25 Oct 2019 13:55:59 +0800</lastBuildDate>
     
 	<atom:link href="https://jouyouyun.github.io/tags/calibration/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +15,7 @@
     <item>
       <title>触摸屏校正</title>
       <link>https://jouyouyun.github.io/post/touchscreen-calibration/</link>
-      <pubDate>Wed, 16 Oct 2019 15:00:31 +0800</pubDate>
+      <pubDate>Fri, 25 Oct 2019 13:55:59 +0800</pubDate>
       
       <guid>https://jouyouyun.github.io/post/touchscreen-calibration/</guid>
       <description>&lt;p&gt;有些设备的触摸屏不准，需要校正后才能正常使用。校正实际上就是配置设备在 &lt;code&gt;Xorg&lt;/code&gt; 中的属性，具体属性名与驱动相关，后文描述。&lt;/p&gt;

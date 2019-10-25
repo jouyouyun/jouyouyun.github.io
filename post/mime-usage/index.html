@@ -30,7 +30,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.57.2 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://jouyouyun.github.io/post/mime-usage/" />
@@ -65,8 +65,9 @@
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jouyouyun.github.io/post/mime-usage/" />
-<meta property="article:published_time" content="2016-12-14T21:38:21+08:00" />
-<meta property="article:modified_time" content="2019-02-12T14:35:27+08:00" />
+<meta property="article:published_time" content="2016-12-14T21:38:21&#43;08:00"/>
+<meta property="article:modified_time" content="2019-02-12T14:35:27&#43;08:00"/>
+
 <meta itemprop="name" content="MIME Usage">
 <meta itemprop="description" content="基本使用
 
@@ -218,7 +219,8 @@
 <h2 id="根据文件扩展名指定类型">根据文件扩展名指定类型</h2>
 
 <ol>
-<li><p>创建 <code>xml</code> 文件, 指定类型, 如将 <code>*.org</code> 指定为 <code>text/org-mode</code>, 文件内容如下:</p>
+<li>创建 <code>xml</code> 文件, 指定类型, 如将 <code>*.org</code> 指定为 <code>text/org-mode</code>, 文件内容如下:</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-xml" data-lang="xml"><span class="lnt">1
@@ -232,17 +234,16 @@
 <td class="lntd">
 <pre class="chroma"><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
 <span class="nt">&lt;mime-info</span> <span class="na">xmlns=</span><span class="s">&#34;http://www.freedesktop.org/standards/shared-mime-info&#34;</span><span class="nt">&gt;</span>
-<span class="nt">&lt;mime-type</span> <span class="na">type=</span><span class="s">&#34;text/org-mode&#34;</span><span class="nt">&gt;</span>
-     <span class="nt">&lt;comment</span> <span class="na">xml:lang=</span><span class="s">&#34;en&#34;</span><span class="nt">&gt;</span>Org-Mode File<span class="nt">&lt;/comment&gt;</span>
-     <span class="nt">&lt;glob</span> <span class="na">pattern=</span><span class="s">&#34;*.org&#34;</span><span class="nt">/&gt;</span>
-<span class="nt">&lt;/mime-type&gt;</span>
+  <span class="nt">&lt;mime-type</span> <span class="na">type=</span><span class="s">&#34;text/org-mode&#34;</span><span class="nt">&gt;</span>
+         <span class="nt">&lt;comment</span> <span class="na">xml:lang=</span><span class="s">&#34;en&#34;</span><span class="nt">&gt;</span>Org-Mode File<span class="nt">&lt;/comment&gt;</span>
+         <span class="nt">&lt;glob</span> <span class="na">pattern=</span><span class="s">&#34;*.org&#34;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;/mime-type&gt;</span>
 <span class="nt">&lt;/mime-info&gt;</span></code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>将上面的 <code>xml</code> 文件复制到 <code>$XDG_DATA_DIRS/mime/packages</code> 中, 即文件要在 <code>~/.local/share/mime/packages, /usr/local/share/mime/packages, /usr/share/mime/packages</code> 这几个目录中的一个</p></li>
-
-<li><p>执行 <code>update-mime-database &lt;MIME DIR&gt;</code> 更新 <code>mime datebase</code>, 上面的目录去掉 <code>packages</code> 就是 <code>MIME DIR</code></p></li>
+</div>
+<ol>
+<li>将上面的 <code>xml</code> 文件复制到 <code>$XDG_DATA_DIRS/mime/packages</code> 中, 即文件要在 <code>~/.local/share/mime/packages, /usr/local/share/mime/packages, /usr/share/mime/packages</code> 这几个目录中的一个</li>
+<li>执行 <code>update-mime-database &lt;MIME DIR&gt;</code> 更新 <code>mime datebase</code>, 上面的目录去掉 <code>packages</code> 就是 <code>MIME DIR</code></li>
 </ol>
 
 <p>这样 <code>*.org</code> 的类型就变为 <code>text/org-mode</code> 了, 参考 <a href="https://freedesktop.org/wiki/Specifications/AddingMIMETutor/">Add MIME Type</a></p>

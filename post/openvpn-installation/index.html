@@ -17,9 +17,7 @@
 
 
 <meta name="author" content="jouyouyun" /><meta name="description" content="安装所需软件 Arch: yaourt -S openvpn easy-rsa
-生成证书 Server 端  Copy template file
-1 2  sudo mkdir -p /etc/openvpn sudo cp -R /etc/easy-rsa /etc/openvpn   Config vars
-  取消并修改以下项:
+生成证书 Server 端  Copy template file  1 2  sudo mkdir -p /etc/openvpn sudo cp -R /etc/easy-rsa /etc/openvpn    Config vars  取消并修改以下项:
 " /><meta name="keywords" content="jouyouyun, Hugo, theme, even" />
 
 
@@ -27,7 +25,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.57.2 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://jouyouyun.github.io/post/openvpn-installation/" />
@@ -55,6 +53,7 @@ Server 端
 Copy template file
 
 
+
 1
 2
 
@@ -70,8 +69,9 @@ Config vars
 取消并修改以下项:" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jouyouyun.github.io/post/openvpn-installation/" />
-<meta property="article:published_time" content="2016-12-27T21:38:21+08:00" />
-<meta property="article:modified_time" content="2019-02-12T14:35:40+08:00" />
+<meta property="article:published_time" content="2016-12-27T21:38:21&#43;08:00"/>
+<meta property="article:modified_time" content="2019-02-12T14:35:40&#43;08:00"/>
+
 <meta itemprop="name" content="OpenVPN Installation">
 <meta itemprop="description" content="安装所需软件
 
@@ -83,6 +83,7 @@ Server 端
 
 
 Copy template file
+
 
 
 1
@@ -119,6 +120,7 @@ Server 端
 
 
 Copy template file
+
 
 
 1
@@ -239,7 +241,8 @@ Config vars
 <h3 id="server-端">Server 端</h3>
 
 <ul>
-<li><p>Copy template file</p>
+<li>Copy template file</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
@@ -249,9 +252,9 @@ Config vars
 <pre class="chroma"><code class="language-shell" data-lang="shell">sudo mkdir -p /etc/openvpn
 sudo cp -R /etc/easy-rsa /etc/openvpn</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>Config vars</p></li>
+</div>
+<ul>
+<li>Config vars</li>
 </ul>
 
 <p>取消并修改以下项:</p>
@@ -290,7 +293,8 @@ easyrsa build-ca</code></pre></td></tr></table>
 </div>
 </div>
 <ul>
-<li><p>创建并签名服务器端证书</p>
+<li>创建并签名服务器端证书</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
@@ -300,9 +304,9 @@ easyrsa build-ca</code></pre></td></tr></table>
 <pre class="chroma"><code class="language-shell" data-lang="shell">easyrsa gen-req &lt;server name&gt; nopass
 easyrsa sign server &lt;server name&gt;</code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>创建Diffie-Hellman证书</p></li>
+</div>
+<ul>
+<li>创建Diffie-Hellman证书</li>
 </ul>
 
 <p>该证书主要作用是确保共享KEY安全穿越不安全网络</p>
@@ -315,7 +319,8 @@ easyrsa sign server &lt;server name&gt;</code></pre></td></tr></table>
 </div>
 </div>
 <ul>
-<li><p>创建并签名客户端证书</p>
+<li>创建并签名客户端证书</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
@@ -325,9 +330,7 @@ easyrsa sign server &lt;server name&gt;</code></pre></td></tr></table>
 <pre class="chroma"><code class="language-shell" data-lang="shell">easyrsa gen-req &lt;client name&gt; nopass
 easyrsa sign client &lt;client name&gt;</code></pre></td></tr></table>
 </div>
-</div></li>
-</ul>
-
+</div>
 <h2 id="配置服务器端">配置服务器端</h2>
 
 <p>复制一份模板文件(<code>/usr/share/openvpn/examples/server.conf</code>)到 <code>/etc/openvpn</code> 目录, 然后开始修改相关项.</p>
@@ -390,7 +393,8 @@ iptables -t nat -A POSTROUTING -s <span class="m">10</span>.8.0.0/24 -o eth0 -j 
 <h3 id="证书认证">证书认证</h3>
 
 <ul>
-<li><p>服务端</p>
+<li>服务端</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
@@ -448,9 +452,10 @@ log         /var/log/openvpn/openvpn.log
 log-append  /var/log/openvpn/openvpn.log
 verb <span class="m">3</span></code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>客户端</p>
+</div>
+<ul>
+<li>客户端</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
@@ -492,9 +497,7 @@ cipher AES-256-CBC
 <span class="c1">#comp-lzo</span>
 verb <span class="m">3</span></code></pre></td></tr></table>
 </div>
-</div></li>
-</ul>
-
+</div>
 <h3 id="用户名密码认证">用户名密码认证</h3>
 
 <p>需要加入 <code>auth-user-pass-verify</code> ，开启用户密码脚本, 脚本示例, 读取 <code>/etc/openvpn/passwd</code> 文件:</p>
@@ -573,7 +576,8 @@ verb <span class="m">3</span></code></pre></td></tr></table>
 </div>
 </div>
 <ul>
-<li><p>服务端</p>
+<li>服务端</li>
+</ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
@@ -653,9 +657,9 @@ status openvpn-status.log
 <span class="c1">#日志冗余级别</span>
 verb <span class="m">3</span></code></pre></td></tr></table>
 </div>
-</div></li>
-
-<li><p>客户端</p></li>
+</div>
+<ul>
+<li>客户端</li>
 </ul>
 
 <p>客户端配置文件中去掉于证书相关的配置，加入 <code>auth-user-pass</code> 打开用户名密码验证.
