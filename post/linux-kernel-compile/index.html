@@ -63,7 +63,7 @@ sudo pacman -S gcc ncurses bison flex openssl libelf elfutils
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jouyouyun.github.io/post/linux-kernel-compile/" />
 <meta property="article:published_time" content="2019-08-06T21:38:21&#43;08:00"/>
-<meta property="article:modified_time" content="2019-10-16T15:00:11&#43;08:00"/>
+<meta property="article:modified_time" content="2019-11-27T20:05:41&#43;08:00"/>
 
 <meta itemprop="name" content="Compile Kernel">
 <meta itemprop="description" content="最近由于要调试 usbhid 模块，所以需要编译 kernel ，在此整理下方法，以免每次都查找。
@@ -84,8 +84,8 @@ sudo pacman -S gcc ncurses bison flex openssl libelf elfutils
 
 
 <meta itemprop="datePublished" content="2019-08-06T21:38:21&#43;08:00" />
-<meta itemprop="dateModified" content="2019-10-16T15:00:11&#43;08:00" />
-<meta itemprop="wordCount" content="766">
+<meta itemprop="dateModified" content="2019-11-27T20:05:41&#43;08:00" />
+<meta itemprop="wordCount" content="781">
 
 
 
@@ -271,6 +271,15 @@ sudo pacman -S gcc ncurses bison flex openssl libelf elfutils
 
 <p>其中 <code>EXTRAVERSION</code> 还可通过 <code>.config</code> 中 <code>CONFIG_LOCALVERSION</code> 指定(需要确保 <code>CONFIG_LOCALVERSION_AUTO</code> 不被设置)</p>
 
+<p>或者这样指定：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">make <span class="nv">KERNELRELEASE</span><span class="o">=</span><span class="m">4</span>.19.34-2deepin-generic <span class="nv">ARCH</span><span class="o">=</span>arm64   <span class="nv">KBUILD_BUILD_VERSION</span><span class="o">=</span><span class="m">20</span> <span class="nv">KBUILD_SRC</span><span class="o">=</span></code></pre></td></tr></table>
+</div>
+</div>
 <h4 id="avoid-add-plus-after-kernel-version">Avoid add &lsquo;+&rsquo; after kernel version</h4>
 
 <blockquote>
@@ -285,27 +294,27 @@ sudo pacman -S gcc ncurses bison flex openssl libelf elfutils
 
 <h2 id="build">Build</h2>
 
-<p>The kernel version: 4.19.37, vermagic: 4.19.0-5-amd64</p>
+<p>The kernel version: <strong>4.19.37</strong> , vermagic: <strong>4.19.0-5-amd64</strong></p>
 
 <h3 id="prepare">Prepare</h3>
 
-<p><code>make VERSION=4 PATCHLEVEL=19 SUBLEVEL=0 EXTRAVERSION</code>&rsquo;-5-amd64&rsquo; scripts prepare modules_prepare -j 24=</p>
+<p><code>make VERSION=4 PATCHLEVEL=19 SUBLEVEL=0 EXTRAVERSION='-5-amd64' scripts prepare modules_prepare -j 24</code></p>
 
 <h3 id="make">Make</h3>
 
-<p><code>make VERSION=4 PATCHLEVEL=19 SUBLEVEL=0 EXTRAVERSION</code>&rsquo;-5-amd64&rsquo; -j 24=</p>
+<p><code>make VERSION=4 PATCHLEVEL=19 SUBLEVEL=0 EXTRAVERSION='-5-amd64' -j 24</code></p>
 
 <h3 id="build-special-module">Build Special Module</h3>
 
 <h4 id="prepare-1">Prepare</h4>
 
-<p><code>make VERSION=4 PATCHLEVEL=19 SUBLEVEL=0 EXTRAVERSION</code>&rsquo;-5-amd64&rsquo; scripts modules_prepare -j 24=</p>
+<p><code>make VERSION=4 PATCHLEVEL=19 SUBLEVEL=0 EXTRAVERSION='-5-amd64' scripts modules_prepare -j 24</code></p>
 
 <h4 id="make-1">Make</h4>
 
-<p><code>make VERSION=4 PATCHLEVEL=19 SUBLEVEL=0 EXTRAVERSION</code>&rsquo;-5-amd64&rsquo; -C . M=<module path>=</p>
+<p><code>make VERSION=4 PATCHLEVEL=19 SUBLEVEL=0 EXTRAVERSION='-5-amd64' -C . M=&lt;module path&gt;</code></p>
 
-<p>例如编译 <code>usbhid.ko</code> 则是： <code>make VERSION=4 PATCHLEVEL=19 SUBLEVEL=0 EXTRAVERSION</code>&rsquo;-5-amd64&rsquo; -C . M=drivers/hid/usbhid=</p>
+<p>例如编译 <code>usbhid.ko</code> 则是： <code>make VERSION=4 PATCHLEVEL=19 SUBLEVEL=0 EXTRAVERSION='-5-amd64' -C . M=drivers/hid/usbhid</code></p>
 
 <hr />
 
@@ -434,7 +443,7 @@ Found initrd image: /boot/initrd.img-4.19.0-5-amd64
   </p>
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
-    <span class="item-content">2019-10-16</span>
+    <span class="item-content">2019-11-27</span>
   </p>
   
   
