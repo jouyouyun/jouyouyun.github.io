@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.82.1 with theme even" />
 
 
 <link rel="canonical" href="https://jouyouyun.github.io/" />
@@ -36,7 +36,8 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.93844dae.min.css" rel="stylesheet">
+
+<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -45,12 +46,8 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://jouyouyun.github.io/" />
 
-<meta property="og:updated_time" content="2018-11-27T21:38:21&#43;08:00"/>
-
 <meta itemprop="name" content="jouyouyun&#39;s blog">
-<meta itemprop="description" content="jouyouyun&#39;s blog">
-
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="description" content="jouyouyun&#39;s blog"><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="jouyouyun&#39;s blog"/>
 <meta name="twitter:description" content="jouyouyun&#39;s blog"/>
 
@@ -111,6 +108,99 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/gorm-association/">gorm 关联查询</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-12-05 </span>
+      <div class="post-category">
+          <a href="/categories/blog/"> BLOG </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p>定义了一个 <code>User</code> 和 <code>Company</code>, <code>User</code> 中可以包含多个 <code>Company</code>, 如下:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">User</span> <span class="kd">struct</span> <span class="p">{</span>
+        <span class="nx">ID</span>        <span class="kt">int</span>        <span class="s">`gorm:&#34;TYPE:int(11);NOT NULL;PRIMARY_KEY;INDEX&#34;`</span>
+        <span class="nx">Name</span>      <span class="kt">string</span>     <span class="s">`gorm:&#34;TYPE: VARCHAR(255); DEFAULT:&#39;&#39;;INDEX&#34;`</span>
+        <span class="nx">Companies</span> <span class="p">[]</span><span class="nx">Company</span>  <span class="s">`gorm:&#34;FOREIGNKEY:UserId;ASSOCIATION_FOREIGNKEY:ID&#34;`</span>
+        <span class="nx">CreatedAt</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Time</span>  <span class="s">`gorm:&#34;TYPE:DATETIME&#34;`</span>
+        <span class="nx">UpdatedAt</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Time</span>  <span class="s">`gorm:&#34;TYPE:DATETIME&#34;`</span>
+        <span class="nx">DeletedAt</span> <span class="o">*</span><span class="nx">time</span><span class="p">.</span><span class="nx">Time</span> <span class="s">`gorm:&#34;TYPE:DATETIME;DEFAULT:NULL&#34;`</span>
+<span class="p">}</span>
+
+<span class="kd">type</span> <span class="nx">Company</span> <span class="kd">struct</span> <span class="p">{</span>
+        <span class="nx">gorm</span><span class="p">.</span><span class="nx">Model</span>
+        <span class="nx">Industry</span> <span class="kt">int</span>    <span class="s">`gorm:&#34;TYPE:INT(11);DEFAULT:0&#34;`</span>
+        <span class="nx">Name</span>     <span class="kt">string</span> <span class="s">`gorm:&#34;TYPE:VARCHAR(255);DEFAULT:&#39;&#39;;INDEX&#34;`</span>
+        <span class="nx">Job</span>      <span class="kt">string</span> <span class="s">`gorm:&#34;TYPE:VARCHAR(255);DEFAULT:&#39;&#39;&#34;`</span>
+        <span class="nx">UserId</span>   <span class="kt">int</span>    <span class="s">`gorm:&#34;TYPE:int(11);NOT NULL;INDEX&#34;`</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+    <div class="read-more">
+      <a href="/post/gorm-association/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/python-learn-note/">python3 学习笔记</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-12-02 </span>
+      <div class="post-category">
+          <a href="/categories/note/"> NOTE </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h2 id="python3-study-notes">Python3 Study Notes</h2>
+<p>本人很少写 <code>python</code> 代码, 一般都是用 <code>go</code> 的, 去年时用 <code>python</code> 写过一些收集系统信息的工具, 当时是边看手册边写的. 如今又要用 <code>python</code> 来写一个生成 <code>xlsx</code> 的工具, 就又需要查看手册了, 至于为什么不用 <code>go</code> 写? 那是因为 <code>go</code> 的库不兼容永中. 在这里不得不说, 虽然 <code>go</code> 很火, 但是一些库还是不如 <code>python</code> 多, 不如 <code>python</code> 兼容性好.</p>
+<p>为了避免以后再出这种事情, 这次就好好的了解下 <code>python</code>, 将它的用法按照自己对语言的理解分块记录下来. 要使用某种语言, 个人认为需要了解这些方面:</p>
+<ul>
+<li>编码风格</li>
+<li>变量的类型, 声明及使用方式</li>
+<li>输入/输出</li>
+<li>控制语句的写法</li>
+<li>错误处理的用法</li>
+<li>函数的用法, 还有语言支持的一些特性, <code>python</code> 中就有装饰器, <code>lambda</code> 语句等</li>
+<li>对于面向对象语言还需要了解类的声明, 继承, 多态等的用法</li>
+</ul>
+<p>还有一些就是此语言的一些特性, <code>python</code> 就还需要了解以下特性:</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/python-learn-note/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/go-package-management/">Go 包管理之gom</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2018-11-27 </span>
@@ -123,9 +213,7 @@
   <div class="post-content">
     <div class="post-summary">
       <h2 id="go-module-使用">Go Module 使用</h2>
-
 <p><code>Go Module</code> 是官方用来管理 <code>package</code> 依赖的工具, <code>1.11</code> 新加的, 使用时需要设置变量: <code>GO111MODULE=on</code> .</p>
-
 <p><code>go mod help</code> 可以查看其帮助文档:</p>
     </div>
     <div class="read-more">
@@ -148,13 +236,9 @@
   <div class="post-content">
     <div class="post-summary">
       <p>信号是系统响应某些条件而产生的一个事件，接收到该信的进程做出相应的处理。通常信是由错误产生的，如段错误(<code>SIGSEGV</code>)。 但信还可以作为进程间通信的一种方式，由一个进程发送给另一个进程。</p>
-
 <p>信号定义在 <code>signal.h</code> 文件中，以 <code>SIG</code> 作为开头，可用 <code>kill -l</code> 命令查看，详细信息参见 <a href="http://man7.org/linux/man-pages/man7/signal.7.html">man 7 signal</a> 。</p>
-
 <h2 id="信号处理">信号处理</h2>
-
 <p>信号可以通过 <code>signal</code> 和 <code>sigaction</code> 函数来注册处理， <code>signal</code> 函数是 <code>struct sigaction</code> 中 <code>sa_handler</code> 的一种便捷实现。</p>
-
 <h3 id="signal-函数"><code>signal</code> 函数</h3>
     </div>
     <div class="read-more">
@@ -179,7 +263,7 @@
       <p>今天在执行 <code>sudo apt-get update</code> 出现了下面的错误提示：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -188,73 +272,17 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell">E: 仓库<span class="s1">&#39;http://dl.google.com/linux/chrome/deb stable Release&#39;</span>将其<span class="s1">&#39;Origin&#39;</span>值从<span class="s1">&#39;Google, Inc.&#39;</span>修改到了<span class="s1">&#39;Google LLC&#39;</span>
-N: 为了让这个仓库能够应用，这必须在更新之前显式接受。更多细节请参阅 apt-secure<span class="o">(</span><span class="m">8</span><span class="o">)</span> 手册。
+N: 为了让这个仓库能够应用，这必须在更新之前显式接受。更多细节请参阅 apt-secure<span class="o">(</span>8<span class="o">)</span> 手册。
 
 <span class="c1"># 英语环境下的输出</span>
 E: Repository ‘http://dl.google.com/linux/chrome-remote-desktop/deb stable Release’ changed its ‘Origin’ value from ‘Google, Inc.’ to ‘Google LLC’
-N: This must be accepted explicitly before updates <span class="k">for</span> this repository can be applied. See apt-secure<span class="o">(</span><span class="m">8</span><span class="o">)</span> manpage <span class="k">for</span> details.</code></pre></td></tr></table>
+N: This must be accepted explicitly before updates <span class="k">for</span> this repository can be applied. See apt-secure<span class="o">(</span>8<span class="o">)</span> manpage <span class="k">for</span> details.
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这个错误导致无法升级系统，错误说明了原因：是由于 <code>Google Chrome</code> 的 <code>Origin</code> 改变引起的，也给出了解决思路：手动接受这个改变。</p>
+</div><p>这个错误导致无法升级系统，错误说明了原因：是由于 <code>Google Chrome</code> 的 <code>Origin</code> 改变引起的，也给出了解决思路：手动接受这个改变。</p>
     </div>
     <div class="read-more">
       <a href="/post/how-to-solved-origin-changed-apt-error/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/set-appearance-in-deepin-or-gnome/">linux 下 deepin 和 gnome 桌面的外观设置</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2018-10-23 </span>
-      <div class="post-category">
-          <a href="/categories/blog/"> BLOG </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>桌面的外观设置一般包括窗口主题、图标主题、光标主题和字体设置，其中窗口主题就是常见的 <code>gtk</code> 主题，字体设置又包括标准字体、等款字体和字体大小。对于进些年的高分屏，又添加了字体缩放和窗口缩放这2个选项。</p>
-
-<p>界面上设置方法就不介绍了，都可以在各自桌面的控制中心中找到，这里主要介绍命令行下的。</p>
-
-<p><code>deepin</code> 和 <code>gnome</code> 桌面环境的外观配置数据是使用 <code>gsettings</code> 来存储，所以可以通过 <code>gsettings</code> 来设置和读取。 <code>gsettings</code> 相比设置界面就是 可以设置到更多的选项，设置的值更加精确。</p>
-
-<p>下面先简单介绍下 <code>gsettings</code> 的用法。</p>
-
-<h2 id="gsettings"><code>GSettings</code></h2>
-    </div>
-    <div class="read-more">
-      <a href="/post/set-appearance-in-deepin-or-gnome/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/linux-auto-suspend/">Linux 休眠自动唤醒</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2018-10-21 </span>
-      <div class="post-category">
-          <a href="/categories/blog/"> BLOG </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>最近做无线网络在系统多次休眠唤醒后是否正常的测试，但每次休眠后都需要手动点击键盘来唤醒系统，显而易见的这种方法需要人来值守，很不放便。</p>
-
-<p>此时便想是否有做自动唤醒的程序，毕竟这种需求也挺正常的，应该有人已经做过了。因此就开始查找自动唤醒的方法，果然就发现了 <code>rtcwake</code> 这个程序，这个程序是让系统进入休眠模式并在指定的时间后唤醒。立刻便觉得这个程序很神奇，然后就去看它的源码来找出它的实现方式，这边发现了本文的主题 <code>RTC</code> 子系统。</p>
-
-<h2 id="rtc-子系统"><code>RTC</code> 子系统</h2>
-
-<p><code>RTC</code> 子系统在目录 <code>/sys/class/rtc/</code> 下，会根据设备创建对应的目录，需要在内核中开启支持，配置如下：</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/linux-auto-suspend/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>
@@ -300,13 +328,10 @@ N: This must be accepted explicitly before updates <span class="k">for</span> th
   <span class="copyright-year">
     &copy; 
     2014 - 
-    2019
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">jouyouyun</span>
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>jouyouyun</span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -317,7 +342,10 @@ N: This must be accepted explicitly before updates <span class="k">for</span> th
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="/dist/even.ece58db6.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

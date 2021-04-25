@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>restful on jouyouyun&#39;s blog</title>
@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>jouyouyun</copyright>
-    <lastBuildDate>Thu, 10 May 2018 21:38:21 +0800</lastBuildDate>
-    
-	<atom:link href="https://jouyouyun.github.io/tags/restful/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 10 May 2018 21:38:21 +0800</lastBuildDate><atom:link href="https://jouyouyun.github.io/tags/restful/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>RESTful 简介</title>
       <link>https://jouyouyun.github.io/post/restful-introduction/</link>
@@ -19,31 +15,29 @@
       
       <guid>https://jouyouyun.github.io/post/restful-introduction/</guid>
       <description>&lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;
-
 &lt;p&gt;&lt;code&gt;RESTful&lt;/code&gt; 即表现层状态转换，是一种设计风格，不是标准。其要点如下：&lt;/p&gt;
-
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;资源由 &lt;code&gt;URI&lt;/code&gt; 来指定&lt;/p&gt;
-
-&lt;p&gt;每个资源都有与之对应的 &lt;code&gt;URI=，一个 =URI&lt;/code&gt; 只能对应一种资源，但一种资源可以对应多个 &lt;code&gt;URI&lt;/code&gt; 不同的分类方法)。&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;对资源的操作对应到 &lt;code&gt;HTTP&lt;/code&gt; 协议提供的方法&lt;/p&gt;
-
-&lt;p&gt;如增删改查等操作，对应 &lt;code&gt;HTTP&lt;/code&gt; 协议的 &lt;code&gt;POST, DELETE, PUT, GET&lt;/code&gt; 等方法&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;资源的表现形式通常广泛流行的协议和标准&lt;/p&gt;
-
-&lt;p&gt;如 &lt;code&gt;JSON, XML, HTML&lt;/code&gt; 等格式，当然也可以是其它格式或者私有格式，但一定足够能描述自己&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;通过操作资源的表现形式来操作资源&lt;/p&gt;
-
-&lt;p&gt;通过修改表现形式再辅以 &lt;code&gt;HTTP&lt;/code&gt; 协议的方法，应用就可以管理资源&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;以超媒体作为应用状态的引擎&lt;/p&gt;
-
+&lt;li&gt;
+&lt;p&gt;资源由 &lt;code&gt;URI&lt;/code&gt; 来指定&lt;/p&gt;
+&lt;p&gt;每个资源都有与之对应的 &lt;code&gt;URI=，一个 =URI&lt;/code&gt; 只能对应一种资源，但一种资源可以对应多个 &lt;code&gt;URI&lt;/code&gt; 不同的分类方法)。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;对资源的操作对应到 &lt;code&gt;HTTP&lt;/code&gt; 协议提供的方法&lt;/p&gt;
+&lt;p&gt;如增删改查等操作，对应 &lt;code&gt;HTTP&lt;/code&gt; 协议的 &lt;code&gt;POST, DELETE, PUT, GET&lt;/code&gt; 等方法&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;资源的表现形式通常广泛流行的协议和标准&lt;/p&gt;
+&lt;p&gt;如 &lt;code&gt;JSON, XML, HTML&lt;/code&gt; 等格式，当然也可以是其它格式或者私有格式，但一定足够能描述自己&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;通过操作资源的表现形式来操作资源&lt;/p&gt;
+&lt;p&gt;通过修改表现形式再辅以 &lt;code&gt;HTTP&lt;/code&gt; 协议的方法，应用就可以管理资源&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;以超媒体作为应用状态的引擎&lt;/p&gt;
 &lt;p&gt;资源相关操作的 &lt;code&gt;URI&lt;/code&gt; 可附加在表现形式内，应用根据自身状态选择相应的 &lt;code&gt;URI&lt;/code&gt; 来更改状态。&lt;/p&gt;
-
-&lt;p&gt;操作可以是 &lt;code&gt;URI&lt;/code&gt; 外，也可以是一段代码，让应用执行。&lt;/p&gt;&lt;/li&gt;
+&lt;p&gt;操作可以是 &lt;code&gt;URI&lt;/code&gt; 外，也可以是一段代码，让应用执行。&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;</description>
     </item>
     

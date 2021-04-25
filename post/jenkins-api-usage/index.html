@@ -26,7 +26,7 @@ Jenkins 中有 view 和 job 的概念， view 相当于组， job 则是具体�
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.82.1 with theme even" />
 
 
 <link rel="canonical" href="https://jouyouyun.github.io/post/jenkins-api-usage/" />
@@ -37,45 +37,33 @@ Jenkins 中有 view 和 job 的概念， view 相当于组， job 则是具体�
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.93844dae.min.css" rel="stylesheet">
+
+<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="Jenkins API 使用" />
 <meta property="og:description" content="Jenkins 是一款流行的开源持续集成工具，可以用来做一些软件开发的自动化工作，如打包，测试，自动部署等。
-
 Jenkins 中有 view 和 job 的概念， view 相当于组， job 则是具体的任务。
 view 下面可以创建 job ，但 job 可以不在任何 view 下。
-
 这里主要介绍 Jenkins 提供的 HTTP API ，至于如何使用 Jenkins 请参看 Jenkins User Documentation。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://jouyouyun.github.io/post/jenkins-api-usage/" />
-<meta property="article:published_time" content="2019-04-21T20:02:00&#43;08:00"/>
-<meta property="article:modified_time" content="2019-05-16T16:26:15&#43;08:00"/>
+<meta property="og:url" content="https://jouyouyun.github.io/post/jenkins-api-usage/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2019-04-21T20:02:00&#43;08:00" />
+<meta property="article:modified_time" content="2019-05-16T16:26:15&#43;08:00" />
 
 <meta itemprop="name" content="Jenkins API 使用">
 <meta itemprop="description" content="Jenkins 是一款流行的开源持续集成工具，可以用来做一些软件开发的自动化工作，如打包，测试，自动部署等。
-
 Jenkins 中有 view 和 job 的概念， view 相当于组， job 则是具体的任务。
 view 下面可以创建 job ，但 job 可以不在任何 view 下。
-
-这里主要介绍 Jenkins 提供的 HTTP API ，至于如何使用 Jenkins 请参看 Jenkins User Documentation。">
-
-
-<meta itemprop="datePublished" content="2019-04-21T20:02:00&#43;08:00" />
+这里主要介绍 Jenkins 提供的 HTTP API ，至于如何使用 Jenkins 请参看 Jenkins User Documentation。"><meta itemprop="datePublished" content="2019-04-21T20:02:00&#43;08:00" />
 <meta itemprop="dateModified" content="2019-05-16T16:26:15&#43;08:00" />
 <meta itemprop="wordCount" content="1216">
-
-
-
-<meta itemprop="keywords" content="jenkins,rest,api," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="jenkins,rest,api," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Jenkins API 使用"/>
 <meta name="twitter:description" content="Jenkins 是一款流行的开源持续集成工具，可以用来做一些软件开发的自动化工作，如打包，测试，自动部署等。
-
 Jenkins 中有 view 和 job 的概念， view 相当于组， job 则是具体的任务。
 view 下面可以创建 job ，但 job 可以不在任何 view 下。
-
 这里主要介绍 Jenkins 提供的 HTTP API ，至于如何使用 Jenkins 请参看 Jenkins User Documentation。"/>
 
 <!--[if lte IE 9]>
@@ -150,195 +138,164 @@ view 下面可以创建 job ，但 job 可以不在任何 view 下。
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#api">API</a>
-<ul>
-<li><a href="#鉴权">鉴权</a></li>
-<li><a href="#view">View</a></li>
-<li><a href="#job">Job</a></li>
-<li><a href="#job-build">Job Build</a></li>
-</ul></li>
-<li><a href="#附录">附录</a>
-<ul>
-<li><a href="#使用-go-编写触发构建的程序">使用 <code>Go</code> 编写触发构建的程序</a></li>
-<li><a href="#参考资料">参考资料</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#api">API</a>
+      <ul>
+        <li><a href="#鉴权">鉴权</a></li>
+        <li><a href="#view">View</a></li>
+        <li><a href="#job">Job</a></li>
+        <li><a href="#job-build">Job Build</a></li>
+      </ul>
+    </li>
+    <li><a href="#附录">附录</a>
+      <ul>
+        <li><a href="#使用-go-编写触发构建的程序">使用 <code>Go</code> 编写触发构建的程序</a></li>
+        <li><a href="#参考资料">参考资料</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
       <p><code>Jenkins</code> 是一款流行的开源持续集成工具，可以用来做一些软件开发的自动化工作，如打包，测试，自动部署等。</p>
-
 <p><code>Jenkins</code> 中有 <code>view</code> 和 <code>job</code> 的概念， <code>view</code> 相当于组， <code>job</code> 则是具体的任务。
 <code>view</code> 下面可以创建 <code>job</code> ，但 <code>job</code> 可以不在任何 <code>view</code> 下。</p>
-
 <p>这里主要介绍 <code>Jenkins</code> 提供的 <code>HTTP API</code> ，至于如何使用 <code>Jenkins</code> 请参看 <a href="https://jenkins.io/doc/">Jenkins User Documentation</a>。</p>
-
 <h2 id="api">API</h2>
-
 <h3 id="鉴权">鉴权</h3>
-
 <p><code>Jenkins</code> 使用 <code>Baisc Auth</code> 的权限验证方式，需要传入 <code>username</code> 和 <code>api token</code> 。
 其中 <code>api token</code> 需要在用户的设置界面去创建。</p>
-
 <p>但在 <code>Job</code> 的远程触发中，可以设置用于远程触发的 <code>token</code> (在 <code>Job</code> 的配置页面设置)，这样在触发 <code>Job</code> 时就不需要传入 <code>Basic Auth</code> 了。
 远程触发的 <code>token</code> 使用 <code>urlencode</code> 的方式放在请求的 <code>body</code> 中，其原始数据为： <code>token=&lt;Token Value&gt;</code></p>
-
 <p>下面给出两种方式触发 <code>Job</code> 的例子：</p>
-
 <ul>
-<li><p><strong>Basic Auth</strong></p>
-
-<p><code>curl -X POST &lt;jenkins url&gt;/view/&lt;view name&gt;/job/&lt;job name&gt;/build --user &lt;username&gt;:&lt;api token&gt;</code></p></li>
-
-<li><p><strong>Token</strong></p>
-
-<p><code>curl -X POST &lt;jenkins url&gt;/view/&lt;view name&gt;/job/&lt;job name&gt;/build --data-urlencode token=&lt;Token Value&gt;</code></p></li>
+<li>
+<p><strong>Basic Auth</strong></p>
+<p><code>curl -X POST &lt;jenkins url&gt;/view/&lt;view name&gt;/job/&lt;job name&gt;/build --user &lt;username&gt;:&lt;api token&gt;</code></p>
+</li>
+<li>
+<p><strong>Token</strong></p>
+<p><code>curl -X POST &lt;jenkins url&gt;/view/&lt;view name&gt;/job/&lt;job name&gt;/build --data-urlencode token=&lt;Token Value&gt;</code></p>
+</li>
 </ul>
-
 <h3 id="view">View</h3>
-
 <ul>
-<li><p>创建</p>
-
+<li>
+<p>创建</p>
 <p><strong>API:</strong> <code>&lt;jenkins url&gt;/createView</code></p>
-
-<p><strong>curl:</strong> <code>curl -X POST &lt;jenkins url&gt;/createView?name=&lt;view name&gt; --data-binary &quot;@viewCofnig.xml&quot; -H &quot;Content-Type: text/xml&quot; --auth &lt;u&gt;:&lt;p&gt;</code></p></li>
-
-<li><p>删除</p>
-
+<p><strong>curl:</strong> <code>curl -X POST &lt;jenkins url&gt;/createView?name=&lt;view name&gt; --data-binary &quot;@viewCofnig.xml&quot; -H &quot;Content-Type: text/xml&quot; --auth &lt;u&gt;:&lt;p&gt;</code></p>
+</li>
+<li>
+<p>删除</p>
 <p><strong>API:</strong> <code>&lt;jenkins url&gt;/view/&lt;view name&gt;/doDelete</code></p>
-
-<p><strong>curl:</strong> <code>curl -X POST &lt;jenkins url&gt;/view/&lt;view name&gt;/doDelete --auth &lt;u&gt;:&lt;p&gt;</code></p></li>
+<p><strong>curl:</strong> <code>curl -X POST &lt;jenkins url&gt;/view/&lt;view name&gt;/doDelete --auth &lt;u&gt;:&lt;p&gt;</code></p>
+</li>
 </ul>
-
-<!--listend-->
-
+<!-- raw HTML omitted -->
 <ul>
-<li><p>查询状态</p>
-
+<li>
+<p>查询状态</p>
 <p><strong>API:</strong> <code>&lt;jenkins url&gt;/view/&lt;view name&gt;/api/json</code></p>
-
-<p><strong>curl:</strong> <code>curl -X GET &lt;jenkins url&gt;/view/&lt;view name&gt;/api/json --auth &lt;u&gt;:&lt;p&gt;</code></p></li>
-
-<li><p>查询配置</p>
-
+<p><strong>curl:</strong> <code>curl -X GET &lt;jenkins url&gt;/view/&lt;view name&gt;/api/json --auth &lt;u&gt;:&lt;p&gt;</code></p>
+</li>
+<li>
+<p>查询配置</p>
 <p><strong>API:</strong> <code>&lt;jenkins url&gt;/view/&lt;view name&gt;/config.xml</code></p>
-
-<p><strong>curl:</strong> <code>curl -X GET &lt;jenkins url&gt;/view/&lt;view name&gt;/config.xml --auth &lt;u&gt;:&lt;p&gt;</code></p></li>
+<p><strong>curl:</strong> <code>curl -X GET &lt;jenkins url&gt;/view/&lt;view name&gt;/config.xml --auth &lt;u&gt;:&lt;p&gt;</code></p>
+</li>
 </ul>
-
-<!--listend-->
-
+<!-- raw HTML omitted -->
 <ul>
-<li><p>更新配置</p>
-
+<li>
+<p>更新配置</p>
 <p><strong>API:</strong> <code>&lt;jenkins url&gt;/view/&lt;view name&gt;/config.xml</code></p>
-
-<p><strong>curl:</strong> <code>curl -X POST &lt;jenkins url&gt;/view/&lt;view name&gt;/config.xml --data-binary &quot;@newCofnig.xml&quot; -H &quot;Content-Type: text/xml&quot; --auth &lt;u&gt;:&lt;p&gt;</code></p></li>
+<p><strong>curl:</strong> <code>curl -X POST &lt;jenkins url&gt;/view/&lt;view name&gt;/config.xml --data-binary &quot;@newCofnig.xml&quot; -H &quot;Content-Type: text/xml&quot; --auth &lt;u&gt;:&lt;p&gt;</code></p>
+</li>
 </ul>
-
 <h3 id="job">Job</h3>
-
 <ul>
-<li><p>创建</p>
-
+<li>
+<p>创建</p>
 <p><strong>API:</strong> <code>&lt;jenkins url&gt;/createItem</code></p>
-
-<p><strong>curl:</strong> <code>curl -X POST &lt;jenkins url&gt;/createItem?name=&lt;job name&gt; --data-binary &quot;@jobConfig.xml&quot; -H &quot;Content-Type: text/xml&quot; --auth &lt;u&gt;:&lt;p&gt;</code></p></li>
-
-<li><p>删除</p>
-
+<p><strong>curl:</strong> <code>curl -X POST &lt;jenkins url&gt;/createItem?name=&lt;job name&gt; --data-binary &quot;@jobConfig.xml&quot; -H &quot;Content-Type: text/xml&quot; --auth &lt;u&gt;:&lt;p&gt;</code></p>
+</li>
+<li>
+<p>删除</p>
 <p><strong>API:</strong> <code>&lt;jenkins url&gt;/job/&lt;job name&gt;/doDelete</code></p>
-
-<p><strong>curl:</strong> <code>curl -X POST &lt;jenkins url&gt;/job/&lt;job name&gt;/doDelete --auth &lt;u&gt;:&lt;p&gt;</code></p></li>
-
-<li><p>查询状态</p>
-
+<p><strong>curl:</strong> <code>curl -X POST &lt;jenkins url&gt;/job/&lt;job name&gt;/doDelete --auth &lt;u&gt;:&lt;p&gt;</code></p>
+</li>
+<li>
+<p>查询状态</p>
 <p><strong>API:</strong> <code>&lt;jenkins url&gt;/view/&lt;view name&gt;/job/&lt;job name&gt;/api/json</code></p>
-
-<p><strong>curl:</strong> <code>curl -X GET &lt;jenkins url&gt;/view/&lt;view name&gt;/job/&lt;job name&gt;/api/json --auth &lt;u&gt;:&lt;p&gt;</code></p></li>
-
-<li><p>启用</p>
-
-<p><strong>API:</strong> <code>&lt;jenkins url&gt;/view/&lt;view name&gt;/job/&lt;job name&gt;/enable</code></p></li>
-
-<li><p>禁用</p>
-
-<p><strong>API:</strong> <code>&lt;jenkins url&gt;/view/&lt;view name&gt;/job/&lt;job name&gt;/disable</code></p></li>
-
-<li><p>查询配置</p>
-
+<p><strong>curl:</strong> <code>curl -X GET &lt;jenkins url&gt;/view/&lt;view name&gt;/job/&lt;job name&gt;/api/json --auth &lt;u&gt;:&lt;p&gt;</code></p>
+</li>
+<li>
+<p>启用</p>
+<p><strong>API:</strong> <code>&lt;jenkins url&gt;/view/&lt;view name&gt;/job/&lt;job name&gt;/enable</code></p>
+</li>
+<li>
+<p>禁用</p>
+<p><strong>API:</strong> <code>&lt;jenkins url&gt;/view/&lt;view name&gt;/job/&lt;job name&gt;/disable</code></p>
+</li>
+<li>
+<p>查询配置</p>
 <p><strong>API:</strong> <code>&lt;jenkins url&gt;/view/&lt;view name&gt;/job/&lt;job name&gt;/config.xml</code></p>
-
-<p><strong>curl:</strong> <code>curl -X GET &lt;jenkins url&gt;/view/&lt;view name&gt;/job/&lt;job name&gt;/config.xml --auth &lt;u&gt;:&lt;p&gt;</code></p></li>
+<p><strong>curl:</strong> <code>curl -X GET &lt;jenkins url&gt;/view/&lt;view name&gt;/job/&lt;job name&gt;/config.xml --auth &lt;u&gt;:&lt;p&gt;</code></p>
+</li>
 </ul>
-
-<!--listend-->
-
+<!-- raw HTML omitted -->
 <ul>
-<li><p>更新配置</p>
-
+<li>
+<p>更新配置</p>
 <p><strong>API:</strong> <code>&lt;jenkins url&gt;/view/&lt;view name&gt;/job/&lt;job name&gt;/config.xml</code></p>
-
-<p><strong>curl:</strong> <code>curl -X POST &lt;jenkins url&gt;/view/&lt;view name&gt;/job/&lt;job name&gt;/config.xml --data-binary &quot;@newCofnig.xml&quot; -H &quot;Content-Type: text/xml&quot; --auth &lt;u&gt;:&lt;p&gt;</code></p></li>
+<p><strong>curl:</strong> <code>curl -X POST &lt;jenkins url&gt;/view/&lt;view name&gt;/job/&lt;job name&gt;/config.xml --data-binary &quot;@newCofnig.xml&quot; -H &quot;Content-Type: text/xml&quot; --auth &lt;u&gt;:&lt;p&gt;</code></p>
+</li>
 </ul>
-
 <h3 id="job-build">Job Build</h3>
-
 <p>为了描述方便，这里先定义 <code>baseURL=&lt;jenkins url&gt;/view/&lt;view name&gt;/job/&lt;job name&gt;</code> ，下面的 <code>API</code> 都需要加上 <code>baseURL</code> 才是完整的 =URL=。</p>
-
 <ul>
-<li><p>触发构建</p>
-
+<li>
+<p>触发构建</p>
 <p><strong>API:</strong> <code>/build</code></p>
-
 <p>支持 <code>token</code> 触发，支持填入构建参数，构建参数是在 <code>Job</code> 配置页面创建的。</p>
-
 <p>如使用 <code>token</code> 并有字符参数 <code>branch</code> 和 <code>target</code> 的例子：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell">curl -X POST &lt;api&gt; --data-urlencode <span class="nv">token</span><span class="o">=</span>&lt;token value&gt; <span class="se">\
-</span><span class="se"></span>--data-urlencode <span class="nv">json</span><span class="o">=</span><span class="s1">&#39;{&#34;parameters&#34;: [{&#34;name&#34;: &#34;branch&#34;, &#34;value&#34;: &#34;master&#34;},{&#34;name&#34;:&#34;target&#34;,&#34;value&#34;:&#34;mirror&#34;}]}&#39;</span></code></pre></td></tr></table>
+</span><span class="se"></span>--data-urlencode <span class="nv">json</span><span class="o">=</span><span class="s1">&#39;{&#34;parameters&#34;: [{&#34;name&#34;: &#34;branch&#34;, &#34;value&#34;: &#34;master&#34;},{&#34;name&#34;:&#34;target&#34;,&#34;value&#34;:&#34;mirror&#34;}]}&#39;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>触发成功后，会在 <code>header</code> 的 <code>Location</code> 字段指明 <code>queue url</code> ，再通过查询 <code>queue</code> 就可获取到 <code>build id</code> 了。</p></li>
-
-<li><p>停止构建</p>
-
-<p><strong>API:</strong> <code>/&lt;id&gt;/stop</code></p></li>
-
-<li><p>删除构建</p>
-
-<p><strong>API:</strong> <code>/&lt;id&gt;/doDelete</code></p></li>
-
-<li><p>构建状态</p>
-
+</div><p>触发成功后，会在 <code>header</code> 的 <code>Location</code> 字段指明 <code>queue url</code> ，再通过查询 <code>queue</code> 就可获取到 <code>build id</code> 了。</p>
+</li>
+<li>
+<p>停止构建</p>
+<p><strong>API:</strong> <code>/&lt;id&gt;/stop</code></p>
+</li>
+<li>
+<p>删除构建</p>
+<p><strong>API:</strong> <code>/&lt;id&gt;/doDelete</code></p>
+</li>
+<li>
+<p>构建状态</p>
 <p><strong>API:</strong> <code>/&lt;id&gt;/api/json</code></p>
-
-<p><strong>进度说明:</strong> 返回的信息中， <code>timestamp</code> 表示开始时间， <code>estimatedDuration</code> 表示预估的任务耗时，这两个时间再加上当前时间就可估算任务进度。另外 <code>duration</code> 任务实际的耗时，信息中时间的单位都是毫秒(<code>ms</code>)。</p></li>
-
-<li><p>最后一次构建</p>
-
-<p><strong>API:</strong> <code>/lastBuild/api/json</code></p></li>
+<p><strong>进度说明:</strong> 返回的信息中， <code>timestamp</code> 表示开始时间， <code>estimatedDuration</code> 表示预估的任务耗时，这两个时间再加上当前时间就可估算任务进度。另外 <code>duration</code> 任务实际的耗时，信息中时间的单位都是毫秒(<code>ms</code>)。</p>
+</li>
+<li>
+<p>最后一次构建</p>
+<p><strong>API:</strong> <code>/lastBuild/api/json</code></p>
+</li>
 </ul>
-
 <h2 id="附录">附录</h2>
-
 <h3 id="使用-go-编写触发构建的程序">使用 <code>Go</code> 编写触发构建的程序</h3>
-
 <p>这里只给出关键代码：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -527,11 +484,10 @@ view 下面可以创建 job ，但 job 可以不在任何 view 下。
                 <span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">err</span>
         <span class="p">}</span>
         <span class="k">return</span> <span class="o">&amp;</span><span class="nx">info</span><span class="p">,</span> <span class="kc">nil</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="参考资料">参考资料</h3>
-
+</div><h3 id="参考资料">参考资料</h3>
 <p>没有在 <a href="https://wiki.jenkins.io/display/JENKINS/Remote+access+API">Jenkins REST API 文档</a> 中找到过多的 <code>API</code> 信息，但在 <a href="https://opendev.org/jjb/python-jenkins">python-jenkins</a> 的 <a href="https://opendev.org/jjb/python-jenkins/src/branch/master/jenkins/%5F%5Finit%5F%5F.py">代码</a> 中找到，所以想要了解更多请看代码。</p>
     </div>
 
@@ -542,11 +498,15 @@ view 下面可以创建 job ，但 job 可以不在任何 view 下。
   </p>
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
-    <span class="item-content">2019-05-16</span>
+    <span class="item-content">
+        2019-05-16
+        
+    </span>
   </p>
   
   
-</div><div class="post-reward">
+</div>
+<div class="post-reward">
   <input type="checkbox" name="reward" id="reward" hidden />
   <label class="reward-button" for="reward">赞赏支持</label>
   <div class="qr-code">
@@ -583,6 +543,10 @@ view 下面可以创建 job ，但 job 可以不在任何 view 下。
         </div>
         
 
+  
+
+  
+
       </div>
     </main>
 
@@ -609,13 +573,10 @@ view 下面可以创建 job ，但 job 可以不在任何 view 下。
   <span class="copyright-year">
     &copy; 
     2014 - 
-    2019
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">jouyouyun</span>
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>jouyouyun</span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -626,7 +587,10 @@ view 下面可以创建 job ，但 job 可以不在任何 view 下。
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="/dist/even.ece58db6.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

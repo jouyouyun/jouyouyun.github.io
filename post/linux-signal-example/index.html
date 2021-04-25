@@ -26,7 +26,7 @@ signal 函数" /><meta name="keywords" content="jouyouyun, Hugo, theme, even" />
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.82.1 with theme even" />
 
 
 <link rel="canonical" href="https://jouyouyun.github.io/post/linux-signal-example/" />
@@ -37,54 +37,36 @@ signal 函数" /><meta name="keywords" content="jouyouyun, Hugo, theme, even" />
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.93844dae.min.css" rel="stylesheet">
+
+<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="Linux Signal Examples" />
 <meta property="og:description" content="信号是系统响应某些条件而产生的一个事件，接收到该信的进程做出相应的处理。通常信是由错误产生的，如段错误(SIGSEGV)。 但信还可以作为进程间通信的一种方式，由一个进程发送给另一个进程。
-
 信号定义在 signal.h 文件中，以 SIG 作为开头，可用 kill -l 命令查看，详细信息参见 man 7 signal 。
-
 信号处理
-
 信号可以通过 signal 和 sigaction 函数来注册处理， signal 函数是 struct sigaction 中 sa_handler 的一种便捷实现。
-
 signal 函数" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://jouyouyun.github.io/post/linux-signal-example/" />
-<meta property="article:published_time" content="2018-11-13T21:38:21&#43;08:00"/>
-<meta property="article:modified_time" content="2019-04-23T16:13:41&#43;08:00"/>
+<meta property="og:url" content="https://jouyouyun.github.io/post/linux-signal-example/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2018-11-13T21:38:21&#43;08:00" />
+<meta property="article:modified_time" content="2019-04-23T16:13:41&#43;08:00" />
 
 <meta itemprop="name" content="Linux Signal Examples">
 <meta itemprop="description" content="信号是系统响应某些条件而产生的一个事件，接收到该信的进程做出相应的处理。通常信是由错误产生的，如段错误(SIGSEGV)。 但信还可以作为进程间通信的一种方式，由一个进程发送给另一个进程。
-
 信号定义在 signal.h 文件中，以 SIG 作为开头，可用 kill -l 命令查看，详细信息参见 man 7 signal 。
-
 信号处理
-
 信号可以通过 signal 和 sigaction 函数来注册处理， signal 函数是 struct sigaction 中 sa_handler 的一种便捷实现。
-
-signal 函数">
-
-
-<meta itemprop="datePublished" content="2018-11-13T21:38:21&#43;08:00" />
+signal 函数"><meta itemprop="datePublished" content="2018-11-13T21:38:21&#43;08:00" />
 <meta itemprop="dateModified" content="2019-04-23T16:13:41&#43;08:00" />
 <meta itemprop="wordCount" content="2153">
-
-
-
-<meta itemprop="keywords" content="signal,sigaction,alarm,kill,raise," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="signal,sigaction,alarm,kill,raise," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Linux Signal Examples"/>
 <meta name="twitter:description" content="信号是系统响应某些条件而产生的一个事件，接收到该信的进程做出相应的处理。通常信是由错误产生的，如段错误(SIGSEGV)。 但信还可以作为进程间通信的一种方式，由一个进程发送给另一个进程。
-
 信号定义在 signal.h 文件中，以 SIG 作为开头，可用 kill -l 命令查看，详细信息参见 man 7 signal 。
-
 信号处理
-
 信号可以通过 signal 和 sigaction 函数来注册处理， signal 函数是 struct sigaction 中 sa_handler 的一种便捷实现。
-
 signal 函数"/>
 
 <!--[if lte IE 9]>
@@ -159,58 +141,50 @@ signal 函数"/>
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#信号处理">信号处理</a>
-<ul>
-<li><a href="#signal-函数"><code>signal</code> 函数</a></li>
-<li><a href="#sigaction-函数"><code>sigaction</code> 函数</a></li>
-<li><a href="#信号屏蔽字">信号屏蔽字</a></li>
-</ul></li>
-<li><a href="#信号发送">信号发送</a>
-<ul>
-<li><a href="#kill">kill</a></li>
-<li><a href="#alarm">alarm</a></li>
-<li><a href="#raise">raise</a></li>
-</ul></li>
-<li><a href="#结语">结语</a></li>
-<li><a href="#附录">附录</a>
-<ul>
-<li><a href="#信号表">信号表</a>
-<ul>
-<li><a href="#可产生-coredump-的信号">可产生 <code>coredump</code> 的信号</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#信号处理">信号处理</a>
+      <ul>
+        <li><a href="#signal-函数"><code>signal</code> 函数</a></li>
+        <li><a href="#sigaction-函数"><code>sigaction</code> 函数</a></li>
+        <li><a href="#信号屏蔽字">信号屏蔽字</a></li>
+      </ul>
+    </li>
+    <li><a href="#信号发送">信号发送</a>
+      <ul>
+        <li><a href="#kill">kill</a></li>
+        <li><a href="#alarm">alarm</a></li>
+        <li><a href="#raise">raise</a></li>
+      </ul>
+    </li>
+    <li><a href="#结语">结语</a></li>
+    <li><a href="#附录">附录</a>
+      <ul>
+        <li><a href="#信号表">信号表</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
       <p>信号是系统响应某些条件而产生的一个事件，接收到该信的进程做出相应的处理。通常信是由错误产生的，如段错误(<code>SIGSEGV</code>)。 但信还可以作为进程间通信的一种方式，由一个进程发送给另一个进程。</p>
-
 <p>信号定义在 <code>signal.h</code> 文件中，以 <code>SIG</code> 作为开头，可用 <code>kill -l</code> 命令查看，详细信息参见 <a href="http://man7.org/linux/man-pages/man7/signal.7.html">man 7 signal</a> 。</p>
-
 <h2 id="信号处理">信号处理</h2>
-
 <p>信号可以通过 <code>signal</code> 和 <code>sigaction</code> 函数来注册处理， <code>signal</code> 函数是 <code>struct sigaction</code> 中 <code>sa_handler</code> 的一种便捷实现。</p>
-
 <h3 id="signal-函数"><code>signal</code> 函数</h3>
-
 <p><strong>原型：</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-c" data-lang="c"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-c" data-lang="c"><span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">signal</span><span class="p">(</span><span class="kt">int</span> <span class="n">sig</span><span class="p">,</span> <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">func</span><span class="p">)(</span><span class="kt">int</span><span class="p">)))(</span><span class="kt">int</span><span class="p">);</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">signal</span><span class="p">(</span><span class="kt">int</span> <span class="n">sig</span><span class="p">,</span> <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">func</span><span class="p">)(</span><span class="kt">int</span><span class="p">)))(</span><span class="kt">int</span><span class="p">);</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>其中 <code>sig</code> 是需要捕获的 <code>signal number</code>, 后一个是捕获到信号后的处理函数指针，所以处理函数的原型必须是 <code>void func(int)</code> ，简单的代码示例如下：</p>
+</div><p>其中 <code>sig</code> 是需要捕获的 <code>signal number</code>, 后一个是捕获到信号后的处理函数指针，所以处理函数的原型必须是 <code>void func(int)</code> ，简单的代码示例如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-c" data-lang="c"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -267,38 +241,34 @@ signal 函数"/>
         <span class="p">}</span>
         <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Exit...</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
         <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>另外 <code>api</code> 中也提供了下面 2 个特殊的 <code>handler</code>:</p>
-
+</div><p>另外 <code>api</code> 中也提供了下面 2 个特殊的 <code>handler</code>:</p>
 <ul>
-<li><p><code>SIG_IGN</code></p>
-
-<p>忽略此信号</p></li>
-
-<li><p><code>SIG_DFL</code></p>
-
-<p>恢复此信号的默认行为</p></li>
+<li>
+<p><code>SIG_IGN</code></p>
+<p>忽略此信号</p>
+</li>
+<li>
+<p><code>SIG_DFL</code></p>
+<p>恢复此信号的默认行为</p>
+</li>
 </ul>
-
 <h3 id="sigaction-函数"><code>sigaction</code> 函数</h3>
-
 <p><strong>原型：</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-c" data-lang="c"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-c" data-lang="c"><span class="kt">int</span> <span class="nf">sigaction</span><span class="p">(</span><span class="kt">int</span> <span class="n">sig</span><span class="p">,</span> <span class="k">const</span> <span class="k">struct</span> <span class="n">sigaction</span> <span class="o">*</span><span class="kr">restrict</span> <span class="n">act</span><span class="p">,</span>
-           <span class="k">struct</span> <span class="n">sigaction</span> <span class="o">*</span><span class="kr">restrict</span> <span class="n">oact</span><span class="p">);</span></code></pre></td></tr></table>
+           <span class="k">struct</span> <span class="n">sigaction</span> <span class="o">*</span><span class="kr">restrict</span> <span class="n">oact</span><span class="p">);</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>其中 <code>sig</code> 为 <code>signal number</code>, <code>act</code> 指定信号的处理行为， <code>oact</code> 如果不为 <code>NULL</code> 则返回信号之前的处理行为。</p>
-
+</div><p>其中 <code>sig</code> 为 <code>signal number</code>, <code>act</code> 指定信号的处理行为， <code>oact</code> 如果不为 <code>NULL</code> 则返回信号之前的处理行为。</p>
 <p><code>struct sigaction</code> 的主要成员如下：</p>
-
 <table>
 <thead>
 <tr>
@@ -307,26 +277,22 @@ signal 函数"/>
 <th>描述</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>void(*) (int)</td>
 <td>sa_handler</td>
 <td>处理函数指针，同 signal 函数中的 <code>func</code> 参数</td>
 </tr>
-
 <tr>
 <td>sigset_t</td>
 <td>sa_mask</td>
 <td>信号屏蔽字，是指当前被阻塞的一组信号，不能被当前进程收到</td>
 </tr>
-
 <tr>
 <td>int</td>
 <td>sa_flags</td>
 <td>处理行为修改器，指明哪种处理函数生效，详见下文</td>
 </tr>
-
 <tr>
 <td>void(*) (int, siginfo_t *, void *)</td>
 <td>sa_sigaction</td>
@@ -334,35 +300,33 @@ signal 函数"/>
 </tr>
 </tbody>
 </table>
-
 <p>其中 <code>sa_flags</code> 主要可以设置为以下值：</p>
-
 <ul>
-<li><p>SA_NOCLDSTOP</p>
-
-<p>子进程停止时不产生 <code>SIGCHLD</code> 信号</p></li>
-
-<li><p>SA_RESETHAND</p>
-
-<p>将信号的处理函数在处理函数的入口重置为 <code>SIG_DFL</code></p></li>
-
-<li><p>SA_RESTART</p>
-
-<p>重启可中断的函数而不是给出 <code>EINTR</code> 错误</p></li>
-
-<li><p>SA_SIGINFO</p>
-
-<p>使用 <code>sa_sigaction</code> 做为信号的处理函数</p></li>
-
-<li><p>SA_NODEFER</p>
-
-<p>捕获到信号时不将它添加到信号屏蔽字中</p></li>
+<li>
+<p>SA_NOCLDSTOP</p>
+<p>子进程停止时不产生 <code>SIGCHLD</code> 信号</p>
+</li>
+<li>
+<p>SA_RESETHAND</p>
+<p>将信号的处理函数在处理函数的入口重置为 <code>SIG_DFL</code></p>
+</li>
+<li>
+<p>SA_RESTART</p>
+<p>重启可中断的函数而不是给出 <code>EINTR</code> 错误</p>
+</li>
+<li>
+<p>SA_SIGINFO</p>
+<p>使用 <code>sa_sigaction</code> 做为信号的处理函数</p>
+</li>
+<li>
+<p>SA_NODEFER</p>
+<p>捕获到信号时不将它添加到信号屏蔽字中</p>
+</li>
 </ul>
-
 <p>简单的代码示例如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-c" data-lang="c"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -463,17 +427,15 @@ signal 函数"/>
         <span class="p">}</span>
         <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Exit...</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
         <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="信号屏蔽字">信号屏蔽字</h3>
-
+</div><h3 id="信号屏蔽字">信号屏蔽字</h3>
 <p>考虑一下这种情况：在 <code>signal()/sigaction()</code> 返回之前进程就已经收到了需要处理的信号，此时进程会以默认行为来处理，这显然不符合我们的期望。 这时就需要用到信号屏蔽字了，在进程启动时就将需要处理的信号加入的屏蔽字中，等 <code>signal()/sigaction()</code> 返回后再解除屏蔽，解除屏蔽后至少会将收到的待处理信号发送一个给进程。</p>
-
 <p>屏蔽字用到一下函数：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-c" data-lang="c"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -482,29 +444,28 @@ signal 函数"/>
 <pre class="chroma"><code class="language-c" data-lang="c"><span class="kt">int</span> <span class="nf">sigemptyset</span><span class="p">(</span><span class="n">sigset_t</span> <span class="o">*</span><span class="n">set</span><span class="p">);</span>
 <span class="kt">int</span> <span class="nf">sigaddset</span><span class="p">(</span><span class="n">sigset_t</span> <span class="o">*</span><span class="n">set</span><span class="p">,</span> <span class="kt">int</span> <span class="n">signo</span><span class="p">);</span>
 <span class="kt">int</span> <span class="nf">sigprocmask</span><span class="p">(</span><span class="kt">int</span> <span class="n">how</span><span class="p">,</span> <span class="k">const</span> <span class="n">sigset_t</span> <span class="o">*</span><span class="kr">restrict</span> <span class="n">set</span><span class="p">,</span>
-           <span class="n">sigset_t</span> <span class="o">*</span><span class="kr">restrict</span> <span class="n">oset</span><span class="p">);</span></code></pre></td></tr></table>
+           <span class="n">sigset_t</span> <span class="o">*</span><span class="kr">restrict</span> <span class="n">oset</span><span class="p">);</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><code>sigprocmask</code> 中 <code>set</code> 为需要设置的屏蔽字集， <code>oset</code> 为之前的屏蔽字集， <code>how</code> 控制着 <code>set</code> 如何生效，可设置为以下值：</p>
-
+</div><p><code>sigprocmask</code> 中 <code>set</code> 为需要设置的屏蔽字集， <code>oset</code> 为之前的屏蔽字集， <code>how</code> 控制着 <code>set</code> 如何生效，可设置为以下值：</p>
 <ul>
-<li><p>SIG_BLOCK</p>
-
-<p>该进程的屏蔽字集将为当期屏蔽字集与 <code>set</code> 的并集， <code>set</code> 中包含了需要屏蔽的信号集</p></li>
-
-<li><p>SIG_UNBLOCK</p>
-
-<p>该进程的屏蔽字集将为当期屏蔽字集与 <code>set</code> 的补集的交集， <code>set</code> 中包含了需要解除屏蔽的信号集</p></li>
-
-<li><p>SIG_SETMASK</p>
-
-<p>该进程的屏蔽字集将设置为 <code>set</code> 的值</p></li>
+<li>
+<p>SIG_BLOCK</p>
+<p>该进程的屏蔽字集将为当期屏蔽字集与 <code>set</code> 的并集， <code>set</code> 中包含了需要屏蔽的信号集</p>
+</li>
+<li>
+<p>SIG_UNBLOCK</p>
+<p>该进程的屏蔽字集将为当期屏蔽字集与 <code>set</code> 的补集的交集， <code>set</code> 中包含了需要解除屏蔽的信号集</p>
+</li>
+<li>
+<p>SIG_SETMASK</p>
+<p>该进程的屏蔽字集将设置为 <code>set</code> 的值</p>
+</li>
 </ul>
-
 <p>简单的设置流程如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-c" data-lang="c"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -521,59 +482,52 @@ signal 函数"/>
         <span class="n">sigemptyset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mask</span><span class="p">)</span>
         <span class="n">sigaddset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mask</span><span class="p">,</span> <span class="n">sig</span><span class="p">);</span>
         <span class="n">sigprocmask</span><span class="p">(</span><span class="n">how</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">mask</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="信号发送">信号发送</h2>
-
+</div><h2 id="信号发送">信号发送</h2>
 <p>信号可以通过 <code>kill</code> 函数发送给指定进程，也可以通过 <code>raise</code> 或者 <code>alarm</code> 函数发送给当前执行的线程或进程，下面来分别说说这几个函数。</p>
-
 <h3 id="kill">kill</h3>
-
 <p><strong>原型：</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-c" data-lang="c"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-c" data-lang="c"><span class="kt">int</span> <span class="nf">kill</span><span class="p">(</span><span class="n">pid_t</span> <span class="n">pid</span><span class="p">,</span> <span class="kt">int</span> <span class="n">sig</span><span class="p">);</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="kt">int</span> <span class="nf">kill</span><span class="p">(</span><span class="n">pid_t</span> <span class="n">pid</span><span class="p">,</span> <span class="kt">int</span> <span class="n">sig</span><span class="p">);</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><code>kill</code> 函数向指定进程发送指定的信号，如果信号为 0 将执行错误检查，信号并不会发送，可以用来检查 <code>pid</code> 的有效性。</p>
-
+</div><p><code>kill</code> 函数向指定进程发送指定的信号，如果信号为 0 将执行错误检查，信号并不会发送，可以用来检查 <code>pid</code> 的有效性。</p>
 <p><code>pid</code> 大于 0 时信号将发送给此进程， <code>pid</code> 小于等于 0 时，如下：</p>
-
 <ul>
-<li><p>等于 0</p>
-
-<p>信号将发送给发送者所在组里的所有进程</p></li>
-
-<li><p>等于 -1</p>
-
-<p>信号将发送给所有进程</p></li>
-
-<li><p>小于 -1</p>
-
-<p>信号将发送给进程组为 <code>pid</code> 绝对值的所有组内进程</p></li>
+<li>
+<p>等于 0</p>
+<p>信号将发送给发送者所在组里的所有进程</p>
+</li>
+<li>
+<p>等于 -1</p>
+<p>信号将发送给所有进程</p>
+</li>
+<li>
+<p>小于 -1</p>
+<p>信号将发送给进程组为 <code>pid</code> 绝对值的所有组内进程</p>
+</li>
 </ul>
-
 <h3 id="alarm">alarm</h3>
-
 <p><strong>原型：</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-c" data-lang="c"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-c" data-lang="c"><span class="kt">unsigned</span> <span class="nf">alarm</span><span class="p">(</span><span class="kt">unsigned</span> <span class="n">seconds</span><span class="p">);</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="kt">unsigned</span> <span class="nf">alarm</span><span class="p">(</span><span class="kt">unsigned</span> <span class="n">seconds</span><span class="p">);</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><code>alarm</code> 函数将在指定的 <code>seconds</code> 之后发送一个 <code>SIGALRM</code> 信号，如果 <code>seconds</code> 为 0, 则取消之前的定时器请求。如果不为 0 则取消之前的请求，重新设置为 <code>seconds</code> 。 如果在等待结束之前有其他的事件产生，那定时器请求也将被取消。</p>
-
+</div><p><code>alarm</code> 函数将在指定的 <code>seconds</code> 之后发送一个 <code>SIGALRM</code> 信号，如果 <code>seconds</code> 为 0, 则取消之前的定时器请求。如果不为 0 则取消之前的请求，重新设置为 <code>seconds</code> 。 如果在等待结束之前有其他的事件产生，那定时器请求也将被取消。</p>
 <p>简单的代码示例如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-c" data-lang="c"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -642,34 +596,28 @@ signal 函数"/>
 
         <span class="n">remaining</span> <span class="o">=</span> <span class="n">alarm</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
         <span class="n">printf</span><span class="p">(</span><span class="s">&#34;cancel alarm 20s, remian: %u, exit...</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">remaining</span><span class="p">);</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="raise">raise</h3>
-
+</div><h3 id="raise">raise</h3>
 <p><strong>原型：</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-c" data-lang="c"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-c" data-lang="c"><span class="kt">int</span> <span class="nf">raise</span><span class="p">(</span><span class="kt">int</span> <span class="n">sig</span><span class="p">);</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-c" data-lang="c"><span class="kt">int</span> <span class="nf">raise</span><span class="p">(</span><span class="kt">int</span> <span class="n">sig</span><span class="p">);</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><code>raise</code> 函数将给当前执行的线程或进程发送信号，如果信号处理函数已经被调用， <code>raise</code> 函数将等待信号处理函数调用结束才返回。</p>
-
+</div><p><code>raise</code> 函数将给当前执行的线程或进程发送信号，如果信号处理函数已经被调用， <code>raise</code> 函数将等待信号处理函数调用结束才返回。</p>
 <h2 id="结语">结语</h2>
-
 <p>信号处理函数是会被重复调用的，所以必要保存其是可重入的，注意处理逻辑。</p>
-
 <p>另外本文中的代码都在 <a href="https://github.com/jouyouyun/examples/tree/master/signal">signal</a> 中，这个 <code>repo</code> 也有其它的示例，有兴趣的可以看看。</p>
-
 <h2 id="附录">附录</h2>
-
 <h3 id="信号表">信号表</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-c" data-lang="c"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -778,13 +726,11 @@ signal 函数"/>
 </span><span class="cp">#define __SIGRTMAX	__SIGRTMIN
 </span><span class="cp"></span>
 <span class="cm">/* Biggest signal number + 1 (including real-time signals).  */</span>
-<span class="cp">#define _NSIG		(__SIGRTMAX + 1)</span></code></pre></td></tr></table>
+<span class="cp">#define _NSIG		(__SIGRTMAX + 1)
+</span></code></pre></td></tr></table>
 </div>
-</div>
-<p>使用 <code>kill -l</code> 命令也可查看信号列表.</p>
-
+</div><p>使用 <code>kill -l</code> 命令也可查看信号列表.</p>
 <h4 id="可产生-coredump-的信号">可产生 <code>coredump</code> 的信号</h4>
-
 <table>
 <thead>
 <tr>
@@ -793,50 +739,42 @@ signal 函数"/>
 <th>Description</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>3</td>
 <td>SIGQUIT</td>
 <td>终止进程</td>
 </tr>
-
 <tr>
 <td>4</td>
 <td>SIGILL</td>
 <td>非法指令</td>
 </tr>
-
 <tr>
 <td>5</td>
 <td>SIGTRAP</td>
 <td>自陷</td>
 </tr>
-
 <tr>
 <td>6</td>
 <td>SIGABRT</td>
 <td>异常终止</td>
 </tr>
-
 <tr>
 <td>7</td>
 <td>SIGBUS</td>
 <td>总线错误</td>
 </tr>
-
 <tr>
 <td>8</td>
 <td>SIGFPE</td>
 <td>浮点数异常</td>
 </tr>
-
 <tr>
 <td>11</td>
 <td>SIGSEGV</td>
 <td>段错误</td>
 </tr>
-
 <tr>
 <td>6</td>
 <td>SIGIOT</td>
@@ -844,7 +782,6 @@ signal 函数"/>
 </tr>
 </tbody>
 </table>
-
 <p><code>SIGIOT</code> 在 <code>PDP-11</code> 上产生 <code>LOT</code> 指令, 同 <code>SIGABRT</code> .</p>
     </div>
 
@@ -855,11 +792,15 @@ signal 函数"/>
   </p>
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
-    <span class="item-content">2019-04-23</span>
+    <span class="item-content">
+        2019-04-23
+        
+    </span>
   </p>
   
   
-</div><div class="post-reward">
+</div>
+<div class="post-reward">
   <input type="checkbox" name="reward" id="reward" hidden />
   <label class="reward-button" for="reward">赞赏支持</label>
   <div class="qr-code">
@@ -898,6 +839,10 @@ signal 函数"/>
         </div>
         
 
+  
+
+  
+
       </div>
     </main>
 
@@ -924,13 +869,10 @@ signal 函数"/>
   <span class="copyright-year">
     &copy; 
     2014 - 
-    2019
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">jouyouyun</span>
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>jouyouyun</span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -941,7 +883,10 @@ signal 函数"/>
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="/dist/even.ece58db6.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

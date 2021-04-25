@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.82.1 with theme even" />
 
 
 <link rel="canonical" href="https://jouyouyun.github.io/" />
@@ -36,7 +36,8 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.93844dae.min.css" rel="stylesheet">
+
+<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -45,12 +46,8 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://jouyouyun.github.io/" />
 
-<meta property="og:updated_time" content="2017-11-20T21:38:21&#43;08:00"/>
-
 <meta itemprop="name" content="jouyouyun&#39;s blog">
-<meta itemprop="description" content="jouyouyun&#39;s blog">
-
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="description" content="jouyouyun&#39;s blog"><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="jouyouyun&#39;s blog"/>
 <meta name="twitter:description" content="jouyouyun&#39;s blog"/>
 
@@ -111,6 +108,65 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/git-rebase/">Git Rebase 回退</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-04-12 </span>
+      <div class="post-category">
+          <a href="/categories/blog/"> BLOG </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p>在开发新功能或修复 <code>bug</code> 时，一般需要新建一个分支，然后在它之上进行开发。在多人协同开发时，经常会同时修改相同的分支或相同的文件，这时就需要进行 <code>rebase</code> 操作在提交你的代码之前。</p>
+<p>但有时 <code>rebase</code> 会带来不想要的提交，或处理冲突时误操作执行了 <code>git rebase --skip</code> 。此时就想要回退到之前的提交，恢复自己的数据， <code>reflog</code> 就可以帮助你完成数据恢复。</p>
+<h2 id="reflog">reflog</h2>
+<p>当你工作时，=Git= 会在你每次修改了 <code>HEAD</code> 时悄悄地将改动记录下来。当你提交或修改分支时， <code>reflog</code> 就会更新。通过 <code>git reflog</code> 命令可以查看当前的状态：</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/git-rebase/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/cups-notes/">CUPS 资料</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-04-08 </span>
+      <div class="post-category">
+          <a href="/categories/note/"> NOTE </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h2 id="installation">Installation</h2>
+<p><code>sudo apt install cups ghostscript gsfonts</code></p>
+<h2 id="driver">Driver</h2>
+<ul>
+<li>
+<p>gutenprint</p>
+<p>一组质量非常好的驱动集合，支持的目标机型包括 <code>Canon, Epson, Lexmark, Sony, Olympus</code> ；以及配合 <code>CUPS/GhostSscript/Foomatic/GIMP</code> 使用的 <code>PCL printers</code> 。</p>
+<p>安装包: <code>cups-driver-gutenprint gimp-gutenprint ijsgutenprint printer-driver-gutenprint</code></p>
+</li>
+<li>
+<p>foomatic</p>
+<p><code>Foomatic</code> 是一个基于数据库的，集成自由软件打印机驱动和脱机打印程序的系统。</p>
+<p>安装包: <code>foomatic-db foomatic-db-engine foomatic-db-compressed-ppds foomatic-db-gutenprint foomatic-filters</code> 以及 <code>foomatic-db-nonfree</code></p>
+</li>
+</ul>
+    </div>
+    <div class="read-more">
+      <a href="/post/cups-notes/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/bluetooth-faq/">Bluetooth FAQ</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2017-11-20 </span>
@@ -123,29 +179,25 @@
   <div class="post-content">
     <div class="post-summary">
       <p>收集遇到的 <code>bluetooth</code> 问题，使用的是 <code>deepin</code> 。</p>
-
 <h2 id="控制中心不显示蓝牙模块">控制中心不显示蓝牙模块</h2>
-
 <p>蓝牙模块不显示时，可以按照以下步骤来查找原因：</p>
-
 <ol>
-<li><p>执行 <code>sudo dmesg|grub bluetooth</code> 查看输出结果</p>
-
+<li>执行 <code>sudo dmesg|grub bluetooth</code> 查看输出结果
 <ul>
-<li><p>输出里有 <code>timeout</code></p>
-
+<li>
+<p>输出里有 <code>timeout</code></p>
 <p>此时再用 <code>systemctl status bluetooth.service</code> 看下服务有没有正常启动，错误信息是什么，然后根据错误去网上搜索答案。</p>
-
 <p>如果蓝牙是由网卡提供的，此时可以试着开关一下网卡的硬件开关。因为内核在初始化网卡之前初始化蓝牙，就会导致蓝牙设备不可用，重新初始化一次就好了。
-如果还是无效那就重启进入 <code>window</code> ，再 <code>window</code> 里开关一次蓝牙再重启到 <code>linux</code> 。</p></li>
-
-<li><p>输出里无 <code>timeout</code></p>
-
-<p>这就表明初始化没问题，继续下一步</p></li>
-</ul></li>
+如果还是无效那就重启进入 <code>window</code> ，再 <code>window</code> 里开关一次蓝牙再重启到 <code>linux</code> 。</p>
+</li>
+<li>
+<p>输出里无 <code>timeout</code></p>
+<p>这就表明初始化没问题，继续下一步</p>
+</li>
+</ul>
+</li>
 </ol>
-
-<hr />
+<hr>
     </div>
     <div class="read-more">
       <a href="/post/bluetooth-faq/" class="read-more-link">阅读更多</a>
@@ -167,11 +219,8 @@
   <div class="post-content">
     <div class="post-summary">
       <h2 id="背景">背景</h2>
-
 <p>平时经常用显示器的分辨率去设置 <code>Grub</code> 的分辨率，虽然大部分都没有问题，但有时却没有用。所以就把 <code>Grub</code> 分辨率的设置方法详细说明一下，留档记录。</p>
-
 <h2 id="查询支持的分辨率">查询支持的分辨率</h2>
-
 <p>在设置 <code>Grub</code> 分辨率之前，需要先知道支持的分辨率列表，而幸运的是可以到 <code>Grub</code> 命令行查询。</p>
     </div>
     <div class="read-more">
@@ -194,104 +243,23 @@
   <div class="post-content">
     <div class="post-summary">
       <h2 id="启用-bbr">启用 BBR</h2>
-
 <p><code>BBR</code> 是在 4.9 以后的内核才开始支持的, 可以试着执行 <code>sudo modprobe tcp_bbr</code> 来确定是否支持, 没有输出就意味着支持, 将下面两行内容添加到 <code>/etc/sysctl.conf</code> 文件里开启用它:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell">net.core.default_qdisc <span class="o">=</span> fq
-net.ipv4.tcp_congestion_control <span class="o">=</span> bbr</code></pre></td></tr></table>
+net.ipv4.tcp_congestion_control <span class="o">=</span> bbr
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>使用 <code>sysctl net.ipv4.tcp_available_congestion_control</code> 查看支持的算法, 用 <code>sysctl net.ipv4.tcp_congestion_control</code> 查看当前使用的算法.</p>
-
+</div><p>使用 <code>sysctl net.ipv4.tcp_available_congestion_control</code> 查看支持的算法, 用 <code>sysctl net.ipv4.tcp_congestion_control</code> 查看当前使用的算法.</p>
 <p>如果这个模块不会自动加载, 需要把 <code>tcp_bbr_powered</code> 添加到 <code>/etc/modules-load.d/modules.conf</code> 中.
 另外测试发现, 有时 <code>sysctl.conf</code> 里的设置并不会应用, 需要手动执行一下, 因此便写了 <code>reload-sysctl.service</code> 来做这个, <code>systemctl enable</code> 这个服务后, 一切就 OK 了.</p>
     </div>
     <div class="read-more">
       <a href="/post/tcp-bbr/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/leanote-installation/">Leanote Installation</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2017-07-17 </span>
-      <div class="post-category">
-          <a href="/categories/blog/"> BLOG </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p><code>Leanote</code> 是一款开源的笔记软件, 支持使用 <code>markdown</code> 来编辑笔记, 并可选择是否将笔记导出成博客, 这对于知识整理及写博客都是非常方便的, 故来尝试下.</p>
-
-<h2 id="安装">安装</h2>
-
-<p><code>Leanote</code> 是使用 <code>Golang</code> 编写的, 可以直接使用官方编译好的可执行文件.
-另外它使用的是 <code>mongodb</code> 数据库, 可以从源里安装, 也可以从官网下载.
-以下的安装和配置都是基于最新的版本, 如果中途出错, 请看官方文档.</p>
-
-<ul>
-<li><p><code>Leanote</code> 下载地址: <a href="http://leanote.org/#download">见这里</a></p></li>
-
-<li><p><code>mongodb</code> 下载地址: <a href="https://www.mongodb.com/download-center">见这里</a></p></li>
-</ul>
-    </div>
-    <div class="read-more">
-      <a href="/post/leanote-installation/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/openvpn-installation/">OpenVPN Installation</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2016-12-27 </span>
-      <div class="post-category">
-          <a href="/categories/blog/"> BLOG </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <h2 id="安装所需软件">安装所需软件</h2>
-
-<p>Arch: <code>yaourt -S openvpn easy-rsa</code></p>
-
-<h2 id="生成证书">生成证书</h2>
-
-<h3 id="server-端">Server 端</h3>
-
-<ul>
-<li>Copy template file</li>
-</ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">sudo mkdir -p /etc/openvpn
-sudo cp -R /etc/easy-rsa /etc/openvpn</code></pre></td></tr></table>
-</div>
-</div>
-<ul>
-<li>Config vars</li>
-</ul>
-
-<p>取消并修改以下项:</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/openvpn-installation/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>
@@ -337,13 +305,10 @@ sudo cp -R /etc/easy-rsa /etc/openvpn</code></pre></td></tr></table>
   <span class="copyright-year">
     &copy; 
     2014 - 
-    2019
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">jouyouyun</span>
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>jouyouyun</span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -354,7 +319,10 @@ sudo cp -R /etc/easy-rsa /etc/openvpn</code></pre></td></tr></table>
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="/dist/even.ece58db6.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

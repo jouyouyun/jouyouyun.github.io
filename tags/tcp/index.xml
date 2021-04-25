@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>tcp on jouyouyun&#39;s blog</title>
@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>jouyouyun</copyright>
-    <lastBuildDate>Sun, 20 Jul 2014 00:54:21 +0800</lastBuildDate>
-    
-	<atom:link href="https://jouyouyun.github.io/tags/tcp/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 20 Jul 2014 00:54:21 +0800</lastBuildDate><atom:link href="https://jouyouyun.github.io/tags/tcp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go 笔记: 简单的 TCP Socket 示例</title>
       <link>https://jouyouyun.github.io/post/go-tcp-socket-example/</link>
@@ -19,7 +15,6 @@
       
       <guid>https://jouyouyun.github.io/post/go-tcp-socket-example/</guid>
       <description>&lt;p&gt;一个简单的 &lt;code&gt;TCP Socket&lt;/code&gt; 的示例，使用 &lt;code&gt;gob&lt;/code&gt; 处理传输的数据。&lt;/p&gt;
-
 &lt;h2 id=&#34;server-dot-go&#34;&gt;&lt;code&gt;server.go&lt;/code&gt;&lt;/h2&gt;</description>
     </item>
     

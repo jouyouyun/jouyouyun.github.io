@@ -24,7 +24,7 @@ server.go" /><meta name="keywords" content="jouyouyun, Hugo, theme, even" />
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.82.1 with theme even" />
 
 
 <link rel="canonical" href="https://jouyouyun.github.io/post/go-tcp-socket-example/" />
@@ -35,36 +35,27 @@ server.go" /><meta name="keywords" content="jouyouyun, Hugo, theme, even" />
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.93844dae.min.css" rel="stylesheet">
+
+<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="Go 笔记: 简单的 TCP Socket 示例" />
 <meta property="og:description" content="一个简单的 TCP Socket 的示例，使用 gob 处理传输的数据。
-
 server.go" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://jouyouyun.github.io/post/go-tcp-socket-example/" />
-<meta property="article:published_time" content="2014-07-20T00:54:21&#43;08:00"/>
-<meta property="article:modified_time" content="2019-02-12T14:33:52&#43;08:00"/>
+<meta property="og:url" content="https://jouyouyun.github.io/post/go-tcp-socket-example/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2014-07-20T00:54:21&#43;08:00" />
+<meta property="article:modified_time" content="2019-02-12T14:33:52&#43;08:00" />
 
 <meta itemprop="name" content="Go 笔记: 简单的 TCP Socket 示例">
 <meta itemprop="description" content="一个简单的 TCP Socket 的示例，使用 gob 处理传输的数据。
-
-server.go">
-
-
-<meta itemprop="datePublished" content="2014-07-20T00:54:21&#43;08:00" />
+server.go"><meta itemprop="datePublished" content="2014-07-20T00:54:21&#43;08:00" />
 <meta itemprop="dateModified" content="2019-02-12T14:33:52&#43;08:00" />
 <meta itemprop="wordCount" content="363">
-
-
-
-<meta itemprop="keywords" content="go,tcp,socket," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="go,tcp,socket," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Go 笔记: 简单的 TCP Socket 示例"/>
 <meta name="twitter:description" content="一个简单的 TCP Socket 的示例，使用 gob 处理传输的数据。
-
 server.go"/>
 
 <!--[if lte IE 9]>
@@ -139,24 +130,19 @@ server.go"/>
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#server-dot-go"><code>server.go</code></a></li>
-<li><a href="#client-dot-go"><code>client.go</code></a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#server-dot-go"><code>server.go</code></a></li>
+    <li><a href="#client-dot-go"><code>client.go</code></a></li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
       <p>一个简单的 <code>TCP Socket</code> 的示例，使用 <code>gob</code> 处理传输的数据。</p>
-
 <h2 id="server-dot-go"><code>server.go</code></h2>
-
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -297,13 +283,13 @@ server.go"/>
 
                 <span class="k">go</span> <span class="nf">handleConnection</span><span class="p">(</span><span class="nx">conn</span><span class="p">)</span>
         <span class="p">}</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="client-dot-go"><code>client.go</code></h2>
+</div><h2 id="client-dot-go"><code>client.go</code></h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -386,7 +372,8 @@ server.go"/>
                 <span class="o">&lt;-</span><span class="nx">time</span><span class="p">.</span><span class="nf">After</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span>
         <span class="p">}</span>
         <span class="nx">conn</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -398,11 +385,15 @@ server.go"/>
   </p>
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
-    <span class="item-content">2019-02-12</span>
+    <span class="item-content">
+        2019-02-12
+        
+    </span>
   </p>
   
   
-</div><div class="post-reward">
+</div>
+<div class="post-reward">
   <input type="checkbox" name="reward" id="reward" hidden />
   <label class="reward-button" for="reward">赞赏支持</label>
   <div class="qr-code">
@@ -439,6 +430,10 @@ server.go"/>
         </div>
         
 
+  
+
+  
+
       </div>
     </main>
 
@@ -465,13 +460,10 @@ server.go"/>
   <span class="copyright-year">
     &copy; 
     2014 - 
-    2019
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">jouyouyun</span>
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>jouyouyun</span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -482,7 +474,10 @@ server.go"/>
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="/dist/even.ece58db6.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

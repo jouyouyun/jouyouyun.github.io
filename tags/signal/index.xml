@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>signal on jouyouyun&#39;s blog</title>
@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>jouyouyun</copyright>
-    <lastBuildDate>Tue, 13 Nov 2018 21:38:21 +0800</lastBuildDate>
-    
-	<atom:link href="https://jouyouyun.github.io/tags/signal/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 13 Nov 2018 21:38:21 +0800</lastBuildDate><atom:link href="https://jouyouyun.github.io/tags/signal/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linux Signal Examples</title>
       <link>https://jouyouyun.github.io/post/linux-signal-example/</link>
@@ -19,13 +15,9 @@
       
       <guid>https://jouyouyun.github.io/post/linux-signal-example/</guid>
       <description>&lt;p&gt;信号是系统响应某些条件而产生的一个事件，接收到该信的进程做出相应的处理。通常信是由错误产生的，如段错误(&lt;code&gt;SIGSEGV&lt;/code&gt;)。 但信还可以作为进程间通信的一种方式，由一个进程发送给另一个进程。&lt;/p&gt;
-
 &lt;p&gt;信号定义在 &lt;code&gt;signal.h&lt;/code&gt; 文件中，以 &lt;code&gt;SIG&lt;/code&gt; 作为开头，可用 &lt;code&gt;kill -l&lt;/code&gt; 命令查看，详细信息参见 &lt;a href=&#34;http://man7.org/linux/man-pages/man7/signal.7.html&#34;&gt;man 7 signal&lt;/a&gt; 。&lt;/p&gt;
-
 &lt;h2 id=&#34;信号处理&#34;&gt;信号处理&lt;/h2&gt;
-
 &lt;p&gt;信号可以通过 &lt;code&gt;signal&lt;/code&gt; 和 &lt;code&gt;sigaction&lt;/code&gt; 函数来注册处理， &lt;code&gt;signal&lt;/code&gt; 函数是 &lt;code&gt;struct sigaction&lt;/code&gt; 中 &lt;code&gt;sa_handler&lt;/code&gt; 的一种便捷实现。&lt;/p&gt;
-
 &lt;h3 id=&#34;signal-函数&#34;&gt;&lt;code&gt;signal&lt;/code&gt; 函数&lt;/h3&gt;</description>
     </item>
     

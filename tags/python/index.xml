@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>python on jouyouyun&#39;s blog</title>
@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>jouyouyun</copyright>
-    <lastBuildDate>Sun, 02 Dec 2018 21:38:21 +0800</lastBuildDate>
-    
-	<atom:link href="https://jouyouyun.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 02 Dec 2018 21:38:21 +0800</lastBuildDate><atom:link href="https://jouyouyun.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>python3 学习笔记</title>
       <link>https://jouyouyun.github.io/post/python-learn-note/</link>
@@ -19,11 +15,8 @@
       
       <guid>https://jouyouyun.github.io/post/python-learn-note/</guid>
       <description>&lt;h2 id=&#34;python3-study-notes&#34;&gt;Python3 Study Notes&lt;/h2&gt;
-
 &lt;p&gt;本人很少写 &lt;code&gt;python&lt;/code&gt; 代码, 一般都是用 &lt;code&gt;go&lt;/code&gt; 的, 去年时用 &lt;code&gt;python&lt;/code&gt; 写过一些收集系统信息的工具, 当时是边看手册边写的. 如今又要用 &lt;code&gt;python&lt;/code&gt; 来写一个生成 &lt;code&gt;xlsx&lt;/code&gt; 的工具, 就又需要查看手册了, 至于为什么不用 &lt;code&gt;go&lt;/code&gt; 写? 那是因为 &lt;code&gt;go&lt;/code&gt; 的库不兼容永中. 在这里不得不说, 虽然 &lt;code&gt;go&lt;/code&gt; 很火, 但是一些库还是不如 &lt;code&gt;python&lt;/code&gt; 多, 不如 &lt;code&gt;python&lt;/code&gt; 兼容性好.&lt;/p&gt;
-
 &lt;p&gt;为了避免以后再出这种事情, 这次就好好的了解下 &lt;code&gt;python&lt;/code&gt;, 将它的用法按照自己对语言的理解分块记录下来. 要使用某种语言, 个人认为需要了解这些方面:&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;编码风格&lt;/li&gt;
 &lt;li&gt;变量的类型, 声明及使用方式&lt;/li&gt;
@@ -33,7 +26,6 @@
 &lt;li&gt;函数的用法, 还有语言支持的一些特性, &lt;code&gt;python&lt;/code&gt; 中就有装饰器, &lt;code&gt;lambda&lt;/code&gt; 语句等&lt;/li&gt;
 &lt;li&gt;对于面向对象语言还需要了解类的声明, 继承, 多态等的用法&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;还有一些就是此语言的一些特性, &lt;code&gt;python&lt;/code&gt; 就还需要了解以下特性:&lt;/p&gt;</description>
     </item>
     

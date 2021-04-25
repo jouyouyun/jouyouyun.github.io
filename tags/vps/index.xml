@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>vps on jouyouyun&#39;s blog</title>
@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>jouyouyun</copyright>
-    <lastBuildDate>Fri, 04 Jul 2014 21:38:21 +0800</lastBuildDate>
-    
-	<atom:link href="https://jouyouyun.github.io/tags/vps/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 04 Jul 2014 21:38:21 +0800</lastBuildDate><atom:link href="https://jouyouyun.github.io/tags/vps/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>在 VPS 中搭建 VPN 服务器</title>
       <link>https://jouyouyun.github.io/post/build-vpn/</link>
@@ -19,19 +15,12 @@
       
       <guid>https://jouyouyun.github.io/post/build-vpn/</guid>
       <description>&lt;p&gt;最近 &lt;code&gt;Google&lt;/code&gt; 被封，而用 &lt;code&gt;Goagent&lt;/code&gt; 做代理进行访问的效果而不是很理想，所以就想去买 &lt;code&gt;VPN/VPS&lt;/code&gt; . 几经考虑后，就去买了个便宜 &lt;code&gt;VPS&lt;/code&gt; , 这样也就可以分享给家人用了。&lt;/p&gt;
-
 &lt;p&gt;&lt;code&gt;VPS&lt;/code&gt; 中安装的是 &lt;code&gt;Ubuntu=，所以搭建 =VPN&lt;/code&gt; 服务器也就是在 &lt;code&gt;Ubuntu&lt;/code&gt; 上面搭建，具体方法如下。&lt;/p&gt;
-
 &lt;p&gt;注意：下面所有的操作都是以 &lt;code&gt;root&lt;/code&gt; 用户进行的，非 &lt;code&gt;root&lt;/code&gt; 用户请在命令前加上 &lt;code&gt;sudo&lt;/code&gt;&lt;/p&gt;
-
 &lt;p&gt;&lt;strong&gt;安装 &lt;code&gt;pptp&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
-
 &lt;p&gt;&lt;code&gt;apt-get install pptpd&lt;/code&gt;&lt;/p&gt;
-
 &lt;p&gt;配置 &lt;code&gt;IP&lt;/code&gt; 地址范围及服务器 &lt;code&gt;IP&lt;/code&gt;&lt;/p&gt;
-
 &lt;p&gt;&lt;code&gt;vi /etc/pptpd.conf&lt;/code&gt;&lt;/p&gt;
-
 &lt;p&gt;取消下面内容的注释&lt;/p&gt;</description>
     </item>
     

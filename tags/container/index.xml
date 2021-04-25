@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>container on jouyouyun&#39;s blog</title>
@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>jouyouyun</copyright>
-    <lastBuildDate>Sun, 21 Apr 2019 11:58:00 +0800</lastBuildDate>
-    
-	<atom:link href="https://jouyouyun.github.io/tags/container/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 21 Apr 2019 11:58:00 +0800</lastBuildDate><atom:link href="https://jouyouyun.github.io/tags/container/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Docker 使用简介</title>
       <link>https://jouyouyun.github.io/post/docker-intro/</link>
@@ -19,17 +15,16 @@
       
       <guid>https://jouyouyun.github.io/post/docker-intro/</guid>
       <description>&lt;p&gt;&lt;code&gt;Docker&lt;/code&gt; 是使用 &lt;code&gt;GoLang&lt;/code&gt; 开发的开源容器引擎，可以方便的打包开发好的应用，然后分发到任意 &lt;code&gt;linux&lt;/code&gt; 主机上。&lt;/p&gt;
-
 &lt;p&gt;与传统的虚拟机相比拥有以下优势：&lt;/p&gt;
-
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;高效的系统资源利用率&lt;/p&gt;
-
-&lt;p&gt;由于不需要进行硬件虚拟和运行完整的操作系统等额外开销，无论是应用执行速度、内存损耗或者文件存储速度， &lt;code&gt;Docker&lt;/code&gt; 都更加高效&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;更快的启动速度&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;Docker&lt;/code&gt; 容器应用直接运行与宿主内核，无需启动完整的操作系统，可以做到秒级启动&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;高效的系统资源利用率&lt;/p&gt;
+&lt;p&gt;由于不需要进行硬件虚拟和运行完整的操作系统等额外开销，无论是应用执行速度、内存损耗或者文件存储速度， &lt;code&gt;Docker&lt;/code&gt; 都更加高效&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;更快的启动速度&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Docker&lt;/code&gt; 容器应用直接运行与宿主内核，无需启动完整的操作系统，可以做到秒级启动&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;</description>
     </item>
     

@@ -27,7 +27,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.82.1 with theme even" />
 
 
 <link rel="canonical" href="https://jouyouyun.github.io/post/fixed-superblock/" />
@@ -38,60 +38,39 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.93844dae.min.css" rel="stylesheet">
+
+<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="修复 superblock" />
 <meta property="og:description" content="本周去某公司调试系统，他们硬件测试部分送来了一台系统无法进入的机器，他们也不知道怎么弄得，让我看下是系统原因还是 SSD 硬件有问题。
-
 拿到机器开机后，没有正常的进入系统，直接进入了 initramfs mode 并有 filesystem invalid superblock checksum error 的错误提示，遂告诉他们是系统的 filesystem 挂了，然后开始查找修复方法，最后找到了方法并修复了机器，在此记录一下。
-
 修复方法
-
 下面的命令都是在 initramfs shell 中执行的。
-
 先确定你系统所在的分区
-
 可以执行 lsblk 来查看分区信息，然后确定，假如是 /dev/sdaX" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://jouyouyun.github.io/post/fixed-superblock/" />
-<meta property="article:published_time" content="2018-07-27T21:38:21&#43;08:00"/>
-<meta property="article:modified_time" content="2019-02-12T14:38:17&#43;08:00"/>
+<meta property="og:url" content="https://jouyouyun.github.io/post/fixed-superblock/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2018-07-27T21:38:21&#43;08:00" />
+<meta property="article:modified_time" content="2019-02-12T14:38:17&#43;08:00" />
 
 <meta itemprop="name" content="修复 superblock">
 <meta itemprop="description" content="本周去某公司调试系统，他们硬件测试部分送来了一台系统无法进入的机器，他们也不知道怎么弄得，让我看下是系统原因还是 SSD 硬件有问题。
-
 拿到机器开机后，没有正常的进入系统，直接进入了 initramfs mode 并有 filesystem invalid superblock checksum error 的错误提示，遂告诉他们是系统的 filesystem 挂了，然后开始查找修复方法，最后找到了方法并修复了机器，在此记录一下。
-
 修复方法
-
 下面的命令都是在 initramfs shell 中执行的。
-
 先确定你系统所在的分区
-
-可以执行 lsblk 来查看分区信息，然后确定，假如是 /dev/sdaX">
-
-
-<meta itemprop="datePublished" content="2018-07-27T21:38:21&#43;08:00" />
+可以执行 lsblk 来查看分区信息，然后确定，假如是 /dev/sdaX"><meta itemprop="datePublished" content="2018-07-27T21:38:21&#43;08:00" />
 <meta itemprop="dateModified" content="2019-02-12T14:38:17&#43;08:00" />
 <meta itemprop="wordCount" content="442">
-
-
-
-<meta itemprop="keywords" content="superblock," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="superblock," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="修复 superblock"/>
 <meta name="twitter:description" content="本周去某公司调试系统，他们硬件测试部分送来了一台系统无法进入的机器，他们也不知道怎么弄得，让我看下是系统原因还是 SSD 硬件有问题。
-
 拿到机器开机后，没有正常的进入系统，直接进入了 initramfs mode 并有 filesystem invalid superblock checksum error 的错误提示，遂告诉他们是系统的 filesystem 挂了，然后开始查找修复方法，最后找到了方法并修复了机器，在此记录一下。
-
 修复方法
-
 下面的命令都是在 initramfs shell 中执行的。
-
 先确定你系统所在的分区
-
 可以执行 lsblk 来查看分区信息，然后确定，假如是 /dev/sdaX"/>
 
 <!--[if lte IE 9]>
@@ -166,39 +145,30 @@
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#修复方法">修复方法</a>
-<ul>
-<li><a href="#先确定你系统所在的分区">先确定你系统所在的分区</a></li>
-<li><a href="#列出分区的-superblock-备份信息">列出分区的 <code>superblock</code> 备份信息</a></li>
-<li><a href="#从备份中恢复">从备份中恢复</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#修复方法">修复方法</a>
+      <ul>
+        <li><a href="#先确定你系统所在的分区">先确定你系统所在的分区</a></li>
+        <li><a href="#列出分区的-superblock-备份信息">列出分区的 <code>superblock</code> 备份信息</a></li>
+        <li><a href="#从备份中恢复">从备份中恢复</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
       <p>本周去某公司调试系统，他们硬件测试部分送来了一台系统无法进入的机器，他们也不知道怎么弄得，让我看下是系统原因还是 <code>SSD</code> 硬件有问题。</p>
-
 <p>拿到机器开机后，没有正常的进入系统，直接进入了 <code>initramfs mode</code> 并有 <code>filesystem invalid superblock checksum error</code> 的错误提示，遂告诉他们是系统的 <code>filesystem</code> 挂了，然后开始查找修复方法，最后找到了方法并修复了机器，在此记录一下。</p>
-
 <h2 id="修复方法">修复方法</h2>
-
 <p>下面的命令都是在 <code>initramfs shell</code> 中执行的。</p>
-
 <h3 id="先确定你系统所在的分区">先确定你系统所在的分区</h3>
-
 <p>可以执行 <code>lsblk</code> 来查看分区信息，然后确定，假如是 <code>/dev/sdaX</code></p>
-
 <h3 id="列出分区的-superblock-备份信息">列出分区的 <code>superblock</code> 备份信息</h3>
-
 <p>执行命令 <code>mke2fs -n /dev/sdaX</code> ，将会看到以下输出：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -217,11 +187,11 @@
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">mke2fs <span class="m">1</span>.44.2 <span class="o">(</span><span class="m">14</span>-May-2018<span class="o">)</span>
+<pre class="chroma"><code class="language-shell" data-lang="shell">mke2fs 1.44.2 <span class="o">(</span>14-May-2018<span class="o">)</span>
 
 /dev/sda7 有一个 ext4 文件系统
 
-    上一次挂载于 /， 时间 Thu May <span class="m">17</span> <span class="m">17</span>:15:32 <span class="m">2018</span>
+    上一次挂载于 /， 时间 Thu May <span class="m">17</span> 17:15:32 <span class="m">2018</span>
 
 Proceed anyway? <span class="o">(</span>y,N<span class="o">)</span> y
 
@@ -231,15 +201,13 @@ Proceed anyway? <span class="o">(</span>y,N<span class="o">)</span> y
 
 超级块的备份存储于下列块：
 
-    <span class="m">32768</span>, <span class="m">98304</span>, <span class="m">163840</span>, <span class="m">229376</span>, <span class="m">294912</span>, <span class="m">819200</span>, <span class="m">884736</span>, <span class="m">1605632</span>, <span class="m">2654208</span>,
+    32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632, 2654208,
 
-<span class="m">4096000</span></code></pre></td></tr></table>
+<span class="m">4096000</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="从备份中恢复">从备份中恢复</h3>
-
+</div><h3 id="从备份中恢复">从备份中恢复</h3>
 <p>先使用备份中列块的第一个 <code>number</code> 进行恢复，命令： <code>e2fsck -b 32768 /dev/sdaX -y</code> , 执行完成后重启。</p>
-
 <p>如果重启还是进不了系统，就换一个 <code>列块 number</code> 继续恢复，然后重启，直至成功。</p>
     </div>
 
@@ -250,11 +218,15 @@ Proceed anyway? <span class="o">(</span>y,N<span class="o">)</span> y
   </p>
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
-    <span class="item-content">2019-02-12</span>
+    <span class="item-content">
+        2019-02-12
+        
+    </span>
   </p>
   
   
-</div><div class="post-reward">
+</div>
+<div class="post-reward">
   <input type="checkbox" name="reward" id="reward" hidden />
   <label class="reward-button" for="reward">赞赏支持</label>
   <div class="qr-code">
@@ -289,6 +261,10 @@ Proceed anyway? <span class="o">(</span>y,N<span class="o">)</span> y
         </div>
         
 
+  
+
+  
+
       </div>
     </main>
 
@@ -315,13 +291,10 @@ Proceed anyway? <span class="o">(</span>y,N<span class="o">)</span> y
   <span class="copyright-year">
     &copy; 
     2014 - 
-    2019
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">jouyouyun</span>
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>jouyouyun</span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -332,7 +305,10 @@ Proceed anyway? <span class="o">(</span>y,N<span class="o">)</span> y
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="/dist/even.ece58db6.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

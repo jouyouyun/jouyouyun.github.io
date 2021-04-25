@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>mime on jouyouyun&#39;s blog</title>
@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>jouyouyun</copyright>
-    <lastBuildDate>Wed, 14 Dec 2016 21:38:21 +0800</lastBuildDate>
-    
-	<atom:link href="https://jouyouyun.github.io/tags/mime/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 14 Dec 2016 21:38:21 +0800</lastBuildDate><atom:link href="https://jouyouyun.github.io/tags/mime/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>MIME Usage</title>
       <link>https://jouyouyun.github.io/post/mime-usage/</link>
@@ -19,21 +15,20 @@
       
       <guid>https://jouyouyun.github.io/post/mime-usage/</guid>
       <description>&lt;h2 id=&#34;基本使用&#34;&gt;基本使用&lt;/h2&gt;
-
 &lt;p&gt;使用到的工具为: &lt;code&gt;xdg-mime, gvfs-mime&lt;/code&gt;&lt;/p&gt;
-
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;查询文件的类型&lt;/p&gt;
-
-&lt;p&gt;使用 &lt;code&gt;xdg-mime query filetype &amp;lt;filepath&amp;gt;&lt;/code&gt; 可以得到文件的类型&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;查询默认程序&lt;/p&gt;
-
-&lt;p&gt;使用 &lt;code&gt;xdg-mime query default text/plain&lt;/code&gt; 或 &lt;code&gt;gvfs-mime --query &amp;lt;mimetype&amp;gt;&lt;/code&gt;, &lt;code&gt;gvfs-mime&lt;/code&gt; 还会列出支持此 &lt;code&gt;mimetype&lt;/code&gt; 的所有程序&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;设置默认程序&lt;/p&gt;
-
-&lt;p&gt;如将 &lt;code&gt;text/plain&lt;/code&gt; 的默认打开程序设置为 &lt;code&gt;gvim.desktop&lt;/code&gt;, 可以执行 &lt;code&gt;xdg-mime default gvim.desktop text/plain&lt;/code&gt; 或 &lt;code&gt;gvfs-mime --set text/plain gvim.desktop&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;查询文件的类型&lt;/p&gt;
+&lt;p&gt;使用 &lt;code&gt;xdg-mime query filetype &amp;lt;filepath&amp;gt;&lt;/code&gt; 可以得到文件的类型&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;查询默认程序&lt;/p&gt;
+&lt;p&gt;使用 &lt;code&gt;xdg-mime query default text/plain&lt;/code&gt; 或 &lt;code&gt;gvfs-mime --query &amp;lt;mimetype&amp;gt;&lt;/code&gt;, &lt;code&gt;gvfs-mime&lt;/code&gt; 还会列出支持此 &lt;code&gt;mimetype&lt;/code&gt; 的所有程序&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;设置默认程序&lt;/p&gt;
+&lt;p&gt;如将 &lt;code&gt;text/plain&lt;/code&gt; 的默认打开程序设置为 &lt;code&gt;gvim.desktop&lt;/code&gt;, 可以执行 &lt;code&gt;xdg-mime default gvim.desktop text/plain&lt;/code&gt; 或 &lt;code&gt;gvfs-mime --set text/plain gvim.desktop&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;</description>
     </item>
     

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>linux on jouyouyun&#39;s blog</title>
@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>jouyouyun</copyright>
-    <lastBuildDate>Tue, 06 Aug 2019 21:38:21 +0800</lastBuildDate>
-    
-	<atom:link href="https://jouyouyun.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 06 Aug 2019 21:38:21 +0800</lastBuildDate><atom:link href="https://jouyouyun.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Compile Kernel</title>
       <link>https://jouyouyun.github.io/post/linux-kernel-compile/</link>
@@ -19,19 +15,17 @@
       
       <guid>https://jouyouyun.github.io/post/linux-kernel-compile/</guid>
       <description>&lt;p&gt;最近由于要调试 &lt;code&gt;usbhid&lt;/code&gt; 模块，所以需要编译 &lt;code&gt;kernel&lt;/code&gt; ，在此整理下方法，以免每次都查找。&lt;/p&gt;
-
 &lt;h2 id=&#34;dependencies&#34;&gt;Dependencies&lt;/h2&gt;
-
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;deepin&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;sudo apt-get install build-essential libncurses-dev bison flex libssl-dev libelf-dev&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;code&gt;archlinux&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;sudo pacman -S gcc ncurses bison flex openssl libelf elfutils&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;deepin&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo apt-get install build-essential libncurses-dev bison flex libssl-dev libelf-dev&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;archlinux&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo pacman -S gcc ncurses bison flex openssl libelf elfutils&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;若编译时有报错，请按照错误提示按照缺失的依赖。&lt;/p&gt;</description>
     </item>
     

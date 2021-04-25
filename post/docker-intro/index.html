@@ -18,9 +18,9 @@
 
 <meta name="author" content="jouyouyun " /><meta name="description" content="Docker 是使用 GoLang 开发的开源容器引擎，可以方便的打包开发好的应用，然后分发到任意 linux 主机上。
 与传统的虚拟机相比拥有以下优势：
- 高效的系统资源利用率
+  高效的系统资源利用率
 由于不需要进行硬件虚拟和运行完整的操作系统等额外开销，无论是应用执行速度、内存损耗或者文件存储速度， Docker 都更加高效
- 更快的启动速度
+  更快的启动速度
 Docker 容器应用直接运行与宿主内核，无需启动完整的操作系统，可以做到秒级启动
  " /><meta name="keywords" content="jouyouyun, Hugo, theme, even" />
 
@@ -29,7 +29,7 @@ Docker 容器应用直接运行与宿主内核，无需启动完整的操作系�
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.82.1 with theme even" />
 
 
 <link rel="canonical" href="https://jouyouyun.github.io/post/docker-intro/" />
@@ -40,66 +40,57 @@ Docker 容器应用直接运行与宿主内核，无需启动完整的操作系�
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.93844dae.min.css" rel="stylesheet">
+
+<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="Docker 使用简介" />
 <meta property="og:description" content="Docker 是使用 GoLang 开发的开源容器引擎，可以方便的打包开发好的应用，然后分发到任意 linux 主机上。
-
 与传统的虚拟机相比拥有以下优势：
 
 
 高效的系统资源利用率
-
 由于不需要进行硬件虚拟和运行完整的操作系统等额外开销，无论是应用执行速度、内存损耗或者文件存储速度， Docker 都更加高效
 
-更快的启动速度
 
+更快的启动速度
 Docker 容器应用直接运行与宿主内核，无需启动完整的操作系统，可以做到秒级启动
+
 " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://jouyouyun.github.io/post/docker-intro/" />
-<meta property="article:published_time" content="2019-04-21T11:58:00&#43;08:00"/>
-<meta property="article:modified_time" content="2019-06-08T18:29:53&#43;08:00"/>
+<meta property="og:url" content="https://jouyouyun.github.io/post/docker-intro/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2019-04-21T11:58:00&#43;08:00" />
+<meta property="article:modified_time" content="2019-06-08T18:29:53&#43;08:00" />
 
 <meta itemprop="name" content="Docker 使用简介">
 <meta itemprop="description" content="Docker 是使用 GoLang 开发的开源容器引擎，可以方便的打包开发好的应用，然后分发到任意 linux 主机上。
-
 与传统的虚拟机相比拥有以下优势：
 
 
 高效的系统资源利用率
-
 由于不需要进行硬件虚拟和运行完整的操作系统等额外开销，无论是应用执行速度、内存损耗或者文件存储速度， Docker 都更加高效
 
+
 更快的启动速度
-
 Docker 容器应用直接运行与宿主内核，无需启动完整的操作系统，可以做到秒级启动
-">
 
-
-<meta itemprop="datePublished" content="2019-04-21T11:58:00&#43;08:00" />
+"><meta itemprop="datePublished" content="2019-04-21T11:58:00&#43;08:00" />
 <meta itemprop="dateModified" content="2019-06-08T18:29:53&#43;08:00" />
-<meta itemprop="wordCount" content="1733">
-
-
-
-<meta itemprop="keywords" content="docker,container,image,compose," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="wordCount" content="1739">
+<meta itemprop="keywords" content="docker,container,image,compose," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Docker 使用简介"/>
 <meta name="twitter:description" content="Docker 是使用 GoLang 开发的开源容器引擎，可以方便的打包开发好的应用，然后分发到任意 linux 主机上。
-
 与传统的虚拟机相比拥有以下优势：
 
 
 高效的系统资源利用率
-
 由于不需要进行硬件虚拟和运行完整的操作系统等额外开销，无论是应用执行速度、内存损耗或者文件存储速度， Docker 都更加高效
 
-更快的启动速度
 
+更快的启动速度
 Docker 容器应用直接运行与宿主内核，无需启动完整的操作系统，可以做到秒级启动
+
 "/>
 
 <!--[if lte IE 9]>
@@ -174,212 +165,169 @@ Docker 容器应用直接运行与宿主内核，无需启动完整的操作系�
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#基本概念">基本概念</a>
-<ul>
-<li><a href="#仓库">仓库</a></li>
-<li><a href="#镜像">镜像</a>
-<ul>
-<li><a href="#dockerfile">Dockerfile</a></li>
-<li><a href="#创建">创建</a></li>
-<li><a href="#列出">列出</a></li>
-<li><a href="#运行">运行</a></li>
-<li><a href="#删除">删除</a></li>
-<li><a href="#导入和导出">导入和导出</a></li>
-</ul></li>
-<li><a href="#容器">容器</a>
-<ul>
-<li><a href="#创建-1">创建</a></li>
-<li><a href="#列出-1">列出</a></li>
-<li><a href="#控制">控制</a></li>
-<li><a href="#删除-1">删除</a></li>
-<li><a href="#进入容器">进入容器</a></li>
-<li><a href="#导入和导出-1">导入和导出</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#部署">部署</a>
-<ul>
-<li><a href="#常用命令">常用命令</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#基本概念">基本概念</a>
+      <ul>
+        <li><a href="#仓库">仓库</a></li>
+        <li><a href="#镜像">镜像</a></li>
+        <li><a href="#容器">容器</a></li>
+      </ul>
+    </li>
+    <li><a href="#部署">部署</a>
+      <ul>
+        <li><a href="#常用命令">常用命令</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
       <p><code>Docker</code> 是使用 <code>GoLang</code> 开发的开源容器引擎，可以方便的打包开发好的应用，然后分发到任意 <code>linux</code> 主机上。</p>
-
 <p>与传统的虚拟机相比拥有以下优势：</p>
-
 <ul>
-<li><p>高效的系统资源利用率</p>
-
-<p>由于不需要进行硬件虚拟和运行完整的操作系统等额外开销，无论是应用执行速度、内存损耗或者文件存储速度， <code>Docker</code> 都更加高效</p></li>
-
-<li><p>更快的启动速度</p>
-
-<p><code>Docker</code> 容器应用直接运行与宿主内核，无需启动完整的操作系统，可以做到秒级启动</p></li>
+<li>
+<p>高效的系统资源利用率</p>
+<p>由于不需要进行硬件虚拟和运行完整的操作系统等额外开销，无论是应用执行速度、内存损耗或者文件存储速度， <code>Docker</code> 都更加高效</p>
+</li>
+<li>
+<p>更快的启动速度</p>
+<p><code>Docker</code> 容器应用直接运行与宿主内核，无需启动完整的操作系统，可以做到秒级启动</p>
+</li>
 </ul>
-
 <ul>
-<li><p>一致的运行环境</p>
-
-<p><code>Docker</code> 镜像提供了除内核外的完整运行环境，确保了应用运行环境的一致性</p></li>
-
-<li><p>持续交付和部署</p>
-
-<p>可以通过 <code>Docker</code> 镜像来实现服务的持续交付、部署。使用 <code>Dockerfile</code> 来构建镜像，使用持续集成系统进行集成测试；使用镜像结合持续部署系统进行自动部署</p></li>
-
-<li><p>迁移轻松</p>
-
-<p>只需要迁移镜像及镜像运行的数据就可在其他主机或平台运行</p></li>
-
-<li><p>易于维护和扩展</p>
-
-<p>由于使用镜像进行部署，使维护更为容易。由于支持在镜像的基础上进行定制，使得扩展变得更简单。而官方也维护了一大批高质量的<a href="https://hub.docker.com">镜像</a>，大大降低了镜像的制作成本</p></li>
+<li>
+<p>一致的运行环境</p>
+<p><code>Docker</code> 镜像提供了除内核外的完整运行环境，确保了应用运行环境的一致性</p>
+</li>
+<li>
+<p>持续交付和部署</p>
+<p>可以通过 <code>Docker</code> 镜像来实现服务的持续交付、部署。使用 <code>Dockerfile</code> 来构建镜像，使用持续集成系统进行集成测试；使用镜像结合持续部署系统进行自动部署</p>
+</li>
+<li>
+<p>迁移轻松</p>
+<p>只需要迁移镜像及镜像运行的数据就可在其他主机或平台运行</p>
+</li>
+<li>
+<p>易于维护和扩展</p>
+<p>由于使用镜像进行部署，使维护更为容易。由于支持在镜像的基础上进行定制，使得扩展变得更简单。而官方也维护了一大批高质量的<a href="https://hub.docker.com">镜像</a>，大大降低了镜像的制作成本</p>
+</li>
 </ul>
-
 <h2 id="基本概念">基本概念</h2>
-
 <h3 id="仓库">仓库</h3>
-
 <p><code>Docker</code> 提供了仓库(<code>Repository</code>)用于存放制作好的镜像，方便使用者获取，在本地可通知配置多个 <code>Repository</code> 。</p>
-
 <ul>
-<li><p>拉取</p>
-
+<li>
+<p>拉取</p>
 <p>可以使用命令来拉取镜像:</p>
-
 <p><code>docker pull [repo url&gt;/]image name&gt;</code></p>
-
 <p>默认的 <code>repo url</code> 是 <code>hub.docker.com</code> ，拉取默认仓库中的镜像时是不需要 <code>url</code> 的。
-如拉取 <code>debian</code> ： <code>docker pull debian</code> 。</p></li>
-
-<li><p>推送</p>
-
+如拉取 <code>debian</code> ： <code>docker pull debian</code> 。</p>
+</li>
+<li>
+<p>推送</p>
 <p>我们也可将自己制作好的镜像推送到仓库，以便分发，使用命令：</p>
-
-<p><code>docker push [&lt;repo url&gt;/]&lt;image name&gt;[:&lt;image tag&gt;&gt;</code></p></li>
-
-<li><p>搜索</p>
-
-<p>使用 <code>docker search</code> 命令则可搜索默认 <code>repo url</code> 内的镜像。</p></li>
-
-<li><p>镜像加速</p>
-
+<p><code>docker push [&lt;repo url&gt;/]&lt;image name&gt;[:&lt;image tag&gt;&gt;</code></p>
+</li>
+<li>
+<p>搜索</p>
+<p>使用 <code>docker search</code> 命令则可搜索默认 <code>repo url</code> 内的镜像。</p>
+</li>
+<li>
+<p>镜像加速</p>
 <p>由于默认 <code>repo url</code> 在国外，为了加快拉取速度，需要指定其为国内的，向 <code>/etc/docker/daemon.json</code> 中添加:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-json" data-lang="json"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
   <span class="nt">&#34;registry-mirrors&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;https://registry.docker-cn.com&#34;</span><span class="p">]</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>便可使用 <code>Docker</code> 在中国的镜像加速站。</p>
-
-<p>对于企业用户还可搭建自己的私有镜像仓库，方便管理内部镜像。</p></li>
-
-<li><p>登录</p>
-
+</div><p>便可使用 <code>Docker</code> 在中国的镜像加速站。</p>
+<p>对于企业用户还可搭建自己的私有镜像仓库，方便管理内部镜像。</p>
+</li>
+<li>
+<p>登录</p>
 <p><code>docker</code> 在使用公共镜像时可直接 <code>pull</code> ，无需登录。但在使用私有镜像时则需要向登录，使用命令 <code>docker login &lt;repository url&gt;</code> 。</p>
-
-<p><code>repository url</code> 不指定则使用默认值，默认是 <code>hub.docker.com</code> 。</p></li>
+<p><code>repository url</code> 不指定则使用默认值，默认是 <code>hub.docker.com</code> 。</p>
+</li>
 </ul>
-
 <h3 id="镜像">镜像</h3>
-
 <p>镜像是经过 <code>Dockerfile</code> 规则打包生成的， <code>Dockerfile</code> 文件了指明了镜像的生成及运行方式。</p>
-
 <h4 id="dockerfile">Dockerfile</h4>
-
 <p>这里简单介绍下 <code>Dockerfile</code> 中常用的命令:</p>
-
 <ul>
-<li><p>FROM</p>
-
-<p>指明基于那个镜像，通常是一个系统环境，如 <code>debian</code> 。在多阶段(<code>stage</code>)构建中可使用 <code>FROM ... AS ...</code> 来命令阶段，供后面的阶段使用</p></li>
-
-<li><p>ENV</p>
-
-<p>设置镜像的环境变量</p></li>
-
-<li><p>EXPOSE</p>
-
-<p>导出端口，语法： <code>EXPOSE port/protocol</code></p></li>
-
-<li><p>RUN</p>
-
-<p>执行一条命令</p></li>
-
-<li><p>COPY</p>
-
-<p>复制镜像内部的文件，也可从指定 <code>stage</code> 中复制文件，使用 <code>--from=&lt;stage name&gt;</code> 来实现</p></li>
-
-<li><p>ADD</p>
-
-<p>复制本地文件到镜像中，并做了一些额外工作，如自动解压文件、保持文件属性等</p></li>
-
-<li><p>WORKDIR</p>
-
-<p>切换工作目录</p></li>
-
-<li><p>CMD</p>
-
+<li>
+<p>FROM</p>
+<p>指明基于那个镜像，通常是一个系统环境，如 <code>debian</code> 。在多阶段(<code>stage</code>)构建中可使用 <code>FROM ... AS ...</code> 来命令阶段，供后面的阶段使用</p>
+</li>
+<li>
+<p>ENV</p>
+<p>设置镜像的环境变量</p>
+</li>
+<li>
+<p>EXPOSE</p>
+<p>导出端口，语法： <code>EXPOSE port/protocol</code></p>
+</li>
+<li>
+<p>RUN</p>
+<p>执行一条命令</p>
+</li>
+<li>
+<p>COPY</p>
+<p>复制镜像内部的文件，也可从指定 <code>stage</code> 中复制文件，使用 <code>--from=&lt;stage name&gt;</code> 来实现</p>
+</li>
+<li>
+<p>ADD</p>
+<p>复制本地文件到镜像中，并做了一些额外工作，如自动解压文件、保持文件属性等</p>
+</li>
+<li>
+<p>WORKDIR</p>
+<p>切换工作目录</p>
+</li>
+<li>
+<p>CMD</p>
 <p>执行命令，极容易在 <code>docker run</code> 时被覆盖。主要用于指定镜像的默认启动命令，有以下三种语法：</p>
-
 <ul>
 <li><code>CMD [&quot;executable&quot;, &quot;param1&quot;, &quot;param2&quot;]</code> <code>Exec</code> 模式，首先</li>
 <li><code>CMD [&quot;param1&quot;, &quot;param2&quot;]</code> 设置 <code>ENTRYPOINT</code> 的默认参数</li>
 <li><code>CMD command param1 param2</code> <code>Shell</code> 模式</li>
-</ul></li>
-
-<li><p>ENTRYPOINT</p>
-
-<p>指定镜像默认的运行命令，可以使用 <code>--entrypoint</code> 参数在 <code>docker run</code> 时覆盖 <code>Dockerfile</code> 内的 <code>ENTRYPOINT</code></p>
-
-<p>有 <code>Exec</code> 和 <code>Shell</code> 两种模式</p>
-
-<p>通常使用这个命令来指定镜像的启动命令，因为 <code>CMD</code> 稍不注意就被覆盖了</p></li>
 </ul>
-
+</li>
+<li>
+<p>ENTRYPOINT</p>
+<p>指定镜像默认的运行命令，可以使用 <code>--entrypoint</code> 参数在 <code>docker run</code> 时覆盖 <code>Dockerfile</code> 内的 <code>ENTRYPOINT</code></p>
+<p>有 <code>Exec</code> 和 <code>Shell</code> 两种模式</p>
+<p>通常使用这个命令来指定镜像的启动命令，因为 <code>CMD</code> 稍不注意就被覆盖了</p>
+</li>
+</ul>
 <p>更多关于 <code>Dockerfile</code> 内容请参见： <a href="https://docs.docker.com/engine/reference/builder/">Dockerfile reference</a></p>
-
 <p>这里给出一个简单的 <code>Dockerfile=， 是 =debian sid</code> 的：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="k">FROM</span><span class="s"> scratch</span><span class="err">
-</span><span class="err"></span><span class="k">ADD</span><span class="s"> rootfs.tar.xz /</span><span class="err">
-</span><span class="err"></span><span class="k">CMD</span><span class="s"> [&#34;bash&#34;]</span></code></pre></td></tr></table>
+</span><span class="err"></span><span class="k">ADD</span> rootfs.tar.xz /<span class="err">
+</span><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;bash&#34;</span><span class="p">]</span><span class="err">
+</span></code></pre></td></tr></table>
 </div>
-</div>
-<h4 id="创建">创建</h4>
-
+</div><h4 id="创建">创建</h4>
 <p>使用 <code>docker build -f &lt;Dockerfile path&gt; [-t &lt;image name&gt;[:&lt;tag&gt;]] .</code> 创建镜像和标记 <code>Tag</code></p>
-
 <p><code>Tag</code> 可用来标记不同的镜像版本，就像版本号。</p>
-
 <h4 id="列出">列出</h4>
-
 <p>使用 <code>docker image ls</code> 可以列出下载下来的镜像</p>
-
 <h4 id="运行">运行</h4>
-
 <p>使用 <code>docker run</code> 命令运行镜像，可使用参数配置，下面给出一个例子：</p>
-
 <p><code>docker run -it -d -p &lt;local port&gt;:&lt;container port&gt; -v &lt;local path&gt;:&lt;container path&gt; -e &quot;TESST_ENV=1&quot; --name &quot;&lt;conatiner name&gt;&quot; &lt;image&gt;</code></p>
-
 <ul>
 <li><code>-i</code> 是交互式操作</li>
 <li><code>-t</code> 是终端</li>
@@ -389,81 +337,59 @@ Docker 容器应用直接运行与宿主内核，无需启动完整的操作系�
 <li><code>-e</code> 指定环境变量</li>
 <li><code>--name</code> 指定运行后的容器名称</li>
 </ul>
-
 <p>**注意：**这些参数必须在 <code>image</code> 之前指定，否则会被当作 <code>image</code> 启动命令的参数。</p>
-
 <h4 id="删除">删除</h4>
-
 <p>使用 <code>docker image rm &lt;image id&gt;</code> 删除镜像</p>
-
 <h4 id="导入和导出">导入和导出</h4>
-
 <ul>
 <li>导出： <code>docker save &lt;image id&gt; &gt; &lt;image save&gt;.tar</code></li>
 <li>导入： <code>docker load &lt; &lt;image save&gt;.tar</code></li>
 </ul>
-
 <h3 id="容器">容器</h3>
-
 <p>容器是镜像运行后的实体，运行与属于自己的独立的命名空间。</p>
-
-<h4 id="创建-1">创建</h4>
-
+<h4 id="创建">创建</h4>
 <p>使用 <code>docker run</code> 命令启动镜像就可以创建一个容器</p>
-
-<h4 id="列出-1">列出</h4>
-
+<h4 id="列出">列出</h4>
 <p>使用 <code>docker ps</code> 可列出正在运行的容器，加上 <code>-a</code> 参数可列出所以存在的容器</p>
-
 <h4 id="控制">控制</h4>
-
 <ul>
-<li><p>启动</p>
-
-<p>使用 <code>docker container start &lt;containe id&gt;</code> 启动容器</p></li>
-
-<li><p>终止</p>
-
-<p>使用 <code>docker container stop &lt;containe id&gt;</code> 终止容器</p></li>
-
-<li><p>暂停</p>
-
-<p><code>dcoker container pause &lt;containe id&gt;</code></p></li>
-
-<li><p>重启</p>
-
-<p><code>dcoker container restart &lt;containe id&gt;</code></p></li>
-
-<li><p>日志</p>
-
-<p><code>dcoker container logs &lt;containe id&gt;</code></p></li>
+<li>
+<p>启动</p>
+<p>使用 <code>docker container start &lt;containe id&gt;</code> 启动容器</p>
+</li>
+<li>
+<p>终止</p>
+<p>使用 <code>docker container stop &lt;containe id&gt;</code> 终止容器</p>
+</li>
+<li>
+<p>暂停</p>
+<p><code>dcoker container pause &lt;containe id&gt;</code></p>
+</li>
+<li>
+<p>重启</p>
+<p><code>dcoker container restart &lt;containe id&gt;</code></p>
+</li>
+<li>
+<p>日志</p>
+<p><code>dcoker container logs &lt;containe id&gt;</code></p>
+</li>
 </ul>
-
-<h4 id="删除-1">删除</h4>
-
+<h4 id="删除">删除</h4>
 <p><code>docker container rm &lt;container id&gt;</code> 命令可删除容器</p>
-
 <h4 id="进入容器">进入容器</h4>
-
 <p>使用 <code>docker exec -it &lt;container id&gt; /bin/sh</code> 命令可进入容器的执行环境</p>
-
-<h4 id="导入和导出-1">导入和导出</h4>
-
+<h4 id="导入和导出">导入和导出</h4>
 <ul>
 <li>导入： <code>docker import &lt;container export&gt;.tar &lt;container name&gt;</code></li>
 <li>导出: <code>docker export &lt;container id&gt; &gt; &lt;container export&gt;.tar</code></li>
 </ul>
-
 <h2 id="部署">部署</h2>
-
 <p>直接运行镜像不便于部署服务，因而官方推出了 <code>Docker Compose</code> 来负责应用部署。</p>
-
 <p>使用 <code>docker-compose.yml</code> 文件将应用需要的镜像都定义在一起，然后使用 <code>docker-compose</code> 命令来部署。</p>
-
 <p><code>docker-compose.yml</code> 的语法详见： <a href="https://docs.docker.com/compose/compose-file/">Compose file version 3 reference</a>，这里给出一份部署 <code>wordpress</code> 的文件：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -487,62 +413,61 @@ Docker 容器应用直接运行与宿主内核，无需启动完整的操作系�
 </span><span class="lnt">22
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-yaml" data-lang="yaml">version<span class="p">:</span><span class="w"> </span><span class="s2">&#34;3.7&#34;</span><span class="w">
+<pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;3.7&#34;</span><span class="w">
 </span><span class="w">
-</span><span class="w"></span>services<span class="p">:</span><span class="w">
-</span><span class="w">  </span>wordpress<span class="p">:</span><span class="w">
-</span><span class="w">    </span>image<span class="p">:</span><span class="w"> </span>wordpress<span class="w">
-</span><span class="w">    </span>ports<span class="p">:</span><span class="w">
-</span><span class="w">      </span>-<span class="w"> </span><span class="s2">&#34;8080:80&#34;</span><span class="w">
-</span><span class="w">    </span>networks<span class="p">:</span><span class="w">
-</span><span class="w">      </span>-<span class="w"> </span>backend<span class="w">
+</span><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">wordpress</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">wordpress</span><span class="w">
+</span><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="s2">&#34;8080:80&#34;</span><span class="w">
+</span><span class="w">    </span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- <span class="l">backend</span><span class="w">
 </span><span class="w">
-</span><span class="w">  </span>mysql<span class="p">:</span><span class="w">
-</span><span class="w">    </span>image<span class="p">:</span><span class="w"> </span>mysql<span class="w">
-</span><span class="w">    </span>volumes<span class="p">:</span><span class="w">
-</span><span class="w">       </span>-<span class="w"> </span>db-data<span class="p">:</span>/var/lib/mysql/data<span class="w">
-</span><span class="w">    </span>networks<span class="p">:</span><span class="w">
-</span><span class="w">       </span>-<span class="w"> </span>backend<span class="w">
+</span><span class="w">  </span><span class="nt">mysql</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">mysql</span><span class="w">
+</span><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span><span class="w">       </span>- <span class="l">db-data:/var/lib/mysql/data</span><span class="w">
+</span><span class="w">    </span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span><span class="w">       </span>- <span class="l">backend</span><span class="w">
 </span><span class="w">
-</span><span class="w"></span>volumes<span class="p">:</span><span class="w">
-</span><span class="w">  </span>db-data<span class="p">:</span><span class="w">
+</span><span class="w"></span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">db-data</span><span class="p">:</span><span class="w">
 </span><span class="w">
-</span><span class="w"></span>networks<span class="p">:</span><span class="w">
-</span><span class="w">  </span>backend<span class="p">:</span></code></pre></td></tr></table>
+</span><span class="w"></span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="nt">backend</span><span class="p">:</span><span class="w">
+</span></code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="常用命令">常用命令</h3>
-
+</div><h3 id="常用命令">常用命令</h3>
 <ul>
-<li><p>up</p>
-
-<p>启动服务，加上 <code>-d</code> 表示在后端运行</p></li>
-
-<li><p>down</p>
-
-<p>终止服务</p></li>
-
-<li><p>build</p>
-
-<p>构建服务中的容器</p></li>
-
-<li><p>config</p>
-
-<p>验证文件格式是否有误</p></li>
-
-<li><p>exec</p>
-
-<p>进入指定的容器，如进入上面 <code>wordpress</code> 中的 <code>mysql</code> 则是： <code>docker-compose exec mysql</code></p></li>
-
-<li><p>logs</p>
-
-<p>显示日志，可指定容器</p></li>
-
-<li><p>restart</p>
-
-<p>重启服务</p></li>
+<li>
+<p>up</p>
+<p>启动服务，加上 <code>-d</code> 表示在后端运行</p>
+</li>
+<li>
+<p>down</p>
+<p>终止服务</p>
+</li>
+<li>
+<p>build</p>
+<p>构建服务中的容器</p>
+</li>
+<li>
+<p>config</p>
+<p>验证文件格式是否有误</p>
+</li>
+<li>
+<p>exec</p>
+<p>进入指定的容器，如进入上面 <code>wordpress</code> 中的 <code>mysql</code> 则是： <code>docker-compose exec mysql</code></p>
+</li>
+<li>
+<p>logs</p>
+<p>显示日志，可指定容器</p>
+</li>
+<li>
+<p>restart</p>
+<p>重启服务</p>
+</li>
 </ul>
-
 <p>更多命令请见： <a href="https://docs.docker.com/compose/reference/overview/">Overview of docker-compose CLI</a></p>
     </div>
 
@@ -553,11 +478,15 @@ Docker 容器应用直接运行与宿主内核，无需启动完整的操作系�
   </p>
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
-    <span class="item-content">2019-06-08</span>
+    <span class="item-content">
+        2019-06-08
+        
+    </span>
   </p>
   
   
-</div><div class="post-reward">
+</div>
+<div class="post-reward">
   <input type="checkbox" name="reward" id="reward" hidden />
   <label class="reward-button" for="reward">赞赏支持</label>
   <div class="qr-code">
@@ -595,6 +524,10 @@ Docker 容器应用直接运行与宿主内核，无需启动完整的操作系�
         </div>
         
 
+  
+
+  
+
       </div>
     </main>
 
@@ -621,13 +554,10 @@ Docker 容器应用直接运行与宿主内核，无需启动完整的操作系�
   <span class="copyright-year">
     &copy; 
     2014 - 
-    2019
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">jouyouyun</span>
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>jouyouyun</span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -638,7 +568,10 @@ Docker 容器应用直接运行与宿主内核，无需启动完整的操作系�
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="/dist/even.ece58db6.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

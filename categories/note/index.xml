@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>NOTE on jouyouyun&#39;s blog</title>
@@ -7,10 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>jouyouyun</copyright>
-    <lastBuildDate>Wed, 28 Aug 2019 11:23:21 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 15 Mar 2020 11:38:21 +0800</lastBuildDate><atom:link href="https://jouyouyun.github.io/categories/note/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DDE 后端 Tutorial</title>
+      <link>https://jouyouyun.github.io/post/dde-daemon-tutorial/</link>
+      <pubDate>Sun, 15 Mar 2020 11:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/dde-daemon-tutorial/</guid>
+      <description>dde 后端使用 go 作为主要的开发语言，使用 dbus 提供接口，主要使用 gsettings 来保存配置。所以在进行后端开发前需要对以上内容有基本的了解，这里假定本文档的阅读者</description>
+    </item>
     
-	<atom:link href="https://jouyouyun.github.io/categories/note/index.xml" rel="self" type="application/rss+xml" />
-    
+    <item>
+      <title>Learning Exercise</title>
+      <link>https://jouyouyun.github.io/post/learning_exercise/</link>
+      <pubDate>Thu, 28 Nov 2019 10:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/learning_exercise/</guid>
+      <description>学习一种新语言，或者学习内核，可按照以下内容做题练习。 类型转换 number(int,float) to string string to number 大数相加(数的值接近类型最大值,相加后超过最大值) 字符串操作 split append string</description>
+    </item>
     
     <item>
       <title>Debian CVE Tracker</title>
@@ -19,11 +33,8 @@
       
       <guid>https://jouyouyun.github.io/post/debian-cve-tracker/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://security-tracker.debian.org/tracker/status/release/stable&#34;&gt;Debian CVE Tracker&lt;/a&gt; 上记录了很多安全漏洞，有些 &lt;code&gt;Debian&lt;/code&gt; 会在当前版本修复，但有些不会。由于 &lt;code&gt;deepin&lt;/code&gt; 会在当前版本上停留很久，所以需要修复这些安全漏洞。这就需要自行追踪 &lt;code&gt;CVE Bug&lt;/code&gt; 的状态和添加 &lt;code&gt;patch&lt;/code&gt; ，因此写了个程序 &lt;a href=&#34;https://github.com/deepin-cve/tracker&#34;&gt;deepin-cve-tracker&lt;/a&gt; 来管理。&lt;/p&gt;
-
 &lt;p&gt;本文将介绍 &lt;code&gt;deepin-cve-tracker&lt;/code&gt; 的使用方法和 &lt;code&gt;patch&lt;/code&gt; 的添加方法。&lt;/p&gt;
-
 &lt;h2 id=&#34;deepin-cve-tracker&#34;&gt;Deepin CVE Tracker&lt;/h2&gt;
-
 &lt;p&gt;&lt;code&gt;deepin-cve-tracker&lt;/code&gt; 设计用来追踪 &lt;code&gt;Debain CVE Bug&lt;/code&gt; ，会先将 &lt;code&gt;Debian&lt;/code&gt; 中的数据爬入自己的数据库中，然后做标记来追踪 &lt;code&gt;bug&lt;/code&gt; 的处理状态。提供 &lt;code&gt;HTTP&lt;/code&gt; 接口供用户使用，使用 &lt;code&gt;docker&lt;/code&gt; 部署。&lt;/p&gt;</description>
     </item>
     
@@ -34,11 +45,8 @@
       
       <guid>https://jouyouyun.github.io/post/installation/</guid>
       <description>&lt;p&gt;在重装系统时, 需要考虑软件与数据的备份恢复, 遂记录下需要用到的软件, 自定义的配置和数据恢复.&lt;/p&gt;
-
 &lt;h2 id=&#34;软件&#34;&gt;软件&lt;/h2&gt;
-
 &lt;h3 id=&#34;换源&#34;&gt;换源&lt;/h3&gt;
-
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;Archlinux&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;</description>
@@ -51,11 +59,8 @@
       
       <guid>https://jouyouyun.github.io/post/python-learn-note/</guid>
       <description>&lt;h2 id=&#34;python3-study-notes&#34;&gt;Python3 Study Notes&lt;/h2&gt;
-
 &lt;p&gt;本人很少写 &lt;code&gt;python&lt;/code&gt; 代码, 一般都是用 &lt;code&gt;go&lt;/code&gt; 的, 去年时用 &lt;code&gt;python&lt;/code&gt; 写过一些收集系统信息的工具, 当时是边看手册边写的. 如今又要用 &lt;code&gt;python&lt;/code&gt; 来写一个生成 &lt;code&gt;xlsx&lt;/code&gt; 的工具, 就又需要查看手册了, 至于为什么不用 &lt;code&gt;go&lt;/code&gt; 写? 那是因为 &lt;code&gt;go&lt;/code&gt; 的库不兼容永中. 在这里不得不说, 虽然 &lt;code&gt;go&lt;/code&gt; 很火, 但是一些库还是不如 &lt;code&gt;python&lt;/code&gt; 多, 不如 &lt;code&gt;python&lt;/code&gt; 兼容性好.&lt;/p&gt;
-
 &lt;p&gt;为了避免以后再出这种事情, 这次就好好的了解下 &lt;code&gt;python&lt;/code&gt;, 将它的用法按照自己对语言的理解分块记录下来. 要使用某种语言, 个人认为需要了解这些方面:&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;编码风格&lt;/li&gt;
 &lt;li&gt;变量的类型, 声明及使用方式&lt;/li&gt;
@@ -65,7 +70,6 @@
 &lt;li&gt;函数的用法, 还有语言支持的一些特性, &lt;code&gt;python&lt;/code&gt; 中就有装饰器, &lt;code&gt;lambda&lt;/code&gt; 语句等&lt;/li&gt;
 &lt;li&gt;对于面向对象语言还需要了解类的声明, 继承, 多态等的用法&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;还有一些就是此语言的一些特性, &lt;code&gt;python&lt;/code&gt; 就还需要了解以下特性:&lt;/p&gt;</description>
     </item>
     
@@ -76,9 +80,7 @@
       
       <guid>https://jouyouyun.github.io/post/go-package-management/</guid>
       <description>&lt;h2 id=&#34;go-module-使用&#34;&gt;Go Module 使用&lt;/h2&gt;
-
 &lt;p&gt;&lt;code&gt;Go Module&lt;/code&gt; 是官方用来管理 &lt;code&gt;package&lt;/code&gt; 依赖的工具, &lt;code&gt;1.11&lt;/code&gt; 新加的, 使用时需要设置变量: &lt;code&gt;GO111MODULE=on&lt;/code&gt; .&lt;/p&gt;
-
 &lt;p&gt;&lt;code&gt;go mod help&lt;/code&gt; 可以查看其帮助文档:&lt;/p&gt;</description>
     </item>
     
@@ -89,13 +91,9 @@
       
       <guid>https://jouyouyun.github.io/post/linux-signal-example/</guid>
       <description>&lt;p&gt;信号是系统响应某些条件而产生的一个事件，接收到该信的进程做出相应的处理。通常信是由错误产生的，如段错误(&lt;code&gt;SIGSEGV&lt;/code&gt;)。 但信还可以作为进程间通信的一种方式，由一个进程发送给另一个进程。&lt;/p&gt;
-
 &lt;p&gt;信号定义在 &lt;code&gt;signal.h&lt;/code&gt; 文件中，以 &lt;code&gt;SIG&lt;/code&gt; 作为开头，可用 &lt;code&gt;kill -l&lt;/code&gt; 命令查看，详细信息参见 &lt;a href=&#34;http://man7.org/linux/man-pages/man7/signal.7.html&#34;&gt;man 7 signal&lt;/a&gt; 。&lt;/p&gt;
-
 &lt;h2 id=&#34;信号处理&#34;&gt;信号处理&lt;/h2&gt;
-
 &lt;p&gt;信号可以通过 &lt;code&gt;signal&lt;/code&gt; 和 &lt;code&gt;sigaction&lt;/code&gt; 函数来注册处理， &lt;code&gt;signal&lt;/code&gt; 函数是 &lt;code&gt;struct sigaction&lt;/code&gt; 中 &lt;code&gt;sa_handler&lt;/code&gt; 的一种便捷实现。&lt;/p&gt;
-
 &lt;h3 id=&#34;signal-函数&#34;&gt;&lt;code&gt;signal&lt;/code&gt; 函数&lt;/h3&gt;</description>
     </item>
     
@@ -106,23 +104,19 @@
       
       <guid>https://jouyouyun.github.io/post/cups-notes/</guid>
       <description>&lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
-
 &lt;p&gt;&lt;code&gt;sudo apt install cups ghostscript gsfonts&lt;/code&gt;&lt;/p&gt;
-
 &lt;h2 id=&#34;driver&#34;&gt;Driver&lt;/h2&gt;
-
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;gutenprint&lt;/p&gt;
-
+&lt;li&gt;
+&lt;p&gt;gutenprint&lt;/p&gt;
 &lt;p&gt;一组质量非常好的驱动集合，支持的目标机型包括 &lt;code&gt;Canon, Epson, Lexmark, Sony, Olympus&lt;/code&gt; ；以及配合 &lt;code&gt;CUPS/GhostSscript/Foomatic/GIMP&lt;/code&gt; 使用的 &lt;code&gt;PCL printers&lt;/code&gt; 。&lt;/p&gt;
-
-&lt;p&gt;安装包: &lt;code&gt;cups-driver-gutenprint gimp-gutenprint ijsgutenprint printer-driver-gutenprint&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;foomatic&lt;/p&gt;
-
+&lt;p&gt;安装包: &lt;code&gt;cups-driver-gutenprint gimp-gutenprint ijsgutenprint printer-driver-gutenprint&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;foomatic&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;Foomatic&lt;/code&gt; 是一个基于数据库的，集成自由软件打印机驱动和脱机打印程序的系统。&lt;/p&gt;
-
-&lt;p&gt;安装包: &lt;code&gt;foomatic-db foomatic-db-engine foomatic-db-compressed-ppds foomatic-db-gutenprint foomatic-filters&lt;/code&gt; 以及 &lt;code&gt;foomatic-db-nonfree&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;p&gt;安装包: &lt;code&gt;foomatic-db foomatic-db-engine foomatic-db-compressed-ppds foomatic-db-gutenprint foomatic-filters&lt;/code&gt; 以及 &lt;code&gt;foomatic-db-nonfree&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;</description>
     </item>
     
@@ -134,9 +128,7 @@
       <guid>https://jouyouyun.github.io/post/xrandr-examples/</guid>
       <description>&lt;p&gt;由于经常会用到使用 &lt;code&gt;xrandr&lt;/code&gt; 设置屏幕属性, 而每次用的时候都要去查 &lt;code&gt;man&lt;/code&gt; 手册, 有时还需要上网搜索例子.
 这样一来就比较麻烦, 所以就想整理下 &lt;code&gt;xrandr&lt;/code&gt; 的用法, 给出一些常用的例子.&lt;/p&gt;
-
 &lt;h2 id=&#34;查询&#34;&gt;查询&lt;/h2&gt;
-
 &lt;p&gt;使用 &lt;code&gt;xrandr -q&lt;/code&gt; 命令可以查询当前的显示器状态, 使用 &lt;code&gt;xrandr --verbose&lt;/code&gt; 将会显示更详细的信息.&lt;/p&gt;</description>
     </item>
     
@@ -147,18 +139,13 @@
       
       <guid>https://jouyouyun.github.io/post/debug-summary/</guid>
       <description>&lt;p&gt;调试 &lt;code&gt;bug&lt;/code&gt; 的时候要有耐心, 要不断测试, 直到找到问题原因.&lt;/p&gt;
-
 &lt;h2 id=&#34;基本思路&#34;&gt;基本思路&lt;/h2&gt;
-
 &lt;h3 id=&#34;确定-bug-出现的方式&#34;&gt;确定 &lt;code&gt;bug&lt;/code&gt; 出现的方式&lt;/h3&gt;
-
 &lt;ul&gt;
 &lt;li&gt;一定要找到稳定重现的方式, 这样才能方便下面的调试&lt;/li&gt;
 &lt;li&gt;如果找不到稳定重现的方法就只能根据上次出现的情形, 去查看相关的代码, 猜测可能出问题的地方, 然后针对那一块进行调试, 直到找到稳定重现方式&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;h3 id=&#34;定位出问题的代码&#34;&gt;定位出问题的代码&lt;/h3&gt;
-
 &lt;ul&gt;
 &lt;li&gt;再找到稳定重现方式后, 开始定位出问题的函数, 然后加入调试信息, 不断尝试, 直到找到有问题的代码&lt;/li&gt;
 &lt;li&gt;找到有问题的代码后, 如果发现是第三方库里的函数,可以打印出每次调用的输入输出参数, 看看是否有迹可循, 可以单独写个小程序, 传入问题的参数, 进行不断测试, 来确定第三方库有没有问题&lt;/li&gt;
@@ -173,11 +160,8 @@
       
       <guid>https://jouyouyun.github.io/post/xsetwacom-options/</guid>
       <description>&lt;p&gt;&lt;code&gt;xsetwacom&lt;/code&gt; 是一个设置数位板的命令行工具, 在 &lt;code&gt;Debian/Ubuntu/deepin&lt;/code&gt; 上可以通过安装 &lt;code&gt;xserver-xorg-input-wacom&lt;/code&gt; 来获取它.&lt;/p&gt;
-
 &lt;p&gt;可以通过 &lt;code&gt;man xsetwacom&lt;/code&gt; 看到它的帮助文档, 下面就简单说明下它的部份选项:&lt;/p&gt;
-
-&lt;hr /&gt;
-
+&lt;hr&gt;
 &lt;h2 id=&#34;options&#34;&gt;Options&lt;/h2&gt;</description>
     </item>
     
@@ -188,7 +172,6 @@
       
       <guid>https://jouyouyun.github.io/post/go-tcp-socket-example/</guid>
       <description>&lt;p&gt;一个简单的 &lt;code&gt;TCP Socket&lt;/code&gt; 的示例，使用 &lt;code&gt;gob&lt;/code&gt; 处理传输的数据。&lt;/p&gt;
-
 &lt;h2 id=&#34;server-dot-go&#34;&gt;&lt;code&gt;server.go&lt;/code&gt;&lt;/h2&gt;</description>
     </item>
     
@@ -208,13 +191,11 @@
       
       <guid>https://jouyouyun.github.io/post/chroot-shell/</guid>
       <description>&lt;p&gt;最近测试了以下 &lt;code&gt;chroot&lt;/code&gt; ，然后把步骤写成了下面两个脚本，方便以后使用。&lt;/p&gt;
-
 &lt;p&gt;&lt;strong&gt;使用时需要确定每条命令都执行成功了&lt;/strong&gt;&lt;/p&gt;
-
 &lt;p&gt;&lt;code&gt;Arch&lt;/code&gt; 分区结构&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
@@ -223,7 +204,8 @@
 &lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;/dev/sda5	/
 /dev/sda1	/boot
 /dev/sda6	/home
-/dev/sda8	Swap&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+/dev/sda8	Swap
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;</description>
     </item>
@@ -246,7 +228,7 @@
       <description>&lt;p&gt;使用 GoLang 判断文件是否存在。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
@@ -277,7 +259,8 @@
         &lt;span class=&#34;nx&#34;&gt;_&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;err&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;os&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;Stat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;filename&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 
         &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;err&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;nil&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;||&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;os&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;IsExist&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;err&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;</description>
     </item>

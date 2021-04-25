@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>wakeup on jouyouyun&#39;s blog</title>
@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>jouyouyun</copyright>
-    <lastBuildDate>Sun, 21 Oct 2018 21:38:21 +0800</lastBuildDate>
-    
-	<atom:link href="https://jouyouyun.github.io/tags/wakeup/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 21 Oct 2018 21:38:21 +0800</lastBuildDate><atom:link href="https://jouyouyun.github.io/tags/wakeup/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linux 休眠自动唤醒</title>
       <link>https://jouyouyun.github.io/post/linux-auto-suspend/</link>
@@ -19,11 +15,8 @@
       
       <guid>https://jouyouyun.github.io/post/linux-auto-suspend/</guid>
       <description>&lt;p&gt;最近做无线网络在系统多次休眠唤醒后是否正常的测试，但每次休眠后都需要手动点击键盘来唤醒系统，显而易见的这种方法需要人来值守，很不放便。&lt;/p&gt;
-
 &lt;p&gt;此时便想是否有做自动唤醒的程序，毕竟这种需求也挺正常的，应该有人已经做过了。因此就开始查找自动唤醒的方法，果然就发现了 &lt;code&gt;rtcwake&lt;/code&gt; 这个程序，这个程序是让系统进入休眠模式并在指定的时间后唤醒。立刻便觉得这个程序很神奇，然后就去看它的源码来找出它的实现方式，这边发现了本文的主题 &lt;code&gt;RTC&lt;/code&gt; 子系统。&lt;/p&gt;
-
 &lt;h2 id=&#34;rtc-子系统&#34;&gt;&lt;code&gt;RTC&lt;/code&gt; 子系统&lt;/h2&gt;
-
 &lt;p&gt;&lt;code&gt;RTC&lt;/code&gt; 子系统在目录 &lt;code&gt;/sys/class/rtc/&lt;/code&gt; 下，会根据设备创建对应的目录，需要在内核中开启支持，配置如下：&lt;/p&gt;</description>
     </item>
     

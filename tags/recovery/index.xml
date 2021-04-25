@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>recovery on jouyouyun&#39;s blog</title>
@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>jouyouyun</copyright>
-    <lastBuildDate>Thu, 12 Apr 2018 21:38:21 +0800</lastBuildDate>
-    
-	<atom:link href="https://jouyouyun.github.io/tags/recovery/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 12 Apr 2018 21:38:21 +0800</lastBuildDate><atom:link href="https://jouyouyun.github.io/tags/recovery/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Git Rebase 回退</title>
       <link>https://jouyouyun.github.io/post/git-rebase/</link>
@@ -19,11 +15,8 @@
       
       <guid>https://jouyouyun.github.io/post/git-rebase/</guid>
       <description>&lt;p&gt;在开发新功能或修复 &lt;code&gt;bug&lt;/code&gt; 时，一般需要新建一个分支，然后在它之上进行开发。在多人协同开发时，经常会同时修改相同的分支或相同的文件，这时就需要进行 &lt;code&gt;rebase&lt;/code&gt; 操作在提交你的代码之前。&lt;/p&gt;
-
 &lt;p&gt;但有时 &lt;code&gt;rebase&lt;/code&gt; 会带来不想要的提交，或处理冲突时误操作执行了 &lt;code&gt;git rebase --skip&lt;/code&gt; 。此时就想要回退到之前的提交，恢复自己的数据， &lt;code&gt;reflog&lt;/code&gt; 就可以帮助你完成数据恢复。&lt;/p&gt;
-
 &lt;h2 id=&#34;reflog&#34;&gt;reflog&lt;/h2&gt;
-
 &lt;p&gt;当你工作时，=Git= 会在你每次修改了 &lt;code&gt;HEAD&lt;/code&gt; 时悄悄地将改动记录下来。当你提交或修改分支时， &lt;code&gt;reflog&lt;/code&gt; 就会更新。通过 &lt;code&gt;git reflog&lt;/code&gt; 命令可以查看当前的状态：&lt;/p&gt;</description>
     </item>
     

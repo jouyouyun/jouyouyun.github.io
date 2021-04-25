@@ -17,9 +17,9 @@
 
 
 <meta name="author" content="jouyouyun" /><meta name="description" content="最近由于要调试 usbhid 模块，所以需要编译 kernel ，在此整理下方法，以免每次都查找。
-Dependencies  deepin
+Dependencies   deepin
 sudo apt-get install build-essential libncurses-dev bison flex libssl-dev libelf-dev
- archlinux
+  archlinux
 sudo pacman -S gcc ncurses bison flex openssl libelf elfutils
   若编译时有报错，请按照错误提示按照缺失的依赖。
 " /><meta name="keywords" content="jouyouyun, Hugo, theme, even" />
@@ -29,7 +29,7 @@ sudo pacman -S gcc ncurses bison flex openssl libelf elfutils
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.82.1 with theme even" />
 
 
 <link rel="canonical" href="https://jouyouyun.github.io/post/linux-kernel-compile/" />
@@ -40,69 +40,57 @@ sudo pacman -S gcc ncurses bison flex openssl libelf elfutils
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.93844dae.min.css" rel="stylesheet">
+
+<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="Compile Kernel" />
 <meta property="og:description" content="最近由于要调试 usbhid 模块，所以需要编译 kernel ，在此整理下方法，以免每次都查找。
-
 Dependencies
 
 
 deepin
-
 sudo apt-get install build-essential libncurses-dev bison flex libssl-dev libelf-dev
 
-archlinux
 
+archlinux
 sudo pacman -S gcc ncurses bison flex openssl libelf elfutils
 
 
 若编译时有报错，请按照错误提示按照缺失的依赖。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://jouyouyun.github.io/post/linux-kernel-compile/" />
-<meta property="article:published_time" content="2019-08-06T21:38:21&#43;08:00"/>
-<meta property="article:modified_time" content="2019-11-27T20:05:41&#43;08:00"/>
+<meta property="og:url" content="https://jouyouyun.github.io/post/linux-kernel-compile/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2019-08-06T21:38:21&#43;08:00" />
+<meta property="article:modified_time" content="2019-11-27T20:05:41&#43;08:00" />
 
 <meta itemprop="name" content="Compile Kernel">
 <meta itemprop="description" content="最近由于要调试 usbhid 模块，所以需要编译 kernel ，在此整理下方法，以免每次都查找。
-
 Dependencies
 
 
 deepin
-
 sudo apt-get install build-essential libncurses-dev bison flex libssl-dev libelf-dev
 
-archlinux
 
+archlinux
 sudo pacman -S gcc ncurses bison flex openssl libelf elfutils
 
 
-若编译时有报错，请按照错误提示按照缺失的依赖。">
-
-
-<meta itemprop="datePublished" content="2019-08-06T21:38:21&#43;08:00" />
+若编译时有报错，请按照错误提示按照缺失的依赖。"><meta itemprop="datePublished" content="2019-08-06T21:38:21&#43;08:00" />
 <meta itemprop="dateModified" content="2019-11-27T20:05:41&#43;08:00" />
 <meta itemprop="wordCount" content="781">
-
-
-
-<meta itemprop="keywords" content="kernel,compile,linux," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="kernel,compile,linux," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Compile Kernel"/>
 <meta name="twitter:description" content="最近由于要调试 usbhid 模块，所以需要编译 kernel ，在此整理下方法，以免每次都查找。
-
 Dependencies
 
 
 deepin
-
 sudo apt-get install build-essential libncurses-dev bison flex libssl-dev libelf-dev
 
-archlinux
 
+archlinux
 sudo pacman -S gcc ncurses bison flex openssl libelf elfutils
 
 
@@ -180,188 +168,139 @@ sudo pacman -S gcc ncurses bison flex openssl libelf elfutils
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#dependencies">Dependencies</a></li>
-<li><a href="#configuration">Configuration</a>
-<ul>
-<li><a href="#version">Version</a>
-<ul>
-<li><a href="#vermagic">vermagic</a></li>
-<li><a href="#avoid-add-plus-after-kernel-version">Avoid add &lsquo;+&rsquo; after kernel version</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#build">Build</a>
-<ul>
-<li><a href="#prepare">Prepare</a></li>
-<li><a href="#make">Make</a></li>
-<li><a href="#build-special-module">Build Special Module</a>
-<ul>
-<li><a href="#prepare-1">Prepare</a></li>
-<li><a href="#make-1">Make</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#installation">Installation</a>
-<ul>
-<li><a href="#modules">Modules</a></li>
-<li><a href="#image">Image</a></li>
-</ul></li>
-<li><a href="#参考文档">参考文档</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#dependencies">Dependencies</a></li>
+    <li><a href="#configuration">Configuration</a>
+      <ul>
+        <li><a href="#version">Version</a></li>
+      </ul>
+    </li>
+    <li><a href="#build">Build</a>
+      <ul>
+        <li><a href="#prepare">Prepare</a></li>
+        <li><a href="#make">Make</a></li>
+        <li><a href="#build-special-module">Build Special Module</a></li>
+      </ul>
+    </li>
+    <li><a href="#installation">Installation</a>
+      <ul>
+        <li><a href="#modules">Modules</a></li>
+        <li><a href="#image">Image</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考文档">参考文档</a></li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
       <p>最近由于要调试 <code>usbhid</code> 模块，所以需要编译 <code>kernel</code> ，在此整理下方法，以免每次都查找。</p>
-
 <h2 id="dependencies">Dependencies</h2>
-
 <ul>
-<li><p><code>deepin</code></p>
-
-<p><code>sudo apt-get install build-essential libncurses-dev bison flex libssl-dev libelf-dev</code></p></li>
-
-<li><p><code>archlinux</code></p>
-
-<p><code>sudo pacman -S gcc ncurses bison flex openssl libelf elfutils</code></p></li>
+<li>
+<p><code>deepin</code></p>
+<p><code>sudo apt-get install build-essential libncurses-dev bison flex libssl-dev libelf-dev</code></p>
+</li>
+<li>
+<p><code>archlinux</code></p>
+<p><code>sudo pacman -S gcc ncurses bison flex openssl libelf elfutils</code></p>
+</li>
 </ul>
-
 <p>若编译时有报错，请按照错误提示按照缺失的依赖。</p>
-
-<hr />
-
+<hr>
 <h2 id="configuration">Configuration</h2>
-
 <p>默认情况下使用当前内核的配置，操作如下：</p>
-
 <ul>
-<li><p><code>deepin</code></p>
-
-<p><code>cp /boot/config-`uname -r` .config</code></p></li>
-
-<li><p><code>archlinux</code></p>
-
-<p><code>zcat /proc/config.gz &gt; .config</code></p></li>
+<li>
+<p><code>deepin</code></p>
+<p><code>cp /boot/config-`uname -r` .config</code></p>
+</li>
+<li>
+<p><code>archlinux</code></p>
+<p><code>zcat /proc/config.gz &gt; .config</code></p>
+</li>
 </ul>
-
 <p>如需自定义，执行 <code>make nconfig</code> 修改。</p>
-
-<hr />
-
+<hr>
 <h3 id="version">Version</h3>
-
 <p>编译时需要指定版本，不然版本不同模块会加载失败，版本指定的方法如下：</p>
-
 <h4 id="vermagic">vermagic</h4>
-
 <p>内核编译时会设置 <code>vermagic</code> ，如果模块的 <code>vermagic</code> 不一致则会加载失败，使用 <code>modinfo &lt;module&gt;</code> 可查看当前值。</p>
-
 <p>对于 <code>vermagic</code> 的设置，目前只找到了通过变量设置的方法，如下：</p>
-
 <p>有 <code>vermagic</code> 为 <code>4.19.0-5-amd64</code> ，可通过变量 <code>VERSION, PATCHLEVEL, SUBLEVEL and EXTRAVERSION</code> 来指定它，详细如下：</p>
-
 <ul>
 <li>VERSION : 对应的是 <code>4</code></li>
 <li>PATCHLEVEL : 对应的是 <code>19</code></li>
 <li>SUBLEVEL : 对应的是 <code>0</code></li>
 <li>EXTRAVERSION : 对应的是 <code>-5-amd64</code></li>
 </ul>
-
 <p>其中 <code>EXTRAVERSION</code> 还可通过 <code>.config</code> 中 <code>CONFIG_LOCALVERSION</code> 指定(需要确保 <code>CONFIG_LOCALVERSION_AUTO</code> 不被设置)</p>
-
 <p>或者这样指定：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">make <span class="nv">KERNELRELEASE</span><span class="o">=</span><span class="m">4</span>.19.34-2deepin-generic <span class="nv">ARCH</span><span class="o">=</span>arm64   <span class="nv">KBUILD_BUILD_VERSION</span><span class="o">=</span><span class="m">20</span> <span class="nv">KBUILD_SRC</span><span class="o">=</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">make <span class="nv">KERNELRELEASE</span><span class="o">=</span>4.19.34-2deepin-generic <span class="nv">ARCH</span><span class="o">=</span>arm64   <span class="nv">KBUILD_BUILD_VERSION</span><span class="o">=</span><span class="m">20</span> <span class="nv">KBUILD_SRC</span><span class="o">=</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h4 id="avoid-add-plus-after-kernel-version">Avoid add &lsquo;+&rsquo; after kernel version</h4>
-
+</div><h4 id="avoid-add-plus-after-kernel-version">Avoid add &lsquo;+&rsquo; after kernel version</h4>
 <blockquote>
 <p>To prevent the script scripts/setlocalversion to append the + to the end of the kernel local version, create an empty .scmversion file in the root of the kernel sources.</p>
-
 <p>$ touch .scmversion</p>
-
 <p>this way, you&rsquo;ll be able to leave LOCALVERSION as is in the kernel configuration file, in case you want to append a local signature to the kernel name.</p>
 </blockquote>
-
-<hr />
-
+<hr>
 <h2 id="build">Build</h2>
-
 <p>The kernel version: <strong>4.19.37</strong> , vermagic: <strong>4.19.0-5-amd64</strong></p>
-
 <h3 id="prepare">Prepare</h3>
-
 <p><code>make VERSION=4 PATCHLEVEL=19 SUBLEVEL=0 EXTRAVERSION='-5-amd64' scripts prepare modules_prepare -j 24</code></p>
-
 <h3 id="make">Make</h3>
-
 <p><code>make VERSION=4 PATCHLEVEL=19 SUBLEVEL=0 EXTRAVERSION='-5-amd64' -j 24</code></p>
-
 <h3 id="build-special-module">Build Special Module</h3>
-
-<h4 id="prepare-1">Prepare</h4>
-
+<h4 id="prepare">Prepare</h4>
 <p><code>make VERSION=4 PATCHLEVEL=19 SUBLEVEL=0 EXTRAVERSION='-5-amd64' scripts modules_prepare -j 24</code></p>
-
-<h4 id="make-1">Make</h4>
-
+<h4 id="make">Make</h4>
 <p><code>make VERSION=4 PATCHLEVEL=19 SUBLEVEL=0 EXTRAVERSION='-5-amd64' -C . M=&lt;module path&gt;</code></p>
-
 <p>例如编译 <code>usbhid.ko</code> 则是： <code>make VERSION=4 PATCHLEVEL=19 SUBLEVEL=0 EXTRAVERSION='-5-amd64' -C . M=drivers/hid/usbhid</code></p>
-
-<hr />
-
+<hr>
 <h2 id="installation">Installation</h2>
-
 <h3 id="modules">Modules</h3>
-
 <p><code>sudo make modules_install</code></p>
-
 <p>可通过 <code>INSTALL_MOD_PATH</code> 指定 <code>modules</code> 安装目录</p>
-
 <p>然后执行以下操作：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell">sudo depmod <span class="c1"># 更新 modules 映射</span>
 sudo update-initramfs  -u <span class="c1"># deepin 下更新当前内核，使用 &#39;-k&#39; 指定内核</span>
-sudo mkinitcpio -p &lt;preset&gt; <span class="c1"># archlinux 下更新指定内核， &#39;preset&#39; 在 &#39;/etc/mkinitcpio.d&#39; 中查看</span></code></pre></td></tr></table>
+sudo mkinitcpio -p &lt;preset&gt; <span class="c1"># archlinux 下更新指定内核， &#39;preset&#39; 在 &#39;/etc/mkinitcpio.d&#39; 中查看</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<hr />
-
+</div><hr>
 <h3 id="image">Image</h3>
-
 <p><code>sudo make install</code></p>
-
 <p>目的是生成下面的文件：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell">initramfs-4.19.0-5-amd64.img
 System.map-4.19.0-5-amd64
-vmlinuz-4.19.0-5-amd64</code></pre></td></tr></table>
+vmlinuz-4.19.0-5-amd64
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>如下：</p>
+</div><p>如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -392,11 +331,11 @@ vmlinuz-4.19.0-5-amd64</code></pre></td></tr></table>
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell">$ sudo make install -j <span class="m">4</span>
-sh ./arch/x86/boot/install.sh <span class="m">4</span>.19.0-5-amd64 arch/x86/boot/bzImage <span class="se">\
+sh ./arch/x86/boot/install.sh 4.19.0-5-amd64 arch/x86/boot/bzImage <span class="se">\
 </span><span class="se"></span>        System.map <span class="s2">&#34;/boot&#34;</span>
-run-parts: executing /etc/kernel/postinst.d/apt-auto-removal <span class="m">4</span>.19.0-5-amd64 /boot/vmlinuz-4.19.0-5-amd64
-run-parts: executing /etc/kernel/postinst.d/dkms <span class="m">4</span>.19.0-5-amd64 /boot/vmlinuz-4.19.0-5-amd64
-run-parts: executing /etc/kernel/postinst.d/initramfs-tools <span class="m">4</span>.19.0-5-amd64 /boot/vmlinuz-4.19.0-5-amd64
+run-parts: executing /etc/kernel/postinst.d/apt-auto-removal 4.19.0-5-amd64 /boot/vmlinuz-4.19.0-5-amd64
+run-parts: executing /etc/kernel/postinst.d/dkms 4.19.0-5-amd64 /boot/vmlinuz-4.19.0-5-amd64
+run-parts: executing /etc/kernel/postinst.d/initramfs-tools 4.19.0-5-amd64 /boot/vmlinuz-4.19.0-5-amd64
 update-initramfs: Generating /boot/initrd.img-4.19.0-5-amd64
 cryptsetup: WARNING: The initramfs image may not contain cryptsetup binaries
     nor crypto modules. If that<span class="s1">&#39;s on purpose, you may want to uninstall the
@@ -408,23 +347,21 @@ W: plymouth: You might want to install the plymouth-themes package to fix this.
 I: The initramfs will attempt to resume from /dev/sda1
 I: <span class="o">(</span><span class="nv">UUID</span><span class="o">=</span>0d78d207-61eb-4e99-b7d8-a2b2cb2515d6<span class="o">)</span>
 I: Set the RESUME variable to override this.
-run-parts: executing /etc/kernel/postinst.d/reconfigure-dde-daemon <span class="m">4</span>.19.0-5-amd64 /boot/vmlinuz-4.19.0-5-amd64
+run-parts: executing /etc/kernel/postinst.d/reconfigure-dde-daemon 4.19.0-5-amd64 /boot/vmlinuz-4.19.0-5-amd64
 fix systemd/logind config
-run-parts: executing /etc/kernel/postinst.d/vboxadd <span class="m">4</span>.19.0-5-amd64 /boot/vmlinuz-4.19.0-5-amd64
-run-parts: executing /etc/kernel/postinst.d/zz-update-grub <span class="m">4</span>.19.0-5-amd64 /boot/vmlinuz-4.19.0-5-amd64
+run-parts: executing /etc/kernel/postinst.d/vboxadd 4.19.0-5-amd64 /boot/vmlinuz-4.19.0-5-amd64
+run-parts: executing /etc/kernel/postinst.d/zz-update-grub 4.19.0-5-amd64 /boot/vmlinuz-4.19.0-5-amd64
 Generating grub configuration file ...
 Found theme: /boot/grub/themes/deepin-fallback/theme.txt
 Found linux image: /boot/vmlinuz-4.19.0-5-amd64
 Found initrd image: /boot/initrd.img-4.19.0-5-amd64
 Found linux image: /boot/vmlinuz-4.19.0-5-amd64.old
 Found initrd image: /boot/initrd.img-4.19.0-5-amd64
-<span class="k">done</span></code></pre></td></tr></table>
+<span class="k">done</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<hr />
-
+</div><hr>
 <h2 id="参考文档">参考文档</h2>
-
 <ul>
 <li><a href="https://wiki.archlinux.org/index.php/Kernel/Traditional%5Fcompilation">Traditional_compilation</a></li>
 <li><a href="https://wiki.archlinux.org/index.php/Compile%5Fkernel%5Fmodule">Compile kernel module</a></li>
@@ -443,11 +380,15 @@ Found initrd image: /boot/initrd.img-4.19.0-5-amd64
   </p>
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
-    <span class="item-content">2019-11-27</span>
+    <span class="item-content">
+        2019-11-27
+        
+    </span>
   </p>
   
   
-</div><div class="post-reward">
+</div>
+<div class="post-reward">
   <input type="checkbox" name="reward" id="reward" hidden />
   <label class="reward-button" for="reward">赞赏支持</label>
   <div class="qr-code">
@@ -484,6 +425,10 @@ Found initrd image: /boot/initrd.img-4.19.0-5-amd64
         </div>
         
 
+  
+
+  
+
       </div>
     </main>
 
@@ -510,13 +455,10 @@ Found initrd image: /boot/initrd.img-4.19.0-5-amd64
   <span class="copyright-year">
     &copy; 
     2014 - 
-    2019
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">jouyouyun</span>
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>jouyouyun</span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -527,7 +469,10 @@ Found initrd image: /boot/initrd.img-4.19.0-5-amd64
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="/dist/even.ece58db6.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

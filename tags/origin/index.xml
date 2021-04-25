@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>origin on jouyouyun&#39;s blog</title>
@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>jouyouyun</copyright>
-    <lastBuildDate>Wed, 07 Nov 2018 21:38:21 +0800</lastBuildDate>
-    
-	<atom:link href="https://jouyouyun.github.io/tags/origin/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 07 Nov 2018 21:38:21 +0800</lastBuildDate><atom:link href="https://jouyouyun.github.io/tags/origin/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>怎么处理 &#39;Origin&#39;值从&#39;Google, Inc.&#39;修改到了&#39;Google LLC&#39; 的 APT 错误</title>
       <link>https://jouyouyun.github.io/post/how-to-solved-origin-changed-apt-error/</link>
@@ -21,7 +17,7 @@
       <description>&lt;p&gt;今天在执行 &lt;code&gt;sudo apt-get update&lt;/code&gt; 出现了下面的错误提示：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
@@ -30,14 +26,14 @@
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
 &lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;E: 仓库&lt;span class=&#34;s1&#34;&gt;&amp;#39;http://dl.google.com/linux/chrome/deb stable Release&amp;#39;&lt;/span&gt;将其&lt;span class=&#34;s1&#34;&gt;&amp;#39;Origin&amp;#39;&lt;/span&gt;值从&lt;span class=&#34;s1&#34;&gt;&amp;#39;Google, Inc.&amp;#39;&lt;/span&gt;修改到了&lt;span class=&#34;s1&#34;&gt;&amp;#39;Google LLC&amp;#39;&lt;/span&gt;
-N: 为了让这个仓库能够应用，这必须在更新之前显式接受。更多细节请参阅 apt-secure&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; 手册。
+N: 为了让这个仓库能够应用，这必须在更新之前显式接受。更多细节请参阅 apt-secure&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;8&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; 手册。
 
 &lt;span class=&#34;c1&#34;&gt;# 英语环境下的输出&lt;/span&gt;
 E: Repository ‘http://dl.google.com/linux/chrome-remote-desktop/deb stable Release’ changed its ‘Origin’ value from ‘Google, Inc.’ to ‘Google LLC’
-N: This must be accepted explicitly before updates &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; this repository can be applied. See apt-secure&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; manpage &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; details.&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+N: This must be accepted explicitly before updates &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; this repository can be applied. See apt-secure&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;8&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; manpage &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; details.
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;这个错误导致无法升级系统，错误说明了原因：是由于 &lt;code&gt;Google Chrome&lt;/code&gt; 的 &lt;code&gt;Origin&lt;/code&gt; 改变引起的，也给出了解决思路：手动接受这个改变。&lt;/p&gt;</description>
+&lt;/div&gt;&lt;p&gt;这个错误导致无法升级系统，错误说明了原因：是由于 &lt;code&gt;Google Chrome&lt;/code&gt; 的 &lt;code&gt;Origin&lt;/code&gt; 改变引起的，也给出了解决思路：手动接受这个改变。&lt;/p&gt;</description>
     </item>
     
   </channel>

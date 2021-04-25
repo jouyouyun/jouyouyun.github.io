@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>xrandr on jouyouyun&#39;s blog</title>
@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>jouyouyun</copyright>
-    <lastBuildDate>Mon, 06 Jun 2016 16:52:30 +0800</lastBuildDate>
-    
-	<atom:link href="https://jouyouyun.github.io/tags/xrandr/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 06 Jun 2016 16:52:30 +0800</lastBuildDate><atom:link href="https://jouyouyun.github.io/tags/xrandr/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>XRandr Examples</title>
       <link>https://jouyouyun.github.io/post/xrandr-examples/</link>
@@ -20,9 +16,7 @@
       <guid>https://jouyouyun.github.io/post/xrandr-examples/</guid>
       <description>&lt;p&gt;由于经常会用到使用 &lt;code&gt;xrandr&lt;/code&gt; 设置屏幕属性, 而每次用的时候都要去查 &lt;code&gt;man&lt;/code&gt; 手册, 有时还需要上网搜索例子.
 这样一来就比较麻烦, 所以就想整理下 &lt;code&gt;xrandr&lt;/code&gt; 的用法, 给出一些常用的例子.&lt;/p&gt;
-
 &lt;h2 id=&#34;查询&#34;&gt;查询&lt;/h2&gt;
-
 &lt;p&gt;使用 &lt;code&gt;xrandr -q&lt;/code&gt; 命令可以查询当前的显示器状态, 使用 &lt;code&gt;xrandr --verbose&lt;/code&gt; 将会显示更详细的信息.&lt;/p&gt;</description>
     </item>
     

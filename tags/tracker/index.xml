@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>tracker on jouyouyun&#39;s blog</title>
@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>jouyouyun</copyright>
-    <lastBuildDate>Wed, 28 Aug 2019 11:23:21 +0800</lastBuildDate>
-    
-	<atom:link href="https://jouyouyun.github.io/tags/tracker/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 28 Aug 2019 11:23:21 +0800</lastBuildDate><atom:link href="https://jouyouyun.github.io/tags/tracker/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Debian CVE Tracker</title>
       <link>https://jouyouyun.github.io/post/debian-cve-tracker/</link>
@@ -19,11 +15,8 @@
       
       <guid>https://jouyouyun.github.io/post/debian-cve-tracker/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://security-tracker.debian.org/tracker/status/release/stable&#34;&gt;Debian CVE Tracker&lt;/a&gt; 上记录了很多安全漏洞，有些 &lt;code&gt;Debian&lt;/code&gt; 会在当前版本修复，但有些不会。由于 &lt;code&gt;deepin&lt;/code&gt; 会在当前版本上停留很久，所以需要修复这些安全漏洞。这就需要自行追踪 &lt;code&gt;CVE Bug&lt;/code&gt; 的状态和添加 &lt;code&gt;patch&lt;/code&gt; ，因此写了个程序 &lt;a href=&#34;https://github.com/deepin-cve/tracker&#34;&gt;deepin-cve-tracker&lt;/a&gt; 来管理。&lt;/p&gt;
-
 &lt;p&gt;本文将介绍 &lt;code&gt;deepin-cve-tracker&lt;/code&gt; 的使用方法和 &lt;code&gt;patch&lt;/code&gt; 的添加方法。&lt;/p&gt;
-
 &lt;h2 id=&#34;deepin-cve-tracker&#34;&gt;Deepin CVE Tracker&lt;/h2&gt;
-
 &lt;p&gt;&lt;code&gt;deepin-cve-tracker&lt;/code&gt; 设计用来追踪 &lt;code&gt;Debain CVE Bug&lt;/code&gt; ，会先将 &lt;code&gt;Debian&lt;/code&gt; 中的数据爬入自己的数据库中，然后做标记来追踪 &lt;code&gt;bug&lt;/code&gt; 的处理状态。提供 &lt;code&gt;HTTP&lt;/code&gt; 接口供用户使用，使用 &lt;code&gt;docker&lt;/code&gt; 部署。&lt;/p&gt;</description>
     </item>
     

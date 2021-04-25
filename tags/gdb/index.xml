@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>gdb on jouyouyun&#39;s blog</title>
@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>jouyouyun</copyright>
-    <lastBuildDate>Wed, 03 Feb 2016 15:06:21 +0800</lastBuildDate>
-    
-	<atom:link href="https://jouyouyun.github.io/tags/gdb/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 03 Feb 2016 15:06:21 +0800</lastBuildDate><atom:link href="https://jouyouyun.github.io/tags/gdb/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Debug 小结</title>
       <link>https://jouyouyun.github.io/post/debug-summary/</link>
@@ -19,18 +15,13 @@
       
       <guid>https://jouyouyun.github.io/post/debug-summary/</guid>
       <description>&lt;p&gt;调试 &lt;code&gt;bug&lt;/code&gt; 的时候要有耐心, 要不断测试, 直到找到问题原因.&lt;/p&gt;
-
 &lt;h2 id=&#34;基本思路&#34;&gt;基本思路&lt;/h2&gt;
-
 &lt;h3 id=&#34;确定-bug-出现的方式&#34;&gt;确定 &lt;code&gt;bug&lt;/code&gt; 出现的方式&lt;/h3&gt;
-
 &lt;ul&gt;
 &lt;li&gt;一定要找到稳定重现的方式, 这样才能方便下面的调试&lt;/li&gt;
 &lt;li&gt;如果找不到稳定重现的方法就只能根据上次出现的情形, 去查看相关的代码, 猜测可能出问题的地方, 然后针对那一块进行调试, 直到找到稳定重现方式&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;h3 id=&#34;定位出问题的代码&#34;&gt;定位出问题的代码&lt;/h3&gt;
-
 &lt;ul&gt;
 &lt;li&gt;再找到稳定重现方式后, 开始定位出问题的函数, 然后加入调试信息, 不断尝试, 直到找到有问题的代码&lt;/li&gt;
 &lt;li&gt;找到有问题的代码后, 如果发现是第三方库里的函数,可以打印出每次调用的输入输出参数, 看看是否有迹可循, 可以单独写个小程序, 传入问题的参数, 进行不断测试, 来确定第三方库有没有问题&lt;/li&gt;

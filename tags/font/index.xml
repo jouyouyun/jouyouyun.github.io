@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>font on jouyouyun&#39;s blog</title>
@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>jouyouyun</copyright>
-    <lastBuildDate>Tue, 23 Oct 2018 21:38:21 +0800</lastBuildDate>
-    
-	<atom:link href="https://jouyouyun.github.io/tags/font/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 23 Oct 2018 21:38:21 +0800</lastBuildDate><atom:link href="https://jouyouyun.github.io/tags/font/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>linux 下 deepin 和 gnome 桌面的外观设置</title>
       <link>https://jouyouyun.github.io/post/set-appearance-in-deepin-or-gnome/</link>
@@ -19,13 +15,9 @@
       
       <guid>https://jouyouyun.github.io/post/set-appearance-in-deepin-or-gnome/</guid>
       <description>&lt;p&gt;桌面的外观设置一般包括窗口主题、图标主题、光标主题和字体设置，其中窗口主题就是常见的 &lt;code&gt;gtk&lt;/code&gt; 主题，字体设置又包括标准字体、等款字体和字体大小。对于进些年的高分屏，又添加了字体缩放和窗口缩放这2个选项。&lt;/p&gt;
-
 &lt;p&gt;界面上设置方法就不介绍了，都可以在各自桌面的控制中心中找到，这里主要介绍命令行下的。&lt;/p&gt;
-
 &lt;p&gt;&lt;code&gt;deepin&lt;/code&gt; 和 &lt;code&gt;gnome&lt;/code&gt; 桌面环境的外观配置数据是使用 &lt;code&gt;gsettings&lt;/code&gt; 来存储，所以可以通过 &lt;code&gt;gsettings&lt;/code&gt; 来设置和读取。 &lt;code&gt;gsettings&lt;/code&gt; 相比设置界面就是 可以设置到更多的选项，设置的值更加精确。&lt;/p&gt;
-
 &lt;p&gt;下面先简单介绍下 &lt;code&gt;gsettings&lt;/code&gt; 的用法。&lt;/p&gt;
-
 &lt;h2 id=&#34;gsettings&#34;&gt;&lt;code&gt;GSettings&lt;/code&gt;&lt;/h2&gt;</description>
     </item>
     

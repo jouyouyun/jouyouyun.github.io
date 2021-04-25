@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.82.1 with theme even" />
 
 
 <link rel="canonical" href="https://jouyouyun.github.io/" />
@@ -36,7 +36,8 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.93844dae.min.css" rel="stylesheet">
+
+<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -45,12 +46,8 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://jouyouyun.github.io/" />
 
-<meta property="og:updated_time" content="2018-08-27T21:38:21&#43;08:00"/>
-
 <meta itemprop="name" content="jouyouyun&#39;s blog">
-<meta itemprop="description" content="jouyouyun&#39;s blog">
-
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="description" content="jouyouyun&#39;s blog"><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="jouyouyun&#39;s blog"/>
 <meta name="twitter:description" content="jouyouyun&#39;s blog"/>
 
@@ -111,6 +108,55 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/set-appearance-in-deepin-or-gnome/">linux 下 deepin 和 gnome 桌面的外观设置</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-10-23 </span>
+      <div class="post-category">
+          <a href="/categories/blog/"> BLOG </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p>桌面的外观设置一般包括窗口主题、图标主题、光标主题和字体设置，其中窗口主题就是常见的 <code>gtk</code> 主题，字体设置又包括标准字体、等款字体和字体大小。对于进些年的高分屏，又添加了字体缩放和窗口缩放这2个选项。</p>
+<p>界面上设置方法就不介绍了，都可以在各自桌面的控制中心中找到，这里主要介绍命令行下的。</p>
+<p><code>deepin</code> 和 <code>gnome</code> 桌面环境的外观配置数据是使用 <code>gsettings</code> 来存储，所以可以通过 <code>gsettings</code> 来设置和读取。 <code>gsettings</code> 相比设置界面就是 可以设置到更多的选项，设置的值更加精确。</p>
+<p>下面先简单介绍下 <code>gsettings</code> 的用法。</p>
+<h2 id="gsettings"><code>GSettings</code></h2>
+    </div>
+    <div class="read-more">
+      <a href="/post/set-appearance-in-deepin-or-gnome/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/linux-auto-suspend/">Linux 休眠自动唤醒</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-10-21 </span>
+      <div class="post-category">
+          <a href="/categories/blog/"> BLOG </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p>最近做无线网络在系统多次休眠唤醒后是否正常的测试，但每次休眠后都需要手动点击键盘来唤醒系统，显而易见的这种方法需要人来值守，很不放便。</p>
+<p>此时便想是否有做自动唤醒的程序，毕竟这种需求也挺正常的，应该有人已经做过了。因此就开始查找自动唤醒的方法，果然就发现了 <code>rtcwake</code> 这个程序，这个程序是让系统进入休眠模式并在指定的时间后唤醒。立刻便觉得这个程序很神奇，然后就去看它的源码来找出它的实现方式，这边发现了本文的主题 <code>RTC</code> 子系统。</p>
+<h2 id="rtc-子系统"><code>RTC</code> 子系统</h2>
+<p><code>RTC</code> 子系统在目录 <code>/sys/class/rtc/</code> 下，会根据设备创建对应的目录，需要在内核中开启支持，配置如下：</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/linux-auto-suspend/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/linux-time-standard/">Linux 时间标准</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2018-08-27 </span>
@@ -123,15 +169,12 @@
   <div class="post-content">
     <div class="post-summary">
       <h2 id="系统如何设置时间">系统如何设置时间</h2>
-
 <ol>
 <li>开机时根据硬件时钟来设置系统时钟.</li>
 <li>如果开启了 <code>NTP</code> 服务, 会根据网络时间来校正系统时钟，确保时间准确.</li>
 <li>关机时会根据系统时钟来设置硬件时钟(<code>localtime</code> 标准除外).</li>
 </ol>
-
 <h3 id="时钟">时钟</h3>
-
 <ul>
 <li>硬件时钟: 即实时时钟 <code>RTC</code> 或 <code>CMOS</code> 时钟, 仅能保存年、月、日、时、分、秒这些时间数值，无法保存时间标准和是否使用夏令时调节.</li>
 <li>系统时钟: 即软件时间, 与硬件时间分别维护，保存了时间、时区和夏令时设置.初始系统时钟是从硬件时间计算得来，计算时会考虑 <code>/etc/adjtime</code> 的设置.</li>
@@ -158,15 +201,10 @@
   <div class="post-content">
     <div class="post-summary">
       <p>本周去某公司调试系统，他们硬件测试部分送来了一台系统无法进入的机器，他们也不知道怎么弄得，让我看下是系统原因还是 <code>SSD</code> 硬件有问题。</p>
-
 <p>拿到机器开机后，没有正常的进入系统，直接进入了 <code>initramfs mode</code> 并有 <code>filesystem invalid superblock checksum error</code> 的错误提示，遂告诉他们是系统的 <code>filesystem</code> 挂了，然后开始查找修复方法，最后找到了方法并修复了机器，在此记录一下。</p>
-
 <h2 id="修复方法">修复方法</h2>
-
 <p>下面的命令都是在 <code>initramfs shell</code> 中执行的。</p>
-
 <h3 id="先确定你系统所在的分区">先确定你系统所在的分区</h3>
-
 <p>可以执行 <code>lsblk</code> 来查看分区信息，然后确定，假如是 <code>/dev/sdaX</code></p>
     </div>
     <div class="read-more">
@@ -189,101 +227,33 @@
   <div class="post-content">
     <div class="post-summary">
       <h2 id="简介">简介</h2>
-
 <p><code>RESTful</code> 即表现层状态转换，是一种设计风格，不是标准。其要点如下：</p>
-
 <ul>
-<li><p>资源由 <code>URI</code> 来指定</p>
-
-<p>每个资源都有与之对应的 <code>URI=，一个 =URI</code> 只能对应一种资源，但一种资源可以对应多个 <code>URI</code> 不同的分类方法)。</p></li>
-
-<li><p>对资源的操作对应到 <code>HTTP</code> 协议提供的方法</p>
-
-<p>如增删改查等操作，对应 <code>HTTP</code> 协议的 <code>POST, DELETE, PUT, GET</code> 等方法</p></li>
-
-<li><p>资源的表现形式通常广泛流行的协议和标准</p>
-
-<p>如 <code>JSON, XML, HTML</code> 等格式，当然也可以是其它格式或者私有格式，但一定足够能描述自己</p></li>
-
-<li><p>通过操作资源的表现形式来操作资源</p>
-
-<p>通过修改表现形式再辅以 <code>HTTP</code> 协议的方法，应用就可以管理资源</p></li>
-
-<li><p>以超媒体作为应用状态的引擎</p>
-
+<li>
+<p>资源由 <code>URI</code> 来指定</p>
+<p>每个资源都有与之对应的 <code>URI=，一个 =URI</code> 只能对应一种资源，但一种资源可以对应多个 <code>URI</code> 不同的分类方法)。</p>
+</li>
+<li>
+<p>对资源的操作对应到 <code>HTTP</code> 协议提供的方法</p>
+<p>如增删改查等操作，对应 <code>HTTP</code> 协议的 <code>POST, DELETE, PUT, GET</code> 等方法</p>
+</li>
+<li>
+<p>资源的表现形式通常广泛流行的协议和标准</p>
+<p>如 <code>JSON, XML, HTML</code> 等格式，当然也可以是其它格式或者私有格式，但一定足够能描述自己</p>
+</li>
+<li>
+<p>通过操作资源的表现形式来操作资源</p>
+<p>通过修改表现形式再辅以 <code>HTTP</code> 协议的方法，应用就可以管理资源</p>
+</li>
+<li>
+<p>以超媒体作为应用状态的引擎</p>
 <p>资源相关操作的 <code>URI</code> 可附加在表现形式内，应用根据自身状态选择相应的 <code>URI</code> 来更改状态。</p>
-
-<p>操作可以是 <code>URI</code> 外，也可以是一段代码，让应用执行。</p></li>
+<p>操作可以是 <code>URI</code> 外，也可以是一段代码，让应用执行。</p>
+</li>
 </ul>
     </div>
     <div class="read-more">
       <a href="/post/restful-introduction/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/git-rebase/">Git Rebase 回退</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2018-04-12 </span>
-      <div class="post-category">
-          <a href="/categories/blog/"> BLOG </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>在开发新功能或修复 <code>bug</code> 时，一般需要新建一个分支，然后在它之上进行开发。在多人协同开发时，经常会同时修改相同的分支或相同的文件，这时就需要进行 <code>rebase</code> 操作在提交你的代码之前。</p>
-
-<p>但有时 <code>rebase</code> 会带来不想要的提交，或处理冲突时误操作执行了 <code>git rebase --skip</code> 。此时就想要回退到之前的提交，恢复自己的数据， <code>reflog</code> 就可以帮助你完成数据恢复。</p>
-
-<h2 id="reflog">reflog</h2>
-
-<p>当你工作时，=Git= 会在你每次修改了 <code>HEAD</code> 时悄悄地将改动记录下来。当你提交或修改分支时， <code>reflog</code> 就会更新。通过 <code>git reflog</code> 命令可以查看当前的状态：</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/git-rebase/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/cups-notes/">CUPS 资料</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2018-04-08 </span>
-      <div class="post-category">
-          <a href="/categories/note/"> NOTE </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <h2 id="installation">Installation</h2>
-
-<p><code>sudo apt install cups ghostscript gsfonts</code></p>
-
-<h2 id="driver">Driver</h2>
-
-<ul>
-<li><p>gutenprint</p>
-
-<p>一组质量非常好的驱动集合，支持的目标机型包括 <code>Canon, Epson, Lexmark, Sony, Olympus</code> ；以及配合 <code>CUPS/GhostSscript/Foomatic/GIMP</code> 使用的 <code>PCL printers</code> 。</p>
-
-<p>安装包: <code>cups-driver-gutenprint gimp-gutenprint ijsgutenprint printer-driver-gutenprint</code></p></li>
-
-<li><p>foomatic</p>
-
-<p><code>Foomatic</code> 是一个基于数据库的，集成自由软件打印机驱动和脱机打印程序的系统。</p>
-
-<p>安装包: <code>foomatic-db foomatic-db-engine foomatic-db-compressed-ppds foomatic-db-gutenprint foomatic-filters</code> 以及 <code>foomatic-db-nonfree</code></p></li>
-</ul>
-    </div>
-    <div class="read-more">
-      <a href="/post/cups-notes/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>
@@ -329,13 +299,10 @@
   <span class="copyright-year">
     &copy; 
     2014 - 
-    2019
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">jouyouyun</span>
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>jouyouyun</span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -346,7 +313,10 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="/dist/even.ece58db6.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

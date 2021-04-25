@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>superblock on jouyouyun&#39;s blog</title>
@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>jouyouyun</copyright>
-    <lastBuildDate>Fri, 27 Jul 2018 21:38:21 +0800</lastBuildDate>
-    
-	<atom:link href="https://jouyouyun.github.io/tags/superblock/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 27 Jul 2018 21:38:21 +0800</lastBuildDate><atom:link href="https://jouyouyun.github.io/tags/superblock/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>修复 superblock</title>
       <link>https://jouyouyun.github.io/post/fixed-superblock/</link>
@@ -19,15 +15,10 @@
       
       <guid>https://jouyouyun.github.io/post/fixed-superblock/</guid>
       <description>&lt;p&gt;本周去某公司调试系统，他们硬件测试部分送来了一台系统无法进入的机器，他们也不知道怎么弄得，让我看下是系统原因还是 &lt;code&gt;SSD&lt;/code&gt; 硬件有问题。&lt;/p&gt;
-
 &lt;p&gt;拿到机器开机后，没有正常的进入系统，直接进入了 &lt;code&gt;initramfs mode&lt;/code&gt; 并有 &lt;code&gt;filesystem invalid superblock checksum error&lt;/code&gt; 的错误提示，遂告诉他们是系统的 &lt;code&gt;filesystem&lt;/code&gt; 挂了，然后开始查找修复方法，最后找到了方法并修复了机器，在此记录一下。&lt;/p&gt;
-
 &lt;h2 id=&#34;修复方法&#34;&gt;修复方法&lt;/h2&gt;
-
 &lt;p&gt;下面的命令都是在 &lt;code&gt;initramfs shell&lt;/code&gt; 中执行的。&lt;/p&gt;
-
 &lt;h3 id=&#34;先确定你系统所在的分区&#34;&gt;先确定你系统所在的分区&lt;/h3&gt;
-
 &lt;p&gt;可以执行 &lt;code&gt;lsblk&lt;/code&gt; 来查看分区信息，然后确定，假如是 &lt;code&gt;/dev/sdaX&lt;/code&gt;&lt;/p&gt;</description>
     </item>
     

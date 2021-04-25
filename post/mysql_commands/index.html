@@ -18,11 +18,11 @@
 
 <meta name="author" content="jouyouyun" /><meta name="description" content="大学学的数据库系统概论工作后几年没有使用都已忘了, 现在项目需要用到数据库, 但来不及细看相关书籍了, 遂将一些常用的记录下来.
 常用类型 MySQL 支持多种类型, 大致可以分为三类: 数值, 日期/时间和字符串(字符)类型, 大致如下:
- 数值类型
- 整数: tinyint, smallint, mediumint, int, bigint 浮点数: float, double, decimal  日期和时间
+  数值类型
+ 整数: tinyint, smallint, mediumint, int, bigint 浮点数: float, double, decimal    日期和时间
 date, time, datetime, timestamp, year
- 字符串类型
- 字符串: char, varchar 文本: tinytext, text, mediumtext, longtext 二进制字符串: tinyblob, blob, mediumblob, longblob   下面将详细给出每种类型的大小和描述.
+  字符串类型
+ 字符串: char, varchar 文本: tinytext, text, mediumtext, longtext 二进制字符串: tinyblob, blob, mediumblob, longblob    下面将详细给出每种类型的大小和描述.
 " /><meta name="keywords" content="jouyouyun, Hugo, theme, even" />
 
 
@@ -30,7 +30,7 @@ date, time, datetime, timestamp, year
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.82.1 with theme even" />
 
 
 <link rel="canonical" href="https://jouyouyun.github.io/post/mysql_commands/" />
@@ -41,31 +41,29 @@ date, time, datetime, timestamp, year
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.93844dae.min.css" rel="stylesheet">
+
+<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="MySQL 常用命令" />
 <meta property="og:description" content="大学学的数据库系统概论工作后几年没有使用都已忘了, 现在项目需要用到数据库, 但来不及细看相关书籍了, 遂将一些常用的记录下来.
-
 常用类型
-
 MySQL 支持多种类型, 大致可以分为三类: 数值, 日期/时间和字符串(字符)类型, 大致如下:
 
 
 数值类型
 
-
 整数: tinyint, smallint, mediumint, int, bigint
 浮点数: float, double, decimal
 
 
-日期和时间
 
+日期和时间
 date, time, datetime, timestamp, year
 
-字符串类型
 
+字符串类型
 
 字符串: char, varchar
 文本: tinytext, text, mediumtext, longtext
@@ -75,31 +73,28 @@ date, time, datetime, timestamp, year
 
 下面将详细给出每种类型的大小和描述." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://jouyouyun.github.io/post/mysql_commands/" />
-<meta property="article:published_time" content="2019-04-05T21:04:21&#43;08:00"/>
-<meta property="article:modified_time" content="2019-04-07T00:29:18&#43;08:00"/>
+<meta property="og:url" content="https://jouyouyun.github.io/post/mysql_commands/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2019-04-05T21:04:21&#43;08:00" />
+<meta property="article:modified_time" content="2019-04-07T00:29:18&#43;08:00" />
 
 <meta itemprop="name" content="MySQL 常用命令">
 <meta itemprop="description" content="大学学的数据库系统概论工作后几年没有使用都已忘了, 现在项目需要用到数据库, 但来不及细看相关书籍了, 遂将一些常用的记录下来.
-
 常用类型
-
 MySQL 支持多种类型, 大致可以分为三类: 数值, 日期/时间和字符串(字符)类型, 大致如下:
 
 
 数值类型
 
-
 整数: tinyint, smallint, mediumint, int, bigint
 浮点数: float, double, decimal
 
 
-日期和时间
 
+日期和时间
 date, time, datetime, timestamp, year
 
-字符串类型
 
+字符串类型
 
 字符串: char, varchar
 文本: tinytext, text, mediumtext, longtext
@@ -107,38 +102,28 @@ date, time, datetime, timestamp, year
 
 
 
-下面将详细给出每种类型的大小和描述.">
-
-
-<meta itemprop="datePublished" content="2019-04-05T21:04:21&#43;08:00" />
+下面将详细给出每种类型的大小和描述."><meta itemprop="datePublished" content="2019-04-05T21:04:21&#43;08:00" />
 <meta itemprop="dateModified" content="2019-04-07T00:29:18&#43;08:00" />
 <meta itemprop="wordCount" content="1137">
-
-
-
-<meta itemprop="keywords" content="sql,mysql,alter,charset,character,join," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="sql,mysql,alter,charset,character,join," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="MySQL 常用命令"/>
 <meta name="twitter:description" content="大学学的数据库系统概论工作后几年没有使用都已忘了, 现在项目需要用到数据库, 但来不及细看相关书籍了, 遂将一些常用的记录下来.
-
 常用类型
-
 MySQL 支持多种类型, 大致可以分为三类: 数值, 日期/时间和字符串(字符)类型, 大致如下:
 
 
 数值类型
 
-
 整数: tinyint, smallint, mediumint, int, bigint
 浮点数: float, double, decimal
 
 
-日期和时间
 
+日期和时间
 date, time, datetime, timestamp, year
 
-字符串类型
 
+字符串类型
 
 字符串: char, varchar
 文本: tinytext, text, mediumtext, longtext
@@ -220,59 +205,53 @@ date, time, datetime, timestamp, year
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#常用类型">常用类型</a>
-<ul>
-<li><a href="#数值类型">数值类型</a></li>
-<li><a href="#日期和时间">日期和时间</a></li>
-<li><a href="#字符串类型">字符串类型</a></li>
-</ul></li>
-<li><a href="#常用命令">常用命令</a>
-<ul>
-<li><a href="#数据库">数据库</a></li>
-<li><a href="#表">表</a></li>
-<li><a href="#备份-恢复">备份/恢复</a></li>
-</ul></li>
-<li><a href="#联合查询">联合查询</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#常用类型">常用类型</a>
+      <ul>
+        <li><a href="#数值类型">数值类型</a></li>
+        <li><a href="#日期和时间">日期和时间</a></li>
+        <li><a href="#字符串类型">字符串类型</a></li>
+      </ul>
+    </li>
+    <li><a href="#常用命令">常用命令</a>
+      <ul>
+        <li><a href="#数据库">数据库</a></li>
+        <li><a href="#表">表</a></li>
+        <li><a href="#备份-恢复">备份/恢复</a></li>
+      </ul>
+    </li>
+    <li><a href="#联合查询">联合查询</a></li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
       <p>大学学的数据库系统概论工作后几年没有使用都已忘了, 现在项目需要用到数据库, 但来不及细看相关书籍了, 遂将一些常用的记录下来.</p>
-
 <h2 id="常用类型">常用类型</h2>
-
 <p><code>MySQL</code> 支持多种类型, 大致可以分为三类: 数值, 日期/时间和字符串(字符)类型, 大致如下:</p>
-
 <ul>
-<li><p>数值类型</p>
-
+<li>
+<p>数值类型</p>
 <ul>
 <li>整数: <code>tinyint</code>, <code>smallint</code>, <code>mediumint</code>, <code>int</code>, <code>bigint</code></li>
 <li>浮点数: <code>float</code>, <code>double</code>, <code>decimal</code></li>
-</ul></li>
-
-<li><p>日期和时间</p>
-
-<p><code>date</code>, <code>time</code>, <code>datetime</code>, <code>timestamp</code>, <code>year</code></p></li>
-
-<li><p>字符串类型</p>
-
+</ul>
+</li>
+<li>
+<p>日期和时间</p>
+<p><code>date</code>, <code>time</code>, <code>datetime</code>, <code>timestamp</code>, <code>year</code></p>
+</li>
+<li>
+<p>字符串类型</p>
 <ul>
 <li>字符串: <code>char</code>, <code>varchar</code></li>
 <li>文本: <code>tinytext</code>, <code>text</code>, <code>mediumtext</code>, <code>longtext</code></li>
 <li>二进制字符串: <code>tinyblob</code>, <code>blob</code>, <code>mediumblob</code>, <code>longblob</code></li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <p>下面将详细给出每种类型的大小和描述.</p>
-
 <h3 id="数值类型">数值类型</h3>
-
 <table>
 <thead>
 <tr>
@@ -281,50 +260,42 @@ date, time, datetime, timestamp, year
 <th>描述</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>tinyint</td>
 <td>1</td>
 <td>小整数值</td>
 </tr>
-
 <tr>
 <td>smallint</td>
 <td>2</td>
 <td>大整数值</td>
 </tr>
-
 <tr>
 <td>mediumint</td>
 <td>3</td>
 <td>大整数值</td>
 </tr>
-
 <tr>
 <td>int</td>
 <td>4</td>
 <td>大整数值</td>
 </tr>
-
 <tr>
 <td>bigint</td>
 <td>8</td>
 <td>极大整数值</td>
 </tr>
-
 <tr>
 <td>float</td>
 <td>4</td>
 <td>单精度浮点数</td>
 </tr>
-
 <tr>
 <td>double</td>
 <td>8</td>
 <td>双精度浮点数</td>
 </tr>
-
 <tr>
 <td>decimal</td>
 <td>decimal(M,D)</td>
@@ -332,13 +303,9 @@ date, time, datetime, timestamp, year
 </tr>
 </tbody>
 </table>
-
 <p><strong>DECIMAL(M,D) 高精度的数据类型, 常用来存储交易相关的数据</strong></p>
-
 <p><strong><code>M</code> 代表总精度, <code>N</code> 代表小数点右侧的位数. 1 &lt; M &lt; 254, 0 &lt; N &lt; 60, 存储空间变长</strong></p>
-
 <h3 id="日期和时间">日期和时间</h3>
-
 <table>
 <thead>
 <tr>
@@ -347,26 +314,22 @@ date, time, datetime, timestamp, year
 <th>描述</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>date</td>
 <td>3</td>
 <td>精确到年月日, 如: 2016-09-01</td>
 </tr>
-
 <tr>
 <td>time</td>
 <td>3</td>
 <td>精确到时分秒, 如: 09:10:11</td>
 </tr>
-
 <tr>
 <td>datetime</td>
 <td>8</td>
 <td>精确到年月日时分秒, 如: 2016-09-01 09:10:11</td>
 </tr>
-
 <tr>
 <td>timedtamp</td>
 <td>8</td>
@@ -374,21 +337,13 @@ date, time, datetime, timestamp, year
 </tr>
 </tbody>
 </table>
-
 <p><strong>MySQL 5.6.4 之后, <code>datetime</code> 和 <code>timestamp</code> 支持到微秒</strong></p>
-
 <p><strong><code>timestamp</code> 会根据时区进行转换, <code>datetime</code> 则不会</strong></p>
-
 <p><strong><code>timestamp</code> 存储范围: <code>1970-01-01 00::00:01 ~ 2038-01-19 03:14:07</code></strong></p>
-
 <p><strong><code>datetime</code> 的存储范围: <code>1000-01-01 00:00:00 to 9999-12-31 23:59:59</code></strong></p>
-
 <p><strong>一般使用 <code>timestamp</code> 国际化</strong></p>
-
 <p><strong>如存时间戳使用数字类型 <code>BIGINT</code></strong></p>
-
 <h3 id="字符串类型">字符串类型</h3>
-
 <table>
 <thead>
 <tr>
@@ -397,20 +352,17 @@ date, time, datetime, timestamp, year
 <th>描述</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>char</td>
 <td>最大为255字符</td>
 <td>存储定长, 容易造成空间的浪费</td>
 </tr>
-
 <tr>
 <td>varchar</td>
 <td>可以超过255个字符</td>
 <td>存储变长，节省存储空间</td>
 </tr>
-
 <tr>
 <td>text</td>
 <td>总大小为65535字节，约为64KB</td>
@@ -418,163 +370,148 @@ date, time, datetime, timestamp, year
 </tr>
 </tbody>
 </table>
-
-<hr />
-
+<hr>
 <p><strong>根据 <code>MySQL</code> 版本的不同, 类型的大小范围可能会有改变.</strong></p>
-
 <h2 id="常用命令">常用命令</h2>
-
 <h3 id="数据库">数据库</h3>
-
 <ul>
-<li><p>创建</p>
-
-<p><code>CREATE DATABASE &lt;name&gt;;</code></p></li>
-
-<li><p>删除</p>
-
-<p><code>DROP DATABASE &lt;name&gt;;</code></p></li>
-
-<li><p>列出数据库</p>
-
-<p><code>show databases;</code></p></li>
-
-<li><p>使用数据库</p>
-
-<p><code>use &lt;name&gt;;</code></p></li>
-
-<li><p>修改 <code>CHARSET</code></p>
-
-<p><code>ALTER DATABASE &lt;name&gt; DEFAULT CHARACTER SET &lt;char name&gt;;</code></p></li>
-
-<li><p>显示创建类型</p>
-
-<p><code>show create database &lt;name&gt;</code></p></li>
+<li>
+<p>创建</p>
+<p><code>CREATE DATABASE &lt;name&gt;;</code></p>
+</li>
+<li>
+<p>删除</p>
+<p><code>DROP DATABASE &lt;name&gt;;</code></p>
+</li>
+<li>
+<p>列出数据库</p>
+<p><code>show databases;</code></p>
+</li>
+<li>
+<p>使用数据库</p>
+<p><code>use &lt;name&gt;;</code></p>
+</li>
+<li>
+<p>修改 <code>CHARSET</code></p>
+<p><code>ALTER DATABASE &lt;name&gt; DEFAULT CHARACTER SET &lt;char name&gt;;</code></p>
+</li>
+<li>
+<p>显示创建类型</p>
+<p><code>show create database &lt;name&gt;</code></p>
+</li>
 </ul>
-
 <h3 id="表">表</h3>
-
 <ul>
-<li><p>创建</p>
-
-<p><code>CREATE TABLE &lt;name&gt;(`id` INT(11) AUTO_INCREMENT),`name` VARCHAR(64) NOT NULL,...)CHARACTER SET=utf8mb4;</code></p></li>
-
-<li><p>删除</p>
-
-<p><code>DROP TABLE &lt;name&gt;;</code></p></li>
-
-<li><p>插入</p>
-
+<li>
+<p>创建</p>
+<p><code>CREATE TABLE &lt;name&gt;(`id` INT(11) AUTO_INCREMENT),`name` VARCHAR(64) NOT NULL,...)CHARACTER SET=utf8mb4;</code></p>
+</li>
+<li>
+<p>删除</p>
+<p><code>DROP TABLE &lt;name&gt;;</code></p>
+</li>
+<li>
+<p>插入</p>
 <p><code>INSERT INTO &lt;name&gt;(filed1, filed2,...) VALUES (value1, value2,...),(value3,value4,...),...;</code></p>
-
-<p>可同时插入多条记录</p></li>
-
-<li><p>查询</p>
-
+<p>可同时插入多条记录</p>
+</li>
+<li>
+<p>查询</p>
 <p><code>SELECT filed1,filed2,... FROM &lt;name&gt; WHERE &lt;condition&gt;</code></p>
-
 <p>多表查询: <code>SELECT t1.id,t1.name,t2.name AS desc FROM t1,t2 WHERE t1.t2_id=t2.id</code>, 这将会返回两个表的交集</p>
-
 <p>多表查询也可使用联合查询, 联合查询详情见后文.</p>
-
-<p>使用 <code>LIKE</code> 可以模糊查询, <code>%</code> 来表示任意字符, 如: <code>SELECT * FROM &lt;name&gt; WHERE name LIKE '%oy%';</code></p></li>
-
-<li><p>显示表</p>
-
+<p>使用 <code>LIKE</code> 可以模糊查询, <code>%</code> 来表示任意字符, 如: <code>SELECT * FROM &lt;name&gt; WHERE name LIKE '%oy%';</code></p>
+</li>
+<li>
+<p>显示表</p>
 <ul>
-<li><p>显示表字段</p>
-
-<p><code>desc &lt;name&gt;</code></p></li>
-
-<li><p>显示表创建字段</p>
-
-<p><code>show create table &lt;name&gt;</code></p></li>
-</ul></li>
-
-<li><p>列出表</p>
-
-<p><code>show tables;</code></p></li>
-
-<li><p>修改值</p>
-
-<p><code>UPDATE &lt;name&gt; SET &lt;filed1&gt;=value1 WHERE &lt;condition&gt;</code></p></li>
-
-<li><p>添加列</p>
-
-<p><code>ALTER TABLE &lt;name&gt; ADD `filed1` &lt;type&gt;</code></p></li>
-
-<li><p>删除列</p>
-
-<p><code>ALTER TABLE &lt;name&gt; DROP filed1</code></p></li>
-
-<li><p>修改列类型</p>
-
+<li>
+<p>显示表字段</p>
+<p><code>desc &lt;name&gt;</code></p>
+</li>
+<li>
+<p>显示表创建字段</p>
+<p><code>show create table &lt;name&gt;</code></p>
+</li>
+</ul>
+</li>
+<li>
+<p>列出表</p>
+<p><code>show tables;</code></p>
+</li>
+<li>
+<p>修改值</p>
+<p><code>UPDATE &lt;name&gt; SET &lt;filed1&gt;=value1 WHERE &lt;condition&gt;</code></p>
+</li>
+<li>
+<p>添加列</p>
+<p><code>ALTER TABLE &lt;name&gt; ADD `filed1` &lt;type&gt;</code></p>
+</li>
+<li>
+<p>删除列</p>
+<p><code>ALTER TABLE &lt;name&gt; DROP filed1</code></p>
+</li>
+<li>
+<p>修改列类型</p>
 <ul>
 <li><code>ALTER TABLE &lt;name&gt; MODIFY filed1 &lt;type&gt;</code></li>
 <li><code>ALTER TABLE &lt;name&gt; CHANGE `filed1` `filed1` &lt;type&gt;</code> 可以修改列名</li>
-</ul></li>
-
-<li><p>修改 <code>CHARSET</code></p>
-
-<ul>
-<li><p>修改表的默认 <code>CHARSET</code></p>
-
-<p><code>ALTER TABLE &lt;name&gt; DEFAULT CHARACTER SET utf8mb4</code></p></li>
-
-<li><p>修改表及所以列的字符</p>
-
-<p><code>ALTER TABLE &lt;name&gt; CONVERT TO CHARACTER SET utf8mb4</code></p></li>
-
-<li><p>修改列的字符集</p>
-
-<p><code>ALTER TABLE &lt;name&gt; CHANGE filed1 CHARACTER SET utf8mb4</code></p></li>
-</ul></li>
 </ul>
-
+</li>
+<li>
+<p>修改 <code>CHARSET</code></p>
+<ul>
+<li>
+<p>修改表的默认 <code>CHARSET</code></p>
+<p><code>ALTER TABLE &lt;name&gt; DEFAULT CHARACTER SET utf8mb4</code></p>
+</li>
+<li>
+<p>修改表及所以列的字符</p>
+<p><code>ALTER TABLE &lt;name&gt; CONVERT TO CHARACTER SET utf8mb4</code></p>
+</li>
+<li>
+<p>修改列的字符集</p>
+<p><code>ALTER TABLE &lt;name&gt; CHANGE filed1 CHARACTER SET utf8mb4</code></p>
+</li>
+</ul>
+</li>
+</ul>
 <h3 id="备份-恢复">备份/恢复</h3>
-
 <ul>
-<li><p>备份</p>
-
+<li>
+<p>备份</p>
 <p><code>mysqldump -h&lt;address&gt; --port &lt;port&gt; -u&lt;username&gt; -p&lt;password&gt; &lt;datebase name&gt; &lt;table name&gt; &gt; bak.sql</code></p>
-
-<p>其中 <code>table name</code> 可选</p></li>
-
-<li><p>恢复</p>
-
+<p>其中 <code>table name</code> 可选</p>
+</li>
+<li>
+<p>恢复</p>
 <p><code>mysql -h&lt;address&gt; --port &lt;port&gt; -u&lt;username&gt; -p&lt;password&gt; &lt;datebase name&gt; &lt; bak.sql</code></p>
-
-<p>导入数据到指定的数据库中</p></li>
+<p>导入数据到指定的数据库中</p>
+</li>
 </ul>
-
 <h2 id="联合查询">联合查询</h2>
-
 <p>假设存在表: <code>user(id, name, email)</code> 和 <code>user_profile(id,uid,avatar)</code>, 几种联合方式如下:</p>
-
 <ul>
-<li><p>左联</p>
-
+<li>
+<p>左联</p>
 <p><code>LEFT JOIN</code> 或 <code>LEFT OUTER JOIN</code> 返回的结果包含左表中的所有行, 若左行在右行中匹配, 则在对应的右表中显示为 <code>NULL</code></p>
-
-<p><code>SELECT * FROM user LEFT JOIN user_profile ON user.id=user_profile.uid</code></p></li>
-
-<li><p>右联</p>
-
-<p><code>RIGHT JOIN</code> 或 <code>RIGHT OUTER JOIN</code> 返回的结果包含右表中的所有行, 若左行在右行中匹配, 则在对应的左表中显示为 <code>NULL</code></p></li>
-
-<li><p>全联</p>
-
+<p><code>SELECT * FROM user LEFT JOIN user_profile ON user.id=user_profile.uid</code></p>
+</li>
+<li>
+<p>右联</p>
+<p><code>RIGHT JOIN</code> 或 <code>RIGHT OUTER JOIN</code> 返回的结果包含右表中的所有行, 若左行在右行中匹配, 则在对应的左表中显示为 <code>NULL</code></p>
+</li>
+<li>
+<p>全联</p>
 <p><code>FULL JOIN</code> 或 <code>FULL OUTER JOIN</code> 返回左右两表中的所有行, 如果右表中某行在左表中没有匹配, 则结果中对应行右表的部分全部为 <code>NULL</code>;
-如果左表中某行在右表中没有匹配, 则结果中对应行左表的部分全部为空 <code>NULL</code>.</p></li>
-
-<li><p>内联</p>
-
+如果左表中某行在右表中没有匹配, 则结果中对应行左表的部分全部为空 <code>NULL</code>.</p>
+</li>
+<li>
+<p>内联</p>
 <p><code>inner join</code> 是比较运算符, 只返回符合条件的行, 如:</p>
-
 <p><code>SELECT * FROM user INNER JOIN user_profile ON user.id=user_profile.uid</code></p>
-
-<p>等同于 <code>SELECT * FROM user,user_profile WHERE user.id=user_profile.uid</code></p></li>
+<p>等同于 <code>SELECT * FROM user,user_profile WHERE user.id=user_profile.uid</code></p>
+</li>
 </ul>
     </div>
 
@@ -585,11 +522,15 @@ date, time, datetime, timestamp, year
   </p>
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
-    <span class="item-content">2019-04-07</span>
+    <span class="item-content">
+        2019-04-07
+        
+    </span>
   </p>
   
   
-</div><div class="post-reward">
+</div>
+<div class="post-reward">
   <input type="checkbox" name="reward" id="reward" hidden />
   <label class="reward-button" for="reward">赞赏支持</label>
   <div class="qr-code">
@@ -629,6 +570,10 @@ date, time, datetime, timestamp, year
         </div>
         
 
+  
+
+  
+
       </div>
     </main>
 
@@ -655,13 +600,10 @@ date, time, datetime, timestamp, year
   <span class="copyright-year">
     &copy; 
     2014 - 
-    2019
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">jouyouyun</span>
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>jouyouyun</span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -672,7 +614,10 @@ date, time, datetime, timestamp, year
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="/dist/even.ece58db6.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

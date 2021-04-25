@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>gsettings on jouyouyun&#39;s blog</title>
@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>jouyouyun</copyright>
-    <lastBuildDate>Sat, 03 Aug 2019 19:30:21 +0800</lastBuildDate>
-    
-	<atom:link href="https://jouyouyun.github.io/tags/gsettings/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 03 Aug 2019 19:30:21 +0800</lastBuildDate><atom:link href="https://jouyouyun.github.io/tags/gsettings/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>GSettings</title>
       <link>https://jouyouyun.github.io/post/gsettings/</link>

@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.82.1 with theme even" />
 
 
 <link rel="canonical" href="https://jouyouyun.github.io/post/go-gob-rw-file/" />
@@ -35,29 +35,23 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.93844dae.min.css" rel="stylesheet">
+
+<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="Go 笔记: Gob Write/Read File" />
 <meta property="og:description" content="Gob 使用实例，将结构体写入文件里，在需要的时候再从文件中读取出来。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://jouyouyun.github.io/post/go-gob-rw-file/" />
-<meta property="article:published_time" content="2014-07-07T13:06:21&#43;08:00"/>
-<meta property="article:modified_time" content="2019-02-12T14:33:20&#43;08:00"/>
+<meta property="og:url" content="https://jouyouyun.github.io/post/go-gob-rw-file/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2014-07-07T13:06:21&#43;08:00" />
+<meta property="article:modified_time" content="2019-02-12T14:33:20&#43;08:00" />
 
 <meta itemprop="name" content="Go 笔记: Gob Write/Read File">
-<meta itemprop="description" content="Gob 使用实例，将结构体写入文件里，在需要的时候再从文件中读取出来。">
-
-
-<meta itemprop="datePublished" content="2014-07-07T13:06:21&#43;08:00" />
+<meta itemprop="description" content="Gob 使用实例，将结构体写入文件里，在需要的时候再从文件中读取出来。"><meta itemprop="datePublished" content="2014-07-07T13:06:21&#43;08:00" />
 <meta itemprop="dateModified" content="2019-02-12T14:33:20&#43;08:00" />
 <meta itemprop="wordCount" content="322">
-
-
-
-<meta itemprop="keywords" content="go,gob," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="go,gob," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Go 笔记: Gob Write/Read File"/>
 <meta name="twitter:description" content="Gob 使用实例，将结构体写入文件里，在需要的时候再从文件中读取出来。"/>
 
@@ -132,15 +126,14 @@
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
-    
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
     <div class="post-content">
       <p><code>Gob</code> 使用实例，将结构体写入文件里，在需要的时候再从文件中读取出来。</p>
-
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -321,7 +314,8 @@
         <span class="nx">r</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="p">)</span>
         <span class="nf">readFromFile</span><span class="p">(</span><span class="s">&#34;/tmp/map&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">r</span><span class="p">)</span>
         <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%v\n&#34;</span><span class="p">,</span> <span class="nx">r</span><span class="p">)</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -333,11 +327,15 @@
   </p>
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
-    <span class="item-content">2019-02-12</span>
+    <span class="item-content">
+        2019-02-12
+        
+    </span>
   </p>
   
   
-</div><div class="post-reward">
+</div>
+<div class="post-reward">
   <input type="checkbox" name="reward" id="reward" hidden />
   <label class="reward-button" for="reward">赞赏支持</label>
   <div class="qr-code">
@@ -373,6 +371,10 @@
         </div>
         
 
+  
+
+  
+
       </div>
     </main>
 
@@ -399,13 +401,10 @@
   <span class="copyright-year">
     &copy; 
     2014 - 
-    2019
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">jouyouyun</span>
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>jouyouyun</span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -416,7 +415,10 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="/dist/even.ece58db6.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

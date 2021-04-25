@@ -26,7 +26,7 @@ RTC 子系统 RTC 子系统在目录 /sys/class/rtc/ 下，会根据设备创建
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.82.1 with theme even" />
 
 
 <link rel="canonical" href="https://jouyouyun.github.io/post/linux-auto-suspend/" />
@@ -37,48 +37,33 @@ RTC 子系统 RTC 子系统在目录 /sys/class/rtc/ 下，会根据设备创建
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.93844dae.min.css" rel="stylesheet">
+
+<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="Linux 休眠自动唤醒" />
 <meta property="og:description" content="最近做无线网络在系统多次休眠唤醒后是否正常的测试，但每次休眠后都需要手动点击键盘来唤醒系统，显而易见的这种方法需要人来值守，很不放便。
-
 此时便想是否有做自动唤醒的程序，毕竟这种需求也挺正常的，应该有人已经做过了。因此就开始查找自动唤醒的方法，果然就发现了 rtcwake 这个程序，这个程序是让系统进入休眠模式并在指定的时间后唤醒。立刻便觉得这个程序很神奇，然后就去看它的源码来找出它的实现方式，这边发现了本文的主题 RTC 子系统。
-
 RTC 子系统
-
 RTC 子系统在目录 /sys/class/rtc/ 下，会根据设备创建对应的目录，需要在内核中开启支持，配置如下：" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://jouyouyun.github.io/post/linux-auto-suspend/" />
-<meta property="article:published_time" content="2018-10-21T21:38:21&#43;08:00"/>
-<meta property="article:modified_time" content="2019-08-06T12:10:13&#43;08:00"/>
+<meta property="og:url" content="https://jouyouyun.github.io/post/linux-auto-suspend/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2018-10-21T21:38:21&#43;08:00" />
+<meta property="article:modified_time" content="2019-08-06T12:10:13&#43;08:00" />
 
 <meta itemprop="name" content="Linux 休眠自动唤醒">
 <meta itemprop="description" content="最近做无线网络在系统多次休眠唤醒后是否正常的测试，但每次休眠后都需要手动点击键盘来唤醒系统，显而易见的这种方法需要人来值守，很不放便。
-
 此时便想是否有做自动唤醒的程序，毕竟这种需求也挺正常的，应该有人已经做过了。因此就开始查找自动唤醒的方法，果然就发现了 rtcwake 这个程序，这个程序是让系统进入休眠模式并在指定的时间后唤醒。立刻便觉得这个程序很神奇，然后就去看它的源码来找出它的实现方式，这边发现了本文的主题 RTC 子系统。
-
 RTC 子系统
-
-RTC 子系统在目录 /sys/class/rtc/ 下，会根据设备创建对应的目录，需要在内核中开启支持，配置如下：">
-
-
-<meta itemprop="datePublished" content="2018-10-21T21:38:21&#43;08:00" />
+RTC 子系统在目录 /sys/class/rtc/ 下，会根据设备创建对应的目录，需要在内核中开启支持，配置如下："><meta itemprop="datePublished" content="2018-10-21T21:38:21&#43;08:00" />
 <meta itemprop="dateModified" content="2019-08-06T12:10:13&#43;08:00" />
 <meta itemprop="wordCount" content="802">
-
-
-
-<meta itemprop="keywords" content="suspend,wakeup,rtc," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="suspend,wakeup,rtc," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Linux 休眠自动唤醒"/>
 <meta name="twitter:description" content="最近做无线网络在系统多次休眠唤醒后是否正常的测试，但每次休眠后都需要手动点击键盘来唤醒系统，显而易见的这种方法需要人来值守，很不放便。
-
 此时便想是否有做自动唤醒的程序，毕竟这种需求也挺正常的，应该有人已经做过了。因此就开始查找自动唤醒的方法，果然就发现了 rtcwake 这个程序，这个程序是让系统进入休眠模式并在指定的时间后唤醒。立刻便觉得这个程序很神奇，然后就去看它的源码来找出它的实现方式，这边发现了本文的主题 RTC 子系统。
-
 RTC 子系统
-
 RTC 子系统在目录 /sys/class/rtc/ 下，会根据设备创建对应的目录，需要在内核中开启支持，配置如下："/>
 
 <!--[if lte IE 9]>
@@ -153,33 +138,27 @@ RTC 子系统在目录 /sys/class/rtc/ 下，会根据设备创建对应的目�
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#rtc-子系统"><code>RTC</code> 子系统</a>
-<ul>
-<li><a href="#wakealarm"><code>wakealarm</code></a></li>
-<li><a href="#proc-driver-rtc"><code>/proc/driver/rtc</code></a></li>
-</ul></li>
-<li><a href="#faq">FAQ</a></li>
-<li><a href="#参考文档">参考文档</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#rtc-子系统"><code>RTC</code> 子系统</a>
+      <ul>
+        <li><a href="#wakealarm"><code>wakealarm</code></a></li>
+        <li><a href="#proc-driver-rtc"><code>/proc/driver/rtc</code></a></li>
+      </ul>
+    </li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#参考文档">参考文档</a></li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
       <p>最近做无线网络在系统多次休眠唤醒后是否正常的测试，但每次休眠后都需要手动点击键盘来唤醒系统，显而易见的这种方法需要人来值守，很不放便。</p>
-
 <p>此时便想是否有做自动唤醒的程序，毕竟这种需求也挺正常的，应该有人已经做过了。因此就开始查找自动唤醒的方法，果然就发现了 <code>rtcwake</code> 这个程序，这个程序是让系统进入休眠模式并在指定的时间后唤醒。立刻便觉得这个程序很神奇，然后就去看它的源码来找出它的实现方式，这边发现了本文的主题 <code>RTC</code> 子系统。</p>
-
 <h2 id="rtc-子系统"><code>RTC</code> 子系统</h2>
-
 <p><code>RTC</code> 子系统在目录 <code>/sys/class/rtc/</code> 下，会根据设备创建对应的目录，需要在内核中开启支持，配置如下：</p>
-
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -202,38 +181,32 @@ RTC 子系统在目录 /sys/class/rtc/ 下，会根据设备创建对应的目�
 <span class="c1"># RTC interfaces</span>
 <span class="nv">CONFIG_RTC_INTF_SYSFS</span><span class="o">=</span>y
 <span class="nv">CONFIG_RTC_INTF_PROC</span><span class="o">=</span>y
-... <span class="o">(</span>略<span class="o">)</span></code></pre></td></tr></table>
+... <span class="o">(</span>略<span class="o">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><code>debian/ubuntu</code> 的系统可以在 <code>/boot/config-$(uname -r)</code> 查看内核的编译选项，=archlinux= 可以在 <code>/proc/config.gz</code> 查看。</p>
-
+</div><p><code>debian/ubuntu</code> 的系统可以在 <code>/boot/config-$(uname -r)</code> 查看内核的编译选项，=archlinux= 可以在 <code>/proc/config.gz</code> 查看。</p>
 <p><code>RTC</code> 目录下的文件含义可以在 <a href="https://www.kernel.org/doc/Documentation/ABI/testing/sysfs-class-rtc">sysfs-class-rtc</a> 中查看。</p>
-
 <h3 id="wakealarm"><code>wakealarm</code></h3>
-
 <p><code>RTC</code> 目录中的 <code>wakealarm</code> 文件内容便是下次触发唤醒时间的时间，默认这个文件是没有值的。文件的内容需要设置是时间的秒数，可以向下面这样设置：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># echo $(date +%s --date &#39;now + 1 minutes&#39;) &gt; /sys/class/rtc/rtc0/wakealarm</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># echo $(date +%s --date &#39;now + 1 minutes&#39;) &gt; /sys/class/rtc/rtc0/wakealarm</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>这就表示在 <code>1 minute</code> 后触发唤醒事件。</p>
-
+</div><p>这就表示在 <code>1 minute</code> 后触发唤醒事件。</p>
 <p>所以做休眠唤醒测试的流程如下：</p>
-
 <ol>
 <li>设置下次唤醒的时间到 <code>wakealarm</code> 中</li>
 <li>休眠系统</li>
 <li>被 <code>wakealarm</code> 唤醒后，开始做一些期望的事情(如检查系统是否正常)，然后继续执行步骤 =1=，就这样一直循环，直至满足条件后终止</li>
 </ol>
-
 <p>如 <code>1</code> 分钟待机一次，唤醒后检查系统是否正常：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -278,15 +251,14 @@ RTC 子系统在目录 /sys/class/rtc/ 下，会根据设备创建对应的目�
         <span class="nb">echo</span> <span class="s2">&#34;OS check failure, exit...&#34;</span>
         <span class="nb">exit</span> -1
     <span class="k">fi</span>
-<span class="k">done</span></code></pre></td></tr></table>
+<span class="k">done</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="proc-driver-rtc"><code>/proc/driver/rtc</code></h3>
-
+</div><h3 id="proc-driver-rtc"><code>/proc/driver/rtc</code></h3>
 <p>这个文件记录了 <code>rtc</code> 的详细信息，如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -306,10 +278,10 @@ RTC 子系统在目录 /sys/class/rtc/ 下，会根据设备创建对应的目�
 </span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">rtc_time        : <span class="m">03</span>:48:01
-rtc_date        : <span class="m">2019</span>-08-06
-alrm_time       : <span class="m">03</span>:03:11
-alrm_date       : <span class="m">2019</span>-08-06
+<pre class="chroma"><code class="language-shell" data-lang="shell">rtc_time        : 03:48:01
+rtc_date        : 2019-08-06
+alrm_time       : 03:03:11
+alrm_date       : 2019-08-06
 alarm_IRQ       : no
 alrm_pending    : no
 update IRQ enabled      : no
@@ -323,17 +295,14 @@ HPET_emulated   : no
 BCD             : yes
 DST_enable      : no
 periodic_freq   : <span class="m">1024</span>
-batt_status     : okay</code></pre></td></tr></table>
+batt_status     : okay
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="faq">FAQ</h2>
-
+</div><h2 id="faq">FAQ</h2>
 <ul>
 <li>设置无效？首先检查内涵是否开启了 <code>rtc</code> 支持，如果支持就检查时间标准是否是 <code>UTC=，=localtime</code> 时间标准时设置 <code>wakealarm</code> 是不生效的，内容一直是空的。通过 <code>timedatectl</code> 命令可以查询和设置时间标准。</li>
 </ul>
-
 <h2 id="参考文档">参考文档</h2>
-
 <ul>
 <li><a href="https://www.kernel.org/doc/Documentation/rtc.txt">Kernel RTC Document</a></li>
 </ul>
@@ -346,11 +315,15 @@ batt_status     : okay</code></pre></td></tr></table>
   </p>
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
-    <span class="item-content">2019-08-06</span>
+    <span class="item-content">
+        2019-08-06
+        
+    </span>
   </p>
   
   
-</div><div class="post-reward">
+</div>
+<div class="post-reward">
   <input type="checkbox" name="reward" id="reward" hidden />
   <label class="reward-button" for="reward">赞赏支持</label>
   <div class="qr-code">
@@ -387,6 +360,10 @@ batt_status     : okay</code></pre></td></tr></table>
         </div>
         
 
+  
+
+  
+
       </div>
     </main>
 
@@ -413,13 +390,10 @@ batt_status     : okay</code></pre></td></tr></table>
   <span class="copyright-year">
     &copy; 
     2014 - 
-    2019
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">jouyouyun</span>
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>jouyouyun</span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -430,7 +404,10 @@ batt_status     : okay</code></pre></td></tr></table>
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="/dist/even.ece58db6.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

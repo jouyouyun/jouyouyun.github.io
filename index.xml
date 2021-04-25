@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>jouyouyun&#39;s blog</title>
@@ -7,10 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>jouyouyun</copyright>
-    <lastBuildDate>Fri, 25 Oct 2019 13:55:59 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 15 Mar 2020 11:38:21 +0800</lastBuildDate><atom:link href="https://jouyouyun.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DDE 后端 Tutorial</title>
+      <link>https://jouyouyun.github.io/post/dde-daemon-tutorial/</link>
+      <pubDate>Sun, 15 Mar 2020 11:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/dde-daemon-tutorial/</guid>
+      <description>dde 后端使用 go 作为主要的开发语言，使用 dbus 提供接口，主要使用 gsettings 来保存配置。所以在进行后端开发前需要对以上内容有基本的了解，这里假定本文档的阅读者</description>
+    </item>
     
-	<atom:link href="https://jouyouyun.github.io/index.xml" rel="self" type="application/rss+xml" />
-    
+    <item>
+      <title>Learning Exercise</title>
+      <link>https://jouyouyun.github.io/post/learning_exercise/</link>
+      <pubDate>Thu, 28 Nov 2019 10:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/learning_exercise/</guid>
+      <description>学习一种新语言，或者学习内核，可按照以下内容做题练习。 类型转换 number(int,float) to string string to number 大数相加(数的值接近类型最大值,相加后超过最大值) 字符串操作 split append string</description>
+    </item>
     
     <item>
       <title>触摸屏校正</title>
@@ -19,11 +33,8 @@
       
       <guid>https://jouyouyun.github.io/post/touchscreen-calibration/</guid>
       <description>&lt;p&gt;有些设备的触摸屏不准，需要校正后才能正常使用。校正实际上就是配置设备在 &lt;code&gt;Xorg&lt;/code&gt; 中的属性，具体属性名与驱动相关，后文描述。&lt;/p&gt;
-
 &lt;p&gt;下面开始介绍校正方法：&lt;/p&gt;
-
 &lt;h2 id=&#34;准备&#34;&gt;准备&lt;/h2&gt;
-
 &lt;p&gt;安装需要用到的工具：&lt;/p&gt;</description>
     </item>
     
@@ -34,11 +45,8 @@
       
       <guid>https://jouyouyun.github.io/post/debian-cve-tracker/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://security-tracker.debian.org/tracker/status/release/stable&#34;&gt;Debian CVE Tracker&lt;/a&gt; 上记录了很多安全漏洞，有些 &lt;code&gt;Debian&lt;/code&gt; 会在当前版本修复，但有些不会。由于 &lt;code&gt;deepin&lt;/code&gt; 会在当前版本上停留很久，所以需要修复这些安全漏洞。这就需要自行追踪 &lt;code&gt;CVE Bug&lt;/code&gt; 的状态和添加 &lt;code&gt;patch&lt;/code&gt; ，因此写了个程序 &lt;a href=&#34;https://github.com/deepin-cve/tracker&#34;&gt;deepin-cve-tracker&lt;/a&gt; 来管理。&lt;/p&gt;
-
 &lt;p&gt;本文将介绍 &lt;code&gt;deepin-cve-tracker&lt;/code&gt; 的使用方法和 &lt;code&gt;patch&lt;/code&gt; 的添加方法。&lt;/p&gt;
-
 &lt;h2 id=&#34;deepin-cve-tracker&#34;&gt;Deepin CVE Tracker&lt;/h2&gt;
-
 &lt;p&gt;&lt;code&gt;deepin-cve-tracker&lt;/code&gt; 设计用来追踪 &lt;code&gt;Debain CVE Bug&lt;/code&gt; ，会先将 &lt;code&gt;Debian&lt;/code&gt; 中的数据爬入自己的数据库中，然后做标记来追踪 &lt;code&gt;bug&lt;/code&gt; 的处理状态。提供 &lt;code&gt;HTTP&lt;/code&gt; 接口供用户使用，使用 &lt;code&gt;docker&lt;/code&gt; 部署。&lt;/p&gt;</description>
     </item>
     
@@ -49,19 +57,17 @@
       
       <guid>https://jouyouyun.github.io/post/linux-kernel-compile/</guid>
       <description>&lt;p&gt;最近由于要调试 &lt;code&gt;usbhid&lt;/code&gt; 模块，所以需要编译 &lt;code&gt;kernel&lt;/code&gt; ，在此整理下方法，以免每次都查找。&lt;/p&gt;
-
 &lt;h2 id=&#34;dependencies&#34;&gt;Dependencies&lt;/h2&gt;
-
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;deepin&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;sudo apt-get install build-essential libncurses-dev bison flex libssl-dev libelf-dev&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;code&gt;archlinux&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;sudo pacman -S gcc ncurses bison flex openssl libelf elfutils&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;deepin&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo apt-get install build-essential libncurses-dev bison flex libssl-dev libelf-dev&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;archlinux&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo pacman -S gcc ncurses bison flex openssl libelf elfutils&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;若编译时有报错，请按照错误提示按照缺失的依赖。&lt;/p&gt;</description>
     </item>
     
@@ -81,9 +87,7 @@
       
       <guid>https://jouyouyun.github.io/post/linux_hardware_info/</guid>
       <description>&lt;p&gt;在 &lt;code&gt;linux&lt;/code&gt; 上可以通过 &lt;code&gt;dmidecode&lt;/code&gt; 或是 &lt;code&gt;lshw&lt;/code&gt; 来获取硬件信息，能够方便的查看系统配置。但它们的输出信息过多，解析起来有些麻烦，另外 &lt;code&gt;lshw&lt;/code&gt; 对 &lt;code&gt;usb&lt;/code&gt; 接口的网卡支持不好，显示的信息不够，所以在此整理下通过读文件或是一些简单命令来获取硬件信息的方法。&lt;/p&gt;
-
 &lt;h3 id=&#34;dmi&#34;&gt;&lt;strong&gt;DMI&lt;/strong&gt;&lt;/h3&gt;
-
 &lt;p&gt;一般情况下内核默认加载了 &lt;code&gt;dmi sysfs&lt;/code&gt; ，路径是 &lt;code&gt;/sys/class/dmi&lt;/code&gt; 。里面包含了 &lt;code&gt;bios&lt;/code&gt; ， &lt;code&gt;board&lt;/code&gt; ， &lt;code&gt;product&lt;/code&gt; 等信息。&lt;/p&gt;</description>
     </item>
     
@@ -94,11 +98,8 @@
       
       <guid>https://jouyouyun.github.io/post/installation/</guid>
       <description>&lt;p&gt;在重装系统时, 需要考虑软件与数据的备份恢复, 遂记录下需要用到的软件, 自定义的配置和数据恢复.&lt;/p&gt;
-
 &lt;h2 id=&#34;软件&#34;&gt;软件&lt;/h2&gt;
-
 &lt;h3 id=&#34;换源&#34;&gt;换源&lt;/h3&gt;
-
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;Archlinux&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;</description>
@@ -111,10 +112,8 @@
       
       <guid>https://jouyouyun.github.io/post/jenkins-api-usage/</guid>
       <description>&lt;p&gt;&lt;code&gt;Jenkins&lt;/code&gt; 是一款流行的开源持续集成工具，可以用来做一些软件开发的自动化工作，如打包，测试，自动部署等。&lt;/p&gt;
-
 &lt;p&gt;&lt;code&gt;Jenkins&lt;/code&gt; 中有 &lt;code&gt;view&lt;/code&gt; 和 &lt;code&gt;job&lt;/code&gt; 的概念， &lt;code&gt;view&lt;/code&gt; 相当于组， &lt;code&gt;job&lt;/code&gt; 则是具体的任务。
 &lt;code&gt;view&lt;/code&gt; 下面可以创建 &lt;code&gt;job&lt;/code&gt; ，但 &lt;code&gt;job&lt;/code&gt; 可以不在任何 &lt;code&gt;view&lt;/code&gt; 下。&lt;/p&gt;
-
 &lt;p&gt;这里主要介绍 &lt;code&gt;Jenkins&lt;/code&gt; 提供的 &lt;code&gt;HTTP API&lt;/code&gt; ，至于如何使用 &lt;code&gt;Jenkins&lt;/code&gt; 请参看 &lt;a href=&#34;https://jenkins.io/doc/&#34;&gt;Jenkins User Documentation&lt;/a&gt;。&lt;/p&gt;</description>
     </item>
     
@@ -125,7 +124,6 @@
       
       <guid>https://jouyouyun.github.io/post/docker-data-storage/</guid>
       <description>&lt;p&gt;&lt;code&gt;Docker&lt;/code&gt; 安装后默认将数据存储在 &lt;code&gt;/var/lib/docker&lt;/code&gt; 下，随着 &lt;code&gt;image&lt;/code&gt; 和 &lt;code&gt;container&lt;/code&gt; 的增多，会导致 &lt;code&gt;/&lt;/code&gt; 分区的空间被用完，如果 &lt;code&gt;/&lt;/code&gt; 分区特别大就请忽略这篇文章。&lt;/p&gt;
-
 &lt;p&gt;因此需要将一些软件的数据存储到空间大的分区，与 &lt;code&gt;/&lt;/code&gt; 分区分开。不仅 &lt;code&gt;Docker&lt;/code&gt; 需要这样处理，如 &lt;code&gt;mysql/postgresql&lt;/code&gt; 等软件也需要这样处理。&lt;/p&gt;</description>
     </item>
     
@@ -136,17 +134,16 @@
       
       <guid>https://jouyouyun.github.io/post/docker-intro/</guid>
       <description>&lt;p&gt;&lt;code&gt;Docker&lt;/code&gt; 是使用 &lt;code&gt;GoLang&lt;/code&gt; 开发的开源容器引擎，可以方便的打包开发好的应用，然后分发到任意 &lt;code&gt;linux&lt;/code&gt; 主机上。&lt;/p&gt;
-
 &lt;p&gt;与传统的虚拟机相比拥有以下优势：&lt;/p&gt;
-
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;高效的系统资源利用率&lt;/p&gt;
-
-&lt;p&gt;由于不需要进行硬件虚拟和运行完整的操作系统等额外开销，无论是应用执行速度、内存损耗或者文件存储速度， &lt;code&gt;Docker&lt;/code&gt; 都更加高效&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;更快的启动速度&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;Docker&lt;/code&gt; 容器应用直接运行与宿主内核，无需启动完整的操作系统，可以做到秒级启动&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;高效的系统资源利用率&lt;/p&gt;
+&lt;p&gt;由于不需要进行硬件虚拟和运行完整的操作系统等额外开销，无论是应用执行速度、内存损耗或者文件存储速度， &lt;code&gt;Docker&lt;/code&gt; 都更加高效&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;更快的启动速度&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Docker&lt;/code&gt; 容器应用直接运行与宿主内核，无需启动完整的操作系统，可以做到秒级启动&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;</description>
     </item>
     
@@ -157,7 +154,6 @@
       
       <guid>https://jouyouyun.github.io/post/influxdb-introduction/</guid>
       <description>&lt;p&gt;&lt;code&gt;InfluxDB&lt;/code&gt; 是一个时间序列数据库(&lt;code&gt;TSDB&lt;/code&gt;), 被设计用来处理高写入、高查询负载，是 &lt;a href=&#34;https://www.influxdata.com/time-series-platform/&#34;&gt;TICK&lt;/a&gt; 的一部分。&lt;/p&gt;
-
 &lt;p&gt;&lt;code&gt;TSDB&lt;/code&gt; 是针对时间戳或时间序列数据进行优化的数据库，专门为处理带有时间戳的度量和事件或度量而构建的。
 而时间序列数据可以是随时间跟踪、监视、下采样和聚合的度量或事件，如服务器指标、应用程序性能、网络数据、传感器数据以及许多其他类型的分析数据。&lt;/p&gt;</description>
     </item>
@@ -170,7 +166,6 @@
       <guid>https://jouyouyun.github.io/post/clean_invalid_branch_in_git/</guid>
       <description>&lt;p&gt;在开发新功能或修复 &lt;code&gt;bug&lt;/code&gt; 时, 会从 &lt;code&gt;master&lt;/code&gt; 上新建 &lt;code&gt;branch&lt;/code&gt; 来处理, 当完成后会将这个 &lt;code&gt;branch&lt;/code&gt; 推送到 &lt;code&gt;origin&lt;/code&gt; 中, 如:
 &lt;code&gt;git push origin &amp;lt;branch name&amp;gt;:&amp;lt;branch name&amp;gt;&lt;/code&gt;.&lt;/p&gt;
-
 &lt;p&gt;&lt;code&gt;origin&lt;/code&gt; 审核代码没有问题后就会 &lt;strong&gt;合并分支并删除&lt;/strong&gt;, 但 &lt;strong&gt;本地&lt;/strong&gt; 在 &lt;code&gt;git pull&lt;/code&gt; 删除本地分支后, 仍能通过 &lt;code&gt;git branch -a&lt;/code&gt; 看到这个 &lt;code&gt;branch&lt;/code&gt; 的 &lt;code&gt;origin ref&lt;/code&gt;.
 日积月累之下本地就会有很多这样无用的 &lt;code&gt;branch ref&lt;/code&gt;, 很是让人厌烦, 遂在此记录清理的方法.&lt;/p&gt;</description>
     </item>
@@ -182,32 +177,29 @@
       
       <guid>https://jouyouyun.github.io/post/mysql_commands/</guid>
       <description>&lt;p&gt;大学学的数据库系统概论工作后几年没有使用都已忘了, 现在项目需要用到数据库, 但来不及细看相关书籍了, 遂将一些常用的记录下来.&lt;/p&gt;
-
 &lt;h2 id=&#34;常用类型&#34;&gt;常用类型&lt;/h2&gt;
-
 &lt;p&gt;&lt;code&gt;MySQL&lt;/code&gt; 支持多种类型, 大致可以分为三类: 数值, 日期/时间和字符串(字符)类型, 大致如下:&lt;/p&gt;
-
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;数值类型&lt;/p&gt;
-
+&lt;li&gt;
+&lt;p&gt;数值类型&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;整数: &lt;code&gt;tinyint&lt;/code&gt;, &lt;code&gt;smallint&lt;/code&gt;, &lt;code&gt;mediumint&lt;/code&gt;, &lt;code&gt;int&lt;/code&gt;, &lt;code&gt;bigint&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;浮点数: &lt;code&gt;float&lt;/code&gt;, &lt;code&gt;double&lt;/code&gt;, &lt;code&gt;decimal&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;日期和时间&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;date&lt;/code&gt;, &lt;code&gt;time&lt;/code&gt;, &lt;code&gt;datetime&lt;/code&gt;, &lt;code&gt;timestamp&lt;/code&gt;, &lt;code&gt;year&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;字符串类型&lt;/p&gt;
-
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;日期和时间&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;date&lt;/code&gt;, &lt;code&gt;time&lt;/code&gt;, &lt;code&gt;datetime&lt;/code&gt;, &lt;code&gt;timestamp&lt;/code&gt;, &lt;code&gt;year&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;字符串类型&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;字符串: &lt;code&gt;char&lt;/code&gt;, &lt;code&gt;varchar&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;文本: &lt;code&gt;tinytext&lt;/code&gt;, &lt;code&gt;text&lt;/code&gt;, &lt;code&gt;mediumtext&lt;/code&gt;, &lt;code&gt;longtext&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;二进制字符串: &lt;code&gt;tinyblob&lt;/code&gt;, &lt;code&gt;blob&lt;/code&gt;, &lt;code&gt;mediumblob&lt;/code&gt;, &lt;code&gt;longblob&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;下面将详细给出每种类型的大小和描述.&lt;/p&gt;</description>
     </item>
     
@@ -218,15 +210,10 @@
       
       <guid>https://jouyouyun.github.io/post/hugo-github/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://github.com/gohugoio/hugo&#34;&gt;hugo&lt;/a&gt; 是由 &lt;code&gt;Go&lt;/code&gt; 语言实现的静态网站生成器, 简单、易用、高效、易扩展、快速部署。&lt;/p&gt;
-
 &lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
-
 &lt;p&gt;到 &lt;a href=&#34;https://github.com/gohugoio/hugo/releases&#34;&gt;Release&lt;/a&gt; 下载对应系统的二进制文件压缩包, 然后解压, 并把得到的二进制复制到 &lt;code&gt;Path&lt;/code&gt; 中.&lt;/p&gt;
-
 &lt;h2 id=&#34;简单使用&#34;&gt;简单使用&lt;/h2&gt;
-
 &lt;h3 id=&#34;创建一个站点&#34;&gt;创建一个站点&lt;/h3&gt;
-
 &lt;p&gt;使用命令 &lt;code&gt;hugo new site &amp;lt;dir&amp;gt;&lt;/code&gt; 来创建站点, 创建后的结构如下:&lt;/p&gt;</description>
     </item>
     
@@ -239,7 +226,7 @@
       <description>&lt;p&gt;定义了一个 &lt;code&gt;User&lt;/code&gt; 和 &lt;code&gt;Company&lt;/code&gt;, &lt;code&gt;User&lt;/code&gt; 中可以包含多个 &lt;code&gt;Company&lt;/code&gt;, 如下:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
@@ -272,7 +259,8 @@
         &lt;span class=&#34;nx&#34;&gt;Name&lt;/span&gt;     &lt;span class=&#34;kt&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;`gorm:&amp;#34;TYPE:VARCHAR(255);DEFAULT:&amp;#39;&amp;#39;;INDEX&amp;#34;`&lt;/span&gt;
         &lt;span class=&#34;nx&#34;&gt;Job&lt;/span&gt;      &lt;span class=&#34;kt&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;`gorm:&amp;#34;TYPE:VARCHAR(255);DEFAULT:&amp;#39;&amp;#39;&amp;#34;`&lt;/span&gt;
         &lt;span class=&#34;nx&#34;&gt;UserId&lt;/span&gt;   &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;    &lt;span class=&#34;s&#34;&gt;`gorm:&amp;#34;TYPE:int(11);NOT NULL;INDEX&amp;#34;`&lt;/span&gt;
-&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;</description>
     </item>
@@ -284,11 +272,8 @@
       
       <guid>https://jouyouyun.github.io/post/python-learn-note/</guid>
       <description>&lt;h2 id=&#34;python3-study-notes&#34;&gt;Python3 Study Notes&lt;/h2&gt;
-
 &lt;p&gt;本人很少写 &lt;code&gt;python&lt;/code&gt; 代码, 一般都是用 &lt;code&gt;go&lt;/code&gt; 的, 去年时用 &lt;code&gt;python&lt;/code&gt; 写过一些收集系统信息的工具, 当时是边看手册边写的. 如今又要用 &lt;code&gt;python&lt;/code&gt; 来写一个生成 &lt;code&gt;xlsx&lt;/code&gt; 的工具, 就又需要查看手册了, 至于为什么不用 &lt;code&gt;go&lt;/code&gt; 写? 那是因为 &lt;code&gt;go&lt;/code&gt; 的库不兼容永中. 在这里不得不说, 虽然 &lt;code&gt;go&lt;/code&gt; 很火, 但是一些库还是不如 &lt;code&gt;python&lt;/code&gt; 多, 不如 &lt;code&gt;python&lt;/code&gt; 兼容性好.&lt;/p&gt;
-
 &lt;p&gt;为了避免以后再出这种事情, 这次就好好的了解下 &lt;code&gt;python&lt;/code&gt;, 将它的用法按照自己对语言的理解分块记录下来. 要使用某种语言, 个人认为需要了解这些方面:&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;编码风格&lt;/li&gt;
 &lt;li&gt;变量的类型, 声明及使用方式&lt;/li&gt;
@@ -298,7 +283,6 @@
 &lt;li&gt;函数的用法, 还有语言支持的一些特性, &lt;code&gt;python&lt;/code&gt; 中就有装饰器, &lt;code&gt;lambda&lt;/code&gt; 语句等&lt;/li&gt;
 &lt;li&gt;对于面向对象语言还需要了解类的声明, 继承, 多态等的用法&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;还有一些就是此语言的一些特性, &lt;code&gt;python&lt;/code&gt; 就还需要了解以下特性:&lt;/p&gt;</description>
     </item>
     
@@ -309,9 +293,7 @@
       
       <guid>https://jouyouyun.github.io/post/go-package-management/</guid>
       <description>&lt;h2 id=&#34;go-module-使用&#34;&gt;Go Module 使用&lt;/h2&gt;
-
 &lt;p&gt;&lt;code&gt;Go Module&lt;/code&gt; 是官方用来管理 &lt;code&gt;package&lt;/code&gt; 依赖的工具, &lt;code&gt;1.11&lt;/code&gt; 新加的, 使用时需要设置变量: &lt;code&gt;GO111MODULE=on&lt;/code&gt; .&lt;/p&gt;
-
 &lt;p&gt;&lt;code&gt;go mod help&lt;/code&gt; 可以查看其帮助文档:&lt;/p&gt;</description>
     </item>
     
@@ -322,13 +304,9 @@
       
       <guid>https://jouyouyun.github.io/post/linux-signal-example/</guid>
       <description>&lt;p&gt;信号是系统响应某些条件而产生的一个事件，接收到该信的进程做出相应的处理。通常信是由错误产生的，如段错误(&lt;code&gt;SIGSEGV&lt;/code&gt;)。 但信还可以作为进程间通信的一种方式，由一个进程发送给另一个进程。&lt;/p&gt;
-
 &lt;p&gt;信号定义在 &lt;code&gt;signal.h&lt;/code&gt; 文件中，以 &lt;code&gt;SIG&lt;/code&gt; 作为开头，可用 &lt;code&gt;kill -l&lt;/code&gt; 命令查看，详细信息参见 &lt;a href=&#34;http://man7.org/linux/man-pages/man7/signal.7.html&#34;&gt;man 7 signal&lt;/a&gt; 。&lt;/p&gt;
-
 &lt;h2 id=&#34;信号处理&#34;&gt;信号处理&lt;/h2&gt;
-
 &lt;p&gt;信号可以通过 &lt;code&gt;signal&lt;/code&gt; 和 &lt;code&gt;sigaction&lt;/code&gt; 函数来注册处理， &lt;code&gt;signal&lt;/code&gt; 函数是 &lt;code&gt;struct sigaction&lt;/code&gt; 中 &lt;code&gt;sa_handler&lt;/code&gt; 的一种便捷实现。&lt;/p&gt;
-
 &lt;h3 id=&#34;signal-函数&#34;&gt;&lt;code&gt;signal&lt;/code&gt; 函数&lt;/h3&gt;</description>
     </item>
     
@@ -341,7 +319,7 @@
       <description>&lt;p&gt;今天在执行 &lt;code&gt;sudo apt-get update&lt;/code&gt; 出现了下面的错误提示：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
@@ -350,14 +328,14 @@
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
 &lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;E: 仓库&lt;span class=&#34;s1&#34;&gt;&amp;#39;http://dl.google.com/linux/chrome/deb stable Release&amp;#39;&lt;/span&gt;将其&lt;span class=&#34;s1&#34;&gt;&amp;#39;Origin&amp;#39;&lt;/span&gt;值从&lt;span class=&#34;s1&#34;&gt;&amp;#39;Google, Inc.&amp;#39;&lt;/span&gt;修改到了&lt;span class=&#34;s1&#34;&gt;&amp;#39;Google LLC&amp;#39;&lt;/span&gt;
-N: 为了让这个仓库能够应用，这必须在更新之前显式接受。更多细节请参阅 apt-secure&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; 手册。
+N: 为了让这个仓库能够应用，这必须在更新之前显式接受。更多细节请参阅 apt-secure&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;8&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; 手册。
 
 &lt;span class=&#34;c1&#34;&gt;# 英语环境下的输出&lt;/span&gt;
 E: Repository ‘http://dl.google.com/linux/chrome-remote-desktop/deb stable Release’ changed its ‘Origin’ value from ‘Google, Inc.’ to ‘Google LLC’
-N: This must be accepted explicitly before updates &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; this repository can be applied. See apt-secure&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; manpage &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; details.&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+N: This must be accepted explicitly before updates &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; this repository can be applied. See apt-secure&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;8&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; manpage &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; details.
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;这个错误导致无法升级系统，错误说明了原因：是由于 &lt;code&gt;Google Chrome&lt;/code&gt; 的 &lt;code&gt;Origin&lt;/code&gt; 改变引起的，也给出了解决思路：手动接受这个改变。&lt;/p&gt;</description>
+&lt;/div&gt;&lt;p&gt;这个错误导致无法升级系统，错误说明了原因：是由于 &lt;code&gt;Google Chrome&lt;/code&gt; 的 &lt;code&gt;Origin&lt;/code&gt; 改变引起的，也给出了解决思路：手动接受这个改变。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -367,13 +345,9 @@ N: This must be accepted explicitly before updates &lt;span class=&#34;k&#34;&gt
       
       <guid>https://jouyouyun.github.io/post/set-appearance-in-deepin-or-gnome/</guid>
       <description>&lt;p&gt;桌面的外观设置一般包括窗口主题、图标主题、光标主题和字体设置，其中窗口主题就是常见的 &lt;code&gt;gtk&lt;/code&gt; 主题，字体设置又包括标准字体、等款字体和字体大小。对于进些年的高分屏，又添加了字体缩放和窗口缩放这2个选项。&lt;/p&gt;
-
 &lt;p&gt;界面上设置方法就不介绍了，都可以在各自桌面的控制中心中找到，这里主要介绍命令行下的。&lt;/p&gt;
-
 &lt;p&gt;&lt;code&gt;deepin&lt;/code&gt; 和 &lt;code&gt;gnome&lt;/code&gt; 桌面环境的外观配置数据是使用 &lt;code&gt;gsettings&lt;/code&gt; 来存储，所以可以通过 &lt;code&gt;gsettings&lt;/code&gt; 来设置和读取。 &lt;code&gt;gsettings&lt;/code&gt; 相比设置界面就是 可以设置到更多的选项，设置的值更加精确。&lt;/p&gt;
-
 &lt;p&gt;下面先简单介绍下 &lt;code&gt;gsettings&lt;/code&gt; 的用法。&lt;/p&gt;
-
 &lt;h2 id=&#34;gsettings&#34;&gt;&lt;code&gt;GSettings&lt;/code&gt;&lt;/h2&gt;</description>
     </item>
     
@@ -384,11 +358,8 @@ N: This must be accepted explicitly before updates &lt;span class=&#34;k&#34;&gt
       
       <guid>https://jouyouyun.github.io/post/linux-auto-suspend/</guid>
       <description>&lt;p&gt;最近做无线网络在系统多次休眠唤醒后是否正常的测试，但每次休眠后都需要手动点击键盘来唤醒系统，显而易见的这种方法需要人来值守，很不放便。&lt;/p&gt;
-
 &lt;p&gt;此时便想是否有做自动唤醒的程序，毕竟这种需求也挺正常的，应该有人已经做过了。因此就开始查找自动唤醒的方法，果然就发现了 &lt;code&gt;rtcwake&lt;/code&gt; 这个程序，这个程序是让系统进入休眠模式并在指定的时间后唤醒。立刻便觉得这个程序很神奇，然后就去看它的源码来找出它的实现方式，这边发现了本文的主题 &lt;code&gt;RTC&lt;/code&gt; 子系统。&lt;/p&gt;
-
 &lt;h2 id=&#34;rtc-子系统&#34;&gt;&lt;code&gt;RTC&lt;/code&gt; 子系统&lt;/h2&gt;
-
 &lt;p&gt;&lt;code&gt;RTC&lt;/code&gt; 子系统在目录 &lt;code&gt;/sys/class/rtc/&lt;/code&gt; 下，会根据设备创建对应的目录，需要在内核中开启支持，配置如下：&lt;/p&gt;</description>
     </item>
     
@@ -399,15 +370,12 @@ N: This must be accepted explicitly before updates &lt;span class=&#34;k&#34;&gt
       
       <guid>https://jouyouyun.github.io/post/linux-time-standard/</guid>
       <description>&lt;h2 id=&#34;系统如何设置时间&#34;&gt;系统如何设置时间&lt;/h2&gt;
-
 &lt;ol&gt;
 &lt;li&gt;开机时根据硬件时钟来设置系统时钟.&lt;/li&gt;
 &lt;li&gt;如果开启了 &lt;code&gt;NTP&lt;/code&gt; 服务, 会根据网络时间来校正系统时钟，确保时间准确.&lt;/li&gt;
 &lt;li&gt;关机时会根据系统时钟来设置硬件时钟(&lt;code&gt;localtime&lt;/code&gt; 标准除外).&lt;/li&gt;
 &lt;/ol&gt;
-
 &lt;h3 id=&#34;时钟&#34;&gt;时钟&lt;/h3&gt;
-
 &lt;ul&gt;
 &lt;li&gt;硬件时钟: 即实时时钟 &lt;code&gt;RTC&lt;/code&gt; 或 &lt;code&gt;CMOS&lt;/code&gt; 时钟, 仅能保存年、月、日、时、分、秒这些时间数值，无法保存时间标准和是否使用夏令时调节.&lt;/li&gt;
 &lt;li&gt;系统时钟: 即软件时间, 与硬件时间分别维护，保存了时间、时区和夏令时设置.初始系统时钟是从硬件时间计算得来，计算时会考虑 &lt;code&gt;/etc/adjtime&lt;/code&gt; 的设置.&lt;/li&gt;
@@ -422,15 +390,10 @@ N: This must be accepted explicitly before updates &lt;span class=&#34;k&#34;&gt
       
       <guid>https://jouyouyun.github.io/post/fixed-superblock/</guid>
       <description>&lt;p&gt;本周去某公司调试系统，他们硬件测试部分送来了一台系统无法进入的机器，他们也不知道怎么弄得，让我看下是系统原因还是 &lt;code&gt;SSD&lt;/code&gt; 硬件有问题。&lt;/p&gt;
-
 &lt;p&gt;拿到机器开机后，没有正常的进入系统，直接进入了 &lt;code&gt;initramfs mode&lt;/code&gt; 并有 &lt;code&gt;filesystem invalid superblock checksum error&lt;/code&gt; 的错误提示，遂告诉他们是系统的 &lt;code&gt;filesystem&lt;/code&gt; 挂了，然后开始查找修复方法，最后找到了方法并修复了机器，在此记录一下。&lt;/p&gt;
-
 &lt;h2 id=&#34;修复方法&#34;&gt;修复方法&lt;/h2&gt;
-
 &lt;p&gt;下面的命令都是在 &lt;code&gt;initramfs shell&lt;/code&gt; 中执行的。&lt;/p&gt;
-
 &lt;h3 id=&#34;先确定你系统所在的分区&#34;&gt;先确定你系统所在的分区&lt;/h3&gt;
-
 &lt;p&gt;可以执行 &lt;code&gt;lsblk&lt;/code&gt; 来查看分区信息，然后确定，假如是 &lt;code&gt;/dev/sdaX&lt;/code&gt;&lt;/p&gt;</description>
     </item>
     
@@ -441,31 +404,29 @@ N: This must be accepted explicitly before updates &lt;span class=&#34;k&#34;&gt
       
       <guid>https://jouyouyun.github.io/post/restful-introduction/</guid>
       <description>&lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;
-
 &lt;p&gt;&lt;code&gt;RESTful&lt;/code&gt; 即表现层状态转换，是一种设计风格，不是标准。其要点如下：&lt;/p&gt;
-
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;资源由 &lt;code&gt;URI&lt;/code&gt; 来指定&lt;/p&gt;
-
-&lt;p&gt;每个资源都有与之对应的 &lt;code&gt;URI=，一个 =URI&lt;/code&gt; 只能对应一种资源，但一种资源可以对应多个 &lt;code&gt;URI&lt;/code&gt; 不同的分类方法)。&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;对资源的操作对应到 &lt;code&gt;HTTP&lt;/code&gt; 协议提供的方法&lt;/p&gt;
-
-&lt;p&gt;如增删改查等操作，对应 &lt;code&gt;HTTP&lt;/code&gt; 协议的 &lt;code&gt;POST, DELETE, PUT, GET&lt;/code&gt; 等方法&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;资源的表现形式通常广泛流行的协议和标准&lt;/p&gt;
-
-&lt;p&gt;如 &lt;code&gt;JSON, XML, HTML&lt;/code&gt; 等格式，当然也可以是其它格式或者私有格式，但一定足够能描述自己&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;通过操作资源的表现形式来操作资源&lt;/p&gt;
-
-&lt;p&gt;通过修改表现形式再辅以 &lt;code&gt;HTTP&lt;/code&gt; 协议的方法，应用就可以管理资源&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;以超媒体作为应用状态的引擎&lt;/p&gt;
-
+&lt;li&gt;
+&lt;p&gt;资源由 &lt;code&gt;URI&lt;/code&gt; 来指定&lt;/p&gt;
+&lt;p&gt;每个资源都有与之对应的 &lt;code&gt;URI=，一个 =URI&lt;/code&gt; 只能对应一种资源，但一种资源可以对应多个 &lt;code&gt;URI&lt;/code&gt; 不同的分类方法)。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;对资源的操作对应到 &lt;code&gt;HTTP&lt;/code&gt; 协议提供的方法&lt;/p&gt;
+&lt;p&gt;如增删改查等操作，对应 &lt;code&gt;HTTP&lt;/code&gt; 协议的 &lt;code&gt;POST, DELETE, PUT, GET&lt;/code&gt; 等方法&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;资源的表现形式通常广泛流行的协议和标准&lt;/p&gt;
+&lt;p&gt;如 &lt;code&gt;JSON, XML, HTML&lt;/code&gt; 等格式，当然也可以是其它格式或者私有格式，但一定足够能描述自己&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;通过操作资源的表现形式来操作资源&lt;/p&gt;
+&lt;p&gt;通过修改表现形式再辅以 &lt;code&gt;HTTP&lt;/code&gt; 协议的方法，应用就可以管理资源&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;以超媒体作为应用状态的引擎&lt;/p&gt;
 &lt;p&gt;资源相关操作的 &lt;code&gt;URI&lt;/code&gt; 可附加在表现形式内，应用根据自身状态选择相应的 &lt;code&gt;URI&lt;/code&gt; 来更改状态。&lt;/p&gt;
-
-&lt;p&gt;操作可以是 &lt;code&gt;URI&lt;/code&gt; 外，也可以是一段代码，让应用执行。&lt;/p&gt;&lt;/li&gt;
+&lt;p&gt;操作可以是 &lt;code&gt;URI&lt;/code&gt; 外，也可以是一段代码，让应用执行。&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;</description>
     </item>
     
@@ -476,11 +437,8 @@ N: This must be accepted explicitly before updates &lt;span class=&#34;k&#34;&gt
       
       <guid>https://jouyouyun.github.io/post/git-rebase/</guid>
       <description>&lt;p&gt;在开发新功能或修复 &lt;code&gt;bug&lt;/code&gt; 时，一般需要新建一个分支，然后在它之上进行开发。在多人协同开发时，经常会同时修改相同的分支或相同的文件，这时就需要进行 &lt;code&gt;rebase&lt;/code&gt; 操作在提交你的代码之前。&lt;/p&gt;
-
 &lt;p&gt;但有时 &lt;code&gt;rebase&lt;/code&gt; 会带来不想要的提交，或处理冲突时误操作执行了 &lt;code&gt;git rebase --skip&lt;/code&gt; 。此时就想要回退到之前的提交，恢复自己的数据， &lt;code&gt;reflog&lt;/code&gt; 就可以帮助你完成数据恢复。&lt;/p&gt;
-
 &lt;h2 id=&#34;reflog&#34;&gt;reflog&lt;/h2&gt;
-
 &lt;p&gt;当你工作时，=Git= 会在你每次修改了 &lt;code&gt;HEAD&lt;/code&gt; 时悄悄地将改动记录下来。当你提交或修改分支时， &lt;code&gt;reflog&lt;/code&gt; 就会更新。通过 &lt;code&gt;git reflog&lt;/code&gt; 命令可以查看当前的状态：&lt;/p&gt;</description>
     </item>
     
@@ -491,23 +449,19 @@ N: This must be accepted explicitly before updates &lt;span class=&#34;k&#34;&gt
       
       <guid>https://jouyouyun.github.io/post/cups-notes/</guid>
       <description>&lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
-
 &lt;p&gt;&lt;code&gt;sudo apt install cups ghostscript gsfonts&lt;/code&gt;&lt;/p&gt;
-
 &lt;h2 id=&#34;driver&#34;&gt;Driver&lt;/h2&gt;
-
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;gutenprint&lt;/p&gt;
-
+&lt;li&gt;
+&lt;p&gt;gutenprint&lt;/p&gt;
 &lt;p&gt;一组质量非常好的驱动集合，支持的目标机型包括 &lt;code&gt;Canon, Epson, Lexmark, Sony, Olympus&lt;/code&gt; ；以及配合 &lt;code&gt;CUPS/GhostSscript/Foomatic/GIMP&lt;/code&gt; 使用的 &lt;code&gt;PCL printers&lt;/code&gt; 。&lt;/p&gt;
-
-&lt;p&gt;安装包: &lt;code&gt;cups-driver-gutenprint gimp-gutenprint ijsgutenprint printer-driver-gutenprint&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;foomatic&lt;/p&gt;
-
+&lt;p&gt;安装包: &lt;code&gt;cups-driver-gutenprint gimp-gutenprint ijsgutenprint printer-driver-gutenprint&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;foomatic&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;Foomatic&lt;/code&gt; 是一个基于数据库的，集成自由软件打印机驱动和脱机打印程序的系统。&lt;/p&gt;
-
-&lt;p&gt;安装包: &lt;code&gt;foomatic-db foomatic-db-engine foomatic-db-compressed-ppds foomatic-db-gutenprint foomatic-filters&lt;/code&gt; 以及 &lt;code&gt;foomatic-db-nonfree&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;p&gt;安装包: &lt;code&gt;foomatic-db foomatic-db-engine foomatic-db-compressed-ppds foomatic-db-gutenprint foomatic-filters&lt;/code&gt; 以及 &lt;code&gt;foomatic-db-nonfree&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;</description>
     </item>
     
@@ -518,29 +472,25 @@ N: This must be accepted explicitly before updates &lt;span class=&#34;k&#34;&gt
       
       <guid>https://jouyouyun.github.io/post/bluetooth-faq/</guid>
       <description>&lt;p&gt;收集遇到的 &lt;code&gt;bluetooth&lt;/code&gt; 问题，使用的是 &lt;code&gt;deepin&lt;/code&gt; 。&lt;/p&gt;
-
 &lt;h2 id=&#34;控制中心不显示蓝牙模块&#34;&gt;控制中心不显示蓝牙模块&lt;/h2&gt;
-
 &lt;p&gt;蓝牙模块不显示时，可以按照以下步骤来查找原因：&lt;/p&gt;
-
 &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;执行 &lt;code&gt;sudo dmesg|grub bluetooth&lt;/code&gt; 查看输出结果&lt;/p&gt;
-
+&lt;li&gt;执行 &lt;code&gt;sudo dmesg|grub bluetooth&lt;/code&gt; 查看输出结果
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;输出里有 &lt;code&gt;timeout&lt;/code&gt;&lt;/p&gt;
-
+&lt;li&gt;
+&lt;p&gt;输出里有 &lt;code&gt;timeout&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;此时再用 &lt;code&gt;systemctl status bluetooth.service&lt;/code&gt; 看下服务有没有正常启动，错误信息是什么，然后根据错误去网上搜索答案。&lt;/p&gt;
-
 &lt;p&gt;如果蓝牙是由网卡提供的，此时可以试着开关一下网卡的硬件开关。因为内核在初始化网卡之前初始化蓝牙，就会导致蓝牙设备不可用，重新初始化一次就好了。
-如果还是无效那就重启进入 &lt;code&gt;window&lt;/code&gt; ，再 &lt;code&gt;window&lt;/code&gt; 里开关一次蓝牙再重启到 &lt;code&gt;linux&lt;/code&gt; 。&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;输出里无 &lt;code&gt;timeout&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;这就表明初始化没问题，继续下一步&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
+如果还是无效那就重启进入 &lt;code&gt;window&lt;/code&gt; ，再 &lt;code&gt;window&lt;/code&gt; 里开关一次蓝牙再重启到 &lt;code&gt;linux&lt;/code&gt; 。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;输出里无 &lt;code&gt;timeout&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;这就表明初始化没问题，继续下一步&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;/ol&gt;
-
-&lt;hr /&gt;</description>
+&lt;hr&gt;</description>
     </item>
     
     <item>
@@ -550,11 +500,8 @@ N: This must be accepted explicitly before updates &lt;span class=&#34;k&#34;&gt
       
       <guid>https://jouyouyun.github.io/post/set-grup2-resolution/</guid>
       <description>&lt;h2 id=&#34;背景&#34;&gt;背景&lt;/h2&gt;
-
 &lt;p&gt;平时经常用显示器的分辨率去设置 &lt;code&gt;Grub&lt;/code&gt; 的分辨率，虽然大部分都没有问题，但有时却没有用。所以就把 &lt;code&gt;Grub&lt;/code&gt; 分辨率的设置方法详细说明一下，留档记录。&lt;/p&gt;
-
 &lt;h2 id=&#34;查询支持的分辨率&#34;&gt;查询支持的分辨率&lt;/h2&gt;
-
 &lt;p&gt;在设置 &lt;code&gt;Grub&lt;/code&gt; 分辨率之前，需要先知道支持的分辨率列表，而幸运的是可以到 &lt;code&gt;Grub&lt;/code&gt; 命令行查询。&lt;/p&gt;</description>
     </item>
     
@@ -565,20 +512,18 @@ N: This must be accepted explicitly before updates &lt;span class=&#34;k&#34;&gt
       
       <guid>https://jouyouyun.github.io/post/tcp-bbr/</guid>
       <description>&lt;h2 id=&#34;启用-bbr&#34;&gt;启用 BBR&lt;/h2&gt;
-
 &lt;p&gt;&lt;code&gt;BBR&lt;/code&gt; 是在 4.9 以后的内核才开始支持的, 可以试着执行 &lt;code&gt;sudo modprobe tcp_bbr&lt;/code&gt; 来确定是否支持, 没有输出就意味着支持, 将下面两行内容添加到 &lt;code&gt;/etc/sysctl.conf&lt;/code&gt; 文件里开启用它:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
 &lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;net.core.default_qdisc &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; fq
-net.ipv4.tcp_congestion_control &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; bbr&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+net.ipv4.tcp_congestion_control &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; bbr
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;使用 &lt;code&gt;sysctl net.ipv4.tcp_available_congestion_control&lt;/code&gt; 查看支持的算法, 用 &lt;code&gt;sysctl net.ipv4.tcp_congestion_control&lt;/code&gt; 查看当前使用的算法.&lt;/p&gt;
-
+&lt;/div&gt;&lt;p&gt;使用 &lt;code&gt;sysctl net.ipv4.tcp_available_congestion_control&lt;/code&gt; 查看支持的算法, 用 &lt;code&gt;sysctl net.ipv4.tcp_congestion_control&lt;/code&gt; 查看当前使用的算法.&lt;/p&gt;
 &lt;p&gt;如果这个模块不会自动加载, 需要把 &lt;code&gt;tcp_bbr_powered&lt;/code&gt; 添加到 &lt;code&gt;/etc/modules-load.d/modules.conf&lt;/code&gt; 中.
 另外测试发现, 有时 &lt;code&gt;sysctl.conf&lt;/code&gt; 里的设置并不会应用, 需要手动执行一下, 因此便写了 &lt;code&gt;reload-sysctl.service&lt;/code&gt; 来做这个, &lt;code&gt;systemctl enable&lt;/code&gt; 这个服务后, 一切就 OK 了.&lt;/p&gt;</description>
     </item>
@@ -590,17 +535,17 @@ net.ipv4.tcp_congestion_control &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; bbr
       
       <guid>https://jouyouyun.github.io/post/leanote-installation/</guid>
       <description>&lt;p&gt;&lt;code&gt;Leanote&lt;/code&gt; 是一款开源的笔记软件, 支持使用 &lt;code&gt;markdown&lt;/code&gt; 来编辑笔记, 并可选择是否将笔记导出成博客, 这对于知识整理及写博客都是非常方便的, 故来尝试下.&lt;/p&gt;
-
 &lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
-
 &lt;p&gt;&lt;code&gt;Leanote&lt;/code&gt; 是使用 &lt;code&gt;Golang&lt;/code&gt; 编写的, 可以直接使用官方编译好的可执行文件.
 另外它使用的是 &lt;code&gt;mongodb&lt;/code&gt; 数据库, 可以从源里安装, 也可以从官网下载.
 以下的安装和配置都是基于最新的版本, 如果中途出错, 请看官方文档.&lt;/p&gt;
-
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;Leanote&lt;/code&gt; 下载地址: &lt;a href=&#34;http://leanote.org/#download&#34;&gt;见这里&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;code&gt;mongodb&lt;/code&gt; 下载地址: &lt;a href=&#34;https://www.mongodb.com/download-center&#34;&gt;见这里&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;Leanote&lt;/code&gt; 下载地址: &lt;a href=&#34;http://leanote.org/#download&#34;&gt;见这里&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;mongodb&lt;/code&gt; 下载地址: &lt;a href=&#34;https://www.mongodb.com/download-center&#34;&gt;见这里&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;</description>
     </item>
     
@@ -611,30 +556,25 @@ net.ipv4.tcp_congestion_control &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; bbr
       
       <guid>https://jouyouyun.github.io/post/openvpn-installation/</guid>
       <description>&lt;h2 id=&#34;安装所需软件&#34;&gt;安装所需软件&lt;/h2&gt;
-
 &lt;p&gt;Arch: &lt;code&gt;yaourt -S openvpn easy-rsa&lt;/code&gt;&lt;/p&gt;
-
 &lt;h2 id=&#34;生成证书&#34;&gt;生成证书&lt;/h2&gt;
-
 &lt;h3 id=&#34;server-端&#34;&gt;Server 端&lt;/h3&gt;
-
 &lt;ul&gt;
 &lt;li&gt;Copy template file&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
 &lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo mkdir -p /etc/openvpn
-sudo cp -R /etc/easy-rsa /etc/openvpn&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+sudo cp -R /etc/easy-rsa /etc/openvpn
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-&lt;ul&gt;
+&lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;Config vars&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;取消并修改以下项:&lt;/p&gt;</description>
     </item>
     
@@ -645,21 +585,20 @@ sudo cp -R /etc/easy-rsa /etc/openvpn&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr
       
       <guid>https://jouyouyun.github.io/post/mime-usage/</guid>
       <description>&lt;h2 id=&#34;基本使用&#34;&gt;基本使用&lt;/h2&gt;
-
 &lt;p&gt;使用到的工具为: &lt;code&gt;xdg-mime, gvfs-mime&lt;/code&gt;&lt;/p&gt;
-
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;查询文件的类型&lt;/p&gt;
-
-&lt;p&gt;使用 &lt;code&gt;xdg-mime query filetype &amp;lt;filepath&amp;gt;&lt;/code&gt; 可以得到文件的类型&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;查询默认程序&lt;/p&gt;
-
-&lt;p&gt;使用 &lt;code&gt;xdg-mime query default text/plain&lt;/code&gt; 或 &lt;code&gt;gvfs-mime --query &amp;lt;mimetype&amp;gt;&lt;/code&gt;, &lt;code&gt;gvfs-mime&lt;/code&gt; 还会列出支持此 &lt;code&gt;mimetype&lt;/code&gt; 的所有程序&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;设置默认程序&lt;/p&gt;
-
-&lt;p&gt;如将 &lt;code&gt;text/plain&lt;/code&gt; 的默认打开程序设置为 &lt;code&gt;gvim.desktop&lt;/code&gt;, 可以执行 &lt;code&gt;xdg-mime default gvim.desktop text/plain&lt;/code&gt; 或 &lt;code&gt;gvfs-mime --set text/plain gvim.desktop&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;查询文件的类型&lt;/p&gt;
+&lt;p&gt;使用 &lt;code&gt;xdg-mime query filetype &amp;lt;filepath&amp;gt;&lt;/code&gt; 可以得到文件的类型&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;查询默认程序&lt;/p&gt;
+&lt;p&gt;使用 &lt;code&gt;xdg-mime query default text/plain&lt;/code&gt; 或 &lt;code&gt;gvfs-mime --query &amp;lt;mimetype&amp;gt;&lt;/code&gt;, &lt;code&gt;gvfs-mime&lt;/code&gt; 还会列出支持此 &lt;code&gt;mimetype&lt;/code&gt; 的所有程序&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;设置默认程序&lt;/p&gt;
+&lt;p&gt;如将 &lt;code&gt;text/plain&lt;/code&gt; 的默认打开程序设置为 &lt;code&gt;gvim.desktop&lt;/code&gt;, 可以执行 &lt;code&gt;xdg-mime default gvim.desktop text/plain&lt;/code&gt; 或 &lt;code&gt;gvfs-mime --set text/plain gvim.desktop&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;</description>
     </item>
     
@@ -671,9 +610,7 @@ sudo cp -R /etc/easy-rsa /etc/openvpn&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr
       <guid>https://jouyouyun.github.io/post/xrandr-examples/</guid>
       <description>&lt;p&gt;由于经常会用到使用 &lt;code&gt;xrandr&lt;/code&gt; 设置屏幕属性, 而每次用的时候都要去查 &lt;code&gt;man&lt;/code&gt; 手册, 有时还需要上网搜索例子.
 这样一来就比较麻烦, 所以就想整理下 &lt;code&gt;xrandr&lt;/code&gt; 的用法, 给出一些常用的例子.&lt;/p&gt;
-
 &lt;h2 id=&#34;查询&#34;&gt;查询&lt;/h2&gt;
-
 &lt;p&gt;使用 &lt;code&gt;xrandr -q&lt;/code&gt; 命令可以查询当前的显示器状态, 使用 &lt;code&gt;xrandr --verbose&lt;/code&gt; 将会显示更详细的信息.&lt;/p&gt;</description>
     </item>
     
@@ -684,21 +621,13 @@ sudo cp -R /etc/easy-rsa /etc/openvpn&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr
       
       <guid>https://jouyouyun.github.io/post/enable-coredump/</guid>
       <description>&lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;
-
 &lt;p&gt;当一个程序崩溃时会产生一个 &lt;code&gt;core&lt;/code&gt; 文件, 里面记录了这个程序崩溃的原因, 这些信息对于开发者是很有用的.&lt;/p&gt;
-
 &lt;p&gt;但是 &lt;code&gt;core dumps&lt;/code&gt; 在大多数 &lt;code&gt;linux&lt;/code&gt; 上是被禁用的, 下面就介绍下如何开启这个功能.&lt;/p&gt;
-
 &lt;h2 id=&#34;开启&#34;&gt;开启&lt;/h2&gt;
-
 &lt;p&gt;可以通过 &lt;code&gt;ulimit -c&lt;/code&gt; 的输出知道此功能是否开启, 输出为 &lt;code&gt;0&lt;/code&gt; 表示禁用, 否则为开启.&lt;/p&gt;
-
 &lt;h3 id=&#34;临时开启&#34;&gt;临时开启&lt;/h3&gt;
-
 &lt;p&gt;通过 &lt;code&gt;ulimit -c unlimited&lt;/code&gt; 命令来开启 &lt;code&gt;coredump&lt;/code&gt; 功能, 它会程序运行的当前目录生成一个 &lt;code&gt;core&lt;/code&gt; 文件, 新的 &lt;code&gt;core&lt;/code&gt; 会覆盖旧的.&lt;/p&gt;
-
 &lt;p&gt;通过可以修改 &lt;code&gt;/proc/sys/kernel/core_uses_pid&lt;/code&gt; 文件内容为 &lt;code&gt;1&lt;/code&gt; 来生成以 &lt;code&gt;pid&lt;/code&gt; 作为扩展名的 &lt;code&gt;core&lt;/code&gt; 文件.&lt;/p&gt;
-
 &lt;p&gt;通过修改 &lt;code&gt;/proc/sys/kernel/core_pattern&lt;/code&gt; 可以修改 &lt;code&gt;core&lt;/code&gt; 文件的保存位置和格式. 如把内容改为 &lt;code&gt;/tmp/core-%e-%p-%t&lt;/code&gt;, 就表示把 &lt;code&gt;core&lt;/code&gt; 文件保存到 &lt;code&gt;/tmp&lt;/code&gt; 目录下, 文件名的格式为 &lt;code&gt;core-命令名-pid-时间戳&lt;/code&gt; .&lt;/p&gt;</description>
     </item>
     
@@ -709,9 +638,7 @@ sudo cp -R /etc/easy-rsa /etc/openvpn&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr
       
       <guid>https://jouyouyun.github.io/post/auto-hidden-cursor/</guid>
       <description>&lt;p&gt;最近需要做一个隐藏光标的功能, 在这里将了解到的知识总结一下.&lt;/p&gt;
-
 &lt;h2 id=&#34;原理&#34;&gt;原理&lt;/h2&gt;
-
 &lt;p&gt;隐藏光标的原理就是把光标设置为一个 &lt;code&gt;x11 null cursor&lt;/code&gt;, 不需要隐藏时再将它设为 &lt;code&gt;x11 left_ptr cursor&lt;/code&gt;.&lt;/p&gt;</description>
     </item>
     
@@ -722,18 +649,13 @@ sudo cp -R /etc/easy-rsa /etc/openvpn&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr
       
       <guid>https://jouyouyun.github.io/post/debug-summary/</guid>
       <description>&lt;p&gt;调试 &lt;code&gt;bug&lt;/code&gt; 的时候要有耐心, 要不断测试, 直到找到问题原因.&lt;/p&gt;
-
 &lt;h2 id=&#34;基本思路&#34;&gt;基本思路&lt;/h2&gt;
-
 &lt;h3 id=&#34;确定-bug-出现的方式&#34;&gt;确定 &lt;code&gt;bug&lt;/code&gt; 出现的方式&lt;/h3&gt;
-
 &lt;ul&gt;
 &lt;li&gt;一定要找到稳定重现的方式, 这样才能方便下面的调试&lt;/li&gt;
 &lt;li&gt;如果找不到稳定重现的方法就只能根据上次出现的情形, 去查看相关的代码, 猜测可能出问题的地方, 然后针对那一块进行调试, 直到找到稳定重现方式&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;h3 id=&#34;定位出问题的代码&#34;&gt;定位出问题的代码&lt;/h3&gt;
-
 &lt;ul&gt;
 &lt;li&gt;再找到稳定重现方式后, 开始定位出问题的函数, 然后加入调试信息, 不断尝试, 直到找到有问题的代码&lt;/li&gt;
 &lt;li&gt;找到有问题的代码后, 如果发现是第三方库里的函数,可以打印出每次调用的输入输出参数, 看看是否有迹可循, 可以单独写个小程序, 传入问题的参数, 进行不断测试, 来确定第三方库有没有问题&lt;/li&gt;
@@ -748,11 +670,8 @@ sudo cp -R /etc/easy-rsa /etc/openvpn&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr
       
       <guid>https://jouyouyun.github.io/post/xsetwacom-options/</guid>
       <description>&lt;p&gt;&lt;code&gt;xsetwacom&lt;/code&gt; 是一个设置数位板的命令行工具, 在 &lt;code&gt;Debian/Ubuntu/deepin&lt;/code&gt; 上可以通过安装 &lt;code&gt;xserver-xorg-input-wacom&lt;/code&gt; 来获取它.&lt;/p&gt;
-
 &lt;p&gt;可以通过 &lt;code&gt;man xsetwacom&lt;/code&gt; 看到它的帮助文档, 下面就简单说明下它的部份选项:&lt;/p&gt;
-
-&lt;hr /&gt;
-
+&lt;hr&gt;
 &lt;h2 id=&#34;options&#34;&gt;Options&lt;/h2&gt;</description>
     </item>
     
@@ -763,7 +682,6 @@ sudo cp -R /etc/easy-rsa /etc/openvpn&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr
       
       <guid>https://jouyouyun.github.io/post/go-tcp-socket-example/</guid>
       <description>&lt;p&gt;一个简单的 &lt;code&gt;TCP Socket&lt;/code&gt; 的示例，使用 &lt;code&gt;gob&lt;/code&gt; 处理传输的数据。&lt;/p&gt;
-
 &lt;h2 id=&#34;server-dot-go&#34;&gt;&lt;code&gt;server.go&lt;/code&gt;&lt;/h2&gt;</description>
     </item>
     
@@ -783,13 +701,11 @@ sudo cp -R /etc/easy-rsa /etc/openvpn&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr
       
       <guid>https://jouyouyun.github.io/post/chroot-shell/</guid>
       <description>&lt;p&gt;最近测试了以下 &lt;code&gt;chroot&lt;/code&gt; ，然后把步骤写成了下面两个脚本，方便以后使用。&lt;/p&gt;
-
 &lt;p&gt;&lt;strong&gt;使用时需要确定每条命令都执行成功了&lt;/strong&gt;&lt;/p&gt;
-
 &lt;p&gt;&lt;code&gt;Arch&lt;/code&gt; 分区结构&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
@@ -798,7 +714,8 @@ sudo cp -R /etc/easy-rsa /etc/openvpn&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr
 &lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;/dev/sda5	/
 /dev/sda1	/boot
 /dev/sda6	/home
-/dev/sda8	Swap&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+/dev/sda8	Swap
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;</description>
     </item>
@@ -810,19 +727,12 @@ sudo cp -R /etc/easy-rsa /etc/openvpn&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr
       
       <guid>https://jouyouyun.github.io/post/build-vpn/</guid>
       <description>&lt;p&gt;最近 &lt;code&gt;Google&lt;/code&gt; 被封，而用 &lt;code&gt;Goagent&lt;/code&gt; 做代理进行访问的效果而不是很理想，所以就想去买 &lt;code&gt;VPN/VPS&lt;/code&gt; . 几经考虑后，就去买了个便宜 &lt;code&gt;VPS&lt;/code&gt; , 这样也就可以分享给家人用了。&lt;/p&gt;
-
 &lt;p&gt;&lt;code&gt;VPS&lt;/code&gt; 中安装的是 &lt;code&gt;Ubuntu=，所以搭建 =VPN&lt;/code&gt; 服务器也就是在 &lt;code&gt;Ubuntu&lt;/code&gt; 上面搭建，具体方法如下。&lt;/p&gt;
-
 &lt;p&gt;注意：下面所有的操作都是以 &lt;code&gt;root&lt;/code&gt; 用户进行的，非 &lt;code&gt;root&lt;/code&gt; 用户请在命令前加上 &lt;code&gt;sudo&lt;/code&gt;&lt;/p&gt;
-
 &lt;p&gt;&lt;strong&gt;安装 &lt;code&gt;pptp&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
-
 &lt;p&gt;&lt;code&gt;apt-get install pptpd&lt;/code&gt;&lt;/p&gt;
-
 &lt;p&gt;配置 &lt;code&gt;IP&lt;/code&gt; 地址范围及服务器 &lt;code&gt;IP&lt;/code&gt;&lt;/p&gt;
-
 &lt;p&gt;&lt;code&gt;vi /etc/pptpd.conf&lt;/code&gt;&lt;/p&gt;
-
 &lt;p&gt;取消下面内容的注释&lt;/p&gt;</description>
     </item>
     
@@ -844,7 +754,7 @@ sudo cp -R /etc/easy-rsa /etc/openvpn&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr
       <description>&lt;p&gt;使用 GoLang 判断文件是否存在。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
@@ -875,7 +785,8 @@ sudo cp -R /etc/easy-rsa /etc/openvpn&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr
         &lt;span class=&#34;nx&#34;&gt;_&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;err&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;os&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;Stat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;filename&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 
         &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;err&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;nil&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;||&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;os&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;IsExist&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;err&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;</description>
     </item>

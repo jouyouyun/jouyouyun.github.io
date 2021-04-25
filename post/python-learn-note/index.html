@@ -26,7 +26,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.82.1 with theme even" />
 
 
 <link rel="canonical" href="https://jouyouyun.github.io/post/python-learn-note/" />
@@ -37,17 +37,15 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.93844dae.min.css" rel="stylesheet">
+
+<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="python3 学习笔记" />
 <meta property="og:description" content="Python3 Study Notes
-
 本人很少写 python 代码, 一般都是用 go 的, 去年时用 python 写过一些收集系统信息的工具, 当时是边看手册边写的. 如今又要用 python 来写一个生成 xlsx 的工具, 就又需要查看手册了, 至于为什么不用 go 写? 那是因为 go 的库不兼容永中. 在这里不得不说, 虽然 go 很火, 但是一些库还是不如 python 多, 不如 python 兼容性好.
-
 为了避免以后再出这种事情, 这次就好好的了解下 python, 将它的用法按照自己对语言的理解分块记录下来. 要使用某种语言, 个人认为需要了解这些方面:
-
 
 编码风格
 变量的类型, 声明及使用方式
@@ -56,21 +54,17 @@
 错误处理的用法
 函数的用法, 还有语言支持的一些特性, python 中就有装饰器, lambda 语句等
 对于面向对象语言还需要了解类的声明, 继承, 多态等的用法
-
 
 还有一些就是此语言的一些特性, python 就还需要了解以下特性:" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://jouyouyun.github.io/post/python-learn-note/" />
-<meta property="article:published_time" content="2018-12-02T21:38:21&#43;08:00"/>
-<meta property="article:modified_time" content="2019-03-25T20:07:49&#43;08:00"/>
+<meta property="og:url" content="https://jouyouyun.github.io/post/python-learn-note/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2018-12-02T21:38:21&#43;08:00" />
+<meta property="article:modified_time" content="2019-03-25T20:07:49&#43;08:00" />
 
 <meta itemprop="name" content="python3 学习笔记">
 <meta itemprop="description" content="Python3 Study Notes
-
 本人很少写 python 代码, 一般都是用 go 的, 去年时用 python 写过一些收集系统信息的工具, 当时是边看手册边写的. 如今又要用 python 来写一个生成 xlsx 的工具, 就又需要查看手册了, 至于为什么不用 go 写? 那是因为 go 的库不兼容永中. 在这里不得不说, 虽然 go 很火, 但是一些库还是不如 python 多, 不如 python 兼容性好.
-
 为了避免以后再出这种事情, 这次就好好的了解下 python, 将它的用法按照自己对语言的理解分块记录下来. 要使用某种语言, 个人认为需要了解这些方面:
-
 
 编码风格
 变量的类型, 声明及使用方式
@@ -80,25 +74,14 @@
 函数的用法, 还有语言支持的一些特性, python 中就有装饰器, lambda 语句等
 对于面向对象语言还需要了解类的声明, 继承, 多态等的用法
 
-
-还有一些就是此语言的一些特性, python 就还需要了解以下特性:">
-
-
-<meta itemprop="datePublished" content="2018-12-02T21:38:21&#43;08:00" />
+还有一些就是此语言的一些特性, python 就还需要了解以下特性:"><meta itemprop="datePublished" content="2018-12-02T21:38:21&#43;08:00" />
 <meta itemprop="dateModified" content="2019-03-25T20:07:49&#43;08:00" />
-<meta itemprop="wordCount" content="4294">
-
-
-
-<meta itemprop="keywords" content="python," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="wordCount" content="4293">
+<meta itemprop="keywords" content="python," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="python3 学习笔记"/>
 <meta name="twitter:description" content="Python3 Study Notes
-
 本人很少写 python 代码, 一般都是用 go 的, 去年时用 python 写过一些收集系统信息的工具, 当时是边看手册边写的. 如今又要用 python 来写一个生成 xlsx 的工具, 就又需要查看手册了, 至于为什么不用 go 写? 那是因为 go 的库不兼容永中. 在这里不得不说, 虽然 go 很火, 但是一些库还是不如 python 多, 不如 python 兼容性好.
-
 为了避免以后再出这种事情, 这次就好好的了解下 python, 将它的用法按照自己对语言的理解分块记录下来. 要使用某种语言, 个人认为需要了解这些方面:
-
 
 编码风格
 变量的类型, 声明及使用方式
@@ -107,7 +90,6 @@
 错误处理的用法
 函数的用法, 还有语言支持的一些特性, python 中就有装饰器, lambda 语句等
 对于面向对象语言还需要了解类的声明, 继承, 多态等的用法
-
 
 还有一些就是此语言的一些特性, python 就还需要了解以下特性:"/>
 
@@ -183,62 +165,27 @@
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#python3-study-notes">Python3 Study Notes</a>
-<ul>
-<li><a href="#编码风格">编码风格</a></li>
-<li><a href="#变量">变量</a>
-<ul>
-<li><a href="#基础类型">基础类型</a></li>
-<li><a href="#列表">列表</a></li>
-<li><a href="#元组">元组</a></li>
-<li><a href="#字典">字典</a></li>
-<li><a href="#集合">集合</a></li>
-<li><a href="#global-关键字">global 关键字</a></li>
-<li><a href="#更多">更多</a></li>
-</ul></li>
-<li><a href="#输入-输出">输入/输出</a>
-<ul>
-<li><a href="#输入">输入</a></li>
-<li><a href="#输出">输出</a></li>
-</ul></li>
-<li><a href="#控制语句">控制语句</a>
-<ul>
-<li><a href="#if">IF</a></li>
-<li><a href="#for">FOR</a></li>
-<li><a href="#while">WHILE</a></li>
-</ul></li>
-<li><a href="#错误处理">错误处理</a></li>
-<li><a href="#函数">函数</a>
-<ul>
-<li><a href="#lambda">Lambda</a></li>
-<li><a href="#装饰器">装饰器</a></li>
-</ul></li>
-<li><a href="#模块">模块</a>
-<ul>
-<li><a href="#包">包</a></li>
-</ul></li>
-<li><a href="#类">类</a>
-<ul>
-<li><a href="#类的创建">类的创建</a></li>
-<li><a href="#类的继承">类的继承</a></li>
-<li><a href="#方法重写">方法重写</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#python3-study-notes">Python3 Study Notes</a>
+      <ul>
+        <li><a href="#编码风格">编码风格</a></li>
+        <li><a href="#变量">变量</a></li>
+        <li><a href="#输入-输出">输入/输出</a></li>
+        <li><a href="#控制语句">控制语句</a></li>
+        <li><a href="#错误处理">错误处理</a></li>
+        <li><a href="#函数">函数</a></li>
+        <li><a href="#模块">模块</a></li>
+        <li><a href="#类">类</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
       <h2 id="python3-study-notes">Python3 Study Notes</h2>
-
 <p>本人很少写 <code>python</code> 代码, 一般都是用 <code>go</code> 的, 去年时用 <code>python</code> 写过一些收集系统信息的工具, 当时是边看手册边写的. 如今又要用 <code>python</code> 来写一个生成 <code>xlsx</code> 的工具, 就又需要查看手册了, 至于为什么不用 <code>go</code> 写? 那是因为 <code>go</code> 的库不兼容永中. 在这里不得不说, 虽然 <code>go</code> 很火, 但是一些库还是不如 <code>python</code> 多, 不如 <code>python</code> 兼容性好.</p>
-
 <p>为了避免以后再出这种事情, 这次就好好的了解下 <code>python</code>, 将它的用法按照自己对语言的理解分块记录下来. 要使用某种语言, 个人认为需要了解这些方面:</p>
-
 <ul>
 <li>编码风格</li>
 <li>变量的类型, 声明及使用方式</li>
@@ -248,19 +195,13 @@
 <li>函数的用法, 还有语言支持的一些特性, <code>python</code> 中就有装饰器, <code>lambda</code> 语句等</li>
 <li>对于面向对象语言还需要了解类的声明, 继承, 多态等的用法</li>
 </ul>
-
 <p>还有一些就是此语言的一些特性, <code>python</code> 就还需要了解以下特性:</p>
-
 <ul>
 <li>模块的使用</li>
 </ul>
-
 <p>下文就将按照这些内容来一一记录.</p>
-
-<hr />
-
+<hr>
 <h3 id="编码风格">编码风格</h3>
-
 <ul>
 <li>变量名, 方法名和模块名建议小写, 单词以 <code>_</code> 分割, 类名建议驼峰命名风格, 首字母大写, 私有类可用一个 <code>_</code> 开头.</li>
 <li>每行结尾尽量不要添加 <code>;</code>, 多行代码也不要写在一行</li>
@@ -271,70 +212,56 @@
 <li>使用 <code>with</code> 语句来管理文件, 如 <code>open</code> 或 <code>close</code></li>
 <li>添加 <code>TODO</code> 时, 尽量在其后紧跟 <code>()</code>, 在里面写明作者名或 <code>email</code> 等其他标识信息, 然后紧跟一个 <code>:</code> 后面接着写要做的事情</li>
 <li>每个导入模块都占一行, 不要一行导入多个模块</li>
-<li>尽量定义一个 <code>main</code> 函数, 将主程序放入其中, 并在 &ldquo;if <span class="underline"><span class="underline">name</span></span> <code>= '__main__':&quot; 成立时执行 =main</code>, 这样被当作模块导入时就不会执行主程序</li>
+<li>尽量定义一个 <code>main</code> 函数, 将主程序放入其中, 并在 &ldquo;if <!-- raw HTML omitted --><!-- raw HTML omitted -->name<!-- raw HTML omitted --><!-- raw HTML omitted --> <code>= '__main__':&quot; 成立时执行 =main</code>, 这样被当作模块导入时就不会执行主程序</li>
 </ul>
-
 <h3 id="变量">变量</h3>
-
 <p><code>Python</code> 是动态语言, 变量的类型不固定, 根据值的类型而决定, 所以不用显示的声明变量， 用的时候直接赋值即可，如下:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="o">//</span> <span class="err">此时是整型</span>
 <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
-<span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;hello&#39;</span><span class="p">;</span> <span class="o">//</span> <span class="err">此时又为字符串类型</span></code></pre></td></tr></table>
+<span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;hello&#39;</span><span class="p">;</span> <span class="o">//</span> <span class="err">此时又为字符串类型</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>通常变量名全部大写的为 <strong>常量</strong>, <strong>空值</strong> 用 <code>None</code> 表示.</p>
-
+</div><p>通常变量名全部大写的为 <strong>常量</strong>, <strong>空值</strong> 用 <code>None</code> 表示.</p>
 <p>以 <code>_xxx</code> 或 <code>__xxx</code> 命名的函数或变量是私有变量, 不能被其他模块直接引用</p>
-
 <h4 id="基础类型">基础类型</h4>
-
 <p>这里将整型, 浮点型, 布尔和字符串看作是基本类型, 整型和浮点型的使用就不再介绍了, 布尔的值只能为 <code>True/False</code>, 而字符串的常见操作如下:</p>
-
 <ul>
 <li>使用 <code>&quot;&quot;&quot;</code> 或 <code>'''</code> 可以嵌入长字符串</li>
 <li>字符串可以通过下标来索引, <code>len</code> 函数获取长度</li>
 <li>使用 <code>+</code> 进行拼接操作</li>
 <li>字符串对象还内置了很多方法提供了一些常见功能, 具体请查阅手册</li>
 </ul>
-
 <p>另外它们之间的相互转换是通过 <code>int(arg), float(arg), str(arg)</code> 这些内置的方法来处理的.</p>
-
 <h4 id="列表">列表</h4>
-
 <p>列表中可以包含不同类型的数据, 如:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="nb">list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;eggs&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">67.12</span><span class="p">];</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="nb">list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;eggs&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">67.12</span><span class="p">];</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>通过 <code>list(seq)</code> 可以将一个序列转换为列表.</p>
-
+</div><p>通过 <code>list(seq)</code> 可以将一个序列转换为列表.</p>
 <p><strong>array</strong> 模块提供了固定类型的数据, 可以指定要转换的类型, 具体请查阅手册.</p>
-
 <p>列表通过下标索引, <code>len</code> 函数获取大小.</p>
-
 <p>列表对象常用的方法如下:</p>
-
 <ul>
 <li><strong>append(item):</strong> 附加元素</li>
 <li><strong>insert(idx, item):</strong> 插入元素</li>
 <li><strong>pop(idx):</strong> 删除指定位置的元素, 参数为空则删除最后一个元素</li>
 </ul>
-
 <p>列表遍历:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -373,64 +300,53 @@
     <span class="o">//</span> <span class="n">do</span> <span class="n">av</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">bv</span><span class="o">=</span><span class="mi">5</span>
 
 <span class="o">//</span> <span class="err">生成</span>
-<span class="p">[</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span></code></pre></td></tr></table>
+<span class="p">[</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h4 id="元组">元组</h4>
-
+</div><h4 id="元组">元组</h4>
 <p>元组(tuple) 是一个不可修改的列表, 元组中每个元素的指向是不可更改的, 但指向里的内容是可以更改的, 如元组中包含一个数组:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="s2">&#34;A&#34;</span><span class="p">,</span> <span class="s2">&#34;B&#34;</span><span class="p">]);</span>
 <span class="n">t</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&#34;X&#34;</span><span class="p">;</span>
-<span class="n">t</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&#34;Y&#34;</span><span class="p">;</span></code></pre></td></tr></table>
+<span class="n">t</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&#34;Y&#34;</span><span class="p">;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<hr />
-
+</div><hr>
 <h4 id="字典">字典</h4>
-
 <p>语法:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="nb">dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;&lt;key&gt;&#39;</span><span class="p">:</span><span class="o">&lt;</span><span class="n">value</span><span class="o">&gt;</span><span class="p">}</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="nb">dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;&lt;key&gt;&#39;</span><span class="p">:</span><span class="o">&lt;</span><span class="n">value</span><span class="o">&gt;</span><span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>常用的对象方法:</p>
-
+</div><p>常用的对象方法:</p>
 <ul>
 <li><strong>get(key, value):</strong> 获取指定 <code>key</code> 的值, 如果不存在则返回 <code>value</code>, 如果 <code>value</code> 未指定则返回 <code>None</code></li>
 <li><strong>pop(key):</strong> 删除指定的 <code>key</code></li>
 </ul>
-
 <p>使用字典需要注意以下几点:</p>
-
 <ul>
 <li>字典中的 <code>key</code> 不能重复</li>
 <li>字典中的 <code>key</code> 不可变, 所以只能用数字, 字符串和元组</li>
 <li>字典的值则没有限制, 可以是任意对象</li>
 </ul>
-
-<hr />
-
+<hr>
 <h4 id="集合">集合</h4>
-
 <p>集合与字典类似, 是一组 <code>key</code> 的集合, 但不存储 <code>value</code>, 没有重复的 <code>key</code>.</p>
-
 <p>要创建一个集合, 需要传入一个数组, 重复的元素会被自动过滤.</p>
-
 <p>遍历:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -443,31 +359,28 @@
 
 <span class="o">//</span> <span class="err">带下标</span>
 <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="o">//</span> <span class="n">do</span></code></pre></td></tr></table>
+    <span class="o">//</span> <span class="n">do</span>
+</code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">s</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span> <span class="p">,</span><span class="mi">3</span><span class="p">]);</span> <span class="o">//</span> <span class="n">s</span><span class="p">:</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">}</span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">s</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span> <span class="p">,</span><span class="mi">3</span><span class="p">]);</span> <span class="o">//</span> <span class="n">s</span><span class="p">:</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>常用的对象方法:</p>
-
+</div><p>常用的对象方法:</p>
 <ul>
 <li><strong>add(key):</strong> 添加 <code>key</code></li>
 <li><strong>remove(key):</strong> 删除 <code>key</code></li>
 </ul>
-
-<hr />
-
+<hr>
 <h4 id="global-关键字">global 关键字</h4>
-
 <p><code>global</code> 关键字用于声明变量的作用域, 用法如下:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -492,153 +405,135 @@
     <span class="k">print</span><span class="p">(</span><span class="s2">&#34;In test:&#34;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
 
 <span class="c1"># Global</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&#34;Global:&#34;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span></code></pre></td></tr></table>
+<span class="k">print</span><span class="p">(</span><span class="s2">&#34;Global:&#34;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>输出, <code>global a</code> 注释掉时:</p>
+</div><p>输出, <code>global a</code> 注释掉时:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="n">In</span> <span class="n">test</span><span class="p">:</span> <span class="mi">5</span>
-<span class="n">Global</span><span class="p">:</span> <span class="mi">1</span></code></pre></td></tr></table>
+<span class="n">Global</span><span class="p">:</span> <span class="mi">1</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>输出, <code>global a</code> 取消注释时:</p>
+</div><p>输出, <code>global a</code> 取消注释时:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="n">In</span> <span class="n">test</span><span class="p">:</span> <span class="mi">5</span>
-<span class="n">Global</span><span class="p">:</span> <span class="mi">5</span></code></pre></td></tr></table>
+<span class="n">Global</span><span class="p">:</span> <span class="mi">5</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<hr />
-
+</div><hr>
 <h4 id="更多">更多</h4>
-
 <p>上面的只是基础，想要更好的使用变量，还需要了解以下内容：</p>
-
 <ul>
-<li><p>类型对象的方法</p>
-
-<p><code>python</code> 中每种类型都是对象, 都提供了一些内置方法, 如字符串类型的 <code>replace()</code> 等</p></li>
-
-<li><p>变量的内存分配</p>
-
-<p>变量只是值的引用, 具体的内存分配是在值的这一边, 有些类型的值是不可变的, 这些是需要深入了解的</p></li>
-
-<li><p>结构体</p>
-
+<li>
+<p>类型对象的方法</p>
+<p><code>python</code> 中每种类型都是对象, 都提供了一些内置方法, 如字符串类型的 <code>replace()</code> 等</p>
+</li>
+<li>
+<p>变量的内存分配</p>
+<p>变量只是值的引用, 具体的内存分配是在值的这一边, 有些类型的值是不可变的, 这些是需要深入了解的</p>
+</li>
+<li>
+<p>结构体</p>
 <p><code>python</code> 中没有结构体, 可以使用下列方式实现:</p>
-
 <ul>
 <li>使用 <code>struct</code> 模块来实现, 需要了解与 <code>c</code> 中类型的格式对照, 创建时需要指定结构体的成员类型</li>
 <li>使用类来实现, 在类的构造函数 <code>__init__</code> 中定义结构体成员</li>
-</ul></li>
 </ul>
-
-<hr />
-
+</li>
+</ul>
+<hr>
 <h3 id="输入-输出">输入/输出</h3>
-
 <h4 id="输入">输入</h4>
-
 <p>使用 <code>input(prompt)</code> 可以接受控制台的输入</p>
-
 <h4 id="输出">输出</h4>
-
 <p>使用 <code>print()</code> 可以打印内容到控制台, 格式化输出:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="n">n</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 <span class="n">s</span> <span class="o">=</span> <span class="s2">&#34;Joy&#34;</span><span class="p">;</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&#34;The </span><span class="si">%d</span><span class="s2"> student&#39;s name is </span><span class="si">%s</span><span class="s2">&#34;</span> <span class="o">%</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">s</span><span class="p">));</span></code></pre></td></tr></table>
+<span class="k">print</span><span class="p">(</span><span class="s2">&#34;The </span><span class="si">%d</span><span class="s2"> student&#39;s name is </span><span class="si">%s</span><span class="s2">&#34;</span> <span class="o">%</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">s</span><span class="p">));</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>也可以使用 <code>format</code> 来格式化, 它会用传入的参数依次替换字符串内的占位符 {0}、{1}…… :</p>
+</div><p>也可以使用 <code>format</code> 来格式化, 它会用传入的参数依次替换字符串内的占位符 {0}、{1}…… :</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="o">//</span> <span class="p">{</span><span class="mi">3</span><span class="p">:</span><span class="o">.</span><span class="mi">1</span><span class="n">f</span><span class="p">}</span> <span class="err">表示保留一位小数</span>
 <span class="n">s</span> <span class="o">=</span> <span class="s2">&#34;The {0} student&#39;s name is {1}, score: {3:.1f}&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&#34;Joy&#34;</span><span class="p">,</span> <span class="mf">87.75</span><span class="p">);</span>
-<span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="p">);</span></code></pre></td></tr></table>
+<span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<hr />
-
+</div><hr>
 <h3 id="控制语句">控制语句</h3>
-
 <p>控制语句中可以使用 <code>break, continue, pass</code> 关键字, <code>break</code> 与 <code>continue</code> 的作用与其他语言中的一样, <code>pass</code> 则是一个空语句, 不做任何事情, 一般是为了保持结构的完整性, 常被用来占位, 表明之后会实现.</p>
-
 <p><strong>注意:</strong> <code>python</code> 中没有 <code>goto</code> 和 <code>switch</code>.</p>
-
 <h4 id="if">IF</h4>
-
 <p>语法:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="k">if</span> <span class="o">&lt;</span><span class="n">condition</span><span class="o">&gt;</span><span class="p">:</span>
 <span class="k">elif</span> <span class="o">&lt;</span><span class="n">condition</span><span class="o">&gt;</span><span class="p">:</span>
-<span class="k">else</span><span class="p">:</span></code></pre></td></tr></table>
+<span class="k">else</span><span class="p">:</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<h4 id="for">FOR</h4>
+</div><h4 id="for">FOR</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="k">for</span> <span class="o">&lt;</span><span class="n">variable</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">array</span><span class="o">&gt;</span><span class="p">:</span>
     <span class="o">//</span> <span class="n">do</span>
-<span class="k">else</span><span class="p">:</span></code></pre></td></tr></table>
+<span class="k">else</span><span class="p">:</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><code>else</code> 可选</p>
-
+</div><p><code>else</code> 可选</p>
 <h4 id="while">WHILE</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="k">while</span> <span class="o">&lt;</span><span class="n">condition</span><span class="o">&gt;</span><span class="p">:</span>
     <span class="o">//</span> <span class="n">do</span>
-<span class="k">else</span><span class="p">:</span></code></pre></td></tr></table>
+<span class="k">else</span><span class="p">:</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><code>else</code> 可选</p>
-
-<hr />
-
+</div><p><code>else</code> 可选</p>
+<hr>
 <h3 id="错误处理">错误处理</h3>
-
 <p>语法:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -657,19 +552,16 @@
 <span class="k">else</span><span class="p">:</span>
    <span class="o">//</span> <span class="n">no</span> <span class="n">error</span>
 <span class="k">finally</span><span class="p">:</span>
-   <span class="o">//</span> <span class="n">do</span></code></pre></td></tr></table>
+   <span class="o">//</span> <span class="n">do</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>如果 <code>finally</code> 存在, 则无论有没有异常都会执行, <code>else</code> 则在 <code>except</code> 都没进入时才执行.</p>
-
-<hr />
-
+</div><p>如果 <code>finally</code> 存在, 则无论有没有异常都会执行, <code>else</code> 则在 <code>except</code> 都没进入时才执行.</p>
+<hr>
 <h3 id="函数">函数</h3>
-
 <p>语法:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -692,23 +584,18 @@
    <span class="k">print</span><span class="p">(</span><span class="n">arg1</span><span class="p">)</span>
    <span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">vartuple</span><span class="p">:</span>
        <span class="k">print</span><span class="p">(</span><span class="n">var</span><span class="p">)</span>
-   <span class="k">return</span></code></pre></td></tr></table>
+   <span class="k">return</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>定义函数时可以给参数指定默认值, 这样在调用时就可以不传入这些参数, 没有默认值的参数是必须要传入的.</p>
-
+</div><p>定义函数时可以给参数指定默认值, 这样在调用时就可以不传入这些参数, 没有默认值的参数是必须要传入的.</p>
 <p>定义默认参数要牢记一点：默认参数必须指向不变对象(数, 字符串, 元组)！</p>
-
 <p>参数前加了 <code>*</code> 的变量会存放所有未命名的变量.</p>
-
 <p><code>__name__</code> 是函数对象的一个属性, 可以拿到此函数的名称</p>
-
 <h4 id="lambda">Lambda</h4>
-
 <p>使用关键字 <code>lambda</code>, 就可以创建短小的匿名函式, 如:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -721,23 +608,20 @@
 
 <span class="nb">sum</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">:</span> <span class="n">arg1</span> <span class="o">+</span> <span class="n">arg2</span>
 <span class="k">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="c1"># 20</span>
-<span class="k">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span> <span class="c1"># 30</span></code></pre></td></tr></table>
+<span class="k">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span> <span class="c1"># 30</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>特点:</p>
-
+</div><p>特点:</p>
 <ul>
 <li><code>lambda</code> 只是一个表达式, 函数体比 <code>def</code> 简单的多, 近能封装有限的逻辑进去</li>
 <li><code>lambda</code> 函数拥有自己的命名空间, 并且不能访问自有参数之外或全局命名的参数</li>
 <li><code>lambda</code> 函数虽然简短, 但不等同于 <strong>内联函数</strong></li>
 </ul>
-
 <h4 id="装饰器">装饰器</h4>
-
 <p>当需要增强某个函数的功能时, 但有不希望修改函数, 此时可以使用装饰器. 如添加日志功能:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -756,41 +640,29 @@
 
 <span class="nd">@log</span>
 <span class="k">def</span> <span class="nf">test</span><span class="p">():</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&#34;Test&#34;</span><span class="p">)</span></code></pre></td></tr></table>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&#34;Test&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>通过 <code>@</code> 语法就给函数 <code>test</code> 添加了日志功能</p>
-
-<hr />
-
+</div><p>通过 <code>@</code> 语法就给函数 <code>test</code> 添加了日志功能</p>
+<hr>
 <h3 id="模块">模块</h3>
-
 <p>模块就是一个 <code>python</code> 文件, 使用 <code>import</code> 导入模块, 调用模块中的方法时就必须以 <code>&lt;module&gt;.&lt;func&gt;</code> 来调用.</p>
-
 <p><code>from &lt;module&gt; import &lt;func1&gt;,&lt;func2&gt;...</code> 语句是从模块中导入指定的函数, <code>from &lt;module&gt; import *</code> 则将模块中的所有方法都导入</p>
-
 <p>导入一个模块时的路径搜索顺序如下:</p>
-
 <ol>
 <li>先从当前目录查找是否有此模块</li>
 <li>如果当前目录没有, 就从 <code>PYTHONPATH</code> 定义的目录下查找</li>
 <li>如果都找不到, 就查看默认路径, <code>linux</code> 下一般是 <code>/usr/lib/python</code></li>
 </ol>
-
 <p>搜索路径定义在 <code>sys.path</code> 中, 可以用 <code>append</code> 函数来添加指定目录, 如项目中模块不再同一个目录就可以添加 <code>path</code> 来导入</p>
-
 <h4 id="包">包</h4>
-
 <p><code>python</code> 中的包就是一个分层次的目录, 定义了一个由模块及子包组成的环境.</p>
-
 <p>包简单来说就是一个目录, 目录中必须包含一个 <code>__init__.py</code>, 该文件可以为空, 目的使用来标识这个目录是一个包, 一个简单的例子如下:</p>
-
 <p>如存在目录 <code>package_test</code> , 此目录下有 <code>__init__.py, foo1.py, foo2.py</code> 等文件</p>
-
 <p><code>foo1.py</code> 文件:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -801,13 +673,13 @@
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
 <span class="k">def</span> <span class="nf">foo1</span><span class="p">():</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&#34;Foo1 test&#34;</span><span class="p">)</span></code></pre></td></tr></table>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&#34;Foo1 test&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><code>foo2.py</code> 文件:</p>
+</div><p><code>foo2.py</code> 文件:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -818,13 +690,13 @@
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
 <span class="k">def</span> <span class="nf">foo2</span><span class="p">():</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&#34;Foo2 test&#34;</span><span class="p">)</span></code></pre></td></tr></table>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&#34;Foo2 test&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>调用:</p>
+</div><p>调用:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -843,15 +715,12 @@
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
     <span class="n">foo1</span><span class="p">()</span>
-    <span class="n">foo2</span><span class="p">()</span></code></pre></td></tr></table>
+    <span class="n">foo2</span><span class="p">()</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<hr />
-
+</div><hr>
 <h3 id="类">类</h3>
-
 <p><code>python</code> 是一门面向对象语言, 所以创建类和对象是很容易的, 先简单介绍下面向对象的一些基本特征:</p>
-
 <ul>
 <li>类: 用来描述具有相同属性和方法的对象的集合, 定义了每个对象共有的属性和方法, 对象是类的实例</li>
 <li>数据成员: 类中的变量, 用于处理类及对象的相关的数据</li>
@@ -864,13 +733,11 @@
 <li>继承: 从一个父类派生出一个子类</li>
 <li>多态: 如果多个对象都继承子一个父类, 通过传入一个父类变量来调用某个方法时, 如果此时传入的是子类的对象, 则会调用这个子类中实现的方法(方法已被重写)</li>
 </ul>
-
 <h4 id="类的创建">类的创建</h4>
-
 <p><code>python</code> 中类创建的语法如下:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -939,17 +806,13 @@
 <span class="c1"># 动态的给实例绑定属性和方法, 这些属性和方法只能该实例可用</span>
 <span class="n">h</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="s1">&#39;Big Joy&#39;</span>
 <span class="c1"># 类的销毁</span>
-<span class="k">del</span> <span class="n">h</span></code></pre></td></tr></table>
+<span class="k">del</span> <span class="n">h</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>类的实例化是通过调用构造函数完成的, <code>__init__</code> 函数中定义了实例化时需要的参数.</p>
-
+</div><p>类的实例化是通过调用构造函数完成的, <code>__init__</code> 函数中定义了实例化时需要的参数.</p>
 <p>类中以一个 <code>_</code> 开头命令的变量或方法叫做受保护成员, 以二个 <code>_</code> 开头命名的叫做私有成员, 以 <code>__</code> 开头并以 <code>__</code> 结尾的为系统定义的, 一般是内置的成员.</p>
-
 <p>使用 <code>del</code> 则可销毁一个类实例.</p>
-
 <p>类内置了以下属性:</p>
-
 <ul>
 <li><strong>__dict__:</strong> 类的数据属性组成的字典</li>
 <li><strong>__doc__:</strong> 类的文档</li>
@@ -957,32 +820,24 @@
 <li><strong>__module__:</strong> 类定义所在的模块名</li>
 <li><strong>__bases__:</strong> 类继承的所有父类的元组</li>
 </ul>
-
-<hr />
-
+<hr>
 <h4 id="类的继承">类的继承</h4>
-
 <p>语法如下:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">SubName</span><span class="p">(</span><span class="n">Parent1</span><span class="p">,</span> <span class="n">Parent2</span><span class="o">...</span><span class="p">):</span>
-    <span class="k">pass</span></code></pre></td></tr></table>
+    <span class="k">pass</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>一个子类可以继承多个父类, 使用 <code>isintance(obj, type)</code> 可以判断一个对象的类型, 使用 <code>issubclass(sub, parent)</code> 可以判断是否为另一个类的子类.</p>
-
+</div><p>一个子类可以继承多个父类, 使用 <code>isintance(obj, type)</code> 可以判断一个对象的类型, 使用 <code>issubclass(sub, parent)</code> 可以判断是否为另一个类的子类.</p>
 <h4 id="方法重写">方法重写</h4>
-
 <p>如果父类的方法不能满足子类的需求, 子类就可重写此方法, 在使用子类对象调用此方法时会调用重写后的方法.</p>
-
 <p><strong>运算符重载</strong> 也是方法的重写, 只不过是对一些内置方法进行重写.</p>
-
 <p>下面列出一些基本的内置方法:</p>
-
 <ul>
 <li><strong>__init__(self, [args]):</strong> 构造函数, 用户实例化对象</li>
 <li><strong>__del__(self):</strong> 析构函数, 用于删除对象</li>
@@ -996,13 +851,9 @@
 <li><strong>__lt__(self, obj):</strong> &lsquo;&lt;&rsquo; 对象是否小于</li>
 <li><strong>__iadd__(self, obj):</strong> &lsquo;+=&rsquo; 对象相加</li>
 </ul>
-
 <p>更多的内置方法请查阅手册</p>
-
-<hr />
-
+<hr>
 <p>以上就介绍完了 <code>python</code> 的基础知识, 按照上面的内容就能够写出 <code>python</code> 程序了, 当然前提是你不是一个小白, 至少熟悉一门编程语言.</p>
-
 <p>但 <code>python</code> 还有很多高级知识则需要你自行使用学习了, 如文件操作, 进程和线程, 网络编程, 图形编程等等. 本文的目的只是让你明白 <code>python</code> 程序应该怎么写, 怎么把你用其他语言写的程序转换成 <code>python</code> 语言的, 更多高级的特性只能靠你自己学习尝试.</p>
     </div>
 
@@ -1013,11 +864,15 @@
   </p>
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
-    <span class="item-content">2019-03-25</span>
+    <span class="item-content">
+        2019-03-25
+        
+    </span>
   </p>
   
   
-</div><div class="post-reward">
+</div>
+<div class="post-reward">
   <input type="checkbox" name="reward" id="reward" hidden />
   <label class="reward-button" for="reward">赞赏支持</label>
   <div class="qr-code">
@@ -1052,6 +907,10 @@
         </div>
         
 
+  
+
+  
+
       </div>
     </main>
 
@@ -1078,13 +937,10 @@
   <span class="copyright-year">
     &copy; 
     2014 - 
-    2019
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">jouyouyun</span>
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>jouyouyun</span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -1095,7 +951,10 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="/dist/even.ece58db6.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

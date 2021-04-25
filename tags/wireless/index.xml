@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>wireless on jouyouyun&#39;s blog</title>
@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>jouyouyun</copyright>
-    <lastBuildDate>Wed, 08 May 2019 17:50:00 +0800</lastBuildDate>
-    
-	<atom:link href="https://jouyouyun.github.io/tags/wireless/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 08 May 2019 17:50:00 +0800</lastBuildDate><atom:link href="https://jouyouyun.github.io/tags/wireless/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linux 硬件信息获取</title>
       <link>https://jouyouyun.github.io/post/linux_hardware_info/</link>
@@ -19,9 +15,7 @@
       
       <guid>https://jouyouyun.github.io/post/linux_hardware_info/</guid>
       <description>&lt;p&gt;在 &lt;code&gt;linux&lt;/code&gt; 上可以通过 &lt;code&gt;dmidecode&lt;/code&gt; 或是 &lt;code&gt;lshw&lt;/code&gt; 来获取硬件信息，能够方便的查看系统配置。但它们的输出信息过多，解析起来有些麻烦，另外 &lt;code&gt;lshw&lt;/code&gt; 对 &lt;code&gt;usb&lt;/code&gt; 接口的网卡支持不好，显示的信息不够，所以在此整理下通过读文件或是一些简单命令来获取硬件信息的方法。&lt;/p&gt;
-
 &lt;h3 id=&#34;dmi&#34;&gt;&lt;strong&gt;DMI&lt;/strong&gt;&lt;/h3&gt;
-
 &lt;p&gt;一般情况下内核默认加载了 &lt;code&gt;dmi sysfs&lt;/code&gt; ，路径是 &lt;code&gt;/sys/class/dmi&lt;/code&gt; 。里面包含了 &lt;code&gt;bios&lt;/code&gt; ， &lt;code&gt;board&lt;/code&gt; ， &lt;code&gt;product&lt;/code&gt; 等信息。&lt;/p&gt;</description>
     </item>
     

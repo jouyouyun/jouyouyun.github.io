@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>openvpn on jouyouyun&#39;s blog</title>
@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>jouyouyun</copyright>
-    <lastBuildDate>Tue, 27 Dec 2016 21:38:21 +0800</lastBuildDate>
-    
-	<atom:link href="https://jouyouyun.github.io/tags/openvpn/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 27 Dec 2016 21:38:21 +0800</lastBuildDate><atom:link href="https://jouyouyun.github.io/tags/openvpn/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>OpenVPN Installation</title>
       <link>https://jouyouyun.github.io/post/openvpn-installation/</link>
@@ -19,30 +15,25 @@
       
       <guid>https://jouyouyun.github.io/post/openvpn-installation/</guid>
       <description>&lt;h2 id=&#34;安装所需软件&#34;&gt;安装所需软件&lt;/h2&gt;
-
 &lt;p&gt;Arch: &lt;code&gt;yaourt -S openvpn easy-rsa&lt;/code&gt;&lt;/p&gt;
-
 &lt;h2 id=&#34;生成证书&#34;&gt;生成证书&lt;/h2&gt;
-
 &lt;h3 id=&#34;server-端&#34;&gt;Server 端&lt;/h3&gt;
-
 &lt;ul&gt;
 &lt;li&gt;Copy template file&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
 &lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo mkdir -p /etc/openvpn
-sudo cp -R /etc/easy-rsa /etc/openvpn&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+sudo cp -R /etc/easy-rsa /etc/openvpn
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-&lt;ul&gt;
+&lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;Config vars&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;取消并修改以下项:&lt;/p&gt;</description>
     </item>
     

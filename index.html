@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.82.1 with theme even" />
 
 
 <link rel="canonical" href="https://jouyouyun.github.io/" />
@@ -36,7 +36,8 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.93844dae.min.css" rel="stylesheet">
+
+<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -45,12 +46,8 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://jouyouyun.github.io/" />
 
-<meta property="og:updated_time" content="2019-10-25T13:55:59&#43;08:00"/>
-
 <meta itemprop="name" content="jouyouyun&#39;s blog">
-<meta itemprop="description" content="jouyouyun&#39;s blog">
-
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="description" content="jouyouyun&#39;s blog"><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="jouyouyun&#39;s blog"/>
 <meta name="twitter:description" content="jouyouyun&#39;s blog"/>
 
@@ -111,6 +108,48 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/dde-daemon-tutorial/">DDE 后端 Tutorial</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2020-03-15 </span>
+      <div class="post-category">
+          <a href="/categories/note/"> NOTE </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      dde 后端使用 go 作为主要的开发语言，使用 dbus 提供接口，主要使用 gsettings 来保存配置。所以在进行后端开发前需要对以上内容有基本的了解，这里假定本文档的阅读者
+    </div>
+    <div class="read-more">
+      <a href="/post/dde-daemon-tutorial/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/learning_exercise/">Learning Exercise</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2019-11-28 </span>
+      <div class="post-category">
+          <a href="/categories/note/"> NOTE </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      学习一种新语言，或者学习内核，可按照以下内容做题练习。 类型转换 number(int,float) to string string to number 大数相加(数的值接近类型最大值,相加后超过最大值) 字符串操作 split append string
+    </div>
+    <div class="read-more">
+      <a href="/post/learning_exercise/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/touchscreen-calibration/">触摸屏校正</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2019-10-25 </span>
@@ -123,11 +162,8 @@
   <div class="post-content">
     <div class="post-summary">
       <p>有些设备的触摸屏不准，需要校正后才能正常使用。校正实际上就是配置设备在 <code>Xorg</code> 中的属性，具体属性名与驱动相关，后文描述。</p>
-
 <p>下面开始介绍校正方法：</p>
-
 <h2 id="准备">准备</h2>
-
 <p>安装需要用到的工具：</p>
     </div>
     <div class="read-more">
@@ -150,11 +186,8 @@
   <div class="post-content">
     <div class="post-summary">
       <p><a href="https://security-tracker.debian.org/tracker/status/release/stable">Debian CVE Tracker</a> 上记录了很多安全漏洞，有些 <code>Debian</code> 会在当前版本修复，但有些不会。由于 <code>deepin</code> 会在当前版本上停留很久，所以需要修复这些安全漏洞。这就需要自行追踪 <code>CVE Bug</code> 的状态和添加 <code>patch</code> ，因此写了个程序 <a href="https://github.com/deepin-cve/tracker">deepin-cve-tracker</a> 来管理。</p>
-
 <p>本文将介绍 <code>deepin-cve-tracker</code> 的使用方法和 <code>patch</code> 的添加方法。</p>
-
 <h2 id="deepin-cve-tracker">Deepin CVE Tracker</h2>
-
 <p><code>deepin-cve-tracker</code> 设计用来追踪 <code>Debain CVE Bug</code> ，会先将 <code>Debian</code> 中的数据爬入自己的数据库中，然后做标记来追踪 <code>bug</code> 的处理状态。提供 <code>HTTP</code> 接口供用户使用，使用 <code>docker</code> 部署。</p>
     </div>
     <div class="read-more">
@@ -177,69 +210,21 @@
   <div class="post-content">
     <div class="post-summary">
       <p>最近由于要调试 <code>usbhid</code> 模块，所以需要编译 <code>kernel</code> ，在此整理下方法，以免每次都查找。</p>
-
 <h2 id="dependencies">Dependencies</h2>
-
 <ul>
-<li><p><code>deepin</code></p>
-
-<p><code>sudo apt-get install build-essential libncurses-dev bison flex libssl-dev libelf-dev</code></p></li>
-
-<li><p><code>archlinux</code></p>
-
-<p><code>sudo pacman -S gcc ncurses bison flex openssl libelf elfutils</code></p></li>
+<li>
+<p><code>deepin</code></p>
+<p><code>sudo apt-get install build-essential libncurses-dev bison flex libssl-dev libelf-dev</code></p>
+</li>
+<li>
+<p><code>archlinux</code></p>
+<p><code>sudo pacman -S gcc ncurses bison flex openssl libelf elfutils</code></p>
+</li>
 </ul>
-
 <p>若编译时有报错，请按照错误提示按照缺失的依赖。</p>
     </div>
     <div class="read-more">
       <a href="/post/linux-kernel-compile/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/gsettings/">GSettings</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2019-08-03 </span>
-      <div class="post-category">
-          <a href="/categories/blog/"> BLOG </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p><code>GSettings</code> 实际上是一套可使用多个 <code>storage backends</code> 的 <code>API</code> ，默认使用 <code>dconf</code> 作为 <code>backend</code> ，也可以使用 <code>keyfile</code> 作为 <code>backend</code> 。但由于 <code>gio</code> 提供了 <code>GKeyFile</code> 结构来处理 <code>keyfile</code> 文件，所以解析 <code>keyfile</code> 文件时很少通过 <code>GSettings API</code> ，在这里只介绍使用 <code>dconf</code> 作为 <code>backend</code> 的使用方法。</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/gsettings/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/linux_hardware_info/">Linux 硬件信息获取</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2019-05-08 </span>
-      <div class="post-category">
-          <a href="/categories/blog/"> BLOG </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>在 <code>linux</code> 上可以通过 <code>dmidecode</code> 或是 <code>lshw</code> 来获取硬件信息，能够方便的查看系统配置。但它们的输出信息过多，解析起来有些麻烦，另外 <code>lshw</code> 对 <code>usb</code> 接口的网卡支持不好，显示的信息不够，所以在此整理下通过读文件或是一些简单命令来获取硬件信息的方法。</p>
-
-<h3 id="dmi"><strong>DMI</strong></h3>
-
-<p>一般情况下内核默认加载了 <code>dmi sysfs</code> ，路径是 <code>/sys/class/dmi</code> 。里面包含了 <code>bios</code> ， <code>board</code> ， <code>product</code> 等信息。</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/linux_hardware_info/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>
@@ -282,13 +267,10 @@
   <span class="copyright-year">
     &copy; 
     2014 - 
-    2019
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">jouyouyun</span>
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>jouyouyun</span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -299,7 +281,10 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="/dist/even.ece58db6.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

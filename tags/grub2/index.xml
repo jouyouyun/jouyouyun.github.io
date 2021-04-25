@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>grub2 on jouyouyun&#39;s blog</title>
@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>jouyouyun</copyright>
-    <lastBuildDate>Sat, 29 Jul 2017 21:38:21 +0800</lastBuildDate>
-    
-	<atom:link href="https://jouyouyun.github.io/tags/grub2/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 29 Jul 2017 21:38:21 +0800</lastBuildDate><atom:link href="https://jouyouyun.github.io/tags/grub2/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>设置 Grub2 分辨率</title>
       <link>https://jouyouyun.github.io/post/set-grup2-resolution/</link>
@@ -19,11 +15,8 @@
       
       <guid>https://jouyouyun.github.io/post/set-grup2-resolution/</guid>
       <description>&lt;h2 id=&#34;背景&#34;&gt;背景&lt;/h2&gt;
-
 &lt;p&gt;平时经常用显示器的分辨率去设置 &lt;code&gt;Grub&lt;/code&gt; 的分辨率，虽然大部分都没有问题，但有时却没有用。所以就把 &lt;code&gt;Grub&lt;/code&gt; 分辨率的设置方法详细说明一下，留档记录。&lt;/p&gt;
-
 &lt;h2 id=&#34;查询支持的分辨率&#34;&gt;查询支持的分辨率&lt;/h2&gt;
-
 &lt;p&gt;在设置 &lt;code&gt;Grub&lt;/code&gt; 分辨率之前，需要先知道支持的分辨率列表，而幸运的是可以到 &lt;code&gt;Grub&lt;/code&gt; 命令行查询。&lt;/p&gt;</description>
     </item>
     

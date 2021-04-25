@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>daemon on jouyouyun&#39;s blog</title>
+    <link>https://jouyouyun.github.io/tags/daemon/</link>
+    <description>Recent content in daemon on jouyouyun&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>jouyouyun</copyright>
+    <lastBuildDate>Sun, 15 Mar 2020 11:38:21 +0800</lastBuildDate><atom:link href="https://jouyouyun.github.io/tags/daemon/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DDE 后端 Tutorial</title>
+      <link>https://jouyouyun.github.io/post/dde-daemon-tutorial/</link>
+      <pubDate>Sun, 15 Mar 2020 11:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/dde-daemon-tutorial/</guid>
+      <description>dde 后端使用 go 作为主要的开发语言，使用 dbus 提供接口，主要使用 gsettings 来保存配置。所以在进行后端开发前需要对以上内容有基本的了解，这里假定本文档的阅读者</description>
+    </item>
+    
+  </channel>
+</rss>

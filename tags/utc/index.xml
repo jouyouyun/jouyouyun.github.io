@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>utc on jouyouyun&#39;s blog</title>
@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>jouyouyun</copyright>
-    <lastBuildDate>Mon, 27 Aug 2018 21:38:21 +0800</lastBuildDate>
-    
-	<atom:link href="https://jouyouyun.github.io/tags/utc/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 27 Aug 2018 21:38:21 +0800</lastBuildDate><atom:link href="https://jouyouyun.github.io/tags/utc/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linux 时间标准</title>
       <link>https://jouyouyun.github.io/post/linux-time-standard/</link>
@@ -19,15 +15,12 @@
       
       <guid>https://jouyouyun.github.io/post/linux-time-standard/</guid>
       <description>&lt;h2 id=&#34;系统如何设置时间&#34;&gt;系统如何设置时间&lt;/h2&gt;
-
 &lt;ol&gt;
 &lt;li&gt;开机时根据硬件时钟来设置系统时钟.&lt;/li&gt;
 &lt;li&gt;如果开启了 &lt;code&gt;NTP&lt;/code&gt; 服务, 会根据网络时间来校正系统时钟，确保时间准确.&lt;/li&gt;
 &lt;li&gt;关机时会根据系统时钟来设置硬件时钟(&lt;code&gt;localtime&lt;/code&gt; 标准除外).&lt;/li&gt;
 &lt;/ol&gt;
-
 &lt;h3 id=&#34;时钟&#34;&gt;时钟&lt;/h3&gt;
-
 &lt;ul&gt;
 &lt;li&gt;硬件时钟: 即实时时钟 &lt;code&gt;RTC&lt;/code&gt; 或 &lt;code&gt;CMOS&lt;/code&gt; 时钟, 仅能保存年、月、日、时、分、秒这些时间数值，无法保存时间标准和是否使用夏令时调节.&lt;/li&gt;
 &lt;li&gt;系统时钟: 即软件时间, 与硬件时间分别维护，保存了时间、时区和夏令时设置.初始系统时钟是从硬件时间计算得来，计算时会考虑 &lt;code&gt;/etc/adjtime&lt;/code&gt; 的设置.&lt;/li&gt;

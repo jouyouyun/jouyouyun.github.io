@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>hugo on jouyouyun&#39;s blog</title>
@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>jouyouyun</copyright>
-    <lastBuildDate>Sat, 02 Feb 2019 17:31:21 +0800</lastBuildDate>
-    
-	<atom:link href="https://jouyouyun.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 02 Feb 2019 17:31:21 +0800</lastBuildDate><atom:link href="https://jouyouyun.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>使用 hugo 写博客</title>
       <link>https://jouyouyun.github.io/post/hugo-github/</link>
@@ -19,15 +15,10 @@
       
       <guid>https://jouyouyun.github.io/post/hugo-github/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://github.com/gohugoio/hugo&#34;&gt;hugo&lt;/a&gt; 是由 &lt;code&gt;Go&lt;/code&gt; 语言实现的静态网站生成器, 简单、易用、高效、易扩展、快速部署。&lt;/p&gt;
-
 &lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
-
 &lt;p&gt;到 &lt;a href=&#34;https://github.com/gohugoio/hugo/releases&#34;&gt;Release&lt;/a&gt; 下载对应系统的二进制文件压缩包, 然后解压, 并把得到的二进制复制到 &lt;code&gt;Path&lt;/code&gt; 中.&lt;/p&gt;
-
 &lt;h2 id=&#34;简单使用&#34;&gt;简单使用&lt;/h2&gt;
-
 &lt;h3 id=&#34;创建一个站点&#34;&gt;创建一个站点&lt;/h3&gt;
-
 &lt;p&gt;使用命令 &lt;code&gt;hugo new site &amp;lt;dir&amp;gt;&lt;/code&gt; 来创建站点, 创建后的结构如下:&lt;/p&gt;</description>
     </item>
     

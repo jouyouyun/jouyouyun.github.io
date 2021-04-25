@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.82.1 with theme even" />
 
 
 <link rel="canonical" href="https://jouyouyun.github.io/post/gsettings/" />
@@ -35,29 +35,23 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.93844dae.min.css" rel="stylesheet">
+
+<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="GSettings" />
 <meta property="og:description" content="GSettings 实际上是一套可使用多个 storage backends 的 API ，默认使用 dconf 作为 backend ，也可以使用 keyfile 作为 backend 。但由于 gio 提供了 GKeyFile 结构来处理 keyfile 文件，所以解析 keyfile 文件时很少通过 GSettings API ，在这里只介绍使用 dconf 作为 backend 的使用方法。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://jouyouyun.github.io/post/gsettings/" />
-<meta property="article:published_time" content="2019-08-03T19:30:21&#43;08:00"/>
-<meta property="article:modified_time" content="2019-08-04T21:03:16&#43;08:00"/>
+<meta property="og:url" content="https://jouyouyun.github.io/post/gsettings/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2019-08-03T19:30:21&#43;08:00" />
+<meta property="article:modified_time" content="2019-08-04T21:03:16&#43;08:00" />
 
 <meta itemprop="name" content="GSettings">
-<meta itemprop="description" content="GSettings 实际上是一套可使用多个 storage backends 的 API ，默认使用 dconf 作为 backend ，也可以使用 keyfile 作为 backend 。但由于 gio 提供了 GKeyFile 结构来处理 keyfile 文件，所以解析 keyfile 文件时很少通过 GSettings API ，在这里只介绍使用 dconf 作为 backend 的使用方法。">
-
-
-<meta itemprop="datePublished" content="2019-08-03T19:30:21&#43;08:00" />
+<meta itemprop="description" content="GSettings 实际上是一套可使用多个 storage backends 的 API ，默认使用 dconf 作为 backend ，也可以使用 keyfile 作为 backend 。但由于 gio 提供了 GKeyFile 结构来处理 keyfile 文件，所以解析 keyfile 文件时很少通过 GSettings API ，在这里只介绍使用 dconf 作为 backend 的使用方法。"><meta itemprop="datePublished" content="2019-08-03T19:30:21&#43;08:00" />
 <meta itemprop="dateModified" content="2019-08-04T21:03:16&#43;08:00" />
 <meta itemprop="wordCount" content="2023">
-
-
-
-<meta itemprop="keywords" content="gsettings," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="gsettings," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="GSettings"/>
 <meta name="twitter:description" content="GSettings 实际上是一套可使用多个 storage backends 的 API ，默认使用 dconf 作为 backend ，也可以使用 keyfile 作为 backend 。但由于 gio 提供了 GKeyFile 结构来处理 keyfile 文件，所以解析 keyfile 文件时很少通过 GSettings API ，在这里只介绍使用 dconf 作为 backend 的使用方法。"/>
 
@@ -133,58 +127,50 @@
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#dconf">dconf</a></li>
-<li><a href="#配置文件">配置文件</a>
-<ul>
-<li><a href="#relocatable-schema"><code>Relocatable Schema</code></a></li>
-<li><a href="#override">override</a></li>
-<li><a href="#key-改变信号">key 改变信号</a></li>
-</ul></li>
-<li><a href="#工具">工具</a>
-<ul>
-<li><a href="#glib-sompile-schemas">glib-sompile-schemas</a></li>
-<li><a href="#dconf-editor"><code>dconf-editor</code></a></li>
-<li><a href="#devhelp">devhelp</a></li>
-<li><a href="#gsettings">gsettings</a></li>
-</ul></li>
-<li><a href="#参考资料">参考资料</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#dconf">dconf</a></li>
+    <li><a href="#配置文件">配置文件</a>
+      <ul>
+        <li><a href="#relocatable-schema"><code>Relocatable Schema</code></a></li>
+        <li><a href="#override">override</a></li>
+        <li><a href="#key-改变信号">key 改变信号</a></li>
+      </ul>
+    </li>
+    <li><a href="#工具">工具</a>
+      <ul>
+        <li><a href="#glib-sompile-schemas">glib-sompile-schemas</a></li>
+        <li><a href="#dconf-editor"><code>dconf-editor</code></a></li>
+        <li><a href="#devhelp">devhelp</a></li>
+        <li><a href="#gsettings">gsettings</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考资料">参考资料</a></li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
       <p><code>GSettings</code> 实际上是一套可使用多个 <code>storage backends</code> 的 <code>API</code> ，默认使用 <code>dconf</code> 作为 <code>backend</code> ，也可以使用 <code>keyfile</code> 作为 <code>backend</code> 。但由于 <code>gio</code> 提供了 <code>GKeyFile</code> 结构来处理 <code>keyfile</code> 文件，所以解析 <code>keyfile</code> 文件时很少通过 <code>GSettings API</code> ，在这里只介绍使用 <code>dconf</code> 作为 <code>backend</code> 的使用方法。</p>
-
-<hr />
-
+<hr>
 <h2 id="dconf">dconf</h2>
-
 <p><code>dconf</code> 是一个底层的配置管理系统，被设计用来作为 <code>GSettings</code> 的 <code>backend</code> ，并提供了图形化的配置管理工具 <code>dconf-editor</code> ，具有以下特点：</p>
-
 <ul>
-<li><p>检索快速</p>
-
-<p><code>dconf</code> 使用 <code>gvdb(GVariant Database file)</code> 格式的二进制文件存储数据，它是一个简单的数据库，以路径映射的方式存储 <code>key</code> ，检索高效。默认的文件路径为： <code>~/.config/dconf/user</code></p></li>
-
-<li><p>支持改变通知</p>
-
-<p><code>dconf</code> 支持在 <code>key</code> 发生改变时发出通知</p></li>
+<li>
+<p>检索快速</p>
+<p><code>dconf</code> 使用 <code>gvdb(GVariant Database file)</code> 格式的二进制文件存储数据，它是一个简单的数据库，以路径映射的方式存储 <code>key</code> ，检索高效。默认的文件路径为： <code>~/.config/dconf/user</code></p>
+</li>
+<li>
+<p>支持改变通知</p>
+<p><code>dconf</code> 支持在 <code>key</code> 发生改变时发出通知</p>
+</li>
 </ul>
-
-<hr />
-
+<hr>
 <h2 id="配置文件">配置文件</h2>
-
 <p><code>GSettings</code> 的配置文件是 <code>xml</code> 格式的，文件需以 <code>.gschema.xml</code> 结尾，文件名通常与 <code>id</code> 相同。配置文件安装在 <code>/usr/share/glib-2.0/schemas/</code> 目录下，手动添加进去的文件需要执行 <code>sudo glib-complie-schemas /usr/share/glib-2.0/schemas</code> 让其生效。</p>
-
 <p>文件内容简要格式如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -205,49 +191,46 @@
             <span class="nt">&lt;description&gt;&lt;/description&gt;</span>
         <span class="nt">&lt;/key&gt;</span>
     <span class="nt">&lt;/schema&gt;</span>
-<span class="nt">&lt;/schemalist&gt;</span></code></pre></td></tr></table>
+<span class="nt">&lt;/schemalist&gt;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>可以看到一个文件里可以包含多个 <code>schema</code> ，每个 <code>schema</code> 可由多个 <code>key</code> 组成。详细说明如下：</p>
-
+</div><p>可以看到一个文件里可以包含多个 <code>schema</code> ，每个 <code>schema</code> 可由多个 <code>key</code> 组成。详细说明如下：</p>
 <ul>
-<li><p>id</p>
-
-<p><code>schema</code> 中的 <code>id</code> 需要在整个配置系统中是唯一的，不然执行 <code>glib-compile-schemas</code> 时会忽略重复的 <code>id</code> ； <code>id</code> 的开头通常使用与应用相关的域名</p></li>
-
-<li><p>path</p>
-
-<p><code>schema</code> 中的 <code>path</code> 必须是以 <code>/</code> 开头并且以 <code>/</code> 结尾，不能包含连续的 <code>/</code> , <code>path</code> 用于指定在 <code>storage</code> 中存储路径，可以与 <code>id</code> 不一致</p></li>
-
-<li><p>name</p>
-
-<p><code>key</code> 的名称，需要在此 <code>schema</code> 中是唯一的， <code>name</code> 的值由小写字母、数字和 <code>-</code> 组成，并且开头必须是小写字母，不能以 <code>-</code> 结尾，也不能出现连续的 <code>-</code></p></li>
-
-<li><p>type</p>
-
-<p><code>key</code> 的类型，需要是 <code>GVariant</code> 支持的类型，除了可以使用基本的类型外，也可按照 <code>GVariant</code> 的方式组合类型</p></li>
-
-<li><p>default</p>
-
-<p><code>key</code> 的默认值</p></li>
-
-<li><p>summary</p>
-
-<p><code>key</code> 的简单描述</p></li>
-
-<li><p>description</p>
-
-<p><code>key</code> 的详细描述</p></li>
+<li>
+<p>id</p>
+<p><code>schema</code> 中的 <code>id</code> 需要在整个配置系统中是唯一的，不然执行 <code>glib-compile-schemas</code> 时会忽略重复的 <code>id</code> ； <code>id</code> 的开头通常使用与应用相关的域名</p>
+</li>
+<li>
+<p>path</p>
+<p><code>schema</code> 中的 <code>path</code> 必须是以 <code>/</code> 开头并且以 <code>/</code> 结尾，不能包含连续的 <code>/</code> , <code>path</code> 用于指定在 <code>storage</code> 中存储路径，可以与 <code>id</code> 不一致</p>
+</li>
+<li>
+<p>name</p>
+<p><code>key</code> 的名称，需要在此 <code>schema</code> 中是唯一的， <code>name</code> 的值由小写字母、数字和 <code>-</code> 组成，并且开头必须是小写字母，不能以 <code>-</code> 结尾，也不能出现连续的 <code>-</code></p>
+</li>
+<li>
+<p>type</p>
+<p><code>key</code> 的类型，需要是 <code>GVariant</code> 支持的类型，除了可以使用基本的类型外，也可按照 <code>GVariant</code> 的方式组合类型</p>
+</li>
+<li>
+<p>default</p>
+<p><code>key</code> 的默认值</p>
+</li>
+<li>
+<p>summary</p>
+<p><code>key</code> 的简单描述</p>
+</li>
+<li>
+<p>description</p>
+<p><code>key</code> 的详细描述</p>
+</li>
 </ul>
-
-<hr />
-
+<hr>
 <p>下面给出一个例子：</p>
-
 <p><code>schema</code> 文件：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -312,13 +295,13 @@
             <span class="nt">&lt;description&gt;</span>The window size.<span class="nt">&lt;/description&gt;</span>
         <span class="nt">&lt;/key&gt;</span>
     <span class="nt">&lt;/schema&gt;</span>
-<span class="nt">&lt;/schemalist&gt;</span></code></pre></td></tr></table>
+<span class="nt">&lt;/schemalist&gt;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>程序代码如下：</p>
+</div><p>程序代码如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-c" data-lang="c"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -401,21 +384,17 @@
 
     <span class="n">g_object_unref</span><span class="p">(</span><span class="n">gs</span><span class="p">);</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><strong>注意：</strong> 在使用接口调用时，需要确保 <code>schema</code> 和 <code>key</code> 存在，不然会触发 <strong>段错误</strong> 。</p>
-
-<hr />
-
+</div><p><strong>注意：</strong> 在使用接口调用时，需要确保 <code>schema</code> 和 <code>key</code> 存在，不然会触发 <strong>段错误</strong> 。</p>
+<hr>
 <h3 id="relocatable-schema"><code>Relocatable Schema</code></h3>
-
 <p>通常一个 <code>id</code> 对应一个固定的 <code>path</code> ，但也可以没有，即不设置 <code>path</code> ，这样就是一个可重定位的 <code>schema</code> 。这个特性对于可变的配置很有用，如用户自定义的快捷键：快捷键的个数是不可知，这时可利用这个特性先声明一个快捷键 <code>schema</code> 作为模板，然后动态创建多个 <code>path</code> 来使用。示例如下：</p>
-
 <p><code>schema</code> 文件如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -466,13 +445,13 @@
             <span class="nt">&lt;description&gt;</span>Shortcut description.<span class="nt">&lt;/description&gt;</span>
         <span class="nt">&lt;/key&gt;</span>
     <span class="nt">&lt;/schema&gt;</span>
-<span class="nt">&lt;/schemalist&gt;</span></code></pre></td></tr></table>
+<span class="nt">&lt;/schemalist&gt;</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>程序代码如下：</p>
+</div><p>程序代码如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-c" data-lang="c"><span class="lnt">  1
+<pre class="chroma"><code><span class="lnt">  1
 </span><span class="lnt">  2
 </span><span class="lnt">  3
 </span><span class="lnt">  4
@@ -705,118 +684,97 @@
     <span class="n">g_object_unref</span><span class="p">(</span><span class="n">gs</span><span class="p">);</span>
     <span class="n">g_settings_sync</span><span class="p">();</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span></code></pre></td></tr></table>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<hr />
-
+</div><hr>
 <h3 id="override">override</h3>
-
 <p><code>gsettings</code> 支持 <code>override</code> 机制，可以更改默认值。</p>
-
 <p>通常 <code>key</code> 的默认值在文件中已经指定，但有时不同的版本上需要的默认值不同，这时 <code>override</code> 机制就很有用，可以在不修改配置文件的情况下更改默认值。</p>
-
 <p><code>override</code> 文件以 <strong><code>数字_</code></strong> 开头，并以 <strong><code>.gschema.override</code></strong> 结尾，数字为两位整数，数值越大优先级越高。</p>
-
 <p><code>override</code> 文件同样安装在 <code>/usr/share/glib-2.0/schemas</code> 目录下，并需要使用 <code>glib-compile-schemas</code> 编译。</p>
-
 <p><code>override</code> 文件的格式如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ini" data-lang="ini"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-ini" data-lang="ini"><span class="k">[schema id]</span>
-<span class="na">key</span><span class="o">=</span><span class="s">value</span></code></pre></td></tr></table>
+<span class="na">key</span><span class="o">=</span><span class="s">value</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>如更改 <code>com.deepin.test</code> 中 <code>interval</code> 的默认值为 <code>30</code> ，则内容如下：</p>
+</div><p>如更改 <code>com.deepin.test</code> 中 <code>interval</code> 的默认值为 <code>30</code> ，则内容如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-ini" data-lang="ini"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-ini" data-lang="ini"><span class="k">[com.deepin.test]</span>
-<span class="na">interval</span><span class="o">=</span><span class="s">30</span></code></pre></td></tr></table>
+<span class="na">interval</span><span class="o">=</span><span class="s">30</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>然后执行：</p>
+</div><p>然后执行：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell">sudo cp ./90_com.deepin.test.gschema.override /usr/share/glib-2.0/schemas/
-sudo glib-compile-schemas /usr/share/glib-2.0/schemas</code></pre></td></tr></table>
+sudo glib-compile-schemas /usr/share/glib-2.0/schemas
+</code></pre></td></tr></table>
 </div>
-</div>
-<hr />
-
+</div><hr>
 <h3 id="key-改变信号">key 改变信号</h3>
-
 <p><code>GSettings</code> 提供了 <code>changed</code> 信号来发送 <code>key</code> 改变的事件，如有需要可监听此信号。</p>
-
-<hr />
-
+<hr>
 <h2 id="工具">工具</h2>
-
 <h3 id="glib-sompile-schemas">glib-sompile-schemas</h3>
-
 <p>编译 <code>schema</code> 文件的命令</p>
-
 <h3 id="dconf-editor"><code>dconf-editor</code></h3>
-
 <p><code>dconf</code> 的图形工具，根据 <code>path</code> 检索，可管理 <code>key</code></p>
-
 <h3 id="devhelp">devhelp</h3>
-
 <p>一款 <code>API</code> 文档查看工具，安装了 <code>libglib2.0-docs</code> 后，可在 <code>devhelp</code> 中查看 <code>GSettings</code> 的 <code>API</code> 文档</p>
-
 <h3 id="gsettings">gsettings</h3>
-
 <p>这是一个 <code>gsettings</code> 的配置管理工具，下面介绍一些常用的子命令，详细用法请查看 <code>man</code> 手册：</p>
-
 <ul>
-<li><p>list-schemas</p>
-
-<p>列出所有已安装并有固定 <code>path</code> 的 <code>schema</code></p></li>
-
-<li><p>list-relocatable-schemas</p>
-
-<p>列出所有已安装却没有固定 <code>path</code> 的 <code>schema</code></p></li>
-
-<li><p>list-keys</p>
-
-<p>列出指定 <code>schema</code> 中的所有 <code>key</code></p></li>
-
-<li><p>list-recursively</p>
-
-<p>列出指定 <code>schema</code> 中的所有 <code>key</code> 及其 <code>value</code> ，若 <code>schema</code> 未指定，则列出所有 <code>schema</code> 的</p></li>
-
-<li><p>get</p>
-
-<p>获取指定 <code>schema</code> 中指定 <code>key</code> 的值</p></li>
-
-<li><p>set</p>
-
-<p>设置指定 <code>schema</code> 中指定 <code>key</code> 的值</p></li>
-
-<li><p>reset</p>
-
-<p>重置指定 <code>schema</code> 中指定 <code>key</code> 的值，即恢复默认值</p></li>
-
-<li><p>monitor</p>
-
-<p>监听指定 <code>schema</code> 中指定 <code>key</code> 的改变，不指定时监听所有的</p></li>
+<li>
+<p>list-schemas</p>
+<p>列出所有已安装并有固定 <code>path</code> 的 <code>schema</code></p>
+</li>
+<li>
+<p>list-relocatable-schemas</p>
+<p>列出所有已安装却没有固定 <code>path</code> 的 <code>schema</code></p>
+</li>
+<li>
+<p>list-keys</p>
+<p>列出指定 <code>schema</code> 中的所有 <code>key</code></p>
+</li>
+<li>
+<p>list-recursively</p>
+<p>列出指定 <code>schema</code> 中的所有 <code>key</code> 及其 <code>value</code> ，若 <code>schema</code> 未指定，则列出所有 <code>schema</code> 的</p>
+</li>
+<li>
+<p>get</p>
+<p>获取指定 <code>schema</code> 中指定 <code>key</code> 的值</p>
+</li>
+<li>
+<p>set</p>
+<p>设置指定 <code>schema</code> 中指定 <code>key</code> 的值</p>
+</li>
+<li>
+<p>reset</p>
+<p>重置指定 <code>schema</code> 中指定 <code>key</code> 的值，即恢复默认值</p>
+</li>
+<li>
+<p>monitor</p>
+<p>监听指定 <code>schema</code> 中指定 <code>key</code> 的改变，不指定时监听所有的</p>
+</li>
 </ul>
-
-<hr />
-
+<hr>
 <h2 id="参考资料">参考资料</h2>
-
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Dconf">dconf</a></li>
 <li><a href="https://developer.gnome.org/GSettings/">GSettings</a></li>
@@ -832,11 +790,15 @@ sudo glib-compile-schemas /usr/share/glib-2.0/schemas</code></pre></td></tr></ta
   </p>
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
-    <span class="item-content">2019-08-04</span>
+    <span class="item-content">
+        2019-08-04
+        
+    </span>
   </p>
   
   
-</div><div class="post-reward">
+</div>
+<div class="post-reward">
   <input type="checkbox" name="reward" id="reward" hidden />
   <label class="reward-button" for="reward">赞赏支持</label>
   <div class="qr-code">
@@ -871,6 +833,10 @@ sudo glib-compile-schemas /usr/share/glib-2.0/schemas</code></pre></td></tr></ta
         </div>
         
 
+  
+
+  
+
       </div>
     </main>
 
@@ -897,13 +863,10 @@ sudo glib-compile-schemas /usr/share/glib-2.0/schemas</code></pre></td></tr></ta
   <span class="copyright-year">
     &copy; 
     2014 - 
-    2019
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">jouyouyun</span>
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>jouyouyun</span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -914,7 +877,10 @@ sudo glib-compile-schemas /usr/share/glib-2.0/schemas</code></pre></td></tr></ta
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="/dist/even.ece58db6.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

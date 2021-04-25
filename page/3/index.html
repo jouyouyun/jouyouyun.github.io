@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.82.1 with theme even" />
 
 
 <link rel="canonical" href="https://jouyouyun.github.io/" />
@@ -36,7 +36,8 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.93844dae.min.css" rel="stylesheet">
+
+<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -45,12 +46,8 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://jouyouyun.github.io/" />
 
-<meta property="og:updated_time" content="2019-04-11T14:49:00&#43;08:00"/>
-
 <meta itemprop="name" content="jouyouyun&#39;s blog">
-<meta itemprop="description" content="jouyouyun&#39;s blog">
-
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="description" content="jouyouyun&#39;s blog"><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="jouyouyun&#39;s blog"/>
 <meta name="twitter:description" content="jouyouyun&#39;s blog"/>
 
@@ -111,6 +108,61 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/docker-intro/">Docker 使用简介</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2019-04-21 </span>
+      <div class="post-category">
+          <a href="/categories/blog/"> BLOG </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p><code>Docker</code> 是使用 <code>GoLang</code> 开发的开源容器引擎，可以方便的打包开发好的应用，然后分发到任意 <code>linux</code> 主机上。</p>
+<p>与传统的虚拟机相比拥有以下优势：</p>
+<ul>
+<li>
+<p>高效的系统资源利用率</p>
+<p>由于不需要进行硬件虚拟和运行完整的操作系统等额外开销，无论是应用执行速度、内存损耗或者文件存储速度， <code>Docker</code> 都更加高效</p>
+</li>
+<li>
+<p>更快的启动速度</p>
+<p><code>Docker</code> 容器应用直接运行与宿主内核，无需启动完整的操作系统，可以做到秒级启动</p>
+</li>
+</ul>
+    </div>
+    <div class="read-more">
+      <a href="/post/docker-intro/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/influxdb-introduction/">InfluxDB 简介</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2019-04-13 </span>
+      <div class="post-category">
+          <a href="/categories/blog/"> BLOG </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p><code>InfluxDB</code> 是一个时间序列数据库(<code>TSDB</code>), 被设计用来处理高写入、高查询负载，是 <a href="https://www.influxdata.com/time-series-platform/">TICK</a> 的一部分。</p>
+<p><code>TSDB</code> 是针对时间戳或时间序列数据进行优化的数据库，专门为处理带有时间戳的度量和事件或度量而构建的。
+而时间序列数据可以是随时间跟踪、监视、下采样和聚合的度量或事件，如服务器指标、应用程序性能、网络数据、传感器数据以及许多其他类型的分析数据。</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/influxdb-introduction/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/clean_invalid_branch_in_git/">清理无用的 local branch</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2019-04-11 </span>
@@ -124,7 +176,6 @@
     <div class="post-summary">
       <p>在开发新功能或修复 <code>bug</code> 时, 会从 <code>master</code> 上新建 <code>branch</code> 来处理, 当完成后会将这个 <code>branch</code> 推送到 <code>origin</code> 中, 如:
 <code>git push origin &lt;branch name&gt;:&lt;branch name&gt;</code>.</p>
-
 <p><code>origin</code> 审核代码没有问题后就会 <strong>合并分支并删除</strong>, 但 <strong>本地</strong> 在 <code>git pull</code> 删除本地分支后, 仍能通过 <code>git branch -a</code> 看到这个 <code>branch</code> 的 <code>origin ref</code>.
 日积月累之下本地就会有很多这样无用的 <code>branch ref</code>, 很是让人厌烦, 遂在此记录清理的方法.</p>
     </div>
@@ -148,32 +199,29 @@
   <div class="post-content">
     <div class="post-summary">
       <p>大学学的数据库系统概论工作后几年没有使用都已忘了, 现在项目需要用到数据库, 但来不及细看相关书籍了, 遂将一些常用的记录下来.</p>
-
 <h2 id="常用类型">常用类型</h2>
-
 <p><code>MySQL</code> 支持多种类型, 大致可以分为三类: 数值, 日期/时间和字符串(字符)类型, 大致如下:</p>
-
 <ul>
-<li><p>数值类型</p>
-
+<li>
+<p>数值类型</p>
 <ul>
 <li>整数: <code>tinyint</code>, <code>smallint</code>, <code>mediumint</code>, <code>int</code>, <code>bigint</code></li>
 <li>浮点数: <code>float</code>, <code>double</code>, <code>decimal</code></li>
-</ul></li>
-
-<li><p>日期和时间</p>
-
-<p><code>date</code>, <code>time</code>, <code>datetime</code>, <code>timestamp</code>, <code>year</code></p></li>
-
-<li><p>字符串类型</p>
-
+</ul>
+</li>
+<li>
+<p>日期和时间</p>
+<p><code>date</code>, <code>time</code>, <code>datetime</code>, <code>timestamp</code>, <code>year</code></p>
+</li>
+<li>
+<p>字符串类型</p>
 <ul>
 <li>字符串: <code>char</code>, <code>varchar</code></li>
 <li>文本: <code>tinytext</code>, <code>text</code>, <code>mediumtext</code>, <code>longtext</code></li>
 <li>二进制字符串: <code>tinyblob</code>, <code>blob</code>, <code>mediumblob</code>, <code>longblob</code></li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <p>下面将详细给出每种类型的大小和描述.</p>
     </div>
     <div class="read-more">
@@ -196,115 +244,14 @@
   <div class="post-content">
     <div class="post-summary">
       <p><a href="https://github.com/gohugoio/hugo">hugo</a> 是由 <code>Go</code> 语言实现的静态网站生成器, 简单、易用、高效、易扩展、快速部署。</p>
-
 <h2 id="安装">安装</h2>
-
 <p>到 <a href="https://github.com/gohugoio/hugo/releases">Release</a> 下载对应系统的二进制文件压缩包, 然后解压, 并把得到的二进制复制到 <code>Path</code> 中.</p>
-
 <h2 id="简单使用">简单使用</h2>
-
 <h3 id="创建一个站点">创建一个站点</h3>
-
 <p>使用命令 <code>hugo new site &lt;dir&gt;</code> 来创建站点, 创建后的结构如下:</p>
     </div>
     <div class="read-more">
       <a href="/post/hugo-github/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/gorm-association/">gorm 关联查询</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2018-12-05 </span>
-      <div class="post-category">
-          <a href="/categories/blog/"> BLOG </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>定义了一个 <code>User</code> 和 <code>Company</code>, <code>User</code> 中可以包含多个 <code>Company</code>, 如下:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">User</span> <span class="kd">struct</span> <span class="p">{</span>
-        <span class="nx">ID</span>        <span class="kt">int</span>        <span class="s">`gorm:&#34;TYPE:int(11);NOT NULL;PRIMARY_KEY;INDEX&#34;`</span>
-        <span class="nx">Name</span>      <span class="kt">string</span>     <span class="s">`gorm:&#34;TYPE: VARCHAR(255); DEFAULT:&#39;&#39;;INDEX&#34;`</span>
-        <span class="nx">Companies</span> <span class="p">[]</span><span class="nx">Company</span>  <span class="s">`gorm:&#34;FOREIGNKEY:UserId;ASSOCIATION_FOREIGNKEY:ID&#34;`</span>
-        <span class="nx">CreatedAt</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Time</span>  <span class="s">`gorm:&#34;TYPE:DATETIME&#34;`</span>
-        <span class="nx">UpdatedAt</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Time</span>  <span class="s">`gorm:&#34;TYPE:DATETIME&#34;`</span>
-        <span class="nx">DeletedAt</span> <span class="o">*</span><span class="nx">time</span><span class="p">.</span><span class="nx">Time</span> <span class="s">`gorm:&#34;TYPE:DATETIME;DEFAULT:NULL&#34;`</span>
-<span class="p">}</span>
-
-<span class="kd">type</span> <span class="nx">Company</span> <span class="kd">struct</span> <span class="p">{</span>
-        <span class="nx">gorm</span><span class="p">.</span><span class="nx">Model</span>
-        <span class="nx">Industry</span> <span class="kt">int</span>    <span class="s">`gorm:&#34;TYPE:INT(11);DEFAULT:0&#34;`</span>
-        <span class="nx">Name</span>     <span class="kt">string</span> <span class="s">`gorm:&#34;TYPE:VARCHAR(255);DEFAULT:&#39;&#39;;INDEX&#34;`</span>
-        <span class="nx">Job</span>      <span class="kt">string</span> <span class="s">`gorm:&#34;TYPE:VARCHAR(255);DEFAULT:&#39;&#39;&#34;`</span>
-        <span class="nx">UserId</span>   <span class="kt">int</span>    <span class="s">`gorm:&#34;TYPE:int(11);NOT NULL;INDEX&#34;`</span>
-<span class="p">}</span></code></pre></td></tr></table>
-</div>
-</div>
-    </div>
-    <div class="read-more">
-      <a href="/post/gorm-association/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/python-learn-note/">python3 学习笔记</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2018-12-02 </span>
-      <div class="post-category">
-          <a href="/categories/note/"> NOTE </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <h2 id="python3-study-notes">Python3 Study Notes</h2>
-
-<p>本人很少写 <code>python</code> 代码, 一般都是用 <code>go</code> 的, 去年时用 <code>python</code> 写过一些收集系统信息的工具, 当时是边看手册边写的. 如今又要用 <code>python</code> 来写一个生成 <code>xlsx</code> 的工具, 就又需要查看手册了, 至于为什么不用 <code>go</code> 写? 那是因为 <code>go</code> 的库不兼容永中. 在这里不得不说, 虽然 <code>go</code> 很火, 但是一些库还是不如 <code>python</code> 多, 不如 <code>python</code> 兼容性好.</p>
-
-<p>为了避免以后再出这种事情, 这次就好好的了解下 <code>python</code>, 将它的用法按照自己对语言的理解分块记录下来. 要使用某种语言, 个人认为需要了解这些方面:</p>
-
-<ul>
-<li>编码风格</li>
-<li>变量的类型, 声明及使用方式</li>
-<li>输入/输出</li>
-<li>控制语句的写法</li>
-<li>错误处理的用法</li>
-<li>函数的用法, 还有语言支持的一些特性, <code>python</code> 中就有装饰器, <code>lambda</code> 语句等</li>
-<li>对于面向对象语言还需要了解类的声明, 继承, 多态等的用法</li>
-</ul>
-
-<p>还有一些就是此语言的一些特性, <code>python</code> 就还需要了解以下特性:</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/python-learn-note/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>
@@ -350,13 +297,10 @@
   <span class="copyright-year">
     &copy; 
     2014 - 
-    2019
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">jouyouyun</span>
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>jouyouyun</span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -367,7 +311,10 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="/dist/even.ece58db6.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

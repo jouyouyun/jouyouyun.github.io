@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>learning on jouyouyun&#39;s blog</title>
+    <link>https://jouyouyun.github.io/tags/learning/</link>
+    <description>Recent content in learning on jouyouyun&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>jouyouyun</copyright>
+    <lastBuildDate>Thu, 28 Nov 2019 10:38:21 +0800</lastBuildDate><atom:link href="https://jouyouyun.github.io/tags/learning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Learning Exercise</title>
+      <link>https://jouyouyun.github.io/post/learning_exercise/</link>
+      <pubDate>Thu, 28 Nov 2019 10:38:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/learning_exercise/</guid>
+      <description>学习一种新语言，或者学习内核，可按照以下内容做题练习。 类型转换 number(int,float) to string string to number 大数相加(数的值接近类型最大值,相加后超过最大值) 字符串操作 split append string</description>
+    </item>
+    
+  </channel>
+</rss>

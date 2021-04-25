@@ -31,7 +31,7 @@ vi /etc/pptpd.conf
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.82.1 with theme even" />
 
 
 <link rel="canonical" href="https://jouyouyun.github.io/post/build-vpn/" />
@@ -42,72 +42,45 @@ vi /etc/pptpd.conf
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-<link href="/dist/even.93844dae.min.css" rel="stylesheet">
+
+<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="在 VPS 中搭建 VPN 服务器" />
 <meta property="og:description" content="最近 Google 被封，而用 Goagent 做代理进行访问的效果而不是很理想，所以就想去买 VPN/VPS . 几经考虑后，就去买了个便宜 VPS , 这样也就可以分享给家人用了。
-
 VPS 中安装的是 Ubuntu=，所以搭建 =VPN 服务器也就是在 Ubuntu 上面搭建，具体方法如下。
-
 注意：下面所有的操作都是以 root 用户进行的，非 root 用户请在命令前加上 sudo
-
 安装 pptp
-
 apt-get install pptpd
-
 配置 IP 地址范围及服务器 IP
-
 vi /etc/pptpd.conf
-
 取消下面内容的注释" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://jouyouyun.github.io/post/build-vpn/" />
-<meta property="article:published_time" content="2014-07-04T21:38:21&#43;08:00"/>
-<meta property="article:modified_time" content="2019-02-12T14:30:30&#43;08:00"/>
+<meta property="og:url" content="https://jouyouyun.github.io/post/build-vpn/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2014-07-04T21:38:21&#43;08:00" />
+<meta property="article:modified_time" content="2019-02-12T14:30:30&#43;08:00" />
 
 <meta itemprop="name" content="在 VPS 中搭建 VPN 服务器">
 <meta itemprop="description" content="最近 Google 被封，而用 Goagent 做代理进行访问的效果而不是很理想，所以就想去买 VPN/VPS . 几经考虑后，就去买了个便宜 VPS , 这样也就可以分享给家人用了。
-
 VPS 中安装的是 Ubuntu=，所以搭建 =VPN 服务器也就是在 Ubuntu 上面搭建，具体方法如下。
-
 注意：下面所有的操作都是以 root 用户进行的，非 root 用户请在命令前加上 sudo
-
 安装 pptp
-
 apt-get install pptpd
-
 配置 IP 地址范围及服务器 IP
-
 vi /etc/pptpd.conf
-
-取消下面内容的注释">
-
-
-<meta itemprop="datePublished" content="2014-07-04T21:38:21&#43;08:00" />
+取消下面内容的注释"><meta itemprop="datePublished" content="2014-07-04T21:38:21&#43;08:00" />
 <meta itemprop="dateModified" content="2019-02-12T14:30:30&#43;08:00" />
 <meta itemprop="wordCount" content="461">
-
-
-
-<meta itemprop="keywords" content="vps,vpn,ssh," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="vps,vpn,ssh," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="在 VPS 中搭建 VPN 服务器"/>
 <meta name="twitter:description" content="最近 Google 被封，而用 Goagent 做代理进行访问的效果而不是很理想，所以就想去买 VPN/VPS . 几经考虑后，就去买了个便宜 VPS , 这样也就可以分享给家人用了。
-
 VPS 中安装的是 Ubuntu=，所以搭建 =VPN 服务器也就是在 Ubuntu 上面搭建，具体方法如下。
-
 注意：下面所有的操作都是以 root 用户进行的，非 root 用户请在命令前加上 sudo
-
 安装 pptp
-
 apt-get install pptpd
-
 配置 IP 地址范围及服务器 IP
-
 vi /etc/pptpd.conf
-
 取消下面内容的注释"/>
 
 <!--[if lte IE 9]>
@@ -182,110 +155,77 @@ vi /etc/pptpd.conf
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#ssh-代理">SSH 代理</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#ssh-代理">SSH 代理</a></li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
       <p>最近 <code>Google</code> 被封，而用 <code>Goagent</code> 做代理进行访问的效果而不是很理想，所以就想去买 <code>VPN/VPS</code> . 几经考虑后，就去买了个便宜 <code>VPS</code> , 这样也就可以分享给家人用了。</p>
-
 <p><code>VPS</code> 中安装的是 <code>Ubuntu=，所以搭建 =VPN</code> 服务器也就是在 <code>Ubuntu</code> 上面搭建，具体方法如下。</p>
-
 <p>注意：下面所有的操作都是以 <code>root</code> 用户进行的，非 <code>root</code> 用户请在命令前加上 <code>sudo</code></p>
-
 <p><strong>安装 <code>pptp</code></strong></p>
-
 <p><code>apt-get install pptpd</code></p>
-
 <p>配置 <code>IP</code> 地址范围及服务器 <code>IP</code></p>
-
 <p><code>vi /etc/pptpd.conf</code></p>
-
 <p>取消下面内容的注释</p>
-
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell">option /etc/ppp/pptpd-options
-localip <span class="m">192</span>.168.0.1
-remoteip <span class="m">192</span>.168.0.234-238,192.168.0.245</code></pre></td></tr></table>
+localip 192.168.0.1
+remoteip 192.168.0.234-238,192.168.0.245
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><strong>添加用于登录的账户</strong></p>
-
+</div><p><strong>添加用于登录的账户</strong></p>
 <p><code>vi /etc/ppp/chap-secrets</code></p>
-
 <p>格式如下</p>
-
-<p><code>用户名    pptpd   &quot;密码&quot;    *</code></p>
-
+<p><code>用户名	pptpd	&quot;密码&quot;	*</code></p>
 <p>密码需要用英文双引号，最后的星号(*)代表允许接入的 <code>IP</code> 可以是任意 <code>IP</code></p>
-
 <p><strong>设置 <code>DNS</code></strong></p>
-
 <p><code>vi /etc/ppp/pptpd-options</code></p>
-
 <p>找到 <code>ms-dns=，取消掉注释，并修改 =DNS</code> 地址，推荐使用 <code>Google DNS</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="m">8</span>.8.8.8
-<span class="m">8</span>.8.4.4</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">8.8.8.8
+8.8.4.4
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><strong>打开内核 <code>IP</code> 转发</strong></p>
-
+</div><p><strong>打开内核 <code>IP</code> 转发</strong></p>
 <p><code>vi /etc/sysctl.conf</code></p>
-
 <p>取消以下内容的注释：</p>
-
 <p><code>net.ipv4.ip_forward=1</code></p>
-
 <p>使其生效</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell">sysctl -p
-/etc/init.d/procps restart</code></pre></td></tr></table>
+/etc/init.d/procps restart
+</code></pre></td></tr></table>
 </div>
-</div>
-<p><strong>安装 <code>iptables</code> 并设置</strong></p>
-
+</div><p><strong>安装 <code>iptables</code> 并设置</strong></p>
 <p>开放主机防火墙 <code>VPN</code> 端口（默认为 <code>1723</code> ）</p>
-
 <p><code>iptables -I INPUT -p tcp --dport 1723 -j ACCEPT</code></p>
-
 <p>立刻让内核支持 <code>NAT</code></p>
-
 <p><code>iptables --table nat --append POSTROUTING --jump MASQUERADE</code></p>
-
 <p>为了让每次重启都生效，还需要在 <code>/etc/rc.local</code> 文件添加命令</p>
-
 <p><code>iptables --table nat --append POSTROUTING --jump MASQUERADE</code></p>
-
 <h2 id="ssh-代理">SSH 代理</h2>
-
 <p>如要使用 <code>ssh</code> 作为代理，则需要创建用户。若此用户只作为 <code>ssh</code> 代理用，则不要登录 <code>shell</code> 及主目录，使用以下命令</p>
-
 <p><code>useradd -s /bin/false  test</code></p>
-
 <p>在客户端(<code>linux</code>)中使用以下命令连接</p>
-
 <p><code>ssh -qTfnN -D 7070 test@xxx.xxx.xxx.xxx</code></p>
     </div>
 
@@ -296,11 +236,15 @@ remoteip <span class="m">192</span>.168.0.234-238,192.168.0.245</code></pre></td
   </p>
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
-    <span class="item-content">2019-02-12</span>
+    <span class="item-content">
+        2019-02-12
+        
+    </span>
   </p>
   
   
-</div><div class="post-reward">
+</div>
+<div class="post-reward">
   <input type="checkbox" name="reward" id="reward" hidden />
   <label class="reward-button" for="reward">赞赏支持</label>
   <div class="qr-code">
@@ -337,6 +281,10 @@ remoteip <span class="m">192</span>.168.0.234-238,192.168.0.245</code></pre></td
         </div>
         
 
+  
+
+  
+
       </div>
     </main>
 
@@ -363,13 +311,10 @@ remoteip <span class="m">192</span>.168.0.234-238,192.168.0.245</code></pre></td
   <span class="copyright-year">
     &copy; 
     2014 - 
-    2019
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">jouyouyun</span>
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>jouyouyun</span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -380,7 +325,10 @@ remoteip <span class="m">192</span>.168.0.234-238,192.168.0.245</code></pre></td
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="/dist/even.ece58db6.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 
