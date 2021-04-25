@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Audit 简单使用 - jouyouyun&#39;s blog</title>
+  <title>audit 简单使用 - jouyouyun&#39;s blog</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -41,21 +41,21 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Audit 简单使用" />
+<meta property="og:title" content="audit 简单使用" />
 <meta property="og:description" content="audit 是 linux 下的审计系统，包含内核模块和系统服务。可使用 audit 对文件变更、系统调用、任务创建、用户事件等进行审计。
 可使用 sudo auditctl -s 获取内核审计模块的状态，可使用 sudo systemctl status auditd 获取审计服务的状态。在添加规则之前，需要确保审计内核模块和审计服务正常。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jouyouyun.github.io/post/audit-usage/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2021-04-25T06:20:21&#43;08:00" />
-<meta property="article:modified_time" content="2021-04-25T15:46:23&#43;08:00" />
+<meta property="article:modified_time" content="2021-04-25T16:29:42&#43;08:00" />
 
-<meta itemprop="name" content="Audit 简单使用">
+<meta itemprop="name" content="audit 简单使用">
 <meta itemprop="description" content="audit 是 linux 下的审计系统，包含内核模块和系统服务。可使用 audit 对文件变更、系统调用、任务创建、用户事件等进行审计。
 可使用 sudo auditctl -s 获取内核审计模块的状态，可使用 sudo systemctl status auditd 获取审计服务的状态。在添加规则之前，需要确保审计内核模块和审计服务正常。"><meta itemprop="datePublished" content="2021-04-25T06:20:21&#43;08:00" />
-<meta itemprop="dateModified" content="2021-04-25T15:46:23&#43;08:00" />
-<meta itemprop="wordCount" content="803">
+<meta itemprop="dateModified" content="2021-04-25T16:29:42&#43;08:00" />
+<meta itemprop="wordCount" content="909">
 <meta itemprop="keywords" content="audit,file,exec,pid,cmd,program," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Audit 简单使用"/>
+<meta name="twitter:title" content="audit 简单使用"/>
 <meta name="twitter:description" content="audit 是 linux 下的审计系统，包含内核模块和系统服务。可使用 audit 对文件变更、系统调用、任务创建、用户事件等进行审计。
 可使用 sudo auditctl -s 获取内核审计模块的状态，可使用 sudo systemctl status auditd 获取审计服务的状态。在添加规则之前，需要确保审计内核模块和审计服务正常。"/>
 
@@ -116,7 +116,7 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Audit 简单使用</h1>
+      <h1 class="post-title">audit 简单使用</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2021-04-25 </span>
@@ -152,6 +152,7 @@
         <li><a href="#审计iptables变更">审计iptables变更</a></li>
       </ul>
     </li>
+    <li><a href="#持久化">持久化</a></li>
     <li><a href="#更多资料">更多资料</a></li>
   </ul>
 </nav>
@@ -218,7 +219,22 @@
 <p>这样在 <code>iptables</code> 规则发生变更时就会产生审计日志，但这样只能看到改变 <code>iptables</code> 规则的程序 <code>pid</code> ，看不到程序名，可结合 <code>execve</code> 调用来获取程序名：</p>
 <p><code>auditctl -a exit,always -F arch=b64 -S setsockopt -S execve -k iptables_audit</code></p>
 <p>查看日志、删除规则与上文相同。</p>
-<h2 id="更多资料">更多资料</h2>
+<h2 id="持久化">持久化</h2>
+<p><code>audit</code> 的规则配置文件在 <code>/etc/audit/rules.d/</code> 目录，可将规则添加到此目录下，即可达到持久化的目的，如需立即生效，可重启 <code>auditd</code> 服务。</p>
+<p>如将上述示例的规则进行持久化，添加文件 <code>/etc/audit/rules.d/self.rules</code> ，内容如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">-w /etc/systemd/system.conf -p w -k self_system_conf
+-a exit,always -F <span class="nv">arch</span><span class="o">=</span>b64 -S <span class="nb">kill</span> -k self_kill
+-a exit,always -F <span class="nv">arch</span><span class="o">=</span>b64 -S setsockopt -S execve -k self_iptables
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="更多资料">更多资料</h2>
 <ul>
 <li><code>man auditctl</code></li>
 </ul>
