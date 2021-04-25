@@ -108,6 +108,41 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/tcp-bbr/">TCP BBR</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2017-07-20 </span>
+      <div class="post-category">
+          <a href="/categories/blog/"> BLOG </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h2 id="启用-bbr">启用 BBR</h2>
+<p><code>BBR</code> 是在 4.9 以后的内核才开始支持的, 可以试着执行 <code>sudo modprobe tcp_bbr</code> 来确定是否支持, 没有输出就意味着支持, 将下面两行内容添加到 <code>/etc/sysctl.conf</code> 文件里开启用它:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">net.core.default_qdisc <span class="o">=</span> fq
+net.ipv4.tcp_congestion_control <span class="o">=</span> bbr
+</code></pre></td></tr></table>
+</div>
+</div><p>使用 <code>sysctl net.ipv4.tcp_available_congestion_control</code> 查看支持的算法, 用 <code>sysctl net.ipv4.tcp_congestion_control</code> 查看当前使用的算法.</p>
+<p>如果这个模块不会自动加载, 需要把 <code>tcp_bbr_powered</code> 添加到 <code>/etc/modules-load.d/modules.conf</code> 中.
+另外测试发现, 有时 <code>sysctl.conf</code> 里的设置并不会应用, 需要手动执行一下, 因此便写了 <code>reload-sysctl.service</code> 来做这个, <code>systemctl enable</code> 这个服务后, 一切就 OK 了.</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/tcp-bbr/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/leanote-installation/">Leanote Installation</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2017-07-17 </span>
@@ -236,35 +271,6 @@ sudo cp -R /etc/easy-rsa /etc/openvpn
     </div>
     <div class="read-more">
       <a href="/post/xrandr-examples/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/enable-coredump/">Enable Coredump</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2016-04-25 </span>
-      <div class="post-category">
-          <a href="/categories/blog/"> BLOG </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <h2 id="简介">简介</h2>
-<p>当一个程序崩溃时会产生一个 <code>core</code> 文件, 里面记录了这个程序崩溃的原因, 这些信息对于开发者是很有用的.</p>
-<p>但是 <code>core dumps</code> 在大多数 <code>linux</code> 上是被禁用的, 下面就介绍下如何开启这个功能.</p>
-<h2 id="开启">开启</h2>
-<p>可以通过 <code>ulimit -c</code> 的输出知道此功能是否开启, 输出为 <code>0</code> 表示禁用, 否则为开启.</p>
-<h3 id="临时开启">临时开启</h3>
-<p>通过 <code>ulimit -c unlimited</code> 命令来开启 <code>coredump</code> 功能, 它会程序运行的当前目录生成一个 <code>core</code> 文件, 新的 <code>core</code> 会覆盖旧的.</p>
-<p>通过可以修改 <code>/proc/sys/kernel/core_uses_pid</code> 文件内容为 <code>1</code> 来生成以 <code>pid</code> 作为扩展名的 <code>core</code> 文件.</p>
-<p>通过修改 <code>/proc/sys/kernel/core_pattern</code> 可以修改 <code>core</code> 文件的保存位置和格式. 如把内容改为 <code>/tmp/core-%e-%p-%t</code>, 就表示把 <code>core</code> 文件保存到 <code>/tmp</code> 目录下, 文件名的格式为 <code>core-命令名-pid-时间戳</code> .</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/enable-coredump/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>

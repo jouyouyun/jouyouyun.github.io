@@ -108,6 +108,39 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/linux-kernel-compile/">Compile Kernel</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2019-08-06 </span>
+      <div class="post-category">
+          <a href="/categories/blog/"> BLOG </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p>最近由于要调试 <code>usbhid</code> 模块，所以需要编译 <code>kernel</code> ，在此整理下方法，以免每次都查找。</p>
+<h2 id="dependencies">Dependencies</h2>
+<ul>
+<li>
+<p><code>deepin</code></p>
+<p><code>sudo apt-get install build-essential libncurses-dev bison flex libssl-dev libelf-dev</code></p>
+</li>
+<li>
+<p><code>archlinux</code></p>
+<p><code>sudo pacman -S gcc ncurses bison flex openssl libelf elfutils</code></p>
+</li>
+</ul>
+<p>若编译时有报错，请按照错误提示按照缺失的依赖。</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/linux-kernel-compile/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/gsettings/">GSettings</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2019-08-03 </span>
@@ -196,28 +229,6 @@
     </div>
     <div class="read-more">
       <a href="/post/jenkins-api-usage/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/docker-data-storage/">更改 Docker 数据的存储目录</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2019-04-21 </span>
-      <div class="post-category">
-          <a href="/categories/blog/"> BLOG </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p><code>Docker</code> 安装后默认将数据存储在 <code>/var/lib/docker</code> 下，随着 <code>image</code> 和 <code>container</code> 的增多，会导致 <code>/</code> 分区的空间被用完，如果 <code>/</code> 分区特别大就请忽略这篇文章。</p>
-<p>因此需要将一些软件的数据存储到空间大的分区，与 <code>/</code> 分区分开。不仅 <code>Docker</code> 需要这样处理，如 <code>mysql/postgresql</code> 等软件也需要这样处理。</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/docker-data-storage/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>

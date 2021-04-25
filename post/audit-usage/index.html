@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Audit 简单使用 - jouyouyun&#39;s blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="jouyouyun" /><meta name="description" content="audit 是 linux 下的审计系统，包含内核模块和系统服务。可使用 audit 对文件变更、系统调用、任务创建、用户事件等进行审计。
+可使用 sudo auditctl -s 获取内核审计模块的状态，可使用 sudo systemctl status auditd 获取审计服务的状态。在添加规则之前，需要确保审计内核模块和审计服务正常。
+" /><meta name="keywords" content="jouyouyun, Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.82.1 with theme even" />
+
+
+<link rel="canonical" href="https://jouyouyun.github.io/post/audit-usage/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Audit 简单使用" />
+<meta property="og:description" content="audit 是 linux 下的审计系统，包含内核模块和系统服务。可使用 audit 对文件变更、系统调用、任务创建、用户事件等进行审计。
+可使用 sudo auditctl -s 获取内核审计模块的状态，可使用 sudo systemctl status auditd 获取审计服务的状态。在添加规则之前，需要确保审计内核模块和审计服务正常。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jouyouyun.github.io/post/audit-usage/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-04-25T06:20:21&#43;08:00" />
+<meta property="article:modified_time" content="2021-04-25T15:46:23&#43;08:00" />
+
+<meta itemprop="name" content="Audit 简单使用">
+<meta itemprop="description" content="audit 是 linux 下的审计系统，包含内核模块和系统服务。可使用 audit 对文件变更、系统调用、任务创建、用户事件等进行审计。
+可使用 sudo auditctl -s 获取内核审计模块的状态，可使用 sudo systemctl status auditd 获取审计服务的状态。在添加规则之前，需要确保审计内核模块和审计服务正常。"><meta itemprop="datePublished" content="2021-04-25T06:20:21&#43;08:00" />
+<meta itemprop="dateModified" content="2021-04-25T15:46:23&#43;08:00" />
+<meta itemprop="wordCount" content="803">
+<meta itemprop="keywords" content="audit,file,exec,pid,cmd,program," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Audit 简单使用"/>
+<meta name="twitter:description" content="audit 是 linux 下的审计系统，包含内核模块和系统服务。可使用 audit 对文件变更、系统调用、任务创建、用户事件等进行审计。
+可使用 sudo auditctl -s 获取内核审计模块的状态，可使用 sudo systemctl status auditd 获取审计服务的状态。在添加规则之前，需要确保审计内核模块和审计服务正常。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">jouyouyun</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">jouyouyun</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Audit 简单使用</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-04-25 </span>
+        <div class="post-category">
+            <a href="/categories/blog/"> BLOG </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#常用操作">常用操作</a>
+      <ul>
+        <li><a href="#添加规则">添加规则</a></li>
+        <li><a href="#删除规则">删除规则</a></li>
+        <li><a href="#指定选项">指定选项</a></li>
+        <li><a href="#设置过滤标识">设置过滤标识</a></li>
+        <li><a href="#指定系统调用">指定系统调用</a></li>
+        <li><a href="#指定文件">指定文件</a></li>
+        <li><a href="#指定文件权限">指定文件权限</a></li>
+        <li><a href="#删除文件规则">删除文件规则</a></li>
+        <li><a href="#查询规则列表">查询规则列表</a></li>
+      </ul>
+    </li>
+    <li><a href="#示例场景">示例场景</a>
+      <ul>
+        <li><a href="#审计文件变动">审计文件变动</a></li>
+        <li><a href="#审计系统调用">审计系统调用</a></li>
+        <li><a href="#审计iptables变更">审计iptables变更</a></li>
+      </ul>
+    </li>
+    <li><a href="#更多资料">更多资料</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p><code>audit</code> 是 <code>linux</code> 下的审计系统，包含内核模块和系统服务。可使用 <code>audit</code> 对文件变更、系统调用、任务创建、用户事件等进行审计。</p>
+<p>可使用 <code>sudo auditctl -s</code> 获取内核审计模块的状态，可使用 <code>sudo systemctl status auditd</code> 获取审计服务的状态。在添加规则之前，需要确保审计内核模块和审计服务正常。</p>
+<h2 id="常用操作">常用操作</h2>
+<h3 id="添加规则">添加规则</h3>
+<p><code>-a &lt;list,action&gt;</code> 参数可以添加规则，可用值分为 <code>list</code> 和 <code>action</code> 。 <code>list</code> 表示需要操作的事件队列， <code>action</code> 表示事件发生时的操作。</p>
+<ul>
+<li>
+<p><code>list</code> 可用值为</p>
+<ul>
+<li><code>task</code> 添加规则到每一个任务列表，只在任务创建(<code>fork/clone</code>)时触发</li>
+<li><code>exit</code> 添加规则到系统调用列表，在系统调用退出时触发</li>
+<li><code>user</code> 添加规则到用户消息过滤列表，用于内核过滤用户空间的事件</li>
+<li><code>exclude</code> 添加到事件排除列表，用于不希望接收的事件</li>
+</ul>
+</li>
+<li>
+<p><code>action</code> 可用值为</p>
+<ul>
+<li><code>never</code> 不产生审计记录</li>
+<li><code>always</code> 纪录</li>
+</ul>
+</li>
+</ul>
+<h3 id="删除规则">删除规则</h3>
+<p><code>-d &lt;list,action&gt;</code> 参数可以删除规则，与 <code>-a</code> 时对应。</p>
+<h3 id="指定选项">指定选项</h3>
+<p><code>-F</code> 参数用于指定规则选项</p>
+<h3 id="设置过滤标识">设置过滤标识</h3>
+<p><code>-k</code> 可为规则指定一个标识，可认为是此条规则的 <code>id</code> ，可在搜索审计日志时使用。</p>
+<h3 id="指定系统调用">指定系统调用</h3>
+<p><code>-S</code> 可指定需要审计的系统调用</p>
+<h3 id="指定文件">指定文件</h3>
+<p><code>-w</code> 参数可指定需要审计的文件</p>
+<h3 id="指定文件权限">指定文件权限</h3>
+<p><code>-p</code> 可指定文件变更时需要的属性，可用值为 <code>r(read), w(write), x(execute), a(attribute change)</code></p>
+<h3 id="删除文件规则">删除文件规则</h3>
+<p><code>-W</code> 参数可删除添加的文件审计规则</p>
+<h3 id="查询规则列表">查询规则列表</h3>
+<p><code>-l</code> 参数可获得已添加的规则列表</p>
+<h2 id="示例场景">示例场景</h2>
+<h3 id="审计文件变动">审计文件变动</h3>
+<p>审计 <code>/etc/systemd/system.conf</code> 文件的写入变动，添加规则：</p>
+<p><code>sudo auditctl -w /etc/systemd/system.conf -p w -k system_conf_audit</code></p>
+<p>当这个文件以写入方式打开或发生写入后，会记录相关的审计日志，可用 <code>ausearch</code> 查看：</p>
+<p><code>sudo ausearch -k system_conf_audit</code></p>
+<p>删除这条审计规则可用：</p>
+<p><code>sudo auditctl -W /etc/systemd/system.conf -p w -k system_conf_audit</code></p>
+<h3 id="审计系统调用">审计系统调用</h3>
+<p>审计 <code>kill</code> 调用，规则：</p>
+<p><code>sudo auditctl -a exit,always -F arch=b64 -S kill -k kill_audit</code></p>
+<p>这里的 <code>-F arch=b64</code> 是表示检讨 <code>64</code> 位的 <code>kill</code> 调用，必须指定。这样在发生 <code>kill</code> 调用时就会产生审计日志，查看方式还是使用 <code>ausearch</code></p>
+<p><code>sudo ausearch -k kill_audit</code></p>
+<p>删除这条审计规则可用：</p>
+<p><code>sudo auditctl -d exit,always -S kill -k kill_audit</code></p>
+<h3 id="审计iptables变更">审计iptables变更</h3>
+<p><code>iptables</code> 会触发 <code>setsockopt</code> 调用，因此通过这个系统调用来审计 <code>iptables</code> 变更：</p>
+<p><code>auditctl -a exit,always -F arch=b64 -S setsockopt -k iptables_audit</code></p>
+<p>这样在 <code>iptables</code> 规则发生变更时就会产生审计日志，但这样只能看到改变 <code>iptables</code> 规则的程序 <code>pid</code> ，看不到程序名，可结合 <code>execve</code> 调用来获取程序名：</p>
+<p><code>auditctl -a exit,always -F arch=b64 -S setsockopt -S execve -k iptables_audit</code></p>
+<p>查看日志、删除规则与上文相同。</p>
+<h2 id="更多资料">更多资料</h2>
+<ul>
+<li><code>man auditctl</code></li>
+</ul>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">jouyouyun</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2021-04-25
+        
+    </span>
+  </p>
+  
+  
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/images/reward/wechat-qr-code.png">
+        <span>微信打赏</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/images/reward/alipay-qr-code.png">
+        <span>支付宝打赏</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/audit/">audit</a>
+          <a href="/tags/file/">file</a>
+          <a href="/tags/exec/">exec</a>
+          <a href="/tags/pid/">pid</a>
+          <a href="/tags/cmd/">cmd</a>
+          <a href="/tags/program/">program</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/dde-daemon-tutorial/">
+            <span class="next-text nav-default">DDE 后端 Tutorial</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:jouyouwen717@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://twitter.com/jouyouyun" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://github.com/jouyouyun" class="iconfont icon-github" title="github"></a>
+  <a href="https://jouyouyun.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2014 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>jouyouyun</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

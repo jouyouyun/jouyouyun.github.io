@@ -108,6 +108,28 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/audit-usage/">Audit 简单使用</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2021-04-25 </span>
+      <div class="post-category">
+          <a href="/categories/blog/"> BLOG </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p><code>audit</code> 是 <code>linux</code> 下的审计系统，包含内核模块和系统服务。可使用 <code>audit</code> 对文件变更、系统调用、任务创建、用户事件等进行审计。</p>
+<p>可使用 <code>sudo auditctl -s</code> 获取内核审计模块的状态，可使用 <code>sudo systemctl status auditd</code> 获取审计服务的状态。在添加规则之前，需要确保审计内核模块和审计服务正常。</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/audit-usage/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/dde-daemon-tutorial/">DDE 后端 Tutorial</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2020-03-15 </span>
@@ -192,39 +214,6 @@
     </div>
     <div class="read-more">
       <a href="/post/debian-cve-tracker/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/linux-kernel-compile/">Compile Kernel</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2019-08-06 </span>
-      <div class="post-category">
-          <a href="/categories/blog/"> BLOG </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>最近由于要调试 <code>usbhid</code> 模块，所以需要编译 <code>kernel</code> ，在此整理下方法，以免每次都查找。</p>
-<h2 id="dependencies">Dependencies</h2>
-<ul>
-<li>
-<p><code>deepin</code></p>
-<p><code>sudo apt-get install build-essential libncurses-dev bison flex libssl-dev libelf-dev</code></p>
-</li>
-<li>
-<p><code>archlinux</code></p>
-<p><code>sudo pacman -S gcc ncurses bison flex openssl libelf elfutils</code></p>
-</li>
-</ul>
-<p>若编译时有报错，请按照错误提示按照缺失的依赖。</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/linux-kernel-compile/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>

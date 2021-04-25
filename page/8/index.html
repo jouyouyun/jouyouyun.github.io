@@ -108,6 +108,35 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/enable-coredump/">Enable Coredump</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2016-04-25 </span>
+      <div class="post-category">
+          <a href="/categories/blog/"> BLOG </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <h2 id="简介">简介</h2>
+<p>当一个程序崩溃时会产生一个 <code>core</code> 文件, 里面记录了这个程序崩溃的原因, 这些信息对于开发者是很有用的.</p>
+<p>但是 <code>core dumps</code> 在大多数 <code>linux</code> 上是被禁用的, 下面就介绍下如何开启这个功能.</p>
+<h2 id="开启">开启</h2>
+<p>可以通过 <code>ulimit -c</code> 的输出知道此功能是否开启, 输出为 <code>0</code> 表示禁用, 否则为开启.</p>
+<h3 id="临时开启">临时开启</h3>
+<p>通过 <code>ulimit -c unlimited</code> 命令来开启 <code>coredump</code> 功能, 它会程序运行的当前目录生成一个 <code>core</code> 文件, 新的 <code>core</code> 会覆盖旧的.</p>
+<p>通过可以修改 <code>/proc/sys/kernel/core_uses_pid</code> 文件内容为 <code>1</code> 来生成以 <code>pid</code> 作为扩展名的 <code>core</code> 文件.</p>
+<p>通过修改 <code>/proc/sys/kernel/core_pattern</code> 可以修改 <code>core</code> 文件的保存位置和格式. 如把内容改为 <code>/tmp/core-%e-%p-%t</code>, 就表示把 <code>core</code> 文件保存到 <code>/tmp</code> 目录下, 文件名的格式为 <code>core-命令名-pid-时间戳</code> .</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/enable-coredump/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/auto-hidden-cursor/">Auto Hidden Cursor</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2016-04-22 </span>
@@ -204,27 +233,6 @@
     </div>
     <div class="read-more">
       <a href="/post/go-tcp-socket-example/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/go-gob-rw-file/">Go 笔记: Gob Write/Read File</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2014-07-07 </span>
-      <div class="post-category">
-          <a href="/categories/note/"> NOTE </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p><code>Gob</code> 使用实例，将结构体写入文件里，在需要的时候再从文件中读取出来。</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/go-gob-rw-file/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>

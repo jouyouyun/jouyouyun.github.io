@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>cmd on jouyouyun&#39;s blog</title>
+    <link>https://jouyouyun.github.io/tags/cmd/</link>
+    <description>Recent content in cmd on jouyouyun&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>jouyouyun</copyright>
+    <lastBuildDate>Sun, 25 Apr 2021 06:20:21 +0800</lastBuildDate><atom:link href="https://jouyouyun.github.io/tags/cmd/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Audit 简单使用</title>
+      <link>https://jouyouyun.github.io/post/audit-usage/</link>
+      <pubDate>Sun, 25 Apr 2021 06:20:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/audit-usage/</guid>
+      <description>&lt;p&gt;&lt;code&gt;audit&lt;/code&gt; 是 &lt;code&gt;linux&lt;/code&gt; 下的审计系统，包含内核模块和系统服务。可使用 &lt;code&gt;audit&lt;/code&gt; 对文件变更、系统调用、任务创建、用户事件等进行审计。&lt;/p&gt;
+&lt;p&gt;可使用 &lt;code&gt;sudo auditctl -s&lt;/code&gt; 获取内核审计模块的状态，可使用 &lt;code&gt;sudo systemctl status auditd&lt;/code&gt; 获取审计服务的状态。在添加规则之前，需要确保审计内核模块和审计服务正常。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
