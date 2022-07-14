@@ -1,48 +1,47 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>python3 学习笔记 - jouyouyun&#39;s blog</title>
-  <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-<meta name="author" content="jouyouyun" /><meta name="description" content="Python3 Study Notes 本人很少写 python 代码, 一般都是用 go 的, 去年时用 python 写过一些收集系统信息的工具, 当时是边看手册边写的. 如今又要用 python 来写一个生成 xlsx 的工具, 就又需要查看手册了, 至于为什么不用 go 写? 那是因为 go 的库不兼容永中. 在这里不得不说, 虽然 go 很火, 但是一些库还是不如 python 多, 不如 python 兼容性好.
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>python3 学习笔记 | jouyouyun&#39;s blog</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Python3 Study Notes
+本人很少写 python 代码, 一般都是用 go 的, 去年时用 python 写过一些收集系统信息的工具, 当时是边看手册边写的. 如今又要用 python 来写一个生成 xlsx 的工具, 就又需要查看手册了, 至于为什么不用 go 写? 那是因为 go 的库不兼容永中. 在这里不得不说, 虽然 go 很火, 但是一些库还是不如 python 多, 不如 python 兼容性好.
 为了避免以后再出这种事情, 这次就好好的了解下 python, 将它的用法按照自己对语言的理解分块记录下来. 要使用某种语言, 个人认为需要了解这些方面:
- 编码风格 变量的类型, 声明及使用方式 输入/输出 控制语句的写法 错误处理的用法 函数的用法, 还有语言支持的一些特性, python 中就有装饰器, lambda 语句等 对于面向对象语言还需要了解类的声明, 继承, 多态等的用法  还有一些就是此语言的一些特性, python 就还需要了解以下特性:
-" /><meta name="keywords" content="jouyouyun, Hugo, theme, even" />
+
+编码风格
+变量的类型, 声明及使用方式
+输入/输出
+控制语句的写法
+错误处理的用法
+函数的用法, 还有语言支持的一些特性, python 中就有装饰器, lambda 语句等
+对于面向对象语言还需要了解类的声明, 继承, 多态等的用法
+
+还有一些就是此语言的一些特性, python 就还需要了解以下特性:">
+    <meta name="generator" content="Hugo 0.101.0" />
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
 
 
 
+    
+    
+    
+      
 
+    
 
-
-<meta name="generator" content="Hugo 0.82.1 with theme even" />
-
-
-<link rel="canonical" href="https://jouyouyun.github.io/post/python-learn-note/" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-
-
-
-<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
-
-
-<meta property="og:title" content="python3 学习笔记" />
+    
+    
+    <meta property="og:title" content="python3 学习笔记" />
 <meta property="og:description" content="Python3 Study Notes
 本人很少写 python 代码, 一般都是用 go 的, 去年时用 python 写过一些收集系统信息的工具, 当时是边看手册边写的. 如今又要用 python 来写一个生成 xlsx 的工具, 就又需要查看手册了, 至于为什么不用 go 写? 那是因为 go 的库不兼容永中. 在这里不得不说, 虽然 go 很火, 但是一些库还是不如 python 多, 不如 python 兼容性好.
 为了避免以后再出这种事情, 这次就好好的了解下 python, 将它的用法按照自己对语言的理解分块记录下来. 要使用某种语言, 个人认为需要了解这些方面:
@@ -58,8 +57,8 @@
 还有一些就是此语言的一些特性, python 就还需要了解以下特性:" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jouyouyun.github.io/post/python-learn-note/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2018-12-02T21:38:21&#43;08:00" />
-<meta property="article:modified_time" content="2019-03-25T20:07:49&#43;08:00" />
+<meta property="article:published_time" content="2018-12-02T21:38:21+08:00" />
+<meta property="article:modified_time" content="2019-03-25T20:07:49+08:00" />
 
 <meta itemprop="name" content="python3 学习笔记">
 <meta itemprop="description" content="Python3 Study Notes
@@ -74,9 +73,9 @@
 函数的用法, 还有语言支持的一些特性, python 中就有装饰器, lambda 语句等
 对于面向对象语言还需要了解类的声明, 继承, 多态等的用法
 
-还有一些就是此语言的一些特性, python 就还需要了解以下特性:"><meta itemprop="datePublished" content="2018-12-02T21:38:21&#43;08:00" />
-<meta itemprop="dateModified" content="2019-03-25T20:07:49&#43;08:00" />
-<meta itemprop="wordCount" content="4293">
+还有一些就是此语言的一些特性, python 就还需要了解以下特性:"><meta itemprop="datePublished" content="2018-12-02T21:38:21+08:00" />
+<meta itemprop="dateModified" content="2019-03-25T20:07:49+08:00" />
+<meta itemprop="wordCount" content="1039">
 <meta itemprop="keywords" content="python," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="python3 学习笔记"/>
 <meta name="twitter:description" content="Python3 Study Notes
@@ -93,97 +92,116 @@
 
 还有一些就是此语言的一些特性, python 就还需要了解以下特性:"/>
 
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
+	
+  </head>
 
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
+  <body class="ma0 avenir bg-near-white">
 
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/" class="logo">jouyouyun</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <a href="/post/">
-        <li class="mobile-menu-item">Archives</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">Tags</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">Categories</li>
-      </a>
-  </ul>
-</nav>
-  <div class="container" id="mobile-panel">
-    <header id="header" class="header">
-        <div class="logo-wrapper">
-  <a href="/" class="logo">jouyouyun</a>
-</div>
-
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
-        <a class="menu-item-link" href="/post/">Archives</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">Tags</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">Categories</a>
-      </li>
-  </ul>
-</nav>
-    </header>
-
-    <main id="main" class="main">
-      <div class="content-wrapper">
-        <div id="content" class="content">
-          <article class="post">
     
-    <header class="post-header">
-      <h1 class="post-title">python3 学习笔记</h1>
+   
+  
 
-      <div class="post-meta">
-        <span class="post-time"> 2018-12-02 </span>
-        <div class="post-category">
-            <a href="/categories/note/"> NOTE </a>
-            </div>
-        
-      </div>
-    </header>
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        jouyouyun&#39;s blog
+      
+    </a>
+    <div class="flex-l items-center">
+      
 
-    <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">文章目录</h2>
-  <div class="post-toc-content always-active">
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#python3-study-notes">Python3 Study Notes</a>
-      <ul>
-        <li><a href="#编码风格">编码风格</a></li>
-        <li><a href="#变量">变量</a></li>
-        <li><a href="#输入-输出">输入/输出</a></li>
-        <li><a href="#控制语句">控制语句</a></li>
-        <li><a href="#错误处理">错误处理</a></li>
-        <li><a href="#函数">函数</a></li>
-        <li><a href="#模块">模块</a></li>
-        <li><a href="#类">类</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-  </div>
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/post/" title="Archives 页">
+              Archives
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/tags/" title="Tags 页">
+              Tags
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/categories/" title="Categories 页">
+              Categories
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+<div class="ananke-socials">
+  
+    <a href="https://github.com/jouyouyun" target="_blank" class="github ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="GitHub link" rel="noopener" aria-label="follow on GitHub——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
 </div>
-    <div class="post-content">
-      <h2 id="python3-study-notes">Python3 Study Notes</h2>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">python3 学习笔记</h1>
+      
+      <p class="tracked">
+         <strong>jouyouyun</strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2018-12-02T21:38:21+08:00">十二月 2, 2018</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h2 id="python3-study-notes">Python3 Study Notes</h2>
 <p>本人很少写 <code>python</code> 代码, 一般都是用 <code>go</code> 的, 去年时用 <code>python</code> 写过一些收集系统信息的工具, 当时是边看手册边写的. 如今又要用 <code>python</code> 来写一个生成 <code>xlsx</code> 的工具, 就又需要查看手册了, 至于为什么不用 <code>go</code> 写? 那是因为 <code>go</code> 的库不兼容永中. 在这里不得不说, 虽然 <code>go</code> 很火, 但是一些库还是不如 <code>python</code> 多, 不如 <code>python</code> 兼容性好.</p>
 <p>为了避免以后再出这种事情, 这次就好好的了解下 <code>python</code>, 将它的用法按照自己对语言的理解分块记录下来. 要使用某种语言, 个人认为需要了解这些方面:</p>
 <ul>
@@ -216,19 +234,10 @@
 </ul>
 <h3 id="变量">变量</h3>
 <p><code>Python</code> 是动态语言, 变量的类型不固定, 根据值的类型而决定, 所以不用显示的声明变量， 用的时候直接赋值即可，如下:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="o">//</span> <span class="err">此时是整型</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
-<span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;hello&#39;</span><span class="p">;</span> <span class="o">//</span> <span class="err">此时又为字符串类型</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>通常变量名全部大写的为 <strong>常量</strong>, <strong>空值</strong> 用 <code>None</code> 表示.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>a <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; <span style="color:#f92672">//</span> 此时是整型
+</span></span><span style="display:flex;"><span>print(a);
+</span></span><span style="display:flex;"><span>a <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;hello&#39;</span>; <span style="color:#f92672">//</span> 此时又为字符串类型
+</span></span></code></pre></div><p>通常变量名全部大写的为 <strong>常量</strong>, <strong>空值</strong> 用 <code>None</code> 表示.</p>
 <p>以 <code>_xxx</code> 或 <code>__xxx</code> 命名的函数或变量是私有变量, 不能被其他模块直接引用</p>
 <h4 id="基础类型">基础类型</h4>
 <p>这里将整型, 浮点型, 布尔和字符串看作是基本类型, 整型和浮点型的使用就不再介绍了, 布尔的值只能为 <code>True/False</code>, 而字符串的常见操作如下:</p>
@@ -241,15 +250,8 @@
 <p>另外它们之间的相互转换是通过 <code>int(arg), float(arg), str(arg)</code> 这些内置的方法来处理的.</p>
 <h4 id="列表">列表</h4>
 <p>列表中可以包含不同类型的数据, 如:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="nb">list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;eggs&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">67.12</span><span class="p">];</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>通过 <code>list(seq)</code> 可以将一个序列转换为列表.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>list <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;eggs&#34;</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">67.12</span>];
+</span></span></code></pre></div><p>通过 <code>list(seq)</code> 可以将一个序列转换为列表.</p>
 <p><strong>array</strong> 模块提供了固定类型的数据, 可以指定要转换的类型, 具体请查阅手册.</p>
 <p>列表通过下标索引, <code>len</code> 函数获取大小.</p>
 <p>列表对象常用的方法如下:</p>
@@ -259,76 +261,35 @@
 <li><strong>pop(idx):</strong> 删除指定位置的元素, 参数为空则删除最后一个元素</li>
 </ul>
 <p>列表遍历:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">for</span> <span class="o">&lt;</span><span class="n">variable</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">array</span><span class="o">&gt;</span><span class="p">:</span>
-    <span class="o">//</span> <span class="n">do</span>
-
-<span class="o">//</span> <span class="err">带下标</span>
-<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="o">&lt;</span><span class="n">array</span><span class="o">&gt;</span><span class="p">):</span>
-    <span class="o">//</span> <span class="n">do</span>
-
-<span class="o">//</span> <span class="err">列表中多个元素</span>
-<span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">)]:</span>
-    <span class="o">//</span> <span class="n">do</span>
-
-<span class="o">//</span> <span class="err">用</span> <span class="nb">zip</span> <span class="err">同时遍历多个数组</span>
-<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">];</span>
-<span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">];</span>
-<span class="k">for</span> <span class="n">av</span><span class="p">,</span> <span class="n">bv</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-    <span class="o">//</span> <span class="n">do</span> <span class="n">av</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">bv</span><span class="o">=</span><span class="mi">5</span>
-
-<span class="o">//</span> <span class="err">生成</span>
-<span class="p">[</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
-</code></pre></td></tr></table>
-</div>
-</div><h4 id="元组">元组</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> <span style="color:#f92672">&lt;</span>variable<span style="color:#f92672">&gt;</span> <span style="color:#f92672">in</span> <span style="color:#f92672">&lt;</span>array<span style="color:#f92672">&gt;</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">//</span> do
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">//</span> 带下标
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> idx, name <span style="color:#f92672">in</span> enumerate(<span style="color:#f92672">&lt;</span>array<span style="color:#f92672">&gt;</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">//</span> do
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">//</span> 列表中多个元素
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> x, y <span style="color:#f92672">in</span> [(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>), (<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">4</span>), (<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">9</span>)]:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">//</span> do
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">//</span> 用 zip 同时遍历多个数组
+</span></span><span style="display:flex;"><span>a <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>];
+</span></span><span style="display:flex;"><span>b <span style="color:#f92672">=</span> [<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> av, bv <span style="color:#f92672">in</span> zip(a, b):
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">//</span> do av<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, bv<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">//</span> 生成
+</span></span><span style="display:flex;"><span>[x <span style="color:#f92672">*</span> x <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">11</span>) <span style="color:#66d9ef">if</span> x <span style="color:#f92672">%</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>]
+</span></span></code></pre></div><h4 id="元组">元组</h4>
 <p>元组(tuple) 是一个不可修改的列表, 元组中每个元素的指向是不可更改的, 但指向里的内容是可以更改的, 如元组中包含一个数组:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="s2">&#34;A&#34;</span><span class="p">,</span> <span class="s2">&#34;B&#34;</span><span class="p">]);</span>
-<span class="n">t</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&#34;X&#34;</span><span class="p">;</span>
-<span class="n">t</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&#34;Y&#34;</span><span class="p">;</span>
-</code></pre></td></tr></table>
-</div>
-</div><hr>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>t <span style="color:#f92672">=</span> (<span style="color:#e6db74">&#39;1&#39;</span>, <span style="color:#ae81ff">1</span>, [<span style="color:#e6db74">&#34;A&#34;</span>, <span style="color:#e6db74">&#34;B&#34;</span>]);
+</span></span><span style="display:flex;"><span>t[<span style="color:#ae81ff">2</span>][<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;X&#34;</span>;
+</span></span><span style="display:flex;"><span>t[<span style="color:#ae81ff">2</span>][<span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Y&#34;</span>;
+</span></span></code></pre></div><hr>
 <h4 id="字典">字典</h4>
 <p>语法:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="nb">dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;&lt;key&gt;&#39;</span><span class="p">:</span><span class="o">&lt;</span><span class="n">value</span><span class="o">&gt;</span><span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>常用的对象方法:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>dict <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#39;&lt;key&gt;&#39;</span>:<span style="color:#f92672">&lt;</span>value<span style="color:#f92672">&gt;</span>}
+</span></span></code></pre></div><p>常用的对象方法:</p>
 <ul>
 <li><strong>get(key, value):</strong> 获取指定 <code>key</code> 的值, 如果不存在则返回 <code>value</code>, 如果 <code>value</code> 未指定则返回 <code>None</code></li>
 <li><strong>pop(key):</strong> 删除指定的 <code>key</code></li>
@@ -344,33 +305,14 @@
 <p>集合与字典类似, 是一组 <code>key</code> 的集合, 但不存储 <code>value</code>, 没有重复的 <code>key</code>.</p>
 <p>要创建一个集合, 需要传入一个数组, 重复的元素会被自动过滤.</p>
 <p>遍历:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">for</span> <span class="o">&lt;</span><span class="n">key</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="nb">dict</span><span class="o">&gt;</span><span class="p">:</span>
-    <span class="o">//</span> <span class="n">do</span>
-
-<span class="o">//</span> <span class="err">带下标</span>
-<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="o">//</span> <span class="n">do</span>
-</code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">s</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span> <span class="p">,</span><span class="mi">3</span><span class="p">]);</span> <span class="o">//</span> <span class="n">s</span><span class="p">:</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>常用的对象方法:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> <span style="color:#f92672">&lt;</span>key<span style="color:#f92672">&gt;</span> <span style="color:#f92672">in</span> <span style="color:#f92672">&lt;</span>dict<span style="color:#f92672">&gt;</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">//</span> do
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">//</span> 带下标
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> idx, name <span style="color:#f92672">in</span> dict<span style="color:#f92672">.</span>items():
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">//</span> do
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>s <span style="color:#f92672">=</span> set([<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span> ,<span style="color:#ae81ff">3</span>]); <span style="color:#f92672">//</span> s: {<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>}
+</span></span></code></pre></div><p>常用的对象方法:</p>
 <ul>
 <li><strong>add(key):</strong> 添加 <code>key</code></li>
 <li><strong>remove(key):</strong> 删除 <code>key</code></li>
@@ -378,59 +320,25 @@
 <hr>
 <h4 id="global-关键字">global 关键字</h4>
 <p><code>global</code> 关键字用于声明变量的作用域, 用法如下:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># 全局变量</span>
-<span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
-
-<span class="k">def</span> <span class="nf">test</span><span class="p">():</span>
-    <span class="c1"># 若下面这行注释掉, 则下面的 a 是局部变量, &#39;Global&#39; 处的输出还是全局变量 1</span>
-    <span class="c1"># 若下面这行取消注释, 则下面的 a 是全局变量, &#39;Gloabl&#39; 出的输出是 5</span>
-    <span class="c1"># global a</span>
-    <span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&#34;In test:&#34;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
-
-<span class="c1"># Global</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&#34;Global:&#34;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>输出, <code>global a</code> 注释掉时:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">In</span> <span class="n">test</span><span class="p">:</span> <span class="mi">5</span>
-<span class="n">Global</span><span class="p">:</span> <span class="mi">1</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>输出, <code>global a</code> 取消注释时:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">In</span> <span class="n">test</span><span class="p">:</span> <span class="mi">5</span>
-<span class="n">Global</span><span class="p">:</span> <span class="mi">5</span>
-</code></pre></td></tr></table>
-</div>
-</div><hr>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># 全局变量</span>
+</span></span><span style="display:flex;"><span>a <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 若下面这行注释掉, 则下面的 a 是局部变量, &#39;Global&#39; 处的输出还是全局变量 1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 若下面这行取消注释, 则下面的 a 是全局变量, &#39;Gloabl&#39; 出的输出是 5</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># global a</span>
+</span></span><span style="display:flex;"><span>    a <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;In test:&#34;</span>, a)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Global</span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Global:&#34;</span>, a)
+</span></span></code></pre></div><p>输出, <code>global a</code> 注释掉时:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>In test: <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>Global: <span style="color:#ae81ff">1</span>
+</span></span></code></pre></div><p>输出, <code>global a</code> 取消注释时:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>In test: <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>Global: <span style="color:#ae81ff">5</span>
+</span></span></code></pre></div><hr>
 <h4 id="更多">更多</h4>
 <p>上面的只是基础，想要更好的使用变量，还需要了解以下内容：</p>
 <ul>
@@ -457,161 +365,72 @@
 <p>使用 <code>input(prompt)</code> 可以接受控制台的输入</p>
 <h4 id="输出">输出</h4>
 <p>使用 <code>print()</code> 可以打印内容到控制台, 格式化输出:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">n</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="n">s</span> <span class="o">=</span> <span class="s2">&#34;Joy&#34;</span><span class="p">;</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&#34;The </span><span class="si">%d</span><span class="s2"> student&#39;s name is </span><span class="si">%s</span><span class="s2">&#34;</span> <span class="o">%</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">s</span><span class="p">));</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>也可以使用 <code>format</code> 来格式化, 它会用传入的参数依次替换字符串内的占位符 {0}、{1}…… :</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="o">//</span> <span class="p">{</span><span class="mi">3</span><span class="p">:</span><span class="o">.</span><span class="mi">1</span><span class="n">f</span><span class="p">}</span> <span class="err">表示保留一位小数</span>
-<span class="n">s</span> <span class="o">=</span> <span class="s2">&#34;The {0} student&#39;s name is {1}, score: {3:.1f}&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&#34;Joy&#34;</span><span class="p">,</span> <span class="mf">87.75</span><span class="p">);</span>
-<span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
-</code></pre></td></tr></table>
-</div>
-</div><hr>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>n <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>s <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Joy&#34;</span>;
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;The </span><span style="color:#e6db74">%d</span><span style="color:#e6db74"> student&#39;s name is </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> (n, s));
+</span></span></code></pre></div><p>也可以使用 <code>format</code> 来格式化, 它会用传入的参数依次替换字符串内的占位符 {0}、{1}…… :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">//</span> {<span style="color:#ae81ff">3</span>:<span style="color:#ae81ff">.1</span>f} 表示保留一位小数
+</span></span><span style="display:flex;"><span>s <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;The </span><span style="color:#e6db74">{0}</span><span style="color:#e6db74"> student&#39;s name is </span><span style="color:#e6db74">{1}</span><span style="color:#e6db74">, score: </span><span style="color:#e6db74">{3:.1f}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format(<span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#34;Joy&#34;</span>, <span style="color:#ae81ff">87.75</span>);
+</span></span><span style="display:flex;"><span>print(s);
+</span></span></code></pre></div><hr>
 <h3 id="控制语句">控制语句</h3>
 <p>控制语句中可以使用 <code>break, continue, pass</code> 关键字, <code>break</code> 与 <code>continue</code> 的作用与其他语言中的一样, <code>pass</code> 则是一个空语句, 不做任何事情, 一般是为了保持结构的完整性, 常被用来占位, 表明之后会实现.</p>
 <p><strong>注意:</strong> <code>python</code> 中没有 <code>goto</code> 和 <code>switch</code>.</p>
 <h4 id="if">IF</h4>
 <p>语法:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">if</span> <span class="o">&lt;</span><span class="n">condition</span><span class="o">&gt;</span><span class="p">:</span>
-<span class="k">elif</span> <span class="o">&lt;</span><span class="n">condition</span><span class="o">&gt;</span><span class="p">:</span>
-<span class="k">else</span><span class="p">:</span>
-</code></pre></td></tr></table>
-</div>
-</div><h4 id="for">FOR</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">for</span> <span class="o">&lt;</span><span class="n">variable</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">array</span><span class="o">&gt;</span><span class="p">:</span>
-    <span class="o">//</span> <span class="n">do</span>
-<span class="k">else</span><span class="p">:</span>
-</code></pre></td></tr></table>
-</div>
-</div><p><code>else</code> 可选</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">&lt;</span>condition<span style="color:#f92672">&gt;</span>:
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">elif</span> <span style="color:#f92672">&lt;</span>condition<span style="color:#f92672">&gt;</span>:
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>:
+</span></span></code></pre></div><h4 id="for">FOR</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> <span style="color:#f92672">&lt;</span>variable<span style="color:#f92672">&gt;</span> <span style="color:#f92672">in</span> <span style="color:#f92672">&lt;</span>array<span style="color:#f92672">&gt;</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">//</span> do
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>:
+</span></span></code></pre></div><p><code>else</code> 可选</p>
 <h4 id="while">WHILE</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">while</span> <span class="o">&lt;</span><span class="n">condition</span><span class="o">&gt;</span><span class="p">:</span>
-    <span class="o">//</span> <span class="n">do</span>
-<span class="k">else</span><span class="p">:</span>
-</code></pre></td></tr></table>
-</div>
-</div><p><code>else</code> 可选</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">while</span> <span style="color:#f92672">&lt;</span>condition<span style="color:#f92672">&gt;</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">//</span> do
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>:
+</span></span></code></pre></div><p><code>else</code> 可选</p>
 <hr>
 <h3 id="错误处理">错误处理</h3>
 <p>语法:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">try</span><span class="p">:</span>
-    <span class="o">//</span> <span class="n">do</span>
-<span class="k">except</span> <span class="o">&lt;</span><span class="n">error</span> <span class="nb">type</span><span class="o">&gt;</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-   <span class="o">//</span> <span class="n">do</span>
-<span class="k">except</span> <span class="o">&lt;</span><span class="n">error</span> <span class="nb">type</span><span class="o">&gt;</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<span class="k">else</span><span class="p">:</span>
-   <span class="o">//</span> <span class="n">no</span> <span class="n">error</span>
-<span class="k">finally</span><span class="p">:</span>
-   <span class="o">//</span> <span class="n">do</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>如果 <code>finally</code> 存在, 则无论有没有异常都会执行, <code>else</code> 则在 <code>except</code> 都没进入时才执行.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">//</span> do
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">except</span> <span style="color:#f92672">&lt;</span>error type<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">as</span> e:
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">//</span> do
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">except</span> <span style="color:#f92672">&lt;</span>error type<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">as</span> e:
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">//</span> no error
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">finally</span>:
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">//</span> do
+</span></span></code></pre></div><p>如果 <code>finally</code> 存在, 则无论有没有异常都会执行, <code>else</code> 则在 <code>except</code> 都没进入时才执行.</p>
 <hr>
 <h3 id="函数">函数</h3>
 <p>语法:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="o">=</span><span class="n">value</span><span class="p">,</span> <span class="n">arg3</span><span class="o">=</span><span class="n">value</span><span class="p">):</span>
-    <span class="o">//</span> <span class="n">do</span>
-    <span class="k">return</span> <span class="n">ret1</span><span class="p">,</span> <span class="n">ret2</span>
-
-<span class="c1"># 不定长参数</span>
-<span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="o">*</span><span class="n">vartuple</span><span class="p">):</span>
-   <span class="s2">&#34;打印所有参数&#34;</span>
-   <span class="k">print</span><span class="p">(</span><span class="n">arg1</span><span class="p">)</span>
-   <span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">vartuple</span><span class="p">:</span>
-       <span class="k">print</span><span class="p">(</span><span class="n">var</span><span class="p">)</span>
-   <span class="k">return</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>定义函数时可以给参数指定默认值, 这样在调用时就可以不传入这些参数, 没有默认值的参数是必须要传入的.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">func</span>(arg1, arg2<span style="color:#f92672">=</span>value, arg3<span style="color:#f92672">=</span>value):
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">//</span> do
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> ret1, ret2
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 不定长参数</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">func</span>(arg1, <span style="color:#f92672">*</span>vartuple):
+</span></span><span style="display:flex;"><span>   <span style="color:#e6db74">&#34;打印所有参数&#34;</span>
+</span></span><span style="display:flex;"><span>   print(arg1)
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">for</span> var <span style="color:#f92672">in</span> vartuple:
+</span></span><span style="display:flex;"><span>       print(var)
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">return</span>
+</span></span></code></pre></div><p>定义函数时可以给参数指定默认值, 这样在调用时就可以不传入这些参数, 没有默认值的参数是必须要传入的.</p>
 <p>定义默认参数要牢记一点：默认参数必须指向不变对象(数, 字符串, 元组)！</p>
 <p>参数前加了 <code>*</code> 的变量会存放所有未命名的变量.</p>
 <p><code>__name__</code> 是函数对象的一个属性, 可以拿到此函数的名称</p>
 <h4 id="lambda">Lambda</h4>
 <p>使用关键字 <code>lambda</code>, 就可以创建短小的匿名函式, 如:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># 语法</span>
-<span class="k">lambda</span> <span class="p">[</span><span class="n">arg1</span> <span class="p">[,</span><span class="n">arg2</span><span class="p">,</span><span class="o">.....</span><span class="n">argn</span><span class="p">]]:</span><span class="n">expression</span>
-
-<span class="nb">sum</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">:</span> <span class="n">arg1</span> <span class="o">+</span> <span class="n">arg2</span>
-<span class="k">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="c1"># 20</span>
-<span class="k">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span> <span class="c1"># 30</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>特点:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># 语法</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">lambda</span> [arg1 [,arg2,<span style="color:#f92672">.....</span>argn]]:expression
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>sum <span style="color:#f92672">=</span> <span style="color:#66d9ef">lambda</span> arg1, arg2: arg1 <span style="color:#f92672">+</span> arg2
+</span></span><span style="display:flex;"><span>print(sum(<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">10</span>) <span style="color:#75715e"># 20</span>
+</span></span><span style="display:flex;"><span>print(sum(<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">20</span>) <span style="color:#75715e"># 30</span>
+</span></span></code></pre></div><p>特点:</p>
 <ul>
 <li><code>lambda</code> 只是一个表达式, 函数体比 <code>def</code> 简单的多, 近能封装有限的逻辑进去</li>
 <li><code>lambda</code> 函数拥有自己的命名空间, 并且不能访问自有参数之外或全局命名的参数</li>
@@ -619,31 +438,16 @@
 </ul>
 <h4 id="装饰器">装饰器</h4>
 <p>当需要增强某个函数的功能时, 但有不希望修改函数, 此时可以使用装饰器. 如添加日志功能:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">log</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;call </span><span class="si">%s</span><span class="s1">():&#39;</span> <span class="o">%</span> <span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">wrapper</span>
-
-<span class="nd">@log</span>
-<span class="k">def</span> <span class="nf">test</span><span class="p">():</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&#34;Test&#34;</span><span class="p">)</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>通过 <code>@</code> 语法就给函数 <code>test</code> 添加了日志功能</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">log</span>(func):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">wrapper</span>(<span style="color:#f92672">*</span>args, <span style="color:#f92672">**</span>kw):
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#39;call </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">():&#39;</span> <span style="color:#f92672">%</span> func<span style="color:#f92672">.</span>__name__)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> func(<span style="color:#f92672">*</span>args, <span style="color:#f92672">**</span>kw)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> wrapper
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@log</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test</span>():
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Test&#34;</span>)
+</span></span></code></pre></div><p>通过 <code>@</code> 语法就给函数 <code>test</code> 添加了日志功能</p>
 <hr>
 <h3 id="模块">模块</h3>
 <p>模块就是一个 <code>python</code> 文件, 使用 <code>import</code> 导入模块, 调用模块中的方法时就必须以 <code>&lt;module&gt;.&lt;func&gt;</code> 来调用.</p>
@@ -660,65 +464,28 @@
 <p>包简单来说就是一个目录, 目录中必须包含一个 <code>__init__.py</code>, 该文件可以为空, 目的使用来标识这个目录是一个包, 一个简单的例子如下:</p>
 <p>如存在目录 <code>package_test</code> , 此目录下有 <code>__init__.py, foo1.py, foo2.py</code> 等文件</p>
 <p><code>foo1.py</code> 文件:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="ch">#!/usr/bin/env python3</span>
-<span class="c1"># -*- coding: utf-8 -*-</span>
-
-<span class="k">def</span> <span class="nf">foo1</span><span class="p">():</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&#34;Foo1 test&#34;</span><span class="p">)</span>
-</code></pre></td></tr></table>
-</div>
-</div><p><code>foo2.py</code> 文件:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="ch">#!/usr/bin/env python3</span>
-<span class="c1"># -*- coding: utf-8 -*-</span>
-
-<span class="k">def</span> <span class="nf">foo2</span><span class="p">():</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&#34;Foo2 test&#34;</span><span class="p">)</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>调用:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="ch">#!/usr/bin/env python3</span>
-<span class="c1"># -*- coding: utf-8 -*-</span>
-
-<span class="kn">from</span> <span class="nn">package_test.foo1</span> <span class="kn">import</span> <span class="n">foo1</span>
-<span class="kn">from</span> <span class="nn">package_test.foo2</span> <span class="kn">import</span> <span class="n">foo2</span>
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
-    <span class="n">foo1</span><span class="p">()</span>
-    <span class="n">foo2</span><span class="p">()</span>
-</code></pre></td></tr></table>
-</div>
-</div><hr>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env python3</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># -*- coding: utf-8 -*-</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">foo1</span>():
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Foo1 test&#34;</span>)
+</span></span></code></pre></div><p><code>foo2.py</code> 文件:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env python3</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># -*- coding: utf-8 -*-</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">foo2</span>():
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Foo2 test&#34;</span>)
+</span></span></code></pre></div><p>调用:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env python3</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># -*- coding: utf-8 -*-</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> package_test.foo1 <span style="color:#f92672">import</span> foo1
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> package_test.foo2 <span style="color:#f92672">import</span> foo2
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;__main__&#34;</span>:
+</span></span><span style="display:flex;"><span>    foo1()
+</span></span><span style="display:flex;"><span>    foo2()
+</span></span></code></pre></div><hr>
 <h3 id="类">类</h3>
 <p><code>python</code> 是一门面向对象语言, 所以创建类和对象是很容易的, 先简单介绍下面向对象的一些基本特征:</p>
 <ul>
@@ -735,81 +502,41 @@
 </ul>
 <h4 id="类的创建">类的创建</h4>
 <p><code>python</code> 中类创建的语法如下:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># 创建一个类</span>
-<span class="k">class</span> <span class="nc">Human</span><span class="p">:</span>
-    <span class="c1"># 类变量</span>
-    <span class="n">var1</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># 公有成员</span>
-    <span class="n">_var2</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># 受保护成员</span>
-    <span class="n">__var3</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># 私有成员</span>
-
-    <span class="c1"># 构造函数, 里面可以定义实例变量, 这些变量只有在这个函数调用后才能使用, 子类如果重写了构造函数, 则不能使用这些变量</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="o">...</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">arg1</span> <span class="o">=</span> <span class="n">arg1</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_arg2</span> <span class="o">=</span> <span class="n">arg2</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">__arg3</span> <span class="o">=</span> <span class="n">arg3</span>
-
-    <span class="c1"># 类方法</span>
-    <span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;Var1:&#34;</span><span class="p">,</span> <span class="n">var1</span><span class="p">)</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;Arg1:&#34;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">arg1</span><span class="p">)</span>
-
-<span class="s2">&#34;&#34;&#34;
-</span><span class="s2">动态类型的语言在创建实例后, 可以给实例绑定任何的属性和方法, 但这些绑定只对当前实例有效
-</span><span class="s2">如果要对所以实例生效, 可以在创建实例前给动态的给类绑定
-</span><span class="s2">&#34;&#34;&#34;</span>
-
-<span class="c1"># 动态的给类绑定属性和方法, 这些属性和方法所有实例都可用</span>
-<span class="n">Human</span><span class="o">.</span><span class="n">school</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
-<span class="c1"># 实例化</span>
-<span class="n">h</span> <span class="o">=</span> <span class="n">Human</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="o">...</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">school</span><span class="p">)</span>
-<span class="c1"># 方法调用</span>
-<span class="n">h</span><span class="o">.</span><span class="n">foo</span><span class="p">()</span>
-<span class="c1"># 动态的给实例绑定属性和方法, 这些属性和方法只能该实例可用</span>
-<span class="n">h</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="s1">&#39;Big Joy&#39;</span>
-<span class="c1"># 类的销毁</span>
-<span class="k">del</span> <span class="n">h</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>类的实例化是通过调用构造函数完成的, <code>__init__</code> 函数中定义了实例化时需要的参数.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># 创建一个类</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Human</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 类变量</span>
+</span></span><span style="display:flex;"><span>    var1 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> <span style="color:#75715e"># 公有成员</span>
+</span></span><span style="display:flex;"><span>    _var2 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> <span style="color:#75715e"># 受保护成员</span>
+</span></span><span style="display:flex;"><span>    __var3 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> <span style="color:#75715e"># 私有成员</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 构造函数, 里面可以定义实例变量, 这些变量只有在这个函数调用后才能使用, 子类如果重写了构造函数, 则不能使用这些变量</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self, arg1, arg2<span style="color:#f92672">...</span>):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>arg1 <span style="color:#f92672">=</span> arg1
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>_arg2 <span style="color:#f92672">=</span> arg2
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>__arg3 <span style="color:#f92672">=</span> arg3
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 类方法</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">foo</span>(self):
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;Var1:&#34;</span>, var1)
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;Arg1:&#34;</span>, self<span style="color:#f92672">.</span>arg1)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">动态类型的语言在创建实例后, 可以给实例绑定任何的属性和方法, 但这些绑定只对当前实例有效
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">如果要对所以实例生效, 可以在创建实例前给动态的给类绑定
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 动态的给类绑定属性和方法, 这些属性和方法所有实例都可用</span>
+</span></span><span style="display:flex;"><span>Human<span style="color:#f92672">.</span>school <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 实例化</span>
+</span></span><span style="display:flex;"><span>h <span style="color:#f92672">=</span> Human(arg1, arg2<span style="color:#f92672">...</span>)
+</span></span><span style="display:flex;"><span>print(h<span style="color:#f92672">.</span>school)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 方法调用</span>
+</span></span><span style="display:flex;"><span>h<span style="color:#f92672">.</span>foo()
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 动态的给实例绑定属性和方法, 这些属性和方法只能该实例可用</span>
+</span></span><span style="display:flex;"><span>h<span style="color:#f92672">.</span>parent <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Big Joy&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 类的销毁</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">del</span> h
+</span></span></code></pre></div><p>类的实例化是通过调用构造函数完成的, <code>__init__</code> 函数中定义了实例化时需要的参数.</p>
 <p>类中以一个 <code>_</code> 开头命令的变量或方法叫做受保护成员, 以二个 <code>_</code> 开头命名的叫做私有成员, 以 <code>__</code> 开头并以 <code>__</code> 结尾的为系统定义的, 一般是内置的成员.</p>
 <p>使用 <code>del</code> 则可销毁一个类实例.</p>
 <p>类内置了以下属性:</p>
@@ -823,17 +550,9 @@
 <hr>
 <h4 id="类的继承">类的继承</h4>
 <p>语法如下:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">SubName</span><span class="p">(</span><span class="n">Parent1</span><span class="p">,</span> <span class="n">Parent2</span><span class="o">...</span><span class="p">):</span>
-    <span class="k">pass</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>一个子类可以继承多个父类, 使用 <code>isintance(obj, type)</code> 可以判断一个对象的类型, 使用 <code>issubclass(sub, parent)</code> 可以判断是否为另一个类的子类.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SubName</span>(Parent1, Parent2<span style="color:#f92672">...</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">pass</span>
+</span></span></code></pre></div><p>一个子类可以继承多个父类, 使用 <code>isintance(obj, type)</code> 可以判断一个对象的类型, 使用 <code>issubclass(sub, parent)</code> 可以判断是否为另一个类的子类.</p>
 <h4 id="方法重写">方法重写</h4>
 <p>如果父类的方法不能满足子类的需求, 子类就可重写此方法, 在使用子类对象调用此方法时会调用重写后的方法.</p>
 <p><strong>运算符重载</strong> 也是方法的重写, 只不过是对一些内置方法进行重写.</p>
@@ -854,114 +573,53 @@
 <p>更多的内置方法请查阅手册</p>
 <hr>
 <p>以上就介绍完了 <code>python</code> 的基础知识, 按照上面的内容就能够写出 <code>python</code> 程序了, 当然前提是你不是一个小白, 至少熟悉一门编程语言.</p>
-<p>但 <code>python</code> 还有很多高级知识则需要你自行使用学习了, 如文件操作, 进程和线程, 网络编程, 图形编程等等. 本文的目的只是让你明白 <code>python</code> 程序应该怎么写, 怎么把你用其他语言写的程序转换成 <code>python</code> 语言的, 更多高级的特性只能靠你自己学习尝试.</p>
-    </div>
-
-    <div class="post-copyright">
-  <p class="copyright-item">
-    <span class="item-title">文章作者</span>
-    <span class="item-content">jouyouyun</span>
-  </p>
-  <p class="copyright-item">
-    <span class="item-title">上次更新</span>
-    <span class="item-content">
-        2019-03-25
-        
-    </span>
-  </p>
+<p>但 <code>python</code> 还有很多高级知识则需要你自行使用学习了, 如文件操作, 进程和线程, 网络编程, 图形编程等等. 本文的目的只是让你明白 <code>python</code> 程序应该怎么写, 怎么把你用其他语言写的程序转换成 <code>python</code> 语言的, 更多高级的特性只能靠你自己学习尝试.</p><ul class="pa0">
   
+   <li class="list di">
+     <a href="/tags/python" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">python</a>
+   </li>
   
-</div>
-<div class="post-reward">
-  <input type="checkbox" name="reward" id="reward" hidden />
-  <label class="reward-button" for="reward">赞赏支持</label>
-  <div class="qr-code">
-    
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="/images/reward/wechat-qr-code.png">
-        <span>微信打赏</span>
-      </label>
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="/images/reward/alipay-qr-code.png">
-        <span>支付宝打赏</span>
-      </label>
-  </div>
-</div><footer class="post-footer">
-      <div class="post-tags">
-          <a href="/tags/python/">python</a>
-          </div>
-      <nav class="post-nav">
-        <a class="prev" href="/post/gorm-association/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">gorm 关联查询</span>
-            <span class="prev-text nav-mobile">上一篇</span>
-          </a>
-        <a class="next" href="/post/go-package-management/">
-            <span class="next-text nav-default">Go 包管理之gom</span>
-            <span class="next-text nav-mobile">下一篇</span>
-            <i class="iconfont icon-right"></i>
-          </a>
-      </nav>
-    </footer>
-  </article>
-        </div>
-        
-
-  
-
-  
-
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
       </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="social-links">
-      <a href="mailto:jouyouwen717@gmail.com" class="iconfont icon-email" title="email"></a>
-      <a href="https://twitter.com/jouyouyun" class="iconfont icon-twitter" title="twitter"></a>
-      <a href="https://github.com/jouyouyun" class="iconfont icon-github" title="github"></a>
-  <a href="https://jouyouyun.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
-</div>
-
-<div class="copyright">
-  <span class="power-by">
-    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    主题 - 
-    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
-  </span>
-
-  
-
-  <span class="copyright-year">
-    &copy; 
-    2014 - 
-    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>jouyouyun</span>
-  </span>
-</div>
-
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont icon-up"></i>
     </div>
-  </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://jouyouyun.github.io" >
+    &copy;  jouyouyun 2022 
+  </a>
+    <div>
+<div class="ananke-socials">
   
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+    <a href="https://github.com/jouyouyun" target="_blank" class="github ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="GitHub link" rel="noopener" aria-label="follow on GitHub——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+</div>
+</div>
+  </div>
+</footer>
 
-
-
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
-
-
-
-
-
-
-
-
-</body>
+  </body>
 </html>

@@ -1,156 +1,159 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>GSettings - jouyouyun&#39;s blog</title>
-  <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>GSettings | jouyouyun&#39;s blog</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="GSettings 实际上是一套可使用多个 storage backends 的 API ，默认使用 dconf 作为 backend ，也可以使用 keyfile 作为 backend 。但由于 gio 提供了 GKeyFile 结构来处理 keyfile 文件，所以解析 keyfile 文件时很少通过 GSettings API ，在这里只介绍使用 dconf 作为 backend 的使用方法。">
+    <meta name="generator" content="Hugo 0.101.0" />
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-<meta name="author" content="jouyouyun" /><meta name="description" content="GSettings 实际上是一套可使用多个 storage backends 的 API ，默认使用 dconf 作为 backend ，也可以使用 keyfile 作为 backend 。但由于 gio 提供了 GKeyFile 结构来处理 keyfile 文件，所以解析 keyfile 文件时很少通过 GSettings API ，在这里只介绍使用 dconf 作为 backend 的使用方法。
-" /><meta name="keywords" content="jouyouyun, Hugo, theme, even" />
-
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
 
 
 
+    
+    
+    
+      
 
+    
 
-<meta name="generator" content="Hugo 0.82.1 with theme even" />
-
-
-<link rel="canonical" href="https://jouyouyun.github.io/post/gsettings/" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-
-
-
-<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
-
-
-<meta property="og:title" content="GSettings" />
+    
+    
+    <meta property="og:title" content="GSettings" />
 <meta property="og:description" content="GSettings 实际上是一套可使用多个 storage backends 的 API ，默认使用 dconf 作为 backend ，也可以使用 keyfile 作为 backend 。但由于 gio 提供了 GKeyFile 结构来处理 keyfile 文件，所以解析 keyfile 文件时很少通过 GSettings API ，在这里只介绍使用 dconf 作为 backend 的使用方法。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jouyouyun.github.io/post/gsettings/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2019-08-03T19:30:21&#43;08:00" />
-<meta property="article:modified_time" content="2019-08-04T21:03:16&#43;08:00" />
+<meta property="article:published_time" content="2019-08-03T19:30:21+08:00" />
+<meta property="article:modified_time" content="2019-08-04T21:03:16+08:00" />
 
 <meta itemprop="name" content="GSettings">
-<meta itemprop="description" content="GSettings 实际上是一套可使用多个 storage backends 的 API ，默认使用 dconf 作为 backend ，也可以使用 keyfile 作为 backend 。但由于 gio 提供了 GKeyFile 结构来处理 keyfile 文件，所以解析 keyfile 文件时很少通过 GSettings API ，在这里只介绍使用 dconf 作为 backend 的使用方法。"><meta itemprop="datePublished" content="2019-08-03T19:30:21&#43;08:00" />
-<meta itemprop="dateModified" content="2019-08-04T21:03:16&#43;08:00" />
-<meta itemprop="wordCount" content="2023">
+<meta itemprop="description" content="GSettings 实际上是一套可使用多个 storage backends 的 API ，默认使用 dconf 作为 backend ，也可以使用 keyfile 作为 backend 。但由于 gio 提供了 GKeyFile 结构来处理 keyfile 文件，所以解析 keyfile 文件时很少通过 GSettings API ，在这里只介绍使用 dconf 作为 backend 的使用方法。"><meta itemprop="datePublished" content="2019-08-03T19:30:21+08:00" />
+<meta itemprop="dateModified" content="2019-08-04T21:03:16+08:00" />
+<meta itemprop="wordCount" content="908">
 <meta itemprop="keywords" content="gsettings," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="GSettings"/>
 <meta name="twitter:description" content="GSettings 实际上是一套可使用多个 storage backends 的 API ，默认使用 dconf 作为 backend ，也可以使用 keyfile 作为 backend 。但由于 gio 提供了 GKeyFile 结构来处理 keyfile 文件，所以解析 keyfile 文件时很少通过 GSettings API ，在这里只介绍使用 dconf 作为 backend 的使用方法。"/>
 
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
+	
+  </head>
 
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
+  <body class="ma0 avenir bg-near-white">
 
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/" class="logo">jouyouyun</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <a href="/post/">
-        <li class="mobile-menu-item">Archives</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">Tags</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">Categories</li>
-      </a>
-  </ul>
-</nav>
-  <div class="container" id="mobile-panel">
-    <header id="header" class="header">
-        <div class="logo-wrapper">
-  <a href="/" class="logo">jouyouyun</a>
-</div>
-
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
-        <a class="menu-item-link" href="/post/">Archives</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">Tags</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">Categories</a>
-      </li>
-  </ul>
-</nav>
-    </header>
-
-    <main id="main" class="main">
-      <div class="content-wrapper">
-        <div id="content" class="content">
-          <article class="post">
     
-    <header class="post-header">
-      <h1 class="post-title">GSettings</h1>
+   
+  
 
-      <div class="post-meta">
-        <span class="post-time"> 2019-08-03 </span>
-        <div class="post-category">
-            <a href="/categories/blog/"> BLOG </a>
-            </div>
-        
-      </div>
-    </header>
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        jouyouyun&#39;s blog
+      
+    </a>
+    <div class="flex-l items-center">
+      
 
-    <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">文章目录</h2>
-  <div class="post-toc-content always-active">
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#dconf">dconf</a></li>
-    <li><a href="#配置文件">配置文件</a>
-      <ul>
-        <li><a href="#relocatable-schema"><code>Relocatable Schema</code></a></li>
-        <li><a href="#override">override</a></li>
-        <li><a href="#key-改变信号">key 改变信号</a></li>
-      </ul>
-    </li>
-    <li><a href="#工具">工具</a>
-      <ul>
-        <li><a href="#glib-sompile-schemas">glib-sompile-schemas</a></li>
-        <li><a href="#dconf-editor"><code>dconf-editor</code></a></li>
-        <li><a href="#devhelp">devhelp</a></li>
-        <li><a href="#gsettings">gsettings</a></li>
-      </ul>
-    </li>
-    <li><a href="#参考资料">参考资料</a></li>
-  </ul>
-</nav>
-  </div>
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/post/" title="Archives 页">
+              Archives
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/tags/" title="Tags 页">
+              Tags
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/categories/" title="Categories 页">
+              Categories
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+<div class="ananke-socials">
+  
+    <a href="https://github.com/jouyouyun" target="_blank" class="github ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="GitHub link" rel="noopener" aria-label="follow on GitHub——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
 </div>
-    <div class="post-content">
-      <p><code>GSettings</code> 实际上是一套可使用多个 <code>storage backends</code> 的 <code>API</code> ，默认使用 <code>dconf</code> 作为 <code>backend</code> ，也可以使用 <code>keyfile</code> 作为 <code>backend</code> 。但由于 <code>gio</code> 提供了 <code>GKeyFile</code> 结构来处理 <code>keyfile</code> 文件，所以解析 <code>keyfile</code> 文件时很少通过 <code>GSettings API</code> ，在这里只介绍使用 <code>dconf</code> 作为 <code>backend</code> 的使用方法。</p>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">GSettings</h1>
+      
+      <p class="tracked">
+         <strong>jouyouyun</strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2019-08-03T19:30:21+08:00">八月 3, 2019</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p><code>GSettings</code> 实际上是一套可使用多个 <code>storage backends</code> 的 <code>API</code> ，默认使用 <code>dconf</code> 作为 <code>backend</code> ，也可以使用 <code>keyfile</code> 作为 <code>backend</code> 。但由于 <code>gio</code> 提供了 <code>GKeyFile</code> 结构来处理 <code>keyfile</code> 文件，所以解析 <code>keyfile</code> 文件时很少通过 <code>GSettings API</code> ，在这里只介绍使用 <code>dconf</code> 作为 <code>backend</code> 的使用方法。</p>
 <hr>
 <h2 id="dconf">dconf</h2>
 <p><code>dconf</code> 是一个底层的配置管理系统，被设计用来作为 <code>GSettings</code> 的 <code>backend</code> ，并提供了图形化的配置管理工具 <code>dconf-editor</code> ，具有以下特点：</p>
@@ -168,33 +171,17 @@
 <h2 id="配置文件">配置文件</h2>
 <p><code>GSettings</code> 的配置文件是 <code>xml</code> 格式的，文件需以 <code>.gschema.xml</code> 结尾，文件名通常与 <code>id</code> 相同。配置文件安装在 <code>/usr/share/glib-2.0/schemas/</code> 目录下，手动添加进去的文件需要执行 <code>sudo glib-complie-schemas /usr/share/glib-2.0/schemas</code> 让其生效。</p>
 <p>文件内容简要格式如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
-<span class="nt">&lt;schemalist&gt;</span>
-    <span class="nt">&lt;schema</span> <span class="na">path=</span><span class="s">&#34;&#34;</span> <span class="na">id=</span><span class="s">&#34;&#34;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;key</span> <span class="na">type=</span><span class="s">&#34;&#34;</span>  <span class="na">name=</span><span class="s">&#34;&#34;</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;default&gt;&lt;/default&gt;</span>
-            <span class="nt">&lt;summary&gt;&lt;/summary&gt;</span>
-            <span class="nt">&lt;description&gt;&lt;/description&gt;</span>
-        <span class="nt">&lt;/key&gt;</span>
-    <span class="nt">&lt;/schema&gt;</span>
-<span class="nt">&lt;/schemalist&gt;</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>可以看到一个文件里可以包含多个 <code>schema</code> ，每个 <code>schema</code> 可由多个 <code>key</code> 组成。详细说明如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;schemalist&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;schema</span> <span style="color:#a6e22e">path=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;key</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;&#34;</span>  <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;default&gt;&lt;/default&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;summary&gt;&lt;/summary&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;description&gt;&lt;/description&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/key&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/schema&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/schemalist&gt;</span>
+</span></span></code></pre></div><p>可以看到一个文件里可以包含多个 <code>schema</code> ，每个 <code>schema</code> 可由多个 <code>key</code> 组成。详细说明如下：</p>
 <ul>
 <li>
 <p>id</p>
@@ -228,505 +215,243 @@
 <hr>
 <p>下面给出一个例子：</p>
 <p><code>schema</code> 文件：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
-<span class="nt">&lt;schemalist&gt;</span>
-    <span class="nt">&lt;enum</span> <span class="na">id=</span><span class="s">&#34;com.deepin.test.LogLevel&#34;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;value</span> <span class="na">nick=</span><span class="s">&#34;debug&#34;</span> <span class="na">value=</span><span class="s">&#34;1&#34;</span> <span class="nt">/&gt;</span>
-        <span class="nt">&lt;value</span> <span class="na">nick=</span><span class="s">&#34;info&#34;</span> <span class="na">value=</span><span class="s">&#34;2&#34;</span> <span class="nt">/&gt;</span>
-        <span class="nt">&lt;value</span> <span class="na">nick=</span><span class="s">&#34;fatal&#34;</span> <span class="na">value=</span><span class="s">&#34;3&#34;</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;/enum&gt;</span>
-
-    <span class="nt">&lt;schema</span> <span class="na">path=</span><span class="s">&#34;/com/deepin/test/&#34;</span> <span class="na">id=</span><span class="s">&#34;com.deepin.test&#34;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;key</span> <span class="na">type=</span><span class="s">&#34;b&#34;</span>  <span class="na">name=</span><span class="s">&#34;enabled&#34;</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;default&gt;</span>true<span class="nt">&lt;/default&gt;</span>
-            <span class="nt">&lt;summary&gt;</span>Enable this module.<span class="nt">&lt;/summary&gt;</span>
-            <span class="nt">&lt;description&gt;</span>Whether enable this module.<span class="nt">&lt;/description&gt;</span>
-        <span class="nt">&lt;/key&gt;</span>
-        <span class="nt">&lt;key</span> <span class="na">enum=</span><span class="s">&#34;com.deepin.test.LogLevel&#34;</span> <span class="na">name=</span><span class="s">&#34;loglevel&#34;</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;default&gt;</span>&#39;info&#39;<span class="nt">&lt;/default&gt;</span>
-            <span class="nt">&lt;summary&gt;</span>Log level.<span class="nt">&lt;/summary&gt;</span>
-            <span class="nt">&lt;description&gt;</span>Log level.<span class="nt">&lt;/description&gt;</span>
-        <span class="nt">&lt;/key&gt;</span>
-        <span class="nt">&lt;key</span> <span class="na">type=</span><span class="s">&#34;i&#34;</span> <span class="na">name=</span><span class="s">&#34;interval&#34;</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;default&gt;</span>10<span class="nt">&lt;/default&gt;</span>
-            <span class="nt">&lt;range</span> <span class="na">min=</span><span class="s">&#34;0&#34;</span> <span class="na">max=</span><span class="s">&#34;60&#34;</span> <span class="nt">/&gt;</span>
-            <span class="nt">&lt;summary&gt;</span>Timer duration.<span class="nt">&lt;/summary&gt;</span>
-            <span class="nt">&lt;description&gt;</span>Timer duration.<span class="nt">&lt;/description&gt;</span>
-        <span class="nt">&lt;/key&gt;</span>
-        <span class="nt">&lt;key</span> <span class="na">type=</span><span class="s">&#34;(ii)&#34;</span> <span class="na">name=</span><span class="s">&#34;size&#34;</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;default&gt;</span>(800,600)<span class="nt">&lt;/default&gt;</span>
-            <span class="nt">&lt;summary&gt;</span>The window size.<span class="nt">&lt;/summary&gt;</span>
-            <span class="nt">&lt;description&gt;</span>The window size.<span class="nt">&lt;/description&gt;</span>
-        <span class="nt">&lt;/key&gt;</span>
-    <span class="nt">&lt;/schema&gt;</span>
-<span class="nt">&lt;/schemalist&gt;</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>程序代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-c" data-lang="c"><span class="cm">/**
-</span><span class="cm"> * Copyright (C) 2019 jouyouyun &lt;jouyouwen717@gmail.com&gt;
-</span><span class="cm"> *
-</span><span class="cm"> * This program is free software; you can redistribute it and/or modify
-</span><span class="cm"> * it under the terms of the GNU General Public License as published by
-</span><span class="cm"> * the Free Software Foundation; either version 3 of the License, or
-</span><span class="cm"> * (at your option) any later version.
-</span><span class="cm"> *
-</span><span class="cm"> * example.c -- An example for gsettings.
-</span><span class="cm"> *
-</span><span class="cm"> * compile:
-</span><span class="cm"> *    gcc -Wall -g example.c `pkg-config --libs --cflags gio-2.0`
-</span><span class="cm"> *
-</span><span class="cm"> */</span>
-<span class="cp">#include</span> <span class="cpf">&lt;gio/gio.h&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="kt">int</span>
-<span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
-<span class="p">{</span>
-    <span class="n">GSettings</span> <span class="o">*</span><span class="n">gs</span><span class="p">;</span>
-    <span class="n">gboolean</span> <span class="n">enabled</span><span class="p">;</span>
-    <span class="n">gint</span> <span class="n">loglevel</span><span class="p">,</span> <span class="n">interval</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">;</span>
-
-    <span class="c1">// if failed, will segmetfault
-</span><span class="c1"></span>    <span class="n">gs</span> <span class="o">=</span> <span class="n">g_settings_new</span><span class="p">(</span><span class="s">&#34;com.deepin.test&#34;</span><span class="p">);</span>
-
-    <span class="n">enabled</span> <span class="o">=</span> <span class="n">g_settings_get_boolean</span><span class="p">(</span><span class="n">gs</span><span class="p">,</span> <span class="s">&#34;enabled&#34;</span><span class="p">);</span>
-    <span class="n">g_print</span><span class="p">(</span><span class="s">&#34;Enabled: %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">enabled</span><span class="p">);</span>
-
-    <span class="n">loglevel</span> <span class="o">=</span> <span class="n">g_settings_get_enum</span><span class="p">(</span><span class="n">gs</span><span class="p">,</span> <span class="s">&#34;loglevel&#34;</span><span class="p">);</span>
-    <span class="n">g_print</span><span class="p">(</span><span class="s">&#34;Log level: %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">loglevel</span><span class="p">);</span>
-
-    <span class="n">interval</span> <span class="o">=</span> <span class="n">g_settings_get_int</span><span class="p">(</span><span class="n">gs</span><span class="p">,</span> <span class="s">&#34;interval&#34;</span><span class="p">);</span>
-    <span class="n">g_print</span><span class="p">(</span><span class="s">&#34;Timer duration: %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">interval</span><span class="p">);</span>
-
-    <span class="n">g_settings_get</span><span class="p">(</span><span class="n">gs</span><span class="p">,</span> <span class="s">&#34;size&#34;</span><span class="p">,</span> <span class="s">&#34;(ii)&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">width</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">height</span><span class="p">);</span>
-    <span class="n">g_print</span><span class="p">(</span><span class="s">&#34;Width: %d, height: %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">);</span>
-
-    <span class="n">g_object_unref</span><span class="p">(</span><span class="n">gs</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p><strong>注意：</strong> 在使用接口调用时，需要确保 <code>schema</code> 和 <code>key</code> 存在，不然会触发 <strong>段错误</strong> 。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;schemalist&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;enum</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;com.deepin.test.LogLevel&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;value</span> <span style="color:#a6e22e">nick=</span><span style="color:#e6db74">&#34;debug&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;1&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;value</span> <span style="color:#a6e22e">nick=</span><span style="color:#e6db74">&#34;info&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;2&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;value</span> <span style="color:#a6e22e">nick=</span><span style="color:#e6db74">&#34;fatal&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;3&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/enum&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;schema</span> <span style="color:#a6e22e">path=</span><span style="color:#e6db74">&#34;/com/deepin/test/&#34;</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;com.deepin.test&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;key</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;b&#34;</span>  <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;enabled&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;default&gt;</span>true<span style="color:#f92672">&lt;/default&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;summary&gt;</span>Enable this module.<span style="color:#f92672">&lt;/summary&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;description&gt;</span>Whether enable this module.<span style="color:#f92672">&lt;/description&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/key&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;key</span> <span style="color:#a6e22e">enum=</span><span style="color:#e6db74">&#34;com.deepin.test.LogLevel&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;loglevel&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;default&gt;</span>&#39;info&#39;<span style="color:#f92672">&lt;/default&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;summary&gt;</span>Log level.<span style="color:#f92672">&lt;/summary&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;description&gt;</span>Log level.<span style="color:#f92672">&lt;/description&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/key&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;key</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;i&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;interval&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;default&gt;</span>10<span style="color:#f92672">&lt;/default&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;range</span> <span style="color:#a6e22e">min=</span><span style="color:#e6db74">&#34;0&#34;</span> <span style="color:#a6e22e">max=</span><span style="color:#e6db74">&#34;60&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;summary&gt;</span>Timer duration.<span style="color:#f92672">&lt;/summary&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;description&gt;</span>Timer duration.<span style="color:#f92672">&lt;/description&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/key&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;key</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;(ii)&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;size&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;default&gt;</span>(800,600)<span style="color:#f92672">&lt;/default&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;summary&gt;</span>The window size.<span style="color:#f92672">&lt;/summary&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;description&gt;</span>The window size.<span style="color:#f92672">&lt;/description&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/key&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/schema&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/schemalist&gt;</span>
+</span></span></code></pre></div><p>程序代码如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * Copyright (C) 2019 jouyouyun &lt;jouyouwen717@gmail.com&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> *
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * This program is free software; you can redistribute it and/or modify
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * it under the terms of the GNU General Public License as published by
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * the Free Software Foundation; either version 3 of the License, or
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * (at your option) any later version.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> *
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * example.c -- An example for gsettings.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> *
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * compile:
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> *    gcc -Wall -g example.c `pkg-config --libs --cflags gio-2.0`
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> *
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;gio/gio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>argv[])
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    GSettings <span style="color:#f92672">*</span>gs;
+</span></span><span style="display:flex;"><span>    gboolean enabled;
+</span></span><span style="display:flex;"><span>    gint loglevel, interval, width, height;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// if failed, will segmetfault
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    gs <span style="color:#f92672">=</span> g_settings_new(<span style="color:#e6db74">&#34;com.deepin.test&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    enabled <span style="color:#f92672">=</span> g_settings_get_boolean(gs, <span style="color:#e6db74">&#34;enabled&#34;</span>);
+</span></span><span style="display:flex;"><span>    g_print(<span style="color:#e6db74">&#34;Enabled: %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, enabled);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    loglevel <span style="color:#f92672">=</span> g_settings_get_enum(gs, <span style="color:#e6db74">&#34;loglevel&#34;</span>);
+</span></span><span style="display:flex;"><span>    g_print(<span style="color:#e6db74">&#34;Log level: %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, loglevel);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    interval <span style="color:#f92672">=</span> g_settings_get_int(gs, <span style="color:#e6db74">&#34;interval&#34;</span>);
+</span></span><span style="display:flex;"><span>    g_print(<span style="color:#e6db74">&#34;Timer duration: %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, interval);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    g_settings_get(gs, <span style="color:#e6db74">&#34;size&#34;</span>, <span style="color:#e6db74">&#34;(ii)&#34;</span>, <span style="color:#f92672">&amp;</span>width, <span style="color:#f92672">&amp;</span>height);
+</span></span><span style="display:flex;"><span>    g_print(<span style="color:#e6db74">&#34;Width: %d, height: %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, width, height);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    g_object_unref(gs);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>注意：</strong> 在使用接口调用时，需要确保 <code>schema</code> 和 <code>key</code> 存在，不然会触发 <strong>段错误</strong> 。</p>
 <hr>
 <h3 id="relocatable-schema"><code>Relocatable Schema</code></h3>
 <p>通常一个 <code>id</code> 对应一个固定的 <code>path</code> ，但也可以没有，即不设置 <code>path</code> ，这样就是一个可重定位的 <code>schema</code> 。这个特性对于可变的配置很有用，如用户自定义的快捷键：快捷键的个数是不可知，这时可利用这个特性先声明一个快捷键 <code>schema</code> 作为模板，然后动态创建多个 <code>path</code> 来使用。示例如下：</p>
 <p><code>schema</code> 文件如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
-<span class="nt">&lt;schemalist&gt;</span>
-    <span class="nt">&lt;schema</span> <span class="na">id=</span><span class="s">&#34;com.deepin.test.keybind&#34;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;key</span> <span class="na">type=</span><span class="s">&#34;s&#34;</span>  <span class="na">name=</span><span class="s">&#34;name&#34;</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;default&gt;</span>&#39;&#39;<span class="nt">&lt;/default&gt;</span>
-            <span class="nt">&lt;summary&gt;</span>Shortcut name.<span class="nt">&lt;/summary&gt;</span>
-            <span class="nt">&lt;description&gt;</span>Shortcut name.<span class="nt">&lt;/description&gt;</span>
-        <span class="nt">&lt;/key&gt;</span>
-        <span class="nt">&lt;key</span> <span class="na">type=</span><span class="s">&#34;as&#34;</span>  <span class="na">name=</span><span class="s">&#34;shortcuts&#34;</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;default&gt;</span>[&#39;&#39;]<span class="nt">&lt;/default&gt;</span>
-            <span class="nt">&lt;summary&gt;</span>Shortcut keys.<span class="nt">&lt;/summary&gt;</span>
-            <span class="nt">&lt;description&gt;</span>Shortcut keys.<span class="nt">&lt;/description&gt;</span>
-        <span class="nt">&lt;/key&gt;</span>
-        <span class="nt">&lt;key</span> <span class="na">type=</span><span class="s">&#34;s&#34;</span>  <span class="na">name=</span><span class="s">&#34;action&#34;</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;default&gt;</span>&#39;&#39;<span class="nt">&lt;/default&gt;</span>
-            <span class="nt">&lt;summary&gt;</span>Shortcut action.<span class="nt">&lt;/summary&gt;</span>
-            <span class="nt">&lt;description&gt;</span>Shortcut action.<span class="nt">&lt;/description&gt;</span>
-        <span class="nt">&lt;/key&gt;</span>
-        <span class="nt">&lt;key</span> <span class="na">type=</span><span class="s">&#34;s&#34;</span>  <span class="na">name=</span><span class="s">&#34;description&#34;</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;default&gt;</span>&#39;&#39;<span class="nt">&lt;/default&gt;</span>
-            <span class="nt">&lt;summary&gt;</span>Shortcut description.<span class="nt">&lt;/summary&gt;</span>
-            <span class="nt">&lt;description&gt;</span>Shortcut description.<span class="nt">&lt;/description&gt;</span>
-        <span class="nt">&lt;/key&gt;</span>
-    <span class="nt">&lt;/schema&gt;</span>
-<span class="nt">&lt;/schemalist&gt;</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>程序代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">  1
-</span><span class="lnt">  2
-</span><span class="lnt">  3
-</span><span class="lnt">  4
-</span><span class="lnt">  5
-</span><span class="lnt">  6
-</span><span class="lnt">  7
-</span><span class="lnt">  8
-</span><span class="lnt">  9
-</span><span class="lnt"> 10
-</span><span class="lnt"> 11
-</span><span class="lnt"> 12
-</span><span class="lnt"> 13
-</span><span class="lnt"> 14
-</span><span class="lnt"> 15
-</span><span class="lnt"> 16
-</span><span class="lnt"> 17
-</span><span class="lnt"> 18
-</span><span class="lnt"> 19
-</span><span class="lnt"> 20
-</span><span class="lnt"> 21
-</span><span class="lnt"> 22
-</span><span class="lnt"> 23
-</span><span class="lnt"> 24
-</span><span class="lnt"> 25
-</span><span class="lnt"> 26
-</span><span class="lnt"> 27
-</span><span class="lnt"> 28
-</span><span class="lnt"> 29
-</span><span class="lnt"> 30
-</span><span class="lnt"> 31
-</span><span class="lnt"> 32
-</span><span class="lnt"> 33
-</span><span class="lnt"> 34
-</span><span class="lnt"> 35
-</span><span class="lnt"> 36
-</span><span class="lnt"> 37
-</span><span class="lnt"> 38
-</span><span class="lnt"> 39
-</span><span class="lnt"> 40
-</span><span class="lnt"> 41
-</span><span class="lnt"> 42
-</span><span class="lnt"> 43
-</span><span class="lnt"> 44
-</span><span class="lnt"> 45
-</span><span class="lnt"> 46
-</span><span class="lnt"> 47
-</span><span class="lnt"> 48
-</span><span class="lnt"> 49
-</span><span class="lnt"> 50
-</span><span class="lnt"> 51
-</span><span class="lnt"> 52
-</span><span class="lnt"> 53
-</span><span class="lnt"> 54
-</span><span class="lnt"> 55
-</span><span class="lnt"> 56
-</span><span class="lnt"> 57
-</span><span class="lnt"> 58
-</span><span class="lnt"> 59
-</span><span class="lnt"> 60
-</span><span class="lnt"> 61
-</span><span class="lnt"> 62
-</span><span class="lnt"> 63
-</span><span class="lnt"> 64
-</span><span class="lnt"> 65
-</span><span class="lnt"> 66
-</span><span class="lnt"> 67
-</span><span class="lnt"> 68
-</span><span class="lnt"> 69
-</span><span class="lnt"> 70
-</span><span class="lnt"> 71
-</span><span class="lnt"> 72
-</span><span class="lnt"> 73
-</span><span class="lnt"> 74
-</span><span class="lnt"> 75
-</span><span class="lnt"> 76
-</span><span class="lnt"> 77
-</span><span class="lnt"> 78
-</span><span class="lnt"> 79
-</span><span class="lnt"> 80
-</span><span class="lnt"> 81
-</span><span class="lnt"> 82
-</span><span class="lnt"> 83
-</span><span class="lnt"> 84
-</span><span class="lnt"> 85
-</span><span class="lnt"> 86
-</span><span class="lnt"> 87
-</span><span class="lnt"> 88
-</span><span class="lnt"> 89
-</span><span class="lnt"> 90
-</span><span class="lnt"> 91
-</span><span class="lnt"> 92
-</span><span class="lnt"> 93
-</span><span class="lnt"> 94
-</span><span class="lnt"> 95
-</span><span class="lnt"> 96
-</span><span class="lnt"> 97
-</span><span class="lnt"> 98
-</span><span class="lnt"> 99
-</span><span class="lnt">100
-</span><span class="lnt">101
-</span><span class="lnt">102
-</span><span class="lnt">103
-</span><span class="lnt">104
-</span><span class="lnt">105
-</span><span class="lnt">106
-</span><span class="lnt">107
-</span><span class="lnt">108
-</span><span class="lnt">109
-</span><span class="lnt">110
-</span><span class="lnt">111
-</span><span class="lnt">112
-</span><span class="lnt">113
-</span><span class="lnt">114
-</span><span class="lnt">115
-</span><span class="lnt">116
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-c" data-lang="c"><span class="cm">/**
-</span><span class="cm"> * Copyright (C) 2019 jouyouyun &lt;jouyouwen717@gmail.com&gt;
-</span><span class="cm"> *
-</span><span class="cm"> * This program is free software; you can redistribute it and/or modify
-</span><span class="cm"> * it under the terms of the GNU General Public License as published by
-</span><span class="cm"> * the Free Software Foundation; either version 3 of the License, or
-</span><span class="cm"> * (at your option) any later version.
-</span><span class="cm"> *
-</span><span class="cm"> * relocatable.c -- An example for gsettings relocatable path.
-</span><span class="cm"> *
-</span><span class="cm"> * compile:
-</span><span class="cm"> *    gcc -Wall -g relocatable.c `pkg-config --libs --cflags gio-2.0`
-</span><span class="cm"> */</span>
-
-<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;gio/gio.h&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">static</span> <span class="kt">void</span> <span class="nf">set_keybind</span><span class="p">(</span><span class="n">GSettings</span> <span class="o">*</span><span class="n">gs</span><span class="p">);</span>
-<span class="k">static</span> <span class="kt">void</span> <span class="nf">get_keybind</span><span class="p">(</span><span class="n">GSettings</span> <span class="o">*</span><span class="n">gs</span><span class="p">);</span>
-
-<span class="k">static</span> <span class="kt">void</span>
-<span class="nf">set_keybind</span><span class="p">(</span><span class="n">GSettings</span> <span class="o">*</span><span class="n">gs</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">gboolean</span> <span class="n">ok</span><span class="p">;</span>
-
-    <span class="n">ok</span> <span class="o">=</span> <span class="n">g_settings_set_string</span><span class="p">(</span><span class="n">gs</span><span class="p">,</span> <span class="s">&#34;name&#34;</span><span class="p">,</span> <span class="s">&#34;test&#34;</span><span class="p">);</span>
-    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">ok</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">g_warning</span><span class="p">(</span><span class="s">&#34;Failed to set name to &#39;test&#39;&#34;</span><span class="p">);</span>
-    <span class="p">}</span>
-
-    <span class="k">const</span> <span class="n">gchar</span> <span class="o">*</span><span class="n">shortcuts</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#34;Control-Alt-T&#34;</span><span class="p">,</span> <span class="s">&#34;Super-T&#34;</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">};</span>
-    <span class="n">ok</span> <span class="o">=</span> <span class="n">g_settings_set_strv</span><span class="p">(</span><span class="n">gs</span><span class="p">,</span> <span class="s">&#34;shortcuts&#34;</span><span class="p">,</span> <span class="n">shortcuts</span><span class="p">);</span>
-    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">ok</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">g_warning</span><span class="p">(</span><span class="s">&#34;Failed to set shortcuts&#34;</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="n">ok</span> <span class="o">=</span> <span class="n">g_settings_set_string</span><span class="p">(</span><span class="n">gs</span><span class="p">,</span> <span class="s">&#34;action&#34;</span><span class="p">,</span> <span class="s">&#34;terminator&#34;</span><span class="p">);</span>
-    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">ok</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">g_warning</span><span class="p">(</span><span class="s">&#34;Failed to set action to &#39;terminator&#39;&#34;</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="n">ok</span> <span class="o">=</span> <span class="n">g_settings_set_string</span><span class="p">(</span><span class="n">gs</span><span class="p">,</span> <span class="s">&#34;description&#34;</span><span class="p">,</span> <span class="s">&#34;the shortcuts for terminator&#34;</span><span class="p">);</span>
-    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">ok</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">g_warning</span><span class="p">(</span><span class="s">&#34;Failed to set description to &#39;the shortcuts for terminator&#39;&#34;</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="k">static</span> <span class="kt">void</span>
-<span class="nf">get_keybind</span><span class="p">(</span><span class="n">GSettings</span> <span class="o">*</span><span class="n">gs</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">gchar</span> <span class="o">*</span><span class="n">name</span><span class="p">,</span> <span class="o">*</span><span class="n">action</span><span class="p">,</span> <span class="o">*</span><span class="n">desc</span><span class="p">;</span>
-    <span class="n">gchar</span> <span class="o">**</span><span class="n">shortcuts</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
-
-    <span class="n">name</span> <span class="o">=</span> <span class="n">g_settings_get_string</span><span class="p">(</span><span class="n">gs</span><span class="p">,</span> <span class="s">&#34;name&#34;</span><span class="p">);</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">g_print</span><span class="p">(</span><span class="s">&#34;Shortcut name: %s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">name</span><span class="p">);</span>
-        <span class="n">g_free</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
-    <span class="p">}</span>
-
-    <span class="n">shortcuts</span> <span class="o">=</span> <span class="n">g_settings_get_strv</span><span class="p">(</span><span class="n">gs</span><span class="p">,</span> <span class="s">&#34;shortcuts&#34;</span><span class="p">);</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">shortcuts</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-        <span class="n">g_print</span><span class="p">(</span><span class="s">&#34;Shortcut key: &#34;</span><span class="p">);</span>
-        <span class="k">for</span> <span class="p">(;</span> <span class="n">shortcuts</span><span class="p">[</span><span class="n">i</span><span class="p">];</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">g_print</span><span class="p">(</span><span class="s">&#34;, &#34;</span><span class="p">);</span>
-            <span class="p">}</span>
-            <span class="n">g_print</span><span class="p">(</span><span class="s">&#34;%s&#34;</span><span class="p">,</span> <span class="n">shortcuts</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
-            <span class="n">g_free</span><span class="p">(</span><span class="n">shortcuts</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
-        <span class="p">}</span>
-        <span class="n">g_print</span><span class="p">(</span><span class="s">&#34;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
-        <span class="n">g_free</span><span class="p">(</span><span class="n">shortcuts</span><span class="p">);</span>
-    <span class="p">}</span>
-
-    <span class="n">action</span> <span class="o">=</span> <span class="n">g_settings_get_string</span><span class="p">(</span><span class="n">gs</span><span class="p">,</span> <span class="s">&#34;action&#34;</span><span class="p">);</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">action</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">g_print</span><span class="p">(</span><span class="s">&#34;Shortcut action: %s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">action</span><span class="p">);</span>
-        <span class="n">g_free</span><span class="p">(</span><span class="n">action</span><span class="p">);</span>
-    <span class="p">}</span>
-
-    <span class="n">desc</span> <span class="o">=</span> <span class="n">g_settings_get_string</span><span class="p">(</span><span class="n">gs</span><span class="p">,</span> <span class="s">&#34;description&#34;</span><span class="p">);</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">desc</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">g_print</span><span class="p">(</span><span class="s">&#34;Shortcut desc: %s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">desc</span><span class="p">);</span>
-        <span class="n">g_free</span><span class="p">(</span><span class="n">desc</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kt">int</span>
-<span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
-<span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">argc</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">g_print</span><span class="p">(</span><span class="s">&#34;Usage: %s &lt;action&gt; &lt;keybind id&gt;</span><span class="se">\n</span><span class="s">&#34;</span>
-                <span class="s">&#34;</span><span class="se">\t</span><span class="s">action: get or set</span><span class="se">\n</span><span class="s">&#34;</span>
-                <span class="s">&#34;</span><span class="se">\t</span><span class="s">keybind id: a non-negative integer</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
-        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="n">GSettings</span> <span class="o">*</span><span class="n">gs</span><span class="p">;</span>
-    <span class="n">gchar</span> <span class="n">buf</span><span class="p">[</span><span class="mi">1024</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
-
-    <span class="k">if</span> <span class="p">(</span><span class="n">sprintf</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="s">&#34;/com/deepin/test/keybind/%s/&#34;</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">g_error</span><span class="p">(</span><span class="s">&#34;Failed to combains path: %s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
-        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="n">gs</span> <span class="o">=</span> <span class="n">g_settings_new_with_path</span><span class="p">(</span><span class="s">&#34;com.deepin.test.keybind&#34;</span><span class="p">,</span> <span class="n">buf</span><span class="p">);</span>
-
-    <span class="k">if</span> <span class="p">(</span><span class="n">g_strcmp0</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s">&#34;set&#34;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">set_keybind</span><span class="p">(</span><span class="n">gs</span><span class="p">);</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">g_strcmp0</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s">&#34;get&#34;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">get_keybind</span><span class="p">(</span><span class="n">gs</span><span class="p">);</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="n">g_warning</span><span class="p">(</span><span class="s">&#34;invalid action: %s&#34;</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
-    <span class="p">}</span>
-
-    <span class="n">g_object_unref</span><span class="p">(</span><span class="n">gs</span><span class="p">);</span>
-    <span class="n">g_settings_sync</span><span class="p">();</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><hr>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;schemalist&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;schema</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;com.deepin.test.keybind&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;key</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;s&#34;</span>  <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;name&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;default&gt;</span>&#39;&#39;<span style="color:#f92672">&lt;/default&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;summary&gt;</span>Shortcut name.<span style="color:#f92672">&lt;/summary&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;description&gt;</span>Shortcut name.<span style="color:#f92672">&lt;/description&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/key&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;key</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;as&#34;</span>  <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;shortcuts&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;default&gt;</span>[&#39;&#39;]<span style="color:#f92672">&lt;/default&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;summary&gt;</span>Shortcut keys.<span style="color:#f92672">&lt;/summary&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;description&gt;</span>Shortcut keys.<span style="color:#f92672">&lt;/description&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/key&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;key</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;s&#34;</span>  <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;action&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;default&gt;</span>&#39;&#39;<span style="color:#f92672">&lt;/default&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;summary&gt;</span>Shortcut action.<span style="color:#f92672">&lt;/summary&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;description&gt;</span>Shortcut action.<span style="color:#f92672">&lt;/description&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/key&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;key</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;s&#34;</span>  <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;description&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;default&gt;</span>&#39;&#39;<span style="color:#f92672">&lt;/default&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;summary&gt;</span>Shortcut description.<span style="color:#f92672">&lt;/summary&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;description&gt;</span>Shortcut description.<span style="color:#f92672">&lt;/description&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/key&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/schema&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/schemalist&gt;</span>
+</span></span></code></pre></div><p>程序代码如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * Copyright (C) 2019 jouyouyun &lt;jouyouwen717@gmail.com&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> *
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * This program is free software; you can redistribute it and/or modify
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * it under the terms of the GNU General Public License as published by
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * the Free Software Foundation; either version 3 of the License, or
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * (at your option) any later version.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> *
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * relocatable.c -- An example for gsettings relocatable path.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> *
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * compile:
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> *    gcc -Wall -g relocatable.c `pkg-config --libs --cflags gio-2.0`
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;gio/gio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">set_keybind</span>(GSettings <span style="color:#f92672">*</span>gs);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">get_keybind</span>(GSettings <span style="color:#f92672">*</span>gs);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">set_keybind</span>(GSettings <span style="color:#f92672">*</span>gs)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    gboolean ok;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    ok <span style="color:#f92672">=</span> g_settings_set_string(gs, <span style="color:#e6db74">&#34;name&#34;</span>, <span style="color:#e6db74">&#34;test&#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>ok) {
+</span></span><span style="display:flex;"><span>        g_warning(<span style="color:#e6db74">&#34;Failed to set name to &#39;test&#39;&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> gchar <span style="color:#f92672">*</span>shortcuts[] <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;Control-Alt-T&#34;</span>, <span style="color:#e6db74">&#34;Super-T&#34;</span>, NULL};
+</span></span><span style="display:flex;"><span>    ok <span style="color:#f92672">=</span> g_settings_set_strv(gs, <span style="color:#e6db74">&#34;shortcuts&#34;</span>, shortcuts);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>ok) {
+</span></span><span style="display:flex;"><span>        g_warning(<span style="color:#e6db74">&#34;Failed to set shortcuts&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    ok <span style="color:#f92672">=</span> g_settings_set_string(gs, <span style="color:#e6db74">&#34;action&#34;</span>, <span style="color:#e6db74">&#34;terminator&#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>ok) {
+</span></span><span style="display:flex;"><span>        g_warning(<span style="color:#e6db74">&#34;Failed to set action to &#39;terminator&#39;&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    ok <span style="color:#f92672">=</span> g_settings_set_string(gs, <span style="color:#e6db74">&#34;description&#34;</span>, <span style="color:#e6db74">&#34;the shortcuts for terminator&#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>ok) {
+</span></span><span style="display:flex;"><span>        g_warning(<span style="color:#e6db74">&#34;Failed to set description to &#39;the shortcuts for terminator&#39;&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">get_keybind</span>(GSettings <span style="color:#f92672">*</span>gs)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    gchar <span style="color:#f92672">*</span>name, <span style="color:#f92672">*</span>action, <span style="color:#f92672">*</span>desc;
+</span></span><span style="display:flex;"><span>    gchar <span style="color:#f92672">**</span>shortcuts <span style="color:#f92672">=</span> NULL;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    name <span style="color:#f92672">=</span> g_settings_get_string(gs, <span style="color:#e6db74">&#34;name&#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (name) {
+</span></span><span style="display:flex;"><span>        g_print(<span style="color:#e6db74">&#34;Shortcut name: %s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, name);
+</span></span><span style="display:flex;"><span>        g_free(name);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    shortcuts <span style="color:#f92672">=</span> g_settings_get_strv(gs, <span style="color:#e6db74">&#34;shortcuts&#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (shortcuts) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>        g_print(<span style="color:#e6db74">&#34;Shortcut key: &#34;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (; shortcuts[i]; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (i <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>                g_print(<span style="color:#e6db74">&#34;, &#34;</span>);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            g_print(<span style="color:#e6db74">&#34;%s&#34;</span>, shortcuts[i]);
+</span></span><span style="display:flex;"><span>            g_free(shortcuts[i]);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        g_print(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+</span></span><span style="display:flex;"><span>        g_free(shortcuts);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    action <span style="color:#f92672">=</span> g_settings_get_string(gs, <span style="color:#e6db74">&#34;action&#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (action) {
+</span></span><span style="display:flex;"><span>        g_print(<span style="color:#e6db74">&#34;Shortcut action: %s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, action);
+</span></span><span style="display:flex;"><span>        g_free(action);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    desc <span style="color:#f92672">=</span> g_settings_get_string(gs, <span style="color:#e6db74">&#34;description&#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (desc) {
+</span></span><span style="display:flex;"><span>        g_print(<span style="color:#e6db74">&#34;Shortcut desc: %s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, desc);
+</span></span><span style="display:flex;"><span>        g_free(desc);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>argv[])
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (argc <span style="color:#f92672">!=</span> <span style="color:#ae81ff">3</span>) {
+</span></span><span style="display:flex;"><span>        g_print(<span style="color:#e6db74">&#34;Usage: %s &lt;action&gt; &lt;keybind id&gt;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">action: get or set</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">keybind id: a non-negative integer</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, argv[<span style="color:#ae81ff">0</span>]);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    GSettings <span style="color:#f92672">*</span>gs;
+</span></span><span style="display:flex;"><span>    gchar buf[<span style="color:#ae81ff">1024</span>] <span style="color:#f92672">=</span> {<span style="color:#ae81ff">0</span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (sprintf(buf, <span style="color:#e6db74">&#34;/com/deepin/test/keybind/%s/&#34;</span>, argv[<span style="color:#ae81ff">2</span>]) <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>        g_error(<span style="color:#e6db74">&#34;Failed to combains path: %s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, argv[<span style="color:#ae81ff">2</span>]);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    gs <span style="color:#f92672">=</span> g_settings_new_with_path(<span style="color:#e6db74">&#34;com.deepin.test.keybind&#34;</span>, buf);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (g_strcmp0(argv[<span style="color:#ae81ff">1</span>], <span style="color:#e6db74">&#34;set&#34;</span>) <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>        set_keybind(gs);
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (g_strcmp0(argv[<span style="color:#ae81ff">1</span>], <span style="color:#e6db74">&#34;get&#34;</span>) <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>        get_keybind(gs);
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>        g_warning(<span style="color:#e6db74">&#34;invalid action: %s&#34;</span>, argv[<span style="color:#ae81ff">1</span>]);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    g_object_unref(gs);
+</span></span><span style="display:flex;"><span>    g_settings_sync();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><hr>
 <h3 id="override">override</h3>
 <p><code>gsettings</code> 支持 <code>override</code> 机制，可以更改默认值。</p>
 <p>通常 <code>key</code> 的默认值在文件中已经指定，但有时不同的版本上需要的默认值不同，这时 <code>override</code> 机制就很有用，可以在不修改配置文件的情况下更改默认值。</p>
 <p><code>override</code> 文件以 <strong><code>数字_</code></strong> 开头，并以 <strong><code>.gschema.override</code></strong> 结尾，数字为两位整数，数值越大优先级越高。</p>
 <p><code>override</code> 文件同样安装在 <code>/usr/share/glib-2.0/schemas</code> 目录下，并需要使用 <code>glib-compile-schemas</code> 编译。</p>
 <p><code>override</code> 文件的格式如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-ini" data-lang="ini"><span class="k">[schema id]</span>
-<span class="na">key</span><span class="o">=</span><span class="s">value</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>如更改 <code>com.deepin.test</code> 中 <code>interval</code> 的默认值为 <code>30</code> ，则内容如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-ini" data-lang="ini"><span class="k">[com.deepin.test]</span>
-<span class="na">interval</span><span class="o">=</span><span class="s">30</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>然后执行：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">sudo cp ./90_com.deepin.test.gschema.override /usr/share/glib-2.0/schemas/
-sudo glib-compile-schemas /usr/share/glib-2.0/schemas
-</code></pre></td></tr></table>
-</div>
-</div><hr>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#66d9ef">[schema id]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">key</span><span style="color:#f92672">=</span><span style="color:#e6db74">value</span>
+</span></span></code></pre></div><p>如更改 <code>com.deepin.test</code> 中 <code>interval</code> 的默认值为 <code>30</code> ，则内容如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#66d9ef">[com.deepin.test]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">interval</span><span style="color:#f92672">=</span><span style="color:#e6db74">30</span>
+</span></span></code></pre></div><p>然后执行：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo cp ./90_com.deepin.test.gschema.override /usr/share/glib-2.0/schemas/
+</span></span><span style="display:flex;"><span>sudo glib-compile-schemas /usr/share/glib-2.0/schemas
+</span></span></code></pre></div><hr>
 <h3 id="key-改变信号">key 改变信号</h3>
 <p><code>GSettings</code> 提供了 <code>changed</code> 信号来发送 <code>key</code> 改变的事件，如有需要可监听此信号。</p>
 <hr>
@@ -780,114 +505,53 @@ sudo glib-compile-schemas /usr/share/glib-2.0/schemas
 <li><a href="https://developer.gnome.org/GSettings/">GSettings</a></li>
 <li><a href="https://developer.gnome.org/gio/stable/GSettings.html">GSettings API</a></li>
 <li><a href="https://developer.gnome.org/glib/stable/gvariant-format-strings.html">GVariant Format Strings</a></li>
+</ul><ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/gsettings" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">gsettings</a>
+   </li>
+  
 </ul>
-    </div>
-
-    <div class="post-copyright">
-  <p class="copyright-item">
-    <span class="item-title">文章作者</span>
-    <span class="item-content">jouyouyun</span>
-  </p>
-  <p class="copyright-item">
-    <span class="item-title">上次更新</span>
-    <span class="item-content">
-        2019-08-04
-        
-    </span>
-  </p>
-  
-  
-</div>
-<div class="post-reward">
-  <input type="checkbox" name="reward" id="reward" hidden />
-  <label class="reward-button" for="reward">赞赏支持</label>
-  <div class="qr-code">
-    
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="/images/reward/wechat-qr-code.png">
-        <span>微信打赏</span>
-      </label>
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="/images/reward/alipay-qr-code.png">
-        <span>支付宝打赏</span>
-      </label>
-  </div>
-</div><footer class="post-footer">
-      <div class="post-tags">
-          <a href="/tags/gsettings/">gsettings</a>
-          </div>
-      <nav class="post-nav">
-        <a class="prev" href="/post/linux-kernel-compile/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Compile Kernel</span>
-            <span class="prev-text nav-mobile">上一篇</span>
-          </a>
-        <a class="next" href="/post/linux_hardware_info/">
-            <span class="next-text nav-default">Linux 硬件信息获取</span>
-            <span class="next-text nav-mobile">下一篇</span>
-            <i class="iconfont icon-right"></i>
-          </a>
-      </nav>
-    </footer>
-  </article>
-        </div>
-        
-
-  
-
-  
-
+<div class="mt6 instapaper_ignoref">
+      
+      
       </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="social-links">
-      <a href="mailto:jouyouwen717@gmail.com" class="iconfont icon-email" title="email"></a>
-      <a href="https://twitter.com/jouyouyun" class="iconfont icon-twitter" title="twitter"></a>
-      <a href="https://github.com/jouyouyun" class="iconfont icon-github" title="github"></a>
-  <a href="https://jouyouyun.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
-</div>
-
-<div class="copyright">
-  <span class="power-by">
-    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    主题 - 
-    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
-  </span>
-
-  
-
-  <span class="copyright-year">
-    &copy; 
-    2014 - 
-    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>jouyouyun</span>
-  </span>
-</div>
-
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont icon-up"></i>
     </div>
-  </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://jouyouyun.github.io" >
+    &copy;  jouyouyun 2022 
+  </a>
+    <div>
+<div class="ananke-socials">
   
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+    <a href="https://github.com/jouyouyun" target="_blank" class="github ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="GitHub link" rel="noopener" aria-label="follow on GitHub——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+</div>
+</div>
+  </div>
+</footer>
 
-
-
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
-
-
-
-
-
-
-
-
-</body>
+  </body>
 </html>

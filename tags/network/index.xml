@@ -14,7 +14,14 @@
       <pubDate>Sun, 15 Mar 2020 11:38:21 +0800</pubDate>
       
       <guid>https://jouyouyun.github.io/post/dde-daemon-tutorial/</guid>
-      <description>dde 后端使用 go 作为主要的开发语言，使用 dbus 提供接口，主要使用 gsettings 来保存配置。所以在进行后端开发前需要对以上内容有基本的了解，这里假定本文档的阅读者</description>
+      <description>dde 后端使用 go 作为主要的开发语言，使用 dbus 提供接口，主要使用 gsettings 来保存配置。所以在进行后端开发前需要对以上内容有基本的了解，这里假定本文档的阅读者熟悉 dbus 和 gsettings ，并有一定的开发经验。
+这里就只对 go 进行简单的介绍。
+go go 是一种类 c 的语言，但没有了 c 中令人头疼的指针和内存管理问题，极大的提高了开发效率。 go 中使用 package 来封装同一功能的模块，首字母大写的变量和函数是可以被其它 package 使用的。
+学习 go 至少需要了解以下内容。
+编码风格 go 提供了 gofmt 工具来对代码进行格式化，以使用统一的代码风格。因此在代码保存之前需要使用 gofmt 先进行格式化。
+保存前格式化这种操作，一般可在编辑器中配置，如 vim , emacs 等，根据个人习惯选择编辑器。
+变量 go 支持使用时声明和使用 var 声明两种方式，如下：
+使用 var 声明 // 主动声明 var ( outData []byte err error ) outData, err = os.Exec(&amp;#34;ls&amp;#34;).Output() 使用时声明 // 使用时声明 outData, err := os.</description>
     </item>
     
     <item>

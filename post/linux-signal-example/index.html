@@ -1,48 +1,39 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Linux Signal Examples - jouyouyun&#39;s blog</title>
-  <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-<meta name="author" content="jouyouyun" /><meta name="description" content="信号是系统响应某些条件而产生的一个事件，接收到该信的进程做出相应的处理。通常信是由错误产生的，如段错误(SIGSEGV)。 但信还可以作为进程间通信的一种方式，由一个进程发送给另一个进程。
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Linux Signal Examples | jouyouyun&#39;s blog</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="信号是系统响应某些条件而产生的一个事件，接收到该信的进程做出相应的处理。通常信是由错误产生的，如段错误(SIGSEGV)。 但信还可以作为进程间通信的一种方式，由一个进程发送给另一个进程。
 信号定义在 signal.h 文件中，以 SIG 作为开头，可用 kill -l 命令查看，详细信息参见 man 7 signal 。
-信号处理 信号可以通过 signal 和 sigaction 函数来注册处理， signal 函数是 struct sigaction 中 sa_handler 的一种便捷实现。
-signal 函数" /><meta name="keywords" content="jouyouyun, Hugo, theme, even" />
+信号处理
+信号可以通过 signal 和 sigaction 函数来注册处理， signal 函数是 struct sigaction 中 sa_handler 的一种便捷实现。
+signal 函数">
+    <meta name="generator" content="Hugo 0.101.0" />
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
 
 
 
+    
+    
+    
+      
 
+    
 
-
-<meta name="generator" content="Hugo 0.82.1 with theme even" />
-
-
-<link rel="canonical" href="https://jouyouyun.github.io/post/linux-signal-example/" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-
-
-
-<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
-
-
-<meta property="og:title" content="Linux Signal Examples" />
+    
+    
+    <meta property="og:title" content="Linux Signal Examples" />
 <meta property="og:description" content="信号是系统响应某些条件而产生的一个事件，接收到该信的进程做出相应的处理。通常信是由错误产生的，如段错误(SIGSEGV)。 但信还可以作为进程间通信的一种方式，由一个进程发送给另一个进程。
 信号定义在 signal.h 文件中，以 SIG 作为开头，可用 kill -l 命令查看，详细信息参见 man 7 signal 。
 信号处理
@@ -50,17 +41,17 @@ signal 函数" /><meta name="keywords" content="jouyouyun, Hugo, theme, even" />
 signal 函数" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jouyouyun.github.io/post/linux-signal-example/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2018-11-13T21:38:21&#43;08:00" />
-<meta property="article:modified_time" content="2019-04-23T16:13:41&#43;08:00" />
+<meta property="article:published_time" content="2018-11-13T21:38:21+08:00" />
+<meta property="article:modified_time" content="2019-04-23T16:13:41+08:00" />
 
 <meta itemprop="name" content="Linux Signal Examples">
 <meta itemprop="description" content="信号是系统响应某些条件而产生的一个事件，接收到该信的进程做出相应的处理。通常信是由错误产生的，如段错误(SIGSEGV)。 但信还可以作为进程间通信的一种方式，由一个进程发送给另一个进程。
 信号定义在 signal.h 文件中，以 SIG 作为开头，可用 kill -l 命令查看，详细信息参见 man 7 signal 。
 信号处理
 信号可以通过 signal 和 sigaction 函数来注册处理， signal 函数是 struct sigaction 中 sa_handler 的一种便捷实现。
-signal 函数"><meta itemprop="datePublished" content="2018-11-13T21:38:21&#43;08:00" />
-<meta itemprop="dateModified" content="2019-04-23T16:13:41&#43;08:00" />
-<meta itemprop="wordCount" content="2153">
+signal 函数"><meta itemprop="datePublished" content="2018-11-13T21:38:21+08:00" />
+<meta itemprop="dateModified" content="2019-04-23T16:13:41+08:00" />
+<meta itemprop="wordCount" content="942">
 <meta itemprop="keywords" content="signal,sigaction,alarm,kill,raise," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Linux Signal Examples"/>
 <meta name="twitter:description" content="信号是系统响应某些条件而产生的一个事件，接收到该信的进程做出相应的处理。通常信是由错误产生的，如段错误(SIGSEGV)。 但信还可以作为进程间通信的一种方式，由一个进程发送给另一个进程。
@@ -69,182 +60,152 @@ signal 函数"><meta itemprop="datePublished" content="2018-11-13T21:38:21&#43;0
 信号可以通过 signal 和 sigaction 函数来注册处理， signal 函数是 struct sigaction 中 sa_handler 的一种便捷实现。
 signal 函数"/>
 
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
+	
+  </head>
 
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
+  <body class="ma0 avenir bg-near-white">
 
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/" class="logo">jouyouyun</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <a href="/post/">
-        <li class="mobile-menu-item">Archives</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">Tags</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">Categories</li>
-      </a>
-  </ul>
-</nav>
-  <div class="container" id="mobile-panel">
-    <header id="header" class="header">
-        <div class="logo-wrapper">
-  <a href="/" class="logo">jouyouyun</a>
-</div>
-
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
-        <a class="menu-item-link" href="/post/">Archives</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">Tags</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">Categories</a>
-      </li>
-  </ul>
-</nav>
-    </header>
-
-    <main id="main" class="main">
-      <div class="content-wrapper">
-        <div id="content" class="content">
-          <article class="post">
     
-    <header class="post-header">
-      <h1 class="post-title">Linux Signal Examples</h1>
+   
+  
 
-      <div class="post-meta">
-        <span class="post-time"> 2018-11-13 </span>
-        <div class="post-category">
-            <a href="/categories/note/"> NOTE </a>
-            </div>
-        
-      </div>
-    </header>
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        jouyouyun&#39;s blog
+      
+    </a>
+    <div class="flex-l items-center">
+      
 
-    <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">文章目录</h2>
-  <div class="post-toc-content always-active">
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#信号处理">信号处理</a>
-      <ul>
-        <li><a href="#signal-函数"><code>signal</code> 函数</a></li>
-        <li><a href="#sigaction-函数"><code>sigaction</code> 函数</a></li>
-        <li><a href="#信号屏蔽字">信号屏蔽字</a></li>
-      </ul>
-    </li>
-    <li><a href="#信号发送">信号发送</a>
-      <ul>
-        <li><a href="#kill">kill</a></li>
-        <li><a href="#alarm">alarm</a></li>
-        <li><a href="#raise">raise</a></li>
-      </ul>
-    </li>
-    <li><a href="#结语">结语</a></li>
-    <li><a href="#附录">附录</a>
-      <ul>
-        <li><a href="#信号表">信号表</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-  </div>
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/post/" title="Archives 页">
+              Archives
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/tags/" title="Tags 页">
+              Tags
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/categories/" title="Categories 页">
+              Categories
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+<div class="ananke-socials">
+  
+    <a href="https://github.com/jouyouyun" target="_blank" class="github ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="GitHub link" rel="noopener" aria-label="follow on GitHub——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
 </div>
-    <div class="post-content">
-      <p>信号是系统响应某些条件而产生的一个事件，接收到该信的进程做出相应的处理。通常信是由错误产生的，如段错误(<code>SIGSEGV</code>)。 但信还可以作为进程间通信的一种方式，由一个进程发送给另一个进程。</p>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Linux Signal Examples</h1>
+      
+      <p class="tracked">
+         <strong>jouyouyun</strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2018-11-13T21:38:21+08:00">十一月 13, 2018</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>信号是系统响应某些条件而产生的一个事件，接收到该信的进程做出相应的处理。通常信是由错误产生的，如段错误(<code>SIGSEGV</code>)。 但信还可以作为进程间通信的一种方式，由一个进程发送给另一个进程。</p>
 <p>信号定义在 <code>signal.h</code> 文件中，以 <code>SIG</code> 作为开头，可用 <code>kill -l</code> 命令查看，详细信息参见 <a href="http://man7.org/linux/man-pages/man7/signal.7.html">man 7 signal</a> 。</p>
 <h2 id="信号处理">信号处理</h2>
 <p>信号可以通过 <code>signal</code> 和 <code>sigaction</code> 函数来注册处理， <code>signal</code> 函数是 <code>struct sigaction</code> 中 <code>sa_handler</code> 的一种便捷实现。</p>
 <h3 id="signal-函数"><code>signal</code> 函数</h3>
 <p><strong>原型：</strong></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-c" data-lang="c"><span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">signal</span><span class="p">(</span><span class="kt">int</span> <span class="n">sig</span><span class="p">,</span> <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">func</span><span class="p">)(</span><span class="kt">int</span><span class="p">)))(</span><span class="kt">int</span><span class="p">);</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>其中 <code>sig</code> 是需要捕获的 <code>signal number</code>, 后一个是捕获到信号后的处理函数指针，所以处理函数的原型必须是 <code>void func(int)</code> ，简单的代码示例如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-c" data-lang="c"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;signal.h&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">static</span> <span class="kt">void</span>
-<span class="nf">handler</span><span class="p">(</span><span class="kt">int</span> <span class="n">sig</span><span class="p">)</span>
-<span class="p">{</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Recieved signal: %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">sig</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="kt">int</span>
-<span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
-<span class="p">{</span>
-        <span class="n">signal</span><span class="p">(</span><span class="n">SIGINT</span><span class="p">,</span> <span class="n">handler</span><span class="p">);</span>
-
-        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Caught SIGINT, input &#39;quit&#39; to exit...</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
-        <span class="c1">// wait signal caught
-</span><span class="c1"></span>        <span class="kt">char</span> <span class="n">buf</span><span class="p">[</span><span class="mi">1024</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
-        <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Please input: &#34;</span><span class="p">);</span>
-                <span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%s&#34;</span><span class="p">,</span> <span class="n">buf</span><span class="p">);</span>
-                <span class="k">if</span> <span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="s">&#34;quit&#34;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-                        <span class="k">break</span><span class="p">;</span>
-                <span class="p">}</span>
-        <span class="p">}</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Exit...</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
-        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>另外 <code>api</code> 中也提供了下面 2 个特殊的 <code>handler</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> (<span style="color:#f92672">*</span>signal(<span style="color:#66d9ef">int</span> sig, <span style="color:#66d9ef">void</span> (<span style="color:#f92672">*</span>func)(<span style="color:#66d9ef">int</span>)))(<span style="color:#66d9ef">int</span>);
+</span></span></code></pre></div><p>其中 <code>sig</code> 是需要捕获的 <code>signal number</code>, 后一个是捕获到信号后的处理函数指针，所以处理函数的原型必须是 <code>void func(int)</code> ，简单的代码示例如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;signal.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">handler</span>(<span style="color:#66d9ef">int</span> sig)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>        printf(<span style="color:#e6db74">&#34;Recieved signal: %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, sig);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>argv[])
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>        signal(SIGINT, handler);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        printf(<span style="color:#e6db74">&#34;Caught SIGINT, input &#39;quit&#39; to exit...</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// wait signal caught
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">char</span> buf[<span style="color:#ae81ff">1024</span>] <span style="color:#f92672">=</span> {<span style="color:#ae81ff">0</span>};
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> (<span style="color:#ae81ff">1</span>) {
+</span></span><span style="display:flex;"><span>                printf(<span style="color:#e6db74">&#34;Please input: &#34;</span>);
+</span></span><span style="display:flex;"><span>                scanf(<span style="color:#e6db74">&#34;%s&#34;</span>, buf);
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> (strcmp(buf, <span style="color:#e6db74">&#34;quit&#34;</span>) <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>                        <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        printf(<span style="color:#e6db74">&#34;Exit...</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>另外 <code>api</code> 中也提供了下面 2 个特殊的 <code>handler</code>:</p>
 <ul>
 <li>
 <p><code>SIG_IGN</code></p>
@@ -257,17 +218,9 @@ signal 函数"/>
 </ul>
 <h3 id="sigaction-函数"><code>sigaction</code> 函数</h3>
 <p><strong>原型：</strong></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-c" data-lang="c"><span class="kt">int</span> <span class="nf">sigaction</span><span class="p">(</span><span class="kt">int</span> <span class="n">sig</span><span class="p">,</span> <span class="k">const</span> <span class="k">struct</span> <span class="n">sigaction</span> <span class="o">*</span><span class="kr">restrict</span> <span class="n">act</span><span class="p">,</span>
-           <span class="k">struct</span> <span class="n">sigaction</span> <span class="o">*</span><span class="kr">restrict</span> <span class="n">oact</span><span class="p">);</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>其中 <code>sig</code> 为 <code>signal number</code>, <code>act</code> 指定信号的处理行为， <code>oact</code> 如果不为 <code>NULL</code> 则返回信号之前的处理行为。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">sigaction</span>(<span style="color:#66d9ef">int</span> sig, <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">struct</span> sigaction <span style="color:#f92672">*</span><span style="color:#66d9ef">restrict</span> act,
+</span></span><span style="display:flex;"><span>           <span style="color:#66d9ef">struct</span> sigaction <span style="color:#f92672">*</span><span style="color:#66d9ef">restrict</span> oact);
+</span></span></code></pre></div><p>其中 <code>sig</code> 为 <code>signal number</code>, <code>act</code> 指定信号的处理行为， <code>oact</code> 如果不为 <code>NULL</code> 则返回信号之前的处理行为。</p>
 <p><code>struct sigaction</code> 的主要成员如下：</p>
 <table>
 <thead>
@@ -324,130 +277,64 @@ signal 函数"/>
 </li>
 </ul>
 <p>简单的代码示例如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-c" data-lang="c"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;signal.h&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="cp">#define SIG SIGINT
-</span><span class="cp"></span>
-<span class="k">static</span> <span class="kt">void</span>
-<span class="nf">sig_handler</span><span class="p">(</span><span class="kt">int</span> <span class="n">sig</span><span class="p">,</span> <span class="n">siginfo_t</span> <span class="o">*</span><span class="n">si</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">data</span><span class="p">)</span>
-<span class="p">{</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Caught signal: %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">sig</span><span class="p">);</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Sender pid: %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">si</span><span class="o">-&gt;</span><span class="n">si_pid</span><span class="p">);</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Sender uid: %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">si</span><span class="o">-&gt;</span><span class="n">si_uid</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="k">static</span> <span class="kt">int</span>
-<span class="nf">sig_caught</span><span class="p">(</span><span class="kt">int</span> <span class="n">sig</span><span class="p">)</span>
-<span class="p">{</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Start caught signal: %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">sig</span><span class="p">);</span>
-        <span class="k">struct</span> <span class="n">sigaction</span> <span class="n">sa</span><span class="p">;</span>
-        <span class="n">sa</span><span class="p">.</span><span class="n">sa_flags</span> <span class="o">=</span> <span class="n">SA_SIGINFO</span><span class="p">;</span>
-        <span class="n">sa</span><span class="p">.</span><span class="n">sa_sigaction</span> <span class="o">=</span> <span class="n">sig_handler</span><span class="p">;</span>
-        <span class="n">sigemptyset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sa</span><span class="p">.</span><span class="n">sa_mask</span><span class="p">);</span>
-        <span class="kt">int</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">sigaction</span><span class="p">(</span><span class="n">sig</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">sa</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Failed to caught signal: %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">sig</span><span class="p">);</span>
-                <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-        <span class="p">}</span>
-
-        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">int</span>
-<span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
-<span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">sig_caught</span><span class="p">(</span><span class="n">SIG</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-                <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-        <span class="p">}</span>
-
-        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Caught signal(%d), input &#39;quit&#39; to exit...</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">SIG</span><span class="p">);</span>
-        <span class="kt">char</span> <span class="n">buf</span><span class="p">[</span><span class="mi">1024</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
-        <span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Please input: &#34;</span><span class="p">);</span>
-                <span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%s&#34;</span><span class="p">,</span> <span class="n">buf</span><span class="p">);</span>
-                <span class="k">if</span> <span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="s">&#34;quit&#34;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-                        <span class="k">break</span><span class="p">;</span>
-                <span class="p">}</span>
-        <span class="p">}</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Exit...</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
-        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="信号屏蔽字">信号屏蔽字</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;signal.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#define SIG SIGINT
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">sig_handler</span>(<span style="color:#66d9ef">int</span> sig, siginfo_t <span style="color:#f92672">*</span>si, <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>data)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>        printf(<span style="color:#e6db74">&#34;Caught signal: %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, sig);
+</span></span><span style="display:flex;"><span>        printf(<span style="color:#e6db74">&#34;Sender pid: %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, si<span style="color:#f92672">-&gt;</span>si_pid);
+</span></span><span style="display:flex;"><span>        printf(<span style="color:#e6db74">&#34;Sender uid: %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, si<span style="color:#f92672">-&gt;</span>si_uid);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">sig_caught</span>(<span style="color:#66d9ef">int</span> sig)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>        printf(<span style="color:#e6db74">&#34;Start caught signal: %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, sig);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">struct</span> sigaction sa;
+</span></span><span style="display:flex;"><span>        sa.sa_flags <span style="color:#f92672">=</span> SA_SIGINFO;
+</span></span><span style="display:flex;"><span>        sa.sa_sigaction <span style="color:#f92672">=</span> sig_handler;
+</span></span><span style="display:flex;"><span>        sigemptyset(<span style="color:#f92672">&amp;</span>sa.sa_mask);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> ret <span style="color:#f92672">=</span> sigaction(sig, <span style="color:#f92672">&amp;</span>sa, NULL);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (ret <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) {
+</span></span><span style="display:flex;"><span>                printf(<span style="color:#e6db74">&#34;Failed to caught signal: %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, sig);
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>argv[])
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (sig_caught(SIG) <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        printf(<span style="color:#e6db74">&#34;Caught signal(%d), input &#39;quit&#39; to exit...</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, SIG);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">char</span> buf[<span style="color:#ae81ff">1024</span>] <span style="color:#f92672">=</span> {<span style="color:#ae81ff">0</span>};
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span>(<span style="color:#ae81ff">1</span>) {
+</span></span><span style="display:flex;"><span>                printf(<span style="color:#e6db74">&#34;Please input: &#34;</span>);
+</span></span><span style="display:flex;"><span>                scanf(<span style="color:#e6db74">&#34;%s&#34;</span>, buf);
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> (strcmp(buf, <span style="color:#e6db74">&#34;quit&#34;</span>) <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>                        <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        printf(<span style="color:#e6db74">&#34;Exit...</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="信号屏蔽字">信号屏蔽字</h3>
 <p>考虑一下这种情况：在 <code>signal()/sigaction()</code> 返回之前进程就已经收到了需要处理的信号，此时进程会以默认行为来处理，这显然不符合我们的期望。 这时就需要用到信号屏蔽字了，在进程启动时就将需要处理的信号加入的屏蔽字中，等 <code>signal()/sigaction()</code> 返回后再解除屏蔽，解除屏蔽后至少会将收到的待处理信号发送一个给进程。</p>
 <p>屏蔽字用到一下函数：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-c" data-lang="c"><span class="kt">int</span> <span class="nf">sigemptyset</span><span class="p">(</span><span class="n">sigset_t</span> <span class="o">*</span><span class="n">set</span><span class="p">);</span>
-<span class="kt">int</span> <span class="nf">sigaddset</span><span class="p">(</span><span class="n">sigset_t</span> <span class="o">*</span><span class="n">set</span><span class="p">,</span> <span class="kt">int</span> <span class="n">signo</span><span class="p">);</span>
-<span class="kt">int</span> <span class="nf">sigprocmask</span><span class="p">(</span><span class="kt">int</span> <span class="n">how</span><span class="p">,</span> <span class="k">const</span> <span class="n">sigset_t</span> <span class="o">*</span><span class="kr">restrict</span> <span class="n">set</span><span class="p">,</span>
-           <span class="n">sigset_t</span> <span class="o">*</span><span class="kr">restrict</span> <span class="n">oset</span><span class="p">);</span>
-</code></pre></td></tr></table>
-</div>
-</div><p><code>sigprocmask</code> 中 <code>set</code> 为需要设置的屏蔽字集， <code>oset</code> 为之前的屏蔽字集， <code>how</code> 控制着 <code>set</code> 如何生效，可设置为以下值：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">sigemptyset</span>(sigset_t <span style="color:#f92672">*</span>set);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">sigaddset</span>(sigset_t <span style="color:#f92672">*</span>set, <span style="color:#66d9ef">int</span> signo);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">sigprocmask</span>(<span style="color:#66d9ef">int</span> how, <span style="color:#66d9ef">const</span> sigset_t <span style="color:#f92672">*</span><span style="color:#66d9ef">restrict</span> set,
+</span></span><span style="display:flex;"><span>           sigset_t <span style="color:#f92672">*</span><span style="color:#66d9ef">restrict</span> oset);
+</span></span></code></pre></div><p><code>sigprocmask</code> 中 <code>set</code> 为需要设置的屏蔽字集， <code>oset</code> 为之前的屏蔽字集， <code>how</code> 控制着 <code>set</code> 如何生效，可设置为以下值：</p>
 <ul>
 <li>
 <p>SIG_BLOCK</p>
@@ -463,41 +350,20 @@ signal 函数"/>
 </li>
 </ul>
 <p>简单的设置流程如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-c" data-lang="c"><span class="kt">int</span>
-<span class="nf">sig_block</span><span class="p">(</span><span class="kt">int</span> <span class="n">sig</span><span class="p">,</span> <span class="kt">int</span> <span class="n">how</span><span class="p">)</span>
-<span class="p">{</span>
-        <span class="n">sigset_t</span> <span class="n">mask</span><span class="p">;</span>
-        <span class="n">sigemptyset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mask</span><span class="p">)</span>
-        <span class="n">sigaddset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mask</span><span class="p">,</span> <span class="n">sig</span><span class="p">);</span>
-        <span class="n">sigprocmask</span><span class="p">(</span><span class="n">how</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">mask</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="信号发送">信号发送</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">int</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">sig_block</span>(<span style="color:#66d9ef">int</span> sig, <span style="color:#66d9ef">int</span> how)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>        sigset_t mask;
+</span></span><span style="display:flex;"><span>        sigemptyset(<span style="color:#f92672">&amp;</span>mask)
+</span></span><span style="display:flex;"><span>        sigaddset(<span style="color:#f92672">&amp;</span>mask, sig);
+</span></span><span style="display:flex;"><span>        sigprocmask(how, <span style="color:#f92672">&amp;</span>mask, NULL);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="信号发送">信号发送</h2>
 <p>信号可以通过 <code>kill</code> 函数发送给指定进程，也可以通过 <code>raise</code> 或者 <code>alarm</code> 函数发送给当前执行的线程或进程，下面来分别说说这几个函数。</p>
 <h3 id="kill">kill</h3>
 <p><strong>原型：</strong></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-c" data-lang="c"><span class="kt">int</span> <span class="nf">kill</span><span class="p">(</span><span class="n">pid_t</span> <span class="n">pid</span><span class="p">,</span> <span class="kt">int</span> <span class="n">sig</span><span class="p">);</span>
-</code></pre></td></tr></table>
-</div>
-</div><p><code>kill</code> 函数向指定进程发送指定的信号，如果信号为 0 将执行错误检查，信号并不会发送，可以用来检查 <code>pid</code> 的有效性。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">kill</span>(pid_t pid, <span style="color:#66d9ef">int</span> sig);
+</span></span></code></pre></div><p><code>kill</code> 函数向指定进程发送指定的信号，如果信号为 0 将执行错误检查，信号并不会发送，可以用来检查 <code>pid</code> 的有效性。</p>
 <p><code>pid</code> 大于 0 时信号将发送给此进程， <code>pid</code> 小于等于 0 时，如下：</p>
 <ul>
 <li>
@@ -515,221 +381,107 @@ signal 函数"/>
 </ul>
 <h3 id="alarm">alarm</h3>
 <p><strong>原型：</strong></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-c" data-lang="c"><span class="kt">unsigned</span> <span class="nf">alarm</span><span class="p">(</span><span class="kt">unsigned</span> <span class="n">seconds</span><span class="p">);</span>
-</code></pre></td></tr></table>
-</div>
-</div><p><code>alarm</code> 函数将在指定的 <code>seconds</code> 之后发送一个 <code>SIGALRM</code> 信号，如果 <code>seconds</code> 为 0, 则取消之前的定时器请求。如果不为 0 则取消之前的请求，重新设置为 <code>seconds</code> 。 如果在等待结束之前有其他的事件产生，那定时器请求也将被取消。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">unsigned</span> <span style="color:#a6e22e">alarm</span>(<span style="color:#66d9ef">unsigned</span> seconds);
+</span></span></code></pre></div><p><code>alarm</code> 函数将在指定的 <code>seconds</code> 之后发送一个 <code>SIGALRM</code> 信号，如果 <code>seconds</code> 为 0, 则取消之前的定时器请求。如果不为 0 则取消之前的请求，重新设置为 <code>seconds</code> 。 如果在等待结束之前有其他的事件产生，那定时器请求也将被取消。</p>
 <p>简单的代码示例如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-c" data-lang="c"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;signal.h&gt;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="k">static</span> <span class="kt">void</span>
-<span class="nf">handler</span><span class="p">(</span><span class="kt">int</span> <span class="n">sig</span><span class="p">)</span>
-<span class="p">{</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;alarm arrived: %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">sig</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="kt">int</span>
-<span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
-<span class="p">{</span>
-        <span class="n">signal</span><span class="p">(</span><span class="n">SIGALRM</span><span class="p">,</span> <span class="n">handler</span><span class="p">);</span>
-
-        <span class="n">alarm</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-
-        <span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;alarm 5s over</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
-
-        <span class="n">alarm</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
-        <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-
-        <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">remaining</span> <span class="o">=</span> <span class="n">alarm</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;alarm 10s remain: %u, reset to 3</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">remaining</span><span class="p">);</span>
-        <span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;alarm 3s over</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
-
-        <span class="n">alarm</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
-        <span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
-
-        <span class="n">remaining</span> <span class="o">=</span> <span class="n">alarm</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;cancel alarm 20s, remian: %u, exit...</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">remaining</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="raise">raise</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;signal.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">handler</span>(<span style="color:#66d9ef">int</span> sig)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>        printf(<span style="color:#e6db74">&#34;alarm arrived: %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, sig);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>argv[])
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>        signal(SIGALRM, handler);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        alarm(<span style="color:#ae81ff">2</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        sleep(<span style="color:#ae81ff">2</span>);
+</span></span><span style="display:flex;"><span>        printf(<span style="color:#e6db74">&#34;alarm 5s over</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        alarm(<span style="color:#ae81ff">10</span>);
+</span></span><span style="display:flex;"><span>        sleep(<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">int</span> remaining <span style="color:#f92672">=</span> alarm(<span style="color:#ae81ff">3</span>);
+</span></span><span style="display:flex;"><span>        printf(<span style="color:#e6db74">&#34;alarm 10s remain: %u, reset to 3</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, remaining);
+</span></span><span style="display:flex;"><span>        sleep(<span style="color:#ae81ff">3</span>);
+</span></span><span style="display:flex;"><span>        printf(<span style="color:#e6db74">&#34;alarm 3s over</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        alarm(<span style="color:#ae81ff">20</span>);
+</span></span><span style="display:flex;"><span>        sleep(<span style="color:#ae81ff">3</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        remaining <span style="color:#f92672">=</span> alarm(<span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>        printf(<span style="color:#e6db74">&#34;cancel alarm 20s, remian: %u, exit...</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, remaining);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="raise">raise</h3>
 <p><strong>原型：</strong></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-c" data-lang="c"><span class="kt">int</span> <span class="nf">raise</span><span class="p">(</span><span class="kt">int</span> <span class="n">sig</span><span class="p">);</span>
-</code></pre></td></tr></table>
-</div>
-</div><p><code>raise</code> 函数将给当前执行的线程或进程发送信号，如果信号处理函数已经被调用， <code>raise</code> 函数将等待信号处理函数调用结束才返回。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">raise</span>(<span style="color:#66d9ef">int</span> sig);
+</span></span></code></pre></div><p><code>raise</code> 函数将给当前执行的线程或进程发送信号，如果信号处理函数已经被调用， <code>raise</code> 函数将等待信号处理函数调用结束才返回。</p>
 <h2 id="结语">结语</h2>
 <p>信号处理函数是会被重复调用的，所以必要保存其是可重入的，注意处理逻辑。</p>
 <p>另外本文中的代码都在 <a href="https://github.com/jouyouyun/examples/tree/master/signal">signal</a> 中，这个 <code>repo</code> 也有其它的示例，有兴趣的可以看看。</p>
 <h2 id="附录">附录</h2>
 <h3 id="信号表">信号表</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-c" data-lang="c"><span class="cm">/* ISO C99 signals.  */</span>
-<span class="cp">#define	SIGINT		2	</span><span class="cm">/* Interactive attention signal.  */</span><span class="cp">
-</span><span class="cp">#define	SIGILL		4	</span><span class="cm">/* Illegal instruction.  */</span><span class="cp">
-</span><span class="cp">#define	SIGABRT		6	</span><span class="cm">/* Abnormal termination.  */</span><span class="cp">
-</span><span class="cp">#define	SIGFPE		8	</span><span class="cm">/* Erroneous arithmetic operation.  */</span><span class="cp">
-</span><span class="cp">#define	SIGSEGV		11	</span><span class="cm">/* Invalid access to storage.  */</span><span class="cp">
-</span><span class="cp">#define	SIGTERM		15	</span><span class="cm">/* Termination request.  */</span><span class="cp">
-</span><span class="cp"></span>
-<span class="cm">/* Historical signals specified by POSIX. */</span>
-<span class="cp">#define	SIGHUP		1	</span><span class="cm">/* Hangup.  */</span><span class="cp">
-</span><span class="cp">#define	SIGQUIT		3	</span><span class="cm">/* Quit.  */</span><span class="cp">
-</span><span class="cp">#define	SIGTRAP		5	</span><span class="cm">/* Trace/breakpoint trap.  */</span><span class="cp">
-</span><span class="cp">#define	SIGKILL		9	</span><span class="cm">/* Killed.  */</span><span class="cp">
-</span><span class="cp">#define SIGBUS		10	</span><span class="cm">/* Bus error.  */</span><span class="cp">
-</span><span class="cp">#define	SIGSYS		12	</span><span class="cm">/* Bad system call.  */</span><span class="cp">
-</span><span class="cp">#define	SIGPIPE		13	</span><span class="cm">/* Broken pipe.  */</span><span class="cp">
-</span><span class="cp">#define	SIGALRM		14	</span><span class="cm">/* Alarm clock.  */</span><span class="cp">
-</span><span class="cp"></span>
-<span class="cm">/* New(er) POSIX signals (1003.1-2008, 1003.1-2013).  */</span>
-<span class="cp">#define	SIGURG		16	</span><span class="cm">/* Urgent data is available at a socket.  */</span><span class="cp">
-</span><span class="cp">#define	SIGSTOP		17	</span><span class="cm">/* Stop, unblockable.  */</span><span class="cp">
-</span><span class="cp">#define	SIGTSTP		18	</span><span class="cm">/* Keyboard stop.  */</span><span class="cp">
-</span><span class="cp">#define	SIGCONT		19	</span><span class="cm">/* Continue.  */</span><span class="cp">
-</span><span class="cp">#define	SIGCHLD		20	</span><span class="cm">/* Child terminated or stopped.  */</span><span class="cp">
-</span><span class="cp">#define	SIGTTIN		21	</span><span class="cm">/* Background read from control terminal.  */</span><span class="cp">
-</span><span class="cp">#define	SIGTTOU		22	</span><span class="cm">/* Background write to control terminal.  */</span><span class="cp">
-</span><span class="cp">#define	SIGPOLL		23	</span><span class="cm">/* Pollable event occurred (System V).  */</span><span class="cp">
-</span><span class="cp">#define	SIGXCPU		24	</span><span class="cm">/* CPU time limit exceeded.  */</span><span class="cp">
-</span><span class="cp">#define	SIGXFSZ		25	</span><span class="cm">/* File size limit exceeded.  */</span><span class="cp">
-</span><span class="cp">#define	SIGVTALRM	26	</span><span class="cm">/* Virtual timer expired.  */</span><span class="cp">
-</span><span class="cp">#define	SIGPROF		27	</span><span class="cm">/* Profiling timer expired.  */</span><span class="cp">
-</span><span class="cp">#define	SIGUSR1		30	</span><span class="cm">/* User-defined signal 1.  */</span><span class="cp">
-</span><span class="cp">#define	SIGUSR2		31	</span><span class="cm">/* User-defined signal 2.  */</span><span class="cp">
-</span><span class="cp"></span>
-<span class="cm">/* Nonstandard signals found in all modern POSIX systems
-</span><span class="cm">   (including both BSD and Linux).  */</span>
-<span class="cp">#define	SIGWINCH	28	</span><span class="cm">/* Window size change (4.3 BSD, Sun).  */</span><span class="cp">
-</span><span class="cp"></span>
-<span class="cm">/* Archaic names for compatibility.  */</span>
-<span class="cp">#define	SIGIO		SIGPOLL	</span><span class="cm">/* I/O now possible (4.2 BSD).  */</span><span class="cp">
-</span><span class="cp">#define	SIGIOT		SIGABRT	</span><span class="cm">/* IOT instruction, abort() on a PDP-11.  */</span><span class="cp">
-</span><span class="cp">#define	SIGCLD		SIGCHLD	</span><span class="cm">/* Old System V name */</span><span class="cp">
-</span><span class="cp"></span>
-<span class="cm">/* Not all systems support real-time signals.  bits/signum.h indicates
-</span><span class="cm">   that they are supported by overriding __SIGRTMAX to a value greater
-</span><span class="cm">   than __SIGRTMIN.  These constants give the kernel-level hard limits,
-</span><span class="cm">   but some real-time signals may be used internally by glibc.  Do not
-</span><span class="cm">   use these constants in application code; use SIGRTMIN and SIGRTMAX
-</span><span class="cm">   (defined in signal.h) instead.  */</span>
-<span class="cp">#define __SIGRTMIN	32
-</span><span class="cp">#define __SIGRTMAX	__SIGRTMIN
-</span><span class="cp"></span>
-<span class="cm">/* Biggest signal number + 1 (including real-time signals).  */</span>
-<span class="cp">#define _NSIG		(__SIGRTMAX + 1)
-</span></code></pre></td></tr></table>
-</div>
-</div><p>使用 <code>kill -l</code> 命令也可查看信号列表.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">/* ISO C99 signals.  */</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#define	SIGINT		2	</span><span style="color:#75715e">/* Interactive attention signal.  */</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define	SIGILL		4	</span><span style="color:#75715e">/* Illegal instruction.  */</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define	SIGABRT		6	</span><span style="color:#75715e">/* Abnormal termination.  */</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define	SIGFPE		8	</span><span style="color:#75715e">/* Erroneous arithmetic operation.  */</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define	SIGSEGV		11	</span><span style="color:#75715e">/* Invalid access to storage.  */</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define	SIGTERM		15	</span><span style="color:#75715e">/* Termination request.  */</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* Historical signals specified by POSIX. */</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#define	SIGHUP		1	</span><span style="color:#75715e">/* Hangup.  */</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define	SIGQUIT		3	</span><span style="color:#75715e">/* Quit.  */</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define	SIGTRAP		5	</span><span style="color:#75715e">/* Trace/breakpoint trap.  */</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define	SIGKILL		9	</span><span style="color:#75715e">/* Killed.  */</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define SIGBUS		10	</span><span style="color:#75715e">/* Bus error.  */</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define	SIGSYS		12	</span><span style="color:#75715e">/* Bad system call.  */</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define	SIGPIPE		13	</span><span style="color:#75715e">/* Broken pipe.  */</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define	SIGALRM		14	</span><span style="color:#75715e">/* Alarm clock.  */</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* New(er) POSIX signals (1003.1-2008, 1003.1-2013).  */</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#define	SIGURG		16	</span><span style="color:#75715e">/* Urgent data is available at a socket.  */</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define	SIGSTOP		17	</span><span style="color:#75715e">/* Stop, unblockable.  */</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define	SIGTSTP		18	</span><span style="color:#75715e">/* Keyboard stop.  */</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define	SIGCONT		19	</span><span style="color:#75715e">/* Continue.  */</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define	SIGCHLD		20	</span><span style="color:#75715e">/* Child terminated or stopped.  */</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define	SIGTTIN		21	</span><span style="color:#75715e">/* Background read from control terminal.  */</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define	SIGTTOU		22	</span><span style="color:#75715e">/* Background write to control terminal.  */</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define	SIGPOLL		23	</span><span style="color:#75715e">/* Pollable event occurred (System V).  */</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define	SIGXCPU		24	</span><span style="color:#75715e">/* CPU time limit exceeded.  */</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define	SIGXFSZ		25	</span><span style="color:#75715e">/* File size limit exceeded.  */</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define	SIGVTALRM	26	</span><span style="color:#75715e">/* Virtual timer expired.  */</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define	SIGPROF		27	</span><span style="color:#75715e">/* Profiling timer expired.  */</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define	SIGUSR1		30	</span><span style="color:#75715e">/* User-defined signal 1.  */</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define	SIGUSR2		31	</span><span style="color:#75715e">/* User-defined signal 2.  */</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* Nonstandard signals found in all modern POSIX systems
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   (including both BSD and Linux).  */</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#define	SIGWINCH	28	</span><span style="color:#75715e">/* Window size change (4.3 BSD, Sun).  */</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* Archaic names for compatibility.  */</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#define	SIGIO		SIGPOLL	</span><span style="color:#75715e">/* I/O now possible (4.2 BSD).  */</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define	SIGIOT		SIGABRT	</span><span style="color:#75715e">/* IOT instruction, abort() on a PDP-11.  */</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define	SIGCLD		SIGCHLD	</span><span style="color:#75715e">/* Old System V name */</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* Not all systems support real-time signals.  bits/signum.h indicates
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   that they are supported by overriding __SIGRTMAX to a value greater
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   than __SIGRTMIN.  These constants give the kernel-level hard limits,
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   but some real-time signals may be used internally by glibc.  Do not
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   use these constants in application code; use SIGRTMIN and SIGRTMAX
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   (defined in signal.h) instead.  */</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#define __SIGRTMIN	32
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#define __SIGRTMAX	__SIGRTMIN
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* Biggest signal number + 1 (including real-time signals).  */</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#define _NSIG		(__SIGRTMAX + 1)
+</span></span></span></code></pre></div><p>使用 <code>kill -l</code> 命令也可查看信号列表.</p>
 <h4 id="可产生-coredump-的信号">可产生 <code>coredump</code> 的信号</h4>
 <table>
 <thead>
@@ -782,118 +534,69 @@ signal 函数"/>
 </tr>
 </tbody>
 </table>
-<p><code>SIGIOT</code> 在 <code>PDP-11</code> 上产生 <code>LOT</code> 指令, 同 <code>SIGABRT</code> .</p>
-    </div>
-
-    <div class="post-copyright">
-  <p class="copyright-item">
-    <span class="item-title">文章作者</span>
-    <span class="item-content">jouyouyun</span>
-  </p>
-  <p class="copyright-item">
-    <span class="item-title">上次更新</span>
-    <span class="item-content">
-        2019-04-23
-        
-    </span>
-  </p>
+<p><code>SIGIOT</code> 在 <code>PDP-11</code> 上产生 <code>LOT</code> 指令, 同 <code>SIGABRT</code> .</p><ul class="pa0">
   
+   <li class="list di">
+     <a href="/tags/signal" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">signal</a>
+   </li>
   
-</div>
-<div class="post-reward">
-  <input type="checkbox" name="reward" id="reward" hidden />
-  <label class="reward-button" for="reward">赞赏支持</label>
-  <div class="qr-code">
-    
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="/images/reward/wechat-qr-code.png">
-        <span>微信打赏</span>
-      </label>
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="/images/reward/alipay-qr-code.png">
-        <span>支付宝打赏</span>
-      </label>
-  </div>
-</div><footer class="post-footer">
-      <div class="post-tags">
-          <a href="/tags/signal/">signal</a>
-          <a href="/tags/sigaction/">sigaction</a>
-          <a href="/tags/alarm/">alarm</a>
-          <a href="/tags/kill/">kill</a>
-          <a href="/tags/raise/">raise</a>
-          </div>
-      <nav class="post-nav">
-        <a class="prev" href="/post/go-package-management/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Go 包管理之gom</span>
-            <span class="prev-text nav-mobile">上一篇</span>
-          </a>
-        <a class="next" href="/post/how-to-solved-origin-changed-apt-error/">
-            <span class="next-text nav-default">怎么处理 &#39;Origin&#39;值从&#39;Google, Inc.&#39;修改到了&#39;Google LLC&#39; 的 APT 错误</span>
-            <span class="next-text nav-mobile">下一篇</span>
-            <i class="iconfont icon-right"></i>
-          </a>
-      </nav>
-    </footer>
-  </article>
-        </div>
-        
-
+   <li class="list di">
+     <a href="/tags/sigaction" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">sigaction</a>
+   </li>
   
-
+   <li class="list di">
+     <a href="/tags/alarm" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">alarm</a>
+   </li>
   
-
+   <li class="list di">
+     <a href="/tags/kill" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">kill</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/raise" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">raise</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
       </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="social-links">
-      <a href="mailto:jouyouwen717@gmail.com" class="iconfont icon-email" title="email"></a>
-      <a href="https://twitter.com/jouyouyun" class="iconfont icon-twitter" title="twitter"></a>
-      <a href="https://github.com/jouyouyun" class="iconfont icon-github" title="github"></a>
-  <a href="https://jouyouyun.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
-</div>
-
-<div class="copyright">
-  <span class="power-by">
-    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    主题 - 
-    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
-  </span>
-
-  
-
-  <span class="copyright-year">
-    &copy; 
-    2014 - 
-    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>jouyouyun</span>
-  </span>
-</div>
-
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont icon-up"></i>
     </div>
-  </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://jouyouyun.github.io" >
+    &copy;  jouyouyun 2022 
+  </a>
+    <div>
+<div class="ananke-socials">
   
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+    <a href="https://github.com/jouyouyun" target="_blank" class="github ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="GitHub link" rel="noopener" aria-label="follow on GitHub——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+</div>
+</div>
+  </div>
+</footer>
 
-
-
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
-
-
-
-
-
-
-
-
-</body>
+  </body>
 </html>

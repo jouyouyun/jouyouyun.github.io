@@ -1,165 +1,167 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>InfluxDB 简介 - jouyouyun&#39;s blog</title>
-  <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>InfluxDB 简介 | jouyouyun&#39;s blog</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="InfluxDB 是一个时间序列数据库(TSDB), 被设计用来处理高写入、高查询负载，是 TICK 的一部分。
+TSDB 是针对时间戳或时间序列数据进行优化的数据库，专门为处理带有时间戳的度量和事件或度量而构建的。
+而时间序列数据可以是随时间跟踪、监视、下采样和聚合的度量或事件，如服务器指标、应用程序性能、网络数据、传感器数据以及许多其他类型的分析数据。">
+    <meta name="generator" content="Hugo 0.101.0" />
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-<meta name="author" content="jouyouyun" /><meta name="description" content="InfluxDB 是一个时间序列数据库(TSDB), 被设计用来处理高写入、高查询负载，是 TICK 的一部分。
-TSDB 是针对时间戳或时间序列数据进行优化的数据库，专门为处理带有时间戳的度量和事件或度量而构建的。 而时间序列数据可以是随时间跟踪、监视、下采样和聚合的度量或事件，如服务器指标、应用程序性能、网络数据、传感器数据以及许多其他类型的分析数据。
-" /><meta name="keywords" content="jouyouyun, Hugo, theme, even" />
-
-
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
 
 
 
+    
+    
+    
+      
 
-<meta name="generator" content="Hugo 0.82.1 with theme even" />
+    
 
-
-<link rel="canonical" href="https://jouyouyun.github.io/post/influxdb-introduction/" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-
-
-
-<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
-
-
-<meta property="og:title" content="InfluxDB 简介" />
+    
+    
+    <meta property="og:title" content="InfluxDB 简介" />
 <meta property="og:description" content="InfluxDB 是一个时间序列数据库(TSDB), 被设计用来处理高写入、高查询负载，是 TICK 的一部分。
 TSDB 是针对时间戳或时间序列数据进行优化的数据库，专门为处理带有时间戳的度量和事件或度量而构建的。
 而时间序列数据可以是随时间跟踪、监视、下采样和聚合的度量或事件，如服务器指标、应用程序性能、网络数据、传感器数据以及许多其他类型的分析数据。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jouyouyun.github.io/post/influxdb-introduction/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2019-04-13T16:55:00&#43;08:00" />
-<meta property="article:modified_time" content="2019-04-14T13:01:09&#43;08:00" />
+<meta property="article:published_time" content="2019-04-13T16:55:00+08:00" />
+<meta property="article:modified_time" content="2019-04-14T13:01:09+08:00" />
 
 <meta itemprop="name" content="InfluxDB 简介">
 <meta itemprop="description" content="InfluxDB 是一个时间序列数据库(TSDB), 被设计用来处理高写入、高查询负载，是 TICK 的一部分。
 TSDB 是针对时间戳或时间序列数据进行优化的数据库，专门为处理带有时间戳的度量和事件或度量而构建的。
-而时间序列数据可以是随时间跟踪、监视、下采样和聚合的度量或事件，如服务器指标、应用程序性能、网络数据、传感器数据以及许多其他类型的分析数据。"><meta itemprop="datePublished" content="2019-04-13T16:55:00&#43;08:00" />
-<meta itemprop="dateModified" content="2019-04-14T13:01:09&#43;08:00" />
-<meta itemprop="wordCount" content="2115">
+而时间序列数据可以是随时间跟踪、监视、下采样和聚合的度量或事件，如服务器指标、应用程序性能、网络数据、传感器数据以及许多其他类型的分析数据。"><meta itemprop="datePublished" content="2019-04-13T16:55:00+08:00" />
+<meta itemprop="dateModified" content="2019-04-14T13:01:09+08:00" />
+<meta itemprop="wordCount" content="649">
 <meta itemprop="keywords" content="influxdb,tsdb,series,measurement," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="InfluxDB 简介"/>
 <meta name="twitter:description" content="InfluxDB 是一个时间序列数据库(TSDB), 被设计用来处理高写入、高查询负载，是 TICK 的一部分。
 TSDB 是针对时间戳或时间序列数据进行优化的数据库，专门为处理带有时间戳的度量和事件或度量而构建的。
 而时间序列数据可以是随时间跟踪、监视、下采样和聚合的度量或事件，如服务器指标、应用程序性能、网络数据、传感器数据以及许多其他类型的分析数据。"/>
 
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
+	
+  </head>
 
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
+  <body class="ma0 avenir bg-near-white">
 
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/" class="logo">jouyouyun</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <a href="/post/">
-        <li class="mobile-menu-item">Archives</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">Tags</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">Categories</li>
-      </a>
-  </ul>
-</nav>
-  <div class="container" id="mobile-panel">
-    <header id="header" class="header">
-        <div class="logo-wrapper">
-  <a href="/" class="logo">jouyouyun</a>
-</div>
-
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
-        <a class="menu-item-link" href="/post/">Archives</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">Tags</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">Categories</a>
-      </li>
-  </ul>
-</nav>
-    </header>
-
-    <main id="main" class="main">
-      <div class="content-wrapper">
-        <div id="content" class="content">
-          <article class="post">
     
-    <header class="post-header">
-      <h1 class="post-title">InfluxDB 简介</h1>
+   
+  
 
-      <div class="post-meta">
-        <span class="post-time"> 2019-04-13 </span>
-        <div class="post-category">
-            <a href="/categories/blog/"> BLOG </a>
-            </div>
-        
-      </div>
-    </header>
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        jouyouyun&#39;s blog
+      
+    </a>
+    <div class="flex-l items-center">
+      
 
-    <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">文章目录</h2>
-  <div class="post-toc-content always-active">
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#关键特性">关键特性</a></li>
-    <li><a href="#安装">安装</a></li>
-    <li><a href="#配置">配置</a></li>
-    <li><a href="#基本操作">基本操作</a>
-      <ul>
-        <li><a href="#服务相关">服务相关</a></li>
-        <li><a href="#数据库">数据库</a></li>
-        <li><a href="#写入查询">写入查询</a></li>
-        <li><a href="#series">SERIES</a></li>
-        <li><a href="#持续查询">持续查询</a></li>
-        <li><a href="#保留策略">保留策略</a></li>
-      </ul>
-    </li>
-    <li><a href="#http-接口">HTTP 接口</a>
-      <ul>
-        <li><a href="#query"><code>/query</code></a></li>
-        <li><a href="#write"><code>/write</code></a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-  </div>
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/post/" title="Archives 页">
+              Archives
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/tags/" title="Tags 页">
+              Tags
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/categories/" title="Categories 页">
+              Categories
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+<div class="ananke-socials">
+  
+    <a href="https://github.com/jouyouyun" target="_blank" class="github ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="GitHub link" rel="noopener" aria-label="follow on GitHub——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
 </div>
-    <div class="post-content">
-      <p><code>InfluxDB</code> 是一个时间序列数据库(<code>TSDB</code>), 被设计用来处理高写入、高查询负载，是 <a href="https://www.influxdata.com/time-series-platform/">TICK</a> 的一部分。</p>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">InfluxDB 简介</h1>
+      
+      <p class="tracked">
+         <strong>jouyouyun</strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2019-04-13T16:55:00+08:00">四月 13, 2019</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p><code>InfluxDB</code> 是一个时间序列数据库(<code>TSDB</code>), 被设计用来处理高写入、高查询负载，是 <a href="https://www.influxdata.com/time-series-platform/">TICK</a> 的一部分。</p>
 <p><code>TSDB</code> 是针对时间戳或时间序列数据进行优化的数据库，专门为处理带有时间戳的度量和事件或度量而构建的。
 而时间序列数据可以是随时间跟踪、监视、下采样和聚合的度量或事件，如服务器指标、应用程序性能、网络数据、传感器数据以及许多其他类型的分析数据。</p>
 <h2 id="关键特性">关键特性</h2>
@@ -236,30 +238,16 @@ TSDB 是针对时间戳或时间序列数据进行优化的数据库，专门为
 <li>
 <p>写入数据</p>
 <p><code>point</code> 写入的语法如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="o">&lt;</span><span class="n">measurement</span><span class="o">&gt;</span><span class="p">[,</span><span class="o">&lt;</span><span class="n">tag</span><span class="o">-</span><span class="k">key</span><span class="o">&gt;=&lt;</span><span class="n">tag</span><span class="o">-</span><span class="n">value</span><span class="o">&gt;</span><span class="p">...]</span> <span class="o">&lt;</span><span class="n">field</span><span class="o">-</span><span class="k">key</span><span class="o">&gt;=&lt;</span><span class="n">field</span><span class="o">-</span><span class="n">value</span><span class="o">&gt;</span><span class="p">[,</span><span class="o">&lt;</span><span class="n">field2</span><span class="o">-</span><span class="k">key</span><span class="o">&gt;=&lt;</span><span class="n">field2</span><span class="o">-</span><span class="n">value</span><span class="o">&gt;</span><span class="p">...]</span> <span class="p">[</span><span class="n">unix</span><span class="o">-</span><span class="n">nano</span><span class="o">-</span><span class="k">timestamp</span><span class="p">]</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>插入一条 <code>cpu load</code> 的数据： <code>INSERT cpu_load,machine=001,region=ch value=0.56</code> ，
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">&lt;</span>measurement<span style="color:#f92672">&gt;</span>[,<span style="color:#f92672">&lt;</span>tag<span style="color:#f92672">-</span><span style="color:#66d9ef">key</span><span style="color:#f92672">&gt;=&lt;</span>tag<span style="color:#f92672">-</span>value<span style="color:#f92672">&gt;</span>...] <span style="color:#f92672">&lt;</span>field<span style="color:#f92672">-</span><span style="color:#66d9ef">key</span><span style="color:#f92672">&gt;=&lt;</span>field<span style="color:#f92672">-</span>value<span style="color:#f92672">&gt;</span>[,<span style="color:#f92672">&lt;</span>field2<span style="color:#f92672">-</span><span style="color:#66d9ef">key</span><span style="color:#f92672">&gt;=&lt;</span>field2<span style="color:#f92672">-</span>value<span style="color:#f92672">&gt;</span>...] [unix<span style="color:#f92672">-</span>nano<span style="color:#f92672">-</span><span style="color:#66d9ef">timestamp</span>]
+</span></span></code></pre></div><p>插入一条 <code>cpu load</code> 的数据： <code>INSERT cpu_load,machine=001,region=ch value=0.56</code> ，
 这就向名为 <code>cpu_load</code> 的 <code>measurement</code> 中添加了 <code>tags</code> 为 <code>machine</code> 和 <code>region</code> ， <code>fields</code> 为 <code>value</code> 的 <code>point</code> 。</p>
 <p>不指定 <code>timestamp</code> 时，默认会使用 <strong>本地的当前时间</strong> 作为 <code>timestamp</code> 。</p>
 </li>
 <li>
 <p>查询数据</p>
 <p>查询语法：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="o">&lt;</span><span class="n">field_key</span><span class="o">&gt;</span><span class="p">[,</span><span class="o">&lt;</span><span class="n">field_key</span><span class="o">&gt;</span><span class="p">,</span><span class="o">&lt;</span><span class="n">tag_key</span><span class="o">&gt;</span><span class="p">]</span> <span class="k">FROM</span> <span class="o">&lt;</span><span class="n">measurement_name</span><span class="o">&gt;</span><span class="p">[,</span><span class="o">&lt;</span><span class="n">measurement_name</span><span class="o">&gt;</span><span class="p">]</span>
-</code></pre></td></tr></table>
-</div>
-</div><p><strong>查询语句中必须要有 <code>field</code> 存在</strong> ，查询语句还支持 <code>Go</code> 风格的正则，下面给出一些例子。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">&lt;</span>field_key<span style="color:#f92672">&gt;</span>[,<span style="color:#f92672">&lt;</span>field_key<span style="color:#f92672">&gt;</span>,<span style="color:#f92672">&lt;</span>tag_key<span style="color:#f92672">&gt;</span>] <span style="color:#66d9ef">FROM</span> <span style="color:#f92672">&lt;</span>measurement_name<span style="color:#f92672">&gt;</span>[,<span style="color:#f92672">&lt;</span>measurement_name<span style="color:#f92672">&gt;</span>]
+</span></span></code></pre></div><p><strong>查询语句中必须要有 <code>field</code> 存在</strong> ，查询语句还支持 <code>Go</code> 风格的正则，下面给出一些例子。</p>
 <ul>
 <li>
 <p><code>SELECT * FROM cpu_load</code></p>
@@ -293,15 +281,8 @@ TSDB 是针对时间戳或时间序列数据进行优化的数据库，专门为
 <h3 id="series">SERIES</h3>
 <p><code>SERIES</code> 是 <code>measurement,&lt;tag1&gt;,&lt;tag2&gt;...</code> 的集合，如之前的写入的 <code>SERIES</code> 就是 <code>cpu_load,machine,region</code></p>
 <p>查看语法：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">SHOW</span> <span class="n">SERIES</span> <span class="k">FROM</span> <span class="p">[</span><span class="n">measurement</span><span class="p">],[</span><span class="n">tag1</span><span class="p">],[</span><span class="n">tag2</span><span class="p">]...</span>
-</code></pre></td></tr></table>
-</div>
-</div><p><code>FROM</code> 可以不加，如：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SHOW</span> SERIES <span style="color:#66d9ef">FROM</span> [measurement],[tag1],[tag2]...
+</span></span></code></pre></div><p><code>FROM</code> 可以不加，如：</p>
 <ul>
 <li><code>SHOW SERIES</code> 显示数据库中所有的 <code>series</code></li>
 <li><code>SHOW SERIES FROM cpu_load</code> 显示表 <code>cpu_load</code> 中的所有 <code>series</code></li>
@@ -311,73 +292,32 @@ TSDB 是针对时间戳或时间序列数据进行优化的数据库，专门为
 <li>
 <p>DROP</p>
 <p><code>DROP</code> 将删除所有的记录，并删除所有的索引，语法：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">DROP</span> <span class="n">SERIES</span> <span class="k">FROM</span> <span class="o">&lt;</span><span class="n">measurement</span><span class="o">&gt;</span> <span class="k">WHERE</span> <span class="p">[</span><span class="n">condition</span><span class="p">]</span>
-</code></pre></td></tr></table>
-</div>
-</div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">DROP</span> SERIES <span style="color:#66d9ef">FROM</span> <span style="color:#f92672">&lt;</span>measurement<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">WHERE</span> [condition]
+</span></span></code></pre></div></li>
 <li>
 <p>DELETE</p>
 <p><code>DELETE</code> 将删除所有的记录，但不会删除索引，并支持在 <code>WHERE</code> 语句中使用 =timestamp=，语法：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">DELETE</span> <span class="k">FROM</span> <span class="o">&lt;</span><span class="n">measurement_name</span><span class="o">&gt;</span> <span class="k">WHERE</span> <span class="p">[</span><span class="o">&lt;</span><span class="n">tag_key</span><span class="o">&gt;=</span><span class="s1">&#39;&lt;tag_value&gt;&#39;</span><span class="p">]</span> <span class="o">|</span> <span class="p">[</span><span class="o">&lt;</span><span class="n">time</span> <span class="nb">interval</span><span class="o">&gt;</span><span class="p">]</span><span class="o">~</span>
-</code></pre></td></tr></table>
-</div>
-</div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">DELETE</span> <span style="color:#66d9ef">FROM</span> <span style="color:#f92672">&lt;</span>measurement_name<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">WHERE</span> [<span style="color:#f92672">&lt;</span>tag_key<span style="color:#f92672">&gt;=</span><span style="color:#e6db74">&#39;&lt;tag_value&gt;&#39;</span>] <span style="color:#f92672">|</span> [<span style="color:#f92672">&lt;</span>time interval<span style="color:#f92672">&gt;</span>]<span style="color:#f92672">~</span>
+</span></span></code></pre></div></li>
 </ul>
 <h3 id="持续查询">持续查询</h3>
 <p>连续查询(<code>Continuous Queries</code> 简称 <code>CQ</code>)是 <code>InfluxQL</code> 对实时数据自动周期运行的查询，然后把查询结果写入到指定的 <code>measurement</code> 中。
 语法如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">CREATE</span> <span class="n">CONTINUOUS</span> <span class="n">QUERY</span> <span class="o">&lt;</span><span class="n">cq_name</span><span class="o">&gt;</span> <span class="k">ON</span> <span class="o">&lt;</span><span class="n">database_name</span><span class="o">&gt;</span>
-<span class="k">BEGIN</span>
-  <span class="o">&lt;</span><span class="n">cq_query</span><span class="o">&gt;</span>
-<span class="k">END</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>删除语法： <code>DROP CONTINUOUS QUERY &lt;cq_name&gt; ON &lt;database_name&gt;</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> CONTINUOUS QUERY <span style="color:#f92672">&lt;</span>cq_name<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">ON</span> <span style="color:#f92672">&lt;</span>database_name<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">BEGIN</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;</span>cq_query<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">END</span>
+</span></span></code></pre></div><p>删除语法： <code>DROP CONTINUOUS QUERY &lt;cq_name&gt; ON &lt;database_name&gt;</code></p>
 <p><code>cq_query</code> 需要一个函数，一个 <code>INTO</code> 子句和一个 <code>GROUP BY time()</code> 子句：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="o">&lt;</span><span class="k">function</span><span class="p">[</span><span class="n">s</span><span class="p">]</span><span class="o">&gt;</span> <span class="k">INTO</span> <span class="o">&lt;</span><span class="n">destination_measurement</span><span class="o">&gt;</span> <span class="k">FROM</span> <span class="o">&lt;</span><span class="n">measurement</span><span class="o">&gt;</span> <span class="p">[</span><span class="k">WHERE</span> <span class="o">&lt;</span><span class="n">stuff</span><span class="o">&gt;</span><span class="p">]</span> <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">time</span><span class="p">(</span><span class="o">&lt;</span><span class="nb">interval</span><span class="o">&gt;</span><span class="p">)[,</span><span class="o">&lt;</span><span class="n">tag_key</span><span class="p">[</span><span class="n">s</span><span class="p">]</span><span class="o">&gt;</span><span class="p">]</span>
-</code></pre></td></tr></table>
-</div>
-</div><p><strong>注意：</strong> 在 <code>WHERE</code> 子句中， <code>cq_query</code> 不需要时间范围。 <code>InfluxDB</code> 在执行 <code>CQ</code> 时自动生成 <code>cq_query</code> 的时间范围。
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">&lt;</span><span style="color:#66d9ef">function</span>[s]<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">INTO</span> <span style="color:#f92672">&lt;</span>destination_measurement<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">FROM</span> <span style="color:#f92672">&lt;</span>measurement<span style="color:#f92672">&gt;</span> [<span style="color:#66d9ef">WHERE</span> <span style="color:#f92672">&lt;</span>stuff<span style="color:#f92672">&gt;</span>] <span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> time(<span style="color:#f92672">&lt;</span>interval<span style="color:#f92672">&gt;</span>)[,<span style="color:#f92672">&lt;</span>tag_key[s]<span style="color:#f92672">&gt;</span>]
+</span></span></code></pre></div><p><strong>注意：</strong> 在 <code>WHERE</code> 子句中， <code>cq_query</code> 不需要时间范围。 <code>InfluxDB</code> 在执行 <code>CQ</code> 时自动生成 <code>cq_query</code> 的时间范围。
 <code>cq_query</code> 的 <code>WHERE</code> 子句中的任何用户指定的时间范围将被系统忽略。</p>
 <p>如创建一个一分钟采样一次 <code>cpu_load</code> 并写入 <code>cpu_load_1min</code> 表的连续查询:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">CREATE</span> <span class="n">CONTINUOUS</span> <span class="n">QUERY</span> <span class="s2">&#34;cpu_load_1min&#34;</span> <span class="k">ON</span> <span class="s2">&#34;learn_test&#34;</span>
-<span class="k">BEGIN</span>
-    <span class="k">SELECT</span> <span class="n">mean</span><span class="p">(</span><span class="s2">&#34;value&#34;</span><span class="p">)</span> <span class="k">INTO</span> <span class="s2">&#34;cpu_load_1min&#34;</span> <span class="k">FROM</span> <span class="s2">&#34;cpu_load&#34;</span> <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">time</span><span class="p">(</span><span class="mi">1</span><span class="n">m</span><span class="p">)</span>
-<span class="k">END</span>
-</code></pre></td></tr></table>
-</div>
-</div><p><code>value</code> 将以 <code>mean</code> 为名保存在 <code>cpu_load_1min</code> 中。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> CONTINUOUS QUERY <span style="color:#e6db74">&#34;cpu_load_1min&#34;</span> <span style="color:#66d9ef">ON</span> <span style="color:#e6db74">&#34;learn_test&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">BEGIN</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">SELECT</span> mean(<span style="color:#e6db74">&#34;value&#34;</span>) <span style="color:#66d9ef">INTO</span> <span style="color:#e6db74">&#34;cpu_load_1min&#34;</span> <span style="color:#66d9ef">FROM</span> <span style="color:#e6db74">&#34;cpu_load&#34;</span> <span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> time(<span style="color:#ae81ff">1</span>m)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">END</span>
+</span></span></code></pre></div><p><code>value</code> 将以 <code>mean</code> 为名保存在 <code>cpu_load_1min</code> 中。</p>
 <p>更多高级用法参加： <a href="https://docs.influxdata.com/influxdb/v1.7/query%5Flanguage/continuous%5Fqueries/">InfluxQL Continuous Queries</a></p>
 <h3 id="保留策略">保留策略</h3>
 <p><code>InfluxDB</code> 是没有提供直接删除数据记录的方法，但是提供数据保存策略，主要用于指定数据保留时间，超过指定时间，就删除这部分数据。
@@ -391,15 +331,8 @@ TSDB 是针对时间戳或时间序列数据进行优化的数据库，专门为
 <li>
 <p>创建</p>
 <p>创建语法：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">CREATE</span> <span class="n">RETENTION</span> <span class="n">POLICY</span> <span class="o">&lt;</span><span class="n">retention_policy_name</span><span class="o">&gt;</span> <span class="k">ON</span> <span class="o">&lt;</span><span class="n">database_name</span><span class="o">&gt;</span> <span class="n">DURATION</span> <span class="o">&lt;</span><span class="n">duration</span><span class="o">&gt;</span> <span class="n">REPLICATION</span> <span class="o">&lt;</span><span class="n">n</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">SHARD</span> <span class="n">DURATION</span> <span class="o">&lt;</span><span class="n">duration</span><span class="o">&gt;</span><span class="p">]</span> <span class="p">[</span><span class="k">DEFAULT</span><span class="p">]</span>
-</code></pre></td></tr></table>
-</div>
-</div><p><code>REPLICATION</code> 子句确定每个点在集群中存储多少个独立副本，其中 <code>n</code> 是数据节点的数量，对单节点实例无效。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> RETENTION POLICY <span style="color:#f92672">&lt;</span>retention_policy_name<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">ON</span> <span style="color:#f92672">&lt;</span>database_name<span style="color:#f92672">&gt;</span> DURATION <span style="color:#f92672">&lt;</span>duration<span style="color:#f92672">&gt;</span> REPLICATION <span style="color:#f92672">&lt;</span>n<span style="color:#f92672">&gt;</span> [SHARD DURATION <span style="color:#f92672">&lt;</span>duration<span style="color:#f92672">&gt;</span>] [<span style="color:#66d9ef">DEFAULT</span>]
+</span></span></code></pre></div><p><code>REPLICATION</code> 子句确定每个点在集群中存储多少个独立副本，其中 <code>n</code> 是数据节点的数量，对单节点实例无效。</p>
 <p>碎片持续时间子句确定碎片组覆盖的时间范围，是一个 <code>duration</code> 文字，不支持 <code>INF (infinite) duration</code> 。这个设置是可选的。
 默认情况下，碎片组的持续时间由保留策略的持续时间决定:</p>
 <table>
@@ -432,15 +365,8 @@ TSDB 是针对时间戳或时间序列数据进行优化的数据库，专门为
 </li>
 <li>
 <p>修改</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">ALTER</span> <span class="n">RETENTION</span> <span class="n">POLICY</span> <span class="o">&lt;</span><span class="n">rp_name</span><span class="o">&gt;</span> <span class="k">ON</span> <span class="o">&lt;</span><span class="k">database</span> <span class="n">name</span><span class="o">&gt;</span> <span class="n">DURATION</span> <span class="o">&lt;</span><span class="n">duration</span><span class="o">&gt;</span> <span class="n">REPLICATION</span> <span class="o">&lt;</span><span class="n">n</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">SHARD</span> <span class="n">DURATION</span> <span class="o">&lt;</span><span class="n">duration</span><span class="o">&gt;</span><span class="p">]</span> <span class="k">DEFAULT</span>
-</code></pre></td></tr></table>
-</div>
-</div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">ALTER</span> RETENTION POLICY <span style="color:#f92672">&lt;</span>rp_name<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">ON</span> <span style="color:#f92672">&lt;</span><span style="color:#66d9ef">database</span> name<span style="color:#f92672">&gt;</span> DURATION <span style="color:#f92672">&lt;</span>duration<span style="color:#f92672">&gt;</span> REPLICATION <span style="color:#f92672">&lt;</span>n<span style="color:#f92672">&gt;</span> [SHARD DURATION <span style="color:#f92672">&lt;</span>duration<span style="color:#f92672">&gt;</span>] <span style="color:#66d9ef">DEFAULT</span>
+</span></span></code></pre></div></li>
 </ul>
 <h2 id="http-接口">HTTP 接口</h2>
 <h3 id="query"><code>/query</code></h3>
@@ -449,215 +375,103 @@ TSDB 是针对时间戳或时间序列数据进行优化的数据库，专门为
 <li>
 <p>创建数据库</p>
 <p><code>POST</code> 请求可用于创建数据库，如：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">curl -X POST http://localhost:8086/query --data-urlencode <span class="s2">&#34;q=CREATE DATABASE &lt;database name&gt;&#34;</span>
-</code></pre></td></tr></table>
-</div>
-</div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>curl -X POST http://localhost:8086/query --data-urlencode <span style="color:#e6db74">&#34;q=CREATE DATABASE &lt;database name&gt;&#34;</span>
+</span></span></code></pre></div></li>
 <li>
 <p>查询</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">curl -X GET http://localhost:8086/query?pretty<span class="o">=</span><span class="nb">true</span> --data-urlencode <span class="s1">&#39;db=&lt;database name&gt;&#39;</span> --data-urlencode <span class="s1">&#39;q=SELECT &#34;field1&#34;,&#34;tag1&#34;... FROM &lt;measurement&gt; WHERE &lt;condition&gt;&#39;</span>
-</code></pre></td></tr></table>
-</div>
-</div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>curl -X GET http://localhost:8086/query?pretty<span style="color:#f92672">=</span>true --data-urlencode <span style="color:#e6db74">&#39;db=&lt;database name&gt;&#39;</span> --data-urlencode <span style="color:#e6db74">&#39;q=SELECT &#34;field1&#34;,&#34;tag1&#34;... FROM &lt;measurement&gt; WHERE &lt;condition&gt;&#39;</span>
+</span></span></code></pre></div></li>
 <li>
 <p>多个查询</p>
 <p>多个查询语句间用 <code>;</code> 分割，如:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">curl -X GET http://localhost:8086/query?pretty<span class="o">=</span><span class="nb">true</span> --data-urlencode <span class="s1">&#39;db=&lt;database name&gt;&#39;</span> --data-urlencode <span class="s1">&#39;q=SELECT &#34;field1&#34;,&#34;tag1&#34;... FROM &lt;measurement&gt; WHERE &lt;condition&gt;;SELECT fields FROM &lt;measurement&gt;&#39;</span>
-</code></pre></td></tr></table>
-</div>
-</div><p><strong>最大行限制(<code>max-row-limit</code>)</strong> 允许使用者限制返回结果的数目，以保护InfluxDB不会在聚合结果的时候导致的内存耗尽。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>curl -X GET http://localhost:8086/query?pretty<span style="color:#f92672">=</span>true --data-urlencode <span style="color:#e6db74">&#39;db=&lt;database name&gt;&#39;</span> --data-urlencode <span style="color:#e6db74">&#39;q=SELECT &#34;field1&#34;,&#34;tag1&#34;... FROM &lt;measurement&gt; WHERE &lt;condition&gt;;SELECT fields FROM &lt;measurement&gt;&#39;</span>
+</span></span></code></pre></div><p><strong>最大行限制(<code>max-row-limit</code>)</strong> 允许使用者限制返回结果的数目，以保护InfluxDB不会在聚合结果的时候导致的内存耗尽。</p>
 <p><strong>分块(chunking)</strong> 可以设置参数 <code>chunked=true</code> 开启分块，使返回的数据是流式的 <code>batch</code> ，而不是单个的返回。返回结果可以按 <code>100</code> 数据点被分块，为了改变这个返回最大的分块的大小，
 可以在查询的时候加上 <code>chunk_size</code> 参数，例如返回数据点是每 <code>20000</code> 为一个批次。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">curl -X GET <span class="s1">&#39;http://localhost:8086/query&#39;</span> --data-urlencode <span class="s2">&#34;db=&lt;name&gt;&#34;</span> --data-urlencode <span class="s2">&#34;chunked=true&#34;</span> --data-urlencode <span class="s2">&#34;chunk_size=100&#34;</span> --data-urlencode <span class="s2">&#34;q=SELECT * FROM cpu_load&#34;</span>
-</code></pre></td></tr></table>
-</div>
-</div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>curl -X GET <span style="color:#e6db74">&#39;http://localhost:8086/query&#39;</span> --data-urlencode <span style="color:#e6db74">&#34;db=&lt;name&gt;&#34;</span> --data-urlencode <span style="color:#e6db74">&#34;chunked=true&#34;</span> --data-urlencode <span style="color:#e6db74">&#34;chunk_size=100&#34;</span> --data-urlencode <span style="color:#e6db74">&#34;q=SELECT * FROM cpu_load&#34;</span>
+</span></span></code></pre></div></li>
 </ul>
 <h3 id="write"><code>/write</code></h3>
 <p>发送 <code>POST</code> 请求是写入数据的主要方式，，下面给出一些常见用法，而更多用法参见： <a href="https://docs.influxdata.com/influxdb/v1.7/guides/writing%5Fdata/">Writing data with the HTTP API</a> 。</p>
 <ul>
 <li>
 <p>插入一条 <code>Point</code></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">curl -X POST http://localhost:8086/write?db<span class="o">=</span>&lt;database name&gt; --data-binary <span class="s2">&#34;cpu_load,machine=001,region=cn value=0.56 1555164637838240795&#34;</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>必须指定 <code>database name</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>curl -X POST http://localhost:8086/write?db<span style="color:#f92672">=</span>&lt;database name&gt; --data-binary <span style="color:#e6db74">&#34;cpu_load,machine=001,region=cn value=0.56 1555164637838240795&#34;</span>
+</span></span></code></pre></div><p>必须指定 <code>database name</code></p>
 </li>
 <li>
 <p>插入多条 <code>Point</code></p>
 <p>多条 <code>Point</code> 之间用行分割，如：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">curl -X POST http://localhost:8086/write?db<span class="o">=</span>&lt;database name&gt; --data-binary <span class="s2">&#34;cpu_load,machine=001,region=cn value=0.56 1555164637838240795
-</span><span class="s2">cpu_load,machine=001,region=cn value=0.65 1555164637838340795
-</span><span class="s2">cpu_load,machine=003,region-cn value=0.6 1555164637839240795&#34;</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>如果需要写入 <code>Point</code> 过多，可以将 <code>Point</code> 放入文件中，然后通过 <code>POST</code> 请求上传。
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>curl -X POST http://localhost:8086/write?db<span style="color:#f92672">=</span>&lt;database name&gt; --data-binary <span style="color:#e6db74">&#34;cpu_load,machine=001,region=cn value=0.56 1555164637838240795
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">cpu_load,machine=001,region=cn value=0.65 1555164637838340795
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">cpu_load,machine=003,region-cn value=0.6 1555164637839240795&#34;</span>
+</span></span></code></pre></div><p>如果需要写入 <code>Point</code> 过多，可以将 <code>Point</code> 放入文件中，然后通过 <code>POST</code> 请求上传。
 文件(<code>cpu_data.txt</code>)内容如：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">cpu_load,machine<span class="o">=</span>001,region<span class="o">=</span>cn <span class="nv">value</span><span class="o">=</span>0.56 <span class="m">1555164637838240795</span>
-cpu_load,machine<span class="o">=</span>001,region<span class="o">=</span>cn <span class="nv">value</span><span class="o">=</span>0.65 <span class="m">1555164637838340795</span>
-cpu_load,machine<span class="o">=</span>003,region-cn <span class="nv">value</span><span class="o">=</span>0.6 <span class="m">1555164637839240795</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>然后上传：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">curl -X POST http://localhost:8086/write?db<span class="o">=</span>&lt;database name&gt; --data-binary @cpu_data.txt
-</code></pre></td></tr></table>
-</div>
-</div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cpu_load,machine<span style="color:#f92672">=</span>001,region<span style="color:#f92672">=</span>cn value<span style="color:#f92672">=</span>0.56 <span style="color:#ae81ff">1555164637838240795</span>
+</span></span><span style="display:flex;"><span>cpu_load,machine<span style="color:#f92672">=</span>001,region<span style="color:#f92672">=</span>cn value<span style="color:#f92672">=</span>0.65 <span style="color:#ae81ff">1555164637838340795</span>
+</span></span><span style="display:flex;"><span>cpu_load,machine<span style="color:#f92672">=</span>003,region-cn value<span style="color:#f92672">=</span>0.6 <span style="color:#ae81ff">1555164637839240795</span>
+</span></span></code></pre></div><p>然后上传：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>curl -X POST http://localhost:8086/write?db<span style="color:#f92672">=</span>&lt;database name&gt; --data-binary @cpu_data.txt
+</span></span></code></pre></div></li>
+</ul><ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/influxdb" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">influxdb</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/tsdb" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">tsdb</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/series" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">series</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/measurement" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">measurement</a>
+   </li>
+  
 </ul>
-    </div>
-
-    <div class="post-copyright">
-  <p class="copyright-item">
-    <span class="item-title">文章作者</span>
-    <span class="item-content">jouyouyun</span>
-  </p>
-  <p class="copyright-item">
-    <span class="item-title">上次更新</span>
-    <span class="item-content">
-        2019-04-14
-        
-    </span>
-  </p>
-  
-  
-</div>
-<div class="post-reward">
-  <input type="checkbox" name="reward" id="reward" hidden />
-  <label class="reward-button" for="reward">赞赏支持</label>
-  <div class="qr-code">
-    
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="/images/reward/wechat-qr-code.png">
-        <span>微信打赏</span>
-      </label>
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="/images/reward/alipay-qr-code.png">
-        <span>支付宝打赏</span>
-      </label>
-  </div>
-</div><footer class="post-footer">
-      <div class="post-tags">
-          <a href="/tags/influxdb/">influxdb</a>
-          <a href="/tags/tsdb/">tsdb</a>
-          <a href="/tags/series/">series</a>
-          <a href="/tags/measurement/">measurement</a>
-          </div>
-      <nav class="post-nav">
-        <a class="prev" href="/post/docker-intro/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Docker 使用简介</span>
-            <span class="prev-text nav-mobile">上一篇</span>
-          </a>
-        <a class="next" href="/post/clean_invalid_branch_in_git/">
-            <span class="next-text nav-default">清理无用的 local branch</span>
-            <span class="next-text nav-mobile">下一篇</span>
-            <i class="iconfont icon-right"></i>
-          </a>
-      </nav>
-    </footer>
-  </article>
-        </div>
-        
-
-  
-
-  
-
+<div class="mt6 instapaper_ignoref">
+      
+      
       </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="social-links">
-      <a href="mailto:jouyouwen717@gmail.com" class="iconfont icon-email" title="email"></a>
-      <a href="https://twitter.com/jouyouyun" class="iconfont icon-twitter" title="twitter"></a>
-      <a href="https://github.com/jouyouyun" class="iconfont icon-github" title="github"></a>
-  <a href="https://jouyouyun.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
-</div>
-
-<div class="copyright">
-  <span class="power-by">
-    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    主题 - 
-    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
-  </span>
-
-  
-
-  <span class="copyright-year">
-    &copy; 
-    2014 - 
-    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>jouyouyun</span>
-  </span>
-</div>
-
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont icon-up"></i>
     </div>
-  </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://jouyouyun.github.io" >
+    &copy;  jouyouyun 2022 
+  </a>
+    <div>
+<div class="ananke-socials">
   
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+    <a href="https://github.com/jouyouyun" target="_blank" class="github ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="GitHub link" rel="noopener" aria-label="follow on GitHub——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+</div>
+</div>
+  </div>
+</footer>
 
-
-
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
-
-
-
-
-
-
-
-
-</body>
+  </body>
 </html>

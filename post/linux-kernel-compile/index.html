@@ -1,51 +1,47 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Compile Kernel - jouyouyun&#39;s blog</title>
-  <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Compile Kernel | jouyouyun&#39;s blog</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="最近由于要调试 usbhid 模块，所以需要编译 kernel ，在此整理下方法，以免每次都查找。
+Dependencies
 
 
-<meta name="author" content="jouyouyun" /><meta name="description" content="最近由于要调试 usbhid 模块，所以需要编译 kernel ，在此整理下方法，以免每次都查找。
-Dependencies   deepin
+deepin
 sudo apt-get install build-essential libncurses-dev bison flex libssl-dev libelf-dev
-  archlinux
+
+
+archlinux
 sudo pacman -S gcc ncurses bison flex openssl libelf elfutils
-  若编译时有报错，请按照错误提示按照缺失的依赖。
-" /><meta name="keywords" content="jouyouyun, Hugo, theme, even" />
+
+
+若编译时有报错，请按照错误提示按照缺失的依赖。">
+    <meta name="generator" content="Hugo 0.101.0" />
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
 
 
 
+    
+    
+    
+      
 
+    
 
-
-<meta name="generator" content="Hugo 0.82.1 with theme even" />
-
-
-<link rel="canonical" href="https://jouyouyun.github.io/post/linux-kernel-compile/" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-
-
-
-<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
-
-
-<meta property="og:title" content="Compile Kernel" />
+    
+    
+    <meta property="og:title" content="Compile Kernel" />
 <meta property="og:description" content="最近由于要调试 usbhid 模块，所以需要编译 kernel ，在此整理下方法，以免每次都查找。
 Dependencies
 
@@ -61,8 +57,8 @@ sudo pacman -S gcc ncurses bison flex openssl libelf elfutils
 若编译时有报错，请按照错误提示按照缺失的依赖。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jouyouyun.github.io/post/linux-kernel-compile/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2019-08-06T21:38:21&#43;08:00" />
-<meta property="article:modified_time" content="2019-11-27T20:05:41&#43;08:00" />
+<meta property="article:published_time" content="2019-08-06T21:38:21+08:00" />
+<meta property="article:modified_time" content="2019-11-27T20:05:41+08:00" />
 
 <meta itemprop="name" content="Compile Kernel">
 <meta itemprop="description" content="最近由于要调试 usbhid 模块，所以需要编译 kernel ，在此整理下方法，以免每次都查找。
@@ -77,9 +73,9 @@ archlinux
 sudo pacman -S gcc ncurses bison flex openssl libelf elfutils
 
 
-若编译时有报错，请按照错误提示按照缺失的依赖。"><meta itemprop="datePublished" content="2019-08-06T21:38:21&#43;08:00" />
-<meta itemprop="dateModified" content="2019-11-27T20:05:41&#43;08:00" />
-<meta itemprop="wordCount" content="781">
+若编译时有报错，请按照错误提示按照缺失的依赖。"><meta itemprop="datePublished" content="2019-08-06T21:38:21+08:00" />
+<meta itemprop="dateModified" content="2019-11-27T20:05:41+08:00" />
+<meta itemprop="wordCount" content="478">
 <meta itemprop="keywords" content="kernel,compile,linux," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Compile Kernel"/>
 <meta name="twitter:description" content="最近由于要调试 usbhid 模块，所以需要编译 kernel ，在此整理下方法，以免每次都查找。
@@ -96,105 +92,116 @@ sudo pacman -S gcc ncurses bison flex openssl libelf elfutils
 
 若编译时有报错，请按照错误提示按照缺失的依赖。"/>
 
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
+	
+  </head>
 
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
+  <body class="ma0 avenir bg-near-white">
 
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/" class="logo">jouyouyun</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <a href="/post/">
-        <li class="mobile-menu-item">Archives</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">Tags</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">Categories</li>
-      </a>
-  </ul>
-</nav>
-  <div class="container" id="mobile-panel">
-    <header id="header" class="header">
-        <div class="logo-wrapper">
-  <a href="/" class="logo">jouyouyun</a>
-</div>
-
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
-        <a class="menu-item-link" href="/post/">Archives</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">Tags</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">Categories</a>
-      </li>
-  </ul>
-</nav>
-    </header>
-
-    <main id="main" class="main">
-      <div class="content-wrapper">
-        <div id="content" class="content">
-          <article class="post">
     
-    <header class="post-header">
-      <h1 class="post-title">Compile Kernel</h1>
+   
+  
 
-      <div class="post-meta">
-        <span class="post-time"> 2019-08-06 </span>
-        <div class="post-category">
-            <a href="/categories/blog/"> BLOG </a>
-            </div>
-        
-      </div>
-    </header>
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        jouyouyun&#39;s blog
+      
+    </a>
+    <div class="flex-l items-center">
+      
 
-    <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">文章目录</h2>
-  <div class="post-toc-content always-active">
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#dependencies">Dependencies</a></li>
-    <li><a href="#configuration">Configuration</a>
-      <ul>
-        <li><a href="#version">Version</a></li>
-      </ul>
-    </li>
-    <li><a href="#build">Build</a>
-      <ul>
-        <li><a href="#prepare">Prepare</a></li>
-        <li><a href="#make">Make</a></li>
-        <li><a href="#build-special-module">Build Special Module</a></li>
-      </ul>
-    </li>
-    <li><a href="#installation">Installation</a>
-      <ul>
-        <li><a href="#modules">Modules</a></li>
-        <li><a href="#image">Image</a></li>
-      </ul>
-    </li>
-    <li><a href="#参考文档">参考文档</a></li>
-  </ul>
-</nav>
-  </div>
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/post/" title="Archives 页">
+              Archives
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/tags/" title="Tags 页">
+              Tags
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/categories/" title="Categories 页">
+              Categories
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+<div class="ananke-socials">
+  
+    <a href="https://github.com/jouyouyun" target="_blank" class="github ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="GitHub link" rel="noopener" aria-label="follow on GitHub——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
 </div>
-    <div class="post-content">
-      <p>最近由于要调试 <code>usbhid</code> 模块，所以需要编译 <code>kernel</code> ，在此整理下方法，以免每次都查找。</p>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Compile Kernel</h1>
+      
+      <p class="tracked">
+         <strong>jouyouyun</strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2019-08-06T21:38:21+08:00">八月 6, 2019</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>最近由于要调试 <code>usbhid</code> 模块，所以需要编译 <code>kernel</code> ，在此整理下方法，以免每次都查找。</p>
 <h2 id="dependencies">Dependencies</h2>
 <ul>
 <li>
@@ -236,15 +243,8 @@ sudo pacman -S gcc ncurses bison flex openssl libelf elfutils
 </ul>
 <p>其中 <code>EXTRAVERSION</code> 还可通过 <code>.config</code> 中 <code>CONFIG_LOCALVERSION</code> 指定(需要确保 <code>CONFIG_LOCALVERSION_AUTO</code> 不被设置)</p>
 <p>或者这样指定：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">make <span class="nv">KERNELRELEASE</span><span class="o">=</span>4.19.34-2deepin-generic <span class="nv">ARCH</span><span class="o">=</span>arm64   <span class="nv">KBUILD_BUILD_VERSION</span><span class="o">=</span><span class="m">20</span> <span class="nv">KBUILD_SRC</span><span class="o">=</span>
-</code></pre></td></tr></table>
-</div>
-</div><h4 id="avoid-add-plus-after-kernel-version">Avoid add &lsquo;+&rsquo; after kernel version</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>make KERNELRELEASE<span style="color:#f92672">=</span>4.19.34-2deepin-generic ARCH<span style="color:#f92672">=</span>arm64   KBUILD_BUILD_VERSION<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span> KBUILD_SRC<span style="color:#f92672">=</span>
+</span></span></code></pre></div><h4 id="avoid-add-plus-after-kernel-version">Avoid add &lsquo;+&rsquo; after kernel version</h4>
 <blockquote>
 <p>To prevent the script scripts/setlocalversion to append the + to the end of the kernel local version, create an empty .scmversion file in the root of the kernel sources.</p>
 <p>$ touch .scmversion</p>
@@ -269,98 +269,46 @@ sudo pacman -S gcc ncurses bison flex openssl libelf elfutils
 <p><code>sudo make modules_install</code></p>
 <p>可通过 <code>INSTALL_MOD_PATH</code> 指定 <code>modules</code> 安装目录</p>
 <p>然后执行以下操作：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">sudo depmod <span class="c1"># 更新 modules 映射</span>
-sudo update-initramfs  -u <span class="c1"># deepin 下更新当前内核，使用 &#39;-k&#39; 指定内核</span>
-sudo mkinitcpio -p &lt;preset&gt; <span class="c1"># archlinux 下更新指定内核， &#39;preset&#39; 在 &#39;/etc/mkinitcpio.d&#39; 中查看</span>
-</code></pre></td></tr></table>
-</div>
-</div><hr>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo depmod <span style="color:#75715e"># 更新 modules 映射</span>
+</span></span><span style="display:flex;"><span>sudo update-initramfs  -u <span style="color:#75715e"># deepin 下更新当前内核，使用 &#39;-k&#39; 指定内核</span>
+</span></span><span style="display:flex;"><span>sudo mkinitcpio -p &lt;preset&gt; <span style="color:#75715e"># archlinux 下更新指定内核， &#39;preset&#39; 在 &#39;/etc/mkinitcpio.d&#39; 中查看</span>
+</span></span></code></pre></div><hr>
 <h3 id="image">Image</h3>
 <p><code>sudo make install</code></p>
 <p>目的是生成下面的文件：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">initramfs-4.19.0-5-amd64.img
-System.map-4.19.0-5-amd64
-vmlinuz-4.19.0-5-amd64
-</code></pre></td></tr></table>
-</div>
-</div><p>如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">$ sudo make install -j <span class="m">4</span>
-sh ./arch/x86/boot/install.sh 4.19.0-5-amd64 arch/x86/boot/bzImage <span class="se">\
-</span><span class="se"></span>        System.map <span class="s2">&#34;/boot&#34;</span>
-run-parts: executing /etc/kernel/postinst.d/apt-auto-removal 4.19.0-5-amd64 /boot/vmlinuz-4.19.0-5-amd64
-run-parts: executing /etc/kernel/postinst.d/dkms 4.19.0-5-amd64 /boot/vmlinuz-4.19.0-5-amd64
-run-parts: executing /etc/kernel/postinst.d/initramfs-tools 4.19.0-5-amd64 /boot/vmlinuz-4.19.0-5-amd64
-update-initramfs: Generating /boot/initrd.img-4.19.0-5-amd64
-cryptsetup: WARNING: The initramfs image may not contain cryptsetup binaries
-    nor crypto modules. If that<span class="s1">&#39;s on purpose, you may want to uninstall the
-</span><span class="s1">    &#39;</span>cryptsetup-initramfs<span class="s1">&#39; package in order to disable the cryptsetup initramfs
-</span><span class="s1">    integration and avoid this warning.
-</span><span class="s1">setupcon is missing. Please install the &#39;</span>console-setup<span class="err">&#39;</span> package.
-W: plymouth: The plugin label.so is missing, the selected theme might not work as expected.
-W: plymouth: You might want to install the plymouth-themes package to fix this.
-I: The initramfs will attempt to resume from /dev/sda1
-I: <span class="o">(</span><span class="nv">UUID</span><span class="o">=</span>0d78d207-61eb-4e99-b7d8-a2b2cb2515d6<span class="o">)</span>
-I: Set the RESUME variable to override this.
-run-parts: executing /etc/kernel/postinst.d/reconfigure-dde-daemon 4.19.0-5-amd64 /boot/vmlinuz-4.19.0-5-amd64
-fix systemd/logind config
-run-parts: executing /etc/kernel/postinst.d/vboxadd 4.19.0-5-amd64 /boot/vmlinuz-4.19.0-5-amd64
-run-parts: executing /etc/kernel/postinst.d/zz-update-grub 4.19.0-5-amd64 /boot/vmlinuz-4.19.0-5-amd64
-Generating grub configuration file ...
-Found theme: /boot/grub/themes/deepin-fallback/theme.txt
-Found linux image: /boot/vmlinuz-4.19.0-5-amd64
-Found initrd image: /boot/initrd.img-4.19.0-5-amd64
-Found linux image: /boot/vmlinuz-4.19.0-5-amd64.old
-Found initrd image: /boot/initrd.img-4.19.0-5-amd64
-<span class="k">done</span>
-</code></pre></td></tr></table>
-</div>
-</div><hr>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>initramfs-4.19.0-5-amd64.img
+</span></span><span style="display:flex;"><span>System.map-4.19.0-5-amd64
+</span></span><span style="display:flex;"><span>vmlinuz-4.19.0-5-amd64
+</span></span></code></pre></div><p>如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ sudo make install -j <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>sh ./arch/x86/boot/install.sh 4.19.0-5-amd64 arch/x86/boot/bzImage <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>        System.map <span style="color:#e6db74">&#34;/boot&#34;</span>
+</span></span><span style="display:flex;"><span>run-parts: executing /etc/kernel/postinst.d/apt-auto-removal 4.19.0-5-amd64 /boot/vmlinuz-4.19.0-5-amd64
+</span></span><span style="display:flex;"><span>run-parts: executing /etc/kernel/postinst.d/dkms 4.19.0-5-amd64 /boot/vmlinuz-4.19.0-5-amd64
+</span></span><span style="display:flex;"><span>run-parts: executing /etc/kernel/postinst.d/initramfs-tools 4.19.0-5-amd64 /boot/vmlinuz-4.19.0-5-amd64
+</span></span><span style="display:flex;"><span>update-initramfs: Generating /boot/initrd.img-4.19.0-5-amd64
+</span></span><span style="display:flex;"><span>cryptsetup: WARNING: The initramfs image may not contain cryptsetup binaries
+</span></span><span style="display:flex;"><span>    nor crypto modules. If that<span style="color:#e6db74">&#39;s on purpose, you may want to uninstall the
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#39;</span>cryptsetup-initramfs<span style="color:#e6db74">&#39; package in order to disable the cryptsetup initramfs
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    integration and avoid this warning.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">setupcon is missing. Please install the &#39;</span>console-setup<span style="color:#960050;background-color:#1e0010">&#39;</span> package.
+</span></span><span style="display:flex;"><span>W: plymouth: The plugin label.so is missing, the selected theme might not work as expected.
+</span></span><span style="display:flex;"><span>W: plymouth: You might want to install the plymouth-themes package to fix this.
+</span></span><span style="display:flex;"><span>I: The initramfs will attempt to resume from /dev/sda1
+</span></span><span style="display:flex;"><span>I: <span style="color:#f92672">(</span>UUID<span style="color:#f92672">=</span>0d78d207-61eb-4e99-b7d8-a2b2cb2515d6<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>I: Set the RESUME variable to override this.
+</span></span><span style="display:flex;"><span>run-parts: executing /etc/kernel/postinst.d/reconfigure-dde-daemon 4.19.0-5-amd64 /boot/vmlinuz-4.19.0-5-amd64
+</span></span><span style="display:flex;"><span>fix systemd/logind config
+</span></span><span style="display:flex;"><span>run-parts: executing /etc/kernel/postinst.d/vboxadd 4.19.0-5-amd64 /boot/vmlinuz-4.19.0-5-amd64
+</span></span><span style="display:flex;"><span>run-parts: executing /etc/kernel/postinst.d/zz-update-grub 4.19.0-5-amd64 /boot/vmlinuz-4.19.0-5-amd64
+</span></span><span style="display:flex;"><span>Generating grub configuration file ...
+</span></span><span style="display:flex;"><span>Found theme: /boot/grub/themes/deepin-fallback/theme.txt
+</span></span><span style="display:flex;"><span>Found linux image: /boot/vmlinuz-4.19.0-5-amd64
+</span></span><span style="display:flex;"><span>Found initrd image: /boot/initrd.img-4.19.0-5-amd64
+</span></span><span style="display:flex;"><span>Found linux image: /boot/vmlinuz-4.19.0-5-amd64.old
+</span></span><span style="display:flex;"><span>Found initrd image: /boot/initrd.img-4.19.0-5-amd64
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span></code></pre></div><hr>
 <h2 id="参考文档">参考文档</h2>
 <ul>
 <li><a href="https://wiki.archlinux.org/index.php/Kernel/Traditional%5Fcompilation">Traditional_compilation</a></li>
@@ -370,116 +318,61 @@ Found initrd image: /boot/initrd.img-4.19.0-5-amd64
 <li><a href="http://www.linuxfromscratch.org/lfs/view/development/chapter06/linux-headers.html">Installation of Linux API Headers</a></li>
 <li><a href="https://linux.die.net/lkmpg/x380.html">Building modules for a precompiled kernel</a></li>
 <li><a href="https://www.acmesystems.it/compile%5Flinux%5Fkernel">Compile the Linux Kernel from sources</a></li>
+</ul><ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/kernel" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">kernel</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/compile" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">compile</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/linux" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">linux</a>
+   </li>
+  
 </ul>
-    </div>
-
-    <div class="post-copyright">
-  <p class="copyright-item">
-    <span class="item-title">文章作者</span>
-    <span class="item-content">jouyouyun</span>
-  </p>
-  <p class="copyright-item">
-    <span class="item-title">上次更新</span>
-    <span class="item-content">
-        2019-11-27
-        
-    </span>
-  </p>
-  
-  
-</div>
-<div class="post-reward">
-  <input type="checkbox" name="reward" id="reward" hidden />
-  <label class="reward-button" for="reward">赞赏支持</label>
-  <div class="qr-code">
-    
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="/images/reward/wechat-qr-code.png">
-        <span>微信打赏</span>
-      </label>
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="/images/reward/alipay-qr-code.png">
-        <span>支付宝打赏</span>
-      </label>
-  </div>
-</div><footer class="post-footer">
-      <div class="post-tags">
-          <a href="/tags/kernel/">kernel</a>
-          <a href="/tags/compile/">compile</a>
-          <a href="/tags/linux/">linux</a>
-          </div>
-      <nav class="post-nav">
-        <a class="prev" href="/post/debian-cve-tracker/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Debian CVE Tracker</span>
-            <span class="prev-text nav-mobile">上一篇</span>
-          </a>
-        <a class="next" href="/post/gsettings/">
-            <span class="next-text nav-default">GSettings</span>
-            <span class="next-text nav-mobile">下一篇</span>
-            <i class="iconfont icon-right"></i>
-          </a>
-      </nav>
-    </footer>
-  </article>
-        </div>
-        
-
-  
-
-  
-
+<div class="mt6 instapaper_ignoref">
+      
+      
       </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="social-links">
-      <a href="mailto:jouyouwen717@gmail.com" class="iconfont icon-email" title="email"></a>
-      <a href="https://twitter.com/jouyouyun" class="iconfont icon-twitter" title="twitter"></a>
-      <a href="https://github.com/jouyouyun" class="iconfont icon-github" title="github"></a>
-  <a href="https://jouyouyun.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
-</div>
-
-<div class="copyright">
-  <span class="power-by">
-    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    主题 - 
-    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
-  </span>
-
-  
-
-  <span class="copyright-year">
-    &copy; 
-    2014 - 
-    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>jouyouyun</span>
-  </span>
-</div>
-
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont icon-up"></i>
     </div>
-  </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://jouyouyun.github.io" >
+    &copy;  jouyouyun 2022 
+  </a>
+    <div>
+<div class="ananke-socials">
   
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+    <a href="https://github.com/jouyouyun" target="_blank" class="github ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="GitHub link" rel="noopener" aria-label="follow on GitHub——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+</div>
+</div>
+  </div>
+</footer>
 
-
-
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
-
-
-
-
-
-
-
-
-</body>
+  </body>
 </html>
