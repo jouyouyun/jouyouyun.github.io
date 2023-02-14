@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.82.1 with theme even" />
+<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://jouyouyun.github.io/" />
@@ -36,8 +36,7 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-
-<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
+<link href="/dist/even.93844dae.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -46,8 +45,12 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://jouyouyun.github.io/" />
 
+<meta property="og:updated_time" content="2019-05-02T11:27:00&#43;08:00"/>
+
 <meta itemprop="name" content="jouyouyun&#39;s blog">
-<meta itemprop="description" content="jouyouyun&#39;s blog"><meta name="twitter:card" content="summary"/>
+<meta itemprop="description" content="jouyouyun&#39;s blog">
+
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="jouyouyun&#39;s blog"/>
 <meta name="twitter:description" content="jouyouyun&#39;s blog"/>
 
@@ -108,83 +111,6 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/linux-kernel-compile/">Compile Kernel</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2019-08-06 </span>
-      <div class="post-category">
-          <a href="/categories/blog/"> BLOG </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>最近由于要调试 <code>usbhid</code> 模块，所以需要编译 <code>kernel</code> ，在此整理下方法，以免每次都查找。</p>
-<h2 id="dependencies">Dependencies</h2>
-<ul>
-<li>
-<p><code>deepin</code></p>
-<p><code>sudo apt-get install build-essential libncurses-dev bison flex libssl-dev libelf-dev</code></p>
-</li>
-<li>
-<p><code>archlinux</code></p>
-<p><code>sudo pacman -S gcc ncurses bison flex openssl libelf elfutils</code></p>
-</li>
-</ul>
-<p>若编译时有报错，请按照错误提示按照缺失的依赖。</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/linux-kernel-compile/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/gsettings/">GSettings</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2019-08-03 </span>
-      <div class="post-category">
-          <a href="/categories/blog/"> BLOG </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p><code>GSettings</code> 实际上是一套可使用多个 <code>storage backends</code> 的 <code>API</code> ，默认使用 <code>dconf</code> 作为 <code>backend</code> ，也可以使用 <code>keyfile</code> 作为 <code>backend</code> 。但由于 <code>gio</code> 提供了 <code>GKeyFile</code> 结构来处理 <code>keyfile</code> 文件，所以解析 <code>keyfile</code> 文件时很少通过 <code>GSettings API</code> ，在这里只介绍使用 <code>dconf</code> 作为 <code>backend</code> 的使用方法。</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/gsettings/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/linux_hardware_info/">Linux 硬件信息获取</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2019-05-08 </span>
-      <div class="post-category">
-          <a href="/categories/blog/"> BLOG </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>在 <code>linux</code> 上可以通过 <code>dmidecode</code> 或是 <code>lshw</code> 来获取硬件信息，能够方便的查看系统配置。但它们的输出信息过多，解析起来有些麻烦，另外 <code>lshw</code> 对 <code>usb</code> 接口的网卡支持不好，显示的信息不够，所以在此整理下通过读文件或是一些简单命令来获取硬件信息的方法。</p>
-<h3 id="dmi"><strong>DMI</strong></h3>
-<p>一般情况下内核默认加载了 <code>dmi sysfs</code> ，路径是 <code>/sys/class/dmi</code> 。里面包含了 <code>bios</code> ， <code>board</code> ， <code>product</code> 等信息。</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/linux_hardware_info/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/installation/">系统安装二三事</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2019-05-02 </span>
@@ -197,8 +123,11 @@
   <div class="post-content">
     <div class="post-summary">
       <p>在重装系统时, 需要考虑软件与数据的备份恢复, 遂记录下需要用到的软件, 自定义的配置和数据恢复.</p>
+
 <h2 id="软件">软件</h2>
+
 <h3 id="换源">换源</h3>
+
 <ul>
 <li><code>Archlinux</code></li>
 </ul>
@@ -223,12 +152,94 @@
   <div class="post-content">
     <div class="post-summary">
       <p><code>Jenkins</code> 是一款流行的开源持续集成工具，可以用来做一些软件开发的自动化工作，如打包，测试，自动部署等。</p>
+
 <p><code>Jenkins</code> 中有 <code>view</code> 和 <code>job</code> 的概念， <code>view</code> 相当于组， <code>job</code> 则是具体的任务。
 <code>view</code> 下面可以创建 <code>job</code> ，但 <code>job</code> 可以不在任何 <code>view</code> 下。</p>
+
 <p>这里主要介绍 <code>Jenkins</code> 提供的 <code>HTTP API</code> ，至于如何使用 <code>Jenkins</code> 请参看 <a href="https://jenkins.io/doc/">Jenkins User Documentation</a>。</p>
     </div>
     <div class="read-more">
       <a href="/post/jenkins-api-usage/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/docker-data-storage/">更改 Docker 数据的存储目录</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2019-04-21 </span>
+      <div class="post-category">
+          <a href="/categories/blog/"> BLOG </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p><code>Docker</code> 安装后默认将数据存储在 <code>/var/lib/docker</code> 下，随着 <code>image</code> 和 <code>container</code> 的增多，会导致 <code>/</code> 分区的空间被用完，如果 <code>/</code> 分区特别大就请忽略这篇文章。</p>
+
+<p>因此需要将一些软件的数据存储到空间大的分区，与 <code>/</code> 分区分开。不仅 <code>Docker</code> 需要这样处理，如 <code>mysql/postgresql</code> 等软件也需要这样处理。</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/docker-data-storage/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/docker-intro/">Docker 使用简介</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2019-04-21 </span>
+      <div class="post-category">
+          <a href="/categories/blog/"> BLOG </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p><code>Docker</code> 是使用 <code>GoLang</code> 开发的开源容器引擎，可以方便的打包开发好的应用，然后分发到任意 <code>linux</code> 主机上。</p>
+
+<p>与传统的虚拟机相比拥有以下优势：</p>
+
+<ul>
+<li><p>高效的系统资源利用率</p>
+
+<p>由于不需要进行硬件虚拟和运行完整的操作系统等额外开销，无论是应用执行速度、内存损耗或者文件存储速度， <code>Docker</code> 都更加高效</p></li>
+
+<li><p>更快的启动速度</p>
+
+<p><code>Docker</code> 容器应用直接运行与宿主内核，无需启动完整的操作系统，可以做到秒级启动</p></li>
+</ul>
+    </div>
+    <div class="read-more">
+      <a href="/post/docker-intro/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/influxdb-introduction/">InfluxDB 简介</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2019-04-13 </span>
+      <div class="post-category">
+          <a href="/categories/blog/"> BLOG </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p><code>InfluxDB</code> 是一个时间序列数据库(<code>TSDB</code>), 被设计用来处理高写入、高查询负载，是 <a href="https://www.influxdata.com/time-series-platform/">TICK</a> 的一部分。</p>
+
+<p><code>TSDB</code> 是针对时间戳或时间序列数据进行优化的数据库，专门为处理带有时间戳的度量和事件或度量而构建的。
+而时间序列数据可以是随时间跟踪、监视、下采样和聚合的度量或事件，如服务器指标、应用程序性能、网络数据、传感器数据以及许多其他类型的分析数据。</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/influxdb-introduction/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>
@@ -274,10 +285,13 @@
   <span class="copyright-year">
     &copy; 
     2014 - 
-    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>jouyouyun</span>
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">jouyouyun</span>
   </span>
 </div>
-
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -288,10 +302,7 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-
-
-
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/dist/even.ece58db6.min.js"></script>
 
 
 

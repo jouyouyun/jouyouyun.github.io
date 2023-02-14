@@ -13,7 +13,7 @@ net.ipv4.tcp_congestion_control = bbr
 使用 sysctl net.ipv4.tcp_available_congestion_control 查看支持的算法, 用 sysctl net.ipv4.tcp_congestion_control 查看当前使用的算法.
 如果这个模块不会自动加载, 需要把 tcp_bbr_powered 添加到 /etc/modules-load.d/modules.conf 中.
 另外测试发现, 有时 sysctl.conf 里的设置并不会应用, 需要手动执行一下, 因此便写了 reload-sysctl.service 来做这个, systemctl enable 这个服务后, 一切就 OK 了.">
-    <meta name="generator" content="Hugo 0.101.0" />
+    <meta name="generator" content="Hugo 0.105.0">
     
     
     
@@ -277,7 +277,7 @@ net.ipv4.tcp_congestion_control = bbr
     <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
   <div class="flex justify-between">
   <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://jouyouyun.github.io" >
-    &copy;  jouyouyun 2022 
+    &copy;  jouyouyun 2023 
   </a>
     <div>
 <div class="ananke-socials">

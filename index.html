@@ -7,7 +7,7 @@
     <title>jouyouyun&#39;s blog</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="jouyouyun&#39;s blog.">
-    <meta name="generator" content="Hugo 0.101.0" />
+    <meta name="generator" content="Hugo 0.105.0">
     
     
     
@@ -153,6 +153,46 @@
       
       <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="/post/trenchboot_intro/" class="color-inherit dim link">
+            TrenchBoot Intro
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          <p>TrenchBoot 是一个框架，用于让设备管理者选择适合其目标机器环境的安全引擎。目的是为了提升运行环境中固件及软件的安全性，通过测量启动环境来实现，如 DRTM 技术。</p>
+<p>TrenchBoot 框架将启动流程分为三个阶段，分别是：</p>
+<ul>
+<li>
+<p>引导阶段(Bootstrap)</p>
+<p>Bootstrap 阶段主要是对现已存在的引导技术，包括 UEFI、grub、shim 等，添加完整性功能。这是 TrenchBoot 的主要关注点，称之为 BIT(Boot Integrity Technology) 。</p>
+</li>
+<li>
+<p>中间阶段(Intermediate)</p>
+<p>Intermediate 阶段是 TrenchBoot 抽象出的，用来执行 TrenchBoot Loader ，以此实现系统启动的完整性。</p>
+<p>TrenchBoot Loader 阶段将执行 TrenchBoot 安全引擎，通过 Dynamic Launch CPU 指令进入安全运行环境，然后对前一段阶段收集的 evidence 进行测试，并构建 DRTM(Dynamic Root of Trusted for Measurement) 。</p>
+</li>
+<li>
+<p>运行阶段(Runtime)</p>
+<p>Runtime 阶段根据测量结果和安全策略决定如何启动目标及赋予权限，目标包括管理程序、操作系统等。</p>
+</li>
+</ul>
+        </div>
+          <a href="/post/trenchboot_intro/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">继续阅读</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="relative w-100 mb4">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
           <a href="/post/audit-usage/" class="color-inherit dim link">
             audit 简单使用
             </a>
@@ -201,39 +241,18 @@ go go 是一种类 c 的语言，但没有了 c 中令人头疼的指针和内�
 
           </div>
         
-          <div class="relative w-100 mb4">
-            
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="/post/learning_exercise/" class="color-inherit dim link">
-            Learning Exercise
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          学习一种新语言，或者学习内核，可按照以下内容做题练习。
-类型转换 number(int,float) to string string to number 大数相加(数的值接近类型最大值,相加后超过最大值) 字符串操作 split append string list join replace lowercase uppercase 常见数据结构 栈 创建及使用 链表 创建及使用 反序 环检查 两个链表是否相交 队列 创建及使用 字典 创建及使用 文件操作 文件读写 文件内容查找 获取整个文件内容(需要考虑大文件) 常用配置解析 json 读写 yaml 读写 ini 读写 时间 时间获取 时间戳获取及转换 定时器使用 自旋锁 会一直自旋直到获取到锁，期间不会陷入 sleep
-互斥锁 获取不到锁时会陷入 sleep
-多进程 进程创建 进程同步 进程间共享 多线程 线程创建 线程间交互 线程同步 
-        </div>
-          <a href="/post/learning_exercise/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">继续阅读</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-          </div>
-        
       </section>
 
       
       <section class="w-100">
         <h1 class="f3">更多</h1>
         
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="/post/learning_exercise/" class="link black dim">
+              Learning Exercise
+            </a>
+          </h2>
         
           <h2 class="f5 fw4 mb4 dib mr3">
             <a href="/post/touchscreen-calibration/" class="link black dim">
@@ -253,12 +272,6 @@ go go 是一种类 c 的语言，但没有了 c 中令人头疼的指针和内�
             </a>
           </h2>
         
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="/post/gsettings/" class="link black dim">
-              GSettings
-            </a>
-          </h2>
-        
 
         
         
@@ -274,7 +287,7 @@ go go 是一种类 c 的语言，但没有了 c 中令人头疼的指针和内�
     <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
   <div class="flex justify-between">
   <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://jouyouyun.github.io" >
-    &copy;  jouyouyun 2022 
+    &copy;  jouyouyun 2023 
   </a>
     <div>
 <div class="ananke-socials">

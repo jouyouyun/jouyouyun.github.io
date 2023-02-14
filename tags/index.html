@@ -7,7 +7,7 @@
     <title>jouyouyun&#39;s blog</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="jouyouyun&#39;s blog.">
-    <meta name="generator" content="Hugo 0.101.0" />
+    <meta name="generator" content="Hugo 0.105.0">
     
     
     
@@ -509,6 +509,46 @@ go go 是一种类 c 的语言，但没有了 c 中令人头疼的指针和内�
         
       
         <h2 class="f1">
+          <a href="/tags/boot" class="link blue hover-black">
+            Tag: boot
+          </a>
+        </h2>
+        
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        二月 7, 2023
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/trenchboot_intro/" class="link black dim">
+        TrenchBoot Intro
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>TrenchBoot 是一个框架，用于让设备管理者选择适合其目标机器环境的安全引擎。目的是为了提升运行环境中固件及软件的安全性，通过测量启动环境来实现，如 DRTM 技术。</p>
+<p>TrenchBoot 框架将启动流程分为三个阶段，分别是：</p>
+<ul>
+<li>
+<p>引导阶段(Bootstrap)</p>
+<p>Bootstrap 阶段主要是对现已存在的引导技术，包括 UEFI、grub、shim 等，添加完整性功能。这是 TrenchBoot 的主要关注点，称之为 BIT(Boot Integrity Technology) 。</p>
+</li>
+<li>
+<p>中间阶段(Intermediate)</p>
+<p>Intermediate 阶段是 TrenchBoot 抽象出的，用来执行 TrenchBoot Loader ，以此实现系统启动的完整性。</p>
+<p>TrenchBoot Loader 阶段将执行 TrenchBoot 安全引擎，通过 Dynamic Launch CPU 指令进入安全运行环境，然后对前一段阶段收集的 evidence 进行测试，并构建 DRTM(Dynamic Root of Trusted for Measurement) 。</p>
+</li>
+<li>
+<p>运行阶段(Runtime)</p>
+<p>Runtime 阶段根据测量结果和安全策略决定如何启动目标及赋予权限，目标包括管理程序、操作系统等。</p>
+</li>
+</ul>
+    </div>
+  </div>
+
+        
+      
+        <h2 class="f1">
           <a href="/tags/branch" class="link blue hover-black">
             Tag: branch
           </a>
@@ -900,6 +940,46 @@ go go 是一种类 c 的语言，但没有了 c 中令人头疼的指针和内�
       <p>在 <code>linux</code> 上可以通过 <code>dmidecode</code> 或是 <code>lshw</code> 来获取硬件信息，能够方便的查看系统配置。但它们的输出信息过多，解析起来有些麻烦，另外 <code>lshw</code> 对 <code>usb</code> 接口的网卡支持不好，显示的信息不够，所以在此整理下通过读文件或是一些简单命令来获取硬件信息的方法。</p>
 <h3 id="dmi"><strong>DMI</strong></h3>
 <p>一般情况下内核默认加载了 <code>dmi sysfs</code> ，路径是 <code>/sys/class/dmi</code> 。里面包含了 <code>bios</code> ， <code>board</code> ， <code>product</code> 等信息。</p>
+    </div>
+  </div>
+
+        
+      
+        <h2 class="f1">
+          <a href="/tags/crtm" class="link blue hover-black">
+            Tag: crtm
+          </a>
+        </h2>
+        
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        二月 7, 2023
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/trenchboot_intro/" class="link black dim">
+        TrenchBoot Intro
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>TrenchBoot 是一个框架，用于让设备管理者选择适合其目标机器环境的安全引擎。目的是为了提升运行环境中固件及软件的安全性，通过测量启动环境来实现，如 DRTM 技术。</p>
+<p>TrenchBoot 框架将启动流程分为三个阶段，分别是：</p>
+<ul>
+<li>
+<p>引导阶段(Bootstrap)</p>
+<p>Bootstrap 阶段主要是对现已存在的引导技术，包括 UEFI、grub、shim 等，添加完整性功能。这是 TrenchBoot 的主要关注点，称之为 BIT(Boot Integrity Technology) 。</p>
+</li>
+<li>
+<p>中间阶段(Intermediate)</p>
+<p>Intermediate 阶段是 TrenchBoot 抽象出的，用来执行 TrenchBoot Loader ，以此实现系统启动的完整性。</p>
+<p>TrenchBoot Loader 阶段将执行 TrenchBoot 安全引擎，通过 Dynamic Launch CPU 指令进入安全运行环境，然后对前一段阶段收集的 evidence 进行测试，并构建 DRTM(Dynamic Root of Trusted for Measurement) 。</p>
+</li>
+<li>
+<p>运行阶段(Runtime)</p>
+<p>Runtime 阶段根据测量结果和安全策略决定如何启动目标及赋予权限，目标包括管理程序、操作系统等。</p>
+</li>
+</ul>
     </div>
   </div>
 
@@ -1314,6 +1394,46 @@ go go 是一种类 c 的语言，但没有了 c 中令人头疼的指针和内�
 <li>
 <p>更快的启动速度</p>
 <p><code>Docker</code> 容器应用直接运行与宿主内核，无需启动完整的操作系统，可以做到秒级启动</p>
+</li>
+</ul>
+    </div>
+  </div>
+
+        
+      
+        <h2 class="f1">
+          <a href="/tags/drtm" class="link blue hover-black">
+            Tag: drtm
+          </a>
+        </h2>
+        
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        二月 7, 2023
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/trenchboot_intro/" class="link black dim">
+        TrenchBoot Intro
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>TrenchBoot 是一个框架，用于让设备管理者选择适合其目标机器环境的安全引擎。目的是为了提升运行环境中固件及软件的安全性，通过测量启动环境来实现，如 DRTM 技术。</p>
+<p>TrenchBoot 框架将启动流程分为三个阶段，分别是：</p>
+<ul>
+<li>
+<p>引导阶段(Bootstrap)</p>
+<p>Bootstrap 阶段主要是对现已存在的引导技术，包括 UEFI、grub、shim 等，添加完整性功能。这是 TrenchBoot 的主要关注点，称之为 BIT(Boot Integrity Technology) 。</p>
+</li>
+<li>
+<p>中间阶段(Intermediate)</p>
+<p>Intermediate 阶段是 TrenchBoot 抽象出的，用来执行 TrenchBoot Loader ，以此实现系统启动的完整性。</p>
+<p>TrenchBoot Loader 阶段将执行 TrenchBoot 安全引擎，通过 Dynamic Launch CPU 指令进入安全运行环境，然后对前一段阶段收集的 evidence 进行测试，并构建 DRTM(Dynamic Root of Trusted for Measurement) 。</p>
+</li>
+<li>
+<p>运行阶段(Runtime)</p>
+<p>Runtime 阶段根据测量结果和安全策略决定如何启动目标及赋予权限，目标包括管理程序、操作系统等。</p>
 </li>
 </ul>
     </div>
@@ -2126,6 +2246,46 @@ go go 是一种类 c 的语言，但没有了 c 中令人头疼的指针和内�
         
       
         <h2 class="f1">
+          <a href="/tags/integrity" class="link blue hover-black">
+            Tag: integrity
+          </a>
+        </h2>
+        
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        二月 7, 2023
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/trenchboot_intro/" class="link black dim">
+        TrenchBoot Intro
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>TrenchBoot 是一个框架，用于让设备管理者选择适合其目标机器环境的安全引擎。目的是为了提升运行环境中固件及软件的安全性，通过测量启动环境来实现，如 DRTM 技术。</p>
+<p>TrenchBoot 框架将启动流程分为三个阶段，分别是：</p>
+<ul>
+<li>
+<p>引导阶段(Bootstrap)</p>
+<p>Bootstrap 阶段主要是对现已存在的引导技术，包括 UEFI、grub、shim 等，添加完整性功能。这是 TrenchBoot 的主要关注点，称之为 BIT(Boot Integrity Technology) 。</p>
+</li>
+<li>
+<p>中间阶段(Intermediate)</p>
+<p>Intermediate 阶段是 TrenchBoot 抽象出的，用来执行 TrenchBoot Loader ，以此实现系统启动的完整性。</p>
+<p>TrenchBoot Loader 阶段将执行 TrenchBoot 安全引擎，通过 Dynamic Launch CPU 指令进入安全运行环境，然后对前一段阶段收集的 evidence 进行测试，并构建 DRTM(Dynamic Root of Trusted for Measurement) 。</p>
+</li>
+<li>
+<p>运行阶段(Runtime)</p>
+<p>Runtime 阶段根据测量结果和安全策略决定如何启动目标及赋予权限，目标包括管理程序、操作系统等。</p>
+</li>
+</ul>
+    </div>
+  </div>
+
+        
+      
+        <h2 class="f1">
           <a href="/tags/jenkins" class="link blue hover-black">
             Tag: jenkins
           </a>
@@ -2548,6 +2708,46 @@ go go 是一种类 c 的语言，但没有了 c 中令人头疼的指针和内�
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
       <p>使用 Go 语言实现字符串与文件的 MD5 值计算，但是大文件不要使用此方法。</p>
+    </div>
+  </div>
+
+        
+      
+        <h2 class="f1">
+          <a href="/tags/measure" class="link blue hover-black">
+            Tag: measure
+          </a>
+        </h2>
+        
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        二月 7, 2023
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/trenchboot_intro/" class="link black dim">
+        TrenchBoot Intro
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>TrenchBoot 是一个框架，用于让设备管理者选择适合其目标机器环境的安全引擎。目的是为了提升运行环境中固件及软件的安全性，通过测量启动环境来实现，如 DRTM 技术。</p>
+<p>TrenchBoot 框架将启动流程分为三个阶段，分别是：</p>
+<ul>
+<li>
+<p>引导阶段(Bootstrap)</p>
+<p>Bootstrap 阶段主要是对现已存在的引导技术，包括 UEFI、grub、shim 等，添加完整性功能。这是 TrenchBoot 的主要关注点，称之为 BIT(Boot Integrity Technology) 。</p>
+</li>
+<li>
+<p>中间阶段(Intermediate)</p>
+<p>Intermediate 阶段是 TrenchBoot 抽象出的，用来执行 TrenchBoot Loader ，以此实现系统启动的完整性。</p>
+<p>TrenchBoot Loader 阶段将执行 TrenchBoot 安全引擎，通过 Dynamic Launch CPU 指令进入安全运行环境，然后对前一段阶段收集的 evidence 进行测试，并构建 DRTM(Dynamic Root of Trusted for Measurement) 。</p>
+</li>
+<li>
+<p>运行阶段(Runtime)</p>
+<p>Runtime 阶段根据测量结果和安全策略决定如何启动目标及赋予权限，目标包括管理程序、操作系统等。</p>
+</li>
+</ul>
     </div>
   </div>
 
@@ -3571,6 +3771,46 @@ go go 是一种类 c 的语言，但没有了 c 中令人头疼的指针和内�
         
       
         <h2 class="f1">
+          <a href="/tags/srtm" class="link blue hover-black">
+            Tag: srtm
+          </a>
+        </h2>
+        
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        二月 7, 2023
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/post/trenchboot_intro/" class="link black dim">
+        TrenchBoot Intro
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>TrenchBoot 是一个框架，用于让设备管理者选择适合其目标机器环境的安全引擎。目的是为了提升运行环境中固件及软件的安全性，通过测量启动环境来实现，如 DRTM 技术。</p>
+<p>TrenchBoot 框架将启动流程分为三个阶段，分别是：</p>
+<ul>
+<li>
+<p>引导阶段(Bootstrap)</p>
+<p>Bootstrap 阶段主要是对现已存在的引导技术，包括 UEFI、grub、shim 等，添加完整性功能。这是 TrenchBoot 的主要关注点，称之为 BIT(Boot Integrity Technology) 。</p>
+</li>
+<li>
+<p>中间阶段(Intermediate)</p>
+<p>Intermediate 阶段是 TrenchBoot 抽象出的，用来执行 TrenchBoot Loader ，以此实现系统启动的完整性。</p>
+<p>TrenchBoot Loader 阶段将执行 TrenchBoot 安全引擎，通过 Dynamic Launch CPU 指令进入安全运行环境，然后对前一段阶段收集的 evidence 进行测试，并构建 DRTM(Dynamic Root of Trusted for Measurement) 。</p>
+</li>
+<li>
+<p>运行阶段(Runtime)</p>
+<p>Runtime 阶段根据测量结果和安全策略决定如何启动目标及赋予权限，目标包括管理程序、操作系统等。</p>
+</li>
+</ul>
+    </div>
+  </div>
+
+        
+      
+        <h2 class="f1">
           <a href="/tags/ssh" class="link blue hover-black">
             Tag: ssh
           </a>
@@ -4188,7 +4428,7 @@ go go 是一种类 c 的语言，但没有了 c 中令人头疼的指针和内�
     <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
   <div class="flex justify-between">
   <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://jouyouyun.github.io" >
-    &copy;  jouyouyun 2022 
+    &copy;  jouyouyun 2023 
   </a>
     <div>
 <div class="ananke-socials">

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>boot on jouyouyun&#39;s blog</title>
+    <link>https://jouyouyun.github.io/tags/boot/</link>
+    <description>Recent content in boot on jouyouyun&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>jouyouyun</copyright>
+    <lastBuildDate>Tue, 07 Feb 2023 10:20:21 +0800</lastBuildDate><atom:link href="https://jouyouyun.github.io/tags/boot/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>TrenchBoot Intro</title>
+      <link>https://jouyouyun.github.io/post/trenchboot_intro/</link>
+      <pubDate>Tue, 07 Feb 2023 10:20:21 +0800</pubDate>
+      
+      <guid>https://jouyouyun.github.io/post/trenchboot_intro/</guid>
+      <description>&lt;p&gt;TrenchBoot 是一个框架，用于让设备管理者选择适合其目标机器环境的安全引擎。目的是为了提升运行环境中固件及软件的安全性，通过测量启动环境来实现，如 DRTM 技术。&lt;/p&gt;
+&lt;p&gt;TrenchBoot 框架将启动流程分为三个阶段，分别是：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;引导阶段(Bootstrap)&lt;/p&gt;
+&lt;p&gt;Bootstrap 阶段主要是对现已存在的引导技术，包括 UEFI、grub、shim 等，添加完整性功能。这是 TrenchBoot 的主要关注点，称之为 BIT(Boot Integrity Technology) 。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;中间阶段(Intermediate)&lt;/p&gt;
+&lt;p&gt;Intermediate 阶段是 TrenchBoot 抽象出的，用来执行 TrenchBoot Loader ，以此实现系统启动的完整性。&lt;/p&gt;
+&lt;p&gt;TrenchBoot Loader 阶段将执行 TrenchBoot 安全引擎，通过 Dynamic Launch CPU 指令进入安全运行环境，然后对前一段阶段收集的 evidence 进行测试，并构建 DRTM(Dynamic Root of Trusted for Measurement) 。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;运行阶段(Runtime)&lt;/p&gt;
+&lt;p&gt;Runtime 阶段根据测量结果和安全策略决定如何启动目标及赋予权限，目标包括管理程序、操作系统等。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

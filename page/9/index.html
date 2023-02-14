@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.82.1 with theme even" />
+<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
 
 
 <link rel="canonical" href="https://jouyouyun.github.io/" />
@@ -36,8 +36,7 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 
-
-<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
+<link href="/dist/even.93844dae.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -46,8 +45,12 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://jouyouyun.github.io/" />
 
+<meta property="og:updated_time" content="2014-06-22T22:54:38&#43;08:00"/>
+
 <meta itemprop="name" content="jouyouyun&#39;s blog">
-<meta itemprop="description" content="jouyouyun&#39;s blog"><meta name="twitter:card" content="summary"/>
+<meta itemprop="description" content="jouyouyun&#39;s blog">
+
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="jouyouyun&#39;s blog"/>
 <meta name="twitter:description" content="jouyouyun&#39;s blog"/>
 
@@ -108,93 +111,6 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/go-gob-rw-file/">Go 笔记: Gob Write/Read File</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2014-07-07 </span>
-      <div class="post-category">
-          <a href="/categories/note/"> NOTE </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p><code>Gob</code> 使用实例，将结构体写入文件里，在需要的时候再从文件中读取出来。</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/go-gob-rw-file/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/chroot-shell/">chroot 脚本</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2014-07-05 </span>
-      <div class="post-category">
-          <a href="/categories/note/"> NOTE </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>最近测试了以下 <code>chroot</code> ，然后把步骤写成了下面两个脚本，方便以后使用。</p>
-<p><strong>使用时需要确定每条命令都执行成功了</strong></p>
-<p><code>Arch</code> 分区结构</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">/dev/sda5	/
-/dev/sda1	/boot
-/dev/sda6	/home
-/dev/sda8	Swap
-</code></pre></td></tr></table>
-</div>
-</div>
-    </div>
-    <div class="read-more">
-      <a href="/post/chroot-shell/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/build-vpn/">在 VPS 中搭建 VPN 服务器</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2014-07-04 </span>
-      <div class="post-category">
-          <a href="/categories/blog/"> BLOG </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>最近 <code>Google</code> 被封，而用 <code>Goagent</code> 做代理进行访问的效果而不是很理想，所以就想去买 <code>VPN/VPS</code> . 几经考虑后，就去买了个便宜 <code>VPS</code> , 这样也就可以分享给家人用了。</p>
-<p><code>VPS</code> 中安装的是 <code>Ubuntu=，所以搭建 =VPN</code> 服务器也就是在 <code>Ubuntu</code> 上面搭建，具体方法如下。</p>
-<p>注意：下面所有的操作都是以 <code>root</code> 用户进行的，非 <code>root</code> 用户请在命令前加上 <code>sudo</code></p>
-<p><strong>安装 <code>pptp</code></strong></p>
-<p><code>apt-get install pptpd</code></p>
-<p>配置 <code>IP</code> 地址范围及服务器 <code>IP</code></p>
-<p><code>vi /etc/pptpd.conf</code></p>
-<p>取消下面内容的注释</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/build-vpn/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/go-md5-sum/">Go 笔记: md5 sum</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2014-06-22 </span>
@@ -230,7 +146,7 @@
       <p>使用 GoLang 判断文件是否存在。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -261,13 +177,55 @@
         <span class="nx">_</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Stat</span><span class="p">(</span><span class="nx">filename</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="nx">err</span> <span class="o">==</span> <span class="kc">nil</span> <span class="o">||</span> <span class="nx">os</span><span class="p">.</span><span class="nf">IsExist</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<span class="p">}</span></code></pre></td></tr></table>
 </div>
 </div>
     </div>
     <div class="read-more">
       <a href="/post/go-file-exist/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/go-uri-encode/">Go 笔记: URI Encode/Decode</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2014-06-20 </span>
+      <div class="post-category">
+          <a href="/categories/note/"> NOTE </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p>最近在处理路径时，要求统一用 <code>URI</code> (通用资源标识符) 的格式来表示。偶尔会遇到 URI 被编码的情况，这就需要解码了，故在此把 <code>Encode/Decode URI</code> 的方法记录在此，以备后用。</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/go-uri-encode/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/xrecord-example/">XRecord 示例</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2014-04-18 </span>
+      <div class="post-category">
+          <a href="/categories/note/"> NOTE </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p>最近在做快捷键绑定的项目，但在绑定单按键时发现 <code>XGrabKey</code> 无法处理。遂请教组长，得知 <code>XRecord</code> 可以处理，于是就去查找 <code>XRecord</code> 的相关资料，但却很少。
+所以在此记录一下整理的示例代码，以便日后查看，其功能在代码注释中写出。</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/xrecord-example/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>
@@ -279,10 +237,7 @@
         <i class="iconfont icon-left"></i>
         <span class="prev-text">上一页</span>
       </a>
-    <a class="next" href="/page/10/">
-        <span class="next-text">下一页</span>
-        <i class="iconfont icon-right"></i>
-      </a>
+    
   </nav>
         </div>
         
@@ -313,10 +268,13 @@
   <span class="copyright-year">
     &copy; 
     2014 - 
-    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>jouyouyun</span>
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">jouyouyun</span>
   </span>
 </div>
-
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -327,10 +285,7 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-
-
-
-<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+<script type="text/javascript" src="/dist/even.ece58db6.min.js"></script>
 
 
 
